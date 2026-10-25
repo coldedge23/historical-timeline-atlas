@@ -292,6 +292,55 @@ export const FACTION_CONFIGS = {
         stroke: '#71717a',
       },
     }
+  },
+  songLiao: {
+    order: ['song', 'liao', 'jin', 'xia', 'mongol', 'cultural', 'other'],
+    labels: {
+      song: '趙宋王朝',
+      liao: '大遼契丹',
+      jin: '大金女真',
+      xia: '西夏黨項',
+      mongol: '蒙古大元',
+      cultural: '文人詞宗',
+      other: '列國/周邊/其他',
+    },
+    styles: {
+      song: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      liao: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      jin: {
+        card: 'border-amber-600/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-200 border-amber-500/50',
+        stroke: '#d97706',
+      },
+      xia: {
+        card: 'border-purple-600/50 hover:border-purple-400',
+        badge: 'bg-purple-950/70 text-purple-200 border-purple-500/50',
+        stroke: '#a855f7',
+      },
+      mongol: {
+        card: 'border-rose-600/50 hover:border-rose-400',
+        badge: 'bg-rose-950/70 text-rose-200 border-rose-500/50',
+        stroke: '#e11d48',
+      },
+      cultural: {
+        card: 'border-emerald-600/50 hover:border-emerald-400',
+        badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
+        stroke: '#10b981',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
   }
 };
 

@@ -30,6 +30,9 @@ export const FiguresView = ({
     if (figures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')) {
       return 'suiTang';
     }
+    if (figures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')) {
+      return 'songLiao';
+    }
     if (figures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')) {
       return 'warringStates';
     }

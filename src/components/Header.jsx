@@ -59,7 +59,8 @@ export const Header = ({
                         opt.id === 'qinHan' ? '🏛️ ' :
                         opt.id === 'threeKingdoms' ? '⚔️ ' :
                         opt.id === 'weiJin' ? '👑 ' :
-                        opt.id === 'suiTang' ? '🐎 ' : '📜 ';
+                        opt.id === 'suiTang' ? '🐎 ' :
+                        opt.id === 'songLiao' ? '🏮 ' : '📜 ';
                       return (
                         <option key={opt.id} value={opt.id}>
                           {icon}{opt.name}（{opt.range}）

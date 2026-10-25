@@ -26,6 +26,8 @@ export const FigureModal = ({
       ? 'weiJin'
       : allFigures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')
       ? 'suiTang'
+      : allFigures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')
+      ? 'songLiao'
       : allFigures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')
       ? 'warringStates'
       : allFigures.some((f) => f.faction === 'shu' || f.faction === 'wu')

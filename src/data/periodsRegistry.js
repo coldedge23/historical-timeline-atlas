@@ -6,6 +6,7 @@ import * as WarringStates from './periods/warringStates/index.js';
 import * as XiaShangZhou from './periods/xiaShangZhou/index.js';
 import * as WeiJin from './periods/weiJin/index.js';
 import * as SuiTang from './periods/suiTang/index.js';
+import * as SongLiao from './periods/songLiao/index.js';
 
 export const HISTORICAL_PERIODS = {
   xiaShangZhou: {
@@ -97,6 +98,21 @@ export const HISTORICAL_PERIODS = {
     territories: SuiTang.SUI_TANG_TERRITORIES,
     warlordPeriods: SuiTang.SUI_TANG_WARLORD_PERIODS,
     demographics: SuiTang.SUI_TANG_DEMOGRAPHICS,
+  },
+  songLiao: {
+    id: 'songLiao',
+    name: '宋遼金夏',
+    dateRangeDisplay: '960 - 1279 CE',
+    shortEra: '西元 960 — 1279 年',
+    fullTitle: '宋遼金夏與兩宋風華（960 - 1279 CE）',
+    badge: '兩宋風華·多元競逐',
+    description: '陳橋兵變立宋、杯酒釋兵權、高梁河之戰、澶淵之盟百年修好、元昊稱帝西夏立國、慶曆新政與熙寧變法、金太祖立國滅遼破宋、靖康之難高宗南渡、岳家軍郾城大捷、采石磯之戰、成吉思汗崛起、宋蒙滅金至崖山海戰三百年波瀾壯闊',
+    events: SongLiao.SONG_LIAO_EVENTS,
+    figures: SongLiao.SONG_LIAO_FIGURES,
+    battles: SongLiao.SONG_LIAO_BATTLES,
+    territories: SongLiao.SONG_LIAO_TERRITORIES,
+    warlordPeriods: SongLiao.SONG_LIAO_WARLORD_PERIODS,
+    demographics: SongLiao.SONG_LIAO_DEMOGRAPHICS,
   }
 };
 
@@ -107,4 +123,5 @@ export const PERIOD_OPTIONS = [
   { id: 'threeKingdoms', name: '三國鼎立', range: '184 - 280 CE', count: '37事件·28戰役·500人物' },
   { id: 'weiJin', name: '魏晉南北朝', range: '220 - 589 CE', count: '20事件·10戰役·39人物' },
   { id: 'suiTang', name: '隋唐五代', range: '581 - 960 CE', count: '25事件·30戰役·95人物' },
+  { id: 'songLiao', name: '宋遼金夏', range: '960 - 1279 CE', count: '26事件·14戰役·44人物' },
 ];

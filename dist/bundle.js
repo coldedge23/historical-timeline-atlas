@@ -14856,7 +14856,7 @@
                       onChange: (e) => onSelectPeriodId(e.target.value),
                       className: "text-xs px-2.5 py-1 rounded-lg bg-[#1f1a14] border border-amber-500/50 text-amber-300 font-bold focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer shadow-sm",
                       children: periodOptions.map((opt) => {
-                        const icon = opt.id === "xiaShangZhou" ? "🏺 " : opt.id === "warringStates" ? "🏹 " : opt.id === "qinHan" ? "🏛️ " : opt.id === "threeKingdoms" ? "⚔️ " : opt.id === "weiJin" ? "👑 " : opt.id === "suiTang" ? "🐎 " : "📜 ";
+                        const icon = opt.id === "xiaShangZhou" ? "🏺 " : opt.id === "warringStates" ? "🏹 " : opt.id === "qinHan" ? "🏛️ " : opt.id === "threeKingdoms" ? "⚔️ " : opt.id === "weiJin" ? "👑 " : opt.id === "suiTang" ? "🐎 " : opt.id === "songLiao" ? "🏮 " : "📜 ";
                         return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("option", { value: opt.id, children: [
                           icon,
                           opt.name,
@@ -16522,6 +16522,55 @@
           stroke: "#71717a"
         }
       }
+    },
+    songLiao: {
+      order: ["song", "liao", "jin", "xia", "mongol", "cultural", "other"],
+      labels: {
+        song: "趙宋王朝",
+        liao: "大遼契丹",
+        jin: "大金女真",
+        xia: "西夏黨項",
+        mongol: "蒙古大元",
+        cultural: "文人詞宗",
+        other: "列國/周邊/其他"
+      },
+      styles: {
+        song: {
+          card: "border-red-600/50 hover:border-red-400",
+          badge: "bg-red-950/70 text-red-200 border-red-500/50",
+          stroke: "#ef4444"
+        },
+        liao: {
+          card: "border-sky-600/50 hover:border-sky-400",
+          badge: "bg-sky-950/70 text-sky-200 border-sky-500/50",
+          stroke: "#0284c7"
+        },
+        jin: {
+          card: "border-amber-600/50 hover:border-amber-400",
+          badge: "bg-amber-950/70 text-amber-200 border-amber-500/50",
+          stroke: "#d97706"
+        },
+        xia: {
+          card: "border-purple-600/50 hover:border-purple-400",
+          badge: "bg-purple-950/70 text-purple-200 border-purple-500/50",
+          stroke: "#a855f7"
+        },
+        mongol: {
+          card: "border-rose-600/50 hover:border-rose-400",
+          badge: "bg-rose-950/70 text-rose-200 border-rose-500/50",
+          stroke: "#e11d48"
+        },
+        cultural: {
+          card: "border-emerald-600/50 hover:border-emerald-400",
+          badge: "bg-emerald-950/70 text-emerald-200 border-emerald-500/50",
+          stroke: "#10b981"
+        },
+        other: {
+          card: "border-zinc-600/50 hover:border-zinc-400",
+          badge: "bg-zinc-900/80 text-zinc-300 border-zinc-600/50",
+          stroke: "#71717a"
+        }
+      }
     }
   };
   function getFactionMeta(factionId, periodId = "threeKingdoms") {
@@ -16886,7 +16935,7 @@
   }) => {
     const [showStarGraph, setShowStarGraph] = (0, import_react5.useState)(true);
     if (!figure) return null;
-    const effectivePeriodId = activePeriodId || (allFigures.some((f) => f.faction === "xia" || f.faction === "shang") ? "xiaShangZhou" : allFigures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen") ? "weiJin" : allFigures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou") ? "suiTang" : allFigures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi") ? "warringStates" : allFigures.some((f) => f.faction === "shu" || f.faction === "wu") ? "threeKingdoms" : "qinHan");
+    const effectivePeriodId = activePeriodId || (allFigures.some((f) => f.faction === "xia" || f.faction === "shang") ? "xiaShangZhou" : allFigures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen") ? "weiJin" : allFigures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou") ? "suiTang" : allFigures.some((f) => f.faction === "liao" || f.faction === "jin" || f.faction === "song") ? "songLiao" : allFigures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi") ? "warringStates" : allFigures.some((f) => f.faction === "shu" || f.faction === "wu") ? "threeKingdoms" : "qinHan");
     const getFactionBadge = (faction) => {
       const meta = getFactionMeta(faction, effectivePeriodId);
       return {
@@ -17761,6 +17810,9 @@
       }
       if (figures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou")) {
         return "suiTang";
+      }
+      if (figures.some((f) => f.faction === "liao" || f.faction === "jin" || f.faction === "song")) {
+        return "songLiao";
       }
       if (figures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi")) {
         return "warringStates";
@@ -74095,6 +74147,6170 @@
     ]
   };
 
+  // src/data/periods/songLiao/demographics.js
+  var SONG_LIAO_DEMOGRAPHICS = {
+    year: "西元 960 — 1279 年",
+    eraName: "兩宋遼金夏蒙多民族爭鳴時期",
+    estimatedTotalPopulation: "北宋極盛逾 1.1 億人，金朝達 5,350 萬人，南宋達 6,500 萬人",
+    commentary: "宋代為華夏歷史上人口突破一億大關之空前繁盛期。水稻早熟品種占城稻推廣、梯田開墾、南方市鎮商業繁華與海上絲路鼎盛，促成江南經濟重心徹底確立。同時代北方大遼、女真金朝與西夏黨項各建法制，多民族並峙深度融會，文化科技與海外貿易達到古代文明最高峰。",
+    dataPoints: [
+      {
+        regimeName: "北宋 (大觀四年·官方戶籍極盛)",
+        name: "北宋 (大觀四年·官方戶籍極盛)",
+        population: "約 110,000,000 人（主客口數計）",
+        households: "20,882,258 戶",
+        armyCount: "禁軍與廂軍合計約 1,200,000 人",
+        officialsCount: "文武內外官員約 40,000 員",
+        source: "《宋史·地理志》《文獻通考·戶口考》"
+      },
+      {
+        regimeName: "大金帝國 (泰和七年·戶口巔峰)",
+        name: "大金帝國 (泰和七年·戶口巔峰)",
+        population: "53,532,151 人",
+        households: "8,413,164 戶",
+        armyCount: "猛安謀克軍與漢軍約 700,000 人",
+        officialsCount: "內外百官約 32,000 員",
+        source: "《金史·地理志》《三朝北盟會編》"
+      },
+      {
+        regimeName: "南宋 (淳熙十三年·東南半壁)",
+        name: "南宋 (淳熙十三年·東南半壁)",
+        population: "約 65,000,000 人",
+        households: "12,986,520 戶",
+        armyCount: "御前諸軍與各司大軍約 400,000 人",
+        officialsCount: "朝廷文武官員約 25,000 員",
+        source: "《宋史·食貨志》《建炎以來朝野雜記》"
+      },
+      {
+        regimeName: "大遼國 (清寧九年·五京版圖)",
+        name: "大遼國 (清寧九年·五京版圖)",
+        population: "約 9,000,000 人（契丹、漢人、渤海人）",
+        households: "約 1,600,000 戶",
+        armyCount: "宮衛騎兵與部族軍約 350,000 騎",
+        officialsCount: "南面官與北面官系統約 12,000 員",
+        source: "《遼史·兵衛志》《遼史·百官志》"
+      },
+      {
+        regimeName: "大夏國 (西夏·天盛年間)",
+        name: "大夏國 (西夏·天盛年間)",
+        population: "約 3,000,000 人",
+        households: "約 600,000 戶",
+        armyCount: "鐵鷂子、步跋子、強弩軍約 300,000 人",
+        officialsCount: "番漢中書省六部約 4,500 員",
+        source: "《西夏書事》《天盛改舊新定律令》"
+      }
+    ],
+    ethnicGroups: [
+      {
+        name: "契丹族（大遼國）",
+        distributionRegion: "上京臨潢府、中京大定府、燕雲十六州、遼河流域",
+        relationshipWithRegime: "建立大遼國，實行「因俗而治」之北面官治契丹、南面官治漢人之二元政治體制；與北宋締結澶淵之盟，維持長達百餘年之和平朝貢與互市繁榮。"
+      },
+      {
+        name: "女真族（生女真與熟女真）",
+        distributionRegion: "長白山白山黑水、按出虎水、會寧府（阿城）、中原燕京與開封",
+        relationshipWithRegime: "完顏阿骨打起兵反遼建立金朝，以猛安謀克制度動員全國軍民，滅遼破北宋入主中原；後推行深度漢化與科舉制度，尊孔重儒，開創大定之治。"
+      },
+      {
+        name: "黨項羌族（西夏國）",
+        distributionRegion: "靈州、夏州、興慶府（銀川）、河西走廊瓜沙二州",
+        relationshipWithRegime: "李元昊脫離宋藩稱帝建立大夏國，創制西夏文，創立鐵鷂子重裝鐵騎；扼守絲綢之路要道，宋夏慶曆年間三戰大勝，迫宋每年賜予歲幣茶彩。"
+      },
+      {
+        name: "漢族（兩宋與北方遺民）",
+        distributionRegion: "黃河流域、江淮、兩浙、兩湖、巴蜀、福建、廣東與澎湖臺灣",
+        relationshipWithRegime: "兩宋主體民族。市鎮民庶、士大夫與海外商賈階層崛起，文人政治與科舉制度登峰造極，理學思想傳承千年，南渡江南使臨安、泉州成為世界第一大商港。"
+      },
+      {
+        name: "大理白蠻與烏蠻（大理國）",
+        distributionRegion: "雲南蒼山洱海、大理府、滇東南及緬甸邊陲",
+        relationshipWithRegime: "段思平建立大理國，尊崇佛教，政治安和，與兩宋保持優良朝貢與茶馬互市關係，數百年未生大戰，保全西南邊陲寧靜。"
+      },
+      {
+        name: "蒙古族（草原諸部與大蒙古國）",
+        distributionRegion: "斡難河、克魯倫河、呼倫貝爾草原、和林",
+        relationshipWithRegime: "成吉思汗鐵木真於 1206 年統一蒙古各部，創立千戶制與怯薛軍，引發橫跨歐亞之軍事西征與南下滅金、降夏、滅宋之歷史巨浪。"
+      }
+    ]
+  };
+
+  // src/data/periods/songLiao/territories.js
+  var SONG_LIAO_TERRITORIES = {
+    northSongPeak: {
+      year: "1111 CE (北宋政和年間極盛版圖)",
+      name: "北宋與遼夏並峙疆域",
+      description: "北宋領有中原、江淮、東南、巴蜀與嶺南，東瀕大海，北以白溝河與大遼燕雲十六州為界，西北以橫山、六盤山與西夏對峙，西南與大理國、吐蕃諸部接壤。",
+      polygons: [
+        {
+          regime: "song",
+          name: "北宋王朝 (東京開封府)",
+          color: "#dc2626",
+          strokeColor: "#b91c1c",
+          path: "M 400,280 Q 430,270 480,265 Q 520,265 540,270 Q 550,290 560,320 Q 570,360 560,420 Q 530,470 490,490 Q 430,470 380,440 Q 360,390 370,340 Q 380,300 400,280 Z"
+        },
+        {
+          regime: "liao",
+          name: "大遼國 (上京臨潢府與燕雲十六州)",
+          color: "#0284c7",
+          strokeColor: "#0369a1",
+          path: "M 430,160 Q 520,150 580,180 Q 610,210 590,250 Q 540,265 480,265 Q 430,250 420,210 Q 425,180 430,160 Z"
+        },
+        {
+          regime: "xia",
+          name: "大夏國 (西夏·興慶府)",
+          color: "#7c3aed",
+          strokeColor: "#6d28d9",
+          path: "M 320,220 Q 380,210 410,240 Q 400,280 360,290 Q 330,270 320,220 Z"
+        },
+        {
+          regime: "dali",
+          name: "大理國 (雲南羊苴咩城)",
+          color: "#10b981",
+          strokeColor: "#059669",
+          path: "M 330,440 Q 370,440 375,480 Q 350,510 320,490 Q 315,460 330,440 Z"
+        },
+        {
+          regime: "penghu",
+          name: "澎湖與夷州（臺灣·東番）",
+          color: "#f59e0b",
+          strokeColor: "#d97706",
+          path: "M 596,462 Q 604,475 602,492 Q 595,495 591,480 Q 590,468 596,462 Z"
+        }
+      ]
+    },
+    southSongPeak: {
+      year: "1142 CE (紹興和議劃淮為界)",
+      name: "南宋與金朝對峙疆域",
+      description: "紹興和議後，南宋與大金帝國劃淮水、大散關為界。金朝領有黃河流域中原大部、遼東與塞北，南宋保全秦嶺淮河以南之東南半壁、巴蜀江漢，西夏偏安西北，蒙古各部在漠北崛起。",
+      polygons: [
+        {
+          regime: "southSong",
+          name: "南宋王朝 (行在臨安府)",
+          color: "#b91c1c",
+          strokeColor: "#991b1b",
+          path: "M 400,340 Q 460,335 520,340 Q 550,345 565,370 Q 570,420 560,450 Q 530,480 480,490 Q 420,470 380,430 Q 380,380 400,340 Z"
+        },
+        {
+          regime: "jin",
+          name: "大金帝國 (中都大興府與開封)",
+          color: "#ca8a04",
+          strokeColor: "#a16207",
+          path: "M 410,160 Q 530,150 600,180 Q 620,230 570,300 Q 520,338 460,335 Q 410,330 400,280 Q 410,210 410,160 Z"
+        },
+        {
+          regime: "xia",
+          name: "大夏國 (西夏·興慶府)",
+          color: "#7c3aed",
+          strokeColor: "#6d28d9",
+          path: "M 320,220 Q 380,210 410,240 Q 400,290 350,300 Q 320,270 320,220 Z"
+        },
+        {
+          regime: "mongol",
+          name: "大蒙古國 (斡難河斡兒朵)",
+          color: "#2563eb",
+          strokeColor: "#1d4ed8",
+          path: "M 380,110 Q 480,100 550,120 Q 530,160 440,160 Q 370,150 380,110 Z"
+        }
+      ]
+    }
+  };
+
+  // src/data/periods/songLiao/figures.js
+  var SONG_LIAO_FIGURES = [
+    {
+      "id": "zhao_kuangyin",
+      "name": "趙匡胤 (宋太祖)",
+      "courtesyName": "元朗",
+      "titles": [
+        "宋太祖",
+        "大宋開國皇帝",
+        "英武聖文神德皇帝"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "大宋開國皇帝"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        927,
+        976
+      ],
+      "birthDeathDisplay": "西元 927 — 976 年",
+      "avatar": "images/figures/fig_zhao_kuangyin.svg",
+      "origin": "洛陽夾馬營（祖籍涿郡）",
+      "bio": "大宋王朝開國皇帝。後周時任殿前都點檢，後周顯德七年（960年）陳橋兵變，諸軍黃袍加身擁立為帝，建立宋朝，定都東京開封。採納趙普「先南後北、先易後難」策略，平定荊南、武平、後蜀、南漢、南唐，基本終結五代十國分裂割據；行「杯酒釋兵權」，收天下精兵歸禁軍，崇文抑武，奠定兩宋三百年文治輝煌基石。",
+      "historicalEvaluation": "《宋史》評曰：「太祖神武雄略，以智定天下；杯酒釋兵權，化干戈為玉帛，真仁君也。」",
+      "achievements": [
+        "陳橋兵變建立大宋",
+        "杯酒釋兵權革除藩鎮之禍",
+        "平定南方諸國奠定一統版圖"
+      ],
+      "quotes": [
+        "臥榻之側，豈容他人鼾睡！",
+        "天下自唐季以來數十年，帝王凡易八姓，戰鬥不息，生民塗地，吾欲息天下之兵，為國家建長久計。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_guangyi",
+          "label": "胞弟·太宗（燭影斧聲）",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "zhao_pu",
+          "label": "開國謀主宰相",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "zhao_guangyi",
+      "name": "趙光義 (宋太宗)",
+      "courtesyName": "廷宜",
+      "titles": [
+        "宋太宗",
+        "晉王",
+        "滅北漢統一天下"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "結束五代十國君主"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        939,
+        997
+      ],
+      "birthDeathDisplay": "西元 939 — 997 年",
+      "avatar": "images/figures/fig_zhao_guangyi.svg",
+      "origin": "洛陽夾馬營",
+      "bio": "宋太祖趙匡胤胞弟，大宋第二任皇帝。太平興國四年親征滅北漢，正式終結五代十國分裂局面。旋乘勝北伐幽薊，高梁河之戰遭遼軍名將耶律休哥夾擊大敗，太宗乘驢車南遁；雍熙三年再次發動「雍熙北伐」三路攻遼，再遭慘敗，名將楊業力戰殉國。從此轉攻為守，大力推行崇文抑武，擴大科舉取士，大興儒學。",
+      "historicalEvaluation": "《宋史》：「帝性喜讀書，開館延才；平定北漢，天下混一，功業盛矣。」",
+      "achievements": [
+        "親征滅北漢終結五代分裂",
+        "擴大科舉取士確立士大夫政治",
+        "組織編纂《太平御覽》《文苑英華》"
+      ],
+      "quotes": [
+        "開卷有益，朕不以為勞也。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_kuangyin",
+          "label": "兄長太祖",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "zhao_heng",
+          "label": "皇子（宋真宗）",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "yang_ye",
+          "label": "北伐忠烈將領",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "yelv_xiuge",
+          "label": "高梁河強勁宿敵",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "zhao_heng",
+      "name": "趙恆 (宋真宗)",
+      "courtesyName": "元侃",
+      "titles": [
+        "宋真宗",
+        "澶淵之盟締結者"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "澶淵之盟君王"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        968,
+        1022
+      ],
+      "birthDeathDisplay": "西元 968 — 1022 年",
+      "avatar": "images/figures/fig_zhao_heng.svg",
+      "origin": "東京開封府",
+      "bio": "大宋第三任皇帝。景德元年（1004年），遼聖宗與蕭太后率二十萬鐵騎南侵直抵澶州（今河南濮陽），朝野震恐，陳堯叟主張遷都成都，王欽若主遷金陵。宰相寇準力排眾議，促真宗親征進駐澶州北城。宋軍士氣大振，床子弩射殺遼軍統帥蕭撻凜。真宗與遼締結「澶淵之盟」，宋遼結為兄弟之邦，維持了北方長達一百二十年和平。作《勸學詩》「書中自有黃金屋，書中自有顏如玉」廣為流傳。",
+      "historicalEvaluation": "《宋史》：「真宗踐祚，澶淵弭兵，天下無事，海內繁庶。」",
+      "achievements": [
+        "親征澶州堅守國門",
+        "締結澶淵之盟換取百年和平",
+        "作《勸學詩》推動全民讀書風氣"
+      ],
+      "quotes": [
+        "富家不用買良田，書中自有千鍾粟。安居不用架高樓，書中自有黃金屋。"
+      ],
+      "relations": [
+        {
+          "figureId": "kou_zhun",
+          "label": "力勸親征之名相",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "xiao_chuo",
+          "label": "澶淵結盟蕭太后",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "zhao_zhen",
+          "label": "皇子（宋仁宗）",
+          "relationType": "kinship"
+        }
+      ]
+    },
+    {
+      "id": "zhao_zhen",
+      "name": "趙禎 (宋仁宗)",
+      "courtesyName": "德基",
+      "titles": [
+        "宋仁宗",
+        "仁祖",
+        "仁宗盛治開創者"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "仁愛盛治帝王"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1010,
+        1063
+      ],
+      "birthDeathDisplay": "西元 1010 — 1063 年",
+      "avatar": "images/figures/fig_zhao_zhen.svg",
+      "origin": "東京開封府",
+      "bio": "宋真宗第六子，大宋第四任皇帝，在位四十二年，為宋代在位最久之天子。性格恭儉仁愛，慎用刑罰，虛懷納諫。在位期間名臣輩出，文星璀璨：范仲淹、歐陽修、富弼、韓琦、包拯、狄仁傑之後狄青、三蘇、司馬光、王安石皆匯聚朝堂；支持范仲淹推行「慶曆新政」；北宋經濟文化達於極盛，四大發明中的活字印刷、指南針皆成熟於此時。駕崩之日，京師罷市巷哭，甚至遼道宗耶律洪基亦泣曰：「四十二年不識兵革矣！」為之建衣冠冢。",
+      "historicalEvaluation": "《宋史》評曰：「仁宗在位四十二年，恭儉仁恕，天下昇平，堪稱千古仁君之極則。」",
+      "achievements": [
+        "開創仁宗盛治四十二年",
+        "包容百官寬厚納諫",
+        "慶曆新政支持名臣整肅朝綱"
+      ],
+      "quotes": [
+        "朕豈可因一己口腹之欲，而開深夜濫費之端！"
+      ],
+      "relations": [
+        {
+          "figureId": "fan_zhongyan",
+          "label": "慶曆新政託付名相",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "bao_zheng",
+          "label": "信任重用鐵面清官",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "ouyang_xiu",
+          "label": "文壇伯樂重臣",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "di_qing",
+          "label": "破格拔擢樞密使名將",
+          "relationType": "subordinate"
+        }
+      ]
+    },
+    {
+      "id": "zhao_xu",
+      "name": "趙頊 (宋神宗)",
+      "courtesyName": "頊",
+      "titles": [
+        "宋神宗",
+        "熙寧變法君王"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "求治變法英主"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1048,
+        1085
+      ],
+      "birthDeathDisplay": "西元 1048 — 1085 年",
+      "avatar": "images/figures/fig_zhao_xu.svg",
+      "origin": "東京開封府",
+      "bio": "大宋第六任皇帝。即位時面對宋朝「積貧積弱」之冗官、冗兵、冗費三冗危機，銳意圖強，不甘苟安。熙寧二年（1069年）力排朝野舊臣重阻，拜王安石為參知政事兼宰相，全面實施「熙寧變法」（青苗法、市易法、免役法、保甲法）；軍事上命王韶收復河湟熙河六州，拓地二千里，使西夏震恐。後五路伐夏因永樂城之戰慘敗，神宗徹夜慟哭，抑鬱成疾崩逝。",
+      "historicalEvaluation": "《宋史》：「神宗厲精圖治，將大有為；變法開邊，志不可謂不廣。」",
+      "achievements": [
+        "鼎力支持王安石熙寧變法",
+        "熙河開邊拓地二千里",
+        "革除冗弊增闢朝廷國庫財政"
+      ],
+      "quotes": [
+        "天下弊事至多，安可因循不改！"
+      ],
+      "relations": [
+        {
+          "figureId": "wang_an_shi",
+          "label": "熙寧變法君臣莫逆",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "sima_guang",
+          "label": "敬重其德行之反對派領袖",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "wang_shao",
+          "label": "主持熙河開邊名將",
+          "relationType": "subordinate"
+        }
+      ]
+    },
+    {
+      "id": "zhao_ji",
+      "name": "趙佶 (宋徽宗)",
+      "courtesyName": "佶",
+      "titles": [
+        "宋徽宗",
+        "端王",
+        "瘦金體開創宗師"
+      ],
+      "roles": [
+        "君主",
+        "藝術大師",
+        "靖康亡國之君"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1082,
+        1135
+      ],
+      "birthDeathDisplay": "西元 1082 — 1135 年",
+      "avatar": "images/figures/fig_zhao_ji.svg",
+      "origin": "東京開封府",
+      "bio": "宋神宗第十一子，大宋第八任皇帝。藝術天賦極高，工工筆花鳥，自創風骨傲霜之「瘦金體」，親自主持翰林圖畫院，催生張擇端《清明上河圖》與王希孟《千里江山圖》，為古代藝術造詣最高之帝王。然而政治極其荒唐昏庸，寵信蔡京、童貫「六賊」，大興花石綱修建艮嶽，窮奢極欲民怨沸騰。對外結金滅遼策動海上之盟，引狼入室。靖康二年金軍攻陷汴京，徽欽二帝被俘五國城受辱，客死異域。",
+      "historicalEvaluation": "《宋史》評曰：「徽宗諸事皆能，獨不能為君耳！身辱國破，可不痛哉。」",
+      "achievements": [
+        "開創絕世書法「瘦金體」",
+        "主持畫院催生《清明上河圖》《千里江山圖》",
+        "建立天下首屈一指之翰林藝術體制"
+      ],
+      "quotes": [
+        "徹夜西風撼破扉，蕭條孤館一燈微。家山回首三千里，目斷山南無雁飛。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_gou",
+          "label": "第九子（宋高宗）",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "wanyan_aguda",
+          "label": "海上之盟引狼入室之金太祖",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "li_gang",
+          "label": "起用抗金後又罷黜之忠臣",
+          "relationType": "subordinate"
+        }
+      ]
+    },
+    {
+      "id": "zhao_pu",
+      "name": "趙普 (則平)",
+      "courtesyName": "則平",
+      "titles": [
+        "宰相",
+        "韓王",
+        "大宋開國第一謀臣"
+      ],
+      "roles": [
+        "謀臣",
+        "宰相",
+        "開國元勛"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        922,
+        992
+      ],
+      "birthDeathDisplay": "西元 922 — 992 年",
+      "avatar": "images/figures/fig_zhao_pu.svg",
+      "origin": "幽州薊縣（今北京西南）",
+      "bio": "北宋開國宰相與首席謀士。輔佐宋太祖策劃陳橋兵變；針對五代武人專橫亂政之禍根，向太祖提出「稍奪其權，制其錢穀，收其精兵」之千古名策，主導「杯酒釋兵權」，確立北宋中央集權文官體制。相太祖、太宗兩朝，果斷敢言，常閉門讀《論語》，自謂「半部論語治天下」。",
+      "historicalEvaluation": "《宋史》評曰：「趙普佐太祖定天下，運籌帷幄，制治保邦，真名相也。」",
+      "achievements": [
+        "策劃陳橋兵變立宋",
+        "提出削奪方鎮兵權國策",
+        "「半部論語治天下」千古名相"
+      ],
+      "quotes": [
+        "臣有《論語》一部，以半部佐太祖定天下，以半部佐陛下致太平。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_kuangyin",
+          "label": "君臣莫逆定天下",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "zhao_guangyi",
+          "label": "輔佐太宗傳奇金匱之盟",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "kou_zhun",
+      "name": "寇準 (平仲)",
+      "courtesyName": "平仲",
+      "titles": [
+        "宰相",
+        "萊國公",
+        "澶淵砥柱"
+      ],
+      "roles": [
+        "宰相",
+        "孤忠重臣",
+        "力主親征名相"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        961,
+        1023
+      ],
+      "birthDeathDisplay": "西元 961 — 1023 年",
+      "avatar": "images/figures/fig_kou_zhun.jpg",
+      "origin": "華州下邽（今陝西渭南）",
+      "bio": "北宋前期一代賢相。進士出身，性剛正果決，不避權貴。景德元年遼軍二十萬深入中原進逼澶州，舉朝驚慌欲南逃，寇準力斥群臣：「誰為陛下畫此策者，罪可斬也！」力勸宋真宗親征，親自坐鎮澶州北城督戰，談笑弈棋以安人心。射殺遼統帥蕭撻凜後促成澶淵之盟，保全社稷。晚年遭奸相王欽若、丁謂讒害，貶死雷州，天下士民深痛之。",
+      "historicalEvaluation": "《宋史》評曰：「寇準臨危制變，挽狂瀾於既倒，功在社稷。」",
+      "achievements": [
+        "力排眾議促真宗親征澶州",
+        "締結澶淵之盟大定天下",
+        "剛正不阿百折不撓"
+      ],
+      "quotes": [
+        "陛下不過澶州，敵氣益盛，若出親征，敵必驚散！"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_heng",
+          "label": "力勸親征之天子",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "xiao_chuo",
+          "label": "戰場對峙締約蕭太后",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "fan_zhongyan",
+      "name": "范仲淹 (希文)",
+      "courtesyName": "希文",
+      "titles": [
+        "參知政事",
+        "文正公",
+        "慶曆新政主持者"
+      ],
+      "roles": [
+        "名臣",
+        "文學家",
+        "儒將",
+        "慶曆變法名相"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        989,
+        1052
+      ],
+      "birthDeathDisplay": "西元 989 — 1052 年",
+      "avatar": "images/figures/fig_fan_zhongyan.jpg",
+      "origin": "蘇州吳縣（今江蘇蘇州）",
+      "bio": "北宋傑出政治家、文學家、軍事家。少孤貧苦讀，「斷齏塊粥」堅忍立志。康定年間西夏李元昊反叛，范仲淹受命經略陝西，修築青澗城、大順城，改革軍制，西夏人相戒曰：「軍中有一范，西賊聞之驚破膽！」慶曆三年任參知政事，主持「慶曆新政」，澄清吏治、擇長官、均公田。作《岳陽樓記》名句「先天下之憂而憂，後天下之樂而樂」，立宋代理想士大夫最高精神坐標。",
+      "historicalEvaluation": "王安石讚曰：「一世之師，由初迄終，名節無疵！」朱熹譽為「天地間第一流人物」。",
+      "achievements": [
+        "作《岳陽樓記》樹立士人風骨",
+        "經略西北修築城堡禦西夏",
+        "發動慶曆新政開創改革風氣"
+      ],
+      "quotes": [
+        "先天下之憂而憂，後天下之樂而樂！",
+        "塞下秋來風景異，衡陽雁去無留意。濁酒一杯家萬里，燕然未勒歸無計。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_zhen",
+          "label": "仁宗天子重用之相",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "han_qi",
+          "label": "韓范齊名經略西北",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "ouyang_xiu",
+          "label": "慶曆新政生死同盟",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "di_qing",
+          "label": "授以《左氏春秋》提拔為名將",
+          "relationType": "mentor"
+        }
+      ]
+    },
+    {
+      "id": "han_qi",
+      "name": "韓琦 (稚圭)",
+      "courtesyName": "稚圭",
+      "titles": [
+        "宰相",
+        "魏國公",
+        "忠獻公",
+        "三朝元老"
+      ],
+      "roles": [
+        "宰相",
+        "重臣",
+        "三朝砥柱"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1008,
+        1075
+      ],
+      "birthDeathDisplay": "西元 1008 — 1075 年",
+      "avatar": "images/figures/fig_han_qi.svg",
+      "origin": "相州安陽（今河南安陽）",
+      "bio": "北宋仁宗、英宗、神宗三朝元老重臣，與范仲淹齊名，天下稱「韓范」。早年與范仲淹共同經略陝西抵禦西夏；好水川之戰宋軍失利，韓琦痛定思痛撫恤死難，安輯邊疆。仁宗晚年定策立英宗，英宗時安定宗室，定策立神宗，出處進退端重如山。神宗初年直言諫阻王安石青苗法之弊，天下重其德望。",
+      "historicalEvaluation": "《宋史》評曰：「韓琦相三朝，立二帝，臨大事，決大議，色不變，真定策大臣也。」",
+      "achievements": [
+        "經略西北抵禦西夏",
+        "定策立英宗神宗兩代天子",
+        "三朝砥柱德望蓋天下"
+      ],
+      "quotes": [
+        "事有大利大害，當計其全局，安可操切為之！"
+      ],
+      "relations": [
+        {
+          "figureId": "fan_zhongyan",
+          "label": "韓范經略西北摯交",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "fu_bi",
+          "label": "富韓齊名名相",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "zhao_zhen",
+          "label": "仁宗朝推心倚重",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "fu_bi",
+      "name": "富弼 (彥國)",
+      "courtesyName": "彥國",
+      "titles": [
+        "宰相",
+        "文忠公",
+        "鄭國公"
+      ],
+      "roles": [
+        "宰相",
+        "外交家",
+        "慶曆名臣"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1004,
+        1083
+      ],
+      "birthDeathDisplay": "西元 1004 — 1083 年",
+      "avatar": "images/figures/fig_fu_bi.svg",
+      "origin": "河南洛陽",
+      "bio": "北宋慶曆名相、傑出外交家。慶曆二年契丹聚兵十萬於邊境趁火打劫，要求宋朝割地。富弼受命單騎出使大遼，面對遼興宗咄咄逼人之勢，富弼據理力爭，陳說「契丹與大宋和則兩利，戰則兩傷，獲宋歲幣利歸君主，若興兵動眾獲利者乃下臣」之利害，遼主為之動容罷割地之議，以增歲幣二十萬兩定約，兵不血刃消弭大戰危機。",
+      "historicalEvaluation": "《宋史》：「富弼通敏有智略，善辭令，出使敵國，社稷安危所繫。」",
+      "achievements": [
+        "單騎出使遼國化解割地之危",
+        "推行青州賑濟災民救活五十萬人",
+        "慶曆新政骨幹大臣"
+      ],
+      "quotes": [
+        "北朝與宋和則兩利，戰則兩傷，陛下熟思之！"
+      ],
+      "relations": [
+        {
+          "figureId": "fan_zhongyan",
+          "label": "慶曆同列執政",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "han_qi",
+          "label": "富韓齊名名相",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "bao_zheng",
+      "name": "包拯 (希仁)",
+      "courtesyName": "希仁",
+      "titles": [
+        "樞密副使",
+        "龍圖閣直學士",
+        "開封府尹",
+        "包青天"
+      ],
+      "roles": [
+        "名臣",
+        "清官典範",
+        "執法如山"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        999,
+        1062
+      ],
+      "birthDeathDisplay": "西元 999 — 1062 年",
+      "avatar": "images/figures/fig_bao_zheng.svg",
+      "origin": "廬州合肥（今安徽合肥）",
+      "bio": "華夏歷史上最著名之清官典範「包青天」。任開封府尹時，革除舊制打開正門，使民間疾苦直達堂前；執法嚴明，鐵面無私，不避權貴，彈劾外戚張堯佐、打擊贓官污吏，京師號曰：「關節不到，有閻羅包老。」晚年立家訓：「後代子孫仕宦，有犯贓濫者，不得放歸本家；亡歿之後，不得葬於大墓。」後世戲曲演繹鍘美案、狸貓換太子等故事流芳萬世。",
+      "historicalEvaluation": "《宋史》評曰：「包拯性剛嚴，惡吏苛刻，務敦厚；不苟笑，以廉潔著稱於世。」",
+      "achievements": [
+        "開封府尹執法如山肅清吏治",
+        "彈劾不法皇親國戚毫無畏懼",
+        "千古清官象徵流芳百世"
+      ],
+      "quotes": [
+        "清心為治本，直道是身謀。秀幹終成棟，精鋼不作鉤。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_zhen",
+          "label": "仁宗皇帝庇護與深信",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "fan_zhongyan",
+          "label": "同朝敬重之清名士大夫",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "wang_an_shi",
+      "name": "王安石 (介甫)",
+      "courtesyName": "介甫",
+      "titles": [
+        "宰相",
+        "荊國公",
+        "半山老人",
+        "熙寧變法領袖"
+      ],
+      "roles": [
+        "改革家",
+        "宰相",
+        "思想家",
+        "唐宋八大家"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1021,
+        1086
+      ],
+      "birthDeathDisplay": "西元 1021 — 1086 年",
+      "avatar": "images/figures/fig_wang_an_shi.svg",
+      "origin": "撫州臨川（今江西撫州）",
+      "bio": "北宋最著名政治改革家、思想家、文學家，「唐宋八大家」之一。神宗熙寧年間任宰相，立「天變不足畏，祖宗不足法，人言不足恤」三不足精神，全面推行「熙寧變法」：推行青苗法借貸貧民、募役法以錢代役、方田均稅法打擊兼併、市易法平抑物價，使大宋國庫大為充盈。然因執行官吏操切貪功及舊黨劇烈反撲，兩度罷相退隱金陵半山。其詩文雄健峻峭，《泊船瓜洲》（「春風又綠江南岸，明月何時照我還」）膾炙人口。",
+      "historicalEvaluation": "列寧讚為「中國十一世紀的改革家」；《宋史》：「安石學博文富，志在強國富民，勇於敢為。」",
+      "achievements": [
+        "發動規模宏大之熙寧變法",
+        "增闢國庫歲入扭轉積貧局勢",
+        "列名唐宋八大家詩文巨匠"
+      ],
+      "quotes": [
+        "天變不足畏，祖宗不足法，人言不足恤！",
+        "不畏浮雲遮望眼，自緣身在最高層。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_xu",
+          "label": "神宗皇帝力挺變法",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "sima_guang",
+          "label": "政見水火情誼猶存之宿敵",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "su_shi",
+          "label": "晚年金陵一笑泯恩仇之文友",
+          "relationType": "ally"
+        }
+      ]
+    },
+    {
+      "id": "sima_guang",
+      "name": "司馬光 (君實)",
+      "courtesyName": "君實",
+      "titles": [
+        "宰相",
+        "溫國公",
+        "《資治通鑑》主編者"
+      ],
+      "roles": [
+        "史學家",
+        "宰相",
+        "保守派領袖"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1019,
+        1086
+      ],
+      "birthDeathDisplay": "西元 1019 — 1086 年",
+      "avatar": "images/figures/fig_sima_guang.svg",
+      "origin": "陝州夏縣（今山西夏縣）",
+      "bio": "北宋傑出史學家、政治家，歷仕仁宗、英宗、神宗、哲宗四朝。幼年「司馬光砸缸」救同伴智勇過人。反對王安石激進變法，認為祖宗成法不可輕動，退居洛陽十五年，閉門修史，歷時十九年主持編纂編成華夏第一部編年體編年史巨著《資治通鑑》（涵蓋十六朝1362年歷史），宋神宗賜序「鑑於往事，有資於治道」。哲宗即位拜相，盡廢王安石新法，史稱「元祐更化」。",
+      "historicalEvaluation": "朱熹評曰：「公忠亮天出，議論醇正，一代完人，史學冠古今。」",
+      "achievements": [
+        "主持編纂294卷編年史巨著《資治通鑑》",
+        "堅守道義德高望重",
+        "主持元祐更化安撫百姓"
+      ],
+      "quotes": [
+        "鑑於往事，有資於治道。",
+        "由儉入奢易，由奢入儉難。"
+      ],
+      "relations": [
+        {
+          "figureId": "wang_an_shi",
+          "label": "君子之爭政見死敵",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "zhao_zhen",
+          "label": "仁宗盛治直言敢諫名臣",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "su_shi",
+          "label": "元祐同黨提攜文豪",
+          "relationType": "ally"
+        }
+      ]
+    },
+    {
+      "id": "di_qing",
+      "name": "狄青 (漢臣)",
+      "courtesyName": "漢臣",
+      "titles": [
+        "樞密使",
+        "面涅將軍",
+        "武襄公"
+      ],
+      "roles": [
+        "名將",
+        "大宋第一戰神",
+        "西夏剋星"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1008,
+        1057
+      ],
+      "birthDeathDisplay": "西元 1008 — 1057 年",
+      "avatar": "images/figures/fig_di_qing.svg",
+      "origin": "汾州西河（今山西汾陽）",
+      "bio": "北宋傳奇名將，行伍出身，面刺金字。每臨大敵披頭散髮、戴青銅面具，手持長槍單騎馳入敵陣，西夏兵望之披靡稱為「面涅將軍」。范仲淹授以《左氏春秋》勉曰：「將不知古今，匹夫之勇耳！」狄青折節讀書，通曉兵法，平生二十五戰全勝。皇祐年間廣西儂智高叛亂席捲嶺南，狄青夜渡崑崙關，大破儂智高於歸仁鋪，平定廣西。官至樞密使（最高軍事長官），為文官集團猜忌，憂懼發病卒。",
+      "historicalEvaluation": "《宋史》評曰：「狄青奮行伍，拔英奇，平西夏，平儂智高，威震四裔，宋之良將！」",
+      "achievements": [
+        "面具突陣大破西夏二十五戰全勝",
+        "上元夜奪崑崙關平定儂智高",
+        "行伍出身官拜樞密使傳奇"
+      ],
+      "quotes": [
+        "陛下不以臣出身卑賤而用之，臣願以死報國家！"
+      ],
+      "relations": [
+        {
+          "figureId": "fan_zhongyan",
+          "label": "兵法授業恩師",
+          "relationType": "mentor"
+        },
+        {
+          "figureId": "zhao_zhen",
+          "label": "力排眾議破格拔擢之仁君",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "shen_kuo",
+      "name": "沈括 (存中)",
+      "courtesyName": "存中",
+      "titles": [
+        "翰林學士",
+        "司天監",
+        "夢溪丈人"
+      ],
+      "roles": [
+        "科學家",
+        "博學宗師",
+        "兵略家"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1031,
+        1095
+      ],
+      "birthDeathDisplay": "西元 1031 — 1095 年",
+      "avatar": "images/figures/fig_shen_kuo.svg",
+      "origin": "杭州錢塘（今浙江杭州）",
+      "bio": "北宋全才科學家、政治家、軍事家。參與王安石變法，任司天監改革曆法；出使遼國據理力爭白溝河邊界，折服遼主。晚年隱居潤州（今江蘇鎮江）夢溪園，撰寫劃時代科學巨著《夢溪筆談》，詳盡記載畢昇活字印刷術、指南針地磁偏角（世界最早記錄）、石油命名與開採、地質學流水侵蝕理論等，被英國學者李約瑟譽為「中國科學史上的坐標」。",
+      "historicalEvaluation": "李約瑟讚曰：「沈括是中國整部科學史上最卓越的人物之一，《夢溪筆談》為中國科學史坐標。」",
+      "achievements": [
+        "撰寫世界科學名著《夢溪筆談》",
+        "首創「石油」之名並預言其大行天下",
+        "記載畢昇活字印刷與指南針磁偏角"
+      ],
+      "quotes": [
+        "石油至多，生於地中無窮，此物後必大行於世！"
+      ],
+      "relations": [
+        {
+          "figureId": "wang_an_shi",
+          "label": "新黨變法同僚",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "zhao_xu",
+          "label": "神宗朝委以重任",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "yang_ye",
+      "name": "楊業 (繼業)",
+      "courtesyName": "繼業",
+      "titles": [
+        "右領軍衛大將軍",
+        "代州刺史",
+        "楊無敵"
+      ],
+      "roles": [
+        "名將",
+        "楊家將始祖",
+        "滿門忠烈"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        932,
+        986
+      ],
+      "birthDeathDisplay": "西元 932 — 986 年",
+      "avatar": "images/figures/fig_yang_ye.svg",
+      "origin": "并州太原（今山西太原）",
+      "bio": "北宋抗遼名將，「楊家將」之始祖。原為北漢大將，勇冠三軍號「無敵」。歸宋後守代州雁門關，太平興國五年，遼軍十萬侵雁門，楊業以數百奇騎自代州北出雁門山，繞至遼軍背後突襲，斬遼大將蕭咄李，威名震遼。雍熙三年太宗北伐，監軍王侁進逼楊業出戰，業明知必死泣曰：「業非避死，今時不利必致覆敗！」於陳家谷力戰自日昳至暮，部下殆盡，重傷被俘，絕食三日壯烈殉國。",
+      "historicalEvaluation": "《宋史》評曰：「業以勇略冠諸軍，身經百戰，力竭殉國，大節昭然！」",
+      "achievements": [
+        "雁門關出奇兵大破十萬遼軍",
+        "陳家谷力戰殉國氣貫長虹",
+        "開創傳誦千載之楊家將忠烈滿門"
+      ],
+      "quotes": [
+        "業受主厚恩，誓以許國。今至此，願以一死報陛下！"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_guangyi",
+          "label": "太宗皇帝命其北伐",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "yelv_xiezhen",
+          "label": "陳家谷合圍伏擊敵帥",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "li_gang",
+      "name": "李綱 (伯紀)",
+      "courtesyName": "伯紀",
+      "titles": [
+        "尚書右僕射",
+        "汴京留守",
+        "抗金第一忠臣"
+      ],
+      "roles": [
+        "名臣",
+        "抗金主帥",
+        "民族英雄"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1083,
+        1140
+      ],
+      "birthDeathDisplay": "西元 1083 — 1140 年",
+      "avatar": "images/figures/fig_li_gang.svg",
+      "origin": "邵武（今福建邵武）",
+      "bio": "北宋末靖康抗金核心主戰領袖。宣和七年金軍大舉南下圍攻汴京，朝廷驚慌欲南逃，李綱冒死泣諫欽宗留守，親自登城指揮東京保衛戰，造霹靂砲、強弩擊退金帥完顏宗望數十次強攻，力保汴京不失。後遭投降派陷害罷職，致使汴京陷落爆發靖康之恥。南宋初高宗即位召為宰相，李綱力主抗金整頓軍馬，在相僅七十五日復遭黃潛善、汪伯彥排擠，天下士民仰天痛哭。",
+      "historicalEvaluation": "《宋史》評曰：「李綱孤忠挺出，力抗大虜，危城獨全；惜天不用，國祚遂傾。」",
+      "achievements": [
+        "主持第一次東京保衛戰擊退金軍",
+        "建立軍政規劃整飭南宋防線"
+      ],
+      "quotes": [
+        "今日之事，義當與社稷同死生，不可退一步！"
+      ],
+      "relations": [
+        {
+          "figureId": "zong_ze",
+          "label": "抗金同仇志友",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "zhao_gou",
+          "label": "拜相七十五日之主",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "zong_ze",
+      "name": "宗澤 (汝霖)",
+      "courtesyName": "汝霖",
+      "titles": [
+        "東京留守",
+        "同知樞密院事",
+        "宗爺爺"
+      ],
+      "roles": [
+        "名將",
+        "抗金老帥",
+        "渡河英雄"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1059,
+        1128
+      ],
+      "birthDeathDisplay": "西元 1059 — 1128 年",
+      "avatar": "images/figures/fig_zong_ze.svg",
+      "origin": "婺州義烏（今浙江義烏）",
+      "bio": "北宋末南宋初抗金老元帥，岳飛之伯樂。金兵圍汴京，宗澤孤軍抗戰連勝金兵，靖康後受命為東京留守，聯絡河北太行忠義民兵百萬，威名震動金國，金人畏稱「宗爺爺」。力拔岳飛於微賤，授以陣法勉以精忠。一心光復中原迎回二帝，前後二十四次上疏高宗請還都開封，皆為秦檜、黃潛善等主和派所阻。憂憤成疾，臨終大呼三聲「過河！過河！過河！」氣絕殉國。",
+      "historicalEvaluation": "《宋史》：「澤剛毅有大略，連和義旅，心懸兩宮，三呼過河，烈士同悲！」",
+      "achievements": [
+        "留守開封聯結百萬太行山義軍",
+        "慧眼識英雄拔擢岳飛",
+        "臨終三呼過河氣吞山河"
+      ],
+      "quotes": [
+        "過河！過河！過河！"
+      ],
+      "relations": [
+        {
+          "figureId": "yue_fei",
+          "label": "授業拔擢第一伯樂恩帥",
+          "relationType": "mentor"
+        },
+        {
+          "figureId": "li_gang",
+          "label": "同心抗金國士",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "zhao_gou",
+          "label": "二十四上奏求還都之天子",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "zhao_gou",
+      "name": "趙構 (宋高宗)",
+      "courtesyName": "德基",
+      "titles": [
+        "宋高宗",
+        "康王",
+        "南宋開國皇帝"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "南宋偏安開國皇帝"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1107,
+        1187
+      ],
+      "birthDeathDisplay": "西元 1107 — 1187 年",
+      "avatar": "images/figures/fig_zhao_gou.svg",
+      "origin": "東京開封府",
+      "bio": "宋徽宗第九子，南宋開國皇帝。靖康之變徽欽二帝被俘，趙構於南京應天府即位重建趙宋。金兵搜山檢海追襲，高宗航海避難於溫州舟山。後任用岳飛、韓世忠、張浚等收復荊楚中原。紹興十年岳家軍大捷之際，因恐二帝歸還皇位難保及武人勢大，十二道金牌班師回朝，夥同秦檜殺害岳飛，與金締結紹興和議劃淮為界，奠定南宋百餘年偏安東南半壁江山。",
+      "historicalEvaluation": "《宋史》：「高宗遭離亂，奠定東南；任賢克難，中道猜忌，殺戮良將，千秋公論自定。」",
+      "achievements": [
+        "建炎南渡重建宋朝社稷",
+        "立臨安為都保全江南文華",
+        "促成紹興和議兩朝休兵"
+      ],
+      "quotes": [
+        "自古帝王苟無天下之福，雖勇若項羽亦歸於敗，朕唯務安民足矣。"
+      ],
+      "relations": [
+        {
+          "figureId": "yue_fei",
+          "label": "十二道金牌屈殺之忠帥",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "qin_hui",
+          "label": "主和相公密謀殺岳飛",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "han_shizhong",
+          "label": "黃天蕩禦敵重臣",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "zhao_shen",
+          "label": "禪位賢義養子（宋孝宗）",
+          "relationType": "kinship"
+        }
+      ]
+    },
+    {
+      "id": "yue_fei",
+      "name": "岳飛 (鵬舉)",
+      "courtesyName": "鵬舉",
+      "titles": [
+        "太尉",
+        "鄂王",
+        "武穆公",
+        "抗金第一民族英雄"
+      ],
+      "roles": [
+        "名將",
+        "民族英雄",
+        "岳家軍統帥"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1103,
+        1142
+      ],
+      "birthDeathDisplay": "西元 1103 — 1142 年",
+      "avatar": "images/figures/fig_yue_fei.svg",
+      "origin": "相州湯陰（今河南湯陰）",
+      "bio": "華夏歷史上最崇高之民族英雄、軍事家。少懷大志，母刺「精忠報國」於背。靖康之變起兵抗金，宗澤識其才。組建紀律嚴明之「岳家軍」（「凍死不拆屋，餓死不擄掠」），金軍號曰「撼山易，撼岳家軍難」。紹興十年大舉北伐，郾城、潁昌大捷破金兀朮拐子馬與重裝鐵浮屠，進抵朱仙鎮，中原收復在即。宋高宗與秦檜一日下十二道金牌逼令班師，以「莫須有」罪名誣殺於杭州風波亭，年僅三十九歲。詞作《滿江紅·怒髮衝冠》萬古傳唱。",
+      "historicalEvaluation": "《宋史》評曰：「西漢而下，若飛者，求之古人，少其倫比；忠烈浩氣，長存天地！」",
+      "achievements": [
+        "組建戰無不勝之岳家軍",
+        "郾城潁昌大捷大破金兀朮鐵浮屠",
+        "千古悲壯《滿江紅》愛國詞宗"
+      ],
+      "quotes": [
+        "靖康恥，猶未雪；臣子恨，何時滅！駕長車，踏破賀蘭山缺。壯志飢餐胡虜肉，笑談渴飲匈奴血。待從頭、收拾舊山河，朝天闕！",
+        "文臣不愛錢，武臣不惜死，天下太平矣！"
+      ],
+      "relations": [
+        {
+          "figureId": "zong_ze",
+          "label": "恩師宗爺爺",
+          "relationType": "mentor"
+        },
+        {
+          "figureId": "yue_yun",
+          "label": "長子·背嵬軍統帥（同殉難）",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "zhang_xian",
+          "label": "副帥大將（同殉風波亭）",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "wanyan_zongbi",
+          "label": "一生血戰交鋒之金兀朮",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "qin_hui",
+          "label": "風波亭陷害千古仇敵",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "zhao_gou",
+          "label": "金牌連催扼殺北伐之帝",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "yue_yun",
+      "name": "岳雲 (應祥)",
+      "courtesyName": "應祥",
+      "titles": [
+        "忠銳軍統領",
+        "繼忠侯",
+        "背嵬軍先鋒"
+      ],
+      "roles": [
+        "少將軍",
+        "鐵錘雙絕",
+        "殉國勇將"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1119,
+        1142
+      ],
+      "birthDeathDisplay": "西元 1119 — 1142 年",
+      "avatar": "images/figures/fig_yue_yun.svg",
+      "origin": "相州湯陰",
+      "bio": "岳飛長子，十二歲隨父從軍。手持一對重八十斤雙鐵錐，臨陣每先登破敵，軍中號「贏官人」。穎昌之戰中，率八千背嵬騎突入數萬金兀朮精銳中，血戰數十合身受百餘創，金人潰散。紹興十一年隨父岳飛入獄，大義凜然，同被秦檜斬於風波亭，年僅二十三歲。",
+      "historicalEvaluation": "《宋史》：「雲勇冠三軍，每戰必先登；孝勇兼備，惜乎早殞！」",
+      "achievements": [
+        "手持雙錘勇冠背嵬軍",
+        "穎昌大捷血戰破金軍拐子馬",
+        "二十三歲壯烈從父就義"
+      ],
+      "quotes": [
+        "父親何言？雲死亦從容報國！"
+      ],
+      "relations": [
+        {
+          "figureId": "yue_fei",
+          "label": "父親·誓死追隨",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "zhang_xian",
+          "label": "同袍叔輩同遇害",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "han_shizhong",
+      "name": "韓世忠 (良臣)",
+      "courtesyName": "良臣",
+      "titles": [
+        "太保",
+        "樞密使",
+        "蘄王",
+        "中興四將"
+      ],
+      "roles": [
+        "名將",
+        "南宋中興四將",
+        "黃天蕩統帥"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1089,
+        1151
+      ],
+      "birthDeathDisplay": "西元 1089 — 1151 年",
+      "avatar": "images/figures/fig_han_shizhong.svg",
+      "origin": "延安（今陝西綏德）",
+      "bio": "南宋中興四將之一。身材魁梧勇力絕倫。苗劉兵變中首引大軍勤王護駕。建炎四年金兀朮十萬大軍深入江浙大肆掠奪北撤，韓世忠與夫人梁紅玉引八千水師截斷長江退路，梁紅玉金山親自擊鼓，困金兀朮於黃天蕩四十八天，以少勝多重創金軍主力。岳飛下獄時，舉朝默不敢言，韓世忠一人直奔相府怒責秦檜：「莫須有三字，何以服天下！」罷官閉門謝客，騎驢西湖終老。",
+      "historicalEvaluation": "《宋史》評曰：「世忠忠勇，知岳飛之冤，抗言廷諍，義形於色，天下稱其長者。」",
+      "achievements": [
+        "平定苗劉兵變克復大統",
+        "黃天蕩八千水師困十萬金兵",
+        "直斥秦檜莫須有三字何以服天下"
+      ],
+      "quotes": [
+        "莫須有三字，何以服天下！"
+      ],
+      "relations": [
+        {
+          "figureId": "liang_hongyu",
+          "label": "夫妻·金山擊鼓同袍",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "yue_fei",
+          "label": "同心抗金抗言為其申冤",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "qin_hui",
+          "label": "斥責投降陷害名相",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "liang_hongyu",
+      "name": "梁紅玉",
+      "courtesyName": "紅玉",
+      "titles": [
+        "安國夫人",
+        "楊國夫人",
+        "巾幗名將"
+      ],
+      "roles": [
+        "女將",
+        "擊鼓退金兵",
+        "巾幗英雄"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1102,
+        1135
+      ],
+      "birthDeathDisplay": "西元 1102 — 1135 年",
+      "avatar": "images/figures/fig_liang_hongyu.svg",
+      "origin": "楚州（今江蘇淮安）",
+      "bio": "南宋抗金傳奇女英雄，韓世忠之妻。精通騎射與戰術。建炎四年黃天蕩之戰，金兀朮十萬精兵突圍長江，梁紅玉身先士卒立於江心海船之巔，親自擂響金山戰鼓，鼓聲如雷震天動地，宋軍水師士氣大奮，以海船巨拍擊沉無數金軍小舟，大破十萬金軍。後鎮守楚州十餘年，與韓世忠披荊斬棘，深受三軍與百姓敬仰。",
+      "historicalEvaluation": "《建炎以來朝野雜記》讚曰：「梁夫人英烈過人，桴鼓助陣，古今巾幗罕見。」",
+      "achievements": [
+        "金山親自擂鼓大破金兀朮",
+        "披堅執銳鎮守楚州長江門戶"
+      ],
+      "quotes": [
+        "敵眾雖盛，我長江天險樓船在此，鼓聲不息，死戰不退！"
+      ],
+      "relations": [
+        {
+          "figureId": "han_shizhong",
+          "label": "夫妻同心擊鼓抗金",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "wanyan_zongbi",
+          "label": "長江黃天蕩圍困敵帥",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "yu_yunwen",
+      "name": "虞允文 (彬甫)",
+      "courtesyName": "彬甫",
+      "titles": [
+        "右丞相",
+        "雍國公",
+        "采石之戰統帥"
+      ],
+      "roles": [
+        "名臣",
+        "書生統帥",
+        "采石大捷民族英雄"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1110,
+        1174
+      ],
+      "birthDeathDisplay": "西元 1110 — 1174 年",
+      "avatar": "images/figures/fig_yu_yunwen.svg",
+      "origin": "隆州仁壽（今四川仁壽）",
+      "bio": "南宋抗金傳奇儒將。紹興三十一年，金海陵王完顏亮發動六十萬水陸大軍南侵，狂言「提兵百萬西湖上，立馬吳山第一峰」，宋主帥李顯忠畏怯逃避，江防危在旦夕。文弱書生虞允文受命督師采石磯，見宋軍萬八千人散亂無主，毅然挺身誓師激勵三軍：「國家養汝輩，正為今日，豈可望風退避！」親駕海船突入金江中艦隊，投擲霹靂砲火焚敵舟，六十萬金兵大敗潰散。完顏亮敗退瓜洲遭部下兵變弒殺，南宋社稷轉危為安。毛澤東批注「偉哉虞公，千古一人」。",
+      "historicalEvaluation": "《宋史》評曰：「允文慷慨抗言，采石一役，力挽傾頹，微公社稷其殆矣。」",
+      "achievements": [
+        "書生督師采石磯大捷",
+        "以一萬八破完顏亮六十萬南侵",
+        "力挽南宋半壁江山狂瀾"
+      ],
+      "quotes": [
+        "國家養汝輩數十年，正為今日，大丈夫豈可退死田舍！"
+      ],
+      "relations": [
+        {
+          "figureId": "wanyan_liang",
+          "label": "采石江面痛擊粉碎侵宋野心",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "zhao_shen",
+          "label": "孝宗朝拜相倚重北伐",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "meng_gong",
+      "name": "孟珙 (璞玉)",
+      "courtesyName": "璞玉",
+      "titles": [
+        "樞密副使",
+        "吉國公",
+        "機動防禦大師"
+      ],
+      "roles": [
+        "軍事家",
+        "名將",
+        "大宋擎天柱石"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1195,
+        1246
+      ],
+      "birthDeathDisplay": "西元 1195 — 1246 年",
+      "avatar": "images/figures/fig_meng_gong.svg",
+      "origin": "隨州棗陽（祖籍絳州）",
+      "bio": "南宋抗金抗蒙第一軍神，被西方軍事史家譽為「十三世紀最偉大的機動防禦大師」。端平元年統率宋軍聯蒙滅金，攻破蔡州，金哀宗自縊，分得金哀宗遺骸歸祭臨安太廟，雪百年靖康之恥。隨後擔綱長江防禦統帥，兼領荊湘、川蜀兩大戰區，創立「一體化山城防禦體系」（重慶合川釣魚城即其規劃），以一人之力抗擊不可一世之蒙古鐵騎十年，未嘗一敗。逝世後蒙古始得深入長江。",
+      "historicalEvaluation": "《宋史》評曰：「孟珙忠勇威毅，百戰百勝，蔽遮江淮，大宋擎天之柱！」",
+      "achievements": [
+        "聯蒙滅金攻破蔡州雪靖康恥",
+        "建立釣魚城山城大防禦體系",
+        "獨力抵禦蒙古鐵騎十年保全東南"
+      ],
+      "quotes": [
+        "山城險要，順流阻逆，虜騎雖勁，何能插翅過江！"
+      ],
+      "relations": [
+        {
+          "figureId": "temujin",
+          "label": "抗衡蒙古鐵騎帝國",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "wen_tianxiang",
+      "name": "文天祥 (履善)",
+      "courtesyName": "履善 / 宋瑞",
+      "titles": [
+        "右丞相",
+        "信國公",
+        "狀元及第",
+        "狀元宰相"
+      ],
+      "roles": [
+        "丞相",
+        "狀元",
+        "抗元烈士",
+        "民族英雄"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1236,
+        1283
+      ],
+      "birthDeathDisplay": "西元 1236 — 1283 年",
+      "avatar": "images/figures/fig_wen_tianxiang.svg",
+      "origin": "吉州廬陵（今江西吉安）",
+      "bio": "南宋末期狀元丞相，中華民族最高氣節之化身。德祐元年元軍逼臨安，文天祥散盡家資召募萬人勤王。臨安淪陷後受命赴元營談判遭拘，智脫抵福州、溫州，繼續擁立幼帝苦戰贛粵。祥興元年於海豐五坡嶺兵敗被俘，元將張弘範逼其寫信招降崖山陸秀夫，天祥書《過零丁洋》示之：「人生自古誰無死，留取丹心照汗青！」押解大都（北京）幽囚土牢四年，威逼利誘不屈，作《正氣歌》浩然千古。至元十九年從容就義於柴市，年四十七歲。",
+      "historicalEvaluation": "《宋史》讚曰：「文天祥體質剛清，名垂竹帛；丹心正氣，千秋萬世仰其風烈！」",
+      "achievements": [
+        "散盡家資募兵救國",
+        "寫下《過零丁洋》《正氣歌》千古絕唱",
+        "臨難不屈忠烈照亮青史"
+      ],
+      "quotes": [
+        "人生自古誰無死？留取丹心照汗青！",
+        "天地有正氣，雜然賦流形。下則為河嶽，上則為日星。"
+      ],
+      "relations": [
+        {
+          "figureId": "lu_xiufu",
+          "label": "崖山共赴國難之丞相",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "zhang_shijie",
+          "label": "抗元軍事統帥",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "kublai",
+          "label": "大都獄中力勸降而不屈之元世祖",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "lu_xiufu",
+      "name": "陸秀夫 (君實)",
+      "courtesyName": "君實",
+      "titles": [
+        "左丞相",
+        "平章軍國重事",
+        "崖山殉國名相"
+      ],
+      "roles": [
+        "丞相",
+        "忠烈名臣",
+        "負帝投海英雄"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1236,
+        1279
+      ],
+      "birthDeathDisplay": "西元 1236 — 1279 年",
+      "avatar": "images/figures/fig_lu_xiufu.svg",
+      "origin": "楚州鹽城（今江蘇建湖）",
+      "bio": "南宋最後一位左丞相。沉靜寡言，端嚴剛毅。臨安陷落後與文天祥、張世傑共扶幼帝南下入海。崖山之役二十萬宋朝軍民在廣東新會崖門海面與元水軍決戰，宋軍大敗。祥興二年二月初六，元軍逼近龍舟，陸秀夫先驅妻子投海，隨後端正衣冠拜少帝趙昺曰：「國事至此，陛下當為國死，德祐皇帝受辱已甚，陛下不可再受辱！」負八歲幼帝趙昺跳入萬頃波濤殉國，十萬軍民相隨投海，大宋三百年江山悲壯落幕。",
+      "historicalEvaluation": "《宋史》評曰：「君實負帝投海，不苟全性命，大節凜然，萬古悲壯！」",
+      "achievements": [
+        "崖山最後血戰主持南宋中樞",
+        "負帝蹈海殉國全大宋風骨"
+      ],
+      "quotes": [
+        "國事至此，陛下當為社稷死，不可受虜辱！"
+      ],
+      "relations": [
+        {
+          "figureId": "wen_tianxiang",
+          "label": "宋末三傑同道",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "zhang_shijie",
+          "label": "崖山水軍指揮同袍",
+          "relationType": "ally"
+        }
+      ]
+    },
+    {
+      "id": "zhang_shijie",
+      "name": "張世傑",
+      "courtesyName": "世傑",
+      "titles": [
+        "越國公",
+        "樞密使",
+        "太傅",
+        "崖山水軍主帥"
+      ],
+      "roles": [
+        "名將",
+        "水軍統帥",
+        "忠烈名臣"
+      ],
+      "faction": "song",
+      "birthDeath": [
+        1230,
+        1279
+      ],
+      "birthDeathDisplay": "西元 1230 — 1279 年",
+      "avatar": "images/figures/fig_zhang_shijie.svg",
+      "origin": "范陽（今河北定興）",
+      "bio": "「宋末三傑」之一，南宋最後的水軍總統帥。早年從軍於孟珙麾下，轉戰淮揚百戰不屈。臨安陷後率艦隊奉二王南走，在崖山集結千艘巨型戰船連環成水寨，中置行宮死守。崖山海戰遭張弘範四面火攻水戰突襲，戰線潰崩，世見幼帝已投海，引十六艘大船殺出重圍欲尋趙氏遺孤再圖中興。行至陽江海陵島遇狂風暴雨，世傑焚香仰天大呼：「我為趙氏盡力矣，若天亡趙氏，則覆我舟！」暴風碎舟，溺水殉國。",
+      "historicalEvaluation": "《宋史》：「世傑轉戰海嶠，終始全忠，無愧大將之名。」",
+      "achievements": [
+        "千艘巨艦崖山布陣死守",
+        "突圍再圖中興海陵島怒禱天命"
+      ],
+      "quotes": [
+        "我為趙氏亦已至矣，一木難支大廈，天若亡趙，使舟覆我死！"
+      ],
+      "relations": [
+        {
+          "figureId": "lu_xiufu",
+          "label": "崖山共掌軍政",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "wen_tianxiang",
+          "label": "宋末三傑並稱",
+          "relationType": "ally"
+        }
+      ]
+    },
+    {
+      "id": "qin_hui",
+      "name": "秦檜 (會之)",
+      "courtesyName": "會之",
+      "titles": [
+        "右相",
+        "申王",
+        "太師",
+        "千古佞臣"
+      ],
+      "roles": [
+        "奸臣",
+        "主和宰相",
+        "殺岳飛罪首"
+      ],
+      "faction": "other",
+      "birthDeath": [
+        1090,
+        1155
+      ],
+      "birthDeathDisplay": "西元 1090 — 1155 年",
+      "avatar": "images/figures/fig_qin_hui.svg",
+      "origin": "江寧（今江蘇南京）",
+      "bio": "南宋初權相，千古奸佞代表。靖康時隨二帝被俘金國，後離奇南返自稱殺金人監者奪舟逃歸，力主「南人歸南，北人歸北」。得高宗信任再入相位，專權十九年，排斥抗金將領，以「莫須有」謀反罪名屈殺岳飛父子，與金朝簽訂喪權辱國之《紹興和議》，稱臣納貢割讓唐鄧。後世於杭州西湖岳王廟鑄其鐵像跪於岳飛墓前，萬世唾棄。",
+      "historicalEvaluation": "《宋史》評曰：「秦檜倡和誤國，陷害忠良，檜之罪滔天，萬世不容！」",
+      "achievements": [
+        "紹興和議促成宋金南北休兵"
+      ],
+      "quotes": [
+        "縛虎容易縱虎難！",
+        "雖無明證，其事莫須有！"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_gou",
+          "label": "迎合偏安心思之帝王",
+          "relationType": "superior"
+        },
+        {
+          "figureId": "yue_fei",
+          "label": "風波亭殺害大仇",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "han_shizhong",
+          "label": "怒斥其「莫須有」之將領",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "ouyang_xiu",
+      "name": "歐陽修 (永叔)",
+      "courtesyName": "永叔",
+      "titles": [
+        "參知政事",
+        "文忠公",
+        "六一居士",
+        "北宋文壇領袖"
+      ],
+      "roles": [
+        "文豪",
+        "名臣",
+        "史學家",
+        "唐宋八大家"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1007,
+        1072
+      ],
+      "birthDeathDisplay": "西元 1007 — 1072 年",
+      "avatar": "images/figures/fig_ouyang_xiu.svg",
+      "origin": "吉州廬陵（今江西吉安）",
+      "bio": "北宋卓越政治家、文學家、史學家，北宋中葉文壇泰斗，「唐宋八大家」之一。幼貧「畫荻學書」，仁宗朝力挺范仲淹慶曆新政。任滁州刺史寫下名篇《醉翁亭記》（「醉翁之意不在酒，在乎山水之間也」）。嘉祐二年主持進士科舉，力拔蘇軾、蘇轍、曾鞏、程顥、張載，使天下文風一掃雕琢駢儷，大興古文。主修《新唐書》、撰《新五代史》，文學史學皆為一代宗師。",
+      "historicalEvaluation": "蘇軾譽曰：「論大道似韓愈，論事似陸贄，記實事似司馬遷，詩賦似李白。」",
+      "achievements": [
+        "領導北宋詩文革新運動",
+        "主持嘉祐二年科舉開創一代文運",
+        "撰《新五代史》《新唐書》《醉翁亭記》"
+      ],
+      "quotes": [
+        "醉翁之意不在酒，在乎山水之間也。山水之樂，得之心而寓之酒也。"
+      ],
+      "relations": [
+        {
+          "figureId": "fan_zhongyan",
+          "label": "慶曆新政摯友",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "su_shi",
+          "label": "嘉祐主考識得一代文豪",
+          "relationType": "mentor"
+        }
+      ]
+    },
+    {
+      "id": "su_shi",
+      "name": "蘇軾 (子瞻)",
+      "courtesyName": "子瞻",
+      "titles": [
+        "端明殿學士",
+        "禮部尚書",
+        "東坡居士",
+        "千古全才文豪"
+      ],
+      "roles": [
+        "文豪",
+        "詞人",
+        "書法家",
+        "美食家",
+        "唐宋八大家"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1037,
+        1101
+      ],
+      "birthDeathDisplay": "西元 1037 — 1101 年",
+      "avatar": "images/figures/fig_su_shi.svg",
+      "origin": "眉州眉山（今四川眉山）",
+      "bio": "中國文化史上最受人愛戴之全才文化巨匠，宋詞豪放派開山鼻祖。嘉祐二年進士，歐陽修驚嘆曰：「吾當避此人出一頭地！」詩、詞、散文、書法（宋四家之首）、繪畫無一不登峰造極。因反對新法急躁遭烏臺詩案下獄，幾罹死罪；貶黃州寫下千古絕唱《念奴嬌·赤壁懷古》（「大江東去，浪淘盡」）與前後《赤壁賦》。歷仕密州、徐州、杭州、惠州，直至海南儋州，處逆境而曠達樂觀，築蘇堤、創東坡肉，潤澤百世生靈。",
+      "historicalEvaluation": "《宋史》評曰：「軾器識宏深，風度飄然，落筆千言，如水湧山出，古今所無！」",
+      "achievements": [
+        "開拓宋詞豪放美學新天地",
+        "《赤壁賦》《水調歌頭》千古傳誦",
+        "杭州築蘇堤疏西湖惠澤萬民"
+      ],
+      "quotes": [
+        "大江東去，浪淘盡，千古風流人物。",
+        "但願人長久，千里共嬋娟。",
+        "竹杖芒鞋輕勝馬，誰怕？一蓑煙雨任平生。"
+      ],
+      "relations": [
+        {
+          "figureId": "ouyang_xiu",
+          "label": "知遇伯樂座師",
+          "relationType": "mentor"
+        },
+        {
+          "figureId": "su_che",
+          "label": "手足情深胞弟",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "wang_an_shi",
+          "label": "金陵重逢一笑泯恩仇",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "xin_qiji",
+          "label": "蘇辛豪放詞宗並稱",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "li_qingzhao",
+      "name": "李清照 (易安)",
+      "courtesyName": "易安居士",
+      "titles": [
+        "婉約詞宗",
+        "千古第一才女"
+      ],
+      "roles": [
+        "詞人",
+        "金石學家",
+        "一代詞宗"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1084,
+        1155
+      ],
+      "birthDeathDisplay": "西元 1084 — 1155 年",
+      "avatar": "images/figures/fig_li_qingzhao.svg",
+      "origin": "齊州濟南（今山東濟南）",
+      "bio": "華夏五千年歷史最著名之女詞人，宋詞「婉約派」宗師。出身書香名門，夫趙明誠為金石學名家，夫妻合著《金石錄》。前期詞作優美清新，《如夢令》（「爭渡，爭渡，驚起一灘鷗鷺」）、《一剪梅》（「才下眉頭，卻上心頭」）。靖康之變避亂南渡，趙明誠病逝，半生珍藏古董金石毀於戰火，晚年飄零浙東，詞風悲愴淒咽，《聲聲慢》（「尋尋覓覓，冷冷清清，淒淒慘慘戚戚」）登峰造極。更具俠骨，《夏日絕句》「生當作人傑，死亦為鬼雄」諷刺南宋苟安，巾幗傲骨貫古今。",
+      "historicalEvaluation": "沈曾植讚曰：「易安倜儻，氣度不下於男子，詞家一大正宗也。」",
+      "achievements": [
+        "撰《聲聲慢》《醉花陰》《如夢令》千古詞章",
+        "合撰金石學名著《金石錄》",
+        "千古第一女詞人地位"
+      ],
+      "quotes": [
+        "生當作人傑，死亦為鬼雄。至今思項羽，不肯過江東！",
+        "尋尋覓覓，冷冷清清，淒淒慘慘戚戚。"
+      ],
+      "relations": [
+        {
+          "figureId": "su_shi",
+          "label": "父親師事蘇軾（文統淵源）",
+          "relationType": "mentor"
+        },
+        {
+          "figureId": "xin_qiji",
+          "label": "濟南二安齊名詞壇",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "xin_qiji",
+      "name": "辛棄疾 (幼安)",
+      "courtesyName": "幼安",
+      "titles": [
+        "稼軒居士",
+        "樞密都承旨",
+        "詞中之龍",
+        "豪放派詞壇盟主"
+      ],
+      "roles": [
+        "詞人",
+        "將領",
+        "抗金英雄",
+        "愛國志士"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1140,
+        1207
+      ],
+      "birthDeathDisplay": "西元 1140 — 1207 年",
+      "avatar": "images/figures/fig_xin_qiji.svg",
+      "origin": "齊州歷城（今山東濟南）",
+      "bio": "南宋豪放詞派集大成者，文武全才之一代詞中之龍。生於淪陷區北方，二十二歲率兩千抗金義軍，親率五十騎夜襲金營五萬之眾，生擒叛徒張安國南渡歸宋，名動天下。一生力主收復中原，建飛虎軍，上《美芹十策》《九議》，然為南宋朝廷猜忌，半生閒居江西信州帶湖二十載。將滿腔愛國豪情與沙場壯志傾注於宋詞，詞風沉鬱頓挫、氣拔山河，與蘇軾合稱「蘇辛」。",
+      "historicalEvaluation": "劉克莊讚曰：「公所作大聲鞺鞳，小聲鏗鍧，橫絕六合，詞中之龍也！」",
+      "achievements": [
+        "五十騎飛馬突襲五萬金營擒賊",
+        "撰《美芹十策》精闢論抗金戰略",
+        "與蘇軾並列豪放詞派巔峰宗師"
+      ],
+      "quotes": [
+        "醉裏挑燈看劍，夢回吹角連營。八百里分麾下炙，五十弦翻塞外聲，沙場秋點兵。",
+        "想當年，金戈鐵馬，氣吞萬里如虎！",
+        "千古興亡多少事？悠悠。不盡長江滾滾流。"
+      ],
+      "relations": [
+        {
+          "figureId": "su_shi",
+          "label": "蘇辛豪放並稱",
+          "relationType": "colleague"
+        },
+        {
+          "figureId": "chen_liang",
+          "label": "鵝湖之會知己盟友",
+          "relationType": "ally"
+        },
+        {
+          "figureId": "lu_you",
+          "label": "同懷北伐之志文壇知己",
+          "relationType": "ally"
+        }
+      ]
+    },
+    {
+      "id": "lu_you",
+      "name": "陸游 (務觀)",
+      "courtesyName": "務觀",
+      "titles": [
+        "放翁",
+        "寶章閣待制",
+        "南宋第一高產愛國詩人"
+      ],
+      "roles": [
+        "詩人",
+        "名臣",
+        "愛國詩宗"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1125,
+        1210
+      ],
+      "birthDeathDisplay": "西元 1125 — 1210 年",
+      "avatar": "images/figures/fig_lu_you.svg",
+      "origin": "越州山陰（今浙江紹興）",
+      "bio": "南宋傑出愛國詩人，一生留傳九千三百餘首詩作，為中國古代詩歌數量之最。曾入蜀中宣撫使王炎幕府投筆從戎於南鄭（漢中），親臨抗金前線「鐵馬冰河入夢來」。堅持北伐光復中原，為秦檜及主和派所抑。與表妹唐琬之沈園《釵頭鳳》愛情悲劇千古同情。嘉定二年（1210年）八十五歲臨終之際，寫下絕筆《示兒》：「死去元知萬事空，但悲不見九州同。王師北定中原日，家祭無忘告乃翁！」氣貫古今。",
+      "historicalEvaluation": "朱熹讚曰：「放翁詩才超逸，感時念亂之意，真天下之公。」",
+      "achievements": [
+        "留存九千三百餘首詩作名垂青史",
+        "《示兒》《游山西村》千古絕唱",
+        "投身南鄭前線抗金抱負終身不渝"
+      ],
+      "quotes": [
+        "死去元知萬事空，但悲不見九州同。王師北定中原日，家祭無忘告乃翁！",
+        "山重水複疑無路，柳暗花明又一村。"
+      ],
+      "relations": [
+        {
+          "figureId": "xin_qiji",
+          "label": "抗金詞詩雙璧",
+          "relationType": "ally"
+        }
+      ]
+    },
+    {
+      "id": "zhu_xi",
+      "name": "朱熹 (元晦)",
+      "courtesyName": "元晦",
+      "titles": [
+        "考亭先生",
+        "紫陽先生",
+        "徽國公",
+        "理學集大成者"
+      ],
+      "roles": [
+        "思想家",
+        "哲學家",
+        "教育家",
+        "理學宗師"
+      ],
+      "faction": "cultural",
+      "birthDeath": [
+        1130,
+        1200
+      ],
+      "birthDeathDisplay": "西元 1130 — 1200 年",
+      "avatar": "images/figures/fig_zhu_xi.svg",
+      "origin": "徽州婺源（生於福建尤溪）",
+      "bio": "宋代理學之集大成者，孔子、孟子之後影響東亞儒家文化最深遠之大儒，世尊「朱子」。承繼周敦頤、二程學說，建立龐大嚴密之「理氣論」哲學體系，提出「存天理，滅人欲」、「格物致知」。著《四書章句集注》（《大學》《中庸》《論語》《孟子》），自元朝延祐復科舉起，定為全國科舉必考正統官方教科書，深刻塑造元、明、清三朝七百年中國社會文化與東亞文明思想結構。創辦白鹿洞書院、嶽麓書院講學。",
+      "historicalEvaluation": "清康熙帝讚曰：「集大成而緒千百年絕傳之學，開愚蒙而立億萬世一定之規。」",
+      "achievements": [
+        "撰《四書章句集注》成為七百年科舉正統",
+        "集宋代理學之大成創立閩學體系",
+        "復興白鹿洞書院樹立書院學規模範"
+      ],
+      "quotes": [
+        "問渠那得清如許？為有源頭活水來。",
+        "無事袖手談心性，臨危一死報君王。"
+      ],
+      "relations": [
+        {
+          "figureId": "zhou_dunyi",
+          "label": "理學道統宗師",
+          "relationType": "mentor"
+        }
+      ]
+    },
+    {
+      "id": "xiao_chuo",
+      "name": "蕭綽 (蕭太后)",
+      "courtesyName": "燕燕",
+      "titles": [
+        "睿智皇后",
+        "承天皇太后",
+        "大遼攝政太后"
+      ],
+      "roles": [
+        "女統帥",
+        "攝政太后",
+        "大遼全盛執政者"
+      ],
+      "faction": "liao",
+      "birthDeath": [
+        953,
+        1009
+      ],
+      "birthDeathDisplay": "西元 953 — 1009 年",
+      "avatar": "images/figures/fig_xiao_chuo.svg",
+      "origin": "遼北府契丹拔思母蕭氏",
+      "bio": "遼景宗皇后、遼聖宗生母，華夏歷史上最傑出之少數民族女性統治者與軍事統帥。景宗病弱，蕭綽二十四歲即主持遼國國政；聖宗即位年幼，蕭太后正式臨朝稱制二十七載。重用漢臣韓德讓，厲行漢化改制、整肅軍政。統和四年（986年）宋發動雍熙北伐，蕭太后親披戎裝抱幼帝督戰，重創宋軍三路大軍，於陳家谷俘殺名將楊業；統和二十二年親統二十萬大軍南下直逼澶州，與宋真宗訂立「澶淵之盟」，開創宋遼百年和平，締造大遼帝國極盛時代。",
+      "historicalEvaluation": "《遼史》評曰：「后明達治道，聞善必從；將士用命，親御戎車，拓土興邦，功冠有遼！」",
+      "achievements": [
+        "擊潰宋朝雍熙北伐三路大軍",
+        "親征南下訂立澶淵之盟開創百年和平",
+        "任用韓德讓推行遼國漢化政制繁盛"
+      ],
+      "quotes": [
+        "大遼兒郎，豈畏宋人之兵！朕親御戎車，與諸君共爭天下！"
+      ],
+      "relations": [
+        {
+          "figureId": "yelv_longxu",
+          "label": "兒子（遼聖宗）",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "zhao_heng",
+          "label": "澶淵之盟結為兄弟之真宗",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "kou_zhun",
+          "label": "澶州對壘之宋相",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "yang_ye",
+          "label": "陳家谷俘殺深敬之楊老令公",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "yelv_xiuge",
+      "name": "耶律休哥 (遜寧)",
+      "courtesyName": "遜寧",
+      "titles": [
+        "于越",
+        "大遼南院大王",
+        "宋軍第一剋星"
+      ],
+      "roles": [
+        "名將",
+        "大遼第一戰神",
+        "統帥"
+      ],
+      "faction": "liao",
+      "birthDeath": [
+        930,
+        998
+      ],
+      "birthDeathDisplay": "西元 930 — 998 年",
+      "avatar": "images/figures/fig_yelv_xiuge.svg",
+      "origin": "遼契丹惕剌部（髓氏皇族）",
+      "bio": "大遼第一名將、軍神。智勇雙全，臨陣善料敵。太平興國四年宋太宗滅北漢後移師幽州，遼軍頻退；耶律休哥率大軍於高梁河夜襲宋軍背後，每人持兩炬狂呼衝擊，宋軍驚潰，宋太宗身中兩箭乘驢車狂奔逃脫。雍熙三年宋三路北伐，休哥在歧溝關大破曹彬十萬主力，追奔至拒馬河溺死者不可勝計。宋邊境小兒夜啼，聞「于越來矣」立不敢哭，遼封為最高官階「于越」。",
+      "historicalEvaluation": "《遼史》評曰：「休哥算無遺策，高梁河之捷，力全燕薊，宋人聞其名望風皆遁。」",
+      "achievements": [
+        "高梁河之戰大破宋太宗主力",
+        "岐溝關徹底粉碎雍熙北伐",
+        "鎮守南疆十餘年宋軍不敢北窺"
+      ],
+      "quotes": [
+        "宋兵涉遠已疲，天夜掩其後，一鼓可擒也！"
+      ],
+      "relations": [
+        {
+          "figureId": "zhao_guangyi",
+          "label": "高梁河擊敗之宋太宗",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "xiao_chuo",
+          "label": "蕭太后最倚重柱石軍神",
+          "relationType": "superior"
+        }
+      ]
+    },
+    {
+      "id": "yelv_dashi",
+      "name": "耶律大石 (德宗)",
+      "courtesyName": "重德",
+      "titles": [
+        "西遼德宗",
+        "菊兒汗 (Gurkhan)",
+        "契丹中亞再造者"
+      ],
+      "roles": [
+        "開國君主",
+        "軍事家",
+        "轉戰中亞"
+      ],
+      "faction": "liao",
+      "birthDeath": [
+        1087,
+        1143
+      ],
+      "birthDeathDisplay": "西元 1087 — 1143 年",
+      "avatar": "images/figures/fig_yelv_dashi.svg",
+      "origin": "遼上京臨潢府（阿保機八世孫）",
+      "bio": "西遼（喀喇契丹）開國皇帝。大遼進士出身，文武全才。女真金國滅遼前夕，大石率二百鐵騎夜遁西北可敦城，號召蒙古草原諸部集結萬餘兵馬。隨後向西千里大遠征，越天山、征服中亞七河流域。1141年卡特萬之戰（卡特萬大草原），耶律大石以少勝多擊潰塞爾柱塞爾柱突厥帝國十萬聯軍，震撼西方基督教世界（引發「祭司王約翰」東方基督教救世主傳說），建立疆域東起阿爾泰山、西達鹹海之西遼帝國，延續契丹國祚近百年。",
+      "historicalEvaluation": "《遼史》：「大石深沈有遠略，萬里西行，肇造西域，功烈巍巍！」",
+      "achievements": [
+        "二百騎突圍開創西遼帝國",
+        "卡特萬之戰大破中東塞爾柱聯軍",
+        "推行漢文化統治中亞近百年"
+      ],
+      "quotes": [
+        "我祖宗開拓邊疆，創業維艱；今金人殘暴，大遼不可絕滅！"
+      ],
+      "relations": [
+        {
+          "figureId": "wanyan_aguda",
+          "label": "滅北遼之強勁金軍",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "wanyan_aguda",
+      "name": "完顏阿骨打 (金太祖)",
+      "courtesyName": "旻",
+      "titles": [
+        "金太祖",
+        "大金開國皇帝",
+        "應乾興運昭德定功睿神莊憲孝皇帝"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "女真大金建立者"
+      ],
+      "faction": "jin",
+      "birthDeath": [
+        1068,
+        1123
+      ],
+      "birthDeathDisplay": "西元 1068 — 1123 年",
+      "avatar": "images/figures/fig_wanyan_aguda.svg",
+      "origin": "按出虎水（今黑龍江阿城哈爾濱）",
+      "bio": "女真族偉大領袖，大金帝國開國皇帝。面對遼天祚帝之殘暴奴役，於頭堝宴拒絕為遼主跳舞。收國元年（1115年）於會寧府稱帝建國，國號大金。創立「猛安謀克制度」全民皆兵，以「女真不滿萬，滿萬不可敵」之威名，於護步達岡之戰以兩萬步騎大破遼天祚帝七十萬大軍，連克遼上京、東京、中京，基本奠定平滅大遼帝國之基業。",
+      "historicalEvaluation": "《金史》評曰：「太祖用兵如神，初起數千，破大國數十萬眾，開拓帝業，千古梟雄！」",
+      "achievements": [
+        "建立大金帝國創制猛安謀克制",
+        "護步達岡之戰以二萬破七十萬遼軍",
+        "平滅二百年大遼帝國奠基"
+      ],
+      "quotes": [
+        "遼以鑌鐵為號，取其堅也。鑌鐵雖堅，終亦變壞，唯金不變不壞，故國號大金！"
+      ],
+      "relations": [
+        {
+          "figureId": "wanyan_zongbi",
+          "label": "第四子（金兀朮）",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "zhao_ji",
+          "label": "海上之盟結盟後伐宋之徽宗",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "wanyan_zongbi",
+      "name": "完顏宗弼 (金兀朮)",
+      "courtesyName": "兀朮",
+      "titles": [
+        "都元帥",
+        "太保",
+        "領三省事",
+        "梁王"
+      ],
+      "roles": [
+        "名將",
+        "金軍統帥",
+        "南宋大剋星"
+      ],
+      "faction": "jin",
+      "birthDeath": [
+        1098,
+        1148
+      ],
+      "birthDeathDisplay": "西元 1098 — 1148 年",
+      "avatar": "images/figures/fig_wanyan_zongbi.svg",
+      "origin": "按出虎水（金太祖第四子）",
+      "bio": "金太祖第四子，女真名兀朮，金朝最著名統帥。靖康之變圍攻汴京破宋；建炎年間統十萬鐵騎「搜山檢海捉趙構」，橫掃江淮，一度攻破臨安、明州（寧波）。其麾下「鐵浮屠」（重裝具裝甲騎）與「拐子馬」（左右翼輕騎突擊）縱橫中原所向披靡。後於黃天蕩遭韓世忠水軍阻截，富平之戰擊潰張浚四十萬川陝軍；紹興十年與岳家軍在郾城、潁昌鏖戰慘敗。促成宋高宗秦檜殺害岳飛，簽訂《紹興和議》，為金朝爭取淮河以北半壁江山。",
+      "historicalEvaluation": "《金史》評曰：「宗弼奔衝辟地，有勇有謀，拓地淮南，金之名將莫過於兀朮。」",
+      "achievements": [
+        "搜山檢海千里追襲宋高宗",
+        "打造無敵鐵浮屠與拐子馬騎兵",
+        "推動紹興和議劃淮為界稱雄中原"
+      ],
+      "quotes": [
+        "必殺岳飛，然後和可成也！"
+      ],
+      "relations": [
+        {
+          "figureId": "wanyan_aguda",
+          "label": "父皇金太祖",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "yue_fei",
+          "label": "一生死敵郾城受挫",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "han_shizhong",
+          "label": "長江黃天蕩交鋒受困",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "qin_hui",
+          "label": "要求殺岳飛方許和約之宋相",
+          "relationType": "colleague"
+        }
+      ]
+    },
+    {
+      "id": "li_yuanhao",
+      "name": "李元昊 (夏景宗)",
+      "courtesyName": "嵬名曩霄",
+      "titles": [
+        "夏景宗",
+        "大夏皇帝",
+        "兀卒 (天子)"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "西夏開國皇帝"
+      ],
+      "faction": "xia",
+      "birthDeath": [
+        1003,
+        1048
+      ],
+      "birthDeathDisplay": "西元 1003 — 1048 年",
+      "avatar": "images/figures/fig_li_yuanhao.svg",
+      "origin": "夏州（今陝西靖邊東北）",
+      "bio": "黨項羌族一代雄主，西夏開國皇帝。性沉鷙勇鷙，深通漢蕃文字與兵法。命大臣野利仁榮創制西夏文；削髮留辮令國人遵行；創立重裝騎兵「鐵鷂子」、步兵「步跋子」。宋寶元元年（1038年）正式稱帝，國號大夏，脫離宋朝藩屬。在三川口之戰、好水川之戰、定川寨之戰中連續擊潰大宋重臣韓琦、任福十數萬大軍，又大破遼興宗十萬親征大軍，迫宋遼皆承認西夏地位，形成宋、遼、西夏三國鼎立長達二百年。",
+      "historicalEvaluation": "《西夏書事》：「元昊英略蓋世，起自西陲，抗衡宋遼兩大國，一代之雄桀也。」",
+      "achievements": [
+        "稱帝建立大夏國開創西夏二百年",
+        "好水川三川口三戰大破大宋精銳",
+        "開創西夏文建立獨立國家法典"
+      ],
+      "quotes": [
+        "英雄之生，當王霸天下，何能俯首臣伏於宋人！"
+      ],
+      "relations": [
+        {
+          "figureId": "fan_zhongyan",
+          "label": "西北相持敬畏之名臣",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "han_qi",
+          "label": "好水川擊潰之宋將",
+          "relationType": "rival"
+        }
+      ]
+    },
+    {
+      "id": "temujin",
+      "name": "孛兒只斤·鐵木真 (成吉思汗)",
+      "courtesyName": "鐵木真",
+      "titles": [
+        "成吉思汗",
+        "大蒙古國開國大汗",
+        "元太祖"
+      ],
+      "roles": [
+        "征服者",
+        "君主",
+        "蒙古大汗",
+        "世界帝國締造者"
+      ],
+      "faction": "mongol",
+      "birthDeath": [
+        1162,
+        1227
+      ],
+      "birthDeathDisplay": "西元 1162 — 1227 年",
+      "avatar": "images/figures/fig_temujin.svg",
+      "origin": "斡難河斡兒朵（今蒙古肯特省）",
+      "bio": "世界史上最偉大之軍事征服者與統帥，大蒙古國開國大汗。早年部落破散歷經苦難，憑藉驚人意志與戰略眼光統一蒙古草原諸部。1206年斡難河畔建立大蒙古國，受尊號「成吉思汗」。創立怯薛軍與千戶制，頒布大扎撒律令。隨後發動空前之世界征服浪潮：三度伐西夏、親征大破金軍於野狐嶺摧毀金主力、發動第一次蒙古西征滅花剌子模帝國席捲中亞伊朗，軍威直抵伏爾加河。1227年滅西夏前夕病逝於六盤山，立下假道宋境滅金之遺策。",
+      "historicalEvaluation": "《元史》評曰：「帝深沈有大略，用兵如神，乘時崛起，橫絕歐亞，古今未嘗有也。」",
+      "achievements": [
+        "統一蒙古各部建立大蒙古國",
+        "野狐嶺大潰金朝三十萬精銳",
+        "橫跨歐亞征服中亞建立空前世界帝國"
+      ],
+      "quotes": [
+        "人生最大的快慰，在於戰勝敵人，追逐他們，奪取他們的財產，聽他們的親人哭泣！"
+      ],
+      "relations": [
+        {
+          "figureId": "subutai",
+          "label": "蒙古四勇核心先鋒統帥",
+          "relationType": "subordinate"
+        },
+        {
+          "figureId": "kublai",
+          "label": "孫兒建立大元帝國之忽必烈",
+          "relationType": "kinship"
+        }
+      ]
+    },
+    {
+      "id": "kublai",
+      "name": "孛兒只斤·忽必烈 (元世祖)",
+      "courtesyName": "薛禪汗",
+      "titles": [
+        "元世祖",
+        "大元開國皇帝",
+        "薛禪皇帝"
+      ],
+      "roles": [
+        "君主",
+        "皇帝",
+        "大元帝國締造者"
+      ],
+      "faction": "mongol",
+      "birthDeath": [
+        1215,
+        1294
+      ],
+      "birthDeathDisplay": "西元 1215 — 1294 年",
+      "avatar": "images/figures/fig_kublai.svg",
+      "origin": "蒙古漠南察哈爾",
+      "bio": "成吉思汗之孫，拖雷第四子，大元帝國開國皇帝。早年受命掌漠南漢地，廣招中原儒士（劉秉忠、姚樞、許衡），採納漢法治國。1260年即位稱汗，1271年建國號為「大元」，定都大都（北京），為外族入主中原建立大一統王朝之首例。發動長達數十年的滅宋戰爭，築回回砲破襄陽樊城，伯顏統大軍破臨安，1279年崖山海戰徹底滅南宋，結束自唐末安史之亂五百年來中國境內多政權割據分裂狀態，天下重歸大一統。",
+      "historicalEvaluation": "《元史》評曰：「世祖度量弘廣，知人善任，立綱陳紀，一統海內，大哉乾元！」",
+      "achievements": [
+        "取《易經》「大哉乾元」定國號為大元",
+        "滅南宋徹底終結五百年南北割據分裂",
+        "建大都定為全國首都（今日北京基石）"
+      ],
+      "quotes": [
+        "天下大器，非仁義不可得而守也。"
+      ],
+      "relations": [
+        {
+          "figureId": "temujin",
+          "label": "祖父成吉思汗",
+          "relationType": "kinship"
+        },
+        {
+          "figureId": "wen_tianxiang",
+          "label": "感嘆其忠義而含淚處死之南宋狀元丞相",
+          "relationType": "rival"
+        },
+        {
+          "figureId": "lu_xiufu",
+          "label": "崖山對決之南宋末帝丞相",
+          "relationType": "rival"
+        }
+      ]
+    }
+  ];
+
+  // src/data/periods/songLiao/battles.js
+  var SONG_LIAO_BATTLES = [
+    {
+      "id": "bat_gaolianghe_979",
+      "name": "高梁河之戰 (耶律休哥大破宋太宗)",
+      "year": 979,
+      "yearDisplay": "西元 979 年",
+      "eraName": "北宋 太平興國四年 / 遼 乾亨元年",
+      "eraDisplay": "北宋 太平興國四年 / 遼 乾亨元年",
+      "shortDescription": "宋太宗滅北漢後移師北伐幽州，耶律休哥夾擊大破宋軍，太宗中箭乘驢車南遁",
+      "locationAncient": "高梁河（今北京西直門外高梁橋一帶）",
+      "locationName": "高梁河（今北京西直門外高梁橋一帶）",
+      "locationModern": "北京市海淀區高梁河西直門外",
+      "coords": [
+        39.95,
+        116.35
+      ],
+      "importance": "epic",
+      "winner": "liao",
+      "victorStatement": "★ 大遼名將耶律休哥夜襲包抄大破宋軍，宋太宗身負箭傷乘驢車逃遁",
+      "attacker": {
+        "factionName": "大宋太宗皇帝親征北伐幽州大軍",
+        "name": "大宋太宗皇帝親征北伐幽州大軍",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "趙光義 (宋太宗)",
+            "figureId": "zhao_guangyi"
+          },
+          {
+            "name": "崔彥進 (行營馬步軍都部署)"
+          },
+          {
+            "name": "米信 (先鋒將領)"
+          }
+        ],
+        "forcesEstimate": "滅北漢之疲憊步騎十萬餘人",
+        "troops": "滅北漢之疲憊步騎十萬餘人",
+        "casualtiesEstimate": "戰死及潰散萬餘人，宋太宗身中兩箭，丟失大批輜重軍械"
+      },
+      "defender": {
+        "factionName": "大遼幽州守軍與耶律休哥鐵騎",
+        "name": "大遼幽州守軍與耶律休哥鐵騎",
+        "faction": "liao",
+        "commanders": [
+          {
+            "name": "耶律休哥 (于越·契丹第一軍神)",
+            "figureId": "yelv_xiuge"
+          },
+          {
+            "name": "耶律斜軫 (樞密使)",
+            "figureId": "yelv_xiezhen"
+          },
+          {
+            "name": "韓德讓 (幽州守城名臣)"
+          }
+        ],
+        "forcesEstimate": "大遼契丹鐵騎六萬人",
+        "troops": "大遼契丹鐵騎六萬人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "summary": "太平興國四年宋太宗剛滅北漢，不顧將士疲勞，執意移師直取大遼幽州。遼名臣韓德讓死守幽州數旬，宋軍士卒疲憊。遼景宗命南院大王耶律休哥、耶律斜軫引契丹鐵騎馳援。兩軍於高梁河決戰。耶律休哥自高梁河兩翼掩至，每騎手執兩炬，喊殺連天，如烈火席捲。宋軍不意遼軍精銳大至，陣營大駭崩潰。宋太宗身中兩箭股髀受傷，無法乘馬，倉皇換乘驢車沿小路南逃逐州脫險。北宋收復燕雲之首戰慘遭折戟。",
+      "strategicSignificance": "徹底遏止北宋開國以來橫掃天下之凌厲攻勢，確立遼朝對燕雲十六州之軍事優勢。",
+      "tactics": [
+        "幽州城下疲敵守軍",
+        "夜戰火炬夾擊製造心理震撼",
+        "大縱深騎兵兩翼合圍崩潰敵陣"
+      ],
+      "svgRoute": "M 525,235 L 530,240"
+    },
+    {
+      "id": "bat_qigouguan_986",
+      "name": "岐溝關與陳家谷之戰 (楊業殉國)",
+      "year": 986,
+      "yearDisplay": "西元 986 年",
+      "eraName": "北宋 雍熙三年 / 遼 統和四年",
+      "eraDisplay": "北宋 雍熙三年 / 遼 統和四年",
+      "shortDescription": "宋太宗發動雍熙北伐三路攻遼，曹彬於岐溝關大潰，楊業遭監軍逼戰陳家谷絕食殉國",
+      "locationAncient": "岐溝關（今河北涿州）與陳家谷（今山西朔州）",
+      "locationName": "岐溝關（今河北涿州）與陳家谷（今山西朔州）",
+      "locationModern": "河北省保定市涿州市與山西省朔州市朔城區陳家谷",
+      "coords": [
+        39.45,
+        115.98
+      ],
+      "importance": "epic",
+      "winner": "liao",
+      "victorStatement": "★ 蕭太后與耶律休哥重創北伐三路大軍，名將楊業力戰絕食殉國",
+      "attacker": {
+        "factionName": "大宋雍熙北伐東中西三路大軍",
+        "name": "大宋雍熙北伐東中西三路大軍",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "曹彬 (東路幽州統帥·主力大潰)"
+          },
+          {
+            "name": "潘美 (西路雲應副統帥)"
+          },
+          {
+            "name": "楊業 (西路副將·無敵名將·殉國)",
+            "figureId": "yang_ye"
+          },
+          {
+            "name": "王侁 (監軍·逼死楊業罪首)"
+          }
+        ],
+        "forcesEstimate": "二十萬精銳禁軍步騎",
+        "troops": "二十萬精銳禁軍步騎",
+        "casualtiesEstimate": "東路軍溺死拒馬河數萬人，西路軍楊業全軍殉國"
+      },
+      "defender": {
+        "factionName": "大遼蕭太后親征大軍",
+        "name": "大遼蕭太后親征大軍",
+        "faction": "liao",
+        "commanders": [
+          {
+            "name": "蕭太后 (承天后·親自督戰)",
+            "figureId": "xiao_chuo"
+          },
+          {
+            "name": "耶律休哥 (東路統帥)",
+            "figureId": "yelv_xiuge"
+          },
+          {
+            "name": "耶律斜軫 (西路統帥)",
+            "figureId": "yelv_xiezhen"
+          }
+        ],
+        "forcesEstimate": "大遼主力契丹鐵騎十五萬人",
+        "troops": "大遼主力契丹鐵騎十五萬人",
+        "casualtiesEstimate": "傷亡數千人"
+      },
+      "summary": "雍熙三年宋太宗乘遼聖宗幼弱發動二十萬大軍分三路北伐。蕭太后抱十二歲幼帝親征督戰。東路曹彬十萬大軍於岐溝關遭耶律休哥大破，逃奔拒馬河溺死數萬。西路潘美、楊業連克雲、應、寰、朔四州，東路潰敗後奉命護送四州百姓南撤。監軍王侁嘲諷楊業怯敵逼其出戰。楊業泣曰：「明知必死，今為國家引敵死節！」率部出戰，約潘美於陳家谷口伏兵接應。楊業轉戰至谷口，王侁等見形勢不利早已撤走。楊業力戰斬殺數百人，矢盡糧絕被俘，絕食三日大義殉國。",
+      "strategicSignificance": "徹底宣告北宋以武力收復燕雲十六州戰略破產，北宋徹底轉入守勢，深重影響有宋一代軍事格局。",
+      "tactics": [
+        "遼軍以輕騎切斷曹彬糧道伏擊岐溝關",
+        "監軍專權逼迫前線良將以短擊長",
+        "陳家谷撤走伏兵造成楊業孤立無援殉國"
+      ],
+      "svgRoute": "M 505,255 L 485,260"
+    },
+    {
+      "id": "bat_chanzhou_1004",
+      "name": "澶州之戰 (澶淵之盟定南北和平)",
+      "year": 1004,
+      "yearDisplay": "西元 1004 年",
+      "eraName": "北宋 景德元年 / 遼 統和二十二年",
+      "eraDisplay": "北宋 景德元年 / 遼 統和二十二年",
+      "shortDescription": "蕭太后二十萬鐵騎深入澶州，寇準力主真宗親征，床子弩射殺蕭撻凜，訂立澶淵之盟",
+      "locationAncient": "澶州城北（今河南濮陽）",
+      "locationName": "澶州城北（今河南濮陽）",
+      "locationModern": "河南省濮陽市華龍區澶州古城遺址",
+      "coords": [
+        35.72,
+        115.02
+      ],
+      "importance": "epic",
+      "winner": "song",
+      "victorStatement": "★ 大宋軍民同心射殺遼先鋒主將蕭撻凜，締結澶淵之盟確立百年和平",
+      "attacker": {
+        "factionName": "大遼蕭太后親統南征二十萬鐵騎",
+        "name": "大遼蕭太后親統南征二十萬鐵騎",
+        "faction": "liao",
+        "commanders": [
+          {
+            "name": "蕭太后 (承天后)",
+            "figureId": "xiao_chuo"
+          },
+          {
+            "name": "遼聖宗 (耶律隆緒)"
+          },
+          {
+            "name": "蕭撻凜 (南京統軍使·被床子弩射殺)"
+          }
+        ],
+        "forcesEstimate": "大遼契丹主力精騎二十萬人",
+        "troops": "大遼契丹主力精騎二十萬人",
+        "casualtiesEstimate": "統帥蕭撻凜陣亡，遼軍士氣沮喪求和"
+      },
+      "defender": {
+        "factionName": "大宋真宗皇帝親征守禦大軍",
+        "name": "大宋真宗皇帝親征守禦大軍",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "趙恆 (宋真宗)",
+            "figureId": "zhao_heng"
+          },
+          {
+            "name": "寇準 (宰相·力主親征主謀)",
+            "figureId": "kou_zhun"
+          },
+          {
+            "name": "楊延昭 (楊六郎·河北防禦名將)"
+          },
+          {
+            "name": "張環 (床子弩威虎軍弩手)"
+          }
+        ],
+        "forcesEstimate": "宋朝禁軍與河北諸軍約二十五萬人",
+        "troops": "宋朝禁軍與河北諸軍約二十五萬人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "summary": "景德元年秋，蕭太后與遼聖宗傾國二十萬鐵騎南侵，繞過定州長驅直抵黃河北岸澶州，京師開封大震。宰相寇準痛斥南逃之議，力促真宗親征。真宗抵達澶州北城，登上城樓，黃羅傘蓋迎風招展，宋軍諸軍歡聲雷動，聲聞數十里。遼軍主將蕭撻凜自恃勇悍察看地形，宋軍伏弩將張環以重型床子弩巨箭射發，正中蕭撻凜額頭，撻凜當夜重傷殞命，遼軍奪氣。蕭太后知無力破澶州渡黃河，遂遣使請和，與宋締結「澶淵之盟」：宋遼約為兄弟之邦，宋每年給遼銀十萬兩、絹二十萬匹，維持長達一百二十年和平。",
+      "strategicSignificance": "華夏歷史上最著名之和平條約，以極少歲幣換取雙方邊境百餘年免除兵燹之災，互市繁榮互利。",
+      "tactics": [
+        "天子親臨城頭極大激發二十萬將士鬥志",
+        "重型伏弩床子弩精確遠程狙殺敵方統帥",
+        "以打促和締結長期互利條約"
+      ],
+      "svgRoute": "M 495,295 L 490,298"
+    },
+    {
+      "id": "bat_haoshuichuan_1041",
+      "name": "好水川之戰 (西夏李元昊伏擊大捷)",
+      "year": 1041,
+      "yearDisplay": "西元 1041 年",
+      "eraName": "北宋 康定二年 / 西夏 天授禮法延祚四年",
+      "eraDisplay": "北宋 康定二年 / 西夏 天授禮法延祚四年",
+      "shortDescription": "李元昊於隆德好水川以鴿為號設伏，大破任福宋軍主力，宋軍萬餘名將士全軍覆滅",
+      "locationAncient": "好水川（今寧夏隆德縣境內）",
+      "locationName": "好水川（今寧夏隆德縣境內）",
+      "locationModern": "寧夏回族自治區固原市隆德縣好水鄉",
+      "coords": [
+        35.62,
+        106.12
+      ],
+      "importance": "epic",
+      "winner": "xia",
+      "victorStatement": "★ 西夏李元昊智算伏擊全殲任福宋軍主力，宋朝西北防線震動",
+      "attacker": {
+        "factionName": "大宋陝西涇原路討夏大軍",
+        "name": "大宋陝西涇原路討夏大軍",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "韓琦 (陝西經略安撫招討副使)",
+            "figureId": "han_qi"
+          },
+          {
+            "name": "任福 (涇原副總管·戰死)"
+          },
+          {
+            "name": "桑懌 (先鋒名將·戰死)"
+          }
+        ],
+        "forcesEstimate": "宋軍精銳步騎一萬八千人",
+        "troops": "宋軍精銳步騎一萬八千人",
+        "casualtiesEstimate": "任福、桑懌等十六名將領戰死，一萬零三百餘人全軍殉國"
+      },
+      "defender": {
+        "factionName": "大夏國李元昊親率十萬精騎",
+        "name": "大夏國李元昊親率十萬精騎",
+        "faction": "xia",
+        "commanders": [
+          {
+            "name": "李元昊 (夏景宗)",
+            "figureId": "li_yuanhao"
+          },
+          {
+            "name": "野利旺榮 (大將)"
+          }
+        ],
+        "forcesEstimate": "西夏鐵鷂子與步跋子十萬人",
+        "troops": "西夏鐵鷂子與步跋子十萬人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "summary": "康定二年，李元昊起十萬精銳進犯涇原。韓琦命任福引萬餘精銳循川出援，戒之曰：「若不見賊，即引還，不可輕進深追！」元昊遣小股部隊佯敗誘敵，任福貪功孤軍深入至好水川狹谷。道旁見有泥封銀盒數只，中有飛動之聲，任福命開之，百餘信鴿騰空飛起在空中盤旋，正是西夏伏兵合圍信號！十萬西夏騎兵自高坡萬弩齊發，步跋子居高臨下滾石如雷。宋軍陷入絕谷死戰，任福手持大鐵鞭擊殺數人，身中十餘箭，咽喉被刺自刃殉國，萬餘將士血染好水川。韓琦聞訊自劾痛哭。",
+      "strategicSignificance": "西夏立國最關鍵之戰術大捷，震撼宋廷，迫使宋朝不得不承認李元昊西夏世襲國主地位。",
+      "tactics": [
+        "誘敵深入絕谷隘口",
+        "開創以飛鴿啟盒為突襲伏擊信號",
+        "居高臨下重裝鐵鷂子合圍聚殲"
+      ],
+      "svgRoute": "M 400,295 L 395,298"
+    },
+    {
+      "id": "bat_kunlunguan_1053",
+      "name": "崑崙關之戰 (狄青夜奪崑崙關)",
+      "year": 1053,
+      "yearDisplay": "西元 1053 年",
+      "eraName": "北宋 皇祐五年",
+      "eraDisplay": "北宋 皇祐五年",
+      "shortDescription": "廣西儂智高叛亂席捲嶺南，狄青巧借上元夜宴大張燈火，雪夜疾馳一舉奪取天險崑崙關",
+      "locationAncient": "崑崙關與歸仁鋪（今廣西南寧賓陽）",
+      "locationName": "崑崙關與歸仁鋪（今廣西南寧賓陽）",
+      "locationModern": "廣西壯族自治區南寧市興寧區崑崙關",
+      "coords": [
+        23.18,
+        108.58
+      ],
+      "importance": "major",
+      "winner": "song",
+      "victorStatement": "★ 狄青以神鬼莫測之奇謀奪取崑崙關，歸仁鋪大破儂智高平定嶺南",
+      "attacker": {
+        "factionName": "大宋宣撫廣南討逆大軍",
+        "name": "大宋宣撫廣南討逆大軍",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "狄青 (樞密副使·宣撫使)",
+            "figureId": "di_qing"
+          },
+          {
+            "name": "楊文廣 (先鋒將領)"
+          },
+          {
+            "name": "張玉 (先鋒統帥)"
+          }
+        ],
+        "forcesEstimate": "大宋禁軍與蕃落蕃騎約三萬人",
+        "troops": "大宋禁軍與蕃落蕃騎約三萬人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "defender": {
+        "factionName": "大南國儂智高起義軍",
+        "name": "大南國儂智高起義軍",
+        "faction": "other",
+        "commanders": [
+          {
+            "name": "儂智高 (大南國仁惠皇帝)"
+          },
+          {
+            "name": "黃師宓 (謀主，戰死)"
+          }
+        ],
+        "forcesEstimate": "廣南蠻兵與降軍五萬餘人",
+        "troops": "廣南蠻兵與降軍五萬餘人",
+        "casualtiesEstimate": "斬首五千餘級，生擒俘虜數千人，儂智高焚城逃入大理"
+      },
+      "summary": "皇祐四年廣西壯族首領儂智高建「大南國」起兵，橫掃兩廣圍攻廣州五十七日，嶺南大震。宋仁宗命面涅將軍狄青為宣撫使南征。崑崙關地勢險絕，儂智高重兵扼守。皇祐五年上元節，狄青於賓州大張燈火，大設酒宴連飲三日。第二夜二更，狄青託言體力不支入內歇息，實則微服親率精騎在風雨之夜疾馳破嶺，黎明前悄然突破崑崙關天險！守關敵軍夢中驚醒投降。狄青大軍出關於歸仁鋪列陣，以蕃落騎兵側翼突擊，大破儂智高，斬謀主黃師宓，嶺南全境平定。",
+      "strategicSignificance": "徹底平定宋朝南疆最大之反叛動亂，保全嶺南廣州海上絲綢之路門戶，狄青威震海內拜樞密使。",
+      "tactics": [
+        "金蟬脫殼設盛宴麻痺敵軍間諜",
+        "風雨之夜神速疾行襲取第一隘口天險",
+        "正面步兵固守兩翼騎兵包抄分進合擊"
+      ],
+      "svgRoute": "M 460,470 L 465,475"
+    },
+    {
+      "id": "bat_hubudagang_1115",
+      "name": "護步達岡之戰 (完顏阿骨打以二萬破七十萬)",
+      "year": 1115,
+      "yearDisplay": "西元 1115 年",
+      "eraName": "金 收國元年 / 遼 天慶五年",
+      "eraDisplay": "金 收國元年 / 遼 天慶五年",
+      "shortDescription": "完顏阿骨打率兩萬女真精甲迎戰遼天祚帝七十萬大軍，連破遼陣，大遼帝國一蹶不振",
+      "locationAncient": "護步達岡（今黑龍江五常境內）",
+      "locationName": "護步達岡（今黑龍江五常境內）",
+      "locationModern": "黑龍江省哈爾濱市五常市與吉林交界",
+      "coords": [
+        44.92,
+        127.15
+      ],
+      "importance": "epic",
+      "winner": "jin",
+      "victorStatement": "★ 金太祖完顏阿骨打創造以少勝多極致奇蹟，女真鐵騎徹底摧毀大遼主力",
+      "attacker": {
+        "factionName": "大遼天祚帝親征討伐女真主力大軍",
+        "name": "大遼天祚帝親征討伐女真主力大軍",
+        "faction": "liao",
+        "commanders": [
+          {
+            "name": "耶律延禧 (遼天祚帝·倉皇奔逃)"
+          },
+          {
+            "name": "蕭奉先 (宰相·奸佞誤國)"
+          }
+        ],
+        "forcesEstimate": "大遼號稱七十萬大軍（實約十數萬甲士）",
+        "troops": "大遼號稱七十萬大軍（實約十數萬甲士）",
+        "casualtiesEstimate": "遼軍全線潰崩死者枕藉，輜重車帳器械全失"
+      },
+      "defender": {
+        "factionName": "大金太祖女真猛安謀克精騎",
+        "name": "大金太祖女真猛安謀克精騎",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏阿骨打 (金太祖)",
+            "figureId": "wanyan_aguda"
+          },
+          {
+            "name": "完顏宗翰 (黏罕)"
+          },
+          {
+            "name": "完顏宗望 (斡離不)"
+          }
+        ],
+        "forcesEstimate": "女真精騎僅兩萬人",
+        "troops": "女真精騎僅兩萬人",
+        "casualtiesEstimate": "傷亡數百人"
+      },
+      "summary": "收國元年女真阿骨打立金稱帝。遼天祚帝大怒，親統號稱七十萬步騎大軍出征欲一舉蕩平女真。行至護步達岡，遼宗室耶律章奴於後方起兵叛亂，天祚帝驚恐中軍慌忙撤兵。阿骨打探知遼軍自亂，登高誓師：「遼兵雖眾，人心已離；天賜良機，敢不擊乎！」引兩萬鐵騎銜尾追擊，如狂飆突入遼軍陣中，九戰皆捷。遼天祚帝連夜狂奔馳入長春州，七十萬大軍土崩瓦解。大遼帝國自此元氣徹底喪盡，女真一躍成為東亞霸主。",
+      "strategicSignificance": "中國古代以弱勝強最具決定性戰役之一，「女真不滿萬，滿萬不可敵」威震天下，敲響大遼滅亡喪鐘。",
+      "tactics": [
+        "敏銳捕捉敵內部兵變人心離散時機",
+        "兩萬具裝甲騎實施密集貫穿突擊",
+        "連續晝夜追擊擴大戰果瓦解敵心理"
+      ],
+      "svgRoute": "M 590,165 L 595,170"
+    },
+    {
+      "id": "bat_jingkang_1126",
+      "name": "第一次東京保衛戰 (李綱登城禦虜)",
+      "year": 1126,
+      "yearDisplay": "西元 1126 年",
+      "eraName": "北宋 靖康元年 / 金 天會四年",
+      "eraDisplay": "北宋 靖康元年 / 金 天會四年",
+      "shortDescription": "完顏宗望鐵騎六萬圍攻汴京，李綱臨危受命登城指揮，發霹靂砲力挫金軍圍攻",
+      "locationAncient": "東京開封府城牆（宣德門與牟駝崗）",
+      "locationName": "東京開封府城牆（宣德門與牟駝崗）",
+      "locationModern": "河南省開封市鼓樓區宋開封城牆遺址",
+      "coords": [
+        34.79,
+        114.35
+      ],
+      "importance": "epic",
+      "winner": "song",
+      "victorStatement": "★ 李綱率汴京軍民浴血死守擊退金軍強攻，完顏宗望被迫撤圍北退",
+      "attacker": {
+        "factionName": "大金帝國東路南征鐵騎",
+        "name": "大金帝國東路南征鐵騎",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏宗望 (斡離不·二太子)"
+          },
+          {
+            "name": "完顏闍母"
+          }
+        ],
+        "forcesEstimate": "女真與降宋降遼鐵騎六萬人",
+        "troops": "女真與降宋降遼鐵騎六萬人",
+        "casualtiesEstimate": "攻城死傷數千人"
+      },
+      "defender": {
+        "factionName": "大宋京師東京保衛軍民",
+        "name": "大宋京師東京保衛軍民",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "李綱 (尚書右丞·親自登城)",
+            "figureId": "li_gang"
+          },
+          {
+            "name": "宋欽宗 (趙桓)"
+          },
+          {
+            "name": "種師道 (西軍名將老種相公)"
+          }
+        ],
+        "forcesEstimate": "開封守軍及西軍勤王部隊十萬餘人",
+        "troops": "開封守軍及西軍勤王部隊十萬餘人",
+        "casualtiesEstimate": "傷亡數千人"
+      },
+      "summary": "靖康元年春，金滅遼後分兩路南侵，東路完顏宗望破燕山府渡黃河直撲汴京，宋徽宗禪位欽宗南逃。金兵包圍汴京四面猛攻，城中危急。欽宗起用李綱為親征行營使。李綱披甲登城，與士卒同甘共苦，以磚石加固城堞，置座弩、架霹靂砲，火石齊發，焚金軍雲梯沖車，斬殺金兵數千。老將種師道統西軍精銳趕至，四方勤王二十萬大軍雲集。宗望見城堅難克，糧草不繼，乃許和退兵北撤。可惜宋廷隨後聽信奸臣罷免李綱，終致靖康之恥。",
+      "strategicSignificance": "展現北宋軍民誓死抗金之巨大力量，若朝廷不自毀長城罷李綱，靖康國恥完全可免。",
+      "tactics": [
+        "文武重臣親臨城堞穩定全城軍民之心",
+        "大規模運用拋石機霹靂砲與重弩擊毀敵攻城器械",
+        "外線召集二十萬勤王西軍形成內外夾擊"
+      ],
+      "svgRoute": "M 470,305 L 472,308"
+    },
+    {
+      "id": "bat_huangtiandang_1130",
+      "name": "黃天蕩之戰 (韓世忠梁紅玉擊鼓困兀朮)",
+      "year": 1130,
+      "yearDisplay": "西元 1130 年",
+      "eraName": "南宋 建炎四年 / 金 天會八年",
+      "eraDisplay": "南宋 建炎四年 / 金 天會八年",
+      "shortDescription": "韓世忠以八千水師截斷金兀朮十萬大軍長江退路，梁紅玉金山擊鼓，困敵黃天蕩四十八日",
+      "locationAncient": "鎮江金山與南京棲霞黃天蕩長江水域",
+      "locationName": "鎮江金山與南京棲霞黃天蕩長江水域",
+      "locationModern": "江蘇省南京市棲霞區與鎮江金山長江故道",
+      "coords": [
+        32.18,
+        118.95
+      ],
+      "importance": "epic",
+      "winner": "song",
+      "victorStatement": "★ 韓世忠以八千水師大挫金兀朮十萬大軍，梁紅玉金山戰鼓名垂千古",
+      "attacker": {
+        "factionName": "大金搜山檢海北歸主力十萬大軍",
+        "name": "大金搜山檢海北歸主力十萬大軍",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏宗弼 (金兀朮·四太子)",
+            "figureId": "wanyan_zongbi"
+          },
+          {
+            "name": "韓常 (金軍萬夫長)"
+          }
+        ],
+        "forcesEstimate": "女真鐵騎與降將部隊十萬人",
+        "troops": "女真與降將部隊十萬人",
+        "casualtiesEstimate": "被殲與溺斃長江者近萬人，金兀朮焚火狼狽突圍"
+      },
+      "defender": {
+        "factionName": "大宋浙西制置使水師艦隊",
+        "name": "大宋浙西制置使水師艦隊",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "韓世忠 (浙西制置使·蘄王)",
+            "figureId": "han_shizhong"
+          },
+          {
+            "name": "梁紅玉 (安國夫人·親自擂鼓)",
+            "figureId": "liang_hongyu"
+          }
+        ],
+        "forcesEstimate": "海船水師精銳八千人",
+        "troops": "海船水師精銳八千人",
+        "casualtiesEstimate": "傷亡數百人"
+      },
+      "summary": "建炎三年金兀朮深入江南大掠臨安、明州。建炎四年春北撤，韓世忠預先率八千水師屯於焦山、金山扼守長江咽喉。金軍舟師至，宋軍出動高大樓船海艦衝擊金小舟。梁紅玉立於江中艨艟之頂親擊戰鼓，鼓聲雷動，宋軍以鐵綆貫巨鐵鉤鉤翻金舟，溺殺數千人。金兀朮退入死港黃天蕩，被圍困四十八日不得出，兀朮遣使求借道許以盡還江南金帛，世忠嚴詞拒絕。後金軍得漢奸指點開老鸛河故道，並以火箭射宋軍布帆，兀朮始得狼狽逃回江北。",
+      "strategicSignificance": "粉碎金軍「搜山檢海」消滅南宋之企圖，打破女真滿萬不可敵之神話，奠定南宋依憑長江天險立國之信心。",
+      "tactics": [
+        "依憑長江海船高大堅固撞碎敵小艇",
+        "以鐵綆鐵鉤實施水面鎖江封控",
+        "女將親自擂鼓振奮全軍士氣"
+      ],
+      "svgRoute": "M 530,360 L 532,363"
+    },
+    {
+      "id": "bat_heshangyuan_1131",
+      "name": "和尚原之戰 (吳玠吳璘憑險破十萬金兵)",
+      "year": 1131,
+      "yearDisplay": "西元 1131 年",
+      "eraName": "南宋 紹興元年 / 金 天會九年",
+      "eraDisplay": "南宋 紹興元年 / 金 天會九年",
+      "shortDescription": "吳玠兄弟憑險死守大散關和尚原，神臂弓萬弩齊發，金兀朮中箭割鬚棄袍狼狽逃遁",
+      "locationAncient": "和尚原（今陝西寶雞西南大散關上）",
+      "locationName": "和尚原（今陝西寶雞西南大散關上）",
+      "locationModern": "陝西省寶雞市渭濱區大散關南和尚原",
+      "coords": [
+        34.25,
+        107.08
+      ],
+      "importance": "major",
+      "winner": "song",
+      "victorStatement": "★ 吳玠吳璘以神臂弓大破金兀朮十萬精銳，金兀朮中箭割鬚狼狽逃命",
+      "attacker": {
+        "factionName": "大金西朝侵蜀主力大軍",
+        "name": "大金西朝侵蜀主力大軍",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏宗弼 (金兀朮)",
+            "figureId": "wanyan_zongbi"
+          },
+          {
+            "name": "沒立 (金將)"
+          }
+        ],
+        "forcesEstimate": "金軍精騎與步兵十萬人",
+        "troops": "金軍精騎與步兵十萬人",
+        "casualtiesEstimate": "被斬數千級，降者數千人，金兀朮身中流矢割鬚棄袍逃遁"
+      },
+      "defender": {
+        "factionName": "大宋川陝防禦精甲",
+        "name": "大宋川陝防禦精甲",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "吳玠 (名將·川陝宣撫副使)"
+          },
+          {
+            "name": "吳璘 (吳玠胞弟·神射名將)"
+          }
+        ],
+        "forcesEstimate": "宋軍步騎約三萬人",
+        "troops": "宋軍步騎約三萬人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "summary": "富平之戰後金兵欲取巴蜀入長江。紹興元年五月，金兀朮造浮橋過渭水，率十萬精兵強攻寶雞大散關和尚原。吳玠、吳璘以和尚原地勢險隘，不能容騎兵馳騁，乃設強弩陣。選軍中善射者，番休迭射，以神臂弓連珠齊發，矢石如雨注。金兵死者枕藉，進退失據。吳玠遣奇兵斷金軍糧道，伏兵四起肉搏掩殺，金軍大崩。金兀朮身中流矢，被逼割斷鬍鬚、拋棄名貴錦袍，單騎狼狽逃出漢中。巴蜀大門自此固若金湯。",
+      "strategicSignificance": "保全川蜀天府之國數千萬百姓與南宋大後方財賦，確立宋金川陝戰線秦嶺天險之永久僵局。",
+      "tactics": [
+        "依憑山地險道扼制騎兵衝擊優勢",
+        "神臂弓強弩番休輪番齊射形成無縫火力網",
+        "奇兵斷其糧道夾以夜間突襲"
+      ],
+      "svgRoute": "M 425,315 L 420,320"
+    },
+    {
+      "id": "bat_yancheng_1140",
+      "name": "郾城大捷 (岳家軍大破鐵浮屠拐子馬)",
+      "year": 1140,
+      "yearDisplay": "西元 1140 年",
+      "eraName": "南宋 紹興十年 / 金 天眷三年",
+      "eraDisplay": "南宋 紹興十年 / 金 天眷三年",
+      "shortDescription": "岳家軍北伐進抵中原，以麻扎刀大斧斬馬足，大破金兀朮無敵重裝鐵浮屠主力",
+      "locationAncient": "郾城（今河南漯河郾城區）",
+      "locationName": "郾城（今河南漯河郾城區）",
+      "locationModern": "河南省漯河市郾城區沙河兩岸",
+      "coords": [
+        33.58,
+        114.02
+      ],
+      "importance": "epic",
+      "winner": "song",
+      "victorStatement": "★ 岳家軍斬馬足大破金兀朮精銳鐵浮屠拐子馬，金兀朮仰天慟哭潰敗",
+      "attacker": {
+        "factionName": "大金都元帥完顏宗弼主力精銳",
+        "name": "大金都元帥完顏宗弼主力精銳",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏宗弼 (金兀朮)",
+            "figureId": "wanyan_zongbi"
+          },
+          {
+            "name": "韓常 (金萬夫長)"
+          },
+          {
+            "name": "阿列 / 孛堇 (重裝鐵浮屠統帥)"
+          }
+        ],
+        "forcesEstimate": "拐子馬與鐵浮屠精騎一萬五千騎、步兵十萬人",
+        "troops": "拐子馬與鐵浮屠精騎一萬五千騎、步兵十萬人",
+        "casualtiesEstimate": "鐵浮屠被全殲，拐子馬死傷萬餘，兀朮大潰"
+      },
+      "defender": {
+        "factionName": "大宋岳家軍北伐先鋒部隊",
+        "name": "大宋岳家軍北伐先鋒部隊",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "岳飛 (太尉·武穆統帥)",
+            "figureId": "yue_fei"
+          },
+          {
+            "name": "岳雲 (長子·手持雙鐵錐)",
+            "figureId": "yue_yun"
+          },
+          {
+            "name": "楊再興 (絕世猛將·小商橋血戰)"
+          }
+        ],
+        "forcesEstimate": "岳家軍精銳步騎約兩萬人",
+        "troops": "岳家軍精銳步騎約兩萬人",
+        "casualtiesEstimate": "傷亡數千人，將士忠勇奮戰"
+      },
+      "summary": "紹興十年岳飛揮師北伐，連克鄭州、洛陽。金兀朮大怒，聚各路精銳十五萬反撲郾城。金兀朮使出殺手鐧「鐵浮屠」：三人一組以皮繩相連，人馬皆被重鎧，如移動鐵壁；翼以「拐子馬」左右奔襲。岳飛從容定策：命步卒手持大斧、長槍、麻扎刀，上不砍人，只砍馬足！戰馬一倒，三人相連皆翻滾仆地不能動，宋軍奮力刺殺。岳雲率背嵬騎衝入敵陣，肉搏數十合，殺得天昏地暗，鐵浮屠全軍覆滅。金兀朮大哭曰：「自海上起兵，全賴此取勝，今休矣！」",
+      "strategicSignificance": "徹底粉碎金國賴以橫行天下之重裝甲騎神話，中原震動，朱仙鎮大捷在望，北宋故都近在咫尺。",
+      "tactics": [
+        "針對重裝具裝甲騎弱點專斫馬足",
+        "長槍大斧麻扎刀步兵陣破敵衝擊",
+        "背嵬重騎精銳實施核心斬首反突擊"
+      ],
+      "svgRoute": "M 470,320 L 472,323"
+    },
+    {
+      "id": "bat_yingchang_1140",
+      "name": "潁昌大捷 (岳雲背嵬騎血戰破金軍)",
+      "year": 1140,
+      "yearDisplay": "西元 1140 年",
+      "eraName": "南宋 紹興十年 / 金 天眷三年",
+      "eraDisplay": "南宋 紹興十年 / 金 天眷三年",
+      "shortDescription": "岳雲率八百背嵬精騎為先鋒，鏖戰潁昌破金兀朮十三萬大軍，斬統帥夏姓金將",
+      "locationAncient": "潁昌城西（今河南許昌）",
+      "locationName": "潁昌城西（今河南許昌）",
+      "locationModern": "河南省許昌市魏都區潁昌故城",
+      "coords": [
+        34.02,
+        113.85
+      ],
+      "importance": "major",
+      "winner": "song",
+      "victorStatement": "★ 岳雲身受百創力戰破敵，斬首五千餘級，金兀朮再遭毀滅性打擊",
+      "attacker": {
+        "factionName": "大金兀朮大軍殘部與增援部隊",
+        "name": "大金兀朮大軍殘部與增援部隊",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏宗弼 (金兀朮)",
+            "figureId": "wanyan_zongbi"
+          },
+          {
+            "name": "夏姓女真都統 (陣亡)"
+          }
+        ],
+        "forcesEstimate": "金軍精騎三萬、步兵十萬人",
+        "troops": "金軍精騎三萬、步兵十萬人",
+        "casualtiesEstimate": "陣斬金將夏姓統帥，俘千戶百戶數十人，金軍潰走"
+      },
+      "defender": {
+        "factionName": "大宋岳家軍主力王貴與岳雲部",
+        "name": "大宋岳家軍主力王貴與岳雲部",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "岳雲 (先鋒猛將)",
+            "figureId": "yue_yun"
+          },
+          {
+            "name": "王貴 (中軍統帥)"
+          },
+          {
+            "name": "董先 / 姚政"
+          }
+        ],
+        "forcesEstimate": "岳家軍步騎約三萬人",
+        "troops": "岳家軍步騎約三萬人",
+        "casualtiesEstimate": "岳雲身受百餘創，傷亡兩千餘人"
+      },
+      "summary": "郾城兵敗後，金兀朮率騎兵三萬、步兵十萬轉攻潁昌。守將王貴大懼，岳飛長子二十二歲之岳雲挺身而出，率八百背嵬鐵騎披甲出城。岳雲身先士卒手掄雙鐵錐突入重圍，左右衝突，身受百餘創血透重甲，激勵將士奮勇殺敵。王貴感奮揮大軍夾擊，殺至正午，斬金軍統帥、兀朮女婿夏萬戶，俘金千夫長數十人。金軍丟棄旗鼓死傷橫野，金兀朮夜遁開封。岳家軍乘勝進駐朱仙鎮，百姓歡呼「迎岳爺爺」。",
+      "strategicSignificance": "連破金朝最精銳之中原野戰大軍，徹底動搖金朝在中原統治基礎，為岳飛北伐之最高峰。",
+      "tactics": [
+        "敢死先鋒以一當百猛烈穿插",
+        "重傷不退強烈激發後續大軍士氣",
+        "內外夾擊瓦解敵軍陣型"
+      ],
+      "svgRoute": "M 472,323 L 470,318"
+    },
+    {
+      "id": "bat_caishi_1161",
+      "name": "采石磯大捷 (虞允文書生退六十萬大軍)",
+      "year": 1161,
+      "yearDisplay": "西元 1161 年",
+      "eraName": "南宋 紹興三十一年 / 金 正隆六年",
+      "eraDisplay": "南宋 紹興三十一年 / 金 正隆六年",
+      "shortDescription": "金帝完顏亮六十萬大軍渡長江，書生虞允文慷慨督師，以海船霹靂砲擊潰金艦隊",
+      "locationAncient": "采石磯（今安徽馬鞍山長江東岸）",
+      "locationName": "采石磯（今安徽馬鞍山長江東岸）",
+      "locationModern": "安徽省馬鞍山市雨山區采石街道翠螺山",
+      "coords": [
+        31.65,
+        118.48
+      ],
+      "importance": "epic",
+      "winner": "song",
+      "victorStatement": "★ 虞允文以一萬八千宋軍大破金軍六十萬艦隊，完顏亮兵變被殺",
+      "attacker": {
+        "factionName": "大金帝國海陵王南征水陸大軍",
+        "name": "大金帝國海陵王南征水陸大軍",
+        "faction": "jin",
+        "commanders": [
+          {
+            "name": "完顏亮 (海陵王·親自督戰)"
+          }
+        ],
+        "forcesEstimate": "號稱六十萬水陸大軍，渡江先鋒數萬人",
+        "troops": "號稱六十萬水陸大軍，渡江先鋒數萬人",
+        "casualtiesEstimate": "被焚擊沉戰船數百艘，溺死萬餘人，完顏亮於瓜洲遭兵變殺害"
+      },
+      "defender": {
+        "factionName": "大宋淮西江防守軍與虞允文督師",
+        "name": "大宋淮西江防守軍與虞允文督師",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "虞允文 (中書舍人·督師)",
+            "figureId": "yu_yunwen"
+          },
+          {
+            "name": "時俊 (先鋒大將)"
+          }
+        ],
+        "forcesEstimate": "江防散兵僅一萬八千人",
+        "troops": "江防散兵僅一萬八千人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "summary": "紹興三十一年，金海陵王完顏亮發傾國兵六十萬分四路南下侵宋，自統主力抵采石磯江北，造舟數百欲強渡長江。宋原統帥王權逃跑，宋軍萬八千人三五成群潰散江岸。中書舍人虞允文受命犒師至采石，見危急，毅然督戰。大將時俊雙手揮雙刀大呼陷陣，宋軍海船輪番踏車疾行，將紙包石灰之「霹靂砲」以拋石機投擲金舟，火光沖天，石灰飛揚迷敵雙目，金舟紛紛沉沒，完顏亮督戰殺其先退者，亦無法止崩。完顏亮移兵瓜洲欲強攻鎮江，部將完顏元宜發動兵變將其縊殺。南宋社稷轉危為安。",
+      "strategicSignificance": "繼淝水之戰後長江防禦戰又一以少勝多千古奇蹟，徹底終結女真金朝吞併南宋之企圖。",
+      "tactics": [
+        "書生督師挺身而出重聚三軍士氣",
+        "利用長江水軍海船巨大優勢衝撞金小舟",
+        "大規模投入化學燃燒火藥武器霹靂砲火焚敵船"
+      ],
+      "svgRoute": "M 525,355 L 528,358"
+    },
+    {
+      "id": "bat_xiangfan_1273",
+      "name": "襄樊保衛戰 (宋元六年拉鋸與回回砲破城)",
+      "year": 1273,
+      "yearDisplay": "西元 1273 年",
+      "eraName": "南宋 咸淳九年 / 元 至元十年",
+      "eraDisplay": "南宋 咸淳九年 / 元 至元十年",
+      "shortDescription": "忽必烈集重兵圍攻襄陽樊城六年，張貴張順死節，阿老瓦丁造回回砲轟碎樊城，襄陽陷落",
+      "locationAncient": "襄陽府與樊城（漢水兩岸）",
+      "locationName": "襄陽府與樊城（漢水兩岸）",
+      "locationModern": "湖北省襄陽市襄城區與樊城區漢江兩岸",
+      "coords": [
+        32.02,
+        112.15
+      ],
+      "importance": "epic",
+      "winner": "mongol",
+      "victorStatement": "★ 元軍以回回砲攻克樊城，呂文煥苦守六年力竭出降，南宋門戶洞開",
+      "attacker": {
+        "factionName": "大元忽必烈水陸圍攻大軍",
+        "name": "大元忽必烈水陸圍攻大軍",
+        "faction": "mongol",
+        "commanders": [
+          {
+            "name": "阿術 (蒙古名將)"
+          },
+          {
+            "name": "阿里海牙 (行省參政)"
+          },
+          {
+            "name": "劉整 (降元水軍統帥)"
+          },
+          {
+            "name": "阿老瓦丁 / 亦思馬因 (阿拉伯回回砲匠)"
+          }
+        ],
+        "forcesEstimate": "蒙古漢軍及新水師十餘萬人",
+        "troops": "蒙古漢軍及新水師十餘萬人",
+        "casualtiesEstimate": "圍城六年死傷數萬人"
+      },
+      "defender": {
+        "factionName": "大宋襄樊守城軍民",
+        "name": "大宋襄樊守城軍民",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "呂文煥 (襄陽都統制·苦守六年)"
+          },
+          {
+            "name": "張貴 (三字黑·援軍死節)"
+          },
+          {
+            "name": "張順 (矮張·浮屍江中殉國)"
+          },
+          {
+            "name": "牛富 (樊城守將·投火殉國)"
+          }
+        ],
+        "forcesEstimate": "襄陽樊城軍民約八萬人",
+        "troops": "襄陽樊城軍民約八萬人",
+        "casualtiesEstimate": "樊城遭屠城殉國，呂文煥力竭以全城生靈降元"
+      },
+      "summary": "南宋門戶在襄陽。至元五年忽必烈命阿術、劉整築長圍封鎖漢水，斷襄樊糧道。宋將呂文煥死守孤城六年，中途民兵首領張貴、張順率三千死士以輕舟滿載鹽布強突重圍入襄陽，張順中百箭戰死浮江。至元九年元軍引阿拉伯巨型配重投石機「回回砲」，發重達數百斤巨石，入地數尺，聲震雷霆。至元十年正月，回回砲擊毀樊城外柵，元軍登城肉搏，守將牛富率百人巷戰力竭投火自焚。襄陽無險可守，朝廷援絕，呂文煥守城六年彈盡糧絕，為全城百姓計面縛降元。南宋長江防線徹底崩塌。",
+      "strategicSignificance": "南宋咽喉門戶徹底失守，元軍順漢水入長江長驅直下，宣告南宋政權滅亡已無可挽回。",
+      "tactics": [
+        "長達六年圍困築長圍合水陸封鎖",
+        "引進中東巨型配重投石機回回砲攻堅天險",
+        "利用降將劉整建立大元精銳水師對抗宋水軍"
+      ],
+      "svgRoute": "M 460,350 L 462,352"
+    },
+    {
+      "id": "bat_yaishan_1279",
+      "name": "崖山海戰 (大宋陸沉十萬軍民蹈海)",
+      "year": 1279,
+      "yearDisplay": "西元 1279 年",
+      "eraName": "南宋 祥興二年 / 元 至元十六年",
+      "eraDisplay": "南宋 祥興二年 / 元 至元十六年",
+      "shortDescription": "元副元帥張弘範圍攻崖山宋軍水寨，宋軍戰敗，陸秀夫負八歲少帝投海，十萬軍民殉國",
+      "locationAncient": "崖山海面（今廣東江門新會崖門）",
+      "locationName": "崖山海面（今廣東江門新會崖門）",
+      "locationModern": "廣東省江門市新會區古井鎮崖門海口",
+      "coords": [
+        22.18,
+        113.08
+      ],
+      "importance": "epic",
+      "winner": "mongol",
+      "victorStatement": "★ 大元徹底剿滅南宋最後力量，陸秀夫負幼帝蹈海，南宋悲壯亡國",
+      "attacker": {
+        "factionName": "大元鎮國上將軍張弘範蒙古漢軍水師",
+        "name": "大元鎮國上將軍張弘範蒙古漢軍水師",
+        "faction": "mongol",
+        "commanders": [
+          {
+            "name": "張弘範 (蒙古漢軍都元帥)"
+          },
+          {
+            "name": "李恒 (副統帥)"
+          }
+        ],
+        "forcesEstimate": "戰船四百餘艘、水陸精兵兩萬人",
+        "troops": "戰船四百餘艘、水陸精兵兩萬人",
+        "casualtiesEstimate": "傷亡千餘人"
+      },
+      "defender": {
+        "factionName": "大宋行在崖山最後二十萬軍民",
+        "name": "大宋行在崖山最後二十萬軍民",
+        "faction": "song",
+        "commanders": [
+          {
+            "name": "陸秀夫 (左丞相·負帝蹈海)",
+            "figureId": "lu_xiufu"
+          },
+          {
+            "name": "張世傑 (樞密使·突圍溺死)",
+            "figureId": "zhang_shijie"
+          },
+          {
+            "name": "趙昺 (宋末帝·八歲殉國)"
+          }
+        ],
+        "forcesEstimate": "巨型戰船千餘艘、軍民二十萬人（多老弱太學士庶）",
+        "troops": "巨型戰船千餘艘、軍民二十萬人（多老弱太學士庶）",
+        "casualtiesEstimate": "少帝殉國，十萬軍民相隨蹈海，大宋三百年宗廟滅亡"
+      },
+      "summary": "祥興二年二月，元水師統帥張弘範將被俘之文天祥押於舟中押赴崖山。張世傑以千艘巨艦連環成水寨死守海口。張弘範四面封鎖陸上淡水薪柴之路，宋軍困絕數十日嚼乾糧飲海水皆嘔瀉。二月初六大霧籠罩海面，張弘範兵分四路，奏軍樂以迷惑宋軍，忽撕開偽裝以戰艦突入宋軍核心。張世傑舟師大亂，斬斷索鏈突圍。陸秀夫見大勢已去，背負八歲幼帝趙昺縱身跳入巨浪，太學士人、宮人、兵士十萬人寧死不降相隨投海，海面上浮屍十餘萬具。文天祥在元艦上目睹大宋陸沉慟哭嘔血。華夏正朔三百年大宋社稷自此悲壯落幕。",
+      "strategicSignificance": "宣告南宋徹底覆滅與大元完成華夏空前大一統，也是華夏古代史上最壯烈淒絕之文明輓歌。",
+      "tactics": [
+        "切斷海島陸上水源薪柴打擊守軍生存",
+        "借大霧及軍樂偽裝實施四面穿透突襲",
+        "鎖定敵指揮巨艦切斷連環陣鏈"
+      ],
+      "svgRoute": "M 495,500 L 498,505"
+    }
+  ];
+
+  // src/data/periods/songLiao/events.js
+  var SONG_LIAO_EVENTS = [
+    {
+      "id": "evt_song_01",
+      "name": "陳橋兵變·黃袍加身",
+      "year": 960,
+      "yearDisplay": "960 CE",
+      "eraName": "北宋建隆元年",
+      "eraDisplay": "後周顯德七年 / 北宋建隆元年 正月",
+      "shortDescription": "趙匡胤於陳橋驛被部下擁立黃袍加身，建立宋朝，定都開封。",
+      "description": "後周顯德七年正月，傳聞契丹與北漢南下，殿前都點檢趙匡胤奉命統兵北上。行軍至陳橋驛，將士發動兵變，以黃袍加趙匡胤之身，擁立為帝。回師開封後廢周恭帝，建立趙宋王朝，結束五代半個多世紀的藩鎮割據混亂。",
+      "detail": "陳橋兵變採用和平禪讓手段，趙匡胤約束部隊「不得秋毫犯闕」，開封城內秩序井然。趙匡胤隨後推行崇文抑武國策，奠定三百年兩宋文治基石。",
+      "impact": "結束唐末五代以來軍閥割據與短命王朝的惡性循環，開創文治昌盛的趙宋時代。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "陳橋驛 / 開封府",
+      "locationName": "開封",
+      "locationModern": "河南省開封市東北陳橋鎮",
+      "coords": [
+        114.45,
+        34.85
+      ],
+      "svgPos": {
+        "x": 570,
+        "y": 440
+      },
+      "figuresInvolved": [
+        "fig_zhao_kuangyin",
+        "fig_zhao_pu"
+      ]
+    },
+    {
+      "id": "evt_song_02",
+      "name": "杯酒釋兵權",
+      "year": 961,
+      "yearDisplay": "961 CE",
+      "eraName": "北宋建隆二年",
+      "eraDisplay": "建隆二年 七月",
+      "shortDescription": "趙匡胤於宮中置酒，勸誘石守信、高懷德等開國宿將交出禁軍兵權。",
+      "description": "趙匡胤聽取宰相趙普「稍奪其權，制其錢穀，收其精兵」之策，於晚朝召集禁軍宿將宴飲。酒酣之際，太祖慨嘆作皇帝之艱難，部將惶恐叩首。太祖勸其交出軍權、置田宅以享富貴。次日諸將皆稱病請解兵權。",
+      "detail": "此後又於建隆三年免去符彥卿等節度使兵權，徹底解決中唐以來藩鎮跋扈、天子兵強馬壯者為之的千古頑疾。",
+      "impact": "徹底消弭藩鎮兵變隱患，確立中央集權與文官政治體制。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "開封府大內垂拱殿",
+      "locationName": "汴京大內",
+      "locationModern": "河南省開封市",
+      "coords": [
+        114.35,
+        34.8
+      ],
+      "svgPos": {
+        "x": 570,
+        "y": 442
+      },
+      "figuresInvolved": [
+        "fig_zhao_kuangyin",
+        "fig_zhao_pu"
+      ]
+    },
+    {
+      "id": "evt_song_03",
+      "name": "先南後北·統一南方諸國",
+      "year": 963,
+      "yearDisplay": "963 - 975 CE",
+      "eraName": "北宋建隆至開寶",
+      "eraDisplay": "建隆四年 至 開寶八年",
+      "shortDescription": "宋太祖實施「先南後北、先易後難」方略，相繼平定荊南、後蜀、南漢、南唐。",
+      "description": "太祖趙普制定策略，避開北方強遼鋒芒，先兼併南方割據政權以充實國庫與賦稅。963年平荊湖，965年王全斌滅後蜀，971年潘美平南漢，975年曹彬率大軍渡江圍金陵滅南唐，後主李煜肉袒出降。",
+      "detail": "南方各國經濟富庶、文化繁榮，統一使南方財賦源源不斷供應中央，為宋代經濟重心南移注入關鍵動力。",
+      "impact": "基本肅清南方群雄，奠定兩宋大一統基本版圖與龐大財稅基礎。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "江寧府（金陵）",
+      "locationName": "金陵",
+      "locationModern": "江蘇省南京市",
+      "coords": [
+        118.78,
+        32.04
+      ],
+      "svgPos": {
+        "x": 640,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_zhao_kuangyin",
+        "fig_zhao_pu"
+      ]
+    },
+    {
+      "id": "evt_song_04",
+      "name": "燭影斧聲與太宗即位",
+      "year": 976,
+      "yearDisplay": "976 CE",
+      "eraName": "北宋開寶九年",
+      "eraDisplay": "開寶九年 十月",
+      "shortDescription": "宋太祖暴崩，弟趙光義即位為宋太宗，引發歷史公案。",
+      "description": "開寶九年十月十九日夜，太祖趙匡胤召晉王趙光義入萬歲殿飲酒。宮人遙見燭影下光義時或避席，有柱斧戳地之聲。天明太祖崩，趙光義即皇帝位，次年改元太平興國。",
+      "detail": "此事件史稱「燭影斧聲」，趙普後來提出「金匱之盟」以證明傳弟合乎昭憲太后遺命。",
+      "impact": "宋皇位傳承自太祖支系轉入太宗支系，直到南宋高宗無嗣才回歸太祖裔孫趙昚。",
+      "category": "political",
+      "importance": 4,
+      "locationNameAncient": "開封府萬歲殿",
+      "locationName": "開封",
+      "locationModern": "河南省開封市",
+      "coords": [
+        114.35,
+        34.8
+      ],
+      "svgPos": {
+        "x": 570,
+        "y": 442
+      },
+      "figuresInvolved": [
+        "fig_zhao_kuangyin",
+        "fig_zhao_guangyi",
+        "fig_zhao_pu"
+      ]
+    },
+    {
+      "id": "evt_song_05",
+      "name": "平定北漢·終結五代十國",
+      "year": 979,
+      "yearDisplay": "979 CE",
+      "eraName": "北宋太平興國四年",
+      "eraDisplay": "太平興國四年 五月",
+      "shortDescription": "宋太宗親征太原，擊退遼國援軍，迫降北漢劉繼元，五代十國徹底終結。",
+      "description": "北漢倚仗遼國庇護割據河東三十年。太宗趙光義調集主力親征太原，分兵白馬嶺重創遼國援軍耶律沙，圍困太原數月。北漢主劉繼元見外援已絕，舉城出降。太宗焚毀太原舊城，另築陽曲新城。",
+      "detail": "平北漢象徵唐末藩鎮割據與五代十國分裂格局歷經八十餘年終於徹底終結。",
+      "impact": "五代十國正式落幕，中原與南方重歸一統。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "太原府 / 晉陽城",
+      "locationName": "太原",
+      "locationModern": "山西省太原市晉源區",
+      "coords": [
+        112.55,
+        37.87
+      ],
+      "svgPos": {
+        "x": 530,
+        "y": 380
+      },
+      "figuresInvolved": [
+        "fig_zhao_guangyi",
+        "fig_yang_ye"
+      ]
+    },
+    {
+      "id": "evt_song_06",
+      "name": "高梁河之戰·太宗收燕雲受挫",
+      "year": 979,
+      "yearDisplay": "979 CE",
+      "eraName": "北宋太平興國四年",
+      "eraDisplay": "太平興國四年 七月",
+      "shortDescription": "太宗滅北漢後移師北伐幽州，於高梁河遭遼名將耶律休哥夾擊大敗。",
+      "description": "滅北漢後宋太宗不顧將士疲敝，執意率軍北攻幽州（今北京）。宋軍初期獲勝合圍幽州城數旬，遼景宗遣北院大王耶律休哥、耶律斜軫馳援。雙方決戰於高梁河，遼軍鐵騎兩翼包抄大破宋軍，太宗中箭乘驢車南逃。",
+      "detail": "此戰為宋遼攻守之勢反轉之關鍵節點，宋軍精銳死傷慘重，北宋失去一舉收復燕雲十六州的絕佳契機。",
+      "impact": "宋遼自此攻守易勢，遼軍轉入戰略主動，頻繁南侵河北。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "幽州高梁河",
+      "locationName": "高梁河 / 幽州",
+      "locationModern": "北京市西直門外西直門橋至紫竹院一帶",
+      "coords": [
+        116.35,
+        39.95
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_zhao_guangyi",
+        "fig_yelv_xiuge"
+      ]
+    },
+    {
+      "id": "evt_song_07",
+      "name": "雍熙北伐與楊業殉國",
+      "year": 986,
+      "yearDisplay": "986 CE",
+      "eraName": "北宋雍熙三年",
+      "eraDisplay": "雍熙三年 正月至八月",
+      "shortDescription": "太宗三路大軍北伐遼國，東路曹彬敗於岐溝關，西路楊業絕食殉國。",
+      "description": "宋太宗見遼景宗駕崩、幼主聖宗即位、蕭太后攝政，遂起曹彬、潘美、楊業兵分三路北伐。東路主力曹彬部在岐溝關遭耶律休哥大敗；西路潘美、王侁逼迫楊業出兵，楊業於陳家谷口孤軍奮戰，受俘絕食三日而殉國。",
+      "detail": "雍熙北伐徹底摧毀了北宋中央禁軍主力與奪回燕雲十六州的軍事信心，宋朝自此放棄主動收復北疆，改採防禦政策。",
+      "impact": "楊業忠烈名揚後世，演化為「楊家將」千古傳奇；北宋對遼軍事戰略全面轉入消極防禦。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "陳家谷 / 朔州",
+      "locationName": "陳家谷",
+      "locationModern": "山西省朔州市朔城區",
+      "coords": [
+        112.43,
+        39.32
+      ],
+      "svgPos": {
+        "x": 535,
+        "y": 340
+      },
+      "figuresInvolved": [
+        "fig_yang_ye",
+        "fig_zhao_guangyi",
+        "fig_yelv_xiuge",
+        "fig_xiao_taihou"
+      ]
+    },
+    {
+      "id": "evt_song_08",
+      "name": "澶淵之盟·百年宋遼修好",
+      "year": 1004,
+      "yearDisplay": "1004 CE",
+      "eraName": "北宋景德元年",
+      "eraDisplay": "景德元年 閏九月至十二月",
+      "shortDescription": "蕭太后與遼聖宗親征大舉南下，寇準力主真宗親征澶州，締結兄弟之邦和平盟約。",
+      "description": "遼蕭太后與聖宗帥20萬鐵騎長驅直入至黃河岸邊澶州，京師震動。參知政事王欽若等主遷都，宰相寇準力排眾議，促請宋真宗御駕親征。宋軍守城以床子弩射殺遼統軍蕭撻凜，遼軍受挫求和。雙方於澶州結盟，宋每年輸銀十萬兩、絹二十萬匹，結為兄弟之國。",
+      "detail": "澶淵之盟開創了宋遼維持百餘年和平通好的黃金局面，邊境榷場大興，互市貿易蓬勃發展，雙方免於兵燹塗炭。",
+      "impact": "奠定宋遼兩朝逾百年和平格局，開創以歲幣換取邊境安定之對外範式。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "澶州城（黃河渡口）",
+      "locationName": "澶州 / 濮陽",
+      "locationModern": "河南省濮陽市濮陽縣",
+      "coords": [
+        115.03,
+        35.71
+      ],
+      "svgPos": {
+        "x": 585,
+        "y": 410
+      },
+      "figuresInvolved": [
+        "fig_zhao_heng",
+        "fig_kou_zhun",
+        "fig_xiao_taihou"
+      ]
+    },
+    {
+      "id": "evt_song_09",
+      "name": "元昊稱帝與西夏立國",
+      "year": 1038,
+      "yearDisplay": "1038 CE",
+      "eraName": "西夏天慶元年",
+      "eraDisplay": "天慶元年 / 北宋寶元元年 十月",
+      "shortDescription": "黨項首領李元昊脫離宋朝藩屬自立為帝，建立大夏政權，定都興慶府。",
+      "description": "黨項首領李元昊繼承父親德明之基業，創立西夏文字、更衣冠、改制度、設番漢官制。1038年十月十一日，元昊正式於興慶府（今銀川）登基稱帝，改元天慶，國號「大夏」，並修書要求宋仁宗承認其帝號，引發宋夏長達數十年的戰爭。",
+      "detail": "西夏地處河西走廊要衝，控扼絲綢之路，擁鐵鷂子、步跋子精銳軍隊，成為宋遼之外鼎足而立之第三大政權。",
+      "impact": "西北邊疆形勢驟變，宋朝陷入兩線防禦壓力，促成宋夏大戰與慶曆新政。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "興慶府（中興府）",
+      "locationName": "興慶府",
+      "locationModern": "寧夏回族自治區銀川市",
+      "coords": [
+        106.27,
+        38.47
+      ],
+      "svgPos": {
+        "x": 440,
+        "y": 370
+      },
+      "figuresInvolved": [
+        "fig_li_yuanhao",
+        "fig_zhao_zhen"
+      ]
+    },
+    {
+      "id": "evt_song_10",
+      "name": "好水川與三川口之戰·三路宋軍挫敗",
+      "year": 1041,
+      "yearDisplay": "1040 - 1042 CE",
+      "eraName": "北宋康定至慶曆",
+      "eraDisplay": "康定元年 至 慶曆二年",
+      "shortDescription": "西夏元昊設伏好水川，大敗宋軍任福部；宋廷起用范仲淹、韓琦主持西北防線。",
+      "description": "元昊稱帝後主動進攻北宋延州、涇原。1040年三川口之戰宋將劉平被俘；1041年好水川之戰，元昊以伏兵之計全殲任福麾下一萬餘宋軍精銳。宋仁宗震驚，急調范仲淹、韓琦坐鎮陜西經略邊務，築堡聯防，漸趨穩定戰局。",
+      "detail": "范仲淹在邊陲深得軍心，西夏人稱「軍中有一范，西賊聞之驚破膽；軍中有一韓，西賊聞之驚破膽」。",
+      "impact": "宋夏雙方均耗損巨大，最終於1044年達成「慶曆和議」，夏取消帝號受宋冊封。",
+      "category": "military",
+      "importance": 4,
+      "locationNameAncient": "好水川 / 隆德",
+      "locationName": "好水川",
+      "locationModern": "寧夏固原市隆德縣好水鄉",
+      "coords": [
+        106.12,
+        35.62
+      ],
+      "svgPos": {
+        "x": 445,
+        "y": 430
+      },
+      "figuresInvolved": [
+        "fig_li_yuanhao",
+        "fig_fan_zhongyan",
+        "fig_han_qi"
+      ]
+    },
+    {
+      "id": "evt_song_11",
+      "name": "慶曆新政·先天下之憂而憂",
+      "year": 1043,
+      "yearDisplay": "1043 - 1044 CE",
+      "eraName": "北宋慶曆三年",
+      "eraDisplay": "慶曆三年 八月至 慶曆五年",
+      "shortDescription": "范仲淹、富弼、韓琦推行慶曆新政，上《答手詔條陳十事》，整飭吏治。",
+      "description": "宋仁宗銳意革新，任命范仲淹為參知政事、富弼為樞密副使。范仲淹提出「明黜陟、抑僥倖、精貢舉、擇官長、均公田、厚農桑、修武備、推恩信、重命令、減徭役」十項改革主張，嚴懲冗官貪墨。然而因觸動守舊貴族利益，遭「朋黨」指控，新政歷時一年有餘而罷黜。",
+      "detail": "范仲淹貶謫鄧州後寫下傳世名篇《岳陽樓記》：「先天下之憂而憂，後天下之樂而樂」，成為士大夫崇高精神標竿。",
+      "impact": "為後來的王安石熙寧變法提供制度思考與改革先導。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "開封府垂拱殿",
+      "locationName": "汴京",
+      "locationModern": "河南省開封市",
+      "coords": [
+        114.35,
+        34.8
+      ],
+      "svgPos": {
+        "x": 570,
+        "y": 442
+      },
+      "figuresInvolved": [
+        "fig_fan_zhongyan",
+        "fig_fu_bi",
+        "fig_han_qi",
+        "fig_zhao_zhen"
+      ]
+    },
+    {
+      "id": "evt_song_12",
+      "name": "狄青夜襲崑崙關平儂智高",
+      "year": 1053,
+      "yearDisplay": "1053 CE",
+      "eraName": "北宋皇祐五年",
+      "eraDisplay": "皇祐五年 正月",
+      "shortDescription": "廣源州蠻首領儂智高作亂席捲嶺南，樞密副使狄青巧借元宵燈會奇襲崑崙關大破之。",
+      "description": "壯族領袖儂智高起兵反宋，自稱大南國皇帝，連破邕、橫等九州，圍攻廣州五十七日。宋仁宗拜出身面涅刺字的行伍名將狄青為宣撫使征討。狄青嚴明軍紀，於上元夜設宴麻痺敵軍，親率精銳暴風雪夜越崑崙關天險，於歸仁鋪一舉平定儂智高叛亂。",
+      "detail": "狄青因戰功升任樞密使，為宋朝少數官拜正宰執的行伍軍人，後因朝臣文官猜忌抑鬱而終。",
+      "impact": "徹底平定嶺南動盪，維護兩廣與西南邊疆版圖穩定。",
+      "category": "military",
+      "importance": 4,
+      "locationNameAncient": "崑崙關 / 邕州",
+      "locationName": "崑崙關",
+      "locationModern": "廣西壯族自治區南寧市賓陽縣與興寧區交界",
+      "coords": [
+        108.45,
+        23.01
+      ],
+      "svgPos": {
+        "x": 500,
+        "y": 650
+      },
+      "figuresInvolved": [
+        "fig_di_qing",
+        "fig_zhao_zhen",
+        "fig_bao_zheng"
+      ]
+    },
+    {
+      "id": "evt_song_13",
+      "name": "王安石熙寧變法",
+      "year": 1069,
+      "yearDisplay": "1069 - 1085 CE",
+      "eraName": "北宋熙寧至元豐",
+      "eraDisplay": "熙寧二年 至 元豐八年",
+      "shortDescription": "神宗起用王安石推行新法，青苗法、免役法、市易法全面改革，開創熙豐富國強兵。",
+      "description": "為扭轉宋朝「積貧積弱」與龐大財政赤字困局，宋神宗任用王安石為參知政事設制置三司條例司，推行均輸法、青苗法、農田水利法、免役法、市易法、方田均稅法、保甲法等。變法增加國庫收入、改善水利，但也激起司馬光、蘇軾、韓琦等舊黨大臣強烈反彈，引發長達數十年的新舊黨爭。",
+      "detail": "王安石倡言「天變不足畏，祖宗不足法，人言不足恤」，展現中國中古最宏偉之改革氣魄。",
+      "impact": "極大增強宋朝中央財政與常備邊防武力，但亦引發日趨激化的朝廷門戶水火不容。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "開封府中書省",
+      "locationName": "汴京",
+      "locationModern": "河南省開封市",
+      "coords": [
+        114.35,
+        34.8
+      ],
+      "svgPos": {
+        "x": 570,
+        "y": 442
+      },
+      "figuresInvolved": [
+        "fig_wang_anshi",
+        "fig_sima_guang",
+        "fig_zhao_xu",
+        "fig_su_shi"
+      ]
+    },
+    {
+      "id": "evt_song_14",
+      "name": "王韶熙河開邊·拓地千里",
+      "year": 1072,
+      "yearDisplay": "1072 - 1074 CE",
+      "eraName": "北宋熙寧五年至七年",
+      "eraDisplay": "熙寧五年 至 七年",
+      "shortDescription": "王韶上《平戎策》，收復熙、河、洮、岷、疊、宕六州，開拓疆土兩千里。",
+      "description": "王安石與宋神宗採納王韶建議，經略青唐吐蕃與隴右諸羌。王韶率軍深入河湟高原，招撫諸羌部族，擊破木征部，收復洮岷一帶兩千里故地，設熙河路，成功包抄西夏右翼，斬獲宋代少見之大開拓勝利。",
+      "detail": "熙河開邊為北宋立國以來最大規模之對外拓土軍事勝利，使西夏腹背受敵。",
+      "impact": "打通河西走廊南道，扼制西夏西南側翼，展現熙寧變法富國強兵之成效。",
+      "category": "military",
+      "importance": 4,
+      "locationNameAncient": "熙州 / 臨洮府",
+      "locationName": "熙州",
+      "locationModern": "甘肅省定西市臨洮縣",
+      "coords": [
+        103.86,
+        35.38
+      ],
+      "svgPos": {
+        "x": 420,
+        "y": 440
+      },
+      "figuresInvolved": [
+        "fig_wang_anshi",
+        "fig_zhao_xu"
+      ]
+    },
+    {
+      "id": "evt_song_15",
+      "name": "完顏阿骨打起兵與大金立國",
+      "year": 1115,
+      "yearDisplay": "1115 CE",
+      "eraName": "金收國元年",
+      "eraDisplay": "收國元年 / 北宋政和五年 正月",
+      "shortDescription": "女真首領完顏阿骨打反抗遼國暴政，稱帝建國號大金，於護步達岡以少勝多擊潰遼軍。",
+      "description": "生女真長期受遼國天祚帝與契丹官吏殘酷壓迫「鷹路」與海東青進貢。1114年完顏阿骨打誓師反遼，首戰寧江州告捷。1115年正月初一於會寧府稱帝，國號大金。同年阿骨打以兩萬鐵騎於護步達岡迎戰天祚帝七十萬遼軍，斬首數萬，徹底瓦解大遼帝國主力。",
+      "detail": "金太祖阿骨打以「遼以鑌鐵為號，取其堅也。鑌鐵雖堅，終亦變壞，唯金不變不壞」立國。",
+      "impact": "女真旋風式崛起東北，迅速打破宋遼夏三足鼎立平衡，遼國走向滅亡倒數。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "會寧府（金上京）",
+      "locationName": "會寧府",
+      "locationModern": "黑龍江省哈爾濱市阿城區",
+      "coords": [
+        126.96,
+        45.53
+      ],
+      "svgPos": {
+        "x": 730,
+        "y": 190
+      },
+      "figuresInvolved": [
+        "fig_wanyan_aguda"
+      ]
+    },
+    {
+      "id": "evt_song_16",
+      "name": "宋金海上之盟與遼國覆滅",
+      "year": 1120,
+      "yearDisplay": "1120 - 1125 CE",
+      "eraName": "北宋宣和至靖康",
+      "eraDisplay": "宣和二年 至 靖康元年",
+      "shortDescription": "宋徽宗與童貫主導渡海與金約定夾攻遼國，遼國滅亡，契丹耶律大石西征建立西遼。",
+      "description": "宋徽宗見金國崛起，欲收回燕雲十六州，派馬政由登州浮海赴金，締結「海上之盟」，約定宋攻燕京、金攻中京西京，事成後宋將原輸遼歲幣轉交金國。然而宋軍童貫北伐燕京遭遼殘部重挫，反請金軍代取。1125年遼天祚帝被俘，遼亡；耶律大石率殘部西走中亞建立威震歐亞之西遼王朝。",
+      "detail": "金人親眼目睹北宋禁軍疲弱虛實與中原富庶，隨即萌生南下滅宋之野心。",
+      "impact": "北疆百年屏障大遼化為烏有，北宋直接暴露在虎狼之師女真金軍鋒芒之前。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "燕京 / 析津府",
+      "locationName": "燕京",
+      "locationModern": "北京市房山區與西南城區",
+      "coords": [
+        116.35,
+        39.9
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 325
+      },
+      "figuresInvolved": [
+        "fig_zhao_ji",
+        "fig_yelv_dashi",
+        "fig_wanyan_aguda"
+      ]
+    },
+    {
+      "id": "evt_song_17",
+      "name": "靖康之恥與北宋覆滅",
+      "year": 1127,
+      "yearDisplay": "1126 - 1127 CE",
+      "eraName": "北宋靖康二年",
+      "eraDisplay": "靖康二年 四月",
+      "shortDescription": "金軍兩路南下合圍汴京，破城俘徽欽二帝、宗室后妃三千餘人北去，北宋滅亡。",
+      "description": "金軍完顏宗望、完顏宗翰二路合圍汴京。初次圍城李綱主持城防擊退金軍；靖康元年冬金軍再度兵臨城下，宋欽宗聽信郭京六甲神兵破城，汴京陷落。1127年四月，金軍掠徽欽二帝、趙氏宗室三千餘人、教坊宮女、法器文獻北遷會寧府，北宋亡。",
+      "detail": "此變為漢族政權空前未有之浩劫，岳飛於《滿江紅》中誓言「靖康恥，猶未雪。臣子恨，何時滅！」。",
+      "impact": "北宋167年國祚斷絕，中原華夏腹地淪入金朝治下，引發中國歷史第二次大規模衣冠南渡。",
+      "category": "disaster",
+      "importance": 5,
+      "locationNameAncient": "開封府（汴梁城）",
+      "locationName": "汴京",
+      "locationModern": "河南省開封市",
+      "coords": [
+        114.35,
+        34.8
+      ],
+      "svgPos": {
+        "x": 570,
+        "y": 442
+      },
+      "figuresInvolved": [
+        "fig_zhao_ji",
+        "fig_li_gang",
+        "fig_zong_ze",
+        "fig_wanyan_zongbi"
+      ]
+    },
+    {
+      "id": "evt_song_18",
+      "name": "趙構南渡與南宋立國",
+      "year": 1127,
+      "yearDisplay": "1127 CE",
+      "eraName": "南宋建炎元年",
+      "eraDisplay": "建炎元年 五月",
+      "shortDescription": "康王趙構於南京應天府即皇帝位，南渡江南定都臨安，延續趙宋社稷。",
+      "description": "靖康之難中康王趙構因奉使在外倖免於難。1127年五月初一，趙構在南京應天府（今河南商丘）登基稱帝，是為宋高宗，改元建炎。面對金軍兀朮「搜山檢海捉趙構」的追擊，高宗泛海避走溫州，最終移蹕杭州，定名「臨安府」，建立南宋。",
+      "detail": "宗澤留守開封，臨終大呼三聲「過河」而逝；高宗任命李綱、張浚等人收拾南方半壁殘局。",
+      "impact": "保全華夏文脈衣冠於江南，开启兩宋南渡一百五十年江南盛世。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "應天府（商丘） / 臨安府（杭州）",
+      "locationName": "應天府 / 臨安",
+      "locationModern": "浙江省杭州市上城區",
+      "coords": [
+        120.15,
+        30.28
+      ],
+      "svgPos": {
+        "x": 655,
+        "y": 550
+      },
+      "figuresInvolved": [
+        "fig_zhao_gou",
+        "fig_zong_ze",
+        "fig_li_gang"
+      ]
+    },
+    {
+      "id": "evt_song_19",
+      "name": "黃天蕩阻擊與梁紅玉擂鼓",
+      "year": 1130,
+      "yearDisplay": "1130 CE",
+      "eraName": "南宋建炎四年",
+      "eraDisplay": "建炎四年 三月至五月",
+      "shortDescription": "韓世忠與夫人梁紅玉以八千水師截斷完顏宗弼十萬金軍長江歸路，困鎖黃天蕩四十八日。",
+      "description": "金軍兀朮渡江南下大掠臨安後北返。韓世忠率水軍伏擊於鎮江焦山，進扼黃天蕩長江水道。夫人梁紅玉親自登檣擂鼓指揮戰船，以海鰍大艦擊沉金軍輕舟，將十萬金軍死困於長江港叉四十八天，兀朮幾無生路，最終鑿渠遁走。",
+      "detail": "黃天蕩之戰挫敗了女真騎兵無敵於長江的神話，奠定南宋以長江水軍立國之堅定信心。",
+      "impact": "徹底扭轉宋金長江攻守態勢，確立南宋憑借長江天險半壁自保之局。",
+      "category": "military",
+      "importance": 4,
+      "locationNameAncient": "黃天蕩 / 鎮江府",
+      "locationName": "黃天蕩",
+      "locationModern": "江蘇省南京市棲霞山至鎮江市一帶江面",
+      "coords": [
+        119.05,
+        32.18
+      ],
+      "svgPos": {
+        "x": 650,
+        "y": 510
+      },
+      "figuresInvolved": [
+        "fig_han_shizhong",
+        "fig_liang_hongyu",
+        "fig_wanyan_zongbi"
+      ]
+    },
+    {
+      "id": "evt_song_20",
+      "name": "岳家軍郾城大捷與收復中原之夢",
+      "year": 1140,
+      "yearDisplay": "1140 CE",
+      "eraName": "南宋紹興十年",
+      "eraDisplay": "紹興十年 七月",
+      "shortDescription": "岳飛北伐連克鄭州、洛陽，郾城與潁昌以步克騎破金兀朮「拐子馬」，進抵朱仙鎮。",
+      "description": "金兀朮撕毀盟約大舉南侵，岳飛揮師第四次北伐。岳家軍前出中原，岳雲、楊再興等將士在郾城、潁昌以麻紮刀、大斧手砍馬足，大破金軍精銳「鐵浮屠」與「拐子馬」，金兀朮哀嘆「撼山易，撼岳家軍難」。岳軍前鋒直抵距汴京四十五里之朱仙鎮，中原父老簞食壺漿。",
+      "detail": "正當收復故都指日可待之際，宋高宗與秦檜一日連下十二道金字牌急召岳飛班師回朝，十年之功廢於一旦。",
+      "impact": "展現南宋最高軍事反擊極限，亦成為千古忠奸悲劇之歷史頂點。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "郾城 / 潁昌府",
+      "locationName": "郾城",
+      "locationModern": "河南省漯河市郾城區",
+      "coords": [
+        114.01,
+        33.58
+      ],
+      "svgPos": {
+        "x": 565,
+        "y": 470
+      },
+      "figuresInvolved": [
+        "fig_yue_fei",
+        "fig_yue_yun",
+        "fig_wanyan_zongbi",
+        "fig_zhao_gou",
+        "fig_qin_hui"
+      ]
+    },
+    {
+      "id": "evt_song_21",
+      "name": "紹興和議與岳飛風波亭遇害",
+      "year": 1141,
+      "yearDisplay": "1141 - 1142 CE",
+      "eraName": "南宋紹興十一至十二年",
+      "eraDisplay": "紹興十一年 十一月 至 紹興十二年 除夕",
+      "shortDescription": "宋高宗與秦檜屈辱媾和，殺岳飛於風波亭，劃淮水中流為宋金邊界。",
+      "description": "為滿足金朝「必殺飛，始可和」之條件，宋高宗與宰相秦檜以「莫須有」謀反罪名將岳飛、岳雲、張憲下大理寺獄。1142年除夕岳飛遇害於臨安風波亭，年僅三十九歲。隨後宋金簽署《紹興和議》，南宋向金稱臣，每年貢銀二十五萬兩、絹二十五萬匹，割唐鄧二州，劃淮水中流與大散關為界。",
+      "detail": "韓世忠當面責問秦檜岳飛罪名，秦檜答「其事體莫須有」，韓世忠憤然：「莫須有三字，何以服天下！」。",
+      "impact": "宋金南北劃界分峙格局徹底定型，民族英雄岳飛千古留名，秦檜鑄鐵跪像受萬世唾棄。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "臨安府大理寺風波亭",
+      "locationName": "臨安",
+      "locationModern": "浙江省杭州市西湖景區",
+      "coords": [
+        120.14,
+        30.25
+      ],
+      "svgPos": {
+        "x": 655,
+        "y": 550
+      },
+      "figuresInvolved": [
+        "fig_yue_fei",
+        "fig_qin_hui",
+        "fig_zhao_gou",
+        "fig_han_shizhong"
+      ]
+    },
+    {
+      "id": "evt_song_22",
+      "name": "虞允文采石磯大捷",
+      "year": 1161,
+      "yearDisplay": "1161 CE",
+      "eraName": "南宋紹興三十一年",
+      "eraDisplay": "紹興三十一年 十一月",
+      "shortDescription": "金海陵王完顏亮率六十萬大軍渡江滅宋，中書舍人虞允文督師采石，以弱勝強挽狂瀾於既倒。",
+      "description": "金帝完顏亮發動六十萬傾國之師南侵，揚言「提兵百萬西湖上，立馬吳山第一峰」。宋主將逃遁，督師虞允文受命前往采石磯慰勞將士，毅然挺身誓師督戰。宋水師以神臂弓與霹靂炮痛擊渡江金軍，火焚敵船，金軍大潰。完顏亮隨後在瓜洲兵變中為部將所殺。",
+      "detail": "毛澤東曾盛讚「偉哉虞公，千古一人」，采石之戰為繼淝水之戰後長江防禦第二場經典大捷。",
+      "impact": "徹底打破金國吞併南宋企圖，促使金世宗即位改弦易轍，迎來宋金乾淳之治和平。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "采石磯 / 和州",
+      "locationName": "采石磯",
+      "locationModern": "安徽省馬鞍山市雨山區采石鎮",
+      "coords": [
+        118.45,
+        31.67
+      ],
+      "svgPos": {
+        "x": 635,
+        "y": 525
+      },
+      "figuresInvolved": [
+        "fig_yu_yunwen",
+        "fig_zhao_gou"
+      ]
+    },
+    {
+      "id": "evt_song_23",
+      "name": "鐵木真稱成吉思汗·大蒙古國崛起",
+      "year": 1206,
+      "yearDisplay": "1206 CE",
+      "eraName": "蒙古大汗元年",
+      "eraDisplay": "1206年 斡難河畔",
+      "shortDescription": "鐵木真統一蒙古高原各部，被尊為成吉思汗，建立大蒙古國，撼動歐亞格局。",
+      "description": "斡難河源忽里勒台大會上，鐵木真統一乞顏、塔塔兒、克烈、乃蠻各部，建九游白纛，尊號「成吉思汗」，建構千戶制與怯薛軍。隨後蒙古鐵騎發動西征與南下，相繼重創西夏、金朝，開啟席捲歐亞大陸的蒙古擴張浪潮。",
+      "detail": "成吉思汗制定《大扎撒》法典，開創高度機動之游牧騎兵戰略與多兵種協同作戰體系。",
+      "impact": "世界歷史轉捩點，直接導致西夏、金朝覆滅與元朝大一統之建立。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "斡難河源（肯特山）",
+      "locationName": "斡難河",
+      "locationModern": "蒙古國肯特省鄂嫩河畔",
+      "coords": [
+        109.8,
+        48.9
+      ],
+      "svgPos": {
+        "x": 520,
+        "y": 150
+      },
+      "figuresInvolved": [
+        "fig_genghis_khan"
+      ]
+    },
+    {
+      "id": "evt_song_24",
+      "name": "宋蒙聯軍滅金·蔡州之屠",
+      "year": 1234,
+      "yearDisplay": "1234 CE",
+      "eraName": "南宋端平元年",
+      "eraDisplay": "端平元年 正月",
+      "shortDescription": "宋將孟珙與蒙古塔察兒聯軍合圍蔡州，金哀宗自縊完顏承麟戰死，金國滅亡。",
+      "description": "金朝受蒙古三路壓迫遷都開封再奔蔡州。宋理宗決定聯蒙復靖康之仇，命名將孟珙督兵兩萬、運米三十萬石會攻蔡州。宋軍鑿堤放水、雲梯登城破南門。金哀宗自縊，金末帝完顏承麟即位未幾亦陣亡，大金國歷120年而亡。",
+      "detail": "孟珙與蒙古將軍相約平分金國遺物，宋軍終雪靖康百年之恥，但也使南宋直接暴露在更強大之蒙古鐵騎面前。",
+      "impact": "大金國覆亡，百年世仇雖雪，但宋蒙全面對峙爆發，南宋迎來生死存亡考驗。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "蔡州（汝南）",
+      "locationName": "蔡州",
+      "locationModern": "河南省駐馬店市汝南縣",
+      "coords": [
+        114.36,
+        33.01
+      ],
+      "svgPos": {
+        "x": 575,
+        "y": 480
+      },
+      "figuresInvolved": [
+        "fig_meng_gong"
+      ]
+    },
+    {
+      "id": "evt_song_25",
+      "name": "襄樊之戰與樊城屠城",
+      "year": 1273,
+      "yearDisplay": "1268 - 1273 CE",
+      "eraName": "南宋咸淳四年至九年",
+      "eraDisplay": "咸淳四年 至 咸淳九年",
+      "shortDescription": "忽必烈大軍圍困襄陽、樊城長達六年，阿里海牙以回回砲轟塌樊城，襄陽呂文煥力竭出降。",
+      "description": "襄陽為南宋長江防禦之門戶鎖鑰。忽必烈任阿術、劉整統兵十數萬合圍襄樊，築堡截江。宋將呂文煥死守孤城六年，援軍張順張貴血戰不克。1273年元軍引進西域巨石投石機「回回砲」猛烈轟擊，樊城城破遭屠；呂文煥內外斷絕，為保全城生靈開城降元。",
+      "detail": "襄陽淪陷使南宋長江中游門戶洞開，元軍伯顏部得以順江東下直撲臨安。",
+      "impact": "長江中游天險告破，南宋政權進入最後覆亡倒數階段。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "襄陽府與樊城",
+      "locationName": "襄陽",
+      "locationModern": "湖北省襄陽市襄城區與樊城區",
+      "coords": [
+        112.14,
+        32.01
+      ],
+      "svgPos": {
+        "x": 545,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_kublai_khan",
+        "fig_wen_tianxiang"
+      ]
+    },
+    {
+      "id": "evt_song_26",
+      "name": "崖山海戰·陸秀夫負帝投海宋亡",
+      "year": 1279,
+      "yearDisplay": "1279 CE",
+      "eraName": "南宋祥興二年",
+      "eraDisplay": "祥興二年 二月六日",
+      "shortDescription": "元張弘範水師合圍崖山，宋軍全線潰敗，陸秀夫背負八歲幼帝趙昺跳海，兩宋徹底終結。",
+      "description": "臨安降元後，文天祥、陸秀夫、張世傑擁立端宗、衛王轉戰閩粵沿海。祥興二年正月，元將張弘範、李恆水師合圍崖門海面。二月初六日大霧迷漫，元軍乘潮猛攻，宋軍千艘連環舟師瓦解崩潰。左丞相陸秀夫手持佩劍逼妻妾投海，身背八歲幼帝趙昺毅然赴海自盡，軍民殉國者達十萬餘人。",
+      "detail": "被俘於元軍戰船上的文天祥目睹崖山覆滅，作《過零丁洋》「人生自古誰無死，留取丹心照汗青」，矢志不屈受戮於大都。",
+      "impact": "歷時319年之趙宋皇朝徹底落幕，華夏文明首次全面由北方游牧民族大元帝國統一。",
+      "category": "disaster",
+      "importance": 5,
+      "locationNameAncient": "崖山海面（新會崖門）",
+      "locationName": "崖山",
+      "locationModern": "廣東省江門市新會區崖門鎮",
+      "coords": [
+        113.08,
+        22.18
+      ],
+      "svgPos": {
+        "x": 575,
+        "y": 670
+      },
+      "figuresInvolved": [
+        "fig_lu_xiufu",
+        "fig_zhang_shijie",
+        "fig_wen_tianxiang",
+        "fig_kublai_khan"
+      ]
+    }
+  ];
+
+  // src/data/periods/songLiao/warlordPeriods.js
+  var SONG_LIAO_WARLORD_PERIODS = [
+    {
+      "id": "song_960",
+      "yearNumber": 960,
+      "yearDisplay": "960 CE",
+      "shortLabel": "960 北宋立國",
+      "headline": "北宋建立與五代殘局：陳橋兵變，南方十國星羅棋布",
+      "subTitle": "宋太祖趙匡胤陳橋兵變代周立宋，定都開封；北方遼國與北漢虎視眈眈，南方割據諸國尚存。",
+      "chronicleLeft": [
+        "後周殿前都點檢趙匡胤於陳橋驛受諸將擁立黃袍加身，回師開封受禪稱帝建立大宋。",
+        "太祖採納趙普建議確立「先南後北、先易後難」統一戰略，籌措國庫準備出兵。",
+        "北方契丹大遼扶植北漢劉鈞盤踞太原，頻頻叩邊威脅中原。"
+      ],
+      "chronicleRight": [
+        "南方後蜀孟昶、南唐李煜、南漢劉鋹、吳越錢俶、荊南高保融各自割據稱雄。",
+        "太祖隨後實施「杯酒釋兵權」，妥善收回石守信、高懷德等禁軍節度使兵權。",
+        "宋軍整訓侍衛親軍與殿前諸班，建立強悍禁軍主力，吹響統一大業前奏。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "北宋東京開封府 (趙匡胤京畿直轄)",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "北宋京兆府永興軍",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "北宋青州齊州行營",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "北宋河北大名府防禦線",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "北漢太原政權 (劉鈞 / 遼國保護)",
+          "color": "#fca5a5"
+        },
+        "beijing": {
+          "warlord": "大遼南京析津府 (耶律璟統治)",
+          "color": "#93c5fd"
+        },
+        "tianjin": {
+          "warlord": "大遼幽南防線",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "大遼東京遼陽府",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "大遼上京臨潢府與契丹諸部",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "大遼女真生女真各部羈縻",
+          "color": "#93c5fd"
+        },
+        "heilongjiang": {
+          "warlord": "黑水靺鞨與生女真部落",
+          "color": "#cbd5e1"
+        },
+        "jiangsu": {
+          "warlord": "南唐李煜江南國 (金陵)",
+          "color": "#86efac"
+        },
+        "anhui": {
+          "warlord": "北宋淮南宿州行營",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "吳越國錢俶 (杭州保境安民)",
+          "color": "#bbf7d0"
+        },
+        "jiangxi": {
+          "warlord": "南唐洪州江西南康管轄",
+          "color": "#86efac"
+        },
+        "hubei": {
+          "warlord": "荊南高氏南平政權 (江陵)",
+          "color": "#fde047"
+        },
+        "hunan": {
+          "warlord": "武平節度使周保權 (朗州)",
+          "color": "#fde047"
+        },
+        "sichuan": {
+          "warlord": "後蜀後主孟昶政權 (成都)",
+          "color": "#f472b6"
+        },
+        "chongqing": {
+          "warlord": "後蜀夔州峽口防線",
+          "color": "#f472b6"
+        },
+        "guangdong": {
+          "warlord": "南漢後主劉鋹政權 (興王府廣州)",
+          "color": "#c084fc"
+        },
+        "guangxi": {
+          "warlord": "南漢靜江桂管諸州",
+          "color": "#c084fc"
+        },
+        "fujian": {
+          "warlord": "清源軍留從效 (泉州泉漳割據)",
+          "color": "#a7f3d0"
+        },
+        "guizhou": {
+          "warlord": "播州楊氏及西南彝水西土酋",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段思聰)",
+          "color": "#d8b4fe"
+        },
+        "gansu": {
+          "warlord": "歸義軍曹氏 (敦煌) 及甘州回鶻",
+          "color": "#fbcfe8"
+        },
+        "ningxia-hui": {
+          "warlord": "黨項定難軍節度使 (李彝殷夏州)",
+          "color": "#fdba74"
+        },
+        "qinghai": {
+          "warlord": "吐蕃唃廝囉前身河湟諸羌部族",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "于闐佛教王國與喀喇汗王朝",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "吳越國秀州華亭",
+          "color": "#bbf7d0"
+        }
+      },
+      "labels": [
+        {
+          "name": "北 宋 開 封 府 (京師)",
+          "pos": [
+            570,
+            442
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 遼 析 津 府 (燕京)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "北 漢 晉 陽 (太原)",
+          "pos": [
+            530,
+            380
+          ],
+          "color": "#b91c1c",
+          "size": 12
+        },
+        {
+          "name": "南 唐 江 寧 府 (金陵)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#15803d",
+          "size": 13
+        },
+        {
+          "name": "後 蜀 成 都 府",
+          "pos": [
+            450,
+            530
+          ],
+          "color": "#be185d",
+          "size": 13
+        },
+        {
+          "name": "吳 越 錢 塘 (杭州)",
+          "pos": [
+            655,
+            550
+          ],
+          "color": "#047857",
+          "size": 12
+        },
+        {
+          "name": "大 理 羊 苴 咩 城",
+          "pos": [
+            420,
+            640
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "開封 (東京)",
+          "pos": [
+            570,
+            442
+          ],
+          "isCap": true
+        },
+        {
+          "name": "臨潢府 (遼上京)",
+          "pos": [
+            630,
+            240
+          ],
+          "isCap": true
+        },
+        {
+          "name": "太原 (北漢)",
+          "pos": [
+            530,
+            380
+          ],
+          "isCap": true
+        },
+        {
+          "name": "金陵 (南唐)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "成都 (後蜀)",
+          "pos": [
+            450,
+            530
+          ],
+          "isCap": true
+        },
+        {
+          "name": "大理城",
+          "pos": [
+            420,
+            640
+          ],
+          "isCap": true
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 陳橋兵變",
+          "pos": [
+            570,
+            440
+          ],
+          "battleId": "evt_song_01",
+          "year": 960
+        }
+      ]
+    },
+    {
+      "id": "song_979",
+      "yearNumber": 979,
+      "yearDisplay": "979 CE",
+      "shortLabel": "979 宋遼對峙",
+      "headline": "北漢滅亡天下歸宋：高梁河戰役引爆宋遼世紀之爭",
+      "subTitle": "太宗滅北漢終結五代十國，乘勝直插幽州；遼將耶律休哥高梁河反撲重挫宋軍。",
+      "chronicleLeft": [
+        "宋太宗親率禁軍主力合圍太原，北漢主劉繼元見外援已絕出降，五代十國宣告終結。",
+        "太宗不聽曹彬等將領休整建議，大發六師直趨幽州，意圖趁勝一舉收復燕雲十六州。",
+        "宋軍四面圍攻幽州城，遼北院大王耶律休哥率精銳鐵騎急行軍自高梁河夾擊大破宋軍。"
+      ],
+      "chronicleRight": [
+        "宋太宗腿部中箭乘驢車南遁，宋軍精銳禁軍死傷數萬，元氣大傷。",
+        "此役標誌宋遼軍事攻守態勢徹底逆轉，遼軍全面轉入主動南掠。",
+        "宋廷被迫在河北沿線挖掘塘泊、修築三關，構築防禦契丹鐵騎之重重防線。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "北宋東京開封府 (中央直轄禁軍重鎮)",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "北宋永興軍路 (陜西防線)",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "北宋河東路 (新附太原府總管)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "北宋河北東/西路 (宋遼最前線)",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "北宋京東西路 (青齊諸州)",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大遼南京析津府 (耶律休哥重兵防禦)",
+          "color": "#93c5fd"
+        },
+        "tianjin": {
+          "warlord": "大遼幽南白溝防線",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "大遼東京遼陽府",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "大遼上京與契丹五院部",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "大遼女真各部羈縻",
+          "color": "#93c5fd"
+        },
+        "heilongjiang": {
+          "warlord": "生女真各部落",
+          "color": "#cbd5e1"
+        },
+        "jiangsu": {
+          "warlord": "北宋兩浙西路與江南東路",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "北宋兩浙東路 (吳越歸順納土)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "北宋淮南西路",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "北宋荊湖北路 (江陵)",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "北宋荊湖南路 (長沙)",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "北宋江南西路 (洪州)",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "北宋川峽路 (成都益州)",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "北宋峽西路 (夔州)",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "北宋福建路 (福州泉州)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "北宋廣南東路 (廣州南海)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "北宋廣南西路 (桂州邕州)",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "播州楊氏及西南諸部",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段素英)",
+          "color": "#d8b4fe"
+        },
+        "ningxia-hui": {
+          "warlord": "黨項定難軍 (李繼捧/李繼遷反宋萌芽)",
+          "color": "#fdba74"
+        },
+        "gansu": {
+          "warlord": "甘州回鶻與沙州歸義軍",
+          "color": "#fbcfe8"
+        },
+        "qinghai": {
+          "warlord": "唃廝囉前身吐蕃各部",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "喀喇汗國與西州回鶻",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "北宋華亭縣轄境",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "北 宋 開 封 府 (東京)",
+          "pos": [
+            570,
+            442
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 遼 南 京 析 津 府",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "河 東 路 太 原 府",
+          "pos": [
+            530,
+            380
+          ],
+          "color": "#ea580c",
+          "size": 12
+        },
+        {
+          "name": "兩 浙 路 臨 安 府 (杭州)",
+          "pos": [
+            655,
+            550
+          ],
+          "color": "#ea580c",
+          "size": 12
+        },
+        {
+          "name": "江 寧 府 (金陵)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 12
+        },
+        {
+          "name": "大 理 羊 苴 咩 城",
+          "pos": [
+            420,
+            640
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "開封 (東京)",
+          "pos": [
+            570,
+            442
+          ],
+          "isCap": true
+        },
+        {
+          "name": "析津府 (遼南京)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "臨潢府 (遼上京)",
+          "pos": [
+            630,
+            240
+          ],
+          "isCap": true
+        },
+        {
+          "name": "太原",
+          "pos": [
+            530,
+            380
+          ]
+        },
+        {
+          "name": "金陵",
+          "pos": [
+            640,
+            520
+          ]
+        },
+        {
+          "name": "成都",
+          "pos": [
+            450,
+            530
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "× 滅北漢之戰",
+          "pos": [
+            530,
+            380
+          ],
+          "battleId": "bat_song_north_han_979",
+          "year": 979
+        },
+        {
+          "name": "× 高梁河之戰",
+          "pos": [
+            600,
+            320
+          ],
+          "battleId": "bat_song_gaoliang_979",
+          "year": 979
+        }
+      ]
+    },
+    {
+      "id": "song_1004",
+      "yearNumber": 1004,
+      "yearDisplay": "1004 CE",
+      "shortLabel": "1004 澶淵之盟",
+      "headline": "澶州城下兄弟誓盟：蕭太后揮戈南下，寇準力主真宗親征",
+      "subTitle": "遼聖宗與蕭太后率二十萬大軍逼臨黃河澶州，宋真宗御駕親征，雙方立盟百餘年息兵通商。",
+      "chronicleLeft": [
+        "遼聖宗與承天蕭太后率精騎連陷遂城，繞開宋堅城，孤軍深突數百里抵達黃河岸邊澶州。",
+        "宋真宗朝中參政王欽若等力主遷都金陵避難，宰相寇準怒斥群僚力請皇帝親征。",
+        "宋真宗車駕登臨澶州北城樓，宋軍見黃龍金旗歡聲雷動，士氣大振。"
+      ],
+      "chronicleRight": [
+        "宋威虎軍將領張環以床子弩遠程狙殺遼統軍蕭撻凜，遼軍攻勢頓挫，畏宋合圍遂求和。",
+        "宋遼締結「澶淵之盟」，雙方約為兄弟之邦，宋歲賜遼銀十萬兩、絹二十萬匹，各自維持原界。",
+        "此盟結束二十五年大規模戰事，雄州、霸州邊市榷場大開，迎來宋遼兩朝罕見之和平百年。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "北宋東京開封府",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "北宋永興軍路",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "北宋河東路",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "北宋河北路 (澶州前線)",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "北宋京東東/西路",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大遼南京析津府 (蕭太后/遼聖宗南征基地)",
+          "color": "#93c5fd"
+        },
+        "tianjin": {
+          "warlord": "大遼幽南沿邊轄區",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "大遼東京遼陽府",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "大遼中京大定府 / 上京臨潢府",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "大遼女真生女真各部",
+          "color": "#93c5fd"
+        },
+        "heilongjiang": {
+          "warlord": "生女真各部",
+          "color": "#cbd5e1"
+        },
+        "jiangsu": {
+          "warlord": "北宋淮南東路與兩浙西路",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "北宋兩浙東路",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "北宋淮南西路",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "北宋荊湖北路",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "北宋荊湖南路",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "北宋江南西路",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "北宋益州路",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "北宋夔州路",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "北宋福建路",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "北宋廣南東路 (廣州外貿繁盛)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "北宋廣南西路",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "西南各羈縻州",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段素廉)",
+          "color": "#d8b4fe"
+        },
+        "ningxia-hui": {
+          "warlord": "黨項首領李繼遷 / 李德明 (攻陷靈州立足夏州)",
+          "color": "#fdba74"
+        },
+        "gansu": {
+          "warlord": "甘州回鶻與涼州六谷部吐蕃",
+          "color": "#fbcfe8"
+        },
+        "qinghai": {
+          "warlord": "吐蕃唃廝囉政權雛形",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "喀喇汗王朝與西州回鶻",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "北宋秀州華亭縣",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "北 宋 開 封 府 (京師)",
+          "pos": [
+            570,
+            442
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "澶 州 (盟約締結地)",
+          "pos": [
+            585,
+            410
+          ],
+          "color": "#dc2626",
+          "size": 13
+        },
+        {
+          "name": "大 遼 南 京 析 津 府",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "夏 州 定 難 軍 (李繼遷)",
+          "pos": [
+            490,
+            385
+          ],
+          "color": "#c2410c",
+          "size": 12
+        },
+        {
+          "name": "大 理 國 羊 苴 咩 城",
+          "pos": [
+            420,
+            640
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "開封 (東京)",
+          "pos": [
+            570,
+            442
+          ],
+          "isCap": true
+        },
+        {
+          "name": "澶州 (濮陽)",
+          "pos": [
+            585,
+            410
+          ]
+        },
+        {
+          "name": "析津府 (遼南京)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "大定府 (遼中京)",
+          "pos": [
+            620,
+            270
+          ],
+          "isCap": true
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 澶州之戰與盟約",
+          "pos": [
+            585,
+            410
+          ],
+          "battleId": "bat_song_chanyuan_1004",
+          "year": 1004
+        }
+      ]
+    },
+    {
+      "id": "song_1044",
+      "yearNumber": 1044,
+      "yearDisplay": "1044 CE",
+      "shortLabel": "1044 慶曆鼎立",
+      "headline": "宋遼夏三國鼎立：元昊稱帝西北震動，范仲淹慶曆新政",
+      "subTitle": "李元昊建大夏稱帝引發宋夏大戰，范仲淹韓琦經略西北築城禦敵，宋夏遼三方達成戰略均勢。",
+      "chronicleLeft": [
+        "黨項領袖李元昊建大夏國稱帝，發動三川口、好水川、定川寨三大戰役，以鐵鷂子重創宋軍。",
+        "宋仁宗拜范仲淹、韓琦坐鎮陜西，改換攻勢戰略為修築沿邊堡寨，精選禁軍築起銅牆鐵壁。",
+        "范仲淹回京與韓琦、富弼推行「慶曆新政」，澄清吏治、裁汰冗官，開啟士大夫自覺運動。"
+      ],
+      "chronicleRight": [
+        "西夏雖屢勝但民窮財盡，宋朝斷絕榷場貿易更使其物資奇缺；遼興宗亦趁機伐夏爆發賀蘭山之役。",
+        "1044年宋夏達成「慶曆和議」，元昊名義取消帝號稱臣，宋每年賜銀絹茶葉二十五萬，西北復安。",
+        "遼興宗藉機增索宋朝歲幣（重熙增幣），宋朝以經濟籌碼換取和平，形成三國互相制衡格局。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "北宋東京開封府 (仁宗盛世富庶中心)",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "北宋陜西路 (范仲淹/韓琦經略前線)",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "北宋河東路",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "北宋河北東/西路",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "北宋京東東/西路",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "西夏興慶府 (景宗李元昊)",
+          "color": "#fbcfe8"
+        },
+        "gansu": {
+          "warlord": "西夏河西諸州 (元昊吞併瓜沙甘涼)",
+          "color": "#fbcfe8"
+        },
+        "beijing": {
+          "warlord": "大遼南京析津府 (遼興宗耶律宗真)",
+          "color": "#93c5fd"
+        },
+        "tianjin": {
+          "warlord": "大遼沿邊防區",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "大遼東京遼陽府",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "大遼中京大定府 / 臨潢府",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "大遼生女真各部落",
+          "color": "#93c5fd"
+        },
+        "heilongjiang": {
+          "warlord": "生女真諸部完顏氏萌芽",
+          "color": "#cbd5e1"
+        },
+        "jiangsu": {
+          "warlord": "北宋兩浙西路與江南東路",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "北宋兩浙東路 (蘇杭絲綿之盛)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "北宋淮南西路",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "北宋荊湖北路",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "北宋荊湖南路",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "北宋江南西路 (臨川王安石故里)",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "北宋益州路",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "北宋夔州路",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "北宋福建路 (泉州海運樞紐)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "北宋廣南東路",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "北宋廣南西路 (廣源州蠻儂智高萌動)",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "西南諸羈縻州",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段素興)",
+          "color": "#d8b4fe"
+        },
+        "qinghai": {
+          "warlord": "吐蕃唃廝囉政權 (青唐城宗哥)",
+          "color": "#fde047"
+        },
+        "xinjiang": {
+          "warlord": "高昌回鶻與黑汗王朝",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "北宋秀州華亭縣青龍鎮港",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "北 宋 開 封 府 (仁宗文治)",
+          "pos": [
+            570,
+            442
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 夏 興 慶 府 (元昊稱帝)",
+          "pos": [
+            440,
+            370
+          ],
+          "color": "#be185d",
+          "size": 14
+        },
+        {
+          "name": "大 遼 中 京 大 定 府",
+          "pos": [
+            620,
+            270
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "青 唐 城 (唃廝囉國)",
+          "pos": [
+            390,
+            440
+          ],
+          "color": "#854d0e",
+          "size": 12
+        },
+        {
+          "name": "大 理 國 羊 苴 咩 城",
+          "pos": [
+            420,
+            640
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "開封 (東京)",
+          "pos": [
+            570,
+            442
+          ],
+          "isCap": true
+        },
+        {
+          "name": "興慶府 (西夏都)",
+          "pos": [
+            440,
+            370
+          ],
+          "isCap": true
+        },
+        {
+          "name": "大定府 (遼中京)",
+          "pos": [
+            620,
+            270
+          ],
+          "isCap": true
+        },
+        {
+          "name": "延州 (防夏重鎮)",
+          "pos": [
+            505,
+            410
+          ]
+        },
+        {
+          "name": "青唐 (西寧)",
+          "pos": [
+            390,
+            440
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 好水川之戰",
+          "pos": [
+            445,
+            430
+          ],
+          "battleId": "bat_song_haoshuichuan_1041",
+          "year": 1041
+        }
+      ]
+    },
+    {
+      "id": "song_1111",
+      "yearNumber": 1111,
+      "yearDisplay": "1111 CE",
+      "shortLabel": "1111 政和大觀",
+      "headline": "兩宋極盛清明上河：人口破億文明臻峰，遼國衰朽女真待發",
+      "subTitle": "宋徽宗在位宣和畫院百花齊放，戶口破億市井繁盛；東北長白山下生女真崛起即將撼動東亞。",
+      "chronicleLeft": [
+        "宋徽宗政和元年，崇寧大觀新法之利使府庫充盈，北宋人口歷史性突破一億一千萬大關。",
+        "張擇端繪製《清明上河圖》、宋徽宗御製瘦金體與瑞鶴圖，汴京繁華臻於封建經濟文化巔峰。",
+        "王韶熙河開邊拓地千里，宋軍更進駐湟州、鄯州，西北拓土達到北宋極盛疆界。"
+      ],
+      "chronicleRight": [
+        "然而徽宗寵信蔡京、童貫、朱勔「六賊」，大興花石綱民怨沸騰，方臘、宋江起義暗潮洶湧。",
+        "北疆大遼天祚帝耶律延禧沉湎田獵、暴虐女真諸部，迫使阿骨打於頭鷹宴拒跳踏歌。",
+        "完顏阿骨打統一生女真各部，蓄勢待發，東亞大陸即將迎來翻天覆地的大風暴。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "北宋開封府 (汴京城外城三重，戶口百萬)",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "北宋陜西六路精兵",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "北宋河東路",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "北宋河北東/西路",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "北宋京東東路 (梁山濼宋江起事隱患)",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "北宋兩浙路與江淮漕運",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "北宋兩浙路 (朱勔花石綱民怨)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "北宋淮南路",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "北宋荊湖北路",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "北宋荊湖南路",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "北宋江南西路",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "北宋成都府路 (交子紙幣通行天下)",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "北宋夔州路",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "北宋福建路 (建州茶貢與泉州海商)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "北宋廣南東路 (廣州市舶司貿易極盛)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "北宋廣南西路",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "西南諸土司",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段正嚴/段譽)",
+          "color": "#d8b4fe"
+        },
+        "ningxia-hui": {
+          "warlord": "西夏崇宗李乾順 (黑水城興盛)",
+          "color": "#fbcfe8"
+        },
+        "gansu": {
+          "warlord": "西夏河西各軍司",
+          "color": "#fbcfe8"
+        },
+        "qinghai": {
+          "warlord": "北宋隴右都護府 (熙河開邊拓地)",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大遼南京析津府 (天祚帝政治日衰)",
+          "color": "#93c5fd"
+        },
+        "tianjin": {
+          "warlord": "大遼幽南沿邊",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "大遼東京遼陽府",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "大遼中京大定府 / 臨潢府",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "女真完顏部完顏阿骨打勢力",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "女真生女真各部落核心統括區",
+          "color": "#fef08a"
+        },
+        "xinjiang": {
+          "warlord": "西州回鶻與喀喇汗王朝",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "北宋秀州華亭縣",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "北 宋 開 封 府 (清明上河極盛)",
+          "pos": [
+            570,
+            442
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 遼 南 京 析 津 府",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "生 女 真 完 顏 部 (會寧阿骨打)",
+          "pos": [
+            730,
+            190
+          ],
+          "color": "#ca8a04",
+          "size": 13
+        },
+        {
+          "name": "西 夏 興 慶 府",
+          "pos": [
+            440,
+            370
+          ],
+          "color": "#be185d",
+          "size": 13
+        },
+        {
+          "name": "大 理 羊 苴 咩 城 (段譽)",
+          "pos": [
+            420,
+            640
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "開封 (東京極盛)",
+          "pos": [
+            570,
+            442
+          ],
+          "isCap": true
+        },
+        {
+          "name": "興慶府 (西夏)",
+          "pos": [
+            440,
+            370
+          ],
+          "isCap": true
+        },
+        {
+          "name": "析津府 (遼南京)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "臨潢府 (遼上京)",
+          "pos": [
+            630,
+            240
+          ],
+          "isCap": true
+        },
+        {
+          "name": "會寧府 (女真崛起)",
+          "pos": [
+            730,
+            190
+          ]
+        }
+      ],
+      "battles": []
+    },
+    {
+      "id": "song_1127",
+      "yearNumber": 1127,
+      "yearDisplay": "1127 CE",
+      "shortLabel": "1127 靖康之難",
+      "headline": "靖康浩劫汴梁失陷：徽欽二帝被虜北狩，趙構南渡建立南宋",
+      "subTitle": "金軍兩路鐵騎南下破汴京滅北宋，趙構於應天府登基南渡，江南半壁浴血抗金。",
+      "chronicleLeft": [
+        "金軍完顏宗翰、完顏宗望合圍汴京，城內聽信道士郭京六甲神兵引敵入城，汴京陷落。",
+        "金軍將徽欽二帝、后妃宗室、文武百官三千餘人北擄黃龍府，掠奪國庫圖籍，北宋覆亡。",
+        "康王趙構在外得免，於南京應天府登基稱帝改元建炎，宗澤留守開封大呼「過河」三聲而逝。"
+      ],
+      "chronicleRight": [
+        "金兀朮率鐵騎發動「搜山檢海捉趙構」，一路疾馳渡江破建康、占臨安，趙構泛海溫州避難。",
+        "韓世忠、梁紅玉伏兵長江黃天蕩，八千水軍困鎖兀朮十萬大軍四十八日，挫敗金軍全勝神話。",
+        "岳飛、劉錡、張浚於江淮陝蜀奮起抗戰，南宋政權在風雨飄搖中站穩江南陣腳。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "大金國控制佔領 (立偽楚張邦昌/偽齊劉豫)",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "金軍佔領及富平之戰戰區",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大金河東路 (完顏宗翰所部據守)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大金河北東西路佔領區",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大金京東路佔領區 (劉豫偽齊據點)",
+          "color": "#fef08a"
+        },
+        "beijing": {
+          "warlord": "大金燕京析津府 (樞紐前線)",
+          "color": "#fef08a"
+        },
+        "tianjin": {
+          "warlord": "大金幽南軍區",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大金東京遼陽府",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大金中京臨潢府統治區",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大金上京會寧府 (大金帝國首都)",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大金龍興之地",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "宋金江淮拉鋸前線 (兩淮戰場)",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "南宋兩浙西路 (韓世忠黃天蕩防線)",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "南宋行在臨安府 (杭州暫都)",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "南宋江南西路 (後方軍儲中心)",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "南宋荊襄戰區 (岳家軍襄漢收復)",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "南宋荊湖南路",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "南宋四川宣撫處置使司 (吳玠吳璘和尚原)",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "南宋夔州路",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "南宋福建路",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "南宋廣南東路 (海運貿易補貼軍需)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "南宋廣南西路",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "西南各土司",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權",
+          "color": "#d8b4fe"
+        },
+        "ningxia-hui": {
+          "warlord": "西夏國 (趁亂取宋河東數州)",
+          "color": "#fbcfe8"
+        },
+        "gansu": {
+          "warlord": "西夏國與宋吳玠川陝防線接壤",
+          "color": "#fbcfe8"
+        },
+        "qinghai": {
+          "warlord": "吐蕃諸部",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "西遼帝國 (耶律大石西遷稱菊兒汗)",
+          "color": "#67e8f9"
+        },
+        "shanghai": {
+          "warlord": "南宋秀州華亭縣",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "金 軍 攻 破 汴 京 (徽欽被擄)",
+          "pos": [
+            570,
+            442
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "南 宋 行 在 臨 安 府 (杭州)",
+          "pos": [
+            655,
+            550
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "金 上 京 會 寧 府 (首都)",
+          "pos": [
+            730,
+            190
+          ],
+          "color": "#854d0e",
+          "size": 13
+        },
+        {
+          "name": "西 遼 帝 國 (耶律大石西遷)",
+          "pos": [
+            280,
+            360
+          ],
+          "color": "#0891b2",
+          "size": 13
+        },
+        {
+          "name": "黃 天 蕩 (韓世忠困兀朮)",
+          "pos": [
+            650,
+            510
+          ],
+          "color": "#dc2626",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "臨安 (南宋行在)",
+          "pos": [
+            655,
+            550
+          ],
+          "isCap": true
+        },
+        {
+          "name": "開封 (金佔領汴京)",
+          "pos": [
+            570,
+            442
+          ]
+        },
+        {
+          "name": "會寧府 (金上京)",
+          "pos": [
+            730,
+            190
+          ],
+          "isCap": true
+        },
+        {
+          "name": "燕京 (金析津府)",
+          "pos": [
+            600,
+            320
+          ]
+        },
+        {
+          "name": "興慶府 (西夏)",
+          "pos": [
+            440,
+            370
+          ],
+          "isCap": true
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 東京保衛戰與靖康之變",
+          "pos": [
+            570,
+            442
+          ],
+          "battleId": "bat_song_kaifeng_1126",
+          "year": 1127
+        },
+        {
+          "name": "※ 黃天蕩之戰",
+          "pos": [
+            650,
+            510
+          ],
+          "battleId": "bat_song_huangtiandang_1130",
+          "year": 1130
+        }
+      ]
+    },
+    {
+      "id": "song_1141",
+      "yearNumber": 1141,
+      "yearDisplay": "1141 CE",
+      "shortLabel": "1141 紹興和議",
+      "headline": "南北劃界風波奇冤：岳飛郾城飲恨，紹興和議劃淮為界",
+      "subTitle": "岳家軍北伐大破拐子馬直抵朱仙鎮，宋高宗秦檜一意求和殺岳飛，宋金劃淮分立。",
+      "chronicleLeft": [
+        "岳飛率岳家軍發動第四次北伐，郾城、潁昌以步克騎大破兀朮鐵浮屠與拐子馬，收復鄭洛。",
+        "宋高宗趙構與秦檜急欲屈辱求和，一日連發十二道金字牌強令岳飛退兵，十年功廢於一旦。",
+        "秦檜以「莫須有」謀反罪將岳飛、岳雲、張憲殺害於大理寺風波亭，忠良冤死舉國同悲。"
+      ],
+      "chronicleRight": [
+        "宋金簽署《紹興和議》，南宋世世向金稱臣，每年貢銀絹各二十五萬，割唐鄧商秦諸州。",
+        "宋金邊界正式確立以淮河中流至大散關為界，中國歷史進入長達半個多世紀的南北劃界對峙。",
+        "南宋定都臨安發展海外貿易，金朝遷都燕京（中都），雙方經濟與文化深度交流融和。"
+      ],
+      "provinceWarlordMap": {
+        "henan": {
+          "warlord": "大金國南京路 (汴京留守)",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大金陝西西路 / 南宋大散關分界",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大金河東南北路",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大金河北東/西路",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大金山東東/西路",
+          "color": "#fef08a"
+        },
+        "beijing": {
+          "warlord": "大金燕京 (完顏亮即將遷都中都)",
+          "color": "#fef08a"
+        },
+        "tianjin": {
+          "warlord": "大金中都路轄區",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大金東京路",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大金北京路 / 上京路",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大金上京會寧府",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大金龍興腹地",
+          "color": "#fef08a"
+        },
+        "jiangsu": {
+          "warlord": "南宋淮南東路 (淮水南岸楚州盱眙防線)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "南宋淮南西路 (合肥廬州前沿)",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "南宋臨安府 (首都行在西湖繁盛)",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "南宋江南西路 (糧倉重鎮)",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "南宋荊湖北路 (襄陽/江陵長江中游鐵鎖)",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "南宋荊湖南路",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "南宋四川制置使司 (吳璘守蜀)",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "南宋夔州路",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "南宋福建路 (泉州刺桐港享譽世界)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "南宋廣南東路 (市舶司番坊聚集)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "南宋廣南西路",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "西南諸羈縻軍州",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段正興)",
+          "color": "#d8b4fe"
+        },
+        "ningxia-hui": {
+          "warlord": "西夏仁宗李仁孝 (西夏全盛期)",
+          "color": "#fbcfe8"
+        },
+        "gansu": {
+          "warlord": "西夏河西諸軍司",
+          "color": "#fbcfe8"
+        },
+        "qinghai": {
+          "warlord": "吐蕃青唐殘部",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "西遼帝國 (耶律大石卡特萬之戰稱霸中亞)",
+          "color": "#67e8f9"
+        },
+        "shanghai": {
+          "warlord": "南宋兩浙路平江府華亭",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "南 宋 行 在 臨 安 府 (杭州)",
+          "pos": [
+            655,
+            550
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 金 中 都 (燕京)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#854d0e",
+          "size": 14
+        },
+        {
+          "name": "宋 金 界 線 (淮水中流大散關)",
+          "pos": [
+            570,
+            480
+          ],
+          "color": "#dc2626",
+          "size": 13
+        },
+        {
+          "name": "郾 城 (岳家軍大捷)",
+          "pos": [
+            565,
+            470
+          ],
+          "color": "#dc2626",
+          "size": 12
+        },
+        {
+          "name": "西 夏 興 慶 府 (李仁孝全盛)",
+          "pos": [
+            440,
+            370
+          ],
+          "color": "#be185d",
+          "size": 13
+        }
+      ],
+      "cities": [
+        {
+          "name": "臨安 (南宋都城)",
+          "pos": [
+            655,
+            550
+          ],
+          "isCap": true
+        },
+        {
+          "name": "中都 (金遷都燕京)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "汴京 (金南京)",
+          "pos": [
+            570,
+            442
+          ]
+        },
+        {
+          "name": "興慶府 (西夏都)",
+          "pos": [
+            440,
+            370
+          ],
+          "isCap": true
+        },
+        {
+          "name": "襄陽 (南宋鎖鑰)",
+          "pos": [
+            545,
+            520
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 郾城大捷",
+          "pos": [
+            565,
+            470
+          ],
+          "battleId": "bat_song_yancheng_1140",
+          "year": 1140
+        },
+        {
+          "name": "※ 潁昌大捷",
+          "pos": [
+            568,
+            460
+          ],
+          "battleId": "bat_song_yingchang_1140",
+          "year": 1140
+        }
+      ]
+    },
+    {
+      "id": "song_1206",
+      "yearNumber": 1206,
+      "yearDisplay": "1206 CE",
+      "shortLabel": "1206 斡難稱汗",
+      "headline": "蒙古成吉思汗稱汗：開禧北伐折戟沉沙，草原鐵騎席捲天下",
+      "subTitle": "鐵木真統一漠北諸部受尊成吉思汗，南宋韓侂冑發動開禧北伐受挫，東亞格局巨變。",
+      "chronicleLeft": [
+        "蒙古乞顏部首領鐵木真於斡難河畔大會諸部，建立大蒙古國，建九游白纛尊號「成吉思汗」。",
+        "成吉思汗隨即發動對西夏與金朝的連續猛攻，野狐嶺大潰金四十萬精銳，直逼中都。",
+        "南宋宰相韓侂冑起用辛棄疾、陸游等抗金派發動「開禧北伐」，意圖建不世功名。"
+      ],
+      "chronicleRight": [
+        "辛棄疾作詞「想當年，金戈鐵馬，氣吞萬里如虎」，嘆惜北伐準備未足；宋軍中路符離大敗。",
+        "南宋主和派史彌遠暗殺韓侂冑，將其首級獻金求和，簽訂嘉定和議，南宋北伐之志徹底化為泡影。",
+        "蒙古鐵騎同時向中亞西征滅花剌子模，蒙古旋風徹底改寫人類世界版圖。"
+      ],
+      "provinceWarlordMap": {
+        "inner-mongolia": {
+          "warlord": "大蒙古國成吉思汗汗帳核心",
+          "color": "#f43f5e"
+        },
+        "heilongjiang": {
+          "warlord": "大蒙古國諸王千戶分封地",
+          "color": "#f43f5e"
+        },
+        "jilin": {
+          "warlord": "大蒙古國降附諸部",
+          "color": "#f43f5e"
+        },
+        "liaoning": {
+          "warlord": "大金東京路 (耶律留哥契丹叛金降蒙前夕)",
+          "color": "#fef08a"
+        },
+        "beijing": {
+          "warlord": "大金中都大興府 (金章宗末期)",
+          "color": "#fef08a"
+        },
+        "tianjin": {
+          "warlord": "大金中都路轄區",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大金河北東西路 (受蒙古前鋒威脅)",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大金山東東西路 (紅襖軍抗金起義爆發)",
+          "color": "#fef08a"
+        },
+        "henan": {
+          "warlord": "大金南京開封府",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大金河東南北路",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大金陝西路",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "西夏國 (遭蒙古大軍反覆圍攻破靈州)",
+          "color": "#fbcfe8"
+        },
+        "gansu": {
+          "warlord": "西夏河西諸州",
+          "color": "#fbcfe8"
+        },
+        "jiangsu": {
+          "warlord": "南宋淮南東路 (開禧北伐前沿)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "南宋淮南西路",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "南宋臨安府 (韓侂冑掌權)",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "南宋江南西路 (辛棄疾抗金基地)",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "南宋荊湖北路襄陽前線",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "南宋荊湖南路",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "南宋四川制置使司 (吳曦叛宋被斬)",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "南宋夔州路",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "南宋福建路 (朱熹理學盛行)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "南宋廣南東路",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "南宋廣南西路",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "西南諸土司",
+          "color": "#e2e8f0"
+        },
+        "yunnan": {
+          "warlord": "大理國段氏政權 (段智興)",
+          "color": "#d8b4fe"
+        },
+        "qinghai": {
+          "warlord": "吐蕃諸部",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "西遼末期與蒙古降附畏兀兒",
+          "color": "#67e8f9"
+        },
+        "shanghai": {
+          "warlord": "南宋兩浙路華亭",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 蒙 古 國 斡 難 河 汗 帳 (成吉思汗)",
+          "pos": [
+            520,
+            150
+          ],
+          "color": "#e11d48",
+          "size": 14
+        },
+        {
+          "name": "大 金 中 都 (金章宗)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#854d0e",
+          "size": 14
+        },
+        {
+          "name": "南 宋 行 在 臨 安 府 (韓侂冑)",
+          "pos": [
+            655,
+            550
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "西 夏 興 慶 府 (襄宗李安全)",
+          "pos": [
+            440,
+            370
+          ],
+          "color": "#be185d",
+          "size": 13
+        },
+        {
+          "name": "大 理 國 羊 苴 咩 城",
+          "pos": [
+            420,
+            640
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "斡難河畔 (蒙古興起)",
+          "pos": [
+            520,
+            150
+          ],
+          "isCap": true
+        },
+        {
+          "name": "中都 (金都城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "臨安 (南宋都城)",
+          "pos": [
+            655,
+            550
+          ],
+          "isCap": true
+        },
+        {
+          "name": "興慶府 (西夏都)",
+          "pos": [
+            440,
+            370
+          ],
+          "isCap": true
+        },
+        {
+          "name": "開封 (金南京)",
+          "pos": [
+            570,
+            442
+          ]
+        }
+      ],
+      "battles": []
+    },
+    {
+      "id": "song_1279",
+      "yearNumber": 1279,
+      "yearDisplay": "1279 CE",
+      "shortLabel": "1279 崖山宋亡",
+      "headline": "崖門絕唱天下混一：陸秀夫負帝投海，大元大一統版圖確立",
+      "subTitle": "忽必烈定國號大元滅襄樊破臨安，張弘範水師崖山決戰，文天祥丹心照汗青。",
+      "chronicleLeft": [
+        "忽必烈攻陷襄樊破長江門戶，丞相伯顏率二十萬水陸大軍順流而下，南宋謝太后獻傳國玉璽降元。",
+        "文天祥、陸秀夫、張世傑擁立益王、衛王浮海轉戰閩粵，誓死維護趙宋最後香火。",
+        "張弘範元軍水師於廣東新會崖門合圍宋軍千艘連環舟師，大霧破敵引發全面崩潰。"
+      ],
+      "chronicleRight": [
+        "左丞相陸秀夫身背八歲幼帝趙昺毅然投海殉國，十萬宋朝軍民跳海隨逝，宋祚終結。",
+        "文天祥過零丁洋寫下「人生自古誰無死，留取丹心照汗青」，寧死不屈於大都慷慨就義。",
+        "忽必烈大元帝國徹底統一天下，結束長達三百餘年之遼宋金夏分裂鼎立割據局面。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大元大都 (忽必烈建大都天下總理)",
+          "color": "#f43f5e"
+        },
+        "henan": {
+          "warlord": "大元中書省統轄",
+          "color": "#f43f5e"
+        },
+        "shaanxi": {
+          "warlord": "大元陝西行省",
+          "color": "#f43f5e"
+        },
+        "shanxi": {
+          "warlord": "大元中書省腹裡",
+          "color": "#f43f5e"
+        },
+        "hebei": {
+          "warlord": "大元中書省腹裡",
+          "color": "#f43f5e"
+        },
+        "shandong": {
+          "warlord": "大元中書省腹裡",
+          "color": "#f43f5e"
+        },
+        "tianjin": {
+          "warlord": "大元直沽海運樞紐",
+          "color": "#f43f5e"
+        },
+        "liaoning": {
+          "warlord": "大元遼陽行省",
+          "color": "#f43f5e"
+        },
+        "inner-mongolia": {
+          "warlord": "大元上都開平府 / 漠北行省",
+          "color": "#f43f5e"
+        },
+        "jilin": {
+          "warlord": "大元遼陽行省開元路",
+          "color": "#f43f5e"
+        },
+        "heilongjiang": {
+          "warlord": "大元水達達路征東元帥府",
+          "color": "#f43f5e"
+        },
+        "jiangsu": {
+          "warlord": "大元江浙行省統轄 (金陵平江)",
+          "color": "#f43f5e"
+        },
+        "zhejiang": {
+          "warlord": "大元江浙行省 (原南宋臨安降元)",
+          "color": "#f43f5e"
+        },
+        "anhui": {
+          "warlord": "大元江淮行省",
+          "color": "#f43f5e"
+        },
+        "hubei": {
+          "warlord": "大元湖廣行省 (武昌襄陽)",
+          "color": "#f43f5e"
+        },
+        "hunan": {
+          "warlord": "大元湖廣行省長沙路",
+          "color": "#f43f5e"
+        },
+        "jiangxi": {
+          "warlord": "大元江西行省 (隆興路龍興)",
+          "color": "#f43f5e"
+        },
+        "sichuan": {
+          "warlord": "大元四川行省 (重慶釣魚城出降)",
+          "color": "#f43f5e"
+        },
+        "chongqing": {
+          "warlord": "大元重慶路 (合州釣魚城)",
+          "color": "#f43f5e"
+        },
+        "fujian": {
+          "warlord": "大元江浙行省泉州路 (蒲壽庚降元)",
+          "color": "#f43f5e"
+        },
+        "guangdong": {
+          "warlord": "宋元最後交鋒水域 (崖山張弘範水師)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大元湖廣行省靜江路",
+          "color": "#f43f5e"
+        },
+        "guizhou": {
+          "warlord": "大元湖廣行省播州等處招討司",
+          "color": "#f43f5e"
+        },
+        "yunnan": {
+          "warlord": "大元雲南行省 (忽必烈滅大理設賽典赤治理)",
+          "color": "#f43f5e"
+        },
+        "ningxia-hui": {
+          "warlord": "大元陝西行省西夏寧夏路",
+          "color": "#f43f5e"
+        },
+        "gansu": {
+          "warlord": "大元甘肅行省",
+          "color": "#f43f5e"
+        },
+        "qinghai": {
+          "warlord": "大元宣政院管轄吐蕃等處宣慰司",
+          "color": "#f43f5e"
+        },
+        "xinjiang": {
+          "warlord": "大元察合台汗國與畏兀兒亦都護",
+          "color": "#f43f5e"
+        },
+        "shanghai": {
+          "warlord": "大元江浙行省松江府",
+          "color": "#f43f5e"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 元 大 都 (忽必烈大一統帝都)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#e11d48",
+          "size": 14
+        },
+        {
+          "name": "崖 山 海 戰 (陸秀夫負帝投海)",
+          "pos": [
+            575,
+            670
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "大 元 上 都 (開平草原皇都)",
+          "pos": [
+            610,
+            260
+          ],
+          "color": "#e11d48",
+          "size": 13
+        },
+        {
+          "name": "臨 安 府 (降元改杭州路)",
+          "pos": [
+            655,
+            550
+          ],
+          "color": "#9f1239",
+          "size": 12
+        },
+        {
+          "name": "釣 魚 城 (合州孤忠開城)",
+          "pos": [
+            480,
+            540
+          ],
+          "color": "#9f1239",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "大都 (元帝國首都)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "上都 (元夏都開平)",
+          "pos": [
+            610,
+            260
+          ],
+          "isCap": true
+        },
+        {
+          "name": "臨安 (杭州路)",
+          "pos": [
+            655,
+            550
+          ]
+        },
+        {
+          "name": "崖山 (宋亡之地)",
+          "pos": [
+            575,
+            670
+          ]
+        },
+        {
+          "name": "大理 (雲南行省)",
+          "pos": [
+            420,
+            640
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 襄樊之戰",
+          "pos": [
+            545,
+            520
+          ],
+          "battleId": "bat_song_xiangyang_1273",
+          "year": 1273
+        },
+        {
+          "name": "※ 崖山海戰",
+          "pos": [
+            575,
+            670
+          ],
+          "battleId": "bat_song_yashan_1279",
+          "year": 1279
+        }
+      ]
+    }
+  ];
+
   // src/data/periodsRegistry.js
   var HISTORICAL_PERIODS = {
     xiaShangZhou: {
@@ -74186,6 +80402,21 @@
       territories: SUI_TANG_TERRITORIES,
       warlordPeriods: SUI_TANG_WARLORD_PERIODS,
       demographics: SUI_TANG_DEMOGRAPHICS
+    },
+    songLiao: {
+      id: "songLiao",
+      name: "宋遼金夏",
+      dateRangeDisplay: "960 - 1279 CE",
+      shortEra: "西元 960 — 1279 年",
+      fullTitle: "宋遼金夏與兩宋風華（960 - 1279 CE）",
+      badge: "兩宋風華·多元競逐",
+      description: "陳橋兵變立宋、杯酒釋兵權、高梁河之戰、澶淵之盟百年修好、元昊稱帝西夏立國、慶曆新政與熙寧變法、金太祖立國滅遼破宋、靖康之難高宗南渡、岳家軍郾城大捷、采石磯之戰、成吉思汗崛起、宋蒙滅金至崖山海戰三百年波瀾壯闊",
+      events: SONG_LIAO_EVENTS,
+      figures: SONG_LIAO_FIGURES,
+      battles: SONG_LIAO_BATTLES,
+      territories: SONG_LIAO_TERRITORIES,
+      warlordPeriods: SONG_LIAO_WARLORD_PERIODS,
+      demographics: SONG_LIAO_DEMOGRAPHICS
     }
   };
   var PERIOD_OPTIONS = [
@@ -74194,13 +80425,14 @@
     { id: "qinHan", name: "秦漢帝國", range: "206 BCE - 184 CE", count: "20事件·13戰役·47人物" },
     { id: "threeKingdoms", name: "三國鼎立", range: "184 - 280 CE", count: "37事件·28戰役·500人物" },
     { id: "weiJin", name: "魏晉南北朝", range: "220 - 589 CE", count: "20事件·10戰役·39人物" },
-    { id: "suiTang", name: "隋唐五代", range: "581 - 960 CE", count: "25事件·30戰役·95人物" }
+    { id: "suiTang", name: "隋唐五代", range: "581 - 960 CE", count: "25事件·30戰役·95人物" },
+    { id: "songLiao", name: "宋遼金夏", range: "960 - 1279 CE", count: "26事件·14戰役·44人物" }
   ];
 
   // src/app.js
   var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
   function App() {
-    const [activePeriodId, setActivePeriodId] = (0, import_react11.useState)("suiTang");
+    const [activePeriodId, setActivePeriodId] = (0, import_react11.useState)("songLiao");
     const [activeTab, setActiveTab] = (0, import_react11.useState)("map-timeline");
     const [ancientNamesOnly, setAncientNamesOnly] = (0, import_react11.useState)(false);
     const [searchTerm, setSearchTerm] = (0, import_react11.useState)("");
