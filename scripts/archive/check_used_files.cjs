@@ -1,0 +1,10 @@
+const fs = require('fs');
+const b50 = fs.readFileSync('download_batch50.cjs', 'utf8');
+const b100 = fs.readFileSync('download_batch100.cjs', 'utf8');
+const regex = /file(?:name)?:\s*['"]([^'"]+)['"]/g;
+const usedFiles = new Set();
+let m;
+while ((m = regex.exec(b50)) !== null) usedFiles.add(m[1]);
+while ((m = regex.exec(b100)) !== null) usedFiles.add(m[1]);
+console.log('Total used Koei portrait files:', usedFiles.size);
+fs.writeFileSync('used_koei_files.json', JSON.stringify([...usedFiles], null, 2));

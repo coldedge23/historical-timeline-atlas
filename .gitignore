@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Backups
+_backups/
+*.zip
+*.tar.gz
+*.bak
+
+# Temporary / OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Editor
+.vscode/
+.idea/

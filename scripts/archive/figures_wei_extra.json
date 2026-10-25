@@ -1,0 +1,2766 @@
+[
+  {
+    "id": "cao_ang",
+    "name": "曹昂",
+    "file": "曹昂.jpg",
+    "courtesyName": "子脩",
+    "birthYear": 175,
+    "deathYear": 197,
+    "birthDeathDisplay": "？ - 197年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "曹操長子",
+      "孝廉"
+    ],
+    "avatar": "./images/figures/cao_ang.jpg",
+    "bio": "曹操長子。宛城之戰張繡夜襲，曹昂將坐騎讓與曹操突圍，自己留後斷後力戰陣亡。",
+    "keyAchievements": [
+      "宛城讓馬救父以身殉國",
+      "純孝仁厚受丁夫人摯愛"
+    ],
+    "famousQuotes": [
+      "天下可無昂，不可無父親！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_chong",
+    "name": "曹衝",
+    "file": "曹冲.jpg",
+    "courtesyName": "倉舒",
+    "birthYear": 196,
+    "deathYear": 208,
+    "birthDeathDisplay": "196年 - 208年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "神童",
+      "曹操幼子"
+    ],
+    "avatar": "./images/figures/cao_chong.jpg",
+    "bio": "曹操寵子，五六歲智商便如成人。「曹衝稱象」與智救庫吏千古傳頌，十三歲早逝曹操深痛之。",
+    "keyAchievements": [
+      "曹衝稱象千古神童象徵",
+      "巧智搭救無辜庫吏寬恕恤民"
+    ],
+    "famousQuotes": [
+      "以舟稱象，計重得實。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_chun",
+    "name": "曹純",
+    "file": "曹纯.jpg",
+    "courtesyName": "子和",
+    "birthYear": 170,
+    "deathYear": 210,
+    "birthDeathDisplay": "170年 - 210年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "虎豹騎督",
+      "威侯"
+    ],
+    "avatar": "./images/figures/cao_chun.jpg",
+    "bio": "曹仁之弟。督帥曹操王牌精銳部隊「虎豹騎」，白狼山大破烏桓斬蹋頓，長坂坡疾馳追擊劉備。",
+    "keyAchievements": [
+      "統率天下王牌虎豹騎",
+      "白狼山大破烏桓斬蹋頓"
+    ],
+    "famousQuotes": [
+      "純所督虎豹騎，皆天下驍銳。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_yu",
+    "name": "曹宇",
+    "file": "曹宇.jpg",
+    "courtesyName": "彭祖",
+    "birthYear": 195,
+    "deathYear": 278,
+    "birthDeathDisplay": "？ - 278年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "燕王",
+      "大將軍"
+    ],
+    "avatar": "./images/figures/cao_yu.jpg",
+    "bio": "曹操之子。魏明帝臨終本欲命其輔政，曹宇性恭順堅辭，後其子曹奐即位為魏元帝。",
+    "keyAchievements": [
+      "性格恭順避禍享壽封燕王",
+      "育子曹奐為曹魏末代皇帝"
+    ],
+    "famousQuotes": [
+      "退讓自全，不求專柄。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_fang",
+    "name": "曹芳",
+    "file": "曹芳.jpg",
+    "courtesyName": "蘭卿",
+    "birthYear": 232,
+    "deathYear": 274,
+    "birthDeathDisplay": "232年 - 274年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "曹魏第三任皇帝",
+      "齊王"
+    ],
+    "avatar": "./images/figures/cao_fang.jpg",
+    "bio": "魏明帝養子，八歲即位。司馬懿發動高平陵之變後大權旁落，後遭司馬師廢黜帝位為齊王。",
+    "keyAchievements": [
+      "在位十五年歷經高平陵巨變",
+      "密謀除權臣未果受廢"
+    ],
+    "famousQuotes": [
+      "天下社稷，何至今日！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_mao",
+    "name": "曹髦",
+    "file": "曹髦.jpg",
+    "courtesyName": "彥士",
+    "birthYear": 241,
+    "deathYear": 260,
+    "birthDeathDisplay": "241年 - 260年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "曹魏第四任皇帝",
+      "高貴鄉公"
+    ],
+    "avatar": "./images/figures/cao_mao.jpg",
+    "bio": "曹丕之孫。悲憤司馬昭專權，道出「司馬昭之心，路人所知也」，親率殿中侍衛討賊壯烈殉國。",
+    "keyAchievements": [
+      "「司馬昭之心路人皆知」千古典故",
+      "寧死不屈拔劍抗權臣悲壯殉國"
+    ],
+    "famousQuotes": [
+      "司馬昭之心，路人所知也！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_huan",
+    "name": "曹奐",
+    "file": "曹奂.jpg",
+    "courtesyName": "景憲",
+    "birthYear": 246,
+    "deathYear": 302,
+    "birthDeathDisplay": "246年 - 302年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "曹魏末代皇帝",
+      "陳留王"
+    ],
+    "avatar": "./images/figures/cao_huan.jpg",
+    "bio": "燕王曹宇之子。鍾會鄧艾滅蜀後，被迫禪位晉武帝司馬炎，降封陳留王享壽善終。",
+    "keyAchievements": [
+      "曹魏末代皇帝見證三國局勢變遷",
+      "禪讓後受封陳留王享國善終"
+    ],
+    "famousQuotes": [
+      "天命有歸，謹奉天道。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_xiong",
+    "name": "曹熊",
+    "file": "曹熊.jpg",
+    "courtesyName": "",
+    "birthYear": 194,
+    "deathYear": 220,
+    "birthDeathDisplay": "？ - 220年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "蕭懷王",
+      "曹操諸子"
+    ],
+    "avatar": "./images/figures/cao_xiong.jpg",
+    "bio": "曹操與卞夫人所生幼子，曹丕曹彰曹植同母弟。生性多病體弱，少預政事，魏文帝追贈蕭懷王。",
+    "keyAchievements": [
+      "曹操嫡幼子早殤受封"
+    ],
+    "famousQuotes": [
+      "兄弟同根，病弱避事。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_xun",
+    "name": "曹訓",
+    "file": "曹训.jpg",
+    "courtesyName": "",
+    "birthYear": 208,
+    "deathYear": 249,
+    "birthDeathDisplay": "？ - 249年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "武衛將軍",
+      "曹真之子"
+    ],
+    "avatar": "./images/figures/cao_xun.jpg",
+    "bio": "曹真之子，曹爽之弟。任武衛將軍典掌宮廷宿衛。隨曹爽謁高平陵，司馬懿政變後受誅滅族。",
+    "keyAchievements": [
+      "掌宮廷宿衛禁衛軍職"
+    ],
+    "famousQuotes": [
+      "勢傾朝野，一朝覆亡。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_xi",
+    "name": "曹羲",
+    "file": "曹羲.jpg",
+    "courtesyName": "",
+    "birthYear": 205,
+    "deathYear": 249,
+    "birthDeathDisplay": "？ - 249年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "中領軍",
+      "安鄉侯"
+    ],
+    "avatar": "./images/figures/cao_xi.jpg",
+    "bio": "曹真次子，曹爽之弟。掌中領軍。為人沉靜有謀，見兄驕奢作《訓親浮華論》苦諫無果，同遭夷族。",
+    "keyAchievements": [
+      "作《訓親浮華論》苦諫曹爽戒驕奢",
+      "掌禁軍中領軍要職"
+    ],
+    "famousQuotes": [
+      "物盛則衰，驕奢必敗！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cao_bao",
+    "name": "曹豹",
+    "file": "曹豹.jpg",
+    "courtesyName": "",
+    "birthYear": 155,
+    "deathYear": 196,
+    "birthDeathDisplay": "？ - 196年",
+    "nativePlaceAncient": "徐州 下邳國",
+    "nativePlaceModern": "江蘇省邳州市",
+    "faction": "wei",
+    "roles": [
+      "徐州中郎將",
+      "下邳相"
+    ],
+    "avatar": "./images/figures/cao_bao.jpg",
+    "bio": "陶謙舊將，呂布女婿。劉備領徐州時與張飛守下邳，因受張飛責打懷恨引呂布夜襲奪下邳。",
+    "keyAchievements": [
+      "引呂布襲取下邳扭轉徐州局勢"
+    ],
+    "famousQuotes": [
+      "將軍虎威，當取徐州！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_ba",
+    "name": "夏侯霸",
+    "file": "夏侯霸.jpg",
+    "courtesyName": "仲權",
+    "birthYear": 195,
+    "deathYear": 259,
+    "birthDeathDisplay": "約195年 - 259年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "車騎將軍",
+      "討蜀護軍"
+    ],
+    "avatar": "./images/figures/xiahou_ba.jpg",
+    "bio": "夏侯淵次子。高平陵變後懼禍自陰平奔蜀，劉禪撫慰重用，拜車騎將軍隨姜維多次北伐立功。",
+    "keyAchievements": [
+      "魏蜀兩大陣營重要宗將",
+      "熟悉隴西地形助姜維北伐"
+    ],
+    "famousQuotes": [
+      "鐘士季深謀遠慮，必為中原之患。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_xuan",
+    "name": "夏侯玄",
+    "file": "夏侯玄.jpg",
+    "courtesyName": "太初",
+    "birthYear": 209,
+    "deathYear": 254,
+    "birthDeathDisplay": "209年 - 254年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "征西將軍",
+      "太常"
+    ],
+    "avatar": "./images/figures/xiahou_xuan.jpg",
+    "bio": "夏侯尚之子。正始名士領袖、玄學創始人之一。倡「審官擇人」。密謀誅殺司馬師事泄從容就戮。",
+    "keyAchievements": [
+      "開創魏晉玄學正始名士先河",
+      "倡言改革官制矯正九品官人流弊"
+    ],
+    "famousQuotes": [
+      "玄天姿秀出，風骨奇偉。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_shang",
+    "name": "夏侯尚",
+    "file": "夏侯尚.jpg",
+    "courtesyName": "伯仁",
+    "birthYear": 185,
+    "deathYear": 226,
+    "birthDeathDisplay": "？ - 226年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "征南大將軍",
+      "荊州牧"
+    ],
+    "avatar": "./images/figures/xiahou_shang.jpg",
+    "bio": "夏侯淵從子，與曹丕情誼深厚。平定上庸擊破劉封，南征督江夏水陸大破諸葛瑾水軍。",
+    "keyAchievements": [
+      "攻取房陵上庸平定三郡",
+      "水陸大破諸葛瑾江東水軍"
+    ],
+    "famousQuotes": [
+      "兵勢如火，乘機而進！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_mao",
+    "name": "夏侯楙",
+    "file": "夏侯楙.jpg",
+    "courtesyName": "子林",
+    "birthYear": 188,
+    "deathYear": 250,
+    "birthDeathDisplay": "？ - 250年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "安西將軍",
+      "關中都督"
+    ],
+    "avatar": "./images/figures/xiahou_mao.jpg",
+    "bio": "夏侯惇次子，尚清河公主。督關中時魏延曾獻子午谷奇謀擬奇襲之。後調回京師任光祿勛。",
+    "keyAchievements": [
+      "鎮守長安督關中諸軍事",
+      "魏延子午谷奇謀假想守將"
+    ],
+    "famousQuotes": [
+      "不治軍旅，好興家殖。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_he",
+    "name": "夏侯和",
+    "file": "夏侯和.jpg",
+    "courtesyName": "義權",
+    "birthYear": 215,
+    "deathYear": 275,
+    "birthDeathDisplay": "？ - 275年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "光祿勳",
+      "河南尹"
+    ],
+    "avatar": "./images/figures/xiahou_he.jpg",
+    "bio": "夏侯淵第七子。清辯有才器，善於言辭應對。司馬昭時參與平淮南叛亂，入晉官至光祿勳。",
+    "keyAchievements": [
+      "夏侯淵諸子中入晉官居九卿高位"
+    ],
+    "famousQuotes": [
+      "才辯清朗，兼通政務。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_wei",
+    "name": "夏侯威",
+    "file": "夏侯威.jpg",
+    "courtesyName": "季權",
+    "birthYear": 202,
+    "deathYear": 252,
+    "birthDeathDisplay": "？ - 252年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "兗州刺史",
+      "荊州刺史"
+    ],
+    "avatar": "./images/figures/xiahou_wei.jpg",
+    "bio": "夏侯淵第四子。有俠義心腸善識英才，於羊祜未顯時力主以兄夏侯霸之女妻之，歷官二州刺史。",
+    "keyAchievements": [
+      "慧眼識英雄聘侄女妻羊祜成就名將名相"
+    ],
+    "famousQuotes": [
+      "羊祜有王佐之才，天下必賴之！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xiahou_de",
+    "name": "夏侯德",
+    "file": "夏侯德.jpg",
+    "courtesyName": "",
+    "birthYear": 180,
+    "deathYear": 219,
+    "birthDeathDisplay": "？ - 219年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "天蕩山守將",
+      "演義名將"
+    ],
+    "avatar": "./images/figures/xiahou_de.jpg",
+    "bio": "演義中夏侯尚之兄，鎮守漢中天蕩山糧道要衝。漢中之戰老將黃忠嚴顏攻山，夏侯德為嚴顏所斬。",
+    "keyAchievements": [
+      "鎮守漢中要隘天蕩山保障軍糧"
+    ],
+    "famousQuotes": [
+      "誓與蜀賊決一死戰！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sima_fu",
+    "name": "司馬孚",
+    "file": "司马孚.jpg",
+    "courtesyName": "叔達",
+    "birthYear": 180,
+    "deathYear": 272,
+    "birthDeathDisplay": "180年 - 272年",
+    "nativePlaceAncient": "司隸 河內郡溫縣",
+    "nativePlaceModern": "河南省溫縣",
+    "faction": "wei",
+    "roles": [
+      "太宰",
+      "太尉",
+      "安平王"
+    ],
+    "avatar": "./images/figures/sima_fu.jpg",
+    "bio": "司馬懿三弟。溫厚廉正。曹髦被刺弒伏屍哭泣「殺陛下者臣之罪也」，西晉封太宰，終身自稱魏臣。",
+    "keyAchievements": [
+      "曹髦遇害伏屍泣血大義凜然",
+      "終身奉魏恪守純臣之節享年九十三歲"
+    ],
+    "famousQuotes": [
+      "有魏之純臣，終身不忘曹氏厚恩！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sima_wang",
+    "name": "司馬望",
+    "file": "司马望.jpg",
+    "courtesyName": "子初",
+    "birthYear": 205,
+    "deathYear": 271,
+    "birthDeathDisplay": "205年 - 271年",
+    "nativePlaceAncient": "司隸 河內郡溫縣",
+    "nativePlaceModern": "河南省溫縣",
+    "faction": "wei",
+    "roles": [
+      "大司馬",
+      "義陽王"
+    ],
+    "avatar": "./images/figures/sima_wang.jpg",
+    "bio": "司馬朗次子出嗣司馬孚。都督雍涼軍事，與鄧艾協同多次挫敗姜維北伐。入晉位極大司馬。",
+    "keyAchievements": [
+      "都督雍涼抵禦姜維多次北伐",
+      "西晉開國大司馬"
+    ],
+    "famousQuotes": [
+      "善守西陲，朝野推重。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sima_you",
+    "name": "司馬攸",
+    "file": "司马攸.jpg",
+    "courtesyName": "大猷",
+    "birthYear": 248,
+    "deathYear": 283,
+    "birthDeathDisplay": "248年 - 283年",
+    "nativePlaceAncient": "司隸 河內郡溫縣",
+    "nativePlaceModern": "河南省溫縣",
+    "faction": "wei",
+    "roles": [
+      "司空",
+      "齊獻王"
+    ],
+    "avatar": "./images/figures/sima_you.jpg",
+    "bio": "司馬昭次子出嗣司馬師。聰敏仁孝寬弘厚道，朝野歸心咸望其踐祚。受權臣構陷外放齊國憂卒。",
+    "keyAchievements": [
+      "深明禮樂德望傾動朝野公卿",
+      "西晉最具人望之宗室英才"
+    ],
+    "famousQuotes": [
+      "德冠宗室，天下歸心。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sima_lang",
+    "name": "司馬朗",
+    "file": "司马朗.jpg",
+    "courtesyName": "伯達",
+    "birthYear": 171,
+    "deathYear": 217,
+    "birthDeathDisplay": "171年 - 217年",
+    "nativePlaceAncient": "司隸 河內郡溫縣",
+    "nativePlaceModern": "河南省溫縣",
+    "faction": "wei",
+    "roles": [
+      "兗州刺史",
+      "司馬八達之長"
+    ],
+    "avatar": "./images/figures/sima_lang.jpg",
+    "bio": "司馬懿長兄。自幼通禮。任兗州刺史興學校屯田民皆安居。征東吳軍中大疫，親送醫藥染疫卒。",
+    "keyAchievements": [
+      "司馬八達長兄仁厚持家",
+      "撫恤士卒染疫殉身愛民如子"
+    ],
+    "famousQuotes": [
+      "為官以仁慈撫民為上。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sima_jin",
+    "name": "司馬進",
+    "file": "司马进.jpg",
+    "courtesyName": "惠達",
+    "birthYear": 185,
+    "deathYear": 240,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "司隸 河內郡溫縣",
+    "nativePlaceModern": "河南省溫縣",
+    "faction": "wei",
+    "roles": [
+      "司馬八達之一",
+      "譙王"
+    ],
+    "avatar": "./images/figures/sima_jin.jpg",
+    "bio": "司馬防四子，司馬懿四弟。少有俊才，魏文帝曹丕時封列侯，入晉追封為譙王。",
+    "keyAchievements": [
+      "司馬八達同氣連枝宗族重臣"
+    ],
+    "famousQuotes": [
+      "宗室俊逸，輔佐社稷。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sima_tong",
+    "name": "司馬通",
+    "file": "司马通.jpg",
+    "courtesyName": "雅達",
+    "birthYear": 188,
+    "deathYear": 245,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "司隸 河內郡溫縣",
+    "nativePlaceModern": "河南省溫縣",
+    "faction": "wei",
+    "roles": [
+      "司馬八達之一",
+      "彭城王"
+    ],
+    "avatar": "./images/figures/sima_tong.jpg",
+    "bio": "司馬防五子，司馬懿五弟。少負清名。魏時拜大將軍司馬，西晉建立追封彭城穆王。",
+    "keyAchievements": [
+      "名列司馬八達克紹箕裘"
+    ],
+    "famousQuotes": [
+      "雅達有度，清名在朝。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "jia_kui",
+    "name": "賈逵",
+    "file": "贾逵.jpg",
+    "courtesyName": "梁道",
+    "birthYear": 174,
+    "deathYear": 228,
+    "birthDeathDisplay": "174年 - 228年",
+    "nativePlaceAncient": "并州 襄陵縣",
+    "nativePlaceModern": "山西省襄汾縣",
+    "faction": "wei",
+    "roles": [
+      "豫州刺史",
+      "建威將軍"
+    ],
+    "avatar": "./images/figures/jia_kui.jpg",
+    "bio": "曹魏忠毅名將。曹操崩逝洛陽時整飭三軍擁曹丕即位。修賈侯渠水利。石亭力戰解救曹休脫險。",
+    "keyAchievements": [
+      "曹操崩逝危局擁立曹丕穩定大局",
+      "石亭之役力排前嫌捨身解救曹休",
+      "修賈侯渠水利惠及百姓數十年"
+    ],
+    "famousQuotes": [
+      "吾為魏臣，死於疆場，亦分內事！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_ji",
+    "name": "王基",
+    "file": "王基.jpg",
+    "courtesyName": "伯輿",
+    "birthYear": 190,
+    "deathYear": 261,
+    "birthDeathDisplay": "190年 - 261年",
+    "nativePlaceAncient": "青州 東萊郡曲成縣",
+    "nativePlaceModern": "山東省招遠市",
+    "faction": "wei",
+    "roles": [
+      "征南將軍",
+      "鎮東將軍"
+    ],
+    "avatar": "./images/figures/wang_ji.jpg",
+    "bio": "沉毅多算文武兼資。長年督淮南抗東吳。淮南二叛斷毋丘儉糧道，三叛深溝高壘困死諸葛誕壽春。",
+    "keyAchievements": [
+      "平定毋丘儉與諸葛誕淮南兩大叛亂",
+      "鎮撫東南淮南前線金湯長城"
+    ],
+    "famousQuotes": [
+      "先據險要，乘其未集，敵必自潰！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_hun",
+    "name": "王渾",
+    "file": "王浑.jpg",
+    "courtesyName": "玄衝",
+    "birthYear": 223,
+    "deathYear": 297,
+    "birthDeathDisplay": "223年 - 297年",
+    "nativePlaceAncient": "并州 太原郡晉陽縣",
+    "nativePlaceModern": "山西省太原市",
+    "faction": "wei",
+    "roles": [
+      "司徒",
+      "滅吳統帥之一"
+    ],
+    "avatar": "./images/figures/wang_hun.jpg",
+    "bio": "王昶之子。滅吳北路統帥，版橋之戰擊斬東吳丞相張悌三萬精銳兵臨長江，後位至司徒。",
+    "keyAchievements": [
+      "版橋決戰斬殺東吳丞相張悌主力",
+      "晉滅吳重要主力統帥位至三公"
+    ],
+    "famousQuotes": [
+      "大軍摧鋒陷陣，張悌已梟首！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_jun",
+    "name": "王濬",
+    "file": "王濬.jpg",
+    "courtesyName": "士治",
+    "birthYear": 206,
+    "deathYear": 286,
+    "birthDeathDisplay": "206年 - 286年",
+    "nativePlaceAncient": "司隸 弘農郡湖縣",
+    "nativePlaceModern": "河南省靈寶市",
+    "faction": "wei",
+    "roles": [
+      "撫軍大將軍",
+      "水軍滅吳首功"
+    ],
+    "avatar": "./images/figures/wang_jun.jpg",
+    "bio": "西晉滅吳水師名將。督蜀造巨艦樓船，太康元年順江東下火熔橫江巨鐵鎖，直抵金陵降孫皓。",
+    "keyAchievements": [
+      "大造樓船巨艦開闢順江伐吳大業",
+      "火炬斷橫江巨鐵鎖迫孫皓面縛出降",
+      "唐詩「王濬樓船下益州」千古傳唱"
+    ],
+    "famousQuotes": [
+      "王濬樓船下益州，金陵王氣黯然收！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wei_guan",
+    "name": "衛瓘",
+    "file": "卫瓘.jpg",
+    "courtesyName": "伯玉",
+    "birthYear": 220,
+    "deathYear": 291,
+    "birthDeathDisplay": "220年 - 291年",
+    "nativePlaceAncient": "并州 河東郡安邑縣",
+    "nativePlaceModern": "山西省夏縣",
+    "faction": "wei",
+    "roles": [
+      "太保",
+      "司空",
+      "平蜀監軍"
+    ],
+    "avatar": "./images/figures/wei_guan.jpg",
+    "bio": "魏晉三朝重臣，精通草書。伐蜀監軍。蜀亡後鍾會謀反，衛瓘從容設計平定成都兵變殺鍾會鄧艾。",
+    "keyAchievements": [
+      "從容平息成都鍾會叛亂與兵變",
+      "兼善草書與章草名留書法史",
+      "位極三公太保輔佐西晉社稷"
+    ],
+    "famousQuotes": [
+      "兵勢危篤，以智制變！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhong_yu",
+    "name": "鍾毓",
+    "file": "锺毓.jpg",
+    "courtesyName": "稚叔",
+    "birthYear": 218,
+    "deathYear": 263,
+    "birthDeathDisplay": "？ - 263年",
+    "nativePlaceAncient": "豫州 潁川郡長社縣",
+    "nativePlaceModern": "河南省長葛市",
+    "faction": "wei",
+    "roles": [
+      "後將軍",
+      "廷尉"
+    ],
+    "avatar": "./images/figures/zhong_yu.jpg",
+    "bio": "鍾繇長子鍾會之兄。機警聰敏留「汗出如漿」典故。歷任廷尉執法平恕。早年力諫防鍾會自誤。",
+    "keyAchievements": [
+      "戰戰惶惶汗出如漿名留世說新語",
+      "預言鍾會自恃必叛保全鍾氏宗族"
+    ],
+    "famousQuotes": [
+      "戰戰惶惶，汗出如漿。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "shi_zuan",
+    "name": "師纂",
+    "file": "师纂.jpg",
+    "courtesyName": "",
+    "birthYear": 215,
+    "deathYear": 264,
+    "birthDeathDisplay": "？ - 264年",
+    "nativePlaceAncient": "雍州",
+    "nativePlaceModern": "陝西省境內",
+    "faction": "wei",
+    "roles": [
+      "司馬昭主簿",
+      "鄧艾司馬"
+    ],
+    "avatar": "./images/figures/shi_zuan.jpg",
+    "bio": "隨鄧艾偷渡陰平七百里奇襲江油，克綿竹破諸葛瞻。蜀滅後力勸鄧艾慎言無果，同遭誣殺。",
+    "keyAchievements": [
+      "偷渡陰平先鋒主力大將",
+      "克綿竹平蜀漢功臣之一"
+    ],
+    "famousQuotes": [
+      "事未大定，宜謹奉朝廷之命！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "pei_xiu",
+    "name": "裴秀",
+    "file": "裴秀.jpg",
+    "courtesyName": "季彥",
+    "birthYear": 224,
+    "deathYear": 271,
+    "birthDeathDisplay": "224年 - 271年",
+    "nativePlaceAncient": "河東郡聞喜縣",
+    "nativePlaceModern": "山西省聞喜縣",
+    "faction": "wei",
+    "roles": [
+      "司空",
+      "中國地圖學之父"
+    ],
+    "avatar": "./images/figures/pei_xiu.jpg",
+    "bio": "魏晉名臣傑出地圖學家。西晉拜司空。創立古代製圖理論「製圖六體」，編繪《禹貢地域圖》。",
+    "keyAchievements": [
+      "創立「製圖六體」被譽為中國古代地圖學之父",
+      "編撰歷史地理巨著《禹貢地域圖》"
+    ],
+    "famousQuotes": [
+      "製圖有六體：分率、準望、道里、高下、方邪、迂直。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cui_yan",
+    "name": "崔琰",
+    "file": "崔琰.jpg",
+    "courtesyName": "季珪",
+    "birthYear": 163,
+    "deathYear": 216,
+    "birthDeathDisplay": "163年 - 216年",
+    "nativePlaceAncient": "冀州 清河郡東武城縣",
+    "nativePlaceModern": "河北省故城縣",
+    "faction": "wei",
+    "roles": [
+      "尚書令",
+      "冀州名士領袖"
+    ],
+    "avatar": "./images/figures/cui_yan.jpg",
+    "bio": "容貌偉岸聲姿高邁。主持曹魏官員銓選公正無私。曹操見匈奴使者令崔琰捉刀代立榻前，後受賜死。",
+    "keyAchievements": [
+      "選賢任能公正無私肅清曹魏銓選風氣",
+      "「床頭捉刀人」千古威儀英邁典故"
+    ],
+    "famousQuotes": [
+      "床頭捉刀人，真英雄也！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "mao_jie",
+    "name": "毛玠",
+    "file": "毛玠.jpg",
+    "courtesyName": "孝先",
+    "birthYear": 165,
+    "deathYear": 216,
+    "birthDeathDisplay": "？ - 216年",
+    "nativePlaceAncient": "兗州 陳留郡平丘縣",
+    "nativePlaceModern": "河南省封丘縣",
+    "faction": "wei",
+    "roles": [
+      "尚書僕射",
+      "典選重臣"
+    ],
+    "avatar": "./images/figures/mao_jie.jpg",
+    "bio": "曹操初得兗州時率先獻策「奉天子以令不臣，修耕植以畜軍資」，為曹魏奠定戰略總綱。典選清廉。",
+    "keyAchievements": [
+      "首倡「奉天子以令不臣」立國大戰略",
+      "以清廉儉樸重塑曹魏仕風"
+    ],
+    "famousQuotes": [
+      "今天下分崩，宜奉天子以令不臣！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "chen_lin",
+    "name": "陳琳",
+    "file": "陈琳.jpg",
+    "courtesyName": "孔璋",
+    "birthYear": 160,
+    "deathYear": 217,
+    "birthDeathDisplay": "？ - 217年",
+    "nativePlaceAncient": "徐州 廣陵郡射陽縣",
+    "nativePlaceModern": "江蘇省淮安市",
+    "faction": "wei",
+    "roles": [
+      "司空軍謀祭酒",
+      "建安七子"
+    ],
+    "avatar": "./images/figures/chen_lin.jpg",
+    "bio": "建安七子之一。官渡前夕為袁紹作《為袁紹檄豫州文》痛陳曹操罪狀，曹操讀檄文驚出一身冷汗頭痛頓愈。",
+    "keyAchievements": [
+      "作《為袁紹檄豫州文》檄文千古名篇",
+      "以如椽巨筆治癒曹操頭疾"
+    ],
+    "famousQuotes": [
+      "矢在弦上，不得不發耳！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zang_ba",
+    "name": "臧霸",
+    "file": "臧霸.jpg",
+    "courtesyName": "宣高",
+    "birthYear": 165,
+    "deathYear": 230,
+    "birthDeathDisplay": "？ - 約230年",
+    "nativePlaceAncient": "徐州 泰山郡華縣",
+    "nativePlaceModern": "山東省費縣",
+    "faction": "wei",
+    "roles": [
+      "鎮東將軍",
+      "執金吾"
+    ],
+    "avatar": "./images/figures/zang_ba.jpg",
+    "bio": "割據泰山一方豪強。降曹操後鎮守青徐二州，官渡之戰頻出精銳奇襲袁紹右翼解曹操後顧之憂。",
+    "keyAchievements": [
+      "泰山豪強割據一方保障官渡東方側翼",
+      "鎮守青徐數十年曹操東陲長城"
+    ],
+    "famousQuotes": [
+      "割據泰山，威震齊魯。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "lv_qian",
+    "name": "呂虔",
+    "file": "吕虔.jpg",
+    "courtesyName": "子恪",
+    "birthYear": 165,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "兗州 任城國",
+    "nativePlaceModern": "山東省濟寧市",
+    "faction": "wei",
+    "roles": [
+      "徐州刺史",
+      "騎都尉"
+    ],
+    "avatar": "./images/figures/lv_qian.jpg",
+    "bio": "曹操起兵時即相隨。任泰山太守恩威並施剿撫流寇境內肅清。相傳贈佩刀予名臣王祥。",
+    "keyAchievements": [
+      "泰山撫治十餘年境內肅清",
+      "寶刀贈王祥慧眼識後世名相"
+    ],
+    "famousQuotes": [
+      "以恩信撫納，盜寇悉平。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhu_ling",
+    "name": "朱靈",
+    "file": "朱灵.jpg",
+    "courtesyName": "文博",
+    "birthYear": 168,
+    "deathYear": 228,
+    "birthDeathDisplay": "？ - 228年",
+    "nativePlaceAncient": "冀州 清河國鄃縣",
+    "nativePlaceModern": "山東省平原縣",
+    "faction": "wei",
+    "roles": [
+      "後將軍",
+      "良將"
+    ],
+    "avatar": "./images/figures/zhu_ling.jpg",
+    "bio": "初仕袁紹後歸曹操，清河被叛將季雍所陷母弟在城，朱靈哭曰「大丈夫一事人豈顧家」破城生擒之。",
+    "keyAchievements": [
+      "為公殉私破季雍壯烈之舉",
+      "轉戰中原隨曹操平定關隴南征北討"
+    ],
+    "famousQuotes": [
+      "大丈夫一事人，安可復顧家！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "niu_jin",
+    "name": "牛金",
+    "file": "牛金.jpg",
+    "courtesyName": "",
+    "birthYear": 180,
+    "deathYear": 240,
+    "birthDeathDisplay": "？ - 約240年",
+    "nativePlaceAncient": "荊州 南陽郡",
+    "nativePlaceModern": "河南省南陽市",
+    "faction": "wei",
+    "roles": [
+      "後將軍",
+      "勇將"
+    ],
+    "avatar": "./images/figures/niu_jin.jpg",
+    "bio": "曹仁部將。江陵之戰率三百人陷周瑜數千軍中，曹仁衝陣救之名震敵膽。後隨司馬懿平公孫淵。",
+    "keyAchievements": [
+      "江陵大戰陷陣陷敵誘發曹仁天人勇名",
+      "平定公孫淵主力勇將"
+    ],
+    "famousQuotes": [
+      "勇冠三軍，身先士卒。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "guanqiu_jian",
+    "name": "毌丘儉",
+    "file": "毌丘俭.jpg",
+    "courtesyName": "仲恭",
+    "birthYear": 202,
+    "deathYear": 255,
+    "birthDeathDisplay": "？ - 255年",
+    "nativePlaceAncient": "并州 河東郡聞喜縣",
+    "nativePlaceModern": "山西省聞喜縣",
+    "faction": "wei",
+    "roles": [
+      "鎮東將軍",
+      "幽州刺史"
+    ],
+    "avatar": "./images/figures/guanqiu_jian.jpg",
+    "bio": "任幽州刺史兩度東征高句麗深入丸都刻石紀功。司馬師廢曹芳後，於淮南起兵勤王討逆殉國。",
+    "keyAchievements": [
+      "橫掃東北大破高句麗勒石紀功",
+      "為捍衛曹魏皇室發動淮南二叛勤王起兵"
+    ],
+    "famousQuotes": [
+      "陛下蒙塵受廢，身為魏臣，何以苟活！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhuge_dan",
+    "name": "諸葛誕",
+    "file": "诸葛诞.jpg",
+    "courtesyName": "公休",
+    "birthYear": 200,
+    "deathYear": 258,
+    "birthDeathDisplay": "？ - 258年",
+    "nativePlaceAncient": "徐州 琅邪郡陽都縣",
+    "nativePlaceModern": "山東省沂南縣",
+    "faction": "wei",
+    "roles": [
+      "征東大將軍",
+      "司空"
+    ],
+    "avatar": "./images/figures/zhuge_dan.jpg",
+    "bio": "諸葛亮從弟。世稱「魏得其狗（忠誠守護之意）」。反司馬昭專權於壽春起兵，城破數百死士甘受戮。",
+    "keyAchievements": [
+      "發動淮南第三叛抵抗司馬氏專權",
+      "壽春城破數百死士從容就義壯烈貫日"
+    ],
+    "famousQuotes": [
+      "為諸葛公死，不恨！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wen_qin",
+    "name": "文欽",
+    "file": "文钦.jpg",
+    "courtesyName": "仲若",
+    "birthYear": 200,
+    "deathYear": 258,
+    "birthDeathDisplay": "？ - 258年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "前將軍",
+      "揚州刺史"
+    ],
+    "avatar": "./images/figures/wen_qin.jpg",
+    "bio": "驍勇剛愎。與毌丘儉淮南起兵反司馬師，其子文鴦夜襲敵營勇冠三軍。後入壽春與諸葛誕猜忌被殺。",
+    "keyAchievements": [
+      "淮南二叛三叛核心武力統帥",
+      "育猛將文鴦名震天下"
+    ],
+    "famousQuotes": [
+      "司馬師弒逆悖亂，當提兵誅之！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wen_yang",
+    "name": "文鴦",
+    "file": "文鸯.jpg",
+    "courtesyName": "次騫",
+    "birthYear": 238,
+    "deathYear": 291,
+    "birthDeathDisplay": "238年 - 291年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "東夷校尉",
+      "三國後期第一猛將"
+    ],
+    "avatar": "./images/figures/wen_yang.jpg",
+    "bio": "文欽之子本名文俶。三國末期第一猛將單騎衝陣退司馬師萬騎。入晉都督軍事大破鮮卑降二十萬。",
+    "keyAchievements": [
+      "單騎退司馬師萬騎連殺百餘人",
+      "大破鮮卑降服胡虜二十萬名震天下",
+      "三國演義後半篇第一猛將萬人敵"
+    ],
+    "famousQuotes": [
+      "勇冠三軍，單騎萬里退魏兵！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "qian_zhao",
+    "name": "牽招",
+    "file": "牵招.jpg",
+    "courtesyName": "子經",
+    "birthYear": 170,
+    "deathYear": 231,
+    "birthDeathDisplay": "？ - 231年",
+    "nativePlaceAncient": "冀州 安平郡觀津縣",
+    "nativePlaceModern": "河北省武邑縣",
+    "faction": "wei",
+    "roles": [
+      "雁門太守",
+      "護烏桓校尉"
+    ],
+    "avatar": "./images/figures/qian_zhao.jpg",
+    "bio": "劉備少時刎頸之交。後仕曹操鎮雁門十餘載離間鮮卑諸部單騎撫亂，胡狄震服不敢犯塞名震北疆。",
+    "keyAchievements": [
+      "鎮守雁門塞北十餘年邊境晏然",
+      "離間鮮卑諸部瓦解塞北反叛"
+    ],
+    "famousQuotes": [
+      "邊疆之守，在撫不在殺，以威信結胡夷。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "tian_yu",
+    "name": "田豫",
+    "file": "田予.jpg",
+    "courtesyName": "國讓",
+    "birthYear": 171,
+    "deathYear": 252,
+    "birthDeathDisplay": "171年 - 252年",
+    "nativePlaceAncient": "幽州 漁陽郡雍奴縣",
+    "nativePlaceModern": "天津市武清區",
+    "faction": "wei",
+    "roles": [
+      "并州刺史",
+      "護烏桓校尉"
+    ],
+    "avatar": "./images/figures/tian_yu.jpg",
+    "bio": "劉備起兵初相隨甚深。後仕魏鎮北疆三十年屢破鮮卑軻比能，新城斬吳名將周賀，為官清廉家無私財。",
+    "keyAchievements": [
+      "鎮守北疆三十年大破軻比能胡虜安定塞北",
+      "新城斬東吳名將周賀威名震江淮",
+      "清介廉明曹魏三朝社稷名臣"
+    ],
+    "famousQuotes": [
+      "恨不與君共成大業！（劉備惜別語）"
+    ],
+    "relations": []
+  },
+  {
+    "id": "yan_rou",
+    "name": "閻柔",
+    "file": "阎柔.jpg",
+    "courtesyName": "",
+    "birthYear": 165,
+    "deathYear": 230,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "幽州 廣陽郡",
+    "nativePlaceModern": "北京市境內",
+    "faction": "wei",
+    "roles": [
+      "護烏丸校尉",
+      "度遼將軍"
+    ],
+    "avatar": "./images/figures/yan_rou.jpg",
+    "bio": "自幼流落塞北深得胡民信服。率鮮卑烏桓精騎歸曹操待如親子。白狼山之戰率異族騎兵為先鋒立大功。",
+    "keyAchievements": [
+      "以胡漢威望統率北方異族歸順曹操",
+      "白狼山大破蹋頓烏桓先鋒名將"
+    ],
+    "famousQuotes": [
+      "曹公待我如子，願效死力！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "liang_xi",
+    "name": "梁習",
+    "file": "梁习.jpg",
+    "courtesyName": "子虞",
+    "birthYear": 170,
+    "deathYear": 230,
+    "birthDeathDisplay": "？ - 230年",
+    "nativePlaceAncient": "豫州 陳郡柘縣",
+    "nativePlaceModern": "河南省柘城縣",
+    "faction": "wei",
+    "roles": [
+      "并州刺史",
+      "大司農"
+    ],
+    "avatar": "./images/figures/liang_xi.jpg",
+    "bio": "曹魏邊陲第一能臣。任并州刺史二十年收兵器開屯田撫降南匈奴，政績號為「治狀常為天下最」。",
+    "keyAchievements": [
+      "治并州二十載被評曹魏「天下第一刺史」",
+      "招撫安置匈奴部落胡漢安堵"
+    ],
+    "famousQuotes": [
+      "政治長治久安，以撫順化民為基。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xin_pi",
+    "name": "辛毗",
+    "file": "辛毘.jpg",
+    "courtesyName": "佐治",
+    "birthYear": 168,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - 235年",
+    "nativePlaceAncient": "豫州 潁川郡陽翟縣",
+    "nativePlaceModern": "河南省禹州市",
+    "faction": "wei",
+    "roles": [
+      "衛尉",
+      "大將軍軍師"
+    ],
+    "avatar": "./images/figures/xin_pi.jpg",
+    "bio": "剛正不阿。五丈原司馬懿與諸葛亮對峙，魏明帝遣辛毗持節為軍師立軍門按劍阻司馬懿出戰，挫孔明計。",
+    "keyAchievements": [
+      "五丈原持節按節力制三軍冒進",
+      "力陳利害成功阻遏諸葛亮求決之策"
+    ],
+    "famousQuotes": [
+      "姜維嘆曰：『辛毗杖節而至，賊不復出矣！』"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xin_xianying",
+    "name": "辛憲英",
+    "file": "辛宪英.jpg",
+    "courtesyName": "",
+    "birthYear": 191,
+    "deathYear": 269,
+    "birthDeathDisplay": "191年 - 269年",
+    "nativePlaceAncient": "豫州 潁川郡陽翟縣",
+    "nativePlaceModern": "河南省禹州市",
+    "faction": "wei",
+    "roles": [
+      "女智囊",
+      "辛毗之女"
+    ],
+    "avatar": "./images/figures/xin_xianying.jpg",
+    "bio": "辛毗之女羊祜嬸母。三度神準預言曹丕短壽、高平陵變局、鍾會作亂，料事如神名震青史。",
+    "keyAchievements": [
+      "三度神準預言曹丕短壽、高平陵變局、鍾會作亂",
+      "三國最具政治遠見之智慧奇女子"
+    ],
+    "famousQuotes": [
+      "為人作事，當以信義存心，豈可背逆大節！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "dai_ling",
+    "name": "戴陵",
+    "file": "戴陵.jpg",
+    "courtesyName": "",
+    "birthYear": 185,
+    "deathYear": 240,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "豫州",
+    "nativePlaceModern": "河南省境內",
+    "faction": "wei",
+    "roles": [
+      "征蜀護軍",
+      "討寇將軍"
+    ],
+    "avatar": "./images/figures/dai_ling.jpg",
+    "bio": "諸葛亮出祁山時，戴陵與張郃同為司馬懿前線副帥，率精兵守上邽，多次迎擊諸葛亮蜀軍主力。",
+    "keyAchievements": [
+      "隨司馬懿在隴西前線阻擊諸葛亮主力"
+    ],
+    "famousQuotes": [
+      "臨陣勇毅，恪盡職守。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "fei_yao",
+    "name": "費耀",
+    "file": "费耀.jpg",
+    "courtesyName": "",
+    "birthYear": 185,
+    "deathYear": 240,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "雍州",
+    "nativePlaceModern": "陝西省境內",
+    "faction": "wei",
+    "roles": [
+      "後將軍",
+      "雍州刺史"
+    ],
+    "avatar": "./images/figures/fei_yao.jpg",
+    "bio": "西北主力大將。隨曹真破蜀軍於斜谷，陳倉防衛戰率軍接應郝昭，鹵城之戰與司馬懿並肩拒孔明。",
+    "keyAchievements": [
+      "長期駐防西北雍涼抵禦諸葛亮北伐"
+    ],
+    "famousQuotes": [
+      "受命拒蜀，死戰不退！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "shen_yi",
+    "name": "申儀",
+    "file": "申仪.jpg",
+    "courtesyName": "",
+    "birthYear": 180,
+    "deathYear": 245,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "梁州 漢中郡西城縣",
+    "nativePlaceModern": "陝西省安康市",
+    "faction": "wei",
+    "roles": [
+      "魏興太守",
+      "西城豪族"
+    ],
+    "avatar": "./images/figures/shen_yi.jpg",
+    "bio": "申耽之弟割據上庸。降曹魏後孟達密謀聯蜀反魏，申儀告密司馬懿助神速八日斬殺孟達平新城。",
+    "keyAchievements": [
+      "告密孟達助司馬懿神速平叛新城"
+    ],
+    "famousQuotes": [
+      "密表告變，事定方全。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "shen_dan",
+    "name": "申耽",
+    "file": "申耽.jpg",
+    "courtesyName": "義舉",
+    "birthYear": 175,
+    "deathYear": 240,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "梁州 漢中郡西城縣",
+    "nativePlaceModern": "陝西省安康市",
+    "faction": "wei",
+    "roles": [
+      "征北將軍",
+      "上庸豪強"
+    ],
+    "avatar": "./images/figures/shen_dan.jpg",
+    "bio": "漢中西城豪族領袖聚數千家。後降曹丕拜懷遠將軍遷南陽優容安置，保全宗族鄉里安堵。",
+    "keyAchievements": [
+      "割據上庸十餘年左右逢源保全鄉里"
+    ],
+    "famousQuotes": [
+      "保宗全族，順應天時。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhang_hu",
+    "name": "張虎",
+    "file": "张虎.jpg",
+    "courtesyName": "",
+    "birthYear": 200,
+    "deathYear": 260,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "并州 雁門郡馬邑縣",
+    "nativePlaceModern": "山西省朔州市",
+    "faction": "wei",
+    "roles": [
+      "偏將軍",
+      "張遼長子"
+    ],
+    "avatar": "./images/figures/zhang_hu.jpg",
+    "bio": "張遼長子襲晉陽侯。隨司馬懿抵禦諸葛亮北伐，陳倉鹵城與樂綝同為先鋒，將門虎子雙璧。",
+    "keyAchievements": [
+      "繼承張遼五子良將衣缽先鋒立功"
+    ],
+    "famousQuotes": [
+      "虎父無犬子，誓立戰功！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "yue_lin",
+    "name": "樂綝",
+    "file": "乐綝.jpg",
+    "courtesyName": "",
+    "birthYear": 202,
+    "deathYear": 257,
+    "birthDeathDisplay": "？ - 257年",
+    "nativePlaceAncient": "兗州 陽平郡衛國縣",
+    "nativePlaceModern": "山東省莘縣",
+    "faction": "wei",
+    "roles": [
+      "揚州刺史",
+      "樂進之子"
+    ],
+    "avatar": "./images/figures/yue_lin.jpg",
+    "bio": "五子良將樂進之子。勇猛果烈。淮南諸葛誕起兵反叛司馬昭，樂綝不從叛逆被攻殺全節殉國。",
+    "keyAchievements": [
+      "不屈從諸葛誕叛軍壯烈死節"
+    ],
+    "famousQuotes": [
+      "身為魏臣，何肯助反逆！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "dian_man",
+    "name": "典滿",
+    "file": "典满.jpg",
+    "courtesyName": "",
+    "birthYear": 188,
+    "deathYear": 245,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "兗州 陳留郡己吾縣",
+    "nativePlaceModern": "河南省寧陵縣",
+    "faction": "wei",
+    "roles": [
+      "都尉",
+      "典韋之子"
+    ],
+    "avatar": "./images/figures/dian_man.jpg",
+    "bio": "典韋之子。宛城典韋捨命救操戰死後撫養如親生，長年宿衛宮闈忠厚可託拜都尉封列侯。",
+    "keyAchievements": [
+      "承父勇忠之名統率宿衛親軍"
+    ],
+    "famousQuotes": [
+      "感恩圖報，世受國恩。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xu_yi",
+    "name": "許儀",
+    "file": "许仪.jpg",
+    "courtesyName": "",
+    "birthYear": 205,
+    "deathYear": 263,
+    "birthDeathDisplay": "？ - 263年",
+    "nativePlaceAncient": "豫州 譙國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "牟鄉侯",
+      "許褚之子"
+    ],
+    "avatar": "./images/figures/xu_yi.jpg",
+    "bio": "許褚之子。伐蜀之戰為鍾會開路先鋒過橋陷蹄，鍾會嚴整軍法立斬許儀以立軍威。",
+    "keyAchievements": [
+      "伐蜀先鋒築路開道死於軍法"
+    ],
+    "famousQuotes": [
+      "虎癡之裔，勇冠一軍。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "pang_hui",
+    "name": "龐會",
+    "file": "庞会.jpg",
+    "courtesyName": "",
+    "birthYear": 208,
+    "deathYear": 265,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 南安郡狟道縣",
+    "nativePlaceModern": "甘肅省武山縣",
+    "faction": "wei",
+    "roles": [
+      "中尉將軍",
+      "龐德之子"
+    ],
+    "avatar": "./images/figures/pang_hui.jpg",
+    "bio": "龐德之子隨鍾會鄧艾滅蜀。據載為報父仇入成都後盡滅關羽全家後嗣，手段狠辣名載史冊。",
+    "keyAchievements": [
+      "隨大軍平蜀滅亡蜀漢",
+      "滅關羽全家為父龐德復仇"
+    ],
+    "famousQuotes": [
+      "殺父之仇，萬世不共戴天！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "hu_lie",
+    "name": "胡烈",
+    "file": "胡烈.jpg",
+    "courtesyName": "",
+    "birthYear": 218,
+    "deathYear": 270,
+    "birthDeathDisplay": "？ - 270年",
+    "nativePlaceAncient": "司隸 安定郡臨涇縣",
+    "nativePlaceModern": "甘肅省鎮原縣",
+    "faction": "wei",
+    "roles": [
+      "秦州刺史",
+      "西晉名將"
+    ],
+    "avatar": "./images/figures/hu_lie.jpg",
+    "bio": "伐蜀被囚成都傳血書與子胡淵發動兵變誅鍾會姜維。後任秦州刺史血戰禿髮樹機能殉國。",
+    "keyAchievements": [
+      "成都密信引發兵變成功粉碎鍾會謀反",
+      "萬佛山血戰異族禿髮樹機能殉國"
+    ],
+    "famousQuotes": [
+      "密書出宮，誅除叛逆！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "shi_bao",
+    "name": "石苞",
+    "file": "石苞.jpg",
+    "courtesyName": "仲容",
+    "birthYear": 200,
+    "deathYear": 272,
+    "birthDeathDisplay": "？ - 272年",
+    "nativePlaceAncient": "冀州 勃海郡南皮縣",
+    "nativePlaceModern": "河北省南皮縣",
+    "faction": "wei",
+    "roles": [
+      "大司馬",
+      "西晉佐命八公"
+    ],
+    "avatar": "./images/figures/shi_bao.jpg",
+    "bio": "販鐵寒門出身為司馬懿拔擢。高平陵立功，督淮南十餘年破東吳諸葛恪丁奉，位至大司馬。",
+    "keyAchievements": [
+      "寒門販鐵出身崛起為開國大司馬",
+      "督淮南十餘年挫敗東吳多次進犯"
+    ],
+    "famousQuotes": [
+      "寒賤崛起，感恩圖報竭盡臣節。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "chen_qian",
+    "name": "陳騫",
+    "file": "陈骞.jpg",
+    "courtesyName": "休淵",
+    "birthYear": 201,
+    "deathYear": 281,
+    "birthDeathDisplay": "201年 - 281年",
+    "nativePlaceAncient": "沛國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "太保",
+      "大司馬"
+    ],
+    "avatar": "./images/figures/chen_qian.jpg",
+    "bio": "陳矯之子。隨司馬昭平諸葛誕叛亂破壽春立首功，西晉受禪拜車騎將軍位極太保大司馬。",
+    "keyAchievements": [
+      "淮南平諸葛誕奪破壽春先鋒",
+      "西晉開國三公太保位極人臣"
+    ],
+    "famousQuotes": [
+      "行軍有長算，治戎端直。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "qiu_jian",
+    "name": "丘建",
+    "file": "丘建.jpg",
+    "courtesyName": "",
+    "birthYear": 220,
+    "deathYear": 270,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "雍州",
+    "nativePlaceModern": "陝西省境內",
+    "faction": "wei",
+    "roles": [
+      "校尉",
+      "鍾會帳下將領"
+    ],
+    "avatar": "./images/figures/qiu_jian.jpg",
+    "bio": "鍾會愛將曾受胡烈拔擢。鍾會叛反囚胡烈時，丘建念舊恩通風報信引發成都兵變粉碎叛變。",
+    "keyAchievements": [
+      "念舊恩通風報信助平鍾會姜維叛變"
+    ],
+    "famousQuotes": [
+      "受恩深重，安可背棄舊主！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "ma_jun",
+    "name": "馬鈞",
+    "file": "马钧.jpg",
+    "courtesyName": "德衡",
+    "birthYear": 200,
+    "deathYear": 265,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "司隸 扶風郡",
+    "nativePlaceModern": "陝西省扶風縣",
+    "faction": "wei",
+    "roles": [
+      "給事中",
+      "天下之名巧"
+    ],
+    "avatar": "./images/figures/ma_jun.jpg",
+    "bio": "古代最傑出機械發明家。改進綾機、復原指南車、發明翻車龍骨水車與水轉百戲木偶機關。",
+    "keyAchievements": [
+      "成功復原指南車天下驚嘆",
+      "發明翻車龍骨水車農業灌溉革命",
+      "改進連發拋石機與諸葛連弩媲美"
+    ],
+    "famousQuotes": [
+      "巧思絕人，天下之名巧也！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "liu_shao",
+    "name": "劉劭",
+    "file": "刘劭.jpg",
+    "courtesyName": "孔才",
+    "birthYear": 182,
+    "deathYear": 245,
+    "birthDeathDisplay": "約182年 - 245年",
+    "nativePlaceAncient": "冀州 廣平郡邯鄲縣",
+    "nativePlaceModern": "河北省邯鄲市",
+    "faction": "wei",
+    "roles": [
+      "散騎常侍",
+      "法學家"
+    ],
+    "avatar": "./images/figures/liu_shao.jpg",
+    "bio": "著中國最早人物心理學《人物志》，制定《新律》十八篇，獻奇策虛張聲勢疑退孫權。",
+    "keyAchievements": [
+      "撰《人物志》開創中國古代品藻心智學",
+      "主持修訂《新律》奠定魏晉法典制度"
+    ],
+    "famousQuotes": [
+      "夫人材不同，成各有質。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "liu_fu",
+    "name": "劉馥",
+    "file": "刘馥.jpg",
+    "courtesyName": "元穎",
+    "birthYear": 160,
+    "deathYear": 208,
+    "birthDeathDisplay": "？ - 208年",
+    "nativePlaceAncient": "豫州 沛國相縣",
+    "nativePlaceModern": "安徽省濉溪縣",
+    "faction": "wei",
+    "roles": [
+      "揚州刺史",
+      "合肥築城先驅"
+    ],
+    "avatar": "./images/figures/liu_fu.jpg",
+    "bio": "單騎任揚州刺史撫安流民築合肥城興水利芍陂儲糧木石，身後孫權圍合肥百日不克賴其備蓄。",
+    "keyAchievements": [
+      "單騎入合肥開創江淮繁榮新基石",
+      "築合肥要塞庇蔭曹魏對吳防禦數十年"
+    ],
+    "famousQuotes": [
+      "築城儲備，惠澤後世三軍！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "jiang_gan",
+    "name": "蔣幹",
+    "file": "蒋干.jpg",
+    "courtesyName": "子翼",
+    "birthYear": 175,
+    "deathYear": 230,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "揚州 九江郡壽春縣",
+    "nativePlaceModern": "安徽省壽縣",
+    "faction": "wei",
+    "roles": [
+      "辯士",
+      "曹操幕僚"
+    ],
+    "avatar": "./images/figures/jiang_gan.jpg",
+    "bio": "九江名士英姿俊邁。群英會中周瑜盜書反間計引曹操斬水軍都督蔡瑁張允，戲劇符號流傳。",
+    "keyAchievements": [
+      "群英會中計中引發連環赤壁變局",
+      "三國演義最著名使臣戲劇符號"
+    ],
+    "famousQuotes": [
+      "獨步江淮，莫與為匹。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cai_mao",
+    "name": "蔡瑁",
+    "file": "蔡瑁.jpg",
+    "courtesyName": "德珪",
+    "birthYear": 160,
+    "deathYear": 225,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "荊州 襄陽郡",
+    "nativePlaceModern": "湖北省襄陽市",
+    "faction": "wei",
+    "roles": [
+      "水軍大都督",
+      "漢陽亭侯"
+    ],
+    "avatar": "./images/figures/cai_mao.jpg",
+    "bio": "荊襄豪族蔡氏領袖劉表妻弟。權傾荊襄操練水師二十年。曹操南征迎降拜水軍大都督長壽封侯。",
+    "keyAchievements": [
+      "執掌荊襄水師二十載操練強悍戰艦",
+      "促成荊州和平降曹避免生靈塗炭"
+    ],
+    "famousQuotes": [
+      "識時務者為俊傑，何若舉荊州歸天朝！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhang_yun",
+    "name": "張允",
+    "file": "张允.jpg",
+    "courtesyName": "",
+    "birthYear": 162,
+    "deathYear": 208,
+    "birthDeathDisplay": "？ - 208年",
+    "nativePlaceAncient": "荊州 襄陽郡",
+    "nativePlaceModern": "湖北省襄陽市",
+    "faction": "wei",
+    "roles": [
+      "水軍副都督",
+      "劉表外甥"
+    ],
+    "avatar": "./images/figures/zhang_yun.jpg",
+    "bio": "劉表外甥與蔡瑁同掌荊襄水師大權。隨降曹操任水軍副都督操練水軍，演義中同遭周瑜借刀斬首。",
+    "keyAchievements": [
+      "襄助蔡瑁總攬荊襄水師防務"
+    ],
+    "famousQuotes": [
+      "水戰之法，重在陣形舟械之整！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "kuai_yue",
+    "name": "蒯越",
+    "file": "蒯越.jpg",
+    "courtesyName": "異度",
+    "birthYear": 154,
+    "deathYear": 214,
+    "birthDeathDisplay": "？ - 214年",
+    "nativePlaceAncient": "荊州 南陽郡中盧縣",
+    "nativePlaceModern": "湖北省襄陽市",
+    "faction": "wei",
+    "roles": [
+      "光祿勳",
+      "樊侯"
+    ],
+    "avatar": "./images/figures/kuai_yue.jpg",
+    "bio": "蒯良之弟深具謀略。助劉表單騎入宜城誅宗賊平荊襄，勸劉琮獻荊州，曹操讚「喜得異度不喜荊州」。",
+    "keyAchievements": [
+      "助劉表斬宗賊平定荊襄八郡全境",
+      "曹操譽為「不喜得荊州，喜得蒯異度」"
+    ],
+    "famousQuotes": [
+      "兵不在多，在乎能否用之；敵不在勇，在乎能否謀之。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "kuai_liang",
+    "name": "蒯良",
+    "file": "蒯良.jpg",
+    "courtesyName": "子柔",
+    "birthYear": 150,
+    "deathYear": 210,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "荊州 南陽郡中盧縣",
+    "nativePlaceModern": "湖北省襄陽市",
+    "faction": "wei",
+    "roles": [
+      "吏部尚書",
+      "荊州第一謀士"
+    ],
+    "avatar": "./images/figures/kuai_liang.jpg",
+    "bio": "蒯越之兄。少有大智，孫堅攻襄陽時蒯良定計遣呂公登峴山設伏滾木擂石擊殺江東猛虎孫堅。",
+    "keyAchievements": [
+      "峴山定計設伏陣斬江東之虎孫堅",
+      "助劉表確立保境息民治荊大策"
+    ],
+    "famousQuotes": [
+      "仁義之道，民心所嚮；權謀之用，定亂除患。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "han_song",
+    "name": "韓嵩",
+    "file": "韩嵩.jpg",
+    "courtesyName": "德高",
+    "birthYear": 155,
+    "deathYear": 215,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "荊州 義陽郡",
+    "nativePlaceModern": "河南省南陽市",
+    "faction": "wei",
+    "roles": [
+      "大鴻臚",
+      "別駕"
+    ],
+    "avatar": "./images/figures/han_song.jpg",
+    "bio": "剛烈正直荊州名士。官渡時直諫劉表附曹，出使許昌受曹操厚遇，返荊力陳天命險遭劉表斬首。",
+    "keyAchievements": [
+      "直言敢諫力促劉表深明天下大勢",
+      "風度凜然位列曹魏九卿大鴻臚"
+    ],
+    "famousQuotes": [
+      "忠臣不畏死，但恨主之不明！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "dong_zhao",
+    "name": "董昭",
+    "file": "董昭.jpg",
+    "courtesyName": "公仁",
+    "birthYear": 156,
+    "deathYear": 236,
+    "birthDeathDisplay": "156年 - 236年",
+    "nativePlaceAncient": "濟陰郡定陶縣",
+    "nativePlaceModern": "山東省定陶區",
+    "faction": "wei",
+    "roles": [
+      "司徒",
+      "謀士元勳"
+    ],
+    "avatar": "./images/figures/dong_zhao.jpg",
+    "bio": "定策核心謀臣。定計迎天子都許奠定挾天子以令諸侯宏圖，首倡勸進曹操進魏公加九錫代漢基石。",
+    "keyAchievements": [
+      "策劃迎天子遷都許縣關鍵推手",
+      "首倡勸進曹操加九錫受魏公位列司徒"
+    ],
+    "famousQuotes": [
+      "今天下分崩，宜奉車駕都許，此建霸業之始也！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "liu_ba",
+    "name": "劉巴",
+    "file": "刘巴.jpg",
+    "courtesyName": "子初",
+    "birthYear": 180,
+    "deathYear": 222,
+    "birthDeathDisplay": "？ - 222年",
+    "nativePlaceAncient": "荊州 零陵郡烝陽縣",
+    "nativePlaceModern": "湖南省邵東市",
+    "faction": "wei",
+    "roles": [
+      "尚書令",
+      "貨幣改革家"
+    ],
+    "avatar": "./images/figures/liu_ba.jpg",
+    "bio": "三國狂士經濟奇才。早年避劉備投曹操，後歸劉備拜尚書令。鑄直百錢平準物價數月充實蜀國庫。",
+    "keyAchievements": [
+      "發行直百錢平準物價數月救活蜀漢財政",
+      "與諸葛亮法正共訂《蜀科》法典"
+    ],
+    "famousQuotes": [
+      "大丈夫處世，當交四海英雄，如何與兵卒語！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "yan_xing",
+    "name": "閻行",
+    "file": "阎行.jpg",
+    "courtesyName": "彥明",
+    "birthYear": 175,
+    "deathYear": 230,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 金城郡",
+    "nativePlaceModern": "甘肅省蘭州市",
+    "faction": "wei",
+    "roles": [
+      "犍為太守",
+      "西涼第一戰神"
+    ],
+    "avatar": "./images/figures/yan_xing.jpg",
+    "bio": "韓遂婿兼第一勇將。早年單挑以斷矛猛刺馬超頸項幾將其刺殺。後勸韓遂降曹率部歸順封列侯。",
+    "keyAchievements": [
+      "單挑以斷矛重創馬超頸項幾致死命",
+      "深明大義率部歸曹安定關隴"
+    ],
+    "famousQuotes": [
+      "關中猛將，閻彥明刺馬超幾乎得手！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cheng_gongying",
+    "name": "成公英",
+    "file": "成公英.jpg",
+    "courtesyName": "",
+    "birthYear": 178,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 金城郡",
+    "nativePlaceModern": "甘肅省蘭州市",
+    "faction": "wei",
+    "roles": [
+      "軍師騎都尉",
+      "忠藎之將"
+    ],
+    "avatar": "./images/figures/cheng_gongying.jpg",
+    "bio": "韓遂腹心參軍。韓遂敗亡眾叛親離成公英生死相隨哭葬之，降曹操後以連發三矢射鹿神技服操。",
+    "keyAchievements": [
+      "韓遂敗亡窮困不離不棄至情全節",
+      "連發三矢射鹿神射傾倒曹操"
+    ],
+    "famousQuotes": [
+      "故主已死，臣方受明公之命；苟死義臣，雖死何憾！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "che_zhou",
+    "name": "車冑",
+    "file": "车胄.jpg",
+    "courtesyName": "",
+    "birthYear": 160,
+    "deathYear": 199,
+    "birthDeathDisplay": "？ - 199年",
+    "nativePlaceAncient": "司隸",
+    "nativePlaceModern": "河南省境內",
+    "faction": "wei",
+    "roles": [
+      "徐州刺史",
+      "曹操將領"
+    ],
+    "avatar": "./images/figures/che_zhou.jpg",
+    "bio": "曹操破呂布後任徐州刺史。建安四年奉密令圖殺反叛之劉備，計洩被關羽張飛夜襲斬首奪徐州。",
+    "keyAchievements": [
+      "受曹操重託鎮守徐州軍政"
+    ],
+    "famousQuotes": [
+      "奉丞相密令，務除劉備！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "ding_yi",
+    "name": "丁儀",
+    "file": "丁仪.jpg",
+    "courtesyName": "正禮",
+    "birthYear": 175,
+    "deathYear": 220,
+    "birthDeathDisplay": "？ - 220年",
+    "nativePlaceAncient": "豫州 沛國譙縣",
+    "nativePlaceModern": "安徽省亳州市",
+    "faction": "wei",
+    "roles": [
+      "右刺奸掾",
+      "才子"
+    ],
+    "avatar": "./images/figures/ding_yi.jpg",
+    "bio": "丁沖之子才學俊邁，因曹丕以其獨眼阻尚公主心恨之，竭力助曹植奪嫡，曹丕即位抄家族誅。",
+    "keyAchievements": [
+      "曹植奪嫡西堂之爭首席策劃者"
+    ],
+    "famousQuotes": [
+      "才智冠絕，自誤於奪嫡門戶。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "he_yan",
+    "name": "何晏",
+    "file": "何晏.jpg",
+    "courtesyName": "平叔",
+    "birthYear": 195,
+    "deathYear": 249,
+    "birthDeathDisplay": "約195年 - 249年",
+    "nativePlaceAncient": "荊州 南陽郡宛縣",
+    "nativePlaceModern": "河南省南陽市",
+    "faction": "wei",
+    "roles": [
+      "吏部尚書",
+      "玄學宗師"
+    ],
+    "avatar": "./images/figures/he_yan.jpg",
+    "bio": "何進孫曹操養子。傅粉何郎開創玄學清談。曹爽執政任吏部尚書，高平陵政變誘審同遭族誅。",
+    "keyAchievements": [
+      "開創魏晉玄學貴無論哲學宗師",
+      "留「傅粉何郎」典故名垂風度史"
+    ],
+    "famousQuotes": [
+      "天地萬物，皆以無為為本。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "fu_jia",
+    "name": "傅嘏",
+    "file": "傅嘏.jpg",
+    "courtesyName": "蘭石",
+    "birthYear": 209,
+    "deathYear": 255,
+    "birthDeathDisplay": "209年 - 255年",
+    "nativePlaceAncient": "司隸 北地郡泥陽縣",
+    "nativePlaceModern": "陝西省銅川市",
+    "faction": "wei",
+    "roles": [
+      "尚書僕射",
+      "陽鄉侯"
+    ],
+    "avatar": "./images/figures/fu_jia.jpg",
+    "bio": "識見明達。平毋丘儉力勸司馬昭親征，司馬師死許昌定策令司馬昭速回洛陽掌軍權定司馬基業。",
+    "keyAchievements": [
+      "淮南平叛定策親征功勳卓著",
+      "護送司馬昭搶回洛陽軍權定司馬氏基業"
+    ],
+    "famousQuotes": [
+      "事機貴神速，不可令大權旁落！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "huan_fan",
+    "name": "桓範",
+    "file": "桓范.jpg",
+    "courtesyName": "元則",
+    "birthYear": 185,
+    "deathYear": 249,
+    "birthDeathDisplay": "？ - 249年",
+    "nativePlaceAncient": "沛國龍亢縣",
+    "nativePlaceModern": "安徽省懷遠縣",
+    "faction": "wei",
+    "roles": [
+      "大司農",
+      "智囊"
+    ],
+    "avatar": "./images/figures/huan_fan.jpg",
+    "bio": "深謀遠慮號「智囊」。高平陵變奪印出奔勸曹爽奉天子幸許昌勤王，曹爽降泣罵「豚犢」遭族誅。",
+    "keyAchievements": [
+      "高平陵危局奪印出奔獻勤王救國上策",
+      "智囊之稱痛斥曹爽兄弟豚犢千古悲歌"
+    ],
+    "famousQuotes": [
+      "曹子丹佳兒，乃生汝兄弟，豚犬耳！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_chang",
+    "name": "王昶",
+    "file": "王昶.jpg",
+    "courtesyName": "文舒",
+    "birthYear": 188,
+    "deathYear": 259,
+    "birthDeathDisplay": "？ - 259年",
+    "nativePlaceAncient": "并州 太原郡晉陽縣",
+    "nativePlaceModern": "山西省太原市",
+    "faction": "wei",
+    "roles": [
+      "司空",
+      "大將軍"
+    ],
+    "avatar": "./images/figures/wang_chang.jpg",
+    "bio": "王渾之父。沉毅有度文武全才。南征江陵以火攻擊破東吳水陸軍斬施績部將，西晉追贈司空。",
+    "keyAchievements": [
+      "江陵之戰火攻大破東吳名將施績",
+      "著《家戒》名揚天下一代名臣名相"
+    ],
+    "famousQuotes": [
+      "夫戒傲戒滿，君子以自強不息。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_su",
+    "name": "王肅",
+    "file": "王肃.jpg",
+    "courtesyName": "子雍",
+    "birthYear": 195,
+    "deathYear": 256,
+    "birthDeathDisplay": "195年 - 256年",
+    "nativePlaceAncient": "徐州 東海郡郯縣",
+    "nativePlaceModern": "山東省郯城縣",
+    "faction": "wei",
+    "roles": [
+      "司空",
+      "經學大師"
+    ],
+    "avatar": "./images/figures/wang_su.jpg",
+    "bio": "王朗之子司馬昭岳父晉武帝司馬炎外祖父。精研六經註疏群書創立「王學」，位極司空尊榮顯赫。",
+    "keyAchievements": [
+      "開創儒家「王學」宗師風範",
+      "司馬炎外祖父德高望重位列三公"
+    ],
+    "famousQuotes": [
+      "經書大義，窮理致知。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_jing",
+    "name": "王經",
+    "file": "王经.jpg",
+    "courtesyName": "彥緯",
+    "birthYear": 210,
+    "deathYear": 260,
+    "birthDeathDisplay": "？ - 260年",
+    "nativePlaceAncient": "冀州 清河郡",
+    "nativePlaceModern": "河北省清河縣",
+    "faction": "wei",
+    "roles": [
+      "尚書",
+      "雍州刺史"
+    ],
+    "avatar": "./images/figures/wang_jing.jpg",
+    "bio": "寒微起家孝悌聞名。洮西之戰遭姜維大破圍於狄道誓死堅守。曹髦謀討司馬昭告密未隨，同遭誅殺。",
+    "keyAchievements": [
+      "狄道孤城堅守力抗姜維十萬大軍",
+      "曹髦之變從容赴刑全母子忠孝大節"
+    ],
+    "famousQuotes": [
+      "身受國恩，雖死無恨！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_lan",
+    "name": "王覽",
+    "file": "王览.jpg",
+    "courtesyName": "玄通",
+    "birthYear": 206,
+    "deathYear": 278,
+    "birthDeathDisplay": "206年 - 278年",
+    "nativePlaceAncient": "徐州 琅邪郡臨沂縣",
+    "nativePlaceModern": "山東省臨沂市",
+    "faction": "wei",
+    "roles": [
+      "宗正",
+      "光祿大夫"
+    ],
+    "avatar": "./images/figures/wang_lan.jpg",
+    "bio": "王祥同父異母弟。至孝純篤，母屢虐王祥，王覽常以身相護同甘共苦「臥冰求鯉」賢弟，琅邪王氏開基。",
+    "keyAchievements": [
+      "至孝悌睦庇護王祥成就千古美名",
+      "琅邪王氏四大家族奠基之祖"
+    ],
+    "famousQuotes": [
+      "悌道敦篤，同生共死。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wei_zhen",
+    "name": "衛臻",
+    "file": "卫臻.jpg",
+    "courtesyName": "公振",
+    "birthYear": 170,
+    "deathYear": 238,
+    "birthDeathDisplay": "？ - 238年",
+    "nativePlaceAncient": "陳留郡襄邑縣",
+    "nativePlaceModern": "河南省睢縣",
+    "faction": "wei",
+    "roles": [
+      "司徒",
+      "尚書令"
+    ],
+    "avatar": "./images/figures/wei_zhen.jpg",
+    "bio": "衛茲之子。正直清廉善於審察。歷仕曹操曹丕曹叡三代，封長樂陳侯進拜司徒，三朝公卿榜樣。",
+    "keyAchievements": [
+      "歷仕三朝位極司徒政績清嚴"
+    ],
+    "famousQuotes": [
+      "秉法守正，知無不言。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "sun_zi",
+    "name": "孫資",
+    "file": "孙资.jpg",
+    "courtesyName": "彥龍",
+    "birthYear": 175,
+    "deathYear": 251,
+    "birthDeathDisplay": "？ - 251年",
+    "nativePlaceAncient": "并州 太原郡中陽縣",
+    "nativePlaceModern": "山西省中陽縣",
+    "faction": "wei",
+    "roles": [
+      "中書令",
+      "大司農"
+    ],
+    "avatar": "./images/figures/sun_zi.jpg",
+    "bio": "與劉放同掌曹魏中書機要數十年，號「劉孫專政」。魏明帝曹叡臨終定策推舉曹爽司馬懿輔政。",
+    "keyAchievements": [
+      "執掌曹魏中書機要數十年政令樞紐",
+      "臨終定策引司馬懿曹爽輔政歷史轉折"
+    ],
+    "famousQuotes": [
+      "機要樞紐，奉旨承宣。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "liu_jing",
+    "name": "劉靖",
+    "file": "刘靖.jpg",
+    "courtesyName": "文恭",
+    "birthYear": 185,
+    "deathYear": 254,
+    "birthDeathDisplay": "？ - 254年",
+    "nativePlaceAncient": "豫州 沛國相縣",
+    "nativePlaceModern": "安徽省濉溪縣",
+    "faction": "wei",
+    "roles": [
+      "鎮北將軍",
+      "薊縣侯"
+    ],
+    "avatar": "./images/figures/liu_jing.jpg",
+    "bio": "劉馥之子。任鎮北將軍鎮撫幽州北疆，開導戾陵堰水利灌溉薊縣千頃農田，邊塞軍糧豐饒民歌頌之。",
+    "keyAchievements": [
+      "築戾陵堰水利造福薊縣千百年",
+      "繼承乃父治政之風鎮撫東北長城"
+    ],
+    "famousQuotes": [
+      "興修水利，富國強兵。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "guanqiu_dian",
+    "name": "毌丘甸",
+    "file": "毋丘甸.jpg",
+    "courtesyName": "子邦",
+    "birthYear": 225,
+    "deathYear": 255,
+    "birthDeathDisplay": "？ - 255年",
+    "nativePlaceAncient": "并州 河東郡聞喜縣",
+    "nativePlaceModern": "山西省聞喜縣",
+    "faction": "wei",
+    "roles": [
+      "治書侍御史",
+      "毌丘儉之子"
+    ],
+    "avatar": "./images/figures/guanqiu_dian.jpg",
+    "bio": "毌丘儉長子。見司馬師擅權廢曹芳，密遣使馳告父親勸其舉兵淮南勤王，城破受戮從容不悔。",
+    "keyAchievements": [
+      "力勸父親舉兵淮南捍衛社稷忠烈殉國"
+    ],
+    "famousQuotes": [
+      "大人位當外鎮，何得坐看宗社傾覆！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "du_ji",
+    "name": "杜畿",
+    "file": "杜畿.jpg",
+    "courtesyName": "伯侯",
+    "birthYear": 163,
+    "deathYear": 224,
+    "birthDeathDisplay": "163年 - 224年",
+    "nativePlaceAncient": "司隸 京兆尹杜陵縣",
+    "nativePlaceModern": "陝西省西安市",
+    "faction": "wei",
+    "roles": [
+      "尚書僕射",
+      "河東太守"
+    ],
+    "avatar": "./images/figures/du_ji.jpg",
+    "bio": "杜預祖父。任河東太守十六年威惠兼施，曹操官渡渭南軍糧皆取給河東。試樓船覆舟溺死殉職拜司空。",
+    "keyAchievements": [
+      "治理河東十六年為曹操平關隴提供百萬軍糧",
+      "為國試造御船遇風殉國追贈司空"
+    ],
+    "famousQuotes": [
+      "政以安民為首，軍以足食為本。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "du_shu",
+    "name": "杜恕",
+    "file": "杜恕.jpg",
+    "courtesyName": "務伯",
+    "birthYear": 198,
+    "deathYear": 252,
+    "birthDeathDisplay": "198年 - 252年",
+    "nativePlaceAncient": "司隸 京兆尹杜陵縣",
+    "nativePlaceModern": "陝西省西安市",
+    "faction": "wei",
+    "roles": [
+      "幽州刺史",
+      "杜預之父"
+    ],
+    "avatar": "./images/figures/du_shu.jpg",
+    "bio": "杜畿之子杜預之父。為官清嚴不附權貴。任幽州刺史招撫鮮卑，後遭程喜讒陷廢為庶人徙章武卒。",
+    "keyAchievements": [
+      "著《體論》傳世名儒清正不屈"
+    ],
+    "famousQuotes": [
+      "人臣守道，死生以之。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "chen_jiao",
+    "name": "陳矯",
+    "file": "陈矫.jpg",
+    "courtesyName": "季弼",
+    "birthYear": 175,
+    "deathYear": 237,
+    "birthDeathDisplay": "？ - 237年",
+    "nativePlaceAncient": "廣陵郡東陽縣",
+    "nativePlaceModern": "江蘇省金湖縣",
+    "faction": "wei",
+    "roles": [
+      "司徒",
+      "尚書令"
+    ],
+    "avatar": "./images/figures/chen_jiao.jpg",
+    "bio": "深謀遠見。江陵被圍曹仁陷重圍，陳矯督城頭固守。曹操崩洛陽，陳矯力斷當斷迎曹丕即日即位拜司徒。",
+    "keyAchievements": [
+      "江陵孤城堅守力阻周瑜重圍",
+      "曹操崩危局果斷擁立曹丕繼位位極三公"
+    ],
+    "famousQuotes": [
+      "今日之事，大位不可一日虛席！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "chen_ben",
+    "name": "陳本",
+    "file": "陈本.jpg",
+    "courtesyName": "休元",
+    "birthYear": 205,
+    "deathYear": 258,
+    "birthDeathDisplay": "？ - 258年",
+    "nativePlaceAncient": "廣陵郡東陽縣",
+    "nativePlaceModern": "江蘇省金湖縣",
+    "faction": "wei",
+    "roles": [
+      "鎮北將軍",
+      "陳矯長子"
+    ],
+    "avatar": "./images/figures/chen_ben.jpg",
+    "bio": "陳矯長子，沉毅剛肅。歷任北中郎將、鎮北將軍，督河北諸軍事抗擊胡狄，治軍整肅號有名將風範。",
+    "keyAchievements": [
+      "鎮守河北防備胡虜治軍嚴明"
+    ],
+    "famousQuotes": [
+      "治戎整整，名將風範。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "xu_miao",
+    "name": "徐邈",
+    "file": "徐邈.jpg",
+    "courtesyName": "景山",
+    "birthYear": 171,
+    "deathYear": 249,
+    "birthDeathDisplay": "171年 - 249年",
+    "nativePlaceAncient": "燕國薊縣",
+    "nativePlaceModern": "北京市境內",
+    "faction": "wei",
+    "roles": [
+      "司空",
+      "涼州刺史"
+    ],
+    "avatar": "./images/figures/xu_miao.jpg",
+    "bio": "嗜酒留「中酒聖中賢人」典故。任涼州刺史十餘年修武備興水利化胡虜，涼州晏然百姓立祠拜司空。",
+    "keyAchievements": [
+      "治理涼州十餘年威震西北胡虜安堵",
+      "「中聖人中賢人」飲酒千古趣談"
+    ],
+    "famousQuotes": [
+      "平胃往來，醇酒自適。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "han_ji",
+    "name": "韓暨",
+    "file": "韩暨.jpg",
+    "courtesyName": "公至",
+    "birthYear": 158,
+    "deathYear": 238,
+    "birthDeathDisplay": "158年 - 238年",
+    "nativePlaceAncient": "荊州 南陽郡堵陽縣",
+    "nativePlaceModern": "河南省方城縣",
+    "faction": "wei",
+    "roles": [
+      "司徒",
+      "水排冶鐵發明家"
+    ],
+    "avatar": "./images/figures/han_ji.jpg",
+    "bio": "曹魏監冶竭心發明「水排（水力鼓風機）」鑄造農具兵器，省功三倍軍用大足，八十高齡拜司徒。",
+    "keyAchievements": [
+      "改進水排以水力鼓風冶鐵創古代工業奇蹟",
+      "以九十高齡位極司徒名垂青史"
+    ],
+    "famousQuotes": [
+      "巧思省功，利國便民。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "yang_fu",
+    "name": "楊阜",
+    "file": "杨阜.jpg",
+    "courtesyName": "義山",
+    "birthYear": 170,
+    "deathYear": 240,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 天水郡冀縣",
+    "nativePlaceModern": "甘肅省甘谷縣",
+    "faction": "wei",
+    "roles": [
+      "少府",
+      "西涼抗馬超名將"
+    ],
+    "avatar": "./images/figures/yang_fu.jpg",
+    "bio": "馬超破冀城殺刺史涼州震怖，楊阜率宗族起兵復仇借兵破馬超，身被五創宗族死者十一人逐馬超入漢中。",
+    "keyAchievements": [
+      "率西涼宗族血戰反擊馬超收復涼州全境",
+      "身中五處創傷死戰不退義烈貫日"
+    ],
+    "famousQuotes": [
+      "超負父背國，殘虐生靈，誓共誅之！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "jiang_xu",
+    "name": "姜敘",
+    "file": "姜叙.jpg",
+    "courtesyName": "伯奕",
+    "birthYear": 172,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 天水郡冀縣",
+    "nativePlaceModern": "甘肅省甘谷縣",
+    "faction": "wei",
+    "roles": [
+      "撫夷將軍",
+      "楊阜表兄"
+    ],
+    "avatar": "./images/figures/jiang_xu.jpg",
+    "bio": "楊阜表兄。任歷城都尉，受母義烈之激勵，與楊阜、尹奉共謀討伐馬超，斬馬超妻子收復冀城。",
+    "keyAchievements": [
+      "深明大義率兵討伐馬超收復隴右"
+    ],
+    "famousQuotes": [
+      "忠孝大節，誓討逆賊！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "yin_feng",
+    "name": "尹奉",
+    "file": "尹奉.jpg",
+    "courtesyName": "次曾",
+    "birthYear": 175,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 天水郡",
+    "nativePlaceModern": "甘肅省天水市",
+    "faction": "wei",
+    "roles": [
+      "敦煌太守",
+      "西涼聯軍名將"
+    ],
+    "avatar": "./images/figures/yin_feng.jpg",
+    "bio": "楊阜姜敘好友。共謀起兵滷城抗擊馬超，後任敦煌太守撫定西域，威德遠播西北邊陲。",
+    "keyAchievements": [
+      "合謀隴右兵變擊逐馬超",
+      "鎮守敦煌開拓西域交通"
+    ],
+    "famousQuotes": [
+      "隴右忠節，名震西陲。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhao_ang",
+    "name": "趙昂",
+    "file": "赵昂.jpg",
+    "courtesyName": "偉璋",
+    "birthYear": 170,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 天水郡",
+    "nativePlaceModern": "甘肅省天水市",
+    "faction": "wei",
+    "roles": [
+      "益州刺史",
+      "涼州名臣"
+    ],
+    "avatar": "./images/figures/zhao_ang.jpg",
+    "bio": "王異之夫。冀城被圍隨韋康抗馬超，馬超破城殺韋康拘其子趙月為質。趙昂王異誓死復仇反擊滅馬超軍。",
+    "keyAchievements": [
+      "忠貞衛國誓滅馬超不顧獨子安危"
+    ],
+    "famousQuotes": [
+      "殺子雖痛，大義不可背！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_yi",
+    "name": "王異",
+    "file": "王异.jpg",
+    "courtesyName": "",
+    "birthYear": 175,
+    "deathYear": 235,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "涼州 天水郡",
+    "nativePlaceModern": "甘肅省天水市",
+    "faction": "wei",
+    "roles": [
+      "三國第一巾幗智將",
+      "趙昂之妻"
+    ],
+    "avatar": "./images/figures/wang_yi.jpg",
+    "bio": "趙昂之妻。三國極罕見親登城作戰獻九奇計之巾幗女將。解玉佩飾賞士卒，縱子被質亦促夫戮力破馬超。",
+    "keyAchievements": [
+      "親披甲冑登城射石激勵三軍",
+      "奇謀九策擊潰西涼錦馬超復仇成功"
+    ],
+    "famousQuotes": [
+      "忠節貫日，身死社稷，何痛一兒！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wen_hui",
+    "name": "温恢",
+    "file": "温恢.jpg",
+    "courtesyName": "曼基",
+    "birthYear": 178,
+    "deathYear": 223,
+    "birthDeathDisplay": "178年 - 223年",
+    "nativePlaceAncient": "并州 太原郡祁縣",
+    "nativePlaceModern": "山西省祁縣",
+    "faction": "wei",
+    "roles": [
+      "涼州刺史",
+      "大司農"
+    ],
+    "avatar": "./images/figures/wen_hui.jpg",
+    "bio": "料敵先機。任揚州刺史防孫權，關羽攻樊城時精準預言關羽必敗而孫權必躡其後。任涼州刺史病卒。",
+    "keyAchievements": [
+      "襄樊之戰精準料定孫權必襲關羽後路",
+      "治政清平曹魏社稷良臣"
+    ],
+    "famousQuotes": [
+      "關羽猖獗，孫權必乘隙取其後也。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zheng_hun",
+    "name": "鄭渾",
+    "file": "郑浑.jpg",
+    "courtesyName": "文公",
+    "birthYear": 170,
+    "deathYear": 230,
+    "birthDeathDisplay": "？ - 230年",
+    "nativePlaceAncient": "司隸 開封縣",
+    "nativePlaceModern": "河南省開封市",
+    "faction": "wei",
+    "roles": [
+      "將作大匠",
+      "天下第一良守"
+    ],
+    "avatar": "./images/figures/zheng_hun.jpg",
+    "bio": "鄭泰之弟。任山陽魏郡太守所至皆治，造「鄭公渠」開墾稻田千萬畝民得足食，政績與梁習並稱天下第一。",
+    "keyAchievements": [
+      "造鄭公渠水利開墾千里沃野",
+      "兩任太守政績天下第一清儉愛民"
+    ],
+    "famousQuotes": [
+      "開渠引灌，以足軍民。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "cang_ci",
+    "name": "倉慈",
+    "file": "仓慈.jpg",
+    "courtesyName": "孝仁",
+    "birthYear": 175,
+    "deathYear": 236,
+    "birthDeathDisplay": "？ - 236年",
+    "nativePlaceAncient": "淮南郡",
+    "nativePlaceModern": "安徽省境內",
+    "faction": "wei",
+    "roles": [
+      "敦煌太守",
+      "西域通商守護者"
+    ],
+    "avatar": "./images/figures/cang_ci.jpg",
+    "bio": "任敦煌太守改革西域朝貢商貿，抑制豪強保護胡商，番商胡狄無不感泣拜謝，卒後西域諸國刻石立祠。",
+    "keyAchievements": [
+      "整飭敦煌絲路商貿保護各國胡商",
+      "化解邊塞衝突西域諸胡立碑哀悼"
+    ],
+    "famousQuotes": [
+      "撫順商旅，化導蠻夷。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "gao_tanglong",
+    "name": "高堂隆",
+    "file": "高堂隆.jpg",
+    "courtesyName": "升平",
+    "birthYear": 178,
+    "deathYear": 237,
+    "birthDeathDisplay": "？ - 237年",
+    "nativePlaceAncient": "青州 泰山郡平陽縣",
+    "nativePlaceModern": "山東省新泰市",
+    "faction": "wei",
+    "roles": [
+      "光祿勳",
+      "直諫諍臣"
+    ],
+    "avatar": "./images/figures/gao_tanglong.jpg",
+    "bio": "經學大師敢言直諫。魏明帝大興宮殿土木，高堂隆數十次上疏痛陳國弊切中時弊，明帝深加敬畏。",
+    "keyAchievements": [
+      "數十次犯顏苦諫魏明帝罷修宮殿",
+      "博通典禮經學曹魏一代諍臣"
+    ],
+    "famousQuotes": [
+      "宮室之飾，妨奪農時，古訓所戒！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "wang_ling",
+    "name": "王凌",
+    "file": "王凌.jpg",
+    "courtesyName": "彥雲",
+    "birthYear": 172,
+    "deathYear": 251,
+    "birthDeathDisplay": "172年 - 251年",
+    "nativePlaceAncient": "并州 太原郡祁縣",
+    "nativePlaceModern": "山西省祁縣",
+    "faction": "wei",
+    "roles": [
+      "司空",
+      "太尉",
+      "淮南一叛領袖"
+    ],
+    "avatar": "./images/figures/wang_ling.jpg",
+    "bio": "王允之侄。驍勇有方略休亭大破東吳全琮。高平陵後憤司馬懿專權密謀立楚王曹彪，事泄服毒自盡。",
+    "keyAchievements": [
+      "休亭大破東吳重創全琮部隊",
+      "發動淮南一叛捍衛曹魏皇脈忠烈自裁"
+    ],
+    "famousQuotes": [
+      "行年八十，身名俱喪，安可更降！"
+    ],
+    "relations": []
+  },
+  {
+    "id": "linghu_yu",
+    "name": "令狐愚",
+    "file": "令狐愚.jpg",
+    "courtesyName": "公治",
+    "birthYear": 195,
+    "deathYear": 249,
+    "birthDeathDisplay": "？ - 249年",
+    "nativePlaceAncient": "并州 太原郡",
+    "nativePlaceModern": "山西省太原市",
+    "faction": "wei",
+    "roles": [
+      "兗州刺史",
+      "王凌甥"
+    ],
+    "avatar": "./images/figures/linghu_yu.jpg",
+    "bio": "王凌甥。與王凌共謀立楚王曹彪勤王討伐司馬懿，起事未成暴病而亡，事發後被司馬懿剖棺戮屍。",
+    "keyAchievements": [
+      "密謀淮南兵變捍衛曹魏正朔"
+    ],
+    "famousQuotes": [
+      "事未及就，天命難測。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "tang_zi",
+    "name": "唐咨",
+    "file": "唐咨.jpg",
+    "courtesyName": "",
+    "birthYear": 200,
+    "deathYear": 265,
+    "birthDeathDisplay": "？ - ？",
+    "nativePlaceAncient": "利城郡",
+    "nativePlaceModern": "山東省境內",
+    "faction": "wei",
+    "roles": [
+      "安遠將軍",
+      "三國三國歸命降將"
+    ],
+    "avatar": "./images/figures/tang_zi.jpg",
+    "bio": "初起利城反曹投東吳封偏將軍。壽春之戰隨全懌援諸葛誕城破降司馬昭，拜安遠將軍參造滅吳戰船。",
+    "keyAchievements": [
+      "身經利城、東吳、曹魏三易其主奇特經歷",
+      "指導建造伐吳大艦戰船立功"
+    ],
+    "famousQuotes": [
+      "隨順天命，力全大局。"
+    ],
+    "relations": []
+  },
+  {
+    "id": "zhou_tai_wei",
+    "name": "州泰",
+    "file": "州泰.jpg",
+    "courtesyName": "",
+    "birthYear": 205,
+    "deathYear": 261,
+    "birthDeathDisplay": "？ - 261年",
+    "nativePlaceAncient": "荊州 南陽郡",
+    "nativePlaceModern": "河南省南陽市",
+    "faction": "wei",
+    "roles": [
+      "征虜將軍",
+      "荊州刺史"
+    ],
+    "avatar": "./images/figures/zhou_tai_wei.jpg",
+    "bio": "好武策被司馬懿擢拔。壽春平諸葛誕大破東吳朱異朱熊，長年鎮守荊州淮南多次擊潰吳軍名震敵膽。",
+    "keyAchievements": [
+      "平壽春破東吳大將朱異威震淮南",
+      "善戰好謀司馬懿重託邊將"
+    ],
+    "famousQuotes": [
+      "摧破強敵，名震江漢。"
+    ],
+    "relations": []
+  }
+]
