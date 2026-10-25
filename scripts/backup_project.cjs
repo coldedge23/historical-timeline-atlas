@@ -48,10 +48,10 @@ itemsToInclude.forEach((it) => console.log(`   - ${it}`));
 console.log('\n⏳ 正在建立壓縮檔案中，請稍候...');
 
 try {
-  // Use PowerShell Compress-Archive
-  const psItems = itemsToInclude.map((i) => `"${i}"`).join(',');
-  const psCmd = `powershell -NoProfile -Command "Compress-Archive -Path ${psItems} -DestinationPath '${targetZip}' -Force"`;
-  execSync(psCmd, { cwd: projectRoot, stdio: 'inherit' });
+  // Use Windows built-in bsdtar for ultra-fast and reliable zip compression
+  const tarItems = itemsToInclude.map((i) => `"${i}"`).join(' ');
+  const tarCmd = `tar -a -c -f "${targetZip}" ${tarItems}`;
+  execSync(tarCmd, { cwd: projectRoot, stdio: 'inherit' });
 
   const stat = fs.statSync(targetZip);
   const sizeMb = (stat.size / 1024 / 1024).toFixed(2);
