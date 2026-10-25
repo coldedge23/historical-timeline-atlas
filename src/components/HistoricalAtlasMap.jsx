@@ -178,7 +178,7 @@ export const HistoricalAtlasMap = ({
       {/* 2. Main Map Graphic (100% Real Geographical Boundary Integration) */}
       <div ref={mapScrollContainerRef} className="relative flex-1 min-h-0 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center">
         {/* Top-Left Big Headline Stamp */}
-        <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2">
+        <div className="w-full shrink-0 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2">
           <div>
             <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#262018] font-serif">
               <span className="text-2xl sm:text-3xl text-[#991b1b] mr-2">{activePreset.yearDisplay}</span>
@@ -204,7 +204,7 @@ export const HistoricalAtlasMap = ({
 
         {/* The SVG Real Geographic Jigsaw Atlas Map Canvas */}
         <div
-          className={`w-full max-w-[960px] aspect-[1000/740] bg-[#efe5cd] rounded-lg border-2 border-[#786047] shadow-xl overflow-hidden relative ${
+          className={`w-full max-w-[960px] aspect-[1000/740] shrink-0 bg-[#efe5cd] rounded-lg border-2 border-[#786047] shadow-xl overflow-hidden relative ${
             zoom > 1 ? (isDragging ? 'cursor-grabbing' : 'cursor-grab') : ''
           }`}
           onMouseDown={handleMouseDown}
@@ -533,7 +533,7 @@ export const HistoricalAtlasMap = ({
         </div>
 
         {/* 3. Bottom Historical Chronicles Strip */}
-        <div className="w-full max-w-[960px] mt-3 p-3 bg-[#eae0c6] rounded-lg border border-[#786047] grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-[#3a2e20] leading-relaxed">
+        <div className="w-full max-w-[960px] shrink-0 mt-3 p-3 bg-[#eae0c6] rounded-lg border border-[#786047] grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-[#3a2e20] leading-relaxed">
           <div className="space-y-1">
             <div className="font-bold text-[#7f1d1d] flex items-center gap-1 mb-1 border-b border-[#c4a676] pb-1">
               <span>📜 {activePreset.yearDisplay} 軍事重大決策與戰況：</span>
@@ -561,7 +561,7 @@ export const HistoricalAtlasMap = ({
       </div>
 
       {/* 4. Bottom Active Info Bar */}
-      <div className="px-4 py-2 bg-[#2b2117] border-t-2 border-[#8c7355] flex flex-wrap items-center justify-between text-xs text-[#f5ebd9]">
+      <div className="px-4 py-2 shrink-0 bg-[#2b2117] border-t-2 border-[#8c7355] flex flex-wrap items-center justify-between text-xs text-[#f5ebd9]">
         <div className="flex items-center gap-2">
           <span className="text-[#e8c89b] font-bold">當前沙盤年代：</span>
           <span className="font-bold text-white bg-[#78350f] px-2 py-0.5 rounded border border-[#b45309]">

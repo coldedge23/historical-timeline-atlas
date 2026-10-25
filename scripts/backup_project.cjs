@@ -27,7 +27,7 @@ const itemsToInclude = [
   'src',
   'images',
   'dist/bundle.js',
-  'dist/bundle_v47.js',
+  'dist/bundle_v48.js',
   'scripts',
   'index.html',
   'server.cjs',
