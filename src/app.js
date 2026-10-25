@@ -11,7 +11,7 @@ import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import { HISTORICAL_PERIODS, PERIOD_OPTIONS } from './data/periodsRegistry.js';
 
 export function App() {
-  const [activePeriodId, setActivePeriodId] = useState('weiJin'); // Stage 4: Wei, Jin, Southern and Northern Dynasties
+  const [activePeriodId, setActivePeriodId] = useState('suiTang'); // Stage 5: Sui, Tang, and Five Dynasties
   const [activeTab, setActiveTab] = useState('map-timeline');
   const [ancientNamesOnly, setAncientNamesOnly] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');

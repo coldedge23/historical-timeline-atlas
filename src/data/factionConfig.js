@@ -237,6 +237,61 @@ export const FACTION_CONFIGS = {
         stroke: '#6366f1',
       },
     }
+  },
+  suiTang: {
+    order: ['sui', 'tang', 'wuZhou', 'fanzhen', 'fiveDynasties', 'nomadic', 'cultural', 'other'],
+    labels: {
+      sui: '大隋王朝',
+      tang: '大唐盛世',
+      wuZhou: '大周武周',
+      fanzhen: '藩鎮割據',
+      fiveDynasties: '五代十國',
+      nomadic: '周邊諸國（突厥·吐蕃·回紇）',
+      cultural: '文宗藝聖（詩仙·詩聖·高僧）',
+      other: '起義民軍/群雄',
+    },
+    styles: {
+      sui: {
+        card: 'border-amber-600/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-200 border-amber-500/50',
+        stroke: '#d97706',
+      },
+      tang: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      wuZhou: {
+        card: 'border-purple-600/50 hover:border-purple-400',
+        badge: 'bg-purple-950/70 text-purple-200 border-purple-500/50',
+        stroke: '#a855f7',
+      },
+      fanzhen: {
+        card: 'border-orange-600/50 hover:border-orange-400',
+        badge: 'bg-orange-950/70 text-orange-200 border-orange-500/50',
+        stroke: '#f97316',
+      },
+      fiveDynasties: {
+        card: 'border-yellow-600/50 hover:border-yellow-400',
+        badge: 'bg-yellow-950/70 text-yellow-200 border-yellow-500/50',
+        stroke: '#eab308',
+      },
+      nomadic: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      cultural: {
+        card: 'border-emerald-600/50 hover:border-emerald-400',
+        badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
+        stroke: '#10b981',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
   }
 };
 

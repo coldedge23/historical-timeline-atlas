@@ -14856,7 +14856,7 @@
                       onChange: (e) => onSelectPeriodId(e.target.value),
                       className: "text-xs px-2.5 py-1 rounded-lg bg-[#1f1a14] border border-amber-500/50 text-amber-300 font-bold focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer shadow-sm",
                       children: periodOptions.map((opt) => {
-                        const icon = opt.id === "xiaShangZhou" ? "🏺 " : opt.id === "warringStates" ? "🏹 " : opt.id === "qinHan" ? "🏛️ " : opt.id === "threeKingdoms" ? "⚔️ " : opt.id === "weiJin" ? "👑 " : "📜 ";
+                        const icon = opt.id === "xiaShangZhou" ? "🏺 " : opt.id === "warringStates" ? "🏹 " : opt.id === "qinHan" ? "🏛️ " : opt.id === "threeKingdoms" ? "⚔️ " : opt.id === "weiJin" ? "👑 " : opt.id === "suiTang" ? "🐎 " : "📜 ";
                         return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("option", { value: opt.id, children: [
                           icon,
                           opt.name,
@@ -16468,6 +16468,61 @@
           stroke: "#6366f1"
         }
       }
+    },
+    suiTang: {
+      order: ["sui", "tang", "wuZhou", "fanzhen", "fiveDynasties", "nomadic", "cultural", "other"],
+      labels: {
+        sui: "大隋王朝",
+        tang: "大唐盛世",
+        wuZhou: "大周武周",
+        fanzhen: "藩鎮割據",
+        fiveDynasties: "五代十國",
+        nomadic: "周邊諸國（突厥·吐蕃·回紇）",
+        cultural: "文宗藝聖（詩仙·詩聖·高僧）",
+        other: "起義民軍/群雄"
+      },
+      styles: {
+        sui: {
+          card: "border-amber-600/50 hover:border-amber-400",
+          badge: "bg-amber-950/70 text-amber-200 border-amber-500/50",
+          stroke: "#d97706"
+        },
+        tang: {
+          card: "border-red-600/50 hover:border-red-400",
+          badge: "bg-red-950/70 text-red-200 border-red-500/50",
+          stroke: "#ef4444"
+        },
+        wuZhou: {
+          card: "border-purple-600/50 hover:border-purple-400",
+          badge: "bg-purple-950/70 text-purple-200 border-purple-500/50",
+          stroke: "#a855f7"
+        },
+        fanzhen: {
+          card: "border-orange-600/50 hover:border-orange-400",
+          badge: "bg-orange-950/70 text-orange-200 border-orange-500/50",
+          stroke: "#f97316"
+        },
+        fiveDynasties: {
+          card: "border-yellow-600/50 hover:border-yellow-400",
+          badge: "bg-yellow-950/70 text-yellow-200 border-yellow-500/50",
+          stroke: "#eab308"
+        },
+        nomadic: {
+          card: "border-sky-600/50 hover:border-sky-400",
+          badge: "bg-sky-950/70 text-sky-200 border-sky-500/50",
+          stroke: "#0284c7"
+        },
+        cultural: {
+          card: "border-emerald-600/50 hover:border-emerald-400",
+          badge: "bg-emerald-950/70 text-emerald-200 border-emerald-500/50",
+          stroke: "#10b981"
+        },
+        other: {
+          card: "border-zinc-600/50 hover:border-zinc-400",
+          badge: "bg-zinc-900/80 text-zinc-300 border-zinc-600/50",
+          stroke: "#71717a"
+        }
+      }
     }
   };
   function getFactionMeta(factionId, periodId = "threeKingdoms") {
@@ -16832,7 +16887,7 @@
   }) => {
     const [showStarGraph, setShowStarGraph] = (0, import_react5.useState)(true);
     if (!figure) return null;
-    const effectivePeriodId = activePeriodId || (allFigures.some((f) => f.faction === "xia" || f.faction === "shang") ? "xiaShangZhou" : allFigures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen") ? "weiJin" : allFigures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi") ? "warringStates" : allFigures.some((f) => f.faction === "shu" || f.faction === "wu") ? "threeKingdoms" : "qinHan");
+    const effectivePeriodId = activePeriodId || (allFigures.some((f) => f.faction === "xia" || f.faction === "shang") ? "xiaShangZhou" : allFigures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen") ? "weiJin" : allFigures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou") ? "suiTang" : allFigures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi") ? "warringStates" : allFigures.some((f) => f.faction === "shu" || f.faction === "wu") ? "threeKingdoms" : "qinHan");
     const getFactionBadge = (faction) => {
       const meta = getFactionMeta(faction, effectivePeriodId);
       return {
@@ -17704,6 +17759,9 @@
       }
       if (figures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen")) {
         return "weiJin";
+      }
+      if (figures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou")) {
+        return "suiTang";
       }
       if (figures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi")) {
         return "warringStates";
@@ -64389,6 +64447,2884 @@
     ]
   };
 
+  // src/data/periods/suiTang/events.js
+  var SUI_TANG_EVENTS = [
+    {
+      id: "evt_sui_found_581",
+      year: 581,
+      yearDisplay: "西元 581 年",
+      eraDisplay: "隋 開皇元年",
+      title: "楊堅受禪代周建隋，開皇新政整飭華夏",
+      category: "politics",
+      locationName: "大興城（長安）",
+      locationModern: "陝西省西安市",
+      coords: [34.26, 108.94],
+      figureIds: ["yang_jian", "gao_jiong", "dugu_qieluo"],
+      summary: "北周靜帝禪讓於大丞相隋國公楊堅，楊堅登基稱帝，定國號為「隋」，建元開皇，定都大興城。楊堅隨即推行開皇新政：廢除九品中正制，創設三省六部制與科舉制雛形；頒行《開皇律》慎刑慎罰；推行大索貌閱與均田制，百廢俱興。",
+      historicalImpact: "為華夏創立綿延千載之三省六部中央制度與科舉取士法度，開啟開皇之治。",
+      svgRoute: "M 460,335 L 495,328"
+    },
+    {
+      id: "evt_sui_unify_589",
+      year: 589,
+      yearDisplay: "西元 589 年",
+      eraDisplay: "隋 開皇九年",
+      title: "隋文帝五十萬大軍滅陳，終結三百年南北分裂大一統",
+      category: "military",
+      locationName: "建康（金陵）",
+      locationModern: "江蘇省南京市",
+      coords: [32.06, 118.79],
+      figureIds: ["yang_jian", "yang_guang", "yang_su"],
+      summary: "隋文帝命晉王楊廣為統帥、楊素為水軍元帥，分八路水陸五十萬精銳南下伐陳。韓擒虎採石磯夜渡，賀若弼破京口。陳後主叔寶於景陽樓枯井被俘，南陳覆亡。自西晉永嘉之亂二百七十餘年南北大分裂徹底終結，天下大一統。",
+      historicalImpact: "華夏重歸統一，南北文化經濟大交融，長江流域與黃河流域重歸一體。",
+      svgRoute: "M 495,328 Q 505,355 528,365"
+    },
+    {
+      id: "evt_grand_canal_605",
+      year: 605,
+      yearDisplay: "西元 605 年",
+      eraDisplay: "隋 大業元年",
+      title: "隋煬帝營建東都洛陽，下令開鑿通濟渠南北大運河",
+      category: "economy",
+      locationName: "東都洛陽與汴渠",
+      locationModern: "河南省洛陽市與江蘇省揚州市",
+      coords: [34.62, 112.45],
+      figureIds: ["yang_guang"],
+      summary: "隋煬帝即位，遷都營建東都洛陽城，徵發百萬民工開鑿通濟渠、永濟渠與江南運河。大運河北起涿郡（北京）、南達餘杭（杭州），全長兩千餘公里，溝通海河、黃河、淮河、長江、錢塘江五大水系，建立華夏南北經濟大動脈。",
+      historicalImpact: "貫通華夏南北水運命脈，使江南財富源源北運，成為後世千載帝國經濟血脈。",
+      svgRoute: "M 495,328 Q 515,350 530,365"
+    },
+    {
+      id: "evt_sui_korea_612",
+      year: 612,
+      yearDisplay: "西元 612 年",
+      eraDisplay: "隋 大業八年",
+      title: "隋煬帝發兵百萬親征高句麗，薩水慘敗引爆全國起義",
+      category: "military",
+      locationName: "遼東城與平壤薩水（清川江）",
+      locationModern: "遼寧省遼陽市與朝鮮平安道",
+      coords: [41.27, 123.17],
+      figureIds: ["yang_guang"],
+      summary: "隋煬帝動員全國百萬大軍發動第一次征高句麗之役，後勤民夫更達兩百餘萬人。大將宇文述三十萬九道大軍孤軍深入平壤，於薩水遭高句麗大將乙支文德伏擊水淹，九軍大潰，僅二千七百人逃還遼東。巨額兵役徭役引發山東王薄起義，天下大亂。",
+      historicalImpact: "重創隋帝國元氣，全國十八路反王、六十四處煙塵四起，大隋覆亡不可逆轉。",
+      svgRoute: "M 505,310 L 555,270"
+    },
+    {
+      id: "evt_taiyuan_uprising_617",
+      year: 617,
+      yearDisplay: "西元 617 年",
+      eraDisplay: "隋 大業十三年",
+      title: "李淵李世民晉陽太原起兵，破霍邑定長安鼎立關中",
+      category: "politics",
+      locationName: "太原府（晉陽）與長安",
+      locationModern: "山西省太原市晉源區",
+      coords: [37.87, 112.55],
+      figureIds: ["li_yuan", "li_shimin"],
+      summary: "太原留守李淵在次子李世民與劉文靜勸謀下，於晉陽誓師起兵，開倉賑民，聯絡突厥，率三萬精銳長驅南下。霍邑之戰斬隋將宋老生，連戰克賈胡堡，渡黃河入據長安，擁立楊侑為隋恭帝，封大丞相、唐王。次年即位建唐。",
+      historicalImpact: "奠定大唐三百年帝業之根本根據地，關中形勝再度為開國之樞紐。",
+      svgRoute: "M 480,300 L 460,335"
+    },
+    {
+      id: "evt_hulao_triumph_621",
+      year: 621,
+      yearDisplay: "西元 621 年",
+      eraDisplay: "唐 武德四年",
+      title: "虎牢關大捷生擒竇建德降王世充，李世民受封天策上將",
+      category: "military",
+      locationName: "虎牢關（成皋）",
+      locationModern: "河南省鄭州市滎陽市",
+      coords: [34.82, 113.16],
+      figureIds: ["li_shimin", "yuchi_gong", "qin_qiong"],
+      summary: "秦王李世民率三千五百玄甲黑騎於虎牢關擊破夏王竇建德十萬大軍，生俘竇建德。洛陽鄭帝王世充知大勢已去，肉袒率百官出降。李世民一役消滅兩大割據宿敵，凱旋長安，唐高祖特設「天策上將」賜之，位在諸王公之上。",
+      historicalImpact: "掃除統一天下最大障礙，中原與河北全定，大唐帝國初具完備大一統版圖。",
+      svgRoute: "M 460,335 L 508,328"
+    },
+    {
+      id: "evt_xuanwumen_626",
+      year: 626,
+      yearDisplay: "西元 626 年",
+      eraDisplay: "唐 武德九年",
+      title: "長安宮廷玄武門之變，秦王李世民登基開啟貞觀之治",
+      category: "politics",
+      locationName: "長安太極宮玄武門",
+      locationModern: "陝西省西安市新城區",
+      coords: [34.28, 108.95],
+      figureIds: ["li_shimin", "yuchi_gong", "fang_xuanling", "du_ruhui"],
+      summary: "皇太子李建成、齊王李元吉與秦王李世民奪嫡激烈。六月初四清晨，李世民率長孫無忌、尉遲敬德、侯君集等伏兵於宮城北玄武門，李世民親射殺李建成，尉遲敬德射殺李元吉。隨後敬德持槊入海池衛護唐高祖。高祖立世民為太子，兩月後禪位即位，是為唐太宗。",
+      historicalImpact: "大唐歷史最關鍵政變，唐太宗登基後任賢納諫，開啟被譽為千古治世巔峰之「貞觀之治」。",
+      svgRoute: "M 460,335 Z"
+    },
+    {
+      id: "evt_xuanzang_west_629",
+      year: 629,
+      yearDisplay: "西元 629 年",
+      eraDisplay: "唐 貞觀三年",
+      title: "玄奘法師孤身西行五萬里求取真經，踏破絲路天竺取法",
+      category: "culture",
+      locationName: "長安出發經涼州高昌至天竺那爛陀",
+      locationModern: "陝西省西安市出發經印度比哈爾邦",
+      coords: [34.26, 108.94],
+      figureIds: ["xuanzang", "li_shimin"],
+      summary: "年僅二十七歲之玄奘大師為探究唯識佛理，冒禁夜出玉門關，孤身獨行八百里莫賀延磧流沙。經高昌、碎葉城、越蔥嶺過阿富汗，抵達印度佛學中心那爛陀寺師從戒賢法師。歷經十七載求法，名動五印，攜梵文真經六百餘部歸唐。",
+      historicalImpact: "華夏精神文明與中印交流之豐碑，口述《大唐西域記》成為研究中亞與古代印度歷史之無價瑰寶。",
+      svgRoute: "M 460,335 L 400,310 L 320,330"
+    },
+    {
+      id: "evt_conquer_turks_630",
+      year: 630,
+      yearDisplay: "西元 630 年",
+      eraDisplay: "唐 貞觀四年",
+      title: "李靖雪夜奔襲陰山滅東突厥，太宗獲萬邦尊為「天可汗」",
+      category: "military",
+      locationName: "陰山鐵山與長安含元殿",
+      locationModern: "內蒙古自治區呼和浩特市",
+      coords: [40.82, 111.65],
+      figureIds: ["li_shimin", "li_jing", "li_ji"],
+      summary: "唐太宗發動六路大軍北伐，李靖三千鐵騎雪夜奇襲定襄，再襲陰山，陣俘頡利可汗，俘獲突厥十萬帳落。東突厥覆亡。三月，西域及西北各蕃部君長數千人齊聚長安，叩拜請唐太宗兼任天下各族盟主「天可汗」。太宗欣然受之，下詔「胡越一家」。",
+      historicalImpact: "徹底解除長城北方百年之患，大唐天可汗體系確立，長安成為開放包容之國際世界之都。",
+      svgRoute: "M 460,335 L 485,275"
+    },
+    {
+      id: "evt_wencheng_tibet_641",
+      year: 641,
+      yearDisplay: "西元 641 年",
+      eraDisplay: "唐 貞觀十五年",
+      title: "文成公主入藏和親松贊干布，漢藏文明千古交融盛事",
+      category: "diplomacy",
+      locationName: "長安出發經日月山至邏些（拉薩）",
+      locationModern: "青海省湟源縣日月山至西藏拉薩市",
+      coords: [29.65, 91.13],
+      figureIds: ["wencheng_gongzhu", "songtsen_gampo", "li_shimin"],
+      summary: "唐太宗命江夏王李道宗持節護送文成公主遠赴吐蕃完婚。松贊干布親迎於柏海（青海扎陵湖），行子婿之禮。公主帶去佛像、佛經、天文曆法、農耕工藝、中醫藥方與蠶種。松贊干布為其營築宮室，推行漢風，開啟漢藏民族長達千載之融和。",
+      historicalImpact: "奠定漢藏兩大文明長久和平友善紐帶，大昭寺、布達拉宮留下永恆歷史見證。",
+      svgRoute: "M 460,335 L 410,345 L 340,380"
+    },
+    {
+      id: "evt_baekgang_naval_663",
+      year: 663,
+      yearDisplay: "西元 663 年",
+      eraDisplay: "唐 龍朔三年",
+      shortDescription: "劉仁軌白江口水戰焚倭船四百艘，日本遣唐使虛心入唐",
+      title: "大唐水軍白江口大破日本倭船，奠定東北亞千年和平秩序",
+      category: "military",
+      locationName: "白江口（錦江河口）",
+      locationModern: "韓國忠清南道舒川郡",
+      coords: [36.01, 126.68],
+      figureIds: ["liu_rengui"],
+      summary: "日本天智天皇傾國派出四萬二千水陸大軍援助百濟殘部企圖控制朝鮮半島。唐軍劉仁軌指揮一百七十艘大唐戰船於白江口以逸待勞，四戰四勝，火焚倭艦四百艘。日本大敗震恐，全面停止向大陸擴張，轉而派出十九批「遣唐使」虛心學習大唐文化。",
+      historicalImpact: "東亞歷史轉折戰役，確立大唐在東亞文明之領導地位，促成日本大化革新全盤唐化。",
+      svgRoute: "M 530,365 L 590,340"
+    },
+    {
+      id: "evt_wuzetian_zhou_690",
+      year: 690,
+      yearDisplay: "西元 690 年",
+      eraDisplay: "武周 天授元年",
+      title: "武則天革唐登基改國號大周，成為華夏唯一正統女皇帝",
+      category: "politics",
+      locationName: "神都洛陽應天門明堂",
+      locationModern: "河南省洛陽市老城區",
+      coords: [34.68, 112.45],
+      figureIds: ["wu_zetian", "di_renjie", "shangguan_waner"],
+      summary: "睿宗李旦率天下臣民六萬人上表勸進。九月九日重陽節，武則天登臨神都洛陽應天門，宣告改唐為「周」，建元天授，自封「聖神皇帝」，開創華夏歷史上唯一女皇帝正統王朝。立殿試、設武舉，任用狄仁傑、姚崇，政通人和。",
+      historicalImpact: "打破封建男權專制千年禁錮，重用寒門庶族，政啟開元，治宏貞觀。",
+      svgRoute: "M 495,328 Z"
+    },
+    {
+      id: "evt_shenlong_coup_705",
+      year: 705,
+      yearDisplay: "西元 705 年",
+      eraDisplay: "唐 神龍元年",
+      title: "神龍政變張柬之復辟唐祚，八十二歲武后退位立無字碑",
+      category: "politics",
+      locationName: "神都洛陽迎仙宮與乾陵",
+      locationModern: "河南省洛陽市與陝西省咸陽市乾縣",
+      coords: [34.54, 108.22],
+      figureIds: ["wu_zetian", "di_renjie"],
+      summary: "宰相張柬之、崔玄暐等乘武則天病重，聯合右羽林軍發動神龍政變，誅殺張易之、張昌宗兄弟，迎太子李顯復辟。武后退位歸唐，同年冬無疾而終於上陽宮，享年八十二。合葬於乾陵，依遺詔立無字碑，功過是非任後世評說。",
+      historicalImpact: "大唐宗廟社稷重光，武周平穩過渡回李唐正朔，為玄宗開元盛世鋪平道路。",
+      svgRoute: "M 495,328 L 460,335"
+    },
+    {
+      id: "evt_kaiyuan_zenith_713",
+      year: 713,
+      yearDisplay: "西元 713 年",
+      eraDisplay: "唐 開元元年",
+      title: "唐玄宗李隆基即位改元開元，任姚崇宋璟開創開元盛世",
+      category: "politics",
+      locationName: "興慶宮與大明宮",
+      locationModern: "陝西省西安市碑林區",
+      coords: [34.26, 108.97],
+      figureIds: ["li_longji", "yao_chong", "song_jing", "zhang_jiuling"],
+      summary: "唐玄宗誅除太平公主勢力，徹底掌握中樞大權，改元「開元」。拜姚崇為相，採納「十事要說」；後任宋璟守法持正、張九齡直言敢諫。整飭吏治、考核縣令、清查隱戶田產、淘汰僧道。天下大治，物產豐盛，杜甫讚為「憶昔開元全盛日，小邑猶藏萬家室」。",
+      historicalImpact: "華夏封建社會最輝煌鼎盛之黃金盛世，人口、經濟、詩歌、藝術皆達歷史頂峰。",
+      svgRoute: "M 460,335 Z"
+    },
+    {
+      id: "evt_li_du_poetry_744",
+      year: 744,
+      yearDisplay: "西元 744 年",
+      eraDisplay: "唐 天寶三載",
+      title: "李白杜甫相會洛陽共游梁宋，大唐雙星輝映千古詩史",
+      category: "culture",
+      locationName: "東都洛陽與開封商丘",
+      locationModern: "河南省洛陽市與商丘市",
+      coords: [34.62, 112.45],
+      figureIds: ["li_bai", "du_fu"],
+      summary: "詩仙李白被玄宗賜金放還離開長安抵達洛陽，遇見三十三歲壯志未酬之杜甫。盛唐最偉大之兩位天才相遇相知，同游汴州、梁宋、齊魯，登吹台、採草藥、論詩道，聞一多譽之為「太陽與月亮在此相碰，四千年歷史上最壯麗的日落」。",
+      historicalImpact: "華夏文學史上的巔峰聚會，李白浪漫奔放與杜甫沉鬱頓挫共同塑就唐詩不朽豐碑。",
+      svgRoute: "M 495,328 L 515,340"
+    },
+    {
+      id: "evt_talas_papermaking_751",
+      year: 751,
+      yearDisplay: "西元 751 年",
+      eraDisplay: "唐 天寶十年",
+      title: "高仙芝安西軍遠征怛羅斯激戰大食，中國造紙術播遷西方",
+      category: "military",
+      locationName: "怛羅斯河（哈薩克境內）",
+      locationModern: "哈薩克斯坦塔拉茲",
+      coords: [42.9, 71.36],
+      figureIds: ["li_longji"],
+      summary: "安西節度使高仙芝統率兩萬大唐精銳越蔥嶺遠征中亞石國，與阿拉伯帝國阿拔斯王朝十萬大軍於怛羅斯決戰。唐軍血戰五日，因番兵葛邏祿倒戈被圍失利。唐軍戰俘中的造紙工匠將中國造紙術帶入撒馬爾罕與巴格達，隨後傳遍歐洲。",
+      historicalImpact: "改變世界文明傳播媒介之關鍵事件，歐洲走出中世紀文藝復興的重要物質基礎。",
+      svgRoute: "M 460,335 L 350,310"
+    },
+    {
+      id: "evt_jianzhen_japan_753",
+      year: 753,
+      yearDisplay: "西元 753 年",
+      eraDisplay: "唐 天寶十二載",
+      title: "雙目失明盲僧鑒真大師第六次東渡成功，抵達日本奈良",
+      category: "culture",
+      locationName: "揚州出海經琉球抵奈良",
+      locationModern: "江蘇省揚州市至日本奈良市",
+      coords: [32.39, 119.42],
+      figureIds: ["jianzhen"],
+      summary: "揚州大明寺高僧鑒真歷經十年五次東渡失敗，弟子罹難，自身雙目失明。六十六歲高齡第六次搭乘日本遣唐使藤原清河艦隊啟航，歷經狂風巨浪，終在薩摩秋妻屋浦登陸抵達日本平城京（奈良）。建立唐招提寺傳戒，授醫藥雕刻之學。",
+      historicalImpact: "中日歷史最崇高之文化傳播壯舉，被日本尊為「律宗始祖」與「醫藥之神」。",
+      svgRoute: "M 530,365 L 610,335"
+    },
+    {
+      id: "evt_an_shi_rebellion_755",
+      year: 755,
+      yearDisplay: "西元 755 年",
+      eraDisplay: "唐 天寶十四載",
+      title: "安祿山范陽起兵引發安史之亂，盛唐浩劫洛陽長安淪陷",
+      category: "military",
+      locationName: "范陽郡（北京）起兵南下",
+      locationModern: "北京市與河北省涿州市",
+      coords: [39.9, 116.4],
+      figureIds: ["an_lushan", "li_longji", "yang_guifei"],
+      summary: "身兼范陽、平盧、河東三鎮節度使之胡將安祿山，以討伐宰相楊國忠為名，率蕃漢精騎十五萬反叛。叛軍長驅南下，渡黃河陷洛陽，祿山稱帝建大燕。次年陷潼關，唐玄宗倉皇逃蜀，盛唐百年承平盛世毀於一旦，天下生靈塗炭。",
+      historicalImpact: "唐朝由盛轉衰之決定性轉折點，北方遭到毀滅性破壞，藩鎮割據之局自此形成。",
+      svgRoute: "M 505,290 L 495,328 L 460,335"
+    },
+    {
+      id: "evt_mawei_mutiny_756",
+      year: 756,
+      yearDisplay: "西元 756 年",
+      eraDisplay: "唐 至德元載",
+      title: "馬嵬坡禁軍譁變誅楊國忠，唐玄宗含淚賜死楊貴妃",
+      category: "politics",
+      locationName: "馬嵬驛（興平馬嵬坡）",
+      locationModern: "陝西省咸陽市興平市馬嵬街道",
+      coords: [34.33, 108.38],
+      figureIds: ["li_longji", "yang_guifei"],
+      summary: "唐玄宗逃蜀途經興平馬嵬驛，飢餓疲憊之龍武禁軍將士在陳玄禮領導下譁變，怒斬禍國之宰相楊國忠。禁軍包圍驛館，高呼「賊本尚在」，逼請處死楊貴妃。玄宗無奈，命高力士縊死楊貴妃於驛旁佛堂。太子李亨北上靈武即位為唐肅宗。",
+      historicalImpact: "盛唐極度浪漫與殘酷政治崩塌之千古悲劇，白居易《長恨歌》傳唱千年之絕唱。",
+      svgRoute: "M 460,335 L 452,338"
+    },
+    {
+      id: "evt_recover_capitals_757",
+      year: 757,
+      yearDisplay: "西元 757 年",
+      eraDisplay: "唐 至德二載",
+      title: "郭子儀香積寺決戰破叛軍，大唐與回紇聯軍收復兩京",
+      category: "military",
+      locationName: "長安香積寺與洛陽陜州",
+      locationModern: "陝西省西安市與河南省洛陽市",
+      coords: [34.13, 108.88],
+      figureIds: ["guo_ziyi", "li_guangbi", "zhang_xun"],
+      summary: "郭子儀任天下兵馬副元帥，藉睢陽張巡死守贏得之戰略時間，率十五萬唐軍與回紇鐵騎於香積寺與叛軍決戰。李嗣業陌刀衝鋒，回紇騎兵敵後穿插，大破叛軍十萬。順利收復京師長安，旋即再克東都洛陽，唐肅宗回鑾京師。",
+      historicalImpact: "力挽狂瀾再造大唐社稷，郭子儀立下萬世不賞之勳。",
+      svgRoute: "M 445,340 L 460,335 L 495,328"
+    },
+    {
+      id: "evt_two_tax_reform_780",
+      year: 780,
+      yearDisplay: "西元 780 年",
+      eraDisplay: "唐 建中元年",
+      title: "宰相楊炎創行兩稅法，華夏賦稅制度迎來千年轉折",
+      category: "economy",
+      locationName: "長安中書門下",
+      locationModern: "陝西省西安市",
+      coords: [34.26, 108.94],
+      figureIds: ["guo_ziyi"],
+      summary: "安史之亂後均田制瓦解，戶口流亡，唐德宗即位聽從宰相楊炎建議，廢除自魏晉以來行之數百年之「租庸調法」，改行「兩稅法」。「唯以資產為宗，不以丁身為本」，每年分夏、秋兩季按戶等財產徵稅，簡化稅制。",
+      historicalImpact: "華夏賦稅史最大變革，標誌著國家對農民人身依附之鬆綁，為宋明財政奠定基礎。",
+      svgRoute: "M 460,335 Z"
+    },
+    {
+      id: "evt_huang_chao_changan_880",
+      year: 880,
+      yearDisplay: "西元 880 年",
+      eraDisplay: "唐 廣明元年",
+      title: "黃巢義軍攻克潼關破長安，登大明宮含元殿建立大齊",
+      category: "military",
+      locationName: "長安大明宮含元殿",
+      locationModern: "陝西省西安市未央區大明宮遺址",
+      coords: [34.3, 108.96],
+      figureIds: ["huang_chao", "zhu_wen", "li_keyong"],
+      summary: "黃巢轉戰萬里克廣州、洛陽，破潼關天險，唐僖宗倉皇逃奔成都。黃巢乘黃金大車入長安，在含元殿登基為皇帝，國號「大齊」，改元金統，開倉賑饑。然因未能建立鞏固根據地，朱溫叛降，沙陀李克用騎兵合圍，長安數度易手化為焦土。",
+      historicalImpact: "徹底蕩平唐朝延續近三百年之關隴門閥士族勢力，唐室已成空殼名存實亡。",
+      svgRoute: "M 515,340 L 460,335"
+    },
+    {
+      id: "evt_fall_of_tang_907",
+      year: 907,
+      yearDisplay: "西元 907 年",
+      eraDisplay: "後梁 開平元年",
+      title: "朱溫逼禪滅唐建立後梁，開啟五代十國半世紀大亂局",
+      category: "politics",
+      locationName: "東都洛陽與汴州（開封）",
+      locationModern: "河南省開封市鼓樓區",
+      coords: [34.79, 114.34],
+      figureIds: ["zhu_wen", "li_keyong"],
+      summary: "宣武節度使朱溫殺宰相崔胤，遷天子於洛陽，殺唐昭宗。西元907年逼唐哀帝李柷禪位，朱溫於開封即位，國號「大梁」（後梁），唐朝自西元618年開國歷經二百八十九年正式覆亡。晉王李克用、岐王李茂貞等不服，五代十國逐鹿中原大混戰拉開帷幕。",
+      historicalImpact: "大唐盛世劃上歷史句號，華夏陷入中原五代（梁唐晉漢周）與南方十國割據之亂局。",
+      svgRoute: "M 495,328 L 512,330"
+    },
+    {
+      id: "evt_sixteen_prefectures_936",
+      year: 936,
+      yearDisplay: "西元 936 年",
+      eraDisplay: "後晉 天福元年",
+      title: "石敬瑭甘為兒皇帝割讓燕雲十六州，中原痛失長城屏障",
+      category: "diplomacy",
+      locationName: "太原晉陽與幽薊十六州",
+      locationModern: "山西省太原市與北京市、大同市一帶",
+      coords: [39.9, 116.4],
+      figureIds: ["shi_jingtang", "yelv_abaoji"],
+      summary: "後唐河東節度使石敬瑭起兵謀反，被圍於太原。為求契丹援兵，石敬瑭認比自己小十歲之契丹遼太宗為「父皇帝」，甘稱「兒皇帝」，並割讓幽、薊、瀛、莫、涿、檀、順、新、媯、儒、武、雲、應、寰、朔、蔚燕雲十六州，借契丹騎兵滅後唐建後晉。",
+      historicalImpact: "中原農耕門戶大開，喪失陰山長城險阻長達四百餘年，深遠影響兩宋三百年軍事國運。",
+      svgRoute: "M 480,300 L 505,290"
+    },
+    {
+      id: "evt_chairong_reform_954",
+      year: 954,
+      yearDisplay: "西元 954 年",
+      eraDisplay: "後周 顯德元年",
+      title: "後周世宗柴榮高平大破強敵，整飭天下為宋朝奠定基石",
+      category: "politics",
+      locationName: "高平與後周京師開封",
+      locationModern: "山西省高平市與河南省開封市",
+      coords: [35.79, 112.92],
+      figureIds: ["chai_rong", "zhao_kuangyin_young", "feng_dao"],
+      summary: "周世宗柴榮即位，親冒矢石取得高平之戰大捷。隨即大膽改革：整飭牙軍創建精銳殿前禁軍；下詔收天下銅像廢寺院私度僧尼鑄造「周元通寶」；頒布《大統曆》與修訂刑統；南征南唐取江北、北伐契丹收關南。年僅三十九歲病逝，為大宋一統鋪就最後道路。",
+      historicalImpact: "五代亂世至此由分裂走向一統，趙匡胤承其治績發動陳橋兵變建立宋朝。",
+      svgRoute: "M 485,310 L 512,330"
+    }
+  ];
+
+  // src/data/periods/suiTang/figures.js
+  var SUI_TANG_FIGURES = [
+    // --- 1. 大隋帝國 ---
+    {
+      id: "yang_jian",
+      name: "楊堅 (隋文帝)",
+      courtesyName: "那羅延",
+      posthumousName: "文皇帝",
+      birthDeathDisplay: "541年 - 604年",
+      birthYear: 541,
+      deathYear: 604,
+      nativePlaceAncient: "弘農 華陰",
+      nativePlaceModern: "陝西省渭南市華陰市",
+      faction: "sui",
+      roles: ["大隋開國皇帝", "開皇之治締造者", "改革家"],
+      avatar: "images/figures/fig_yang_jian.jpg",
+      bio: "北周外戚，隋朝開國皇帝。受北周靜帝禪讓建立大隋，西元589年發兵滅陳，終結華夏自西晉永嘉以來近三百年之南北分裂，重歸一統。在位期間推行開皇新政，廢除九品中正制首創三省六部與科舉體制，頒行《開皇律》，實施均田制、大索貌閱與輸籍定樣，設廣通渠與常平倉。在位二十四年天下大治，社會富庶，史稱「開皇之治」，被突厥尊為「聖人莫緣可汗」。",
+      keyAchievements: [
+        "滅陳統一南北，終結四百年分裂割據",
+        "開創科舉取士制度與三省六部國家體制",
+        "大索貌閱整飭戶籍，倉儲豐足天下殷實"
+      ],
+      famousQuotes: [
+        "天下之重，非一人所能獨理。",
+        "生我者父母，知我者叔德。"
+      ],
+      relations: [
+        { figureId: "yang_guang", relationType: "family", label: "皇子 / 繼位者" },
+        { figureId: "dugu_qieluo", relationType: "family", label: "結髮同心·開皇二聖" },
+        { figureId: "gao_jiong", relationType: "monarch-subject", label: "開皇股肱賢相" },
+        { figureId: "yang_su", relationType: "monarch-subject", label: "平陳開國元勳" }
+      ]
+    },
+    {
+      id: "yang_guang",
+      name: "楊廣 (隋煬帝)",
+      courtesyName: "阿𡡉",
+      posthumousName: "煬皇帝 / 明皇帝",
+      birthDeathDisplay: "569年 - 618年",
+      birthYear: 569,
+      deathYear: 618,
+      nativePlaceAncient: "弘農 華陰",
+      nativePlaceModern: "陝西省渭南市華陰市",
+      faction: "sui",
+      roles: ["隋朝第二代皇帝", "大運河開鑿者", "軍事家"],
+      avatar: "images/figures/fig_yang_guang.jpg",
+      bio: "隋文帝次子。統軍南下滅陳有大功，即位後營建東都洛陽，下令開鑿貫通南北之大運河（通濟渠、永濟渠、江南運河），溝通五大水系，為後世千載南北經濟動脈奠定基礎；西巡張掖開拓絲綢之路，設西域三郡；正式確立進士科開創科舉制。然因三征高句麗勞民傷財，驕奢無度引發全國農民大起義與群雄割據，最終於江都兵變中為宇文化及所弒。",
+      keyAchievements: [
+        "開鑿大運河，貫通南北大動脈功在千秋",
+        "營建東都洛陽與創設進士科科舉體制",
+        "西巡張掖開拓西域，平定吐谷渾"
+      ],
+      famousQuotes: [
+        "我性不喜人諫，若有名位欲諫以求名者，我必殺之！",
+        "好頭顱，誰當斫之？"
+      ],
+      relations: [
+        { figureId: "yang_jian", relationType: "family", label: "父皇" },
+        { figureId: "li_yuan", relationType: "rival", label: "表親 / 叛反自立" },
+        { figureId: "yang_su", relationType: "monarch-subject", label: "登基奪嫡謀臣" }
+      ]
+    },
+    {
+      id: "yang_su",
+      name: "楊素 (處道)",
+      courtesyName: "處道",
+      posthumousName: "楚景武公",
+      birthDeathDisplay: "544年 - 606年",
+      birthYear: 544,
+      deathYear: 606,
+      nativePlaceAncient: "弘農 華陰",
+      nativePlaceModern: "陝西省渭南市華陰市",
+      faction: "sui",
+      roles: ["隋朝尚書左僕射", "大將軍", "楚國公"],
+      avatar: "images/figures/fig_yang_su.svg",
+      bio: "北周至隋代傑出軍事家、政治家。隋滅陳之戰任行軍元帥，督造五牙戰艦大破陳水軍於長江；平定江南叛亂、大破突厥達頭可汗於塞北。才兼文武，善作詩賦，然為人深險，協助楊廣奪嫡即位，官至司徒。",
+      keyAchievements: [
+        "督造五牙樓船水陸並進滅陳一統",
+        "塞北大破達頭可汗揚威大漠"
+      ],
+      famousQuotes: ["破陣殺敵，顧盼生風！"],
+      relations: [
+        { figureId: "yang_jian", relationType: "monarch-subject", label: "開國君臣" },
+        { figureId: "yang_guang", relationType: "monarch-subject", label: "翼贊登基" }
+      ]
+    },
+    {
+      id: "gao_jiong",
+      name: "高熲 (昭玄)",
+      courtesyName: "昭玄",
+      posthumousName: "齊國公",
+      birthDeathDisplay: "541年 - 607年",
+      birthYear: 541,
+      deathYear: 607,
+      nativePlaceAncient: "渤海 蓨縣",
+      nativePlaceModern: "河北省衡水市景縣",
+      faction: "sui",
+      roles: ["隋朝尚書左僕射", "宰相", "齊國公"],
+      avatar: "images/figures/fig_gao_jiong.svg",
+      bio: "隋朝開皇盛世首要功臣。執政近二十年，主持制定《開皇律》，推行輸籍法，深悉朝政軍務，平定陳朝籌劃悉出其手。為官清慎，深得士民愛戴，後因反對廢太子楊勇被隋文帝疏遠，大業年間因諫煬帝見誅。",
+      keyAchievements: [
+        "主持制定《開皇律》，奠定隋唐法制基石",
+        "總理平陳方略，維持開皇盛世二十年太平"
+      ],
+      famousQuotes: ["長江天然之阻，今雖有備，以我之眾，豈不能濟！"],
+      relations: [
+        { figureId: "yang_jian", relationType: "monarch-subject", label: "開皇柱石" }
+      ]
+    },
+    {
+      id: "dugu_qieluo",
+      name: "獨孤伽羅 (文獻皇后)",
+      courtesyName: "伽羅",
+      posthumousName: "文獻皇后",
+      birthDeathDisplay: "544年 - 602年",
+      birthYear: 544,
+      deathYear: 602,
+      nativePlaceAncient: "河南 洛陽",
+      nativePlaceModern: "河南省洛陽市",
+      faction: "sui",
+      roles: ["隋文帝皇后", "開皇二聖", "政治決策者"],
+      avatar: "images/figures/fig_dugu_qieluo.svg",
+      bio: "北周大司馬獨孤信第七女。十四歲嫁楊堅，雅好讀書，識達今古，具非凡政治遠見。在楊堅代周建隋過程中力贊其斷行大計。文帝對其敬畏有加，宮中尊為「二聖」。一生提倡節儉、抑制外戚，是開皇之治不可或缺之靈魂人物。",
+      keyAchievements: [
+        "佐助楊堅代周立隋，開創三百年帝業",
+        "整飭后宮風氣，倡導節儉政治"
+      ],
+      famousQuotes: ["大事已然，騎虎之勢，必不得下，勉之！"],
+      relations: [
+        { figureId: "yang_jian", relationType: "family", label: "帝后情深 / 開皇二聖" },
+        { figureId: "yang_guang", relationType: "family", label: "次子" }
+      ]
+    },
+    // --- 2. 初唐開國與貞觀君臣 ---
+    {
+      id: "li_yuan",
+      name: "李淵 (唐高祖)",
+      courtesyName: "叔德",
+      posthumousName: "神堯大聖大光孝皇帝",
+      birthDeathDisplay: "566年 - 635年",
+      birthYear: 566,
+      deathYear: 635,
+      nativePlaceAncient: "隴西 成紀",
+      nativePlaceModern: "甘肅省天水市秦安縣",
+      faction: "tang",
+      roles: ["大唐開國皇帝", "唐高祖"],
+      avatar: "images/figures/fig_li_yuan.jpg",
+      bio: "關隴貴族隴西李氏，西涼武昭王李暠後裔。隋大業末年任太原留守，見天下大亂，與次子李世民於晉陽起兵，破霍邑、入長安，立楊侑為帝。西元618年受禪登基，建立大唐帝國。命世民等人南征北戰，消滅薛仁杲、劉武周、王世充、竇建德、蕭銑等割據群雄，奠定大唐一統宏圖。玄武門之變後退位為太上皇。",
+      keyAchievements: [
+        "太原晉陽起兵，建立大唐三百年皇朝",
+        "掃平群雄割據，奠定天下大一統版圖"
+      ],
+      famousQuotes: ["彰明法度，與民約法十二條。"],
+      relations: [
+        { figureId: "li_shimin", relationType: "family", label: "次子 / 功高繼位" },
+        { figureId: "pei_ji", relationType: "colleague", label: "晉陽密謀佐臣" }
+      ]
+    },
+    {
+      id: "li_shimin",
+      name: "李世民 (唐太宗)",
+      courtesyName: "世民",
+      posthumousName: "文武大聖大廣孝皇帝",
+      birthDeathDisplay: "598年 - 649年",
+      birthYear: 598,
+      deathYear: 649,
+      nativePlaceAncient: "隴西 成紀",
+      nativePlaceModern: "甘肅省天水市秦安縣",
+      faction: "tang",
+      roles: ["唐朝第二代皇帝", "天可汗", "千古一帝", "天策上將"],
+      avatar: "images/figures/fig_li_shimin.jpg",
+      bio: "唐高祖次子。隋末隨父起兵，封秦王兼天策上將。於柏壁大破宋金剛、虎牢關一役陣擒竇建德兼降王世充，武功震古爍今。西元626年發動玄武門之變即位，年號「貞觀」。在位期間知人善任、從諫如流，行均田租庸調法，精簡府兵，大破東突厥生俘頡利可汗，平吐谷渾、高昌，被西北各族首領尊稱為「天可汗」。開創輝煌之「貞觀之治」，為盛唐文明之巔峰立下萬世根基。",
+      keyAchievements: [
+        "虎牢一戰破雙雄，克定天下乾坤",
+        "開創貞觀之治，廣開言路從諫如流",
+        "滅東突厥定西域，萬邦朝拜尊為「天可汗」"
+      ],
+      famousQuotes: [
+        "以銅為鏡，可以正衣冠；以古為鏡，可以知興替；以人為鏡，可以明得失。",
+        "水能載舟，亦能覆舟。"
+      ],
+      relations: [
+        { figureId: "li_yuan", relationType: "family", label: "父皇" },
+        { figureId: "wei_zheng", relationType: "monarch-subject", label: "如鏡相照之諍臣" },
+        { figureId: "fang_xuanling", relationType: "monarch-subject", label: "房謀之宰輔" },
+        { figureId: "du_ruhui", relationType: "monarch-subject", label: "杜斷之樞紐" },
+        { figureId: "li_jing", relationType: "monarch-subject", label: "定襄滅突厥軍神" },
+        { figureId: "yuchi_gong", relationType: "monarch-subject", label: "白刃救駕勇將" },
+        { figureId: "zhangsun_huanghou", relationType: "family", label: "文德內助賢后" }
+      ]
+    },
+    {
+      id: "zhangsun_huanghou",
+      name: "長孫皇后 (文德皇后)",
+      courtesyName: "觀音婢",
+      posthumousName: "文德順聖皇后",
+      birthDeathDisplay: "601年 - 636年",
+      birthYear: 601,
+      deathYear: 636,
+      nativePlaceAncient: "河南 洛陽",
+      nativePlaceModern: "河南省洛陽市",
+      faction: "tang",
+      roles: ["唐太宗皇后", "千古賢后之冠"],
+      avatar: "images/figures/fig_zhangsun_huanghou.svg",
+      bio: "隋右驍衛將軍長孫晟之女。十三歲嫁李世民，輔佐太宗度過奪嫡艱難歲月。玄武門之變親勉將士，即位後居后位深居簡出，性情寬簡，常以古事婉諫太宗保全魏徵等大臣。著有《女則》十篇，臨終叮囑薄葬、勿重用外戚，被唐太宗譽為「嘉偶良佐」。",
+      keyAchievements: [
+        "婉言化解君臣隔閡，保全魏徵等諍臣性命",
+        "抑制長孫外戚專權，撰《女則》樹立典範"
+      ],
+      famousQuotes: ["妾生無益於人，死不可厚葬以費天下之財。"],
+      relations: [
+        { figureId: "li_shimin", relationType: "family", label: "帝后同心 / 嘉偶良佐" },
+        { figureId: "wei_zheng", relationType: "colleague", label: "暗中力保之直臣" }
+      ]
+    },
+    {
+      id: "wei_zheng",
+      name: "魏徵 (玄成)",
+      courtesyName: "玄成",
+      posthumousName: "文貞公",
+      birthDeathDisplay: "580年 - 643年",
+      birthYear: 580,
+      deathYear: 643,
+      nativePlaceAncient: "魏州 曲城",
+      nativePlaceModern: "河北省邢台市巨鹿縣",
+      faction: "tang",
+      roles: ["諫議大夫", "左光祿大夫", "鄭國公", "千古人鏡"],
+      avatar: "images/figures/fig_wei_zheng.jpg",
+      bio: "初唐最著名之直臣諍相。早年參李密瓦崗軍，後為隱太子李建成洗馬。玄武門之變後，唐太宗賞識其才能器度，拜為諫議大夫。魏徵犯顏直諫二百餘次，言辭鯁直，知無不言，力勸太宗居安思危、愛民節制。太宗臨朝每見其容止必斂容敬聽。病逝後太宗哀慟罷朝，親立碑文，嘆其為不可替代之「人鏡」。",
+      keyAchievements: [
+        "犯顏直諫二百餘次，力塑貞觀政治風骨",
+        "主編《隋書》，總結歷代治亂興衰"
+      ],
+      famousQuotes: [
+        "兼聽則明，偏信則暗。",
+        "居安思危，戒奢以儉。"
+      ],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "照見得失之千古人鏡" }
+      ]
+    },
+    {
+      id: "fang_xuanling",
+      name: "房玄齡 (喬)",
+      courtesyName: "玄齡",
+      posthumousName: "梁文昭公",
+      birthDeathDisplay: "579年 - 648年",
+      birthYear: 579,
+      deathYear: 648,
+      nativePlaceAncient: "齊州 臨淄",
+      nativePlaceModern: "山東省淄博市臨淄區",
+      faction: "tang",
+      roles: ["尚書左僕射", "梁國公", "貞觀首輔", "房謀杜斷"],
+      avatar: "images/figures/fig_fang_xuanling.jpg",
+      bio: "初唐名相。十八歲舉進士，投身李世民幕府二十餘年。為太宗網羅天下英才，秦王府文治之首。貞觀即位後任尚書左僕射掌中樞政事十五年，總理朝綱、制定律令制度、監修國史，善於謀劃大局，與杜如晦同心輔政，史稱「房謀杜斷」，列凌煙閣二十四功臣第五。",
+      keyAchievements: [
+        "任相十五年總攬綱紀，開創貞觀繁榮基石",
+        "主持制定《貞觀律》與修撰五代正史"
+      ],
+      famousQuotes: ["量才授職，務在得人，無求備於一人。"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "君臣相得" },
+        { figureId: "du_ruhui", relationType: "colleague", label: "房謀杜斷·黃金搭檔" }
+      ]
+    },
+    {
+      id: "du_ruhui",
+      name: "杜如晦 (克明)",
+      courtesyName: "克明",
+      posthumousName: "萊成公",
+      birthDeathDisplay: "585年 - 630年",
+      birthYear: 585,
+      deathYear: 630,
+      nativePlaceAncient: "京兆 杜陵",
+      nativePlaceModern: "陝西省西安市雁塔區",
+      faction: "tang",
+      roles: ["尚書右僕射", "兵部尚書", "萊國公", "房謀杜斷"],
+      avatar: "images/figures/fig_du_ruhui.jpg",
+      bio: "初唐名相。出身京兆杜氏望族。入秦王府為文臣骨幹，軍旅征戰無不參謀帷幄。玄武門之變主要策劃者之一。貞觀年間任右僕射，臨事果決，善斷大事，凡房玄齡所議策畫，如晦一錘定音，配合無間。早逝時唐太宗為之慟哭廢食，列凌煙閣第三。",
+      keyAchievements: [
+        "運籌帷幄決勝虎牢與玄武門政變",
+        "參掌中樞軍政，斷大事無遺算"
+      ],
+      famousQuotes: ["天下之事，至精至微，斷不可以疑生惑。"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "帷幄心腹" },
+        { figureId: "fang_xuanling", relationType: "colleague", label: "房謀杜斷·同心匡弼" }
+      ]
+    },
+    {
+      id: "li_jing",
+      name: "李靖 (藥師)",
+      courtesyName: "藥師",
+      posthumousName: "衛景武公",
+      birthDeathDisplay: "571年 - 649年",
+      birthYear: 571,
+      deathYear: 649,
+      nativePlaceAncient: "雍州 三原",
+      nativePlaceModern: "陝西省咸陽市三原縣",
+      faction: "tang",
+      roles: ["兵部尚書", "尚書右僕射", "衛國公", "大唐軍神"],
+      avatar: "images/figures/fig_li_jing.jpg",
+      bio: "大唐第一名將，文武全才。隋末隨秦瓊等歸唐，南平蕭銑、輔公祏底定江淮；貞觀三年任定襄道行軍大總管，率三千精騎雪夜襲破定襄，再於陰山奇襲大破突厥大軍，生俘頡利可汗，徹底降服東突厥；六十四歲拜西海道大總管遠征吐谷渾，涉積石山千里肅清西陲。著有兵書多卷，後人奉為兵家武聖，凌煙閣二十四功臣第八。",
+      keyAchievements: [
+        "雪夜奇襲定襄、陰山滅東突厥生俘頡利可汗",
+        "平定蕭銑一統長江，遠征萬里破吐谷渾"
+      ],
+      famousQuotes: [
+        "用兵之妙，在於審機，出其不意，攻其不備。",
+        "功成名遂，身退思過，方保令名。"
+      ],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "天策軍神 / 拓土干城" },
+        { figureId: "li_ji", relationType: "colleague", label: "雙璧名將" }
+      ]
+    },
+    {
+      id: "li_ji",
+      name: "李勣 (徐世勣/徐茂公)",
+      courtesyName: "懋功",
+      posthumousName: "英國貞武公",
+      birthDeathDisplay: "594年 - 669年",
+      birthYear: 594,
+      deathYear: 669,
+      nativePlaceAncient: "曹州 離狐",
+      nativePlaceModern: "山東省菏澤市東明縣",
+      faction: "tang",
+      roles: ["司空", "同中書門下三品", "英國公", "三朝柱石"],
+      avatar: "images/figures/fig_li_ji.jpg",
+      bio: "原名徐世勣，字懋功，獲賜國姓李氏。早年參加瓦崗軍，歸唐後平王世充、竇建德、劉黑闥。貞觀年間副李靖破東突厥，大破薛延陀；高宗時任總管領軍跨海遠征高句麗，攻破平壤城俘其王，徹底平定朝鮮半島。歷事高祖、太宗、高宗三朝，出將入相近半個世紀，深謀遠慮，善全其身，列凌煙閣第二十三。",
+      keyAchievements: [
+        "攻破平壤滅高句麗，完成隋唐兩代數十年夙願",
+        "北滅薛延陀，克平突厥"
+      ],
+      famousQuotes: ["身受厚恩，誓以骨肉報國！"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "倚重元老" },
+        { figureId: "li_jing", relationType: "colleague", label: "出將入相雙璧" }
+      ]
+    },
+    {
+      id: "yuchi_gong",
+      name: "尉遲敬德 (恭)",
+      courtesyName: "敬德",
+      posthumousName: "鄂忠武公",
+      birthDeathDisplay: "585年 - 658年",
+      birthYear: 585,
+      deathYear: 658,
+      nativePlaceAncient: "朔州 善陽",
+      nativePlaceModern: "山西省朔州市朔城區",
+      faction: "tang",
+      roles: ["右武候大將軍", "鄂國公", "門神"],
+      avatar: "images/figures/fig_yuchi_gong.jpg",
+      bio: "初唐勇將。原為劉武周偏將，戰敗歸唐。李世民不疑用之，於介休破王世充陣中奪槊救太宗脫險。征戰四方勇冠三軍。玄武門之變射殺李元吉，持槊入宮衛戍高祖保全大局。晚年謝絕人事，篤信道教。因忠勇赤誠，與秦瓊一同成為華夏民間傳頌千古之「門神」，列凌煙閣第七。",
+      keyAchievements: [
+        "陣前單騎奪槊，數度捨命救太宗於危難",
+        "玄武門之變決斷定乾坤"
+      ],
+      famousQuotes: ["國家有難，死生以之！"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "救駕心腹虎將" },
+        { figureId: "qin_qiong", relationType: "colleague", label: "雙門神齊名天下" }
+      ]
+    },
+    {
+      id: "qin_qiong",
+      name: "秦瓊 (叔寶)",
+      courtesyName: "叔寶",
+      posthumousName: "胡壯憲公",
+      birthDeathDisplay: "586年 - 638年",
+      birthYear: 586,
+      deathYear: 638,
+      nativePlaceAncient: "齊州 歷城",
+      nativePlaceModern: "山東省濟南市歷城區",
+      faction: "tang",
+      roles: ["左武衛大將軍", "胡國公", "門神"],
+      avatar: "images/figures/fig_qin_qiong.jpg",
+      bio: "初唐傳奇名將。少勇悍，隋末歷仕來護兒、張須陀、李密、王世充，因惡世充為人，陣前率程咬金等投唐。李世民任為馬軍總管，每臨大敵，必命叔寶躍馬挺槍直衝敵陣，於萬眾中取敵驍將首級，威名震懾天下。身經二百餘戰，創傷甚多，晚年常病。逝後陪葬昭陵，民間奉為守護家宅之右門神，列凌煙閣第二十四。",
+      keyAchievements: [
+        "萬軍之中單騎馳突斬將搴旗，天下無敵",
+        "輔佐太宗平定四海，化為民間千古門神"
+      ],
+      famousQuotes: ["吾少長戎馬間，歷二百餘戰，身被重創無算，安得不病！"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "天策先鋒驍將" },
+        { figureId: "yuchi_gong", relationType: "colleague", label: "千古雙門神" },
+        { figureId: "cheng_yaojin", relationType: "colleague", label: "同生共死瓦崗袍澤" }
+      ]
+    },
+    {
+      id: "cheng_yaojin",
+      name: "程咬金 (程知節)",
+      courtesyName: "知節",
+      posthumousName: "盧襄公",
+      birthDeathDisplay: "589年 - 665年",
+      birthYear: 589,
+      deathYear: 665,
+      nativePlaceAncient: "濟州 東阿",
+      nativePlaceModern: "山東省菏澤市鄆城縣",
+      faction: "tang",
+      roles: ["左領軍大將軍", "盧國公", "猛將"],
+      avatar: "images/figures/fig_cheng_yaojin.jpg",
+      bio: "隋末唐初猛將。善用馬槊，勇武過人。與秦瓊同出瓦崗，後歸秦王府。參與破宋金剛、王世充、竇建德諸役，玄武門之變立大功。高宗顯慶年間任蔥山道行軍大總管征西突厥。為人豪爽善自全，歷事三朝備受禮遇，列凌煙閣第十九。民間演義中為性格福將。",
+      keyAchievements: [
+        "馳突沙場戰功赫赫，平天下之棟樑",
+        "率軍遠征蔥嶺西突厥"
+      ],
+      famousQuotes: ["男子漢大丈夫，行事當光明磊落！"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "秦王府猛將" },
+        { figureId: "qin_qiong", relationType: "colleague", label: "結義兄弟般至交" }
+      ]
+    },
+    {
+      id: "liu_rengui",
+      name: "劉仁軌 (正則)",
+      courtesyName: "正則",
+      posthumousName: "臨淮文獻公",
+      birthDeathDisplay: "601年 - 685年",
+      birthYear: 601,
+      deathYear: 685,
+      nativePlaceAncient: "汴州 尉氏",
+      nativePlaceModern: "河南省開封市尉氏縣",
+      faction: "tang",
+      roles: ["左僕射", "同中書門下三品", "白江口水軍統帥", "臨淮郡公"],
+      avatar: "images/figures/fig_liu_rengui.jpg",
+      bio: "唐代傑出軍事家、外交家、政治家。農民出身，恭謹勤學。龍朔三年（663年）在朝鮮半島白江口指揮大唐水軍迎擊倭國援助百濟之龐大艦隊。仁軌四戰皆捷，焚倭船四百艘，海水為之丹赤，取得「白江口之戰」完全勝利，奠定東北亞千百年秩序。後平定百濟、新羅，治理民生深受愛戴，歷事太宗、高宗、武后三朝。",
+      keyAchievements: [
+        "指揮白江口之戰大破日本水軍，焚船四百摧毀倭國企圖",
+        "安撫百濟新羅，經營朝鮮半島邊疆"
+      ],
+      famousQuotes: ["國家有急，苟利社稷，死生以之。"],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "太宗識拔" },
+        { figureId: "wu_zetian", relationType: "monarch-subject", label: "武后深加禮遇" }
+      ]
+    },
+    {
+      id: "wencheng_gongzhu",
+      name: "文成公主",
+      courtesyName: "文成",
+      posthumousName: "文成公主",
+      birthDeathDisplay: "625年 - 680年",
+      birthYear: 625,
+      deathYear: 680,
+      nativePlaceAncient: "京兆 長安",
+      nativePlaceModern: "陝西省西安市",
+      faction: "tang",
+      roles: ["大唐宗室公主", "吐蕃贊蒙 (王后)", "漢藏文明使者"],
+      avatar: "images/figures/fig_wencheng_gongzhu.jpg",
+      bio: "唐朝宗室之女。貞觀十五年（641年），唐太宗命江夏王李道宗持節送文成公主入吐蕃，與吐蕃贊普松贊干布和親。公主入藏帶來大批釋迦牟尼十二歲等身佛像、經書、農具、蔬菜種子、歷算、醫藥、紡織與造紙工藝，建大昭寺、小昭寺。在藏四十載，深受藏族人民愛戴，尊為「白度母」化身，開創漢藏民族和合之千古佳話。",
+      keyAchievements: [
+        "出塞和親促成唐蕃四十年和平友善",
+        "將中原農業、醫藥、天文與佛教經典傳入青藏高原"
+      ],
+      famousQuotes: ["願漢藏和睦，永息干戈。"],
+      relations: [
+        { figureId: "li_shimin", relationType: "family", label: "皇室指婚之伯叔" },
+        { figureId: "songtsen_gampo", relationType: "family", label: "相濡以沫之吐蕃夫婿" }
+      ]
+    },
+    {
+      id: "songtsen_gampo",
+      name: "松贊干布 (棄宗弄贊)",
+      courtesyName: "松贊干布",
+      posthumousName: "吐蕃贊普",
+      birthDeathDisplay: "617年 - 650年",
+      birthYear: 617,
+      deathYear: 650,
+      nativePlaceAncient: "雅礱河谷",
+      nativePlaceModern: "西藏自治區山南市乃東區",
+      faction: "nomadic",
+      roles: ["吐蕃帝國創建者", "法王贊普"],
+      avatar: "images/figures/fig_songtsen_gampo.jpg",
+      bio: "西藏古代歷史上最傑出之政治家與軍事家。遷都邏些（拉薩），統一西藏高原各部落，建立強大的吐蕃王朝。創立藏文字母，頒行法律，推行軍政體制。向大唐請婚，迎娶文成公主與泥婆羅赤尊公主，廣泛吸收中原、印度先進文明，興建布達拉宮雛形與大昭寺，開啟西藏文明發展黃金時代。",
+      keyAchievements: [
+        "統一青藏高原，建立吐蕃帝國",
+        "創制藏文與法典，迎娶文成公主融匯漢藏"
+      ],
+      famousQuotes: ["自古未有貴女入吐蕃者，我今得文成公主，誠為大慶！"],
+      relations: [
+        { figureId: "wencheng_gongzhu", relationType: "family", label: "大唐和親贊蒙" },
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "甥舅之好" }
+      ]
+    },
+    // --- 3. 武周革命與盛唐開元天寶 ---
+    {
+      id: "wu_zetian",
+      name: "武則天 (武曌)",
+      courtesyName: "武曌",
+      posthumousName: "則天大聖皇后",
+      birthDeathDisplay: "624年 - 705年",
+      birthYear: 624,
+      deathYear: 705,
+      nativePlaceAncient: "并州 文水",
+      nativePlaceModern: "山西省呂梁市文水縣",
+      faction: "wuZhou",
+      roles: ["華夏唯一正統女皇帝", "武周建立者", "政治改革家"],
+      avatar: "images/figures/fig_wu_zetian.jpg",
+      bio: "荊州都督武士彠之女。初為唐太宗才人，後為唐高宗皇后。參決朝政與高宗並稱「二聖」。高宗逝後廢中宗、立睿宗，西元690年正式自立為帝，改國號為「周」，定都神都洛陽，成為華夏歷史上唯一被正史承認之女皇帝。在位期間不拘一格廣開殿試、武舉拔擢寒門庶族，嚴厲打擊關隴世族；重用狄仁傑、姚崇等名相；發展農業，穩定邊疆，國力持續上升。晚年神龍政變退位歸唐，留「無字碑」任後人評說，史稱「政啟開元，治宏貞觀」。",
+      keyAchievements: [
+        "建立武周王朝，打破千年性別與世族藩籬",
+        "首創殿試、武舉，使科舉制度真正成為拔擢寒門柱石",
+        "政啟開元治宏貞觀，為唐玄宗盛世奠定人才與經濟基礎"
+      ],
+      famousQuotes: [
+        "建天授地，日月當空，唯我自立！",
+        "死後立無字碑，功過是非任後世評說。"
+      ],
+      relations: [
+        { figureId: "di_renjie", relationType: "monarch-subject", label: "倚為國老 / 復辟唐祚" },
+        { figureId: "shangguan_waner", relationType: "monarch-subject", label: "機要內相" },
+        { figureId: "li_longji", relationType: "family", label: "皇孫 / 盛唐開創者" },
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "初入宮掖才人" }
+      ]
+    },
+    {
+      id: "di_renjie",
+      name: "狄仁傑 (懷英)",
+      courtesyName: "懷英",
+      posthumousName: "梁文惠公",
+      birthDeathDisplay: "630年 - 700年",
+      birthYear: 630,
+      deathYear: 700,
+      nativePlaceAncient: "并州 太原",
+      nativePlaceModern: "山西省太原市陽曲縣",
+      faction: "wuZhou",
+      roles: ["同鳳閣鸞臺平章事", "大理寺丞", "梁國公", "國老"],
+      avatar: "images/figures/fig_di_renjie.jpg",
+      bio: "武周時期著名政治家。早年任大理寺丞，一年內斷滯獄一萬七千人，無一人怨枉，被譽為神斷法官。後任宰相，為人剛正不阿，敢於犯顏直諫。在武則天晚年深獲信賴，尊稱「國老」而不名。仁傑巧妙進言勸武后迎還廬陵王李顯，阻止武承嗣奪嫡，並薦拔張柬之、姚崇、宋璟、敬暉等數十位賢臣，世稱「天下桃李，悉在公門」，為興復李唐社稷立下第一大功。",
+      keyAchievements: [
+        "神斷天下冤案，主持大理寺法度昭彰",
+        "勸阻武后傳位武氏，迎立廬陵王興復李唐正統",
+        "桃李滿天下，薦引姚崇、張柬之等開元社稷柱石"
+      ],
+      famousQuotes: [
+        "朝堂之上，唯法與天道不可私曲！",
+        "陛下姑姪與母子孰親？傳位子孫，百代配饗太廟；傳位侄子，未聞姪登大寶而祔姑於廟者也。"
+      ],
+      relations: [
+        { figureId: "wu_zetian", relationType: "monarch-subject", label: "朝夕倚仗之國老" },
+        { figureId: "yao_chong", relationType: "colleague", label: "門下門生 / 盛唐宰相" }
+      ]
+    },
+    {
+      id: "shangguan_waner",
+      name: "上官婉兒",
+      courtesyName: "婉兒",
+      posthumousName: "昭容",
+      birthDeathDisplay: "664年 - 710年",
+      birthYear: 664,
+      deathYear: 710,
+      nativePlaceAncient: "陝州 陝縣",
+      nativePlaceModern: "河南省三門峽市陝州區",
+      faction: "wuZhou",
+      roles: ["武周內舍人", "巾幗宰相", "唐中宗昭容", "文壇盟主"],
+      avatar: "images/figures/fig_shangguan_waner.jpg",
+      bio: "上官儀之孫女。因家族獲罪沒入掖庭，天資敏慧，博涉群書。十四歲因絕世文才獲武則天賞識免罪，掌管宮廷制誥二十餘年，群臣奏摺悉歸其裁決，有「巾幗宰相」之譽。中宗朝拜為昭容，大倡文學，評定天下詩才，推動盛唐詩風發展。唐隆政變中為李隆基所斬。",
+      keyAchievements: [
+        "執掌宮闈機要樞紐二十餘年，才冠群芳",
+        "評點天下詩賦，引領盛唐詩歌繁榮"
+      ],
+      famousQuotes: ["葉下洞庭初，思君萬里餘。"],
+      relations: [
+        { figureId: "wu_zetian", relationType: "monarch-subject", label: "識拔信任之樞密內相" },
+        { figureId: "li_longji", relationType: "rival", label: "政變反對派" }
+      ]
+    },
+    {
+      id: "li_longji",
+      name: "李隆基 (唐玄宗/唐明皇)",
+      courtesyName: "隆基",
+      posthumousName: "至道大聖大明孝皇帝",
+      birthDeathDisplay: "685年 - 762年",
+      birthYear: 685,
+      deathYear: 762,
+      nativePlaceAncient: "相州 湯陰",
+      nativePlaceModern: "河南省安陽市湯陰縣",
+      faction: "tang",
+      roles: ["唐朝第七代皇帝", "開元盛世開創者", "梨園始祖"],
+      avatar: "images/figures/fig_li_longji.jpg",
+      bio: "唐睿宗李旦第三子。英武果斷，通曉音律。發動唐隆政變與先天政變誅韋后、太平公主，即位後勵精圖治，任用姚崇、宋璟、張九齡為相，裁汰冗官、抑制佛教豪強、整飭財政，開創大唐極盛之「開元盛世」，天下大治，戶口破五千萬，絲路繁盛。然而晚年倦政，溺愛楊貴妃，罷斥賢相，寵信李林甫、楊國忠，重用胡將安祿山委以三鎮節度使，引爆長達八年之「安史之亂」，避蜀退位為太上皇，大唐盛世驟然跌入低谷。",
+      keyAchievements: [
+        "開創開元盛世，華夏封建經濟文化極致巔峰",
+        "設十道節度使鞏固邊防，創梨園倡導樂舞藝術"
+      ],
+      famousQuotes: [
+        "天寶承平，海內殷富。",
+        "長恨歌傳千載淚，馬嵬坡下斷腸時。"
+      ],
+      relations: [
+        { figureId: "yang_guifei", relationType: "family", label: "深愛貴妃 / 馬嵬恩斷" },
+        { figureId: "yao_chong", relationType: "monarch-subject", label: "開元首任賢相" },
+        { figureId: "an_lushan", relationType: "rival", label: "信任養癰 / 引爆叛亂" },
+        { figureId: "guo_ziyi", relationType: "monarch-subject", label: "平叛再造社稷功臣" },
+        { figureId: "li_bai", relationType: "monarch-subject", label: "賜金放還之翰林詩仙" }
+      ]
+    },
+    {
+      id: "yang_guifei",
+      name: "楊玉環 (楊貴妃)",
+      courtesyName: "玉環",
+      posthumousName: "貴妃",
+      birthDeathDisplay: "719年 - 756年",
+      birthYear: 719,
+      deathYear: 756,
+      nativePlaceAncient: "蒲州 永樂",
+      nativePlaceModern: "山西省運城市芮城縣",
+      faction: "tang",
+      roles: ["唐玄宗貴妃", "古代四大美女之一 (羞花)"],
+      avatar: "images/figures/fig_yang_guifei.jpg",
+      bio: "中國古代四大美女之一。姿質豐艷，通曉音律，尤擅胡旋舞與霓裳羽衣曲。天寶年間獲玄宗極度寵愛，冊為貴妃，「後宮佳麗三千人，三千寵愛在一身」。其兄楊國忠因而竊據相位專權誤國。天寶十五載安史叛軍破潼關，玄宗逃蜀途經馬嵬坡，禁軍將士兵變誅殺楊國忠，逼迫玄宗賜死楊貴妃於佛堂，年僅三十八歲。其悲劇愛情成為白居易《長恨歌》千古詠唱主題。",
+      keyAchievements: [
+        "精通琵琶與霓裳羽衣舞，代表盛唐宮廷藝術巔峰",
+        "古代四大美人之「羞花」象徵"
+      ],
+      famousQuotes: ["在天願作比翼鳥，在地願為連理枝。天長地久有時盡，此恨綿綿無絕期。"],
+      relations: [
+        { figureId: "li_longji", relationType: "family", label: "長恨千載之深情眷侶" }
+      ]
+    },
+    {
+      id: "guo_ziyi",
+      name: "郭子儀 (尚父)",
+      courtesyName: "子儀",
+      posthumousName: "汾陽忠武王",
+      birthDeathDisplay: "697年 - 781年",
+      birthYear: 697,
+      deathYear: 781,
+      nativePlaceAncient: "華州 鄭縣",
+      nativePlaceModern: "陝西省渭南市華州區",
+      faction: "tang",
+      roles: ["中書令", "天下兵馬副元帥", "汾陽郡王", "尚父", "再造唐室功臣"],
+      avatar: "images/figures/fig_guo_ziyi.jpg",
+      bio: "盛唐軍事統帥，武舉出身。安史之亂爆發，受任朔方節度使，聯合同僚李光弼收復河北；天寶末年指揮香積寺之戰與陜州大戰，率軍光復長安、洛陽兩京；代宗時吐蕃攻陷長安，子儀收集散兵傳烽鼓譟巧退吐蕃；大歷四年回紇進犯，子儀單騎入回紇軍營以忠誠感化藥葛羅可汗化敵為友。勇冠三軍、進退有節，事玄宗、肅宗、代宗、德宗四朝，「再造唐室而天下不猜，功蓋一代而人主不疑」，富貴壽考俱全，卒年八十五歲，尊為「尚父」。",
+      keyAchievements: [
+        "安史之亂指揮收復兩京（長安、洛陽），力挽狂瀾再造大唐",
+        "單騎退回紇大軍，退吐蕃保全關中社稷",
+        "功蓋天下而主不疑，大智若愚全福全壽"
+      ],
+      famousQuotes: [
+        "臣受國家厚恩，誓以身殉社稷，生死何足顧！",
+        "單騎赴敵營，惟仗赤心與忠信。"
+      ],
+      relations: [
+        { figureId: "li_longji", relationType: "monarch-subject", label: "再造大唐乾坤" },
+        { figureId: "li_guangbi", relationType: "colleague", label: "安史平叛雙壁" },
+        { figureId: "an_lushan", relationType: "rival", label: "死戰平定之國賊" }
+      ]
+    },
+    {
+      id: "li_guangbi",
+      name: "李光弼",
+      courtesyName: "光弼",
+      posthumousName: "臨淮武穆王",
+      birthDeathDisplay: "708年 - 764年",
+      birthYear: 708,
+      deathYear: 764,
+      nativePlaceAncient: "營州 柳城",
+      nativePlaceModern: "遼寧省朝陽市",
+      faction: "tang",
+      roles: ["太尉", "中書令", "臨淮郡王", "安史戰神"],
+      avatar: "images/figures/fig_li_guangbi.jpg",
+      bio: "契丹族名將後裔。治軍嚴整，謀略超群。安史之亂由郭子儀薦為河東節度使，以弱抵強堅守太原，大破史思明十萬精銳，史稱「太原保衛戰」；後移師河陽，三城死守破敵。戰功卓絕，為中興名將之首，時人評其「中興戰功第一推光弼」。",
+      keyAchievements: [
+        "指揮太原保衛戰以少勝多擊潰史思明主力",
+        "河陽三城大捷打破安史叛軍渡江企圖"
+      ],
+      famousQuotes: ["戰士陣前死，大將何必求生！"],
+      relations: [
+        { figureId: "guo_ziyi", relationType: "colleague", label: "郭李齊名之平叛巨頭" },
+        { figureId: "shi_siming", relationType: "rival", label: "太原陣前死敵" }
+      ]
+    },
+    {
+      id: "zhang_xun",
+      name: "張巡",
+      courtesyName: "巡",
+      posthumousName: "忠烈公",
+      birthDeathDisplay: "709年 - 757年",
+      birthYear: 709,
+      deathYear: 757,
+      nativePlaceAncient: "蒲州 河東",
+      nativePlaceModern: "山西省運城市永濟市",
+      faction: "tang",
+      roles: ["河南節度副使", "睢陽守將", "千古忠烈"],
+      avatar: "images/figures/fig_zhang_xun.jpg",
+      bio: "真源縣令，博通群書。安史之亂中原陷落，張巡起兵堅守雍丘，後與許遠合兵堅守江淮門戶睢陽城。以數千將士抗擊尹子奇十三萬叛軍圍攻長達數月，經歷大小四百餘戰，斬叛將二百餘人。糧盡矢絕城破殉難。因其死守，叛軍無法南下渡江，保全江淮富庶糧道賦稅，大唐半壁得以不墜。",
+      keyAchievements: [
+        "血戰睢陽以三千拒敵十三萬，保全大唐江南半壁江山",
+        "智設草人借箭、地道破敵，千古孤臣忠義楷模"
+      ],
+      famousQuotes: ["臣智勇俱竭，不能保全城池，生受國恩，死為厲鬼殺賊！"],
+      relations: [
+        { figureId: "guo_ziyi", relationType: "colleague", label: "江淮後方柱石" }
+      ]
+    },
+    {
+      id: "yan_zhenqing",
+      name: "顏真卿 (清臣)",
+      courtesyName: "清臣",
+      posthumousName: "魯文忠公",
+      birthDeathDisplay: "709年 - 785年",
+      birthYear: 709,
+      deathYear: 785,
+      nativePlaceAncient: "京兆 萬年",
+      nativePlaceModern: "陝西省西安市",
+      faction: "tang",
+      roles: ["吏部尚書", "魯郡公", "楷書四大家之一", "天下第二行書作者"],
+      avatar: "images/figures/fig_yan_zhenqing.jpg",
+      bio: "顏師古五代孫。大唐著名書法家與重臣。安史之亂時任平原太守，河北十七郡皆降，真卿獨起義兵扼其要衝，與從兄顏杲卿連兵抗敵。大歷年間創「顏體」楷書，氣度雄渾剛正。從姪季明遇害後揮淚撰就「天下第二行書」《祭姪文稿》。晚年奉命勸諭藩鎮李希烈，大義凜然，抗節不屈被縊殺，年七十六。",
+      keyAchievements: [
+        "開創雄健端正之「顏體」書法，撰《祭姪文稿》千古名作",
+        "平原誓師抗安祿山，晚年孤身使叛將慷慨就義"
+      ],
+      famousQuotes: ["天下之事，大義存焉，生死度外！"],
+      relations: [
+        { figureId: "li_longji", relationType: "monarch-subject", label: "河北孤忠守將" }
+      ]
+    },
+    // --- 4. 盛唐文人宗師、佛法與高士 ---
+    {
+      id: "li_bai",
+      name: "李白 (太白)",
+      courtesyName: "太白",
+      posthumousName: "青蓮居士 / 詩仙",
+      birthDeathDisplay: "701年 - 762年",
+      birthYear: 701,
+      deathYear: 762,
+      nativePlaceAncient: "綿州 昌隆",
+      nativePlaceModern: "四川省江油市",
+      faction: "cultural",
+      roles: ["翰林供奉", "詩仙", "青蓮居士", "盛唐浪漫詩歌之巔"],
+      avatar: "images/figures/fig_li_bai.jpg",
+      bio: "字太白，號青蓮居士，祖籍隴西成紀。華夏歷史上最富浪漫主義色彩之詩仙。天資超凡，喜劍術，好游四方。天寶初年獲唐玄宗召入長安任翰林供奉，狂放不羈，「天子呼來不上船，自稱臣是酒中仙」。其詩飄逸灑脫、豪邁奔放、氣吞山河，如天風海雨不可羈勒。與杜甫並稱「李杜」，為盛唐黃金時代文化精神之象徵。",
+      keyAchievements: [
+        "詩作雄奇豪邁空前絕後，獲尊為千古「詩仙」",
+        "《將進酒》《蜀道難》《夢遊天姥吟留別》開創詩歌巔峰"
+      ],
+      famousQuotes: [
+        "君不見黃河之水天上來，奔流到海不復回！",
+        "天生我材必有用，千金散盡還復來。",
+        "安能摧眉折腰事權貴，使我不得開心顏！"
+      ],
+      relations: [
+        { figureId: "du_fu", relationType: "colleague", label: "雙星輝映·天各一方之至交" },
+        { figureId: "li_longji", relationType: "monarch-subject", label: "金鑾殿賜金放還之君臣" }
+      ]
+    },
+    {
+      id: "du_fu",
+      name: "杜甫 (子美)",
+      courtesyName: "子美",
+      posthumousName: "杜少陵 / 詩聖",
+      birthDeathDisplay: "712年 - 770年",
+      birthYear: 712,
+      deathYear: 770,
+      nativePlaceAncient: "襄陽 / 河南 鞏縣",
+      nativePlaceModern: "河南省鄭州市鞏義市",
+      faction: "cultural",
+      roles: ["左拾遺", "工部員外郎", "詩聖", "詩史作家"],
+      avatar: "images/figures/fig_du_fu.jpg",
+      bio: "晉當陽侯杜預十三世孫。華夏歷史上最崇高之現實主義詩聖。目睹安史之亂生靈塗炭與盛衰巨變，流亡秦隴，寓居成都草堂與夔州。詩風沉鬱頓挫，悲憫眾生，以詩記史，被譽為「詩史」。「三吏三別」真實記錄民間疾苦，憂國憂民情懷流芳百世，與李白並稱「李杜」。",
+      keyAchievements: [
+        "以詩記錄安史之亂民生巨變，獲尊為「詩史」與「詩聖」",
+        "《三吏》《三別》《登高》《春望》達格律詩造詣頂峰"
+      ],
+      famousQuotes: [
+        "安得廣廈千萬間，大庇天下寒士俱歡顏！風雨不動安如山。",
+        "國破山河在，城春草木深。感時花濺淚，恨別鳥驚心。",
+        "無邊落木蕭蕭下，不盡長江滾滾來。"
+      ],
+      relations: [
+        { figureId: "li_bai", relationType: "colleague", label: "仰慕傾心之詩道摯友" }
+      ]
+    },
+    {
+      id: "bai_juyi",
+      name: "白居易 (樂天)",
+      courtesyName: "樂天",
+      posthumousName: "香山居士 / 詩魔",
+      birthDeathDisplay: "772年 - 846年",
+      birthYear: 772,
+      deathYear: 846,
+      nativePlaceAncient: "太原 / 河南 新鄭",
+      nativePlaceModern: "河南省鄭州市新鄭市",
+      faction: "cultural",
+      roles: ["左拾遺", "杭州刺史", "蘇州刺史", "刑部尚書", "香山居士"],
+      avatar: "images/figures/fig_bai_juyi.jpg",
+      bio: "中唐傑出詩人。倡導「新樂府運動」，主張「文章合為時而著，歌詩合為事而作」。語言平易通俗，老嫗能解。創作名篇《長恨歌》描繪玄宗貴妃生死戀情，《琵琶行》抒發同是天涯淪落人之慨。任杭州刺史修白堤，政績卓著，名揚日本、新羅東亞各國。晚年隱居洛陽香山。",
+      keyAchievements: [
+        "倡導新樂府運動，使詩歌回歸針砭時弊與百姓呼聲",
+        "《長恨歌》《琵琶行》傳播四海千古傳唱"
+      ],
+      famousQuotes: [
+        "同是天涯淪落人，相逢何必曾相識！",
+        "回眸一笑百媚生，六宮粉黛無顏色。",
+        "野火燒不盡，春風吹又生。"
+      ],
+      relations: [
+        { figureId: "li_longji", relationType: "other", label: "長恨歌詠讚其盛衰" }
+      ]
+    },
+    {
+      id: "wang_wei",
+      name: "王維 (摩詰)",
+      courtesyName: "摩詰",
+      posthumousName: "尚書右丞 / 詩佛",
+      birthDeathDisplay: "701年 - 761年",
+      birthYear: 701,
+      deathYear: 761,
+      nativePlaceAncient: "蒲州 猗氏",
+      nativePlaceModern: "山西省運城市臨猗縣",
+      faction: "cultural",
+      roles: ["尚書右丞", "山水田園詩派宗師", "詩佛", "畫聖"],
+      avatar: "images/figures/fig_wang_wei.jpg",
+      bio: "盛唐山水田園派代表詩人與畫家。官至尚書右丞。精通佛理、音樂與繪畫，蘇軾讚其「味摩詰之詩，詩中有畫；觀摩詰之畫，畫中有詩」。安史之亂為叛軍所俘，迫受偽職，後以《凝碧詩》表心跡得免罪。晚年隱居輞川莊，詩境空靈恬淡，超凡脫俗，尊為「詩佛」。",
+      keyAchievements: [
+        "開闢山水田園詩畫合一境界，文人畫鼻祖",
+        "詩境融匯禪意佛理，尊為「詩佛」"
+      ],
+      famousQuotes: [
+        "行到水窮處，坐看雲起時。",
+        "大漠孤煙直，長河落日圓。",
+        "紅豆生南國，春來發幾枝。願君多采擷，此物最相思。"
+      ],
+      relations: [
+        { figureId: "zhang_jiuling", relationType: "colleague", label: "知遇知己" }
+      ]
+    },
+    {
+      id: "xuanzang",
+      name: "玄奘大師 (三藏法師)",
+      courtesyName: "三藏",
+      posthumousName: "大遍覺 / 玄奘法師",
+      birthDeathDisplay: "602年 - 664年",
+      birthYear: 602,
+      deathYear: 664,
+      nativePlaceAncient: "洛州 緱氏",
+      nativePlaceModern: "河南省洛陽市偃師區",
+      faction: "cultural",
+      roles: ["唯識宗創始人", "佛經翻譯家", "旅行家", "大唐西域記作者"],
+      avatar: "images/figures/fig_xuanzang.jpg",
+      bio: "唐代高僧，法相唯識宗祖師。貞觀三年（629年）冒禁自長安孤身西行求法，歷時十七載，行五萬里，穿越八百里流沙、蔥嶺險阻抵達天竺（印度），於那爛陀寺鑽研佛法，於曲女城無遮大會辯伏五印群僧。貞觀十九年攜六百五十七部梵文經典載譽歸長安，唐太宗命於大慈恩寺譯經。二十年間翻譯佛經七十五部、一千三百餘卷，並口述完成地理名著《大唐西域記》，被尊為四大譯經家之一。神魔小說《西遊記》唐僧之歷史原型。",
+      keyAchievements: [
+        "歷經十七載五萬里西行取經，確立中印文化交流里程碑",
+        "翻譯梵文佛經一千三百餘卷，撰《大唐西域記》載百餘國地理風俗"
+      ],
+      famousQuotes: [
+        "寧可西行一步死，絕不東歸半步生！",
+        "乘危遠邁，策杖孤征。"
+      ],
+      relations: [
+        { figureId: "li_shimin", relationType: "monarch-subject", label: "詔令譯經·親製大唐三藏聖教序" }
+      ]
+    },
+    {
+      id: "jianzhen",
+      name: "鑒真大師",
+      courtesyName: "鑒真",
+      posthumousName: "過海大師 / 傳燈大法師",
+      birthDeathDisplay: "688年 - 763年",
+      birthYear: 688,
+      deathYear: 763,
+      nativePlaceAncient: "揚州 江陽",
+      nativePlaceModern: "江蘇省揚州市",
+      faction: "cultural",
+      roles: ["律宗高僧", "中日文化交流先驅", "日本律宗始祖"],
+      avatar: "images/figures/fig_jianzhen.jpg",
+      bio: "唐代揚州大明寺高僧。應日本留學僧榮睿、普照之請，決定東渡日本傳授戒律。自天寶二年（743年）起，五次東渡皆因風浪、海盜、官府阻攔而告失敗，弟子死傷，鑒真雙目失明。天寶十二載（753年），年逾六旬之盲僧第六次東渡終獲成功，抵達日本奈良。建立唐招提寺，傳播佛學戒律、醫藥、建築、雕塑與書法，被日本朝野尊為律宗開山祖師，日本醫藥與豆腐技術之神。",
+      keyAchievements: [
+        "六次東渡歷經艱險抵達日本奈良弘揚律宗",
+        "建造唐招提寺，將大唐建築、醫藥與書法全面傳播東瀛"
+      ],
+      famousQuotes: [
+        "山川異域，風月同天。寄諸佛子，共結來緣。",
+        "為是法事也，何惜生命！"
+      ],
+      relations: [
+        { figureId: "li_longji", relationType: "other", label: "天寶年間東渡大師" }
+      ]
+    },
+    {
+      id: "sun_simiao",
+      name: "孫思邈 (藥王)",
+      courtesyName: "思邈",
+      posthumousName: "藥王 / 孫真人",
+      birthDeathDisplay: "581年 - 682年",
+      birthYear: 581,
+      deathYear: 682,
+      nativePlaceAncient: "京兆 華原",
+      nativePlaceModern: "陝西省銅川市耀州區",
+      faction: "cultural",
+      roles: ["醫學家", "道士", "藥王", "大醫精誠倡導者"],
+      avatar: "images/figures/fig_sun_simiao.jpg",
+      bio: "隋唐傑出醫學家，道教名士。自幼聰穎，通老莊百家。隱居太白山研習醫道，隋文帝、唐太宗、唐高宗多次徵拜不就。親嘗百草，濟世活人，倡導醫者仁心，著成《千金要方》《千金翼方》，總結唐以前數千年醫學臨床精粹，創立「大醫精誠」醫德規範，首創複方與婦幼專科，享年百餘歲，後世尊為「藥王」。",
+      keyAchievements: [
+        "撰《千金要方》《千金翼方》，集華夏中古醫學之大成",
+        "樹立「大醫精誠」崇高醫德標準，為萬世醫宗"
+      ],
+      famousQuotes: [
+        "人命至重，有貴千金，一方濟之，德逾於此。",
+        "凡大醫治病，必當安神定志，無欲無求，先發大慈惻隱之心。"
+      ],
+      relations: [
+        { figureId: "li_shimin", relationType: "other", label: "辭官隱居之方外高士" }
+      ]
+    },
+    // --- 5. 安史之亂與農民起義 ---
+    {
+      id: "an_lushan",
+      name: "安祿山 (軋犖山)",
+      courtesyName: "祿山",
+      posthumousName: "大燕雄武皇帝",
+      birthDeathDisplay: "703年 - 757年",
+      birthYear: 703,
+      deathYear: 757,
+      nativePlaceAncient: "營州 柳城",
+      nativePlaceModern: "遼寧省朝陽市",
+      faction: "fanzhen",
+      roles: ["范陽平盧河東三鎮節度使", "大燕皇帝", "安史之亂引爆者"],
+      avatar: "images/figures/fig_an_lushan.svg",
+      bio: "粟特與突厥混血將領。巧言善媚，善胡旋舞，深得唐玄宗與楊貴妃寵信，拜為義子，兼領平盧、范陽、河東三鎮節度使，坐擁北方精兵二十萬。天寶十四載（755年）以「討楊國忠」為名於范陽起兵反唐，長驅南下攻陷東都洛陽稱帝，國號大燕。次年攻破潼關逼陷長安。引發長達八年之浩劫，導致盛唐轉衰。最終因眼疾暴虐，為其子安慶緒所弒。",
+      keyAchievements: [
+        "坐擁三鎮精兵引發「安史之亂」，攻破洛陽長安兩京"
+      ],
+      famousQuotes: ["臣胡兒，心無他，唯知有陛下！"],
+      relations: [
+        { figureId: "li_longji", relationType: "rival", label: "背叛恩寵之叛臣" },
+        { figureId: "yang_guifei", relationType: "other", label: "認作乾娘之義子" },
+        { figureId: "shi_siming", relationType: "colleague", label: "安史叛軍盟首" },
+        { figureId: "guo_ziyi", relationType: "rival", label: "收復兩京之死敵" }
+      ]
+    },
+    {
+      id: "shi_siming",
+      name: "史思明",
+      courtesyName: "思明",
+      posthumousName: "大燕昭武皇帝",
+      birthDeathDisplay: "703年 - 761年",
+      birthYear: 703,
+      deathYear: 761,
+      nativePlaceAncient: "營州 柳城",
+      nativePlaceModern: "遼寧省朝陽市",
+      faction: "fanzhen",
+      roles: ["平盧節度副使", "大燕應天皇帝", "安史梟雄"],
+      avatar: "images/figures/fig_shi_siming.svg",
+      bio: "突厥族將領，與安祿山同鄉。勇悍善戰，狡詐殘忍。安祿山死後，殺安慶緒奪其位，於范陽稱帝。率軍再度攻陷東都洛陽，多次擊敗唐軍。後為其子史朝義所殺。安史二氏反叛禍延八年，華夏中原幾成廢墟。",
+      keyAchievements: [
+        "相州解圍擊潰六十萬唐軍主力",
+        "二度攻陷洛陽，禍亂中原"
+      ],
+      famousQuotes: ["兵者兇器，非殘忍不可得天下！"],
+      relations: [
+        { figureId: "an_lushan", relationType: "colleague", label: "安史之亂同盟" },
+        { figureId: "li_guangbi", relationType: "rival", label: "太原河陽宿敵" }
+      ]
+    },
+    {
+      id: "huang_chao",
+      name: "黃巢",
+      courtesyName: "黃巢",
+      posthumousName: "大齊承天應運啟聖皇帝",
+      birthDeathDisplay: "820年 - 884年",
+      birthYear: 820,
+      deathYear: 884,
+      nativePlaceAncient: "曹州 冤句",
+      nativePlaceModern: "山東省菏澤市牡丹區",
+      faction: "other",
+      roles: ["農民起義領袖", "大齊皇帝", "晚唐終結者"],
+      avatar: "images/figures/fig_huang_chao.jpg",
+      bio: "曹州鹽商出身，多次應進士舉不第。乾符二年響應王仙芝起義，後任起義軍總領，號「沖天大將軍」。轉戰中原、江淮、嶺南（攻破廣州），廣明元年（880年）大軍攻破潼關入長安，唐僖宗逃蜀。黃巢即皇帝位於含元殿，國號「大齊」。後因部將朱溫叛變歸唐，沙陀李克用率騎兵進攻，起義軍糧盡退守陳州，最終於狼虎谷兵敗自刎。徹底敲響大唐帝國覆亡之喪鐘。",
+      keyAchievements: [
+        "橫掃大半天下，攻破長安建立大齊政權",
+        "徹底摧毀唐朝關隴門閥與中央集權，拉開五代序幕"
+      ],
+      famousQuotes: [
+        "待到秋來九月八，我花開後百花殺。沖天香陣透長安，滿城盡帶黃金甲！",
+        "颯颯西風滿院栽，蕊寒香冷蝶難來。他年我若為青帝，報與桃花一處開。"
+      ],
+      relations: [
+        { figureId: "zhu_wen", relationType: "rival", label: "叛變之大齊降唐部將" },
+        { figureId: "li_keyong", relationType: "rival", label: "鎮壓起義之沙陀死敵" }
+      ]
+    },
+    // --- 6. 晚唐落幕與五代十國 ---
+    {
+      id: "zhu_wen",
+      name: "朱溫 (朱全忠/後梁太祖)",
+      courtesyName: "第三",
+      posthumousName: "太祖神武元聖孝皇帝",
+      birthDeathDisplay: "852年 - 912年",
+      birthYear: 852,
+      deathYear: 912,
+      nativePlaceAncient: "宋州 碭山",
+      nativePlaceModern: "安徽省宿州市碭山縣",
+      faction: "fiveDynasties",
+      roles: ["後梁開國皇帝", "宣武軍節度使", "五代第一人"],
+      avatar: "images/figures/fig_zhu_wen.jpg",
+      bio: "後梁開國皇帝。早年投黃巢起義軍任同州防禦使，後叛齊降唐，唐僖宗賜名「全忠」。任宣武節度使坐鎮開封汴州，兼併各路藩鎮。西元904年遷都洛陽並弒唐昭宗；907年逼唐哀帝禪位，建立後梁，定都開封，唐朝正式覆亡，開啟五代十國五十年亂局。為人兇悍善戰然性情殘忍，晚年內訌為次子朱友珪所弒。",
+      keyAchievements: [
+        "篡唐建梁建立五代之首「後梁」，遷都開封",
+        "開闢五代十國各方逐鹿中原之大亂局"
+      ],
+      famousQuotes: ["天道難知，英雄乘時自當問鼎中原！"],
+      relations: [
+        { figureId: "huang_chao", relationType: "rival", label: "背叛之昔日舊主" },
+        { figureId: "li_keyong", relationType: "rival", label: "上源驛結怨·終生宿敵" }
+      ]
+    },
+    {
+      id: "li_keyong",
+      name: "李克用 (獨眼龍)",
+      courtesyName: "翼聖",
+      posthumousName: "後唐太祖武皇帝",
+      birthDeathDisplay: "856年 - 908年",
+      birthYear: 856,
+      deathYear: 908,
+      nativePlaceAncient: "神武川新城",
+      nativePlaceModern: "山西省朔州市朔城區",
+      faction: "fiveDynasties",
+      roles: ["河東節度使", "晉王", "沙陀猛將", "十三太保之父"],
+      avatar: "images/figures/fig_li_keyong.jpg",
+      bio: "沙陀突厥名將，祖上賜姓李。一目失明，號「獨眼龍」，軍中又號「飛虎子」。其部隊皆著黑衣，名震天下之「鴉軍」。率沙陀鐵騎南下平定黃巢起義收復長安，封晉王、河東節度使，坐鎮太原。與朱溫在上源驛遇刺結怨，半生征戰不休。臨終交予長子李存勖「三支箭」，囑咐消滅後梁、幽州劉仁恭與契丹，存勖果全其志。",
+      keyAchievements: [
+        "率沙陀鴉軍平定黃巢長安之亂",
+        "奠定河東晉國基業，臨終授三矢成全後唐代梁"
+      ],
+      famousQuotes: ["此三矢，一矢討劉仁恭，一矢擊契丹，一矢滅朱溫！"],
+      relations: [
+        { figureId: "zhu_wen", relationType: "rival", label: "上源驛死敵 / 梁晉爭霸" },
+        { figureId: "li_cunxu", relationType: "family", label: "長子 / 後唐開國莊宗" }
+      ]
+    },
+    {
+      id: "li_cunxu",
+      name: "李存勖 (後唐莊宗)",
+      courtesyName: "亞子",
+      posthumousName: "光聖神閔孝皇帝",
+      birthDeathDisplay: "885年 - 926年",
+      birthYear: 885,
+      deathYear: 926,
+      nativePlaceAncient: "代州 雁門",
+      nativePlaceModern: "山西省忻州市代縣",
+      faction: "fiveDynasties",
+      roles: ["後唐開國皇帝", "五代戰神", "伶官皇帝"],
+      avatar: "images/figures/fig_li_cunxu.jpg",
+      bio: "晉王李克用長子。勇毅絕人，精通音律與兵法。遵父命三矢之志，柏鄉之戰破後梁大軍，滅幽州劉守光，夾河血戰十年，西元923年稱帝建立「後唐」，直搗開封滅後梁，收復河北中原與前蜀，武功赫赫冠絕五代。然即位後自號「李天下」，沉湎伶人戲曲，信用宦官寵妃，殺戮良將，終致兵變殞命。",
+      keyAchievements: [
+        "柏鄉大捷克梁軍精銳，滅後梁統一天下中原",
+        "攻滅前蜀，武功威震天下"
+      ],
+      famousQuotes: ["生子當如李亞子，克用為不亡矣！"],
+      relations: [
+        { figureId: "li_keyong", relationType: "family", label: "父王 / 繼承三矢之志" },
+        { figureId: "zhu_wen", relationType: "rival", label: "滅梁宿敵" }
+      ]
+    },
+    {
+      id: "shi_jingtang",
+      name: "石敬瑭 (後晉高祖)",
+      courtesyName: "敬瑭",
+      posthumousName: "聖文章武明德孝皇帝",
+      birthDeathDisplay: "892年 - 942年",
+      birthYear: 892,
+      deathYear: 942,
+      nativePlaceAncient: "太原",
+      nativePlaceModern: "山西省太原市",
+      faction: "fiveDynasties",
+      roles: ["後晉開國皇帝", "河東節度使", "兒皇帝"],
+      avatar: "images/figures/fig_shi_jingtang.jpg",
+      bio: "沙陀人，後唐明宗李嗣源之婿。任河東節度使坐鎮太原。與後唐末帝不睦反叛，為求自保，向北面契丹遼太祖耶律德光求援，甘稱「兒皇帝」，並割讓幽雲十六州（含北京、大同等北方門戶），歲貢帛三十萬匹。借契丹兵滅後唐，建立後晉。割讓幽雲致使中原農耕文明失去長城屏障四百餘年，歷來受歷史深切撻伐。",
+      keyAchievements: [
+        "借契丹騎兵建立後晉，定都開封",
+        "割讓燕雲十六州，深刻改變中原與草原四百年攻守格局"
+      ],
+      famousQuotes: ["請稱兒皇帝，以幽薊十六州為謝！"],
+      relations: [
+        { figureId: "yelv_abaoji", relationType: "other", label: "奉契丹為父國" }
+      ]
+    },
+    {
+      id: "chai_rong",
+      name: "柴榮 (郭榮/周世宗)",
+      courtesyName: "榮",
+      posthumousName: "世宗睿武孝文皇帝",
+      birthDeathDisplay: "921年 - 959年",
+      birthYear: 921,
+      deathYear: 959,
+      nativePlaceAncient: "邢州 堯山",
+      nativePlaceModern: "河北省邢台市隆堯縣",
+      faction: "fiveDynasties",
+      roles: ["後周第二代皇帝", "周世宗", "五代第一名君"],
+      avatar: "images/figures/fig_chai_rong.jpg",
+      bio: "後周太祖郭威內侄兼養子。五代十國最具雄才大略之英明君主。即位之初面臨北漢與契丹聯軍大兵壓境，於「高平之戰」親冒矢石衝鋒大破強敵；隨後改革禁軍、整飭吏治、興修水利、減免賦稅、嚴禁私鑄私度僧尼（世宗滅佛）。先後西敗後蜀取秦鳳四州、南征南唐三戰全勝盡奪江北十四州、北伐契丹收復莫瀛三州關南之地。英年早逝，年僅三十九歲，為趙匡胤陳橋兵變建立大宋一統格局打下最堅實之根基。",
+      keyAchievements: [
+        "高平之戰破強敵，大刀闊斧整飭後周禁軍",
+        "南征南唐奪江北、西取後蜀、北伐契丹收復關南",
+        "廓清五代亂世乾坤，為宋代大一統奠定最關鍵基石"
+      ],
+      famousQuotes: [
+        "朕當以十年開拓天下，十年養百姓，十年致太平足矣！",
+        "身先士卒，何懼矢石！"
+      ],
+      relations: [
+        { figureId: "zhao_kuangyin_young", relationType: "monarch-subject", label: "殿前都點檢 / 軍中股肱" },
+        { figureId: "feng_dao", relationType: "monarch-subject", label: "直臣良佐" }
+      ]
+    },
+    {
+      id: "feng_dao",
+      name: "馮道 (可道)",
+      courtesyName: "可道",
+      posthumousName: "文懿公 / 長樂老",
+      birthDeathDisplay: "882年 - 954年",
+      birthYear: 882,
+      deathYear: 954,
+      nativePlaceAncient: "瀛州 景城",
+      nativePlaceModern: "河北省滄州市泊頭市",
+      faction: "fiveDynasties",
+      roles: ["宰相", "中書令", "太師", "長樂老", "雕版九經印製者"],
+      avatar: "images/figures/fig_feng_dao.jpg",
+      bio: "五代著名傳奇宰相。歷仕後唐、後晉、後契丹、後漢、後周五朝，侍奉十一位君主，拜相二十餘年，自號「長樂老」。在殘暴戰亂之五代亂世，馮道庇護黎庶百姓，勸阻契丹耶律德光濫殺中原無辜，主持官方首次以木板大規模雕版刻印「儒家九經」，使華夏經典得以在亂世完整保存流傳。宋代歐陽修斥其不事一姓，然明清以降多肯定其護國安民之功。",
+      keyAchievements: [
+        "主持官方首次雕版印刷《九經》，使華夏文脈於五代兵燹得以不滅",
+        "於五代十帝更迭中化解暴政，庇護中原億萬生民"
+      ],
+      famousQuotes: [
+        "莫為危時便沮喪，浮生長恨歡娛少。",
+        "契丹問何以救中原百姓，道曰：此時佛出亦救不得，惟皇帝救得！"
+      ],
+      relations: [
+        { figureId: "chai_rong", relationType: "monarch-subject", label: "後周三朝太師" }
+      ]
+    },
+    {
+      id: "li_yu_nanTang",
+      name: "李煜 (重光/南唐後主)",
+      courtesyName: "重光",
+      posthumousName: "南唐後主 / 詞中之帝",
+      birthDeathDisplay: "937年 - 978年",
+      birthYear: 937,
+      deathYear: 978,
+      nativePlaceAncient: "徐州 彭城",
+      nativePlaceModern: "江蘇省徐州市",
+      faction: "fiveDynasties",
+      roles: ["南唐最後一位國君", "詞中之帝", "文學宗師"],
+      avatar: "images/figures/fig_li_yu_nanTang.jpg",
+      bio: "南唐中主李璟第六子。性情溫仁，博學多藝，精通書法繪畫與音律。西元961年即位於金陵，臣服宋朝以保境息民。開寶八年（975年）宋軍渡江破金陵，李煜肉袒出降被俘入汴京，封「違命侯」。亡國入宋後，詞風由宮廷綺麗急轉為血淚浸染之亡國悲歌，以帝王身寫千古情愁，將詞之藝術境界推向空前絕後之巔峰，被尊為「詞中之帝」。最終為宋太宗賜牽機藥毒殺。",
+      keyAchievements: [
+        "詞中之帝，將五代婉約詞提升至博大深沉之生命悲歌境界",
+        "《虞美人》《浪淘沙》《相見歡》千古絕唱"
+      ],
+      famousQuotes: [
+        "問君能有幾多愁？恰似一江春水向東流。",
+        "剪不斷，理還亂，是離愁，別是一般滋味在心頭。",
+        "流水落花春去也，天上人間。"
+      ],
+      relations: [
+        { figureId: "chai_rong", relationType: "rival", label: "南唐北敵" },
+        { figureId: "zhao_kuangyin_young", relationType: "rival", label: "北宋滅南唐俘虜其人" }
+      ]
+    },
+    {
+      id: "zhao_kuangyin_young",
+      name: "趙匡胤 (後周殿前都點檢)",
+      courtesyName: "元朗",
+      posthumousName: "宋太祖",
+      birthDeathDisplay: "927年 - 976年",
+      birthYear: 927,
+      deathYear: 976,
+      nativePlaceAncient: "涿郡 / 洛陽 夾馬營",
+      nativePlaceModern: "河南省洛陽市瀍河區",
+      faction: "fiveDynasties",
+      roles: ["後周殿前都點檢", "歸德軍節度使", "宋朝開國皇帝"],
+      avatar: "images/figures/fig_zhao_kuangyin_young.jpg",
+      bio: "生於洛陽夾馬營。早年投奔郭威，高平之戰身先士卒斬將奪旗，深受周世宗柴榮器重，擢升殿前都點檢，執掌後周中央禁軍宿衛精銳。隨柴榮南征北討屢建奇功。顯慶五年（960年）世宗幼子即位，匡胤率軍北上禦敵，於陳橋驛發動黃袍加身兵變，建立大宋王朝，拉開宋代統一天下大幕。",
+      keyAchievements: [
+        "高平之戰勇救周世宗立下奇功，執掌殿前禁軍",
+        "陳橋兵變建立大宋，終結五代十國半世紀大分裂"
+      ],
+      famousQuotes: ["臥榻之側，豈容他人鼾睡！"],
+      relations: [
+        { figureId: "chai_rong", relationType: "monarch-subject", label: "世宗愛將 / 託孤重臣" }
+      ]
+    },
+    {
+      id: "yelv_abaoji",
+      name: "耶律阿保機 (天皇帝/遼太祖)",
+      courtesyName: "阿保機",
+      posthumousName: "大聖大明神烈天皇帝",
+      birthDeathDisplay: "872年 - 926年",
+      birthYear: 872,
+      deathYear: 926,
+      nativePlaceAncient: "契丹 迭剌部",
+      nativePlaceModern: "內蒙古自治區赤峰市阿魯科爾沁旗",
+      faction: "nomadic",
+      roles: ["大契丹國開國皇帝", "遼太祖", "草原雄主"],
+      avatar: "images/figures/fig_yelv_abaoji.jpg",
+      bio: "契丹迭剌部首領。西元907年被選為可汗，憑藉雄才大略統一契丹八部，消滅奚、阻卜等北方諸部。916年建大契丹國，建元神冊，稱天皇帝。創制契丹大字與小字，設「因俗而治」南北兩面官制度（北面官管契丹部族，南面官治漢地漢民）。出兵東滅渤海國改為東丹國。奠定遼帝國二百餘年基業。",
+      keyAchievements: [
+        "統一契丹八部建立大契丹國，創立契丹文字",
+        "開創「以漢制治漢人，以國制治契丹」之南北面官二元制度",
+        "消滅東北渤海國，拓土萬里"
+      ],
+      famousQuotes: ["天生英雄，當撫萬民而有天下！"],
+      relations: [
+        { figureId: "shi_jingtang", relationType: "other", label: "契丹立兒皇帝之後援" }
+      ]
+    }
+  ];
+
+  // src/data/periods/suiTang/battles.js
+  var SUI_TANG_BATTLES = [
+    {
+      id: "bat_sui_chen_589",
+      name: "隋滅陳之戰",
+      year: 589,
+      yearDisplay: "西元 589 年",
+      eraDisplay: "隋 開皇九年",
+      shortDescription: "晉王楊廣、楊素率五十萬大軍水陸並進，渡長江克建康滅南陳，終結三百年南北分裂",
+      locationName: "建康（金陵）與長江採石磯",
+      locationModern: "江蘇省南京市與安徽省馬鞍山市",
+      coords: [32.06, 118.79],
+      importance: "epic",
+      winner: "sui",
+      attacker: {
+        name: "大隋帝國遠征軍",
+        faction: "sui",
+        commanders: [
+          { name: "晉王楊廣 (行軍元帥)", figureId: "yang_guang" },
+          { name: "楊素 (信州水軍元帥)", figureId: "yang_su" },
+          { name: "韓擒虎 (先鋒大將)" },
+          { name: "賀若弼 (先鋒大將)" }
+        ],
+        troops: "五十一萬八千水陸大軍（五牙樓船艦隊）"
+      },
+      defender: {
+        name: "南陳王朝守軍",
+        faction: "other",
+        commanders: [
+          { name: "陳後主陳叔寶" },
+          { name: "張悌 / 蕭摩訶" }
+        ],
+        troops: "約十萬江防甲士"
+      },
+      summary: "開皇八年冬，隋文帝下詔伐陳，命晉王楊廣為行軍元帥統率水陸五十一萬八千大軍分八路並進。楊素率巴蜀五牙戰艦順三峽東下，大破長江陳水軍；韓擒虎雪夜自採石磯渡江直搗姑孰，賀若弼於京口橫渡。白土岡之戰大破陳朝精銳，韓擒虎單騎引五百精騎自朱雀門直入建康宮殿，生擒藏匿於景陽樓枯井中之陳後主陳叔寶。南陳覆亡，華夏自西晉永嘉以來近三百年南北分裂徹底終結，天下一統。",
+      historicalImpact: "徹底終結魏晉南北朝近三百年割據分裂，華夏文明重歸中央集權大一統，拉開隋唐盛世之宏偉序幕。",
+      tacticalFeatures: [
+        "建造五牙樓船高達五層，配備巨型拍竿拍碎敵艦",
+        "虛虛實實多路佯動，韓擒虎出奇不意夜渡長江採石磯天險"
+      ],
+      svgRoute: "M 495,328 Q 505,355 528,365"
+    },
+    {
+      id: "bat_yanmen_615",
+      name: "雁門之圍",
+      year: 615,
+      yearDisplay: "西元 615 年",
+      eraDisplay: "隋 大業十一年",
+      shortDescription: "始畢可汗數十萬騎奇襲包圍隋煬帝於雁門關，十六歲李世民設疑兵之計解圍",
+      locationName: "雁門關（代州雁門郡）",
+      locationModern: "山西省忻州市代縣雁門關",
+      coords: [39.18, 112.87],
+      importance: "major",
+      winner: "sui",
+      attacker: {
+        name: "突厥汗國大軍",
+        faction: "nomadic",
+        commanders: [{ name: "始畢可汗" }],
+        troops: "數十萬突厥鐵騎"
+      },
+      defender: {
+        name: "隋煬帝禁衛與勤王軍",
+        faction: "sui",
+        commanders: [
+          { name: "隋煬帝楊廣", figureId: "yang_guang" },
+          { name: "雲定興 (屯衛將軍)" },
+          { name: "李世民 (從軍少年)", figureId: "li_shimin" }
+        ],
+        troops: "城內殘兵與外圍各路勤王軍"
+      },
+      summary: "隋煬帝北巡塞北，東突厥始畢可汗見隋朝征高句麗內部空虛，親率數十萬精騎突襲，圍困隋煬帝於雁門郡城。雁門四十一城被破三十九城，城內箭矢糧草俱竭，煬帝抱幼子痛哭。屯衛將軍雲定興率軍勤王，麾下年僅十六歲之李世民獻計：始畢敢圍天子必謂中原無兵，應白天廣布旌旗數十里，夜間遍擊刁斗金鼓，佯作大軍雲集。始畢見狀恐後路被截，加上義成公主在後方報急，遂解圍退走。",
+      historicalImpact: "暴露出隋朝邊防嚴重空虛，加速隋朝天下大亂；年少李世民此戰嶄露過人軍事天賦。",
+      tacticalFeatures: [
+        "十六歲李世民首倡虛張聲勢疑兵之計，白晝旗幡蔽野，夜間鉦鼓動地震退突厥"
+      ],
+      svgRoute: "M 480,270 L 485,295"
+    },
+    {
+      id: "bat_babi_620",
+      name: "柏壁之戰",
+      year: 620,
+      yearDisplay: "西元 620 年",
+      eraDisplay: "唐 武德三年",
+      shortDescription: "李世民堅守柏壁以逸待勞，一舉擊潰宋金剛、收復河東太原龍興之地",
+      locationName: "柏壁（絳州休糧山）",
+      locationModern: "山西省運城市新絳縣西南",
+      coords: [35.61, 111.23],
+      importance: "major",
+      winner: "tang",
+      attacker: {
+        name: "唐軍秦王主力",
+        faction: "tang",
+        commanders: [
+          { name: "秦王李世民", figureId: "li_shimin" },
+          { name: "段志玄" }
+        ],
+        troops: "約四萬精銳府兵"
+      },
+      defender: {
+        name: "劉武周定楊軍主力",
+        faction: "other",
+        commanders: [
+          { name: "宋金剛 (主將)" },
+          { name: "尉遲敬德", figureId: "yuchi_gong" }
+        ],
+        troops: "三萬餘沙陀突厥精騎"
+      },
+      summary: "劉武周引突厥南犯，大將宋金剛陷太原、晉州，威脅關中長安根本。李世民受任總管領軍渡黃河屯軍柏壁，深溝高壘閉門不戰長達數月，任由宋金剛軍糧盡求退。待敵疲弊退兵之際，李世民親率精騎迅猛追擊，一日夜馳奔二百里，連戰數十合不解鞍，於雀鼠谷徹底斬破敵軍主力，宋金剛北遁突厥，收降名將尉遲敬德，太原河東全境光復。",
+      historicalImpact: "粉碎劉武周南侵關中企圖，收復李唐龍興之太原故土，尉遲敬德歸唐為日後天策府添一猛將。",
+      tacticalFeatures: [
+        "閉關持久堅壁清野耗盡敵糧，長途奔襲二百里八戰八捷不給喘息"
+      ],
+      svgRoute: "M 460,335 L 475,320"
+    },
+    {
+      id: "bat_hulao_621",
+      name: "虎牢關之戰 (一戰擒兩王)",
+      year: 621,
+      yearDisplay: "西元 621 年",
+      eraDisplay: "唐 武德四年",
+      shortDescription: "李世民圍王世充於洛陽，親率玄甲精騎阻截虎牢關，一役生擒竇建德十萬大軍、逼降王世充",
+      locationName: "虎牢關（成皋天險）與東都洛陽",
+      locationModern: "河南省鄭州市滎陽市汜水鎮",
+      coords: [34.82, 113.16],
+      importance: "epic",
+      winner: "tang",
+      attacker: {
+        name: "大唐天策玄甲軍",
+        faction: "tang",
+        commanders: [
+          { name: "秦王李世民", figureId: "li_shimin" },
+          { name: "尉遲敬德", figureId: "yuchi_gong" },
+          { name: "秦瓊 (秦叔寶)", figureId: "qin_qiong" },
+          { name: "程咬金", figureId: "cheng_yaojin" }
+        ],
+        troops: "三千五百精銳玄甲黑騎（虎牢關防線）與圍城步卒數萬"
+      },
+      defender: {
+        name: "竇建德大夏軍與王世充大鄭軍",
+        faction: "other",
+        commanders: [
+          { name: "竇建德 (夏王)" },
+          { name: "王世充 (鄭帝)" }
+        ],
+        troops: "竇建德援軍十餘萬、王世充守城兵數萬"
+      },
+      summary: "華夏戰史上最經典之圍點打援與以少勝多戰例。李世民率軍圍困洛陽王世充數月，河北夏王竇建德傾巢出動十萬大軍自東來援。李世民力排眾議，分兵繼續圍洛陽，親率三千五百玄甲精騎馳赴虎牢關天險設防。李世民放馬黃河北岸誘敵，待竇建德軍列陣數里自晨至午飢渴懈怠之際，親提玄甲黑甲騎兵直衝夏軍大陣，秦瓊、尉遲敬德左右突擊斬將搴旗。夏軍大崩，生擒竇建德。押解至洛陽城下，王世充絕望出降。",
+      historicalImpact: "一役同時消滅王世充、竇建德兩大最強勁敵，華夏中原與河北全定，奠定大唐統一天下之決定性格局。李世民獲封古今無雙之「天策上將」。",
+      tacticalFeatures: [
+        "圍困洛陽與前出阻截虎牢關分進合擊",
+        "玄甲騎兵特種作戰，以逸待勞捕捉敵陣懈怠瞬間中央突破"
+      ],
+      svgRoute: "M 495,328 L 508,328"
+    },
+    {
+      id: "bat_yinshan_630",
+      name: "陰山夜襲之戰 (滅東突厥)",
+      year: 630,
+      yearDisplay: "西元 630 年",
+      eraDisplay: "唐 貞觀四年",
+      shortDescription: "軍神李靖雪夜奇襲定襄、突襲陰山，一役大破突厥十萬帳落，生俘頡利可汗，東突厥滅亡",
+      locationName: "陰山白道與定襄城",
+      locationModern: "內蒙古自治區呼和浩特市托克托縣與武川縣",
+      coords: [40.82, 111.65],
+      importance: "epic",
+      winner: "tang",
+      attacker: {
+        name: "大唐北伐遠征軍",
+        faction: "tang",
+        commanders: [
+          { name: "李靖 (定襄道行軍大總管)", figureId: "li_jing" },
+          { name: "李勣 (徐世勣)", figureId: "li_ji" },
+          { name: "蘇定方 (前鋒驍將)" },
+          { name: "張寶相" }
+        ],
+        troops: "十餘萬精騎分六路出擊"
+      },
+      defender: {
+        name: "東突厥汗國主力",
+        faction: "nomadic",
+        commanders: [{ name: "頡利可汗 (阿史那咄苾)" }],
+        troops: "十萬突厥穹廬騎兵"
+      },
+      summary: "唐太宗命李靖率十萬大軍六路反擊東突厥。貞觀四年正月，李靖親率三千精銳騎兵冒風雪奇襲定襄城，頡利可汗大驚退保陰山鐵山。頡利遣使請降乞和，李靖與李勣判斷其欲俟草青馬肥北走大漠，遂命蘇定方率二百輕騎為前鋒趁大霧疾馳突襲其牙帳，李靖統大軍繼進。突厥大潰，斬首萬餘級，俘男女十餘萬人，繳獲駝馬數十萬。大將張寶相陣擒頡利可汗解送長安。自西漢以來為患北方百年之東突厥汗國徹底滅亡。",
+      historicalImpact: "洗雪渭水之盟之恥，漠南徹底肅清，唐太宗獲西北萬邦君長共同推尊為「天可汗」，大唐萬國來朝盛世由此展開。",
+      tacticalFeatures: [
+        "風雪嚴寒大膽用三千孤軍奇襲深入突厥心腹",
+        "乘大霧掩護實施斬首特種作戰，李靖李勣前後夾擊不留退路"
+      ],
+      svgRoute: "M 460,335 L 485,275"
+    },
+    {
+      id: "bat_baekgang_663",
+      name: "白江口海戰",
+      year: 663,
+      yearDisplay: "西元 663 年",
+      eraDisplay: "唐 龍朔三年",
+      shortDescription: "劉仁軌指揮大唐水軍於白江口四戰四捷，大破日本倭國救援艦隊，焚倭船四百艘",
+      locationName: "白江口（錦江入海口）",
+      locationModern: "韓國忠清南道舒川郡錦江河口",
+      coords: [36.01, 126.68],
+      importance: "major",
+      winner: "tang",
+      attacker: {
+        name: "大唐與新羅聯軍水軍",
+        faction: "tang",
+        commanders: [
+          { name: "劉仁軌 (右威衛將軍)", figureId: "liu_rengui" },
+          { name: "杜爽" },
+          { name: "扶餘隆" }
+        ],
+        troops: "唐軍戰船一百七十艘、水陸甲士一萬三千人"
+      },
+      defender: {
+        name: "倭國（日本）水軍與百濟復國軍",
+        faction: "other",
+        commanders: [
+          { name: "阿倍比羅夫" },
+          { name: "鬼室福信 / 扶餘豐" }
+        ],
+        troops: "倭國戰船八百餘艘、倭軍四萬二千人"
+      },
+      summary: "百濟遺臣鬼室福信等聚眾反唐，日本倭國天智天皇派遣龐大艦隊四萬餘人跨海增援，企圖奪取朝鮮半島主導權。唐軍右威衛將軍劉仁軌率戰船百七十艘進抵白江口。倭船雖眾但船型矮小且進退無序，劉仁軌嚴陣以待，以高大堅固之大唐唐船左右夾擊，以火箭火球密集攻擊。倭軍四戰皆潰，焚毀倭船四百餘艘，煙焰漲天，海水為之丹赤。百濟復國軍徹底土崩瓦解。",
+      historicalImpact: "中日歷史上首次大規模海空博弈。日本大敗後深感唐朝國力強盛，全面停止向朝鮮半島擴張近千年，轉而虛心派遣「遣唐使」學習大唐律令文化。",
+      tacticalFeatures: [
+        "利用大唐樓船體型高大優勢形成壓制，配合火攻與狹窄水道形成關門打狗"
+      ],
+      svgRoute: "M 530,365 L 590,340"
+    },
+    {
+      id: "bat_talas_751",
+      name: "怛羅斯之戰",
+      year: 751,
+      yearDisplay: "西元 751 年",
+      eraDisplay: "唐 天寶十年",
+      shortDescription: "高仙芝率安西軍遠征中亞，與大食阿拔斯王朝激戰怛羅斯，中國造紙術由此西傳",
+      locationName: "怛羅斯城（塔拉茲）",
+      locationModern: "哈薩克斯坦南部塔拉茲附近",
+      coords: [42.9, 71.36],
+      importance: "major",
+      winner: "other",
+      attacker: {
+        name: "大唐安西都護府遠征軍",
+        faction: "tang",
+        commanders: [
+          { name: "高仙芝 (安西副大都護)" },
+          { name: "李嗣業 (陌刀大將)" },
+          { name: "段秀實" }
+        ],
+        troops: "安西唐軍兩萬、拔汗那及葛邏祿部傭兵萬餘人（共約三萬人）"
+      },
+      defender: {
+        name: "黑衣大食（阿拔斯王朝）聯軍",
+        faction: "other",
+        commanders: [{ name: "齊亞德·伊本·薩利赫" }],
+        troops: "大食精騎與中亞呼羅珊各部聯軍十餘萬人"
+      },
+      summary: "唐天寶十年，為爭奪西域絲綢之路中亞宗主權，安西節度使高仙芝越過蔥嶺遠征中亞，圍攻石國引發中亞諸國不滿求援於大食。黑衣大食阿拔斯王朝動員十萬大軍東進，兩軍於怛羅斯河相遇展開血戰五晝夜。唐軍步騎精銳重創大食，然第五日唐軍中葛邏祿突騎突然反叛，自後方襲擊唐步兵，大食騎兵正面壓上。唐軍大潰，李嗣業提陌刀揮斬殺出一條血路護衛高仙芝突圍。",
+      historicalImpact: "唐朝西進擴張止於蔥嶺，然大食亦無力東侵中原。戰後大唐俘虜中有造紙工匠被帶往撒馬爾罕，中國造紙術與絲綢工藝自此西傳歐洲與伊斯蘭世界，深刻改變人類歷史進程。",
+      tacticalFeatures: [
+        "陌刀隊陣如牆而進力抗大食重騎兵，李嗣業一人手搴旗斬殺數十人"
+      ],
+      svgRoute: "M 460,335 L 350,310"
+    },
+    {
+      id: "bat_suiyang_757",
+      name: "睢陽血戰保衛戰",
+      year: 757,
+      yearDisplay: "西元 757 年",
+      eraDisplay: "唐 至德二載",
+      shortDescription: "張巡、許遠率數千殘兵孤守睢陽十個月，四百餘戰抵擋十三萬安史叛軍，保全江淮糧道",
+      locationName: "睢陽城（宋州睢陽）",
+      locationModern: "河南省商丘市睢陽區",
+      coords: [34.38, 115.65],
+      importance: "epic",
+      winner: "tang",
+      attacker: {
+        name: "安史大燕叛軍",
+        faction: "fanzhen",
+        commanders: [
+          { name: "尹子奇 (燕軍大將)" },
+          { name: "楊朝宗" }
+        ],
+        troops: "同羅、突厥、奚人混編精兵十三萬"
+      },
+      defender: {
+        name: "大唐睢陽守軍",
+        faction: "tang",
+        commanders: [
+          { name: "張巡 (河南節度副使)", figureId: "zhang_xun" },
+          { name: "許遠 (睢陽太守)" },
+          { name: "南霽雲 (神射勇將)" },
+          { name: "雷萬春" }
+        ],
+        troops: "守城將士六千八百人"
+      },
+      summary: "安史之亂中原陷落，尹子奇率十三萬鐵騎南撲江淮，企圖切斷大唐唯一經濟賦稅命脈江淮運河。睢陽城為其必經要衝。張巡自雍丘退守睢陽，與太守許遠合兵。面對數十倍強敵，張巡出奇制勝：紮草人千個縋城誘取叛軍數十萬箭矢；射蒿為箭測敵主將位置命南霽雲神射瞎尹子奇左眼；挖地道出奇兵火燒敵雲梯木驢。死守十月，經歷四百餘戰，斬敵將二百餘員、殺敵數萬。城中糧盡食雀羅鼠，援軍不至城破殉難。城陷三日後唐廷大軍收復睢陽。",
+      historicalImpact: "張巡以血肉之軀死守睢陽十月，扼守東南咽喉，使安史叛軍無法南渡淮河，唐朝江南財賦賦稅得以源源不絕支撐兩京收復，史評「無睢陽即無大唐」。",
+      tacticalFeatures: [
+        "草人借箭、蒿矢辨將、地道火攻與雙層城防戰術集大成"
+      ],
+      svgRoute: "M 495,328 L 515,340"
+    },
+    {
+      id: "bat_xiangji_757",
+      name: "香積寺之戰 (收復長安)",
+      year: 757,
+      yearDisplay: "西元 757 年",
+      eraDisplay: "唐 至德二載",
+      shortDescription: "郭子儀率十五萬唐軍與回紇精騎於香積寺決戰，大破安守忠十萬叛軍，光復京師長安",
+      locationName: "香積寺（長安南郊潏水之畔）",
+      locationModern: "陝西省西安市副中心長安區香積寺",
+      coords: [34.13, 108.88],
+      importance: "epic",
+      winner: "tang",
+      attacker: {
+        name: "大唐天子與回紇聯軍",
+        faction: "tang",
+        commanders: [
+          { name: "廣平王李俶 (大元帥/唐代宗)" },
+          { name: "郭子儀 (副元帥/中軍)", figureId: "guo_ziyi" },
+          { name: "李嗣業 (前軍先鋒)" },
+          { name: "葉護太子 (回紇騎兵統帥)" }
+        ],
+        troops: "唐軍步騎十五萬人（含回紇鐵騎四千）"
+      },
+      defender: {
+        name: "安史叛軍京師守軍主力",
+        faction: "fanzhen",
+        commanders: [
+          { name: "安守忠" },
+          { name: "李歸仁" },
+          { name: "張通儒" }
+        ],
+        troops: "安史同羅、突厥精騎十萬人"
+      },
+      summary: "至德二載九月，唐肅宗命廣平王李俶、郭子儀發兵收復長安。叛軍安守忠背靠潏水列陣十里。戰鬥伊始叛軍猛攻唐前軍，唐步兵陣腳動搖。先鋒大將李嗣業赤膊手執長刀立於陣前大呼：「今日不以身死節，軍無孑遺矣！」連斬叛將數十人，陌刀隊如牆而進所向披靡。叛軍伏騎出側翼，回紇葉護太子引精騎迂迴繞至敵後包抄。自午至酉血戰半日，斬首六萬級，叛軍投水溺死無算。安守忠棄城北逃，長安光復。隨後郭子儀再捷新店，克復東都洛陽。",
+      historicalImpact: "安史之亂最為壯烈之戰略轉折點，唐朝成功收復兩京，粉碎安史叛軍覆滅李唐政權之野心。",
+      tacticalFeatures: [
+        "李嗣業陌刀肉搏穩固中軍大陣，回紇騎兵敵後穿插迂迴合圍"
+      ],
+      svgRoute: "M 445,340 L 460,335"
+    },
+    {
+      id: "bat_gaoping_954",
+      name: "高平之戰",
+      year: 954,
+      yearDisplay: "西元 954 年",
+      eraDisplay: "後周 顯德元年",
+      shortDescription: "周世宗柴榮臨危不亂親冒矢石大破北漢與契丹聯軍，奠定大宋統一天下之軍事基石",
+      locationName: "高平（巴公原）",
+      locationModern: "山西省晉城市高平市西南",
+      coords: [35.79, 112.92],
+      importance: "epic",
+      winner: "fiveDynasties",
+      attacker: {
+        name: "北漢與契丹十萬聯軍",
+        faction: "nomadic",
+        commanders: [
+          { name: "劉崇 (北漢世祖)" },
+          { name: "楊業 (北漢楊無敵)" },
+          { name: "楊袞 (契丹萬騎統帥)" }
+        ],
+        troops: "北漢軍三萬、契丹鐵騎數萬"
+      },
+      defender: {
+        name: "後周禁衛親征軍",
+        faction: "fiveDynasties",
+        commanders: [
+          { name: "周世宗柴榮 (親征)", figureId: "chai_rong" },
+          { name: "趙匡胤 (殿前禁軍先鋒)", figureId: "zhao_kuangyin_young" },
+          { name: "張永德" },
+          { name: "符彥卿" }
+        ],
+        troops: "後周禁軍約三萬人"
+      },
+      summary: "郭威病逝，周世宗柴榮剛登基，北漢劉崇勾結契丹數萬精騎合兵南下直撲開封。周世宗力排老臣馮道非議，毅然率軍親征於高平巴公原迎敵。交戰之初，後周右廂樊愛能、何徽陣前降敵狂奔後退，後周大陣面臨崩潰。千鈞一髮之際，柴榮親冒矢石躍馬馳突最前線，大呼督戰。宿衛禁軍趙匡胤見狀，對張永德大呼：「主危如此，吾等何惜一死！」率身邊騎兵直插北漢主陣，張永德引硬弩夾擊。北漢軍大潰，契丹軍見勢退走。柴榮乘勝追殺至太原城下，斬臨陣脫逃之將校七十餘人，大整軍紀。",
+      historicalImpact: "五代亂世最強之分水嶺戰役。世宗徹底肅清軍閥驕橫牙兵風氣，奠定後周精銳禁軍，趙匡胤由此戰嶄露頭角，為日後北宋削平五代割據建立統一王朝奠下決定性基石。",
+      tacticalFeatures: [
+        "最高統帥身先士卒穩定崩潰中軍，趙匡胤敢死衝鋒斬將逆轉乾坤"
+      ],
+      svgRoute: "M 495,328 L 485,310"
+    }
+  ];
+
+  // src/data/periods/suiTang/warlordPeriods.js
+  var SUI_TANG_WARLORD_PERIODS = [
+    {
+      id: "ce_589",
+      yearNumber: 589,
+      yearDisplay: "西元 589 年",
+      shortLabel: "大隋一統",
+      headline: "隋文帝滅南陳天下一統，終結近三百年南北分裂",
+      subTitle: "楊廣楊素水陸並進 · 韓擒虎採石夜渡 · 景陽井陳後主面縛 · 開皇之治開啟華夏新紀元",
+      chronicleLeft: [
+        "大隋行軍元帥晉王楊廣率五十一萬水陸精銳，自江北八路齊發大舉渡江",
+        "楊素巴蜀樓船沿長江順流而下摧枯拉朽，韓擒虎、賀若弼直搗建康破城",
+        "陳後主陳叔寶與張麗華投景陽樓枯井被俘，南朝最後王朝覆滅"
+      ],
+      chronicleRight: [
+        "自西晉永嘉之亂（311年）近三百年南北大分裂局面徹底劃上句號",
+        "隋朝收復長江以南兩百萬戶口，開創府兵、均田與科舉初創之開皇盛世"
+      ],
+      provinceWarlordMap: {
+        shaanxi: { warlord: "大隋大興城 (長安京師直轄)", color: "#fef08a" },
+        henan: { warlord: "大隋東都洛陽", color: "#fef08a" },
+        shanxi: { warlord: "大隋太原總管府", color: "#fef08a" },
+        hebei: { warlord: "大隋冀州信都", color: "#fef08a" },
+        shandong: { warlord: "大隋齊州青州", color: "#fef08a" },
+        beijing: { warlord: "大隋幽州涿郡邊防", color: "#fde047" },
+        tianjin: { warlord: "大隋幽州海津", color: "#fde047" },
+        liaoning: { warlord: "遼東高句麗邊陲", color: "#cbd5e1" },
+        gansu: { warlord: "大隋涼州河西走廊", color: "#fed7aa" },
+        jiangsu: { warlord: "大隋揚州總管府 (江南新附)", color: "#bbf7d0" },
+        zhejiang: { warlord: "大隋會稽錢塘", color: "#bbf7d0" },
+        anhui: { warlord: "大隋淮南廬州壽春", color: "#fef08a" },
+        hubei: { warlord: "大隋荊州江陵重鎮", color: "#bbf7d0" },
+        hunan: { warlord: "大隋湘州長沙", color: "#bbf7d0" },
+        jiangxi: { warlord: "大隋洪州豫章", color: "#bbf7d0" },
+        sichuan: { warlord: "大隋益州成都", color: "#fef08a" },
+        chongqing: { warlord: "大隋巴東信州", color: "#fef08a" },
+        fujian: { warlord: "大隋泉州閩越", color: "#bbf7d0" },
+        guangdong: { warlord: "大隋廣州南海 (冼夫人歸附)", color: "#bbf7d0" },
+        guangxi: { warlord: "大隋交趾桂林", color: "#bbf7d0" },
+        guizhou: { warlord: "大隋南中且蘭", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔前身白蠻諸部", color: "#e2e8f0" },
+        "inner-mongolia": { warlord: "東突厥都藍可汗 / 啟民可汗", color: "#94a3b8" },
+        "ningxia-hui": { warlord: "大隋靈武塞上", color: "#fed7aa" },
+        qinghai: { warlord: "吐谷渾王國", color: "#cbd5e1" },
+        xinjiang: { warlord: "西突厥汗國統轄諸綠洲", color: "#94a3b8" },
+        jilin: { warlord: "高句麗王國平壤政權", color: "#cbd5e1" },
+        heilongjiang: { warlord: "靺鞨肅慎諸部", color: "#cbd5e1" },
+        shanghai: { warlord: "大隋吳郡華亭", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "大 興 京 師 (長安)", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "洛 陽 重 鎮", pos: [495, 328], color: "#854d0e", size: 13 },
+        { name: "揚 州 總 管", pos: [530, 365], color: "#166534", size: 13 },
+        { name: "東 突 厥 汗 國", pos: [480, 260], color: "#475569", size: 13 }
+      ],
+      cities: [
+        { name: "大興 (長安)", pos: [460, 335], isCap: true },
+        { name: "洛陽", pos: [495, 328], isCap: false },
+        { name: "江都 (揚州)", pos: [530, 360], isCap: false },
+        { name: "建康 (金陵)", pos: [528, 365], isCap: false }
+      ]
+    },
+    {
+      id: "ce_618",
+      yearNumber: 618,
+      yearDisplay: "西元 618 年",
+      shortLabel: "隋末群雄",
+      headline: "江都兵變隋煬帝遇弒，李淵長安登基建唐、天下群雄割據",
+      subTitle: "李淵入關中受禪 · 王世充洛陽自立 · 竇建德雄踞河北 · 薛舉席捲隴右 · 蕭銑稱帝江陵",
+      chronicleLeft: [
+        "宇文化及於揚州江都發動兵變縊弒隋煬帝，隋朝大一統政權分崩離析",
+        "太原留守李淵率長子建成、次子世民入關中，西元618年五月於長安受禪登基建立大唐",
+        "洛陽王世充擁立楊侗後篡位稱大鄭，河北竇建德稱夏王，江陵蕭銑復辟後梁稱梁帝"
+      ],
+      chronicleRight: [
+        "天下十八路諸侯各霸一方，隴西薛舉、馬邑劉武周、瓦崗李密、江淮杜伏威互爭雄長",
+        "秦王李世民受命為西討元帥，拉開大唐削平群雄、一統乾坤之宏大戰幕"
+      ],
+      provinceWarlordMap: {
+        shaanxi: { warlord: "大唐高祖李淵 (長安稱帝建國)", color: "#fef08a" },
+        henan: { warlord: "大鄭王世充 (洛陽自立)", color: "#f87171" },
+        shanxi: { warlord: "定楊天子劉武周 (引突厥南犯)", color: "#a855f7" },
+        hebei: { warlord: "大夏王竇建德 (雄據河北)", color: "#38bdf8" },
+        shandong: { warlord: "齊王徐圓朗 / 孟海公", color: "#fb923c" },
+        beijing: { warlord: "燕王羅藝 (薊城割據)", color: "#fde047" },
+        tianjin: { warlord: "燕王羅藝轄境", color: "#fde047" },
+        liaoning: { warlord: "高句麗王國", color: "#cbd5e1" },
+        gansu: { warlord: "西秦霸王薛舉 (隴西稱雄)", color: "#fb7185" },
+        jiangsu: { warlord: "江淮杜伏威 / 輔公祏", color: "#4ade80" },
+        zhejiang: { warlord: "吳王李子通 (江都/餘杭)", color: "#4ade80" },
+        anhui: { warlord: "楚帝杜伏威江淮行營", color: "#4ade80" },
+        hubei: { warlord: "大梁皇帝蕭銑 (江陵稱帝復梁)", color: "#2dd4bf" },
+        hunan: { warlord: "大梁蕭銑荊湘水土", color: "#2dd4bf" },
+        jiangxi: { warlord: "楚王林士弘 (鄱陽豫章)", color: "#f472b6" },
+        sichuan: { warlord: "大唐劍南益州 (歸附李唐)", color: "#fef08a" },
+        chongqing: { warlord: "大梁蕭銑巴東三峽", color: "#2dd4bf" },
+        fujian: { warlord: "林士弘楚政權", color: "#f472b6" },
+        guangdong: { warlord: "蕭銑大梁政權統治南海", color: "#2dd4bf" },
+        guangxi: { warlord: "大梁嶺南各郡", color: "#2dd4bf" },
+        guizhou: { warlord: "西南夷僚部落酋長", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔蒙舍六詔", color: "#e2e8f0" },
+        "inner-mongolia": { warlord: "始畢可汗統帥東突厥鐵騎", color: "#94a3b8" },
+        "ningxia-hui": { warlord: "突厥與薛舉拉鋸", color: "#fb7185" },
+        qinghai: { warlord: "吐谷渾王國趁亂東侵", color: "#cbd5e1" },
+        xinjiang: { warlord: "西突厥統葉護可汗", color: "#94a3b8" },
+        jilin: { warlord: "高句麗平壤政權", color: "#cbd5e1" },
+        heilongjiang: { warlord: "靺鞨諸部", color: "#cbd5e1" },
+        shanghai: { warlord: "李子通吳國", color: "#4ade80" }
+      },
+      labels: [
+        { name: "大 唐 長 安 (李淵)", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "大 鄭 洛 陽 (王世充)", pos: [495, 328], color: "#991b1b", size: 13 },
+        { name: "大 夏 河 北 (竇建德)", pos: [515, 305], color: "#0369a1", size: 13 },
+        { name: "大 梁 江 陵 (蕭銑)", pos: [490, 385], color: "#0f766e", size: 13 },
+        { name: "西 秦 隴 西 (薛舉)", pos: [430, 340], color: "#9f1239", size: 12 }
+      ],
+      cities: [
+        { name: "長安 (大唐京師)", pos: [460, 335], isCap: true },
+        { name: "洛陽 (大鄭王世充)", pos: [495, 328], isCap: true },
+        { name: "樂壽 (大夏竇建德)", pos: [515, 305], isCap: true },
+        { name: "江陵 (大梁蕭銑)", pos: [490, 385], isCap: true },
+        { name: "太原 (劉武周威逼)", pos: [480, 300], isCap: false }
+      ]
+    },
+    {
+      id: "ce_626",
+      yearNumber: 626,
+      yearDisplay: "西元 626 年",
+      shortLabel: "貞觀登基",
+      headline: "玄武門之變秦王登基，渭水便橋止戈、開啟貞觀盛世",
+      subTitle: "李世民即位唐太宗 · 任賢納諫魏徵進言 · 突厥頡利兵臨長安 · 渭水斬白馬立盟",
+      chronicleLeft: [
+        "武德九年六月初四，秦王李世民發動玄武門之變誅太子建成、齊王元吉，八月受禪即皇帝位",
+        "東突厥頡利、突利二可汗乘國喪大舉南侵，二十萬鐵騎直逼長安北郊渭水便橋",
+        "唐太宗臨危不亂，親率六騎親出渭水大陣，虛實相濟折服突厥，斬白馬設盟退敵"
+      ],
+      chronicleRight: [
+        "大破群雄後大唐版圖初定，太宗整飭吏治，從諫如流，廣開言路",
+        "魏徵為人鏡，房玄齡、杜如晦共掌機要，天下政局步入清明安定"
+      ],
+      provinceWarlordMap: {
+        shaanxi: { warlord: "大唐京師長安 (太宗登基直轄)", color: "#fef08a" },
+        henan: { warlord: "大唐河南道 (洛陽全定)", color: "#fef08a" },
+        shanxi: { warlord: "大唐河東道 (太原龍興根本)", color: "#fef08a" },
+        hebei: { warlord: "大唐河北道 (竇建德平定後安撫)", color: "#fef08a" },
+        shandong: { warlord: "大唐河南道 (山東全境歸順)", color: "#fef08a" },
+        beijing: { warlord: "大唐幽州都督府 (羅藝伏法平定)", color: "#fde047" },
+        tianjin: { warlord: "大唐幽州海防", color: "#fde047" },
+        liaoning: { warlord: "高句麗王國", color: "#cbd5e1" },
+        gansu: { warlord: "大唐隴右道 (平定薛仁杲李軌)", color: "#fef08a" },
+        jiangsu: { warlord: "大唐淮南江南道 (杜伏威輔公祏平)", color: "#bbf7d0" },
+        zhejiang: { warlord: "大唐江南東道", color: "#bbf7d0" },
+        anhui: { warlord: "大唐淮南道", color: "#fef08a" },
+        hubei: { warlord: "大唐山南道 (李孝恭平蕭銑)", color: "#bbf7d0" },
+        hunan: { warlord: "大唐江南西道", color: "#bbf7d0" },
+        jiangxi: { warlord: "大唐江州洪州", color: "#bbf7d0" },
+        sichuan: { warlord: "大唐劍南道成都", color: "#fef08a" },
+        chongqing: { warlord: "大唐山南西道峽口", color: "#fef08a" },
+        fujian: { warlord: "大唐嶺南道福州泉州", color: "#bbf7d0" },
+        guangdong: { warlord: "大唐嶺南道廣州都督府", color: "#bbf7d0" },
+        guangxi: { warlord: "大唐桂州刺史部", color: "#bbf7d0" },
+        guizhou: { warlord: "西南羈縻諸州", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔諸部", color: "#e2e8f0" },
+        "inner-mongolia": { warlord: "東突厥頡利可汗雄據漠南", color: "#94a3b8" },
+        "ningxia-hui": { warlord: "大唐靈州都督府 (北方屏障)", color: "#fde047" },
+        qinghai: { warlord: "吐谷渾汗國", color: "#cbd5e1" },
+        xinjiang: { warlord: "西突厥汗國與西域城邦", color: "#94a3b8" },
+        jilin: { warlord: "高句麗王國", color: "#cbd5e1" },
+        heilongjiang: { warlord: "靺鞨各部", color: "#cbd5e1" },
+        shanghai: { warlord: "大唐吳郡華亭", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "長 安 京 師 (太宗初即位)", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "渭 水 便 橋", pos: [458, 330], color: "#c2410c", size: 12 },
+        { name: "東 都 洛 陽", pos: [495, 328], color: "#854d0e", size: 13 },
+        { name: "東 突 厥 頡 利 可 汗", pos: [475, 275], color: "#475569", size: 13 }
+      ],
+      cities: [
+        { name: "長安 (太宗即位)", pos: [460, 335], isCap: true },
+        { name: "洛陽", pos: [495, 328], isCap: false },
+        { name: "太原府", pos: [480, 300], isCap: false },
+        { name: "揚州", pos: [530, 360], isCap: false }
+      ]
+    },
+    {
+      id: "ce_649",
+      yearNumber: 649,
+      yearDisplay: "西元 649 年",
+      shortLabel: "天可汗盛世",
+      headline: "貞觀之治功成九天，滅東突厥、薛延陀，萬邦來朝天可汗",
+      subTitle: "李靖滅東突厥頡利受降 · 文成公主入藏 · 安西都護府設龜茲 · 萬國梯山航海朝貢",
+      chronicleLeft: [
+        "軍神李靖夜襲定襄、陰山大捷生俘頡利可汗，東突厥滅亡，北方四胡羈縻州置於塞北",
+        "西域高昌、焉耆、龜茲平定，設立安西四鎮與安西都護府，絲綢之路暢通無阻",
+        "唐太宗遣文成公主入藏與松贊干布和親，漢藏兩大文明開啟永恆和平紐帶"
+      ],
+      chronicleRight: [
+        "唐太宗獲四夷君長共同推尊為「天可汗」，兼任天下盟主，四海昇平",
+        "天下大治，戶口激增，斷獄無枉，社會風氣寬仁開放，大唐威名傳遍歐亞大陸"
+      ],
+      provinceWarlordMap: {
+        shaanxi: { warlord: "大唐關內道京兆府 (天可汗京師)", color: "#fef08a" },
+        henan: { warlord: "大唐河南道東都洛陽", color: "#fef08a" },
+        shanxi: { warlord: "大唐河東道 (安北都護府後方)", color: "#fef08a" },
+        hebei: { warlord: "大唐河北道 (安東防線)", color: "#fef08a" },
+        shandong: { warlord: "大唐河南道登州青州", color: "#fef08a" },
+        beijing: { warlord: "大唐幽州薊城 (營州都督府)", color: "#fde047" },
+        tianjin: { warlord: "大唐幽州海防", color: "#fde047" },
+        liaoning: { warlord: "大唐征高句麗前線 (營州平州)", color: "#fde047" },
+        gansu: { warlord: "大唐隴右道安西大動脈", color: "#fef08a" },
+        jiangsu: { warlord: "大唐淮南道揚州 (天下糧倉樞紐)", color: "#bbf7d0" },
+        zhejiang: { warlord: "大唐江南東道越州明州", color: "#bbf7d0" },
+        anhui: { warlord: "大唐淮南道壽春", color: "#fef08a" },
+        hubei: { warlord: "大唐山南東道江陵襄陽", color: "#bbf7d0" },
+        hunan: { warlord: "大唐江南西道潭州長沙", color: "#bbf7d0" },
+        jiangxi: { warlord: "大唐江南西道洪州", color: "#bbf7d0" },
+        sichuan: { warlord: "大唐劍南道益州成都", color: "#fef08a" },
+        chongqing: { warlord: "大唐山南西道", color: "#fef08a" },
+        fujian: { warlord: "大唐嶺南道福州泉州", color: "#bbf7d0" },
+        guangdong: { warlord: "大唐嶺南道廣州 (波斯大食蕃坊)", color: "#bbf7d0" },
+        guangxi: { warlord: "大唐桂州安南都督管轄", color: "#bbf7d0" },
+        guizhou: { warlord: "大唐黔州都督府", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔六詔部落 (朝貢大唐)", color: "#e2e8f0" },
+        "inner-mongolia": { warlord: "大唐安北都護府 / 單于都護府轄境", color: "#fde047" },
+        "ningxia-hui": { warlord: "大唐靈州都督府 (太宗駐足大會諸蕃)", color: "#fde047" },
+        qinghai: { warlord: "大唐西平郡與吐谷渾歸附轄區", color: "#fde047" },
+        xinjiang: { warlord: "大唐安西都護府 (龜茲/于闐/疏勒/碎葉)", color: "#fde047" },
+        jilin: { warlord: "高句麗末期殘部", color: "#cbd5e1" },
+        heilongjiang: { warlord: "黑水靺鞨 (朝貢大唐)", color: "#cbd5e1" },
+        shanghai: { warlord: "大唐蘇州華亭", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "天 可 汗 長 安 (萬國朝貢)", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "安 北 都 護 府 (漠北)", pos: [480, 240], color: "#854d0e", size: 13 },
+        { name: "安 西 都 護 府 (西域)", pos: [380, 310], color: "#854d0e", size: 13 },
+        { name: "吐 蕃 王 朝 (松贊干布和親)", pos: [360, 380], color: "#6b21a8", size: 13 }
+      ],
+      cities: [
+        { name: "長安 (萬國天可汗中心)", pos: [460, 335], isCap: true },
+        { name: "洛陽 (東京神都)", pos: [495, 328], isCap: false },
+        { name: "西州 (吐魯番)", pos: [390, 305], isCap: false },
+        { name: "龜茲 (安西都護府)", pos: [360, 315], isCap: false }
+      ]
+    },
+    {
+      id: "ce_690",
+      yearNumber: 690,
+      yearDisplay: "西元 690 年",
+      shortLabel: "武周革命",
+      headline: "武則天神都洛陽革唐即位，華夏唯一正統女皇帝登基",
+      subTitle: "立國號大周改元天授 · 首創殿試武舉拔擢寒門 · 重用狄仁傑姚崇 · 政啟開元治宏貞觀",
+      chronicleLeft: [
+        "武后臨朝稱制多年，西元690年重陽節登臨神都洛陽應天門，宣告改國號為大周，自號聖神皇帝",
+        "大破關隴門閥把持政權之千年傳統，推廣殿試、武舉，不拘一格廣開才路拔擢寒門庶族精英",
+        "重用一代賢相狄仁傑、姚崇，整飭吏治，雖嚴懲酷吏然天下百姓安居樂業"
+      ],
+      chronicleRight: [
+        "北拒後突厥默啜可汗，西復安西四鎮，鞏固盛唐疆域",
+        "為唐玄宗開元盛世儲備雄厚政治人才與國力基礎，史家譽為「政啟開元，治宏貞觀」"
+      ],
+      provinceWarlordMap: {
+        henan: { warlord: "大周神都洛陽 (武則天直轄朝廷)", color: "#e9d5ff" },
+        shaanxi: { warlord: "大周西京長安都督府", color: "#e9d5ff" },
+        shanxi: { warlord: "大周太原府 (武后祖籍封邑)", color: "#e9d5ff" },
+        hebei: { warlord: "大周河北道 (抵禦契丹李盡忠)", color: "#e9d5ff" },
+        shandong: { warlord: "大周青齊徐州", color: "#e9d5ff" },
+        beijing: { warlord: "大周幽州都督府", color: "#fde047" },
+        tianjin: { warlord: "大周幽州營塞", color: "#fde047" },
+        liaoning: { warlord: "大周安東都護府 (營州)", color: "#fde047" },
+        gansu: { warlord: "大周隴右道 (婁師德經營屯田)", color: "#fed7aa" },
+        jiangsu: { warlord: "大周江南道揚州", color: "#bbf7d0" },
+        zhejiang: { warlord: "大周越州杭州", color: "#bbf7d0" },
+        anhui: { warlord: "大周淮南道壽州", color: "#e9d5ff" },
+        hubei: { warlord: "大周荊州襄陽", color: "#bbf7d0" },
+        hunan: { warlord: "大周潭州長沙", color: "#bbf7d0" },
+        jiangxi: { warlord: "大周洪州廬陵", color: "#bbf7d0" },
+        sichuan: { warlord: "大周益州成都府", color: "#e9d5ff" },
+        chongqing: { warlord: "大周峽州夔門", color: "#e9d5ff" },
+        fujian: { warlord: "大周福州泉州", color: "#bbf7d0" },
+        guangdong: { warlord: "大周廣州都督府", color: "#bbf7d0" },
+        guangxi: { warlord: "大周桂林安南", color: "#bbf7d0" },
+        guizhou: { warlord: "大周黔州都督府", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔六詔爭雄", color: "#e2e8f0" },
+        "inner-mongolia": { warlord: "後突厥骨咄祿 / 默啜可汗侵擾", color: "#94a3b8" },
+        "ningxia-hui": { warlord: "大周靈州朔方防線", color: "#fde047" },
+        qinghai: { warlord: "吐蕃噶爾家族掌握吐蕃政權", color: "#cbd5e1" },
+        xinjiang: { warlord: "大周安西四鎮 (王孝傑收復)", color: "#fde047" },
+        jilin: { warlord: "渤海國前身震國 (大祚榮起兵)", color: "#cbd5e1" },
+        heilongjiang: { warlord: "靺鞨黑水部", color: "#cbd5e1" },
+        shanghai: { warlord: "大周蘇州華亭", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "大 周 神 都 (洛陽女皇即位)", pos: [495, 328], color: "#6b21a8", size: 14 },
+        { name: "西 京 長 安", pos: [460, 335], color: "#6b21a8", size: 13 },
+        { name: "安 西 四 鎮 (王孝傑大捷收復)", pos: [370, 315], color: "#854d0e", size: 13 },
+        { name: "吐 蕃 噶 爾 家 族", pos: [360, 380], color: "#475569", size: 13 }
+      ],
+      cities: [
+        { name: "洛陽 (神都明堂)", pos: [495, 328], isCap: true },
+        { name: "長安 (西京)", pos: [460, 335], isCap: false },
+        { name: "太原 (北都龍興)", pos: [480, 300], isCap: false },
+        { name: "揚州 (江南樞紐)", pos: [530, 360], isCap: false }
+      ]
+    },
+    {
+      id: "ce_741",
+      yearNumber: 741,
+      yearDisplay: "西元 741 年",
+      shortLabel: "開元極盛",
+      headline: "唐玄宗開元全盛極致，十道節度使邊防鼎盛、戶口破五千萬",
+      subTitle: "盛唐人口富庶歷史最高點 · 李杜詩篇名滿天下 · 安西碎葉通蔥嶺 · 梨園樂舞天下大治",
+      chronicleLeft: [
+        "唐玄宗治下大唐達到古代封建文明黃金頂峰，天寶十三載戶口達九百餘萬戶、五千二百八十八萬人",
+        "開元名相姚崇、宋璟、張九齡輔政，絲綢之路極盛，長安西市蕃商雲集，世界最大國際都會",
+        "詩仙李白、詩聖杜甫、詩佛王維雙星輝映，唐詩藝術達空前絕後巔峰"
+      ],
+      chronicleRight: [
+        "邊疆設立范陽、平盧、河東、朔方、隴右、河西、安西、北庭等十大節度使，外重內輕隱患悄然埋下",
+        "胡將安祿山兼領北方三鎮兵權，盛極而衰之陰影漸臨"
+      ],
+      provinceWarlordMap: {
+        shaanxi: { warlord: "大唐京師長安府 (開元盛世核心)", color: "#fef08a" },
+        henan: { warlord: "大唐東都洛陽都督府", color: "#fef08a" },
+        shanxi: { warlord: "大唐河東節度使 (太原)", color: "#fef08a" },
+        hebei: { warlord: "大唐范陽節度使 (安祿山大本營)", color: "#fed7aa" },
+        shandong: { warlord: "大唐河南道淄青防線", color: "#fef08a" },
+        beijing: { warlord: "大唐范陽節度使 (幽州重鎮)", color: "#fed7aa" },
+        tianjin: { warlord: "大唐范陽海防", color: "#fed7aa" },
+        liaoning: { warlord: "大唐平盧節度使 (營州)", color: "#fed7aa" },
+        gansu: { warlord: "大唐河西節度使 / 隴右節度使", color: "#fef08a" },
+        jiangsu: { warlord: "大唐淮南節度使揚州 (腰纏十萬貫騎鶴下揚州)", color: "#bbf7d0" },
+        zhejiang: { warlord: "大唐江南東道越州杭州", color: "#bbf7d0" },
+        anhui: { warlord: "大唐淮南道壽春", color: "#fef08a" },
+        hubei: { warlord: "大唐山南東道江陵", color: "#bbf7d0" },
+        hunan: { warlord: "大唐江南西道長沙", color: "#bbf7d0" },
+        jiangxi: { warlord: "大唐洪州豫章", color: "#bbf7d0" },
+        sichuan: { warlord: "大唐劍南節度使成都", color: "#fef08a" },
+        chongqing: { warlord: "大唐三峽峽路", color: "#fef08a" },
+        fujian: { warlord: "大唐福州泉州海商", color: "#bbf7d0" },
+        guangdong: { warlord: "大唐嶺南節度使廣州 (市舶使)", color: "#bbf7d0" },
+        guangxi: { warlord: "大唐桂州安南都護府", color: "#bbf7d0" },
+        guizhou: { warlord: "大唐黔中道", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔國 (皮邏閣統一六詔，唐封雲南王)", color: "#ea580c" },
+        "inner-mongolia": { warlord: "大唐單于安北都護府 / 回紇興起", color: "#fde047" },
+        "ningxia-hui": { warlord: "大唐朔方節度使 (郭子儀日後根基)", color: "#fef08a" },
+        qinghai: { warlord: "大唐赤嶺唐蕃會盟界碑", color: "#cbd5e1" },
+        xinjiang: { warlord: "大唐安西都護府 (高仙芝威震西域)", color: "#fde047" },
+        jilin: { warlord: "渤海國 (唐冊封渤海郡王)", color: "#cbd5e1" },
+        heilongjiang: { warlord: "黑水都督府", color: "#cbd5e1" },
+        shanghai: { warlord: "大唐蘇州華亭", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "長 安 盛 唐 興 慶 宮", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "范 陽 三 鎮 (安祿山擁兵二十萬)", pos: [505, 290], color: "#9a3412", size: 13 },
+        { name: "安 西 四 鎮 (碎葉高仙芝)", pos: [370, 315], color: "#854d0e", size: 13 },
+        { name: "南 詔 國 (雲南太和城)", pos: [400, 420], color: "#c2410c", size: 12 }
+      ],
+      cities: [
+        { name: "長安 (世界第一帝都)", pos: [460, 335], isCap: true },
+        { name: "洛陽 (東京)", pos: [495, 328], isCap: false },
+        { name: "范陽 (北京安祿山大本營)", pos: [505, 290], isCap: false },
+        { name: "揚州 (天下第一富商大邑)", pos: [530, 360], isCap: false }
+      ]
+    },
+    {
+      id: "ce_757",
+      yearNumber: 757,
+      yearDisplay: "西元 757 年",
+      shortLabel: "安史浩劫",
+      headline: "安史之亂中原淪陷，張巡睢陽死守、郭子儀香積寺復兩京",
+      subTitle: "馬嵬兵變玄宗幸蜀 · 肅宗靈武即位 · 睢陽遮蔽江淮半壁 · 回紇助唐大破安守忠",
+      chronicleLeft: [
+        "安祿山范陽起兵攻陷兩京稱大燕皇帝，玄宗逃蜀馬嵬坡賜死楊貴妃，肅宗於靈武北上即位重整山河",
+        "河南節度副使張巡孤軍血戰睢陽十月，殺敵數萬，扼守江淮門戶，為大唐續命",
+        "天下兵馬副元帥郭子儀借回紇鐵騎於香積寺決戰斬敵六萬，乘勝光復長安洛陽"
+      ],
+      chronicleRight: [
+        "雖收復兩京，然戰亂持續八年，北方中原殘破十室九空，黃河流域元氣重傷",
+        "為安撫降將大封「河北三鎮」（幽州、魏博、成德），藩鎮割據百年大患徹底成形"
+      ],
+      provinceWarlordMap: {
+        henan: { warlord: "安史大燕叛軍 (安慶緒洛陽殘部)", color: "#f87171" },
+        shaanxi: { warlord: "大唐郭子儀香積寺收復長安", color: "#fef08a" },
+        shanxi: { warlord: "大唐李光弼太原保衛戰堅守", color: "#fef08a" },
+        hebei: { warlord: "安史叛軍巢穴 (史思明范陽據守)", color: "#f87171" },
+        shandong: { warlord: "平原太守顏真卿抗敵殘部", color: "#fed7aa" },
+        beijing: { warlord: "安史叛軍范陽後方老巢", color: "#f87171" },
+        tianjin: { warlord: "安史叛軍海防", color: "#f87171" },
+        liaoning: { warlord: "安史平盧叛將", color: "#f87171" },
+        gansu: { warlord: "大唐隴右河西 (吐蕃乘虛步步蠶食)", color: "#fed7aa" },
+        jiangsu: { warlord: "大唐淮南道 (張巡睢陽力保江南不失)", color: "#bbf7d0" },
+        zhejiang: { warlord: "大唐江南東道 (供給國賦支撐平叛)", color: "#bbf7d0" },
+        anhui: { warlord: "大唐淮南江淮糧道", color: "#bbf7d0" },
+        hubei: { warlord: "大唐山南節度", color: "#bbf7d0" },
+        hunan: { warlord: "大唐江南西道", color: "#bbf7d0" },
+        jiangxi: { warlord: "大唐洪州糧餉後方", color: "#bbf7d0" },
+        sichuan: { warlord: "唐玄宗幸蜀成都避難行宮", color: "#fde047" },
+        chongqing: { warlord: "大唐劍南三峽通道", color: "#fde047" },
+        fujian: { warlord: "大唐嶺南後方", color: "#bbf7d0" },
+        guangdong: { warlord: "大唐嶺南廣州", color: "#bbf7d0" },
+        guangxi: { warlord: "大唐桂州安南", color: "#bbf7d0" },
+        guizhou: { warlord: "大唐黔中羈縻", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔國 (天寶戰爭擊破唐軍自立)", color: "#ea580c" },
+        "inner-mongolia": { warlord: "回紇汗國精騎 (助唐平叛)", color: "#0284c7" },
+        "ningxia-hui": { warlord: "大唐肅宗靈武即位抗敵大營", color: "#fef08a" },
+        qinghai: { warlord: "吐蕃大軍乘虛大舉東侵", color: "#8b5cf6" },
+        xinjiang: { warlord: "安西行營內調勤王，孤軍留守西域", color: "#fde047" },
+        jilin: { warlord: "渤海國", color: "#cbd5e1" },
+        heilongjiang: { warlord: "黑水靺鞨", color: "#cbd5e1" },
+        shanghai: { warlord: "大唐蘇州華亭", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "長 安 香 積 寺 (郭子儀收復大捷)", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "睢 陽 血 戰 (張巡許遠殉節保江南)", pos: [515, 340], color: "#991b1b", size: 13 },
+        { name: "范 陽 叛 軍 巢 穴", pos: [505, 290], color: "#991b1b", size: 13 },
+        { name: "靈 武 肅 宗 登 基", pos: [450, 295], color: "#854d0e", size: 12 }
+      ],
+      cities: [
+        { name: "長安 (收復)", pos: [460, 335], isCap: true },
+        { name: "靈武 (肅宗即位大營)", pos: [450, 295], isCap: false },
+        { name: "睢陽 (千古血戰要衝)", pos: [515, 340], isCap: false },
+        { name: "成都 (玄宗避難行宮)", pos: [425, 375], isCap: false }
+      ]
+    },
+    {
+      id: "ce_820",
+      yearNumber: 820,
+      yearDisplay: "西元 820 年",
+      shortLabel: "元和中興",
+      headline: "唐憲宗雪夜入蔡州平淮西，元和中興藩鎮暫服",
+      subTitle: "李愬雪夜奇襲破吳元濟 · 河朔三鎮名義歸順 · 兩稅法充盈國庫 · 晚唐最後一道落日餘暉",
+      chronicleLeft: [
+        "唐憲宗李純銳意削藩，重用裴度、李愬，決心拔除中原藩鎮割據毒瘤",
+        "名將李愬於大風雪之夜率九千敢死軍奔襲蔡州城，生擒叛將吳元濟，平定淮西四十年割據",
+        "魏博田弘正、成德王承宗懾於朝廷兵威相繼歸順納地，天下節度使再度奉唐朝正朔"
+      ],
+      chronicleRight: [
+        "史稱「元和中興」，唐朝財政與中央權威迎來短暫復興",
+        "憲宗晚年服食丹藥性情暴躁，死於宦官之手，宦官專權與牛李黨爭相繼爆發"
+      ],
+      provinceWarlordMap: {
+        shaanxi: { warlord: "大唐京師神策軍直轄", color: "#fef08a" },
+        henan: { warlord: "大唐宣武軍 / 忠武軍節度使", color: "#fef08a" },
+        shanxi: { warlord: "大唐河東節度使 (太原)", color: "#fef08a" },
+        hebei: { warlord: "河朔三鎮 (魏博/成德/幽州 虛奉朝命)", color: "#fed7aa" },
+        shandong: { warlord: "大唐淄青平定後分三藩", color: "#fef08a" },
+        beijing: { warlord: "盧龍節度使 (幽州藩鎮割據)", color: "#fed7aa" },
+        tianjin: { warlord: "盧龍節度使海口", color: "#fed7aa" },
+        liaoning: { warlord: "渤海國 / 契丹部落", color: "#cbd5e1" },
+        gansu: { warlord: "吐蕃佔領河西走廊 (張議潮歸義軍前夕)", color: "#8b5cf6" },
+        jiangsu: { warlord: "大唐淮南節度使 (白居易詩名遠播)", color: "#bbf7d0" },
+        zhejiang: { warlord: "大唐浙東浙西觀察使", color: "#bbf7d0" },
+        anhui: { warlord: "大唐淮南道蔡州新平", color: "#fef08a" },
+        hubei: { warlord: "大唐荊南節度使", color: "#bbf7d0" },
+        hunan: { warlord: "大唐湖南觀察使", color: "#bbf7d0" },
+        jiangxi: { warlord: "大唐江西觀察使", color: "#bbf7d0" },
+        sichuan: { warlord: "大唐劍南西川節度使", color: "#fef08a" },
+        chongqing: { warlord: "大唐東川節度使", color: "#fef08a" },
+        fujian: { warlord: "大唐福建觀察使", color: "#bbf7d0" },
+        guangdong: { warlord: "大唐嶺南節度使", color: "#bbf7d0" },
+        guangxi: { warlord: "大唐安南都護府", color: "#bbf7d0" },
+        guizhou: { warlord: "大唐黔南節度", color: "#e2e8f0" },
+        yunnan: { warlord: "南詔帝國 (南侵安南騷擾西川)", color: "#ea580c" },
+        "inner-mongolia": { warlord: "回鶻汗國晚期衰落", color: "#0284c7" },
+        "ningxia-hui": { warlord: "大唐朔方節度使", color: "#fef08a" },
+        qinghai: { warlord: "吐蕃王朝晚期內鬨", color: "#8b5cf6" },
+        xinjiang: { warlord: "于闐西域諸部與吐蕃拉鋸", color: "#cbd5e1" },
+        jilin: { warlord: "渤海國 (海東盛國)", color: "#cbd5e1" },
+        heilongjiang: { warlord: "黑水靺鞨", color: "#cbd5e1" },
+        shanghai: { warlord: "大唐蘇州華亭鹽場", color: "#bbf7d0" }
+      },
+      labels: [
+        { name: "長 安 京 師 (憲宗中興)", pos: [460, 335], color: "#854d0e", size: 14 },
+        { name: "蔡 州 (李愬雪夜奇襲破吳元濟)", pos: [500, 350], color: "#991b1b", size: 13 },
+        { name: "魏 博 牙 兵 藩 鎮", pos: [510, 315], color: "#c2410c", size: 12 },
+        { name: "吐 蕃 佔 領 河 西", pos: [400, 330], color: "#6b21a8", size: 12 }
+      ],
+      cities: [
+        { name: "長安 (神策軍樞紐)", pos: [460, 335], isCap: true },
+        { name: "洛陽", pos: [495, 328], isCap: false },
+        { name: "蔡州 (汝南)", pos: [500, 350], isCap: false },
+        { name: "魏州 (魏博藩鎮首邑)", pos: [510, 315], isCap: false }
+      ]
+    },
+    {
+      id: "ce_884",
+      yearNumber: 884,
+      yearDisplay: "西元 884 年",
+      shortLabel: "黃巢起義",
+      headline: "黃巢滿城盡帶黃金甲破長安，朱溫降唐、沙陀李克用崛起",
+      subTitle: "沖天香陣透長安含元殿稱帝 · 僖宗逃蜀 · 朱溫叛變投唐 · 沙陀鴉軍破齊狼虎谷落幕",
+      chronicleLeft: [
+        "黃巢率百萬起義農民轉戰江淮、嶺南破廣州，廣明元年攻破潼關直入長安，建大齊帝國",
+        "唐僖宗倉皇逃蜀，黃巢降將朱溫見勢反叛降唐，唐廷借沙陀突厥李克用精銳騎兵入關中反攻",
+        "黃巢大軍糧盡退守中原，中和四年於山東狼虎谷兵敗自刎，起義宣告落幕"
+      ],
+      chronicleRight: [
+        "長安兩京宮殿悉化為灰燼，綿延數百年之唐朝關隴與山東門閥士族徹底斷絕",
+        "朱溫封宣武節度使據汴州，李克用封晉王據太原，晚唐軍閥全面進入血腥兼併階段"
+      ],
+      provinceWarlordMap: {
+        henan: { warlord: "宣武節度使朱溫 (汴州開封稱霸)", color: "#f87171" },
+        shaanxi: { warlord: "鳳翔李茂貞 / 長安空殼朝廷", color: "#fed7aa" },
+        shanxi: { warlord: "河東節度使李克用 (沙陀鴉軍)", color: "#a855f7" },
+        hebei: { warlord: "盧龍李匡威 / 魏博羅弘信", color: "#fed7aa" },
+        shandong: { warlord: "天平節度使朱瑄 / 泰寧朱瑾", color: "#fed7aa" },
+        beijing: { warlord: "盧龍節度使 (幽州割據)", color: "#fed7aa" },
+        tianjin: { warlord: "幽州殘部", color: "#fed7aa" },
+        liaoning: { warlord: "契丹迭剌部崛起 (阿保機前夕)", color: "#38bdf8" },
+        gansu: { warlord: "歸義軍節度使 (張議潮後裔收復河西)", color: "#bbf7d0" },
+        jiangsu: { warlord: "淮南節度使楊行密 (吳國奠基者)", color: "#4ade80" },
+        zhejiang: { warlord: "鎮海節度使錢鏐 (吳越國開創者)", color: "#34d399" },
+        anhui: { warlord: "宣武朱溫與淮南楊行密交鋒", color: "#f87171" },
+        hubei: { warlord: "荊南節度使成汭", color: "#bbf7d0" },
+        hunan: { warlord: "武安節度使馬殷 (楚國奠基者)", color: "#2dd4bf" },
+        jiangxi: { warlord: "鎮南節度使鍾傳", color: "#bbf7d0" },
+        sichuan: { warlord: "西川節度使王建 (前蜀開國君主)", color: "#fb923c" },
+        chongqing: { warlord: "東川顧彥暉", color: "#fb923c" },
+        fujian: { warlord: "威武軍節度使王審知 (閩國開創者)", color: "#f472b6" },
+        guangdong: { warlord: "清海節度使劉隱 (南漢奠基者)", color: "#fb7185" },
+        guangxi: { warlord: "靜江節度使", color: "#fb7185" },
+        guizhou: { warlord: "西南土酋長", color: "#e2e8f0" },
+        yunnan: { warlord: "大封民南詔國晚期", color: "#ea580c" },
+        "inner-mongolia": { warlord: "契丹八部漸強", color: "#38bdf8" },
+        "ningxia-hui": { warlord: "定難節度使拓跋思恭 (西夏先祖黨項)", color: "#cbd5e1" },
+        qinghai: { warlord: "吐蕃四分五裂", color: "#cbd5e1" },
+        xinjiang: { warlord: "高昌回鶻王國 / 于闐李氏王朝", color: "#cbd5e1" },
+        jilin: { warlord: "渤海國末期", color: "#cbd5e1" },
+        heilongjiang: { warlord: "女真生女真各部", color: "#cbd5e1" },
+        shanghai: { warlord: "錢鏐鎮海軍", color: "#34d399" }
+      },
+      labels: [
+        { name: "長 安 焦 土 (僖宗逃蜀歸來)", pos: [460, 335], color: "#854d0e", size: 13 },
+        { name: "汴 州 宣 武 (朱溫稱霸)", pos: [512, 330], color: "#991b1b", size: 13 },
+        { name: "太 原 河 東 (李克用沙陀軍)", pos: [480, 300], color: "#6b21a8", size: 13 },
+        { name: "揚 州 淮 南 (楊行密起兵)", pos: [530, 360], color: "#166534", size: 12 },
+        { name: "成 都 劍 南 (王建據蜀)", pos: [425, 375], color: "#c2410c", size: 12 }
+      ],
+      cities: [
+        { name: "汴州 (開封朱溫總部)", pos: [512, 330], isCap: true },
+        { name: "太原 (李克用晉陽牙府)", pos: [480, 300], isCap: true },
+        { name: "長安 (殘破殘存名義京師)", pos: [460, 335], isCap: false },
+        { name: "成都 (唐僖宗避難大本營)", pos: [425, 375], isCap: false }
+      ]
+    },
+    {
+      id: "ce_954",
+      yearNumber: 954,
+      yearDisplay: "西元 954 年",
+      shortLabel: "周世宗立",
+      headline: "五代十國高平之戰周世宗大捷，廓清五代亂局、奠定大宋基石",
+      subTitle: "柴榮親冒矢石大破北漢契丹 · 趙匡胤躍馬突陣展神威 · 整飭殿前禁軍 · 南征北伐終結亂世",
+      chronicleLeft: [
+        "後周太祖郭威崩，世宗柴榮登基，北漢劉崇勾結契丹數萬精騎合兵南侵企圖覆滅後周",
+        "柴榮力排宰相馮道之阻，親征巴公原展開高平之戰；後周右軍逃降，柴榮親冒矢石躍馬督戰",
+        "宿衛牙將趙匡胤率殿前精銳冒死衝鋒大破敵陣，北漢慘敗，斬逃將七十餘人整飭殿前禁軍"
+      ],
+      chronicleRight: [
+        "柴榮立下「十年開拓天下，十年養百姓，十年致太平」之宏願，南征南唐三戰全勝盡奪江北十四州",
+        "西取後蜀、北伐契丹收復關南莫瀛三州，五代分裂至此走向終結，為趙匡胤陳橋立宋奠定統一基石"
+      ],
+      provinceWarlordMap: {
+        henan: { warlord: "後周京師開封府 (周世宗柴榮統轄)", color: "#fef08a" },
+        shaanxi: { warlord: "後周鳳翔關中各鎮", color: "#fef08a" },
+        shanxi: { warlord: "北漢劉崇 (都太原，依附契丹)", color: "#f87171" },
+        hebei: { warlord: "後周河北大名魏博", color: "#fef08a" },
+        shandong: { warlord: "後周青齊各鎮", color: "#fef08a" },
+        beijing: { warlord: "大契丹國幽州 (燕雲十六州石敬瑭割讓)", color: "#38bdf8" },
+        tianjin: { warlord: "大契丹國燕雲轄地", color: "#38bdf8" },
+        liaoning: { warlord: "大契丹國 (遼太宗遼世宗據地)", color: "#38bdf8" },
+        gansu: { warlord: "沙州歸義軍曹氏政權", color: "#fed7aa" },
+        jiangsu: { warlord: "南唐李璟江北領地 (柴榮南征前夕)", color: "#fde047" },
+        zhejiang: { warlord: "吳越國 (錢弘俶保境息民杭州)", color: "#34d399" },
+        anhui: { warlord: "後周與南唐淮南爭奪線 (壽州)", color: "#fef08a" },
+        hubei: { warlord: "南平國 (高季興荊南高賴子)", color: "#2dd4bf" },
+        hunan: { warlord: "南唐滅楚後湖南武平節度周行逢", color: "#2dd4bf" },
+        jiangxi: { warlord: "南唐李璟金陵腹地 (洪州/饒州)", color: "#fde047" },
+        sichuan: { warlord: "後蜀孟昶 (成都天府沃野)", color: "#fb923c" },
+        chongqing: { warlord: "後蜀夔門三峽防線", color: "#fb923c" },
+        fujian: { warlord: "南唐吞併閩國 / 泉州留從效割據", color: "#fde047" },
+        guangdong: { warlord: "南漢劉晟 (興王府廣州稱帝)", color: "#fb7185" },
+        guangxi: { warlord: "南漢象州邕州轄境", color: "#fb7185" },
+        guizhou: { warlord: "大理段氏與西南彝族部寨", color: "#e2e8f0" },
+        yunnan: { warlord: "大理國 (段思平建國都大理)", color: "#ea580c" },
+        "inner-mongolia": { warlord: "大契丹國上京臨潢府", color: "#38bdf8" },
+        "ningxia-hui": { warlord: "定難黨項李氏 (夏州割據)", color: "#cbd5e1" },
+        qinghai: { warlord: "唃廝囉吐蕃前夕吐蕃諸部", color: "#cbd5e1" },
+        xinjiang: { warlord: "喀喇汗國與于闐佛國", color: "#cbd5e1" },
+        jilin: { warlord: "契丹滅渤海改東丹國", color: "#38bdf8" },
+        heilongjiang: { warlord: "女真完顏部先民", color: "#cbd5e1" },
+        shanghai: { warlord: "吳越國松江華亭", color: "#34d399" }
+      },
+      labels: [
+        { name: "後 周 開 封 京 師 (柴榮雄才大略)", pos: [512, 330], color: "#854d0e", size: 14 },
+        { name: "高 平 巴 公 原 (世宗大破北漢)", pos: [485, 310], color: "#991b1b", size: 13 },
+        { name: "契 丹 燕 雲 十 六 州 (北京幽州)", pos: [505, 290], color: "#0369a1", size: 13 },
+        { name: "南 唐 金 陵 (李璟後主李煜)", pos: [528, 365], color: "#854d0e", size: 13 },
+        { name: "吳 越 杭 州 (錢氏保境安民)", pos: [535, 380], color: "#166534", size: 12 },
+        { name: "後 蜀 成 都 (孟昶天府之國)", pos: [425, 375], color: "#c2410c", size: 12 }
+      ],
+      cities: [
+        { name: "開封 (後周帝都)", pos: [512, 330], isCap: true },
+        { name: "太原 (北漢僭號都城)", pos: [480, 300], isCap: true },
+        { name: "金陵 (南唐國都)", pos: [528, 365], isCap: true },
+        { name: "杭州 (吳越首府)", pos: [535, 380], isCap: true },
+        { name: "成都 (後蜀國都)", pos: [425, 375], isCap: true },
+        { name: "幽州 (契丹燕京門戶)", pos: [505, 290], isCap: false }
+      ]
+    }
+  ];
+
+  // src/data/periods/suiTang/demographics.js
+  var SUI_TANG_DEMOGRAPHICS = {
+    year: 754,
+    eraName: "隋唐盛世戶口繁衍、藩鎮割據人口分佈與五代更迭考（581 - 960 CE）",
+    estimatedTotalPopulation: "隋大業五年（609 CE）達 4,601 萬人；貞觀初期降至 1,500 萬人；開元天寶全盛期官籍登記 5,288 萬人（實際推估達 7,000 萬 ~ 8,000 萬人）；安史之亂與藩鎮割據銳減；五代十國分裂期約 3,000 萬 ~ 3,500 萬人",
+    commentary: "隋唐兩代為古代華夏人口與經濟發展之高峰。隋文帝開皇年間實行「輸籍之法」與「大索貌閱」，打擊豪強隱匿戶口，至隋煬帝大業五年（609 CE）全國戶數達 890 萬戶、人口 4,601 萬。隋末農民起義與軍閥混戰重創社會，唐高祖武德年間戶僅二百餘萬。經太宗「貞觀之治」、高宗與武則天之積累，至唐玄宗開元、天寶年間達到巔峰，天寶十三載（754 CE）官籍登記高達 906 萬餘戶、5,288 萬人，若計及隱匿戶口、佛門僧尼、奴婢與蕃商，全國實際人口突破 7,500 萬。安史之亂引發北方人口第二次大規模南渡，長江流域經濟與人口首度全面超越黃河流域。晚唐黃巢之亂後，節度使割據互攻，至五代十國時期中原殘破，而南方「十國」（前蜀、後蜀、南唐、吳越、楚、閩、南漢等）因戰禍較少，招撫流民發展桑蠶茶鹽，奠定宋代「國家根本仰給東南」之經濟格局。",
+    dataPoints: [
+      {
+        regimeName: "隋煬帝大業全盛期（609 CE，大運河全通與全國大索）",
+        households: "8,907,546 戶",
+        population: "46,019,956 人",
+        armyCount: "府兵、禁軍與征遼衛軍合計約 113 萬人",
+        officialsCount: "三省六部、九寺五監與內外郡縣官員約 2.8 萬人",
+        source: "《隋書·地理志上》、《通典·食貨七》"
+      },
+      {
+        regimeName: "唐太宗貞觀末年（649 CE，休養生息與天可汗盛世）",
+        households: "約 3,000,000 戶",
+        population: "約 15,000,000 人（隨胡漢歸附與招撫流亡迅速回升）",
+        armyCount: "折衝府府兵六百三十四所，約 50 萬 ~ 60 萬人",
+        officialsCount: "內外官職精簡整飭，中央流內官約 730 員，外官約 7,000 員",
+        source: "《舊唐書·太宗本紀》、《資治通鑑·唐紀十五》"
+      },
+      {
+        regimeName: "武周則天文字神龍年間（705 CE，科舉取士與均田穩定）",
+        households: "6,150,000 戶",
+        population: "約 37,140,000 人",
+        armyCount: "神策羽林禁衛與邊鎮衛戍軍約 45 萬人",
+        officialsCount: "武后破格廣納天下才俊，內外官吏膨脹至 1.7 萬人",
+        source: "《新唐書·食貨志》、《冊府元龜·邦計部》"
+      },
+      {
+        regimeName: "唐玄宗天寶全盛期（754 CE，盛唐極盛天寶十三載）",
+        households: "9,069,154 戶",
+        population: "52,880,488 人（歷史學界考證實際人口約 7,500 萬 ~ 8,000 萬人）",
+        armyCount: "邊鎮十大節度使募兵約 49 萬人，北衙禁軍 8 萬人",
+        officialsCount: "流內官約 18,800 員，流外吏員約 5 萬人",
+        source: "《通典·食貨七》、《新唐書·地理志》"
+      },
+      {
+        regimeName: "唐憲宗元和中興（820 CE，推行兩稅法與平定藩鎮）",
+        households: "2,375,805 戶（兩稅法編戶，藩鎮割據隱漏極多）",
+        population: "15,760,000 人（推估全國實際動態人口約 3,800 萬人）",
+        armyCount: "神策軍、宣武軍、魏博牙兵等各路節度使兵力合計約 83 萬人",
+        officialsCount: "朝廷與各藩鎮幕府僚佐約 2.5 萬人",
+        source: "《元和郡縣圖志》、《舊唐書·憲宗本紀》"
+      },
+      {
+        regimeName: "五代十國周世宗顯德年間（959 CE，柴榮整飭中原與各國分治）",
+        households: "後周中原約 230 萬戶；南方諸國（南唐、吳越、後蜀、南漢等）約 320 萬戶",
+        population: "全華夏合計約 3,200 萬 ~ 3,500 萬人",
+        armyCount: "後周殿前司禁軍約 15 萬精銳，南方諸國常備兵約 30 萬人",
+        officialsCount: "五朝更替官僚流轉約 1.2 萬人",
+        source: "《舊五代史·世宗本紀》、《十國春秋》"
+      }
+    ],
+    ethnicIntegration: [
+      {
+        group: "突厥族群（東突厥、西突厥、突厥降戶與沙陀突厥）",
+        desc: "唐太宗貞觀四年李靖滅東突厥，頡利可汗受降。太宗聽從溫彥博之策，於幽州至靈州塞上設置順、祐、化、長四羈縻州，內附突厥十餘萬人定居長安及塞內。唐廷封突厥首領阿史那思摩、契苾何力為大將軍，唐軍中胡人騎兵成為開疆拓土主力。晚唐沙陀突厥李克用、李存勖更成為五代十國政局之核心推動力。"
+      },
+      {
+        group: "粟特昭武九姓與西域胡商胡姬",
+        desc: "以康、安、曹、石、米、何、史、穆、火尋等姓氏為代表之粟特胡商，隨絲綢之路大量僑居長安西市、洛陽及河西走廊。不僅主導東西方金銀器、琉璃、香料貿易與景教、摩尼教、祆教傳播，其聚落設有唐朝特設官職「薩寶」統轄。天寶年間安祿山、史思明即為胡化的粟特與突厥混血將領。"
+      },
+      {
+        group: "吐蕃王國與漢藏和親交融",
+        desc: "松贊干布統一青藏高原建立強盛吐蕃王朝，唐太宗遣文成公主、唐中宗遣金城公主入藏和親，帶去歷算、醫藥、農具、絲綢造紙技術與佛教經典。長安與拉薩建立「唐蕃會盟碑」，歷經百年軍事博弈與文化交流，深刻形塑西南青藏高原格局。"
+      },
+      {
+        group: "回紇（回鶻）部落與絹馬貿易",
+        desc: "漠北鐵勒諸部演化為回紇汗國。唐朝借回紇精騎平定安史之亂收復兩京，雙方建立緊密盟友關係與官方「絹馬互市」。大批回紇商賈留居長安，後漠北汗國瓦解，部分西遷新疆高昌與甘肅河西，成為近代維吾爾族與裕固族先民。"
+      },
+      {
+        group: "契丹與沙陀等北方草原諸部",
+        desc: "生息於遼河上游之契丹八部在晚唐迅速壯大，耶律阿保機建大契丹國，後晉石敬瑭割讓燕雲十六州（含北京幽州、大同雲中）予契丹，華夏農耕邊界退至長城以南，北方形成雙軌胡漢分治制度，拉開遼宋對峙百年序幕。"
+      }
+    ]
+  };
+
+  // src/data/periods/suiTang/territories.js
+  var SUI_TANG_TERRITORIES = {
+    id: "snapshot_tang_tianbao_peak_740",
+    year: 741,
+    periodName: "盛唐極盛疆域總圖（741 CE 唐玄宗開元天寶·天可汗萬邦來朝版圖）",
+    eraName: "唐 開元二十九年 / 天寶年間",
+    description: "西元八世紀中葉，唐玄宗李隆基統治下的盛唐帝國達到歷史極盛。唐朝疆域東起朝鮮半島大同江、西逾蔥嶺直抵鹹海與波斯阿姆河流域（設安西、北庭兩大都護府及碎葉城），北包大漠貝加爾湖（設安北都護府），南抵越南中部安南都護府。萬里絲路商旅不絕，長安城為當時世界第一大都會。西南吐蕃王朝盤踞高原，雲南六詔歸一建立南詔國，東北渤海國與新羅隔江對望，東南夷洲海島與大唐保持海陸交流。",
+    factions: [
+      {
+        id: "great_tang_empire",
+        name: "大唐帝國（開元盛世·十道十五節度使直轄與邊防）",
+        faction: "tang",
+        color: "rgba(245, 158, 11, 0.35)",
+        borderColor: "#f59e0b",
+        capitalAncient: "長安（京兆府） / 洛陽（東京/神都）",
+        capitalModern: "陝西省西安市 / 河南省洛陽市",
+        capitalCoords: [34.26, 108.94],
+        registeredHouseholds: "9,069,154 戶",
+        registeredPopulation: "52,880,488 人（實際動態人口約 7,500 萬 ~ 8,000 萬）",
+        polygon: [
+          [43.8, 126.5],
+          // 東北吉林松花江
+          [41.5, 124],
+          // 遼東安東都護府
+          [38.5, 125],
+          // 朝鮮大同江北
+          [37.5, 122.5],
+          // 膠東半島
+          [32, 121.5],
+          // 長江口江都
+          [29.8, 121.5],
+          // 明州寧波海防
+          [24.5, 118],
+          // 福建泉州海港
+          [22.8, 115],
+          // 潮汕沿海
+          [21.5, 110],
+          // 雷州半島
+          [17.5, 106.5],
+          // 安南都護府（越南中部日南）
+          [21.5, 104],
+          // 雲貴高原邊緣
+          [24, 102.5],
+          // 滇東通海
+          [27.5, 102],
+          // 大渡河建昌
+          [31, 103.5],
+          // 劍南道成都平原
+          [34.5, 103],
+          // 隴右道臨洮
+          [38, 98.5],
+          // 河西走廊張掖酒泉
+          [40, 94.5],
+          // 敦煌陽關
+          [43, 89],
+          // 高昌吐魯番西州
+          [44, 87.5],
+          // 庭州北庭都護府
+          [42, 83],
+          // 龜茲安西都護府
+          [39.5, 76],
+          // 疏勒喀什
+          [37, 79.5],
+          // 于闐和闐
+          [41, 80],
+          // 碎葉城（托克馬克附近）
+          [45, 95],
+          // 阿爾泰山南麓
+          [48, 105],
+          // 漠北肯特山安北都護府
+          [45, 118],
+          // 呼倫貝爾草原
+          [43.8, 126.5]
+        ]
+      },
+      {
+        id: "tubo_empire",
+        name: "吐蕃帝國（松贊干布後裔·青藏高原霸主）",
+        faction: "nomadic",
+        color: "rgba(139, 92, 246, 0.35)",
+        borderColor: "#8b5cf6",
+        capitalAncient: "邏些（拉薩）",
+        capitalModern: "西藏自治區拉薩市城關區",
+        capitalCoords: [29.65, 91.13],
+        registeredHouseholds: "約 100 萬千戶",
+        registeredPopulation: "約 450 萬 ~ 600 萬人",
+        polygon: [
+          [37, 79.5],
+          // 昆侖山
+          [36, 85],
+          // 阿爾金山南
+          [36.5, 96],
+          // 柴達木盆地
+          [37, 100.5],
+          // 青海湖吐谷渾故地
+          [34.5, 102],
+          // 黃河源九曲
+          [31, 101.5],
+          // 川西高原大雪山
+          [28, 100],
+          // 橫斷山脈
+          [27, 93],
+          // 喜馬拉雅山東麓
+          [28, 86],
+          // 珠穆朗瑪峰南
+          [30.5, 80],
+          // 阿里高原
+          [34, 77],
+          // 拉達克克什米爾邊境
+          [37, 79.5]
+        ]
+      },
+      {
+        id: "nanzhao_kingdom",
+        name: "南詔國（皮邏閣統一六詔，都太和城，西南雄邦）",
+        faction: "nomadic",
+        color: "rgba(234, 88, 12, 0.35)",
+        borderColor: "#ea580c",
+        capitalAncient: "太和城（大理）",
+        capitalModern: "雲南省大理白族自治州大理市",
+        capitalCoords: [25.61, 100.22],
+        registeredHouseholds: "約 45 萬戶",
+        registeredPopulation: "約 250 萬人",
+        polygon: [
+          [27, 99],
+          // 麗江玉龍雪山
+          [26.5, 102.5],
+          // 金沙江沿岸
+          [25, 104],
+          // 滇黔交界盤江
+          [23, 103.5],
+          // 紅河河谷
+          [21.5, 101],
+          // 西雙版納景洪
+          [22.5, 98.5],
+          // 滇緬邊界怒江
+          [25, 98],
+          // 保山騰衝
+          [27, 99]
+        ]
+      },
+      {
+        id: "uyghur_khaganate",
+        name: "回紇汗國（漠北雄霸，助唐平叛，絹馬互市）",
+        faction: "nomadic",
+        color: "rgba(2, 132, 199, 0.35)",
+        borderColor: "#0284c7",
+        capitalAncient: "斡耳朵八里（鄂爾渾河谷）",
+        capitalModern: "蒙古國後杭愛省哈拉和林西北",
+        capitalCoords: [47.45, 102.66],
+        registeredHouseholds: "帳落約 30 萬帳",
+        registeredPopulation: "約 180 萬 ~ 220 萬人",
+        polygon: [
+          [52, 98],
+          // 薩彥嶺北
+          [52.5, 107],
+          // 貝加爾湖東
+          [50, 115],
+          // 克魯倫河流域
+          [45, 116],
+          // 呼倫貝爾西南
+          [43, 110],
+          // 戈壁沙漠北緣
+          [43.5, 100],
+          // 居延澤以北
+          [45, 92],
+          // 阿爾泰山脈東
+          [50, 92],
+          // 唐努烏梁海
+          [52, 98]
+        ]
+      },
+      {
+        id: "taiwan_ancient_tribes",
+        name: "臺灣海島部族（《隋書》稱流求國，南島語族自古生息）",
+        faction: "other",
+        color: "rgba(16, 185, 129, 0.35)",
+        borderColor: "#059669",
+        capitalAncient: "海島聚落部落聯盟（流求）",
+        capitalModern: "臺灣全島（含臺南赤崁、臺北大坌坑、花蓮卑南故地）",
+        capitalCoords: [23.8, 121],
+        registeredHouseholds: "部落聚落數百，數萬戶",
+        registeredPopulation: "推估約 25 萬 ~ 35 萬人",
+        polygon: [
+          [25.3, 121.5],
+          // 富貴角
+          [25, 122],
+          // 三貂角
+          [24, 121.7],
+          // 花蓮沿海
+          [22.8, 121.2],
+          // 臺東卑南海岸
+          [21.9, 120.8],
+          // 鵝鑾鼻
+          [22, 120.7],
+          // 恆春半島
+          [22.6, 120.3],
+          // 高雄旗津
+          [23, 120.1],
+          // 臺南安平赤崁
+          [24, 120.4],
+          // 彰化鹿港海岸
+          [25, 121.3],
+          // 淡水八里大坌坑
+          [25.3, 121.5]
+        ]
+      }
+    ]
+  };
+
   // src/data/periodsRegistry.js
   var HISTORICAL_PERIODS = {
     xiaShangZhou: {
@@ -64465,6 +67401,21 @@
       territories: WEI_JIN_TERRITORIES,
       warlordPeriods: WEI_JIN_WARLORD_PERIODS,
       demographics: WEI_JIN_DEMOGRAPHICS
+    },
+    suiTang: {
+      id: "suiTang",
+      name: "隋唐五代",
+      dateRangeDisplay: "581 - 960 CE",
+      shortEra: "西元 581 — 960 年",
+      fullTitle: "隋唐盛世與五代十國（581 - 960 CE）",
+      badge: "天可汗·盛唐浩歌",
+      description: "開皇之治統一天下、開鑿京杭大運河、貞觀之治天可汗盛世、武周代唐革新、開元盛世萬邦來朝、安史之亂藩鎮割據、元和中興與五代十國巨瀾",
+      events: SUI_TANG_EVENTS,
+      figures: SUI_TANG_FIGURES,
+      battles: SUI_TANG_BATTLES,
+      territories: SUI_TANG_TERRITORIES,
+      warlordPeriods: SUI_TANG_WARLORD_PERIODS,
+      demographics: SUI_TANG_DEMOGRAPHICS
     }
   };
   var PERIOD_OPTIONS = [
@@ -64472,13 +67423,14 @@
     { id: "warringStates", name: "春秋戰國", range: "770 - 221 BCE", count: "58事件·30戰役·90人物" },
     { id: "qinHan", name: "秦漢帝國", range: "206 BCE - 184 CE", count: "20事件·13戰役·47人物" },
     { id: "threeKingdoms", name: "三國鼎立", range: "184 - 280 CE", count: "37事件·28戰役·500人物" },
-    { id: "weiJin", name: "魏晉南北朝", range: "220 - 589 CE", count: "20事件·10戰役·39人物" }
+    { id: "weiJin", name: "魏晉南北朝", range: "220 - 589 CE", count: "20事件·10戰役·39人物" },
+    { id: "suiTang", name: "隋唐五代", range: "581 - 960 CE", count: "25事件·10戰役·47人物" }
   ];
 
   // src/app.js
   var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
   function App() {
-    const [activePeriodId, setActivePeriodId] = (0, import_react11.useState)("weiJin");
+    const [activePeriodId, setActivePeriodId] = (0, import_react11.useState)("suiTang");
     const [activeTab, setActiveTab] = (0, import_react11.useState)("map-timeline");
     const [ancientNamesOnly, setAncientNamesOnly] = (0, import_react11.useState)(false);
     const [searchTerm, setSearchTerm] = (0, import_react11.useState)("");

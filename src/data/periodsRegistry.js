@@ -5,6 +5,7 @@ import * as QinHan from './periods/qinHan/index.js';
 import * as WarringStates from './periods/warringStates/index.js';
 import * as XiaShangZhou from './periods/xiaShangZhou/index.js';
 import * as WeiJin from './periods/weiJin/index.js';
+import * as SuiTang from './periods/suiTang/index.js';
 
 export const HISTORICAL_PERIODS = {
   xiaShangZhou: {
@@ -81,6 +82,21 @@ export const HISTORICAL_PERIODS = {
     territories: WeiJin.WEI_JIN_TERRITORIES,
     warlordPeriods: WeiJin.WEI_JIN_WARLORD_PERIODS,
     demographics: WeiJin.WEI_JIN_DEMOGRAPHICS,
+  },
+  suiTang: {
+    id: 'suiTang',
+    name: '隋唐五代',
+    dateRangeDisplay: '581 - 960 CE',
+    shortEra: '西元 581 — 960 年',
+    fullTitle: '隋唐盛世與五代十國（581 - 960 CE）',
+    badge: '天可汗·盛唐浩歌',
+    description: '開皇之治統一天下、開鑿京杭大運河、貞觀之治天可汗盛世、武周代唐革新、開元盛世萬邦來朝、安史之亂藩鎮割據、元和中興與五代十國巨瀾',
+    events: SuiTang.SUI_TANG_EVENTS,
+    figures: SuiTang.SUI_TANG_FIGURES,
+    battles: SuiTang.SUI_TANG_BATTLES,
+    territories: SuiTang.SUI_TANG_TERRITORIES,
+    warlordPeriods: SuiTang.SUI_TANG_WARLORD_PERIODS,
+    demographics: SuiTang.SUI_TANG_DEMOGRAPHICS,
   }
 };
 
@@ -90,4 +106,5 @@ export const PERIOD_OPTIONS = [
   { id: 'qinHan', name: '秦漢帝國', range: '206 BCE - 184 CE', count: '20事件·13戰役·47人物' },
   { id: 'threeKingdoms', name: '三國鼎立', range: '184 - 280 CE', count: '37事件·28戰役·500人物' },
   { id: 'weiJin', name: '魏晉南北朝', range: '220 - 589 CE', count: '20事件·10戰役·39人物' },
+  { id: 'suiTang', name: '隋唐五代', range: '581 - 960 CE', count: '25事件·10戰役·47人物' },
 ];

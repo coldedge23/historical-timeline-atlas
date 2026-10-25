@@ -27,6 +27,9 @@ export const FiguresView = ({
     if (figures.some((f) => f.faction === 'northern' || f.faction === 'southern' || f.faction === 'sixteen')) {
       return 'weiJin';
     }
+    if (figures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')) {
+      return 'suiTang';
+    }
     if (figures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')) {
       return 'warringStates';
     }
