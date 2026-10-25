@@ -1,0 +1,303 @@
+[
+  {
+    "id": "fig_shunzhi",
+    "name": "順治帝 (福臨)",
+    "faction": "qing",
+    "color": "#b45309",
+    "role": "大清入關第一帝 / 定都北京"
+  },
+  {
+    "id": "fig_duorgon",
+    "name": "多爾袞 (攝政王)",
+    "faction": "qing",
+    "color": "#78350f",
+    "role": "睿親王攝政 / 一統中原經緯"
+  },
+  {
+    "id": "fig_xiaozhuang",
+    "name": "孝莊文皇后",
+    "faction": "qing",
+    "color": "#92400e",
+    "role": "昭聖太皇太后 / 輔佐順治康熙"
+  },
+  {
+    "id": "fig_kangxi",
+    "name": "康熙帝 (玄燁)",
+    "faction": "qing",
+    "color": "#ca8a04",
+    "role": "大清聖祖 / 平三藩復台灣親征噶爾丹"
+  },
+  {
+    "id": "fig_aobai",
+    "name": "鰲拜",
+    "faction": "qing",
+    "color": "#713f12",
+    "role": "滿洲第一勇士 / 輔政大臣"
+  },
+  {
+    "id": "fig_suoetu",
+    "name": "索額圖",
+    "faction": "qing",
+    "color": "#854d0e",
+    "role": "保和殿大學士 / 簽訂尼布楚條約"
+  },
+  {
+    "id": "fig_zheng_chenggong",
+    "name": "鄭成功 (國姓爺)",
+    "faction": "ming",
+    "color": "#dc2626",
+    "role": "延平郡王 / 驅逐荷蘭收復台灣"
+  },
+  {
+    "id": "fig_shi_lang",
+    "name": "施琅 (靖海侯)",
+    "faction": "qing",
+    "color": "#ea580c",
+    "role": "水師提督 / 澎湖海戰平台設府"
+  },
+  {
+    "id": "fig_galdan",
+    "name": "噶爾丹",
+    "faction": "zhun",
+    "color": "#be185d",
+    "role": "準噶爾琿台吉 / 稱雄西北草原"
+  },
+  {
+    "id": "fig_yongzheng",
+    "name": "雍正帝 (胤禛)",
+    "faction": "qing",
+    "color": "#d97706",
+    "role": "大清世宗 / 攤丁入畝火耗歸公改土歸流"
+  },
+  {
+    "id": "fig_nian_gengyao",
+    "name": "年羹堯",
+    "faction": "qing",
+    "color": "#9a3412",
+    "role": "撫遠大將軍 / 平定青海羅卜藏丹津"
+  },
+  {
+    "id": "fig_tian_wenjing",
+    "name": "田文鏡",
+    "faction": "qing",
+    "color": "#854d0e",
+    "role": "河南山東總督 / 雍正朝整飭吏治楷模"
+  },
+  {
+    "id": "fig_qianlong",
+    "name": "乾隆帝 (弘曆)",
+    "faction": "qing",
+    "color": "#eab308",
+    "role": "大清高宗 / 十全武功修四庫全書"
+  },
+  {
+    "id": "fig_heshen",
+    "name": "和珅",
+    "faction": "qing",
+    "color": "#78350f",
+    "role": "文華殿大學士 / 乾隆朝首輔權臣"
+  },
+  {
+    "id": "fig_ji_xiaolan",
+    "name": "紀曉嵐 (紀昀)",
+    "faction": "qing",
+    "color": "#059669",
+    "role": "四庫全書總纂官 / 閱微草堂筆記"
+  },
+  {
+    "id": "fig_cao_xueqin",
+    "name": "曹雪芹",
+    "faction": "cultural",
+    "color": "#7c3aed",
+    "role": "紅學鼻祖 / 中國古典小說巔峰紅樓夢"
+  },
+  {
+    "id": "fig_jiaqing",
+    "name": "嘉慶帝 (顒琰)",
+    "faction": "qing",
+    "color": "#ca8a04",
+    "role": "大清仁宗 / 懲辦和珅平定白蓮教"
+  },
+  {
+    "id": "fig_daoguang",
+    "name": "道光帝 (旻寧)",
+    "faction": "qing",
+    "color": "#b45309",
+    "role": "大清宣宗 / 恭儉治國鴉片戰爭"
+  },
+  {
+    "id": "fig_lin_zexu",
+    "name": "林則徐",
+    "faction": "qing",
+    "color": "#dc2626",
+    "role": "欽差大臣 / 虎門銷煙開眼看世界"
+  },
+  {
+    "id": "fig_guan_tianpei",
+    "name": "關天培",
+    "faction": "qing",
+    "color": "#991b1b",
+    "role": "廣東水師提督 / 虎門抗英戰死沙場"
+  },
+  {
+    "id": "fig_xianfeng",
+    "name": "咸豐帝 (奕詝)",
+    "faction": "qing",
+    "color": "#9a3412",
+    "role": "大清文宗 / 英法聯軍火燒圓明園"
+  },
+  {
+    "id": "fig_cixi",
+    "name": "慈禧太后",
+    "faction": "qing",
+    "color": "#7f1d1d",
+    "role": "垂簾聽政四十八年 / 掌控晚清大局"
+  },
+  {
+    "id": "fig_hong_xiuquan",
+    "name": "洪秀全",
+    "faction": "taiping",
+    "color": "#e11d48",
+    "role": "天王 / 太平天國拜上帝會開創者"
+  },
+  {
+    "id": "fig_yang_xiuqing",
+    "name": "楊秀清",
+    "faction": "taiping",
+    "color": "#be123c",
+    "role": "東王九千歲 / 統理天國軍政天京事變"
+  },
+  {
+    "id": "fig_shi_dakai",
+    "name": "石達開",
+    "faction": "taiping",
+    "color": "#9f1239",
+    "role": "翼王五千歲 / 大渡河慷慨就義"
+  },
+  {
+    "id": "fig_zeng_guofan",
+    "name": "曾國藩",
+    "faction": "qing",
+    "color": "#ea580c",
+    "role": "兩江總督 / 湘軍統帥理學大師洋務開創"
+  },
+  {
+    "id": "fig_zuo_zongtang",
+    "name": "左宗棠",
+    "faction": "qing",
+    "color": "#c2410c",
+    "role": "陝甘總督 / 楚軍西征收復新疆塞防第一"
+  },
+  {
+    "id": "fig_li_hongzhang",
+    "name": "李鴻章",
+    "faction": "qing",
+    "color": "#b45309",
+    "role": "北洋通商大臣 / 淮軍領袖洋務中興"
+  },
+  {
+    "id": "fig_zhang_zhidong",
+    "name": "張之洞",
+    "faction": "qing",
+    "color": "#ca8a04",
+    "role": "湖廣總督 / 中體西用創漢陽鐵廠"
+  },
+  {
+    "id": "fig_liu_mingchuan",
+    "name": "劉銘傳",
+    "faction": "qing",
+    "color": "#dc2626",
+    "role": "台灣首任巡撫 / 基隆滬尾抗法興建鐵路"
+  },
+  {
+    "id": "fig_deng_shichang",
+    "name": "鄧世昌",
+    "faction": "qing",
+    "color": "#991b1b",
+    "role": "致遠艦管帶 / 黃海血戰撞擊吉野號殉國"
+  },
+  {
+    "id": "fig_ding_ruchang",
+    "name": "丁汝昌",
+    "faction": "qing",
+    "color": "#7f1d1d",
+    "role": "北洋水師提督 / 威海衛保衛戰服毒殉國"
+  },
+  {
+    "id": "fig_guangxu",
+    "name": "光緒帝 (載湉)",
+    "faction": "qing",
+    "color": "#f59e0b",
+    "role": "大清德宗 / 百日維新銳意改革"
+  },
+  {
+    "id": "fig_kang_youwei",
+    "name": "康有為",
+    "faction": "reform",
+    "color": "#0284c7",
+    "role": "維新領袖 / 公車上書百日變法"
+  },
+  {
+    "id": "fig_liang_qichao",
+    "name": "梁啟超",
+    "faction": "reform",
+    "color": "#0369a1",
+    "role": "思想巨擘 / 少年中國說新民體"
+  },
+  {
+    "id": "fig_tan_sitong",
+    "name": "譚嗣同",
+    "faction": "reform",
+    "color": "#dc2626",
+    "role": "戊戌六君子 / 我自橫刀向天笑"
+  },
+  {
+    "id": "fig_yan_fu",
+    "name": "嚴復",
+    "faction": "reform",
+    "color": "#059669",
+    "role": "啟蒙思想家 / 翻譯天演論物競天擇"
+  },
+  {
+    "id": "fig_sun_yat_sen",
+    "name": "孫中山 (孫文)",
+    "faction": "republic",
+    "color": "#2563eb",
+    "role": "中華民國國父 / 驅除韃虜創立民國"
+  },
+  {
+    "id": "fig_huang_xing",
+    "name": "黃興 (克強)",
+    "faction": "republic",
+    "color": "#1d4ed8",
+    "role": "同盟會元勳 / 黃花崗與武昌起義柱石"
+  },
+  {
+    "id": "fig_qiu_jin",
+    "name": "秋瑾 (鑑湖女俠)",
+    "faction": "republic",
+    "color": "#be185d",
+    "role": "辛亥女烈士 / 秋風秋雨愁煞人"
+  },
+  {
+    "id": "fig_yuan_shikai",
+    "name": "袁世凱",
+    "faction": "republic",
+    "color": "#475569",
+    "role": "北洋之父 / 促成清帝退位首任大總統"
+  },
+  {
+    "id": "fig_li_yuanhong",
+    "name": "黎元洪",
+    "faction": "republic",
+    "color": "#334155",
+    "role": "鄂軍都督 / 武昌起義大都督"
+  },
+  {
+    "id": "fig_puyi",
+    "name": "溥儀 (宣統帝)",
+    "faction": "qing",
+    "color": "#78350f",
+    "role": "中國末代皇帝 / 1912清帝遜位終結帝制"
+  }
+]

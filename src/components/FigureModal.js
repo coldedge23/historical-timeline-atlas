@@ -28,6 +28,10 @@ export const FigureModal = ({
       ? 'suiTang'
       : allFigures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')
       ? 'songLiao'
+      : allFigures.some((f) => f.faction === 'taiping' || f.faction === 'republic' || f.faction === 'reform')
+      ? 'qingDynasty'
+      : allFigures.some((f) => f.faction === 'yuan' || f.faction === 'maritime' || f.faction === 'peasant')
+      ? 'yuanMing'
       : allFigures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')
       ? 'warringStates'
       : allFigures.some((f) => f.faction === 'shu' || f.faction === 'wu')

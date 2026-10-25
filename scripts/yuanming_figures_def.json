@@ -1,0 +1,310 @@
+[
+  {
+    "id": "fig_kublai_khan",
+    "name": "忽必烈",
+    "faction": "yuan",
+    "color": "#dc2626",
+    "role": "大元世祖 / 創立大都行省"
+  },
+  {
+    "id": "fig_chahan_tiemu",
+    "name": "察罕帖木兒",
+    "faction": "yuan",
+    "color": "#991b1b",
+    "role": "元末中興名將 / 討平紅巾"
+  },
+  {
+    "id": "fig_wang_baobao",
+    "name": "王保保 (擴廓帖木兒)",
+    "faction": "yuan",
+    "color": "#b91c1c",
+    "role": "北元柱石 / 嶺北破徐達"
+  },
+  {
+    "id": "fig_tuotuo",
+    "name": "脫脫",
+    "faction": "yuan",
+    "color": "#991b1b",
+    "role": "大元右丞相 / 修三史平黃河"
+  },
+  {
+    "id": "fig_guo_shoujing",
+    "name": "郭守敬",
+    "faction": "yuan",
+    "color": "#059669",
+    "role": "天文水利巨匠 / 授時曆大運河"
+  },
+  {
+    "id": "fig_zhao_mengfu",
+    "name": "趙孟頫",
+    "faction": "yuan",
+    "color": "#047857",
+    "role": "元代書畫領袖 / 楷書四大家"
+  },
+  {
+    "id": "fig_guan_hanqing",
+    "name": "關漢卿",
+    "faction": "yuan",
+    "color": "#0d9488",
+    "role": "元曲四大家之首 / 竇娥冤"
+  },
+  {
+    "id": "fig_zhu_yuanzhang",
+    "name": "朱元璋",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "大明太祖洪武帝 / 驅逐胡虜恢復中華"
+  },
+  {
+    "id": "fig_ma_huanghou",
+    "name": "大腳馬皇后",
+    "faction": "ming",
+    "color": "#c2410c",
+    "role": "大明開國慈后 / 仁德佐天子"
+  },
+  {
+    "id": "fig_zhu_biao",
+    "name": "朱標",
+    "faction": "ming",
+    "color": "#f97316",
+    "role": "大明懿文太子 / 仁厚篤禮"
+  },
+  {
+    "id": "fig_liu_bowen",
+    "name": "劉伯溫 (劉基)",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "開國國師 / 渡江策三分天下"
+  },
+  {
+    "id": "fig_li_shan_chang",
+    "name": "李善長",
+    "faction": "ming",
+    "color": "#c2410c",
+    "role": "大明開國第一功臣 / 韓國公"
+  },
+  {
+    "id": "fig_xu_da",
+    "name": "徐達",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "大明萬里長城 / 中山王大破元都"
+  },
+  {
+    "id": "fig_chang_yuchun",
+    "name": "常遇春",
+    "faction": "ming",
+    "color": "#c2410c",
+    "role": "常十萬 / 開平王勇冠諸軍"
+  },
+  {
+    "id": "fig_tang_he",
+    "name": "湯和",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "信國公 / 築海防禦倭保境"
+  },
+  {
+    "id": "fig_lan_yu",
+    "name": "藍玉",
+    "faction": "ming",
+    "color": "#c2410c",
+    "role": "涼國公 / 捕魚兒海覆北元"
+  },
+  {
+    "id": "fig_zhu_di",
+    "name": "朱棣 (永樂帝)",
+    "faction": "ming",
+    "color": "#b45309",
+    "role": "大明成祖永樂帝 / 遷都北京親征漠北"
+  },
+  {
+    "id": "fig_yao_guangxiao",
+    "name": "姚廣孝 (道衍)",
+    "faction": "ming",
+    "color": "#78350f",
+    "role": "黑衣宰相 / 靖難第一謀士"
+  },
+  {
+    "id": "fig_fang_xiaoru",
+    "name": "方孝孺",
+    "faction": "ming",
+    "color": "#dc2626",
+    "role": "明初天下讀書種子 / 十族不屈"
+  },
+  {
+    "id": "fig_zheng_he",
+    "name": "鄭和",
+    "faction": "ming",
+    "color": "#0284c7",
+    "role": "三寶太監 / 七下西洋播威萬里"
+  },
+  {
+    "id": "fig_xie_jin",
+    "name": "解縉",
+    "faction": "ming",
+    "color": "#0369a1",
+    "role": "內閣首輔 / 主纂永樂大典"
+  },
+  {
+    "id": "fig_yu_qian",
+    "name": "于謙",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "兵部尚書 / 土木之變挽狂瀾"
+  },
+  {
+    "id": "fig_wang_yangming",
+    "name": "王陽明 (王守仁)",
+    "faction": "ming",
+    "color": "#16a34a",
+    "role": "心學大宗師 / 知行合一平宸濠"
+  },
+  {
+    "id": "fig_zhang_juzheng",
+    "name": "張居正",
+    "faction": "ming",
+    "color": "#ca8a04",
+    "role": "萬曆首輔 / 萬曆新政一條鞭法"
+  },
+  {
+    "id": "fig_hai_rui",
+    "name": "海瑞",
+    "faction": "ming",
+    "color": "#15803d",
+    "role": "海青天 / 直言敢諫剛正不阿"
+  },
+  {
+    "id": "fig_qi_jiguang",
+    "name": "戚繼光",
+    "faction": "ming",
+    "color": "#dc2626",
+    "role": "薊遼保定總兵 / 鴛鴦陣蕩平倭寇"
+  },
+  {
+    "id": "fig_yu_dayou",
+    "name": "俞大猷",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "抗倭名將 / 俞家棍精通兵法"
+  },
+  {
+    "id": "fig_li_rusong",
+    "name": "李如松",
+    "faction": "ming",
+    "color": "#c2410c",
+    "role": "薊遼提督 / 萬曆援朝平壤大捷"
+  },
+  {
+    "id": "fig_li_shizhen",
+    "name": "李時珍",
+    "faction": "ming",
+    "color": "#059669",
+    "role": "藥聖 / 歷三十載編撰本草綱目"
+  },
+  {
+    "id": "fig_xu_xiake",
+    "name": "徐霞客",
+    "faction": "ming",
+    "color": "#0d9488",
+    "role": "千古奇人 / 徒步踏遍華夏山川"
+  },
+  {
+    "id": "fig_song_yingxing",
+    "name": "宋應星",
+    "faction": "ming",
+    "color": "#047857",
+    "role": "工藝巨匠 / 天工開物科技之光"
+  },
+  {
+    "id": "fig_tang_bohu",
+    "name": "唐伯虎 (唐寅)",
+    "faction": "ming",
+    "color": "#7c3aed",
+    "role": "江南第一才子 / 吳門畫派"
+  },
+  {
+    "id": "fig_yuan_chonghuan",
+    "name": "袁崇煥",
+    "faction": "ming",
+    "color": "#ea580c",
+    "role": "薊遼督師 / 寧遠寧錦大捷"
+  },
+  {
+    "id": "fig_sun_chengzong",
+    "name": "孫承宗",
+    "faction": "ming",
+    "color": "#c2410c",
+    "role": "帝師督師 / 築關寧錦防線"
+  },
+  {
+    "id": "fig_lu_xiangsheng",
+    "name": "盧象昇",
+    "faction": "ming",
+    "color": "#dc2626",
+    "role": "天雄軍統帥 / 賈莊力竭殉國"
+  },
+  {
+    "id": "fig_sun_chuanting",
+    "name": "孫傳庭",
+    "faction": "ming",
+    "color": "#b91c1c",
+    "role": "陝西總督 / 潼關破闖王"
+  },
+  {
+    "id": "fig_qin_liangyu",
+    "name": "秦良玉",
+    "faction": "ming",
+    "color": "#be185d",
+    "role": "女元帥 / 白桿兵勤王征戰"
+  },
+  {
+    "id": "fig_chongzhen",
+    "name": "崇禎帝 (朱由檢)",
+    "faction": "ming",
+    "color": "#7f1d1d",
+    "role": "大明思宗烈皇帝 / 煤山自縊殉國"
+  },
+  {
+    "id": "fig_li_zicheng",
+    "name": "李自成",
+    "faction": "peasant",
+    "color": "#f59e0b",
+    "role": "闖王 / 均田免賦攻入北京"
+  },
+  {
+    "id": "fig_zhang_xianzhong",
+    "name": "張獻忠",
+    "faction": "peasant",
+    "color": "#d97706",
+    "role": "八大王 / 大西政權建立者"
+  },
+  {
+    "id": "fig_zheng_zhilong",
+    "name": "鄭芝龍",
+    "faction": "maritime",
+    "color": "#0284c7",
+    "role": "海上梟雄 / 開拓台灣笨港"
+  },
+  {
+    "id": "fig_nurhaci",
+    "name": "努爾哈赤",
+    "faction": "jin",
+    "color": "#ca8a04",
+    "role": "後金天命汗 / 八旗制度薩爾滸大捷"
+  },
+  {
+    "id": "fig_hong_taiji",
+    "name": "皇太極",
+    "faction": "jin",
+    "color": "#a16207",
+    "role": "清太宗崇德帝 / 改國號大清"
+  },
+  {
+    "id": "fig_wu_sangui",
+    "name": "吳三桂",
+    "faction": "qing",
+    "color": "#475569",
+    "role": "平西王 / 一片石開關引清兵"
+  }
+]

@@ -33,6 +33,12 @@ export const FiguresView = ({
     if (figures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')) {
       return 'songLiao';
     }
+    if (figures.some((f) => f.faction === 'taiping' || f.faction === 'republic' || f.faction === 'reform')) {
+      return 'qingDynasty';
+    }
+    if (figures.some((f) => f.faction === 'yuan' || f.faction === 'maritime' || f.faction === 'peasant')) {
+      return 'yuanMing';
+    }
     if (figures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')) {
       return 'warringStates';
     }

@@ -341,6 +341,110 @@ export const FACTION_CONFIGS = {
         stroke: '#71717a',
       },
     }
+  },
+  yuanMing: {
+    order: ['ming', 'yuan', 'peasant', 'jin', 'maritime', 'cultural', 'other'],
+    labels: {
+      ming: '大明王朝',
+      yuan: '大元/北元',
+      peasant: '農民起義/大順大西',
+      jin: '後金女真',
+      maritime: '海商/開台鄭氏',
+      cultural: '科技/文豪/名醫',
+      other: '邊疆/列國/其他',
+    },
+    styles: {
+      ming: {
+        card: 'border-amber-600/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-200 border-amber-500/50',
+        stroke: '#d97706',
+      },
+      yuan: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      peasant: {
+        card: 'border-orange-600/50 hover:border-orange-400',
+        badge: 'bg-orange-950/70 text-orange-200 border-orange-500/50',
+        stroke: '#f97316',
+      },
+      jin: {
+        card: 'border-yellow-600/50 hover:border-yellow-400',
+        badge: 'bg-yellow-950/70 text-yellow-200 border-yellow-500/50',
+        stroke: '#ca8a04',
+      },
+      maritime: {
+        card: 'border-cyan-600/50 hover:border-cyan-400',
+        badge: 'bg-cyan-950/70 text-cyan-200 border-cyan-500/50',
+        stroke: '#06b6d4',
+      },
+      cultural: {
+        card: 'border-emerald-600/50 hover:border-emerald-400',
+        badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
+        stroke: '#10b981',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
+  },
+  qingDynasty: {
+    order: ['qing', 'ming', 'taiping', 'zhun', 'reform', 'republic', 'cultural', 'other'],
+    labels: {
+      qing: '大清帝國',
+      ming: '明鄭/反清復明',
+      taiping: '太平天國',
+      zhun: '準噶爾汗國',
+      reform: '維新變法派',
+      republic: '辛亥革命/民國',
+      cultural: '文人學者',
+      other: '列強/邊疆/其他',
+    },
+    styles: {
+      qing: {
+        card: 'border-yellow-600/50 hover:border-yellow-400',
+        badge: 'bg-yellow-950/70 text-yellow-200 border-yellow-500/50',
+        stroke: '#eab308',
+      },
+      ming: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      taiping: {
+        card: 'border-rose-600/50 hover:border-rose-400',
+        badge: 'bg-rose-950/70 text-rose-200 border-rose-500/50',
+        stroke: '#e11d48',
+      },
+      zhun: {
+        card: 'border-purple-600/50 hover:border-purple-400',
+        badge: 'bg-purple-950/70 text-purple-200 border-purple-500/50',
+        stroke: '#a855f7',
+      },
+      reform: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      republic: {
+        card: 'border-blue-600/50 hover:border-blue-400',
+        badge: 'bg-blue-950/70 text-blue-200 border-blue-500/50',
+        stroke: '#2563eb',
+      },
+      cultural: {
+        card: 'border-emerald-600/50 hover:border-emerald-400',
+        badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
+        stroke: '#10b981',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
   }
 };
 

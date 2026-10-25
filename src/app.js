@@ -11,7 +11,7 @@ import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import { HISTORICAL_PERIODS, PERIOD_OPTIONS } from './data/periodsRegistry.js';
 
 export function App() {
-  const [activePeriodId, setActivePeriodId] = useState('songLiao'); // Stage 6: Song, Liao, Jin, and Western Xia
+  const [activePeriodId, setActivePeriodId] = useState('yuanMing'); // Stage 7 & 8: Yuan-Ming & Qing Dynasty
   const [activeTab, setActiveTab] = useState('map-timeline');
   const [ancientNamesOnly, setAncientNamesOnly] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');

@@ -1,0 +1,48 @@
+const fs = require('fs');
+const path = require('path');
+
+const dir = path.resolve(__dirname, '..', 'src', 'data', 'periods', 'qingDynasty');
+if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+// 1. Demographics
+const demographics = {
+  periodId: 'qingDynasty',
+  title: '大清帝國人口爆炸與疆域族群融合',
+  summary: '康熙「滋生人丁，永不加賦」與雍正「攤丁入畝」破除人頭稅，引進番薯玉米，使中國人口由一億狂飆突破四億大關；台灣設府建省，多民族國家疆域奠定。',
+  peakPopulation: '約 43,200 萬 (宣統三年 1911 CE / 道光年間首度破四億)',
+  censusData: [
+    { year: 1651, yearDisplay: '西元 1651 年 (順治八年)', total: '約 10,630,000 (人丁)', households: '約 800 萬', note: '明末清初戰亂瘟疫，人口大幅折損' },
+    { year: 1711, yearDisplay: '西元 1711 年 (康熙五十年)', total: '24,621,324 (丁銀)', households: '約 1,800 萬', note: '康熙頒布「盛世滋生人丁，永不加賦」，奠定人口爆發制度基礎' },
+    { year: 1741, yearDisplay: '西元 1741 年 (乾隆六年)', total: '143,411,559', households: '約 3,000 萬', note: '清代首次實行戶口按人頭普查，人口正式突破一億大關' },
+    { year: 1794, yearDisplay: '西元 1794 年 (乾隆五十九年)', total: '313,281,755', households: '約 6,500 萬', note: '乾隆晚年人口歷史性突破三億大關' },
+    { year: 1835, yearDisplay: '西元 1835 年 (道光十五年)', total: '401,008,574', households: '約 8,200 萬', note: '中國歷史上人口首度突破四億大關，佔當時全球人口三分之一' },
+    { year: 1911, yearDisplay: '西元 1911 年 (宣統三年)', total: '432,000,000', households: '約 8,900 萬', note: '清帝遜位前夕人口統計' }
+  ],
+  ethnicGroups: [
+    { name: '漢民族 (農耕與市井主幹)', proportion: '91%', region: '內地十八省與東北移民、台灣全島開發', traits: '科舉文治、商幫崛起（晉商、徽商）、海外華僑移居東南亞與美洲' },
+    { name: '滿洲八旗 (統治核心與軍事支柱)', proportion: '2%', region: '京師八旗、盛京盛京將軍轄地、各地駐防城', traits: '八旗制度、騎射尚武、滿漢全席、滿漢雙語公文' },
+    { name: '蒙古八旗與各部盟旗 (北方邊疆盟友)', proportion: '2.5%', region: '漠南蒙古、漠北喀爾喀蒙古、漠西厄魯特蒙古', traits: '盟旗制度、聯姻封爵、藏傳佛教黃教信仰' },
+    { name: '回藏與西域諸族 (大西北與雪域)', proportion: '3%', region: '新疆天山南北、青海、西藏烏斯藏', traits: '伯克制、金瓶掣籤定達賴班禪、設駐藏大臣與伊犁將軍' },
+    { name: '苗瑤僮壯西南少數族群', proportion: '1%', region: '西南雲貴川湘鄂桂山區', traits: '改土歸流、設府置縣、平定苗疆' },
+    { name: '台灣原住民族與開墾漢民群體', proportion: '0.5%', region: '台灣本島（熟番平埔族、生番高山族與閩客移民）', traits: '開山撫番、設台灣府改台灣省、劉銘傳新政與鐵路海防建設' }
+  ]
+};
+
+// 2. Territories
+const territories = {
+  qingPeak: {
+    year: '西元 1760 年 (乾隆二十五年極盛)',
+    name: '大清帝國極盛版圖 (1316 萬平方公里)',
+    description: '東臨太平洋、台灣府及釣魚台列嶼，東北至外興安嶺與庫頁島，北至薩彥嶺接貝加爾湖，西北達巴爾喀什湖與帕米爾高原，西南跨喜馬拉雅山脈，南控南海諸島，版圖形如秋海棠葉。'
+  },
+  modernBoundary: {
+    year: '西元 1911 年 (清末宣統年間)',
+    name: '大清帝國晚期邊疆與租借地',
+    description: '經歷《璦琿條約》、《北京條約》、《馬關條約》等不平等條約，東北外東北與庫頁島割讓俄國，台灣及澎湖割讓日本，列強劃分勢力範圍。'
+  }
+};
+
+fs.writeFileSync(path.join(dir, 'demographics.js'), 'export const QING_DYNASTY_DEMOGRAPHICS = ' + JSON.stringify(demographics, null, 2) + ';\n', 'utf8');
+fs.writeFileSync(path.join(dir, 'territories.js'), 'export const QING_DYNASTY_TERRITORIES = ' + JSON.stringify(territories, null, 2) + ';\n', 'utf8');
+
+console.log('Created Qing demographics.js & territories.js');

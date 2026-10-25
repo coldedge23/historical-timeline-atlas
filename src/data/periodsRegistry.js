@@ -7,6 +7,8 @@ import * as XiaShangZhou from './periods/xiaShangZhou/index.js';
 import * as WeiJin from './periods/weiJin/index.js';
 import * as SuiTang from './periods/suiTang/index.js';
 import * as SongLiao from './periods/songLiao/index.js';
+import * as YuanMing from './periods/yuanMing/index.js';
+import * as QingDynasty from './periods/qingDynasty/index.js';
 
 export const HISTORICAL_PERIODS = {
   xiaShangZhou: {
@@ -113,6 +115,36 @@ export const HISTORICAL_PERIODS = {
     territories: SongLiao.SONG_LIAO_TERRITORIES,
     warlordPeriods: SongLiao.SONG_LIAO_WARLORD_PERIODS,
     demographics: SongLiao.SONG_LIAO_DEMOGRAPHICS,
+  },
+  yuanMing: {
+    id: 'yuanMing',
+    name: '元明帝國',
+    dateRangeDisplay: '1271 - 1644 CE',
+    shortEra: '西元 1271 — 1644 年',
+    fullTitle: '元明帝國與大航海時代（1271 - 1644 CE）',
+    badge: '行省混一·日月光華',
+    description: '大元大都定都立行省、設澎湖巡檢司管轄澎台、郭守敬授時曆、紅巾起義、朱元璋洪武開國、徐達北伐驅逐元廷、永樂遷都紫禁城、鄭和七下西洋、土木堡之變于謙保京師、王陽明心學、戚繼光抗倭、萬曆援朝逐倭、顏思齊鄭芝龍開闢台灣笨港、薩爾滸之戰至崇禎煤山殉國',
+    events: YuanMing.YUAN_MING_EVENTS,
+    figures: YuanMing.YUAN_MING_FIGURES,
+    battles: YuanMing.YUAN_MING_BATTLES,
+    territories: YuanMing.YUAN_MING_TERRITORIES,
+    warlordPeriods: YuanMing.YUAN_MING_WARLORD_PERIODS,
+    demographics: YuanMing.YUAN_MING_DEMOGRAPHICS,
+  },
+  qingDynasty: {
+    id: 'qingDynasty',
+    name: '大清帝國',
+    dateRangeDisplay: '1644 - 1912 CE',
+    shortEra: '西元 1644 — 1912 年',
+    fullTitle: '大清帝國與近代天翻地覆（1644 - 1912 CE）',
+    badge: '秋海棠葉·共和肇建',
+    description: '順治入關定都北京、揚州十日、鄭成功驅荷光復台灣建立東寧、平定三藩、施琅平台設台灣府、尼布楚條約定北疆、康雍乾盛世、改土歸流、平定準噶爾收復新疆、林則徐虎門銷煙、鴉片戰爭南京條約、太平天國定都天京、洋務運動、左宗棠抬棺收復新疆、劉銘傳中法保台與台灣建省、甲午海戰割讓台灣、乙未抗日保台、戊戌變法、八國聯軍辛丑條約、辛亥武昌起義至清帝退位共和肇建',
+    events: QingDynasty.QING_DYNASTY_EVENTS,
+    figures: QingDynasty.QING_DYNASTY_FIGURES,
+    battles: QingDynasty.QING_DYNASTY_BATTLES,
+    territories: QingDynasty.QING_DYNASTY_TERRITORIES,
+    warlordPeriods: QingDynasty.QING_DYNASTY_WARLORD_PERIODS,
+    demographics: QingDynasty.QING_DYNASTY_DEMOGRAPHICS,
   }
 };
 
@@ -124,4 +156,6 @@ export const PERIOD_OPTIONS = [
   { id: 'weiJin', name: '魏晉南北朝', range: '220 - 589 CE', count: '20事件·10戰役·39人物' },
   { id: 'suiTang', name: '隋唐五代', range: '581 - 960 CE', count: '25事件·30戰役·95人物' },
   { id: 'songLiao', name: '宋遼金夏', range: '960 - 1279 CE', count: '26事件·14戰役·44人物' },
+  { id: 'yuanMing', name: '元明帝國', range: '1271 - 1644 CE', count: '23事件·13戰役·44人物' },
+  { id: 'qingDynasty', name: '大清帝國', range: '1644 - 1912 CE', count: '26事件·13戰役·41人物' },
 ];

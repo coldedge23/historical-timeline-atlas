@@ -14856,7 +14856,7 @@
                       onChange: (e) => onSelectPeriodId(e.target.value),
                       className: "text-xs px-2.5 py-1 rounded-lg bg-[#1f1a14] border border-amber-500/50 text-amber-300 font-bold focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer shadow-sm",
                       children: periodOptions.map((opt) => {
-                        const icon = opt.id === "xiaShangZhou" ? "🏺 " : opt.id === "warringStates" ? "🏹 " : opt.id === "qinHan" ? "🏛️ " : opt.id === "threeKingdoms" ? "⚔️ " : opt.id === "weiJin" ? "👑 " : opt.id === "suiTang" ? "🐎 " : opt.id === "songLiao" ? "🏮 " : "📜 ";
+                        const icon = opt.id === "xiaShangZhou" ? "🏺 " : opt.id === "warringStates" ? "🏹 " : opt.id === "qinHan" ? "🏛️ " : opt.id === "threeKingdoms" ? "⚔️ " : opt.id === "weiJin" ? "👑 " : opt.id === "suiTang" ? "🐎 " : opt.id === "songLiao" ? "🏮 " : opt.id === "yuanMing" ? "⛵ " : opt.id === "qingDynasty" ? "🐉 " : "📜 ";
                         return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("option", { value: opt.id, children: [
                           icon,
                           opt.name,
@@ -16571,6 +16571,110 @@
           stroke: "#71717a"
         }
       }
+    },
+    yuanMing: {
+      order: ["ming", "yuan", "peasant", "jin", "maritime", "cultural", "other"],
+      labels: {
+        ming: "大明王朝",
+        yuan: "大元/北元",
+        peasant: "農民起義/大順大西",
+        jin: "後金女真",
+        maritime: "海商/開台鄭氏",
+        cultural: "科技/文豪/名醫",
+        other: "邊疆/列國/其他"
+      },
+      styles: {
+        ming: {
+          card: "border-amber-600/50 hover:border-amber-400",
+          badge: "bg-amber-950/70 text-amber-200 border-amber-500/50",
+          stroke: "#d97706"
+        },
+        yuan: {
+          card: "border-sky-600/50 hover:border-sky-400",
+          badge: "bg-sky-950/70 text-sky-200 border-sky-500/50",
+          stroke: "#0284c7"
+        },
+        peasant: {
+          card: "border-orange-600/50 hover:border-orange-400",
+          badge: "bg-orange-950/70 text-orange-200 border-orange-500/50",
+          stroke: "#f97316"
+        },
+        jin: {
+          card: "border-yellow-600/50 hover:border-yellow-400",
+          badge: "bg-yellow-950/70 text-yellow-200 border-yellow-500/50",
+          stroke: "#ca8a04"
+        },
+        maritime: {
+          card: "border-cyan-600/50 hover:border-cyan-400",
+          badge: "bg-cyan-950/70 text-cyan-200 border-cyan-500/50",
+          stroke: "#06b6d4"
+        },
+        cultural: {
+          card: "border-emerald-600/50 hover:border-emerald-400",
+          badge: "bg-emerald-950/70 text-emerald-200 border-emerald-500/50",
+          stroke: "#10b981"
+        },
+        other: {
+          card: "border-zinc-600/50 hover:border-zinc-400",
+          badge: "bg-zinc-900/80 text-zinc-300 border-zinc-600/50",
+          stroke: "#71717a"
+        }
+      }
+    },
+    qingDynasty: {
+      order: ["qing", "ming", "taiping", "zhun", "reform", "republic", "cultural", "other"],
+      labels: {
+        qing: "大清帝國",
+        ming: "明鄭/反清復明",
+        taiping: "太平天國",
+        zhun: "準噶爾汗國",
+        reform: "維新變法派",
+        republic: "辛亥革命/民國",
+        cultural: "文人學者",
+        other: "列強/邊疆/其他"
+      },
+      styles: {
+        qing: {
+          card: "border-yellow-600/50 hover:border-yellow-400",
+          badge: "bg-yellow-950/70 text-yellow-200 border-yellow-500/50",
+          stroke: "#eab308"
+        },
+        ming: {
+          card: "border-red-600/50 hover:border-red-400",
+          badge: "bg-red-950/70 text-red-200 border-red-500/50",
+          stroke: "#ef4444"
+        },
+        taiping: {
+          card: "border-rose-600/50 hover:border-rose-400",
+          badge: "bg-rose-950/70 text-rose-200 border-rose-500/50",
+          stroke: "#e11d48"
+        },
+        zhun: {
+          card: "border-purple-600/50 hover:border-purple-400",
+          badge: "bg-purple-950/70 text-purple-200 border-purple-500/50",
+          stroke: "#a855f7"
+        },
+        reform: {
+          card: "border-sky-600/50 hover:border-sky-400",
+          badge: "bg-sky-950/70 text-sky-200 border-sky-500/50",
+          stroke: "#0284c7"
+        },
+        republic: {
+          card: "border-blue-600/50 hover:border-blue-400",
+          badge: "bg-blue-950/70 text-blue-200 border-blue-500/50",
+          stroke: "#2563eb"
+        },
+        cultural: {
+          card: "border-emerald-600/50 hover:border-emerald-400",
+          badge: "bg-emerald-950/70 text-emerald-200 border-emerald-500/50",
+          stroke: "#10b981"
+        },
+        other: {
+          card: "border-zinc-600/50 hover:border-zinc-400",
+          badge: "bg-zinc-900/80 text-zinc-300 border-zinc-600/50",
+          stroke: "#71717a"
+        }
+      }
     }
   };
   function getFactionMeta(factionId, periodId = "threeKingdoms") {
@@ -16935,7 +17039,7 @@
   }) => {
     const [showStarGraph, setShowStarGraph] = (0, import_react5.useState)(true);
     if (!figure) return null;
-    const effectivePeriodId = activePeriodId || (allFigures.some((f) => f.faction === "xia" || f.faction === "shang") ? "xiaShangZhou" : allFigures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen") ? "weiJin" : allFigures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou") ? "suiTang" : allFigures.some((f) => f.faction === "liao" || f.faction === "jin" || f.faction === "song") ? "songLiao" : allFigures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi") ? "warringStates" : allFigures.some((f) => f.faction === "shu" || f.faction === "wu") ? "threeKingdoms" : "qinHan");
+    const effectivePeriodId = activePeriodId || (allFigures.some((f) => f.faction === "xia" || f.faction === "shang") ? "xiaShangZhou" : allFigures.some((f) => f.faction === "northern" || f.faction === "southern" || f.faction === "sixteen") ? "weiJin" : allFigures.some((f) => f.faction === "tang" || f.faction === "sui" || f.faction === "wuZhou") ? "suiTang" : allFigures.some((f) => f.faction === "liao" || f.faction === "jin" || f.faction === "song") ? "songLiao" : allFigures.some((f) => f.faction === "taiping" || f.faction === "republic" || f.faction === "reform") ? "qingDynasty" : allFigures.some((f) => f.faction === "yuan" || f.faction === "maritime" || f.faction === "peasant") ? "yuanMing" : allFigures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi") ? "warringStates" : allFigures.some((f) => f.faction === "shu" || f.faction === "wu") ? "threeKingdoms" : "qinHan");
     const getFactionBadge = (faction) => {
       const meta = getFactionMeta(faction, effectivePeriodId);
       return {
@@ -17813,6 +17917,12 @@
       }
       if (figures.some((f) => f.faction === "liao" || f.faction === "jin" || f.faction === "song")) {
         return "songLiao";
+      }
+      if (figures.some((f) => f.faction === "taiping" || f.faction === "republic" || f.faction === "reform")) {
+        return "qingDynasty";
+      }
+      if (figures.some((f) => f.faction === "yuan" || f.faction === "maritime" || f.faction === "peasant")) {
+        return "yuanMing";
       }
       if (figures.some((f) => f.faction === "qin" || f.faction === "zhao" || f.faction === "qi")) {
         return "warringStates";
@@ -80311,6 +80421,8321 @@
     }
   ];
 
+  // src/data/periods/yuanMing/demographics.js
+  var YUAN_MING_DEMOGRAPHICS = {
+    "periodId": "yuanMing",
+    "title": "元明人口規模與社會結構變遷",
+    "summary": "大元混一四海、創設行省與澎湖巡檢司；大明洪武休養生息、萬曆盛世人口突破一億五千萬，海商開闢台灣笨港海防樞紐。",
+    "peakPopulation": "約 16,000 萬 (大明萬曆二十八年 1600 CE)",
+    "censusData": [
+      {
+        "year": 1290,
+        "yearDisplay": "西元 1290 年 (元世祖至元二十七年)",
+        "total": "58,834,711",
+        "households": "13,196,206",
+        "note": "元朝官方統計之極盛，未計西域吐蕃與未附戶籍者"
+      },
+      {
+        "year": 1393,
+        "yearDisplay": "西元 1393 年 (明太祖洪武二十六年)",
+        "total": "60,545,812",
+        "households": "10,652,870",
+        "note": "大明立國經洪武休養生息，賦役黃冊與魚鱗圖冊清查"
+      },
+      {
+        "year": 1479,
+        "yearDisplay": "西元 1479 年 (明憲宗成化十五年)",
+        "total": "71,850,132",
+        "households": "11,480,240",
+        "note": "明代中期人口穩步增長，江南城鎮手工業繁榮"
+      },
+      {
+        "year": 1600,
+        "yearDisplay": "西元 1600 年 (明神宗萬曆二十八年)",
+        "total": "160,000,000",
+        "households": "約 2,200 萬 (估算)",
+        "note": "美洲作物引進番薯玉米推動人口爆炸，官冊因避稅匿報約6,000萬"
+      }
+    ],
+    "ethnicGroups": [
+      {
+        "name": "漢民族 (農耕市井主體)",
+        "proportion": "88%",
+        "region": "兩京十三布政使司、中原江淮與東南沿海",
+        "traits": "科舉取士、理學心學傳播、市井白話小說繁盛、一條鞭法折銀"
+      },
+      {
+        "name": "蒙古部族 (草原騎射與八旗先驅)",
+        "proportion": "5%",
+        "region": "漠北草原、漠南察哈爾與遼東諸衛",
+        "traits": "千戶百戶制、北元殘部與瓦剌韃靼爭雄、俺答汗封貢互市"
+      },
+      {
+        "name": "回回/色目群體 (西域經貿軍政)",
+        "proportion": "3%",
+        "region": "西北陝甘、大都北京、雲南及泉州海港",
+        "traits": "掌算曆法財賦、鄭和下西洋航海世家、雲南咸陽王賽典赤後裔"
+      },
+      {
+        "name": "女真/滿洲諸部 (白山黑水崛起)",
+        "proportion": "2%",
+        "region": "奴兒干都司、建州衛與海西野人女真",
+        "traits": "努爾哈赤創八旗制度、滿漢一體推動後金崛起"
+      },
+      {
+        "name": "苗瑤壯彝土家族 (西南各部族)",
+        "proportion": "1.5%",
+        "region": "雲貴川湖廣廣西山區土司轄境",
+        "traits": "土司制度、改土歸流、播州楊氏及水西奢安土酋"
+      },
+      {
+        "name": "東番高山諸族 (台灣原住民族)",
+        "proportion": "0.5%",
+        "region": "台灣全島、澎湖三十六嶼與大員",
+        "traits": "南島語系獵鹿農耕、澎湖巡檢司設立、海商顏思齊鄭芝龍結寨開墾"
+      }
+    ]
+  };
+
+  // src/data/periods/yuanMing/territories.js
+  var YUAN_MING_TERRITORIES = {
+    "yuanPeak": {
+      "year": "西元 1311 年 (大元至大年間極盛)",
+      "name": "大元帝國極盛版圖",
+      "description": "大元北逾陰山北海，東瀕大海，南控南海諸島，設澎湖巡檢司管轄澎湖及台灣海峽，宣政院管轄吐蕃，十行省縱橫萬里。"
+    },
+    "mingPeak": {
+      "year": "西元 1413 年 (大明永樂盛世疆域)",
+      "name": "大明永樂兩京十三省版圖",
+      "description": "大明設南北直隸與十三布政使司，東北置奴兒干都司，西北設關西八衛，西南設烏斯藏都司，海防設衛所與澎湖巡檢司。"
+    }
+  };
+
+  // src/data/periods/yuanMing/figures.js
+  var YUAN_MING_FIGURES = [
+    {
+      "id": "fig_kublai_khan",
+      "name": "忽必烈",
+      "courtesyName": "薛禪汗",
+      "lifeSpan": "1215 - 1294",
+      "faction": "yuan",
+      "role": "大元世祖開國皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_kublai_khan.svg",
+      "importance": 5,
+      "hometown": "蒙古草原肯特山",
+      "shortBio": "大蒙古國第五任大汗、大元開國皇帝。滅南宋統一天下，定都大都（北京），開創行省制度，設澎湖巡檢司。",
+      "historicalSignificance": "建立第一個少數民族統治全中國之大一統王朝，創立行省制奠定後世七百年行政區劃之雛形。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 92,
+        "politics": 98,
+        "intellect": 90,
+        "courage": 88,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_chahan_tiemu",
+      "name": "察罕帖木兒",
+      "courtesyName": "廷瑞",
+      "lifeSpan": "1320 - 1362",
+      "faction": "yuan",
+      "role": "元末中興名將 / 潁川侯",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_chahan_tiemu.svg",
+      "importance": 4,
+      "hometown": "河南沈丘",
+      "shortBio": "元末將領，率義兵鎮壓劉福通紅巾軍，收復汴梁洛陽，威震北方。後於圍攻益都時為降將田豐刺殺。",
+      "historicalSignificance": "元末北方中流砥柱，若非遇刺身亡，朱元璋北伐進程將面臨極大阻礙。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 92,
+        "politics": 78,
+        "intellect": 84,
+        "courage": 90,
+        "charisma": 86
+      }
+    },
+    {
+      "id": "fig_wang_baobao",
+      "name": "王保保 (擴廓帖木兒)",
+      "courtesyName": "擴廓帖木兒",
+      "lifeSpan": "1335 - 1375",
+      "faction": "yuan",
+      "role": "北元柱石 / 齊王",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_wang_baobao.svg",
+      "importance": 5,
+      "hometown": "河南沈丘",
+      "shortBio": "察罕帖木兒外甥兼養子。元亡後退保漠北，於嶺北之戰重創徐達大軍，朱元璋譽為「當世第一奇男子」。",
+      "historicalSignificance": "北元軍事核心，延續北元殘部與明朝長達十餘年之抗衡。",
+      "abilities": {
+        "strategy": 90,
+        "commanding": 94,
+        "politics": 80,
+        "intellect": 85,
+        "courage": 92,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_tuotuo",
+      "name": "脫脫",
+      "courtesyName": "大用",
+      "lifeSpan": "1314 - 1355",
+      "faction": "yuan",
+      "role": "大元右丞相 / 太師",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_tuotuo.svg",
+      "importance": 4,
+      "hometown": "蒙古蔑兒乞部",
+      "shortBio": "元順帝朝右丞相，主持修撰《宋史》、《遼史》、《金史》，親自督師治理黃河，圍攻高郵張士誠時遭朝中讒言奪職冤殺。",
+      "historicalSignificance": "脫脫罷相致使元朝最後一支精銳官軍崩潰，史稱「脫脫被逮，天下事遂不可為矣」。",
+      "abilities": {
+        "strategy": 86,
+        "commanding": 88,
+        "politics": 92,
+        "intellect": 90,
+        "courage": 82,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_guo_shoujing",
+      "name": "郭守敬",
+      "courtesyName": "若思",
+      "lifeSpan": "1231 - 1316",
+      "faction": "cultural",
+      "role": "天文水利巨擘 / 太史令",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_guo_shoujing.svg",
+      "importance": 5,
+      "hometown": "河北邢台",
+      "shortBio": "元代著名天文學家、數學家、水利工程專家。編訂《授時曆》，主持修築大都通惠河，主持四海測驗。",
+      "historicalSignificance": "《授時曆》推算一年為365.2425日，與現代公曆完全相同，領先西方格里高利曆三百餘年。",
+      "abilities": {
+        "strategy": 70,
+        "commanding": 65,
+        "politics": 82,
+        "intellect": 99,
+        "courage": 75,
+        "charisma": 85
+      }
+    },
+    {
+      "id": "fig_zhao_mengfu",
+      "name": "趙孟頫",
+      "courtesyName": "子昂",
+      "lifeSpan": "1254 - 1322",
+      "faction": "cultural",
+      "role": "翰林學士承旨 / 楷書四大家",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_zhao_mengfu.svg",
+      "importance": 4,
+      "hometown": "浙江湖州",
+      "shortBio": "宋太祖十一世孫，入元官至翰林學士承旨。精通詩文書畫，楷書與顏真卿、柳公權、歐陽詢並稱「楷書四大家」。",
+      "historicalSignificance": "元代藝壇宗師，引領中國文人畫風尚，字體圓轉遒麗享譽古今。",
+      "abilities": {
+        "strategy": 60,
+        "commanding": 55,
+        "politics": 78,
+        "intellect": 96,
+        "courage": 65,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_guan_hanqing",
+      "name": "關漢卿",
+      "courtesyName": "漢卿",
+      "lifeSpan": "約1234 - 1300",
+      "faction": "cultural",
+      "role": "元雜劇領袖 / 元曲四大家",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_guan_hanqing.svg",
+      "importance": 4,
+      "hometown": "大都 (北京)",
+      "shortBio": "元代戲劇奠基人，著有《竇娥冤》、《救風塵》、《單刀會》等六十餘部名劇，自詡「蒸不爛、煮不熟、捶不扁、炒不爆響噹噹一粒銅豌豆」。",
+      "historicalSignificance": "中國戲劇史上最偉大之悲劇大師，被譽為「東方莎士比亞」。",
+      "abilities": {
+        "strategy": 65,
+        "commanding": 50,
+        "politics": 70,
+        "intellect": 97,
+        "courage": 85,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_zhu_yuanzhang",
+      "name": "朱元璋",
+      "courtesyName": "國瑞",
+      "lifeSpan": "1328 - 1398",
+      "faction": "ming",
+      "role": "大明太祖洪武皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_zhu_yuanzhang.svg",
+      "importance": 5,
+      "hometown": "安徽鳳陽 (濠州鍾離)",
+      "shortBio": "出身貧寒赤貧農家，投郭子興紅巾軍起義。採納朱升「高築牆，廣積糧，緩稱王」之策，鄱陽湖滅陳友諒，平張士誠，命徐達北伐驅逐元廷，建立大明。",
+      "historicalSignificance": "廢除千年中書省丞相制，設錦衣衛與衛所制，編《大明律》與《黃冊》，開創洪武之治。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 96,
+        "politics": 99,
+        "intellect": 95,
+        "courage": 97,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_ma_huanghou",
+      "name": "馬皇后 (孝慈高皇后)",
+      "courtesyName": "秀英",
+      "lifeSpan": "1332 - 1382",
+      "faction": "ming",
+      "role": "大明開國皇后",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_ma_huanghou.svg",
+      "importance": 5,
+      "hometown": "安徽宿州",
+      "shortBio": "朱元璋結髮妻子，隨夫征戰於行伍間，曾懷揣熱餅燙傷胸口以濟太祖。貴為皇后後仍親自織紕衣，直言勸諫太祖少誅戮功臣。",
+      "historicalSignificance": "大明賢后典範，多次保護宋濂、朱標及朝臣免遭殺戮，受天下萬民景仰。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 80,
+        "politics": 95,
+        "intellect": 92,
+        "courage": 94,
+        "charisma": 98
+      }
+    },
+    {
+      "id": "fig_zhu_biao",
+      "name": "朱標",
+      "courtesyName": "懿文太子",
+      "lifeSpan": "1355 - 1392",
+      "faction": "ming",
+      "role": "大明皇太子",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_zhu_biao.svg",
+      "importance": 4,
+      "hometown": "安徽鳳陽",
+      "shortBio": "明太祖長子，宋濂為師，悉心培養之儲君。為人溫和敦厚，深得朝中文武諸公與弟弟諸王愛戴。英年早逝引發繼位危機。",
+      "historicalSignificance": "其早逝直接促使朱元璋晚年誅殺藍玉等驕兵悍將，並埋下建文帝削藩與靖難之役伏筆。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 75,
+        "politics": 90,
+        "intellect": 88,
+        "courage": 80,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_liu_bowen",
+      "name": "劉伯溫 (劉基)",
+      "courtesyName": "伯溫",
+      "lifeSpan": "1311 - 1375",
+      "faction": "ming",
+      "role": "誠意伯 / 開國謀士",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_liu_bowen.svg",
+      "importance": 5,
+      "hometown": "浙江青田",
+      "shortBio": "明朝開國元勳，朱元璋稱其為「吾之子房」。上陳「時務十八策」，精通天文兵法，策劃鄱陽湖之戰大捷。",
+      "historicalSignificance": "民間譽為「三分天下諸葛亮，一統江山劉伯溫」，明朝開國制度奠基者之一。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 82,
+        "politics": 90,
+        "intellect": 99,
+        "courage": 85,
+        "charisma": 91
+      }
+    },
+    {
+      "id": "fig_li_shan_chang",
+      "name": "李善長",
+      "courtesyName": "百室",
+      "lifeSpan": "1314 - 1390",
+      "faction": "ming",
+      "role": "韓國公 / 左丞相",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_li_shan_chang.svg",
+      "importance": 4,
+      "hometown": "安徽定遠",
+      "shortBio": "明朝開國功臣之首，通曉典故法制，掌管後勤軍需與賦稅錢糧，比之於漢之蕭何。後受胡惟庸案牽連被誅。",
+      "historicalSignificance": "建立明朝初期典章制度與戶口田冊體系。",
+      "abilities": {
+        "strategy": 85,
+        "commanding": 70,
+        "politics": 96,
+        "intellect": 92,
+        "courage": 72,
+        "charisma": 86
+      }
+    },
+    {
+      "id": "fig_xu_da",
+      "name": "徐達",
+      "courtesyName": "天德",
+      "lifeSpan": "1332 - 1385",
+      "faction": "ming",
+      "role": "魏國公 / 右丞相大將軍",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_xu_da.svg",
+      "importance": 5,
+      "hometown": "安徽鳳陽",
+      "shortBio": "明朝第一名將，淮西二十四將之一。統帥北伐大軍攻克元大都，追擊擴廓帖木兒，功高不矜，太祖譽為「萬里長城」。",
+      "historicalSignificance": "終結元朝在中國之統治，收復幽燕十六州，為大明開疆拓土第一功臣。",
+      "abilities": {
+        "strategy": 96,
+        "commanding": 98,
+        "politics": 88,
+        "intellect": 90,
+        "courage": 96,
+        "charisma": 95
+      }
+    },
+    {
+      "id": "fig_chang_yuchun",
+      "name": "常遇春",
+      "courtesyName": "伯仁",
+      "lifeSpan": "1330 - 1369",
+      "faction": "ming",
+      "role": "鄂國公 / 副將軍",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_chang_yuchun.svg",
+      "importance": 5,
+      "hometown": "安徽懷遠",
+      "shortBio": "勇冠諸將，自言「統十萬眾橫行天下」，人稱「常十萬」。攻采石、破九華山、克元上都開平，暴卒於北征軍中。",
+      "historicalSignificance": "朱元璋麾下摧鋒陷陣第一猛將，追封開平王。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 97,
+        "politics": 72,
+        "intellect": 82,
+        "courage": 99,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_tang_he",
+      "name": "湯和",
+      "courtesyName": "鼎臣",
+      "lifeSpan": "1326 - 1395",
+      "faction": "ming",
+      "role": "信國公 / 築海防禦倭名將",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_tang_he.svg",
+      "importance": 4,
+      "hometown": "安徽鳳陽",
+      "shortBio": "引導朱元璋參加郭子興紅巾軍之元老，沉敏多智。晚年主動請解兵權，巡視江浙沿海構築五十九座海防城堡抗倭。",
+      "historicalSignificance": "淮西開國宿將中少數得以善終者，奠定明朝早期海防衛所基礎。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 90,
+        "politics": 92,
+        "intellect": 86,
+        "courage": 90,
+        "charisma": 89
+      }
+    },
+    {
+      "id": "fig_lan_yu",
+      "name": "藍玉",
+      "courtesyName": "藍玉",
+      "lifeSpan": "約1340 - 1393",
+      "faction": "ming",
+      "role": "涼國公 / 大將軍",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_lan_yu.svg",
+      "importance": 5,
+      "hometown": "安徽定遠",
+      "shortBio": "常遇春內弟。率十五萬大軍深突漠北，於捕魚兒海（貝加爾湖東南貝爾湖）大破北元後主脫古思帖木兒，俘太子后妃八萬餘人。",
+      "historicalSignificance": "徹底打碎北元統一帝國架構，後因恃功跋扈引發「藍玉案」遭太祖誅殺。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 96,
+        "politics": 65,
+        "intellect": 80,
+        "courage": 98,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_zhu_di",
+      "name": "朱棣 (永樂帝)",
+      "courtesyName": "永樂皇帝",
+      "lifeSpan": "1360 - 1424",
+      "faction": "ming",
+      "role": "大明成祖皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_zhu_di.svg",
+      "importance": 5,
+      "hometown": "南京",
+      "shortBio": "朱元璋四子，初封燕王戍守北平。建文削藩時以「清君側」發動靖難之役奪位。五次親征漠北，命鄭和下西洋，修《永樂大典》，遷都北京。",
+      "historicalSignificance": "奠定北京都城格局，開拓奴兒干與安南，使大明國威遠播亞非，開創「永樂盛世」。",
+      "abilities": {
+        "strategy": 97,
+        "commanding": 98,
+        "politics": 96,
+        "intellect": 94,
+        "courage": 98,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_yao_guangxiao",
+      "name": "姚廣孝 (道衍和尚)",
+      "courtesyName": "斯道",
+      "lifeSpan": "1335 - 1418",
+      "faction": "ming",
+      "role": "黑衣宰相 / 太子少師",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_yao_guangxiao.svg",
+      "importance": 5,
+      "hometown": "江蘇蘇州",
+      "shortBio": "佛門僧侶出身，通儒道兵陰陽之術。全力謀劃燕王起兵奪位，靖難中坐鎮北平督守孤城。成祖即位後官居一品仍居僧寺。",
+      "historicalSignificance": "靖難之役首席策劃者，主持北京紫禁城規劃與《永樂大典》修纂。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 85,
+        "politics": 95,
+        "intellect": 99,
+        "courage": 88,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_fang_xiaoru",
+      "name": "方孝孺",
+      "courtesyName": "希直",
+      "lifeSpan": "1357 - 1402",
+      "faction": "ming",
+      "role": "翰林學士 / 天下讀書種子",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_fang_xiaoru.svg",
+      "importance": 5,
+      "hometown": "浙江寧海",
+      "shortBio": "建文帝重臣，宋濂弟子。燕軍破南京後成祖命其草擬即位詔書，方孝孺大書「燕賊篡位」，寧死不屈遭誅十族八百七十餘人。",
+      "historicalSignificance": "士大夫氣節忠烈之化身，天下讀書人之風骨象徵。",
+      "abilities": {
+        "strategy": 70,
+        "commanding": 50,
+        "politics": 85,
+        "intellect": 98,
+        "courage": 100,
+        "charisma": 95
+      }
+    },
+    {
+      "id": "fig_zheng_he",
+      "name": "鄭和 (三寶太監)",
+      "courtesyName": "三寶",
+      "lifeSpan": "1371 - 1433",
+      "faction": "ming",
+      "role": "正使太監 / 大航海統帥",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_zheng_he.svg",
+      "importance": 5,
+      "hometown": "雲南昆陽",
+      "shortBio": "回族穆斯林世家，自幼入侍朱棣立戰功。1405至1433年間率龐大寶船艦隊七下西洋，歷訪三十餘國，最遠抵達東非海岸。",
+      "historicalSignificance": "世界航海史空前壯舉，比哥倫布發現新大陸早八十七年，開創海上絲路空前繁榮。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 98,
+        "politics": 92,
+        "intellect": 95,
+        "courage": 96,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_xie_jin",
+      "name": "解縉",
+      "courtesyName": "大紳",
+      "lifeSpan": "1369 - 1415",
+      "faction": "ming",
+      "role": "文淵閣大學士 / 永樂內閣首輔",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_xie_jin.svg",
+      "importance": 4,
+      "hometown": "江西吉水",
+      "shortBio": "明朝第一位內閣首輔，才思敏捷，總纂《永樂大典》，兩萬二千八百七十七卷，為中國古代最大類書。",
+      "historicalSignificance": "主導保存中華浩瀚典籍，確立明代內閣首輔參預機務體制。",
+      "abilities": {
+        "strategy": 78,
+        "commanding": 55,
+        "politics": 85,
+        "intellect": 99,
+        "courage": 80,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_yu_qian",
+      "name": "于謙",
+      "courtesyName": "廷益",
+      "lifeSpan": "1398 - 1457",
+      "faction": "ming",
+      "role": "兵部尚書 / 救時宰相",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_yu_qian.svg",
+      "importance": 5,
+      "hometown": "浙江錢塘 (杭州)",
+      "shortBio": "土木堡之變英宗被俘，京師大震主遷都金陵。于謙厲聲疾呼「言南遷者可斬」，立景帝，親率軍民取得北京保衛戰大捷。奪門之變後冤死，留下「粉骨碎身渾不怕，要留清白在人間」。",
+      "historicalSignificance": "力挽狂瀾挽救大明國祚於累卵，為中國歷史最偉大之民族英雄與賢相之一。",
+      "abilities": {
+        "strategy": 96,
+        "commanding": 98,
+        "politics": 98,
+        "intellect": 96,
+        "courage": 100,
+        "charisma": 99
+      }
+    },
+    {
+      "id": "fig_wang_yangming",
+      "name": "王陽明 (王守仁)",
+      "courtesyName": "伯安",
+      "lifeSpan": "1472 - 1529",
+      "faction": "ming",
+      "role": "新建伯 / 心學大宗師",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_wang_yangming.svg",
+      "importance": 5,
+      "hometown": "浙江餘姚",
+      "shortBio": "龍場悟道創立陽明心學，倡「知行合一」與「致良知」。以都察院僉都御史僅用三十五日平定寧王宸濠之亂，立德立功立言三不朽。",
+      "historicalSignificance": "宋明理學集大成者，心學流播日本東亞，推動東亞近世思想自覺運動。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 96,
+        "politics": 96,
+        "intellect": 100,
+        "courage": 96,
+        "charisma": 99
+      }
+    },
+    {
+      "id": "fig_zhang_juzheng",
+      "name": "張居正",
+      "courtesyName": "叔大",
+      "lifeSpan": "1525 - 1582",
+      "faction": "ming",
+      "role": "萬曆內閣首輔 / 江陵相國",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_zhang_juzheng.svg",
+      "importance": 5,
+      "hometown": "湖北江陵",
+      "shortBio": "萬曆朝首輔，輔政十年推行考成法整飭吏治，丈量全國土地推行「一條鞭法」，起用戚繼光、李成梁鞏固邊防，國庫充盈。",
+      "historicalSignificance": "晚明最傑出之政治家與改革家，為大明延續數十年國運之「萬曆中興」。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 80,
+        "politics": 99,
+        "intellect": 97,
+        "courage": 95,
+        "charisma": 94
+      }
+    },
+    {
+      "id": "fig_hai_rui",
+      "name": "海瑞",
+      "courtesyName": "汝賢",
+      "lifeSpan": "1514 - 1587",
+      "faction": "ming",
+      "role": "南京右都御史 / 海青天",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_hai_rui.svg",
+      "importance": 5,
+      "hometown": "廣東瓊山 (海南海口)",
+      "shortBio": "明代著名清官。任戶部主事時自備棺木上《治安策》直斥嘉靖帝「嘉靖嘉靖，家家皆淨」，罷官入獄。出獄後推行清丈田畝退還民產。",
+      "historicalSignificance": "中國歷史清廉剛直官員之最高道德化身。",
+      "abilities": {
+        "strategy": 75,
+        "commanding": 65,
+        "politics": 90,
+        "intellect": 90,
+        "courage": 100,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_qi_jiguang",
+      "name": "戚繼光",
+      "courtesyName": "元敬",
+      "lifeSpan": "1528 - 1588",
+      "faction": "ming",
+      "role": "薊遼保定總兵 / 抗倭名將",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_qi_jiguang.svg",
+      "importance": 5,
+      "hometown": "山東蓬萊",
+      "shortBio": "創立戚家軍與鴛鴦陣，發明狼筅、虎蹲砲，台州九戰九捷盪平東南沿海倭寇。後鎮守薊門十六年，修築包磚長城敵樓，韃靼不敢犯。",
+      "historicalSignificance": "著《紀效新書》、《練兵實紀》，中國兵法史一代宗師，民族英雄。",
+      "abilities": {
+        "strategy": 96,
+        "commanding": 99,
+        "politics": 85,
+        "intellect": 95,
+        "courage": 98,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_yu_dayou",
+      "name": "俞大猷",
+      "courtesyName": "志輔",
+      "lifeSpan": "1503 - 1579",
+      "faction": "ming",
+      "role": "福建總兵 / 抗倭名將",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_yu_dayou.svg",
+      "importance": 4,
+      "hometown": "福建晉江 (泉州)",
+      "shortBio": "與戚繼光並稱「俞龍戚虎」。精通劍術兵法，創立「車營」與水軍戰法，屢破倭寇於興化、潮州，著《劍經》。",
+      "historicalSignificance": "抗倭雙壁之一，對明代沿海防禦體系與武術傳承貢獻卓著。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 94,
+        "politics": 78,
+        "intellect": 90,
+        "courage": 96,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_li_rusong",
+      "name": "李如松",
+      "courtesyName": "子茂",
+      "lifeSpan": "1549 - 1598",
+      "faction": "ming",
+      "role": "薊遼提督 / 抗倭援朝提督",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_li_rusong.svg",
+      "importance": 5,
+      "hometown": "遼寧鐵嶺",
+      "shortBio": "李成梁長子。萬曆三大征統帥，四萬精銳入朝抗倭援朝，火砲攻克平壤大敗小西行長，碧蹄館力戰不屈，促成日軍全線南退。",
+      "historicalSignificance": "收復朝鮮平壤開城，打破豐臣秀吉征服東亞之狂妄野心。",
+      "abilities": {
+        "strategy": 90,
+        "commanding": 96,
+        "politics": 75,
+        "intellect": 84,
+        "courage": 98,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_li_shizhen",
+      "name": "李時珍",
+      "courtesyName": "東璧",
+      "lifeSpan": "1518 - 1593",
+      "faction": "cultural",
+      "role": "藥聖 / 醫藥學泰斗",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_li_shizhen.svg",
+      "importance": 5,
+      "hometown": "湖北蘄州",
+      "shortBio": "歷時二十七載踏遍山川，參考八百餘部醫籍，完成五十二卷巨著《本草綱目》，收錄藥物1,892種、附方11,096首。",
+      "historicalSignificance": "世界醫藥學寶庫，達爾文譽為「中國古代的百科全書」。",
+      "abilities": {
+        "strategy": 60,
+        "commanding": 50,
+        "politics": 70,
+        "intellect": 100,
+        "courage": 85,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_xu_xiake",
+      "name": "徐霞客",
+      "courtesyName": "振之",
+      "lifeSpan": "1587 - 1641",
+      "faction": "cultural",
+      "role": "千古奇人 / 地理探險家",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_xu_xiake.svg",
+      "importance": 4,
+      "hometown": "江蘇江陰",
+      "shortBio": "歷經三十四載徒步考察大半個中國，詳細記錄喀斯特地貌與江河源頭，撰寫六十萬字《徐霞客遊記》。",
+      "historicalSignificance": "世界最早對石灰岩溶洞喀斯特地貌進行系統科學研究之探險家。",
+      "abilities": {
+        "strategy": 65,
+        "commanding": 55,
+        "politics": 68,
+        "intellect": 98,
+        "courage": 95,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_song_yingxing",
+      "name": "宋應星",
+      "courtesyName": "長庚",
+      "lifeSpan": "1587 - 1666",
+      "faction": "cultural",
+      "role": "科技先驅 / 奉新教諭",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_song_yingxing.svg",
+      "importance": 4,
+      "hometown": "江西奉新",
+      "shortBio": "著《天工開物》，全面系統總結農業、手工業、採礦、冶煉、陶瓷、火藥與舟車製造技術，附有一百二十三幅精美插圖。",
+      "historicalSignificance": "外國學者譽為「十七世紀中國工藝技術的百科全書」。",
+      "abilities": {
+        "strategy": 65,
+        "commanding": 50,
+        "politics": 72,
+        "intellect": 99,
+        "courage": 80,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_tang_bohu",
+      "name": "唐伯虎 (唐寅)",
+      "courtesyName": "伯虎",
+      "lifeSpan": "1470 - 1524",
+      "faction": "cultural",
+      "role": "江南第一才子 / 吳門四家",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_tang_bohu.svg",
+      "importance": 4,
+      "hometown": "江蘇蘇州",
+      "shortBio": "應天府解元。因科場舞弊案受株連終身不得為官，自刻印「江南第一風流才子」，以詩文書畫自娛，作《桃花庵歌》。",
+      "historicalSignificance": "明代文人浪漫性格與書畫藝術之巔峰象徵。",
+      "abilities": {
+        "strategy": 60,
+        "commanding": 45,
+        "politics": 60,
+        "intellect": 96,
+        "courage": 70,
+        "charisma": 95
+      }
+    },
+    {
+      "id": "fig_yuan_chonghuan",
+      "name": "袁崇煥",
+      "courtesyName": "元素",
+      "lifeSpan": "1584 - 1630",
+      "faction": "ming",
+      "role": "薊遼督師 / 兵部尚書",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_yuan_chonghuan.svg",
+      "importance": 5,
+      "hometown": "廣東東莞",
+      "shortBio": "進士出身投筆從戎。單騎閱塞築寧遠城，以紅夷大砲取得寧遠大捷（努爾哈赤負傷後亡）與寧錦大捷。後中皇太極反間計遭崇禎凌遲處死。",
+      "historicalSignificance": "明朝遼東防禦之靈魂人物，「自崇煥死，邊事益不可為」。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 96,
+        "politics": 72,
+        "intellect": 88,
+        "courage": 98,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_sun_chengzong",
+      "name": "孫承宗",
+      "courtesyName": "稚繩",
+      "lifeSpan": "1563 - 1638",
+      "faction": "ming",
+      "role": "帝師 / 薊遼督師大學士",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_sun_chengzong.svg",
+      "importance": 5,
+      "hometown": "河北高陽",
+      "shortBio": "明熹宗帝師，督師薊遼，構建關寧錦防線數百里，起用袁崇煥、趙率教、祖大壽等名將。清軍破高陽，率全家殉國。",
+      "historicalSignificance": "遼東戰略防禦體系之總設計師，滿門忠烈。",
+      "abilities": {
+        "strategy": 96,
+        "commanding": 94,
+        "politics": 96,
+        "intellect": 95,
+        "courage": 98,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_lu_xiangsheng",
+      "name": "盧象昇",
+      "courtesyName": "建斗",
+      "lifeSpan": "1600 - 1639",
+      "faction": "ming",
+      "role": "宣大總督 / 天雄軍統帥",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_lu_xiangsheng.svg",
+      "importance": 5,
+      "hometown": "江蘇宜興",
+      "shortBio": "文官出身提大刀百三十斤。組建天雄軍剿闖王流寇百戰百勝。巨鹿賈莊之役遭太監高起潛扣發援軍，孤軍力竭壯烈殉國。",
+      "historicalSignificance": "晚明最有血性戰意之統帥，其死令關內剿匪軍事土崩瓦解。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 97,
+        "politics": 80,
+        "intellect": 88,
+        "courage": 100,
+        "charisma": 95
+      }
+    },
+    {
+      "id": "fig_sun_chuanting",
+      "name": "孫傳庭",
+      "courtesyName": "伯雅",
+      "lifeSpan": "1593 - 1643",
+      "faction": "ming",
+      "role": "陝西總督 / 兵部尚書",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_sun_chuanting.svg",
+      "importance": 5,
+      "hometown": "山西代縣",
+      "shortBio": "組建秦軍，黑水峪擒闖王高迎祥，潼關南原合擊大破李自成僅剩十八騎。後崇禎屢下嚴旨促出關，戰死於潼關柿園。",
+      "historicalSignificance": "《明史》評「傳庭死，而明亡矣」，晚明最後之擎天白玉柱。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 95,
+        "politics": 85,
+        "intellect": 90,
+        "courage": 96,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_qin_liangyu",
+      "name": "秦良玉",
+      "courtesyName": "貞素",
+      "lifeSpan": "1574 - 1648",
+      "faction": "ming",
+      "role": "石砫土司 / 忠貞侯大將軍",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_qin_liangyu.svg",
+      "importance": 5,
+      "hometown": "重慶忠縣 (忠州)",
+      "shortBio": "率白桿兵先後抗擊播州楊應龍、遼東後金八旗與張獻忠流寇，崇禎帝親賦詩四首表彰。為正史唯一單獨列傳之女將軍。",
+      "historicalSignificance": "巾幗英雄千古絕唱，滿門忠烈鎮守西南半壁。",
+      "abilities": {
+        "strategy": 90,
+        "commanding": 96,
+        "politics": 82,
+        "intellect": 85,
+        "courage": 98,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_chongzhen",
+      "name": "崇禎帝 (朱由檢)",
+      "courtesyName": "思宗烈皇帝",
+      "lifeSpan": "1611 - 1644",
+      "faction": "ming",
+      "role": "大明第十六任皇帝 (末帝)",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_chongzhen.svg",
+      "importance": 5,
+      "hometown": "北京",
+      "shortBio": "即位剷除魏忠賢閹黨，勤政節儉十七年未嘗懈怠。然生性多疑剛愎自用，誅殺督師袁崇煥，加速局勢崩解。李自成破京，於煤山自縊殉國。",
+      "historicalSignificance": "君王死社稷，不割地不納貢天子守國門，大明二百七十六年帝業終結。",
+      "abilities": {
+        "strategy": 75,
+        "commanding": 65,
+        "politics": 78,
+        "intellect": 85,
+        "courage": 90,
+        "charisma": 86
+      }
+    },
+    {
+      "id": "fig_li_zicheng",
+      "name": "李自成",
+      "courtesyName": "闖王 / 大順皇帝",
+      "lifeSpan": "1606 - 1645",
+      "faction": "peasant",
+      "role": "大順政權建立者",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_li_zicheng.svg",
+      "importance": 5,
+      "hometown": "陝西米脂",
+      "shortBio": "驛卒出身投農民軍，提出「迎闖王，不納糧」深得流民歸附。攻克洛陽、西安，1644年三月破北京逼崇禎自縊。一片石戰敗後退走九宮山死於民兵。",
+      "historicalSignificance": "推翻大明王朝，終結朱明政權，隨後引發清兵入關。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 92,
+        "politics": 75,
+        "intellect": 80,
+        "courage": 95,
+        "charisma": 94
+      }
+    },
+    {
+      "id": "fig_zhang_xianzhong",
+      "name": "張獻忠",
+      "courtesyName": "八大王 / 大西皇帝",
+      "lifeSpan": "1606 - 1647",
+      "faction": "peasant",
+      "role": "大西政權建立者",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_zhang_xianzhong.svg",
+      "importance": 4,
+      "hometown": "陝西定邊",
+      "shortBio": "明末農民起義領袖，率軍橫掃楚蜀，於成都稱帝建立大西政權。後清將豪格入川，張獻忠於鳳凰山中箭陣亡。",
+      "historicalSignificance": "徹底打碎四川明朝防衛體系，其部將李定國後成為南明抗清主力。",
+      "abilities": {
+        "strategy": 82,
+        "commanding": 88,
+        "politics": 65,
+        "intellect": 75,
+        "courage": 92,
+        "charisma": 86
+      }
+    },
+    {
+      "id": "fig_zheng_zhilong",
+      "name": "鄭芝龍",
+      "courtesyName": "飛黃 / 一官",
+      "lifeSpan": "1604 - 1661",
+      "faction": "maritime",
+      "role": "海商霸主 / 明朝南安伯",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_zheng_zhilong.svg",
+      "importance": 5,
+      "hometown": "福建南安",
+      "shortBio": "早年隨顏思齊入台灣笨港墾殖，後建構橫跨東亞海域之武裝商船帝國。於料羅灣大海戰大破荷蘭東印度公司艦隊，接受明廷招撫。",
+      "historicalSignificance": "早期拓墾台灣關鍵先驅，開創鄭氏海上集團，為鄭成功驅荷復台奠定海權基礎。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 95,
+        "politics": 82,
+        "intellect": 90,
+        "courage": 90,
+        "charisma": 95
+      }
+    },
+    {
+      "id": "fig_nurhaci",
+      "name": "努爾哈赤",
+      "courtesyName": "天命汗",
+      "lifeSpan": "1559 - 1626",
+      "faction": "jin",
+      "role": "後金開國大汗",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_nurhaci.svg",
+      "importance": 5,
+      "hometown": "遼寧新賓 (赫圖阿拉)",
+      "shortBio": "以十三副遺甲起兵統治女真各部，創立八旗制度與滿文。1616年建立後金，以「七大恨」告天誓師反明，薩爾滸大捷殲明軍十餘萬。",
+      "historicalSignificance": "清朝奠基人，徹底改變明清攻守均勢。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 98,
+        "politics": 94,
+        "intellect": 90,
+        "courage": 96,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_hong_taiji",
+      "name": "皇太極",
+      "courtesyName": "崇德帝 / 天聰汗",
+      "lifeSpan": "1592 - 1643",
+      "faction": "jin",
+      "role": "清太宗文皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_hong_taiji.svg",
+      "importance": 5,
+      "hometown": "赫圖阿拉",
+      "shortBio": "努爾哈赤第八子。征服朝鮮與漠南蒙古各部，改族名女真為「滿洲」，1636年稱帝改國號為「大清」，松錦之戰全殲明軍主力洪承疇。",
+      "historicalSignificance": "創制漢軍八旗與蒙古八旗，建立三省六部制度，為清朝入關奠定基石。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 97,
+        "politics": 98,
+        "intellect": 96,
+        "courage": 94,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_wu_sangui",
+      "name": "吳三桂",
+      "courtesyName": "長伯",
+      "lifeSpan": "1612 - 1678",
+      "faction": "other",
+      "role": "山海關總兵 / 平西王",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_wu_sangui.svg",
+      "importance": 5,
+      "hometown": "遼寧綏中 (中後所)",
+      "shortBio": "鎮守山海關之明軍悍將。李自成破京後因愛妾陳圓圓被掠，憤而開山海關引清兵多爾袞入關擊潰大順軍，受封平西王。晚年起兵反清引發三藩之亂。",
+      "historicalSignificance": "關鍵引清兵入關之歷史爭議人物，左右中國十七世紀政權走向。",
+      "abilities": {
+        "strategy": 90,
+        "commanding": 94,
+        "politics": 78,
+        "intellect": 84,
+        "courage": 92,
+        "charisma": 86
+      }
+    }
+  ];
+
+  // src/data/periods/yuanMing/battles.js
+  var YUAN_MING_BATTLES = [
+    {
+      "id": "bat_poyang_lake_1363",
+      "name": "鄱陽湖水戰 (火攻破陳友諒大艦)",
+      "year": 1363,
+      "yearDisplay": "西元 1363 年",
+      "eraName": "元至正二十三年 / 朱元璋吳王時期",
+      "eraDisplay": "至正二十三年 七月至八月",
+      "shortDescription": "朱元璋以二十萬水師迎戰陳友諒六十萬巨艦，以火攻大破之，陳友諒中箭身亡。",
+      "locationAncient": "鄱陽湖康郎山水域",
+      "locationName": "鄱陽湖",
+      "locationModern": "江西省九江市鄱陽湖康郎山一帶",
+      "coords": [
+        116.32,
+        29.25
+      ],
+      "importance": 5,
+      "winner": "朱元璋江南義軍",
+      "victorStatement": "朱元璋軍以少勝多全殲漢軍，奠定統一天下根基。",
+      "attacker": {
+        "factionName": "陳友諒大漢水軍",
+        "forcesEstimate": "六十萬樓船巨艦"
+      },
+      "defender": {
+        "factionName": "朱元璋明軍水師",
+        "forcesEstimate": "二十萬輕舟舟師"
+      },
+      "summary": "中世紀世界最大規模淡水湖水戰。陳友諒聯舟為陣，朱元璋採郭興火攻之策，火筏順風衝擊漢軍大艦，湖水為赤。",
+      "strategicSignificance": "徹底掃除長江中下游最大割據政權，朱元璋自此具備一統天下之絕對軍事優勢。",
+      "tactics": "火筏順風突擊、敢死小舟穿插大艦、分割截斷湖口歸路"
+    },
+    {
+      "id": "bat_xu_da_beifa_1368",
+      "name": "徐達北伐克大都 (元順帝北奔漠北)",
+      "year": 1368,
+      "yearDisplay": "西元 1368 年",
+      "eraName": "明洪武元年",
+      "eraDisplay": "洪武元年 八月",
+      "shortDescription": "徐達、常遇春率二十五萬北伐大軍克大都，結束蒙古在統治中國九十八年歷史。",
+      "locationAncient": "大都 (北京城)",
+      "locationName": "大都 / 北平",
+      "locationModern": "北京市市區",
+      "coords": [
+        116.4,
+        39.9
+      ],
+      "importance": 5,
+      "winner": "大明北伐軍 (徐達)",
+      "victorStatement": "明軍克大都，改為北平府，元順帝攜三宮后妃北奔上都。",
+      "attacker": {
+        "factionName": "大明北伐大將軍徐達部",
+        "forcesEstimate": "二十五萬精銳步騎"
+      },
+      "defender": {
+        "factionName": "大元順帝留守禁軍",
+        "forcesEstimate": "約十萬蒙古色目守軍"
+      },
+      "summary": "朱元璋發布「驅逐胡虜，恢復中華，立綱陳紀，救濟斯民」檄文，徐達常遇春勢如破竹直取大都齊化門，大都和平光復。",
+      "strategicSignificance": "收復自後晉石敬瑭割讓以來四百三十年之燕雲十六州故土。",
+      "tactics": "山東河南兩翼鉗擊、水陸並進直指幽燕"
+    },
+    {
+      "id": "bat_buyur_lake_1388",
+      "name": "捕魚兒海之戰 (藍玉奔襲破北元)",
+      "year": 1388,
+      "yearDisplay": "西元 1388 年",
+      "eraName": "明洪武二十一年",
+      "eraDisplay": "洪武二十一年 四月",
+      "shortDescription": "藍玉率十五萬明軍深入漠北沙漠，暴風掩護奇襲北元汗帳，俘太子后妃八萬餘人。",
+      "locationAncient": "捕魚兒海 (貝爾湖)",
+      "locationName": "捕魚兒海",
+      "locationModern": "內蒙古呼倫貝爾與蒙古國交界貝爾湖",
+      "coords": [
+        117.75,
+        47.8
+      ],
+      "importance": 5,
+      "winner": "大明大將軍藍玉",
+      "victorStatement": "北元後主脫古思帖木兒僅帶數十騎西遁，北元中央朝廷瓦解。",
+      "attacker": {
+        "factionName": "大明征虜大將軍藍玉部",
+        "forcesEstimate": "十五萬精騎步卒"
+      },
+      "defender": {
+        "factionName": "北元脫古思帖木兒汗帳主力",
+        "forcesEstimate": "十萬草原各部"
+      },
+      "summary": "明軍穴地而炊隱蔽行軍數千里，藉沙塵大暴風直插北元大營，北元君臣措手不及大潰。",
+      "strategicSignificance": "徹底摧毀大元黃金家族之汗權統一權威，蒙古分裂為瓦剌與韃靼。",
+      "tactics": "長途奔襲、穴地息煙、借沙塵暴風突擊"
+    },
+    {
+      "id": "bat_baigouhe_1400",
+      "name": "白溝河之戰 (朱棣靖難破李景隆)",
+      "year": 1400,
+      "yearDisplay": "西元 1400 年",
+      "eraName": "建文二年",
+      "eraDisplay": "建文二年 四月",
+      "shortDescription": "燕王朱棣以少擊眾迎戰朝廷六十萬大軍，突起狂風折斷李景隆大纛，燕軍趁勢大勝。",
+      "locationAncient": "白溝河 (雄縣保定間)",
+      "locationName": "白溝河",
+      "locationModern": "河北省保定市白溝鎮沿線",
+      "coords": [
+        115.98,
+        39.12
+      ],
+      "importance": 4,
+      "winner": "燕王朱棣靖難軍",
+      "victorStatement": "朝廷六十萬大軍崩潰，李景隆棄軍單騎奔還德州。",
+      "attacker": {
+        "factionName": "明朝廷大將軍李景隆大軍",
+        "forcesEstimate": "六十萬大軍"
+      },
+      "defender": {
+        "factionName": "燕王朱棣靖難精銳騎兵",
+        "forcesEstimate": "十餘萬騎步精兵"
+      },
+      "summary": "靖難之役最大規模野戰。朱棣三度親自衝鋒陷入險境，午後大風驟起吹斷南軍帥旗，燕軍順風縱火猛攻大獲全勝。",
+      "strategicSignificance": "朝廷中央精銳野戰主力折損殆盡，靖難攻守態勢徹底翻轉。",
+      "tactics": "兩翼包抄、中軍突騎、借順風火攻"
+    },
+    {
+      "id": "bat_tumubao_1449",
+      "name": "土木堡之變 (英宗受俘瓦剌也先)",
+      "year": 1449,
+      "yearDisplay": "西元 1449 年",
+      "eraName": "明正統十四年",
+      "eraDisplay": "正統十四年 八月",
+      "shortDescription": "太監王振脅持明英宗親征瓦剌，明五十萬精銳於土木堡斷水被圍全軍覆沒，英宗被俘。",
+      "locationAncient": "土木堡 (懷來西南)",
+      "locationName": "土木堡",
+      "locationModern": "河北省張家口市懷來縣土木鎮",
+      "coords": [
+        115.58,
+        40.36
+      ],
+      "importance": 5,
+      "winner": "瓦剌太師也先鐵騎",
+      "victorStatement": "明軍全軍覆沒，兵部尚書鄺埜、英國公張輔等五十餘文武大臣戰死，天子被俘。",
+      "attacker": {
+        "factionName": "瓦剌也先蒙古精銳鐵騎",
+        "forcesEstimate": "約十萬蒙古騎兵"
+      },
+      "defender": {
+        "factionName": "明英宗親征五十萬精銳三大營",
+        "forcesEstimate": "號稱五十萬 (實約二十五萬)"
+      },
+      "summary": "明初以來空前慘敗。王振指揮混亂退守土木堡高地無水，也先佯退設伏，明軍爭水自亂遭鐵騎踐踏屠殺。",
+      "strategicSignificance": "明初三大營主力毀於一旦，瓦剌長驅直入兵臨北京城下。",
+      "tactics": "斷絕水源、圍而不打、引蛇出洞圍殲"
+    },
+    {
+      "id": "bat_beijing_defense_1449",
+      "name": "北京保衛戰 (于謙德勝門大捷)",
+      "year": 1449,
+      "yearDisplay": "西元 1449 年",
+      "eraName": "明正統十四年 / 景泰元年",
+      "eraDisplay": "正統十四年 十月",
+      "shortDescription": "于謙力主固守北京，立景泰帝，關閉九門背城借一，德勝門大破瓦剌也先。",
+      "locationAncient": "北京內城九門 (德勝門/西直門)",
+      "locationName": "北京九門",
+      "locationModern": "北京市市區德勝門西直門一帶",
+      "coords": [
+        116.38,
+        39.95
+      ],
+      "importance": 5,
+      "winner": "大明于謙軍民守軍",
+      "victorStatement": "瓦剌大潰退走塞外，迎回英宗，大明江山轉危為安。",
+      "attacker": {
+        "factionName": "瓦剌太師也先聯軍",
+        "forcesEstimate": "十餘萬精銳鐵騎"
+      },
+      "defender": {
+        "factionName": "兵部尚書于謙統帥之京畿勤王軍民",
+        "forcesEstimate": "二十二萬列陣九門外"
+      },
+      "summary": "于謙下令「臨陣將不顧軍先退者斬將，軍不顧將先退者斬軍」，身披甲冑坐鎮德勝門外以神機營火器重創敵前鋒。",
+      "strategicSignificance": "徹底避免宋朝靖康之變南渡重演，保全大明北都基業與中原安定。",
+      "tactics": "閉門背城一戰、神機營火砲齊射、伏兵誘敵入巷"
+    },
+    {
+      "id": "bat_taizhou_qi_1561",
+      "name": "台州抗倭大捷 (戚家軍鴛鴦陣九戰九捷)",
+      "year": 1561,
+      "yearDisplay": "西元 1561 年",
+      "eraName": "明嘉靖四十年",
+      "eraDisplay": "嘉靖四十年 四月至五月",
+      "shortDescription": "戚繼光率義烏礦工組建之戚家軍，於台州新河、花街、牛田九戰九捷，全殲數千倭寇。",
+      "locationAncient": "台州府 (臨海/新河/牛田)",
+      "locationName": "台州",
+      "locationModern": "浙江省台州市臨海市與溫嶺市",
+      "coords": [
+        121.13,
+        28.85
+      ],
+      "importance": 4,
+      "winner": "戚繼光戚家軍",
+      "victorStatement": "以極低傷亡全殲進犯浙江倭寇，斬級數千，救回被掠男女百姓萬餘人。",
+      "attacker": {
+        "factionName": "日本各藩流浪武士與海盜倭寇",
+        "forcesEstimate": "八千餘精悍倭寇"
+      },
+      "defender": {
+        "factionName": "戚繼光義烏戚家軍",
+        "forcesEstimate": "三千三百餘嚴訓將士"
+      },
+      "summary": "戚繼光創「鴛鴦陣」以狼筅壓制倭刀、藤牌手突刺、長短兵協同，台州數戰倭寇喪膽。",
+      "strategicSignificance": "徹底掃除浙江境內倭患，戚家軍成為名震天下之第一王牌軍隊。",
+      "tactics": "鴛鴦陣協同、虎蹲砲與鳥銃遠近結合、奔襲圍殲"
+    },
+    {
+      "id": "bat_pyongyang_1593",
+      "name": "萬曆朝鮮平壤之戰 (李如松重砲收復平壤)",
+      "year": 1593,
+      "yearDisplay": "西元 1593 年",
+      "eraName": "明萬曆二十一年",
+      "eraDisplay": "萬曆二十一年 正月",
+      "shortDescription": "薊遼提督李如松率四萬明軍跨過鴨綠江，以佛郎機大砲攻破平壤牡丹峰大敗小西行長。",
+      "locationAncient": "朝鮮平壤城 (大同江畔)",
+      "locationName": "平壤",
+      "locationModern": "朝鮮平壤直轄市",
+      "coords": [
+        125.75,
+        39.03
+      ],
+      "importance": 5,
+      "winner": "大明抗倭援朝軍 (李如松)",
+      "victorStatement": "斬獲日軍首級萬餘，日軍第一軍團小西行長殘部夜渡大同江潰逃。",
+      "attacker": {
+        "factionName": "大明提督李如松遼東精銳與薊鎮兵",
+        "forcesEstimate": "四萬精銳步騎砲兵"
+      },
+      "defender": {
+        "factionName": "日本第一軍團小西行長軍",
+        "forcesEstimate": "近兩萬鐵砲精銳"
+      },
+      "summary": "明軍以大將軍砲、佛郎機砲密集轟擊平壤外城，李如松親冒矢石身先士卒攻城，收復平壤與開城。",
+      "strategicSignificance": "萬曆援朝第一場大勝，逆轉朝鮮亡國危機，打破豐臣秀吉圖謀大明之迷夢。",
+      "tactics": "紅夷佛郎機重砲轟城、騎兵斷其糧道、水陸鉗擊"
+    },
+    {
+      "id": "bat_liaoluo_bay_1633",
+      "name": "料羅灣大海戰 (鄭芝龍大破荷蘭東印度艦隊)",
+      "year": 1633,
+      "yearDisplay": "西元 1633 年",
+      "eraName": "明崇禎六年",
+      "eraDisplay": "崇禎六年 九月至十月",
+      "shortDescription": "福建巡撫鄒維璉命鄭芝龍率明水師於金門料羅灣大敗荷蘭東印度公司蓋倫戰艦。",
+      "locationAncient": "福建金門料羅灣海域",
+      "locationName": "料羅灣",
+      "locationModern": "福建省金門縣料羅灣海面",
+      "coords": [
+        118.42,
+        24.42
+      ],
+      "importance": 5,
+      "winner": "大明福建水師 (鄭芝龍)",
+      "victorStatement": "擊沉焚毀荷蘭旗艦巨艦多艘，荷蘭人自此承認明朝在東亞海域之通商霸權並歲輸貢賦。",
+      "attacker": {
+        "factionName": "荷蘭東印度公司戰艦與海盜劉香聯軍",
+        "forcesEstimate": "荷艦十三艘、海盜船五十餘艘"
+      },
+      "defender": {
+        "factionName": "大明福建水師與鄭芝龍火攻船隊",
+        "forcesEstimate": "大型戰船五十艘、火攻小舟百艘"
+      },
+      "summary": "東亞近代最大規模中西海戰。鄭芝龍採取「搭爪火攻」戰術，以火船死鎖荷蘭夾板巨艦縱火焚毀。",
+      "strategicSignificance": "徹底奠定明朝海上霸權與鄭氏集團對台灣海峽的絕對控制權。",
+      "tactics": "火攻船集群貼舷縱火、順風順潮突擊"
+    },
+    {
+      "id": "bat_sarhu_1619",
+      "name": "薩爾滸之戰 (努爾哈赤憑爾幾路去，我只一路去)",
+      "year": 1619,
+      "yearDisplay": "西元 1619 年",
+      "eraName": "明萬曆四十七年 / 後金天命四年",
+      "eraDisplay": "萬曆四十七年 三月",
+      "shortDescription": "明兵部侍郎楊鎬四路大軍圍剿後金，努爾哈赤集中兵力逐個擊破，杜松、劉綎全軍覆滅。",
+      "locationAncient": "薩爾滸山與渾河流域",
+      "locationName": "薩爾滸",
+      "locationModern": "遼寧省撫順市東薩爾滸風景區一帶",
+      "coords": [
+        124.15,
+        41.87
+      ],
+      "importance": 5,
+      "winner": "後金八旗鐵騎 (努爾哈赤)",
+      "victorStatement": "五天之內連破明軍西、北、東三路主力，明軍死傷四萬五千餘人。",
+      "attacker": {
+        "factionName": "大明四路大軍 (楊鎬杜松劉綎李如柏馬林)",
+        "forcesEstimate": "大軍約十二萬 (號稱四十七萬)"
+      },
+      "defender": {
+        "factionName": "後金八旗主力 (努爾哈赤統帥)",
+        "forcesEstimate": "六萬精銳八旗鐵騎"
+      },
+      "summary": "中國軍事史上集中優勢兵力打殲滅戰之千古經典。努爾哈赤以「憑爾幾路來，我只一路去」方針，吉林崖滅杜松，尚間崖潰馬林，阿布達里崗伏殺劉綎。",
+      "strategicSignificance": "明朝在遼東戰略徹底由進攻轉入被動防禦，後金崛起成為中原最大威脅。",
+      "tactics": "集結兵力逐個擊破、依託天險設伏、以逸待勞雪夜突擊"
+    },
+    {
+      "id": "bat_ningyuan_1626",
+      "name": "寧遠大捷 (袁崇煥紅夷大砲擊退努爾哈赤)",
+      "year": 1626,
+      "yearDisplay": "西元 1626 年",
+      "eraName": "明天啟六年 / 後金天命十一年",
+      "eraDisplay": "天啟六年 正月",
+      "shortDescription": "努爾哈赤親率十三萬八旗圍攻寧遠孤城，袁崇煥誓死堅守以西洋紅夷大砲重創後金。",
+      "locationAncient": "寧遠衛城 (興城古城)",
+      "locationName": "寧遠",
+      "locationModern": "遼寧省葫蘆島市興城市古城",
+      "coords": [
+        120.52,
+        40.62
+      ],
+      "importance": 5,
+      "winner": "大明寧遠守軍 (袁崇煥)",
+      "victorStatement": "後金傷亡慘重撤軍，努爾哈赤負傷慨嘆「自二十五歲起兵無不克者，何獨寧遠不拔」，不久憤死。",
+      "attacker": {
+        "factionName": "後金八旗精銳大軍",
+        "forcesEstimate": "十三萬騎步軍"
+      },
+      "defender": {
+        "factionName": "明寧前道袁崇煥與參將滿桂",
+        "forcesEstimate": "不到兩萬守城官兵"
+      },
+      "summary": "袁崇煥刺血書誓與城存亡，將十一門紅夷大砲架設城樓，交叉火力覆蓋城下，後金鐵騎攻城梯碎人亡。",
+      "strategicSignificance": "打破後金八旗不可戰勝之神話，促成關寧錦防線之穩固。",
+      "tactics": "堅壁清野、刺血勵士、西洋重砲交叉火力"
+    },
+    {
+      "id": "bat_songjin_1642",
+      "name": "松錦之戰 (洪承疇十三萬明軍覆滅降清)",
+      "year": 1642,
+      "yearDisplay": "西元 1640 - 1642 年",
+      "eraName": "明崇禎十三至十五年",
+      "eraDisplay": "崇禎十三年 至 十五年",
+      "shortDescription": "皇太極傾國之師圍攻錦州祖大壽，薊遼總督洪承疇十三萬精銳馳援被斷糧道全軍覆滅。",
+      "locationAncient": "松山與錦州城下",
+      "locationName": "松山 / 錦州",
+      "locationModern": "遼寧省錦州市松山新區與古塔區",
+      "coords": [
+        121.13,
+        41.13
+      ],
+      "importance": 5,
+      "winner": "大清太宗皇太極",
+      "victorStatement": "錦州祖大壽出降，松山城破洪承疇被俘降清，明朝關外精銳盡喪。",
+      "attacker": {
+        "factionName": "大清八旗水陸大軍 (皇太極統帥)",
+        "forcesEstimate": "十餘萬滿蒙漢八旗"
+      },
+      "defender": {
+        "factionName": "大明薊遼總督洪承疇十三萬精銳九邊鎮兵",
+        "forcesEstimate": "十三萬步騎"
+      },
+      "summary": "明清關外最後戰略決戰。崇禎盲目催戰，皇太極親統精騎掘壕扎營截斷筆架山糧道，十三萬明軍土崩瓦解。",
+      "strategicSignificance": "明朝關外重鎮全失僅餘山海關孤城，大明邊防全線崩塌。",
+      "tactics": "深溝高壘長圍、奇襲截斷海運糧道、內外夾擊"
+    },
+    {
+      "id": "bat_shanhaiguan_1644",
+      "name": "山海關一片石之戰 (多爾袞吳三桂聯軍破李自成)",
+      "year": 1644,
+      "yearDisplay": "西元 1644 年",
+      "eraName": "明崇禎十七年 / 大順永昌元年 / 清順治元年",
+      "eraDisplay": "崇禎十七年 四月二十一日至二十二日",
+      "shortDescription": "李自成率大順軍二十萬東征山海關，吳三桂引多爾袞滿洲八旗鐵騎突襲大順軍，李自成慘敗。",
+      "locationAncient": "山海關一片石 (威遠堡一帶)",
+      "locationName": "山海關一片石",
+      "locationModern": "河北省秦皇島市山海關區與綏中縣交界",
+      "coords": [
+        119.78,
+        40.01
+      ],
+      "importance": 5,
+      "winner": "多爾袞清八旗軍與吳三桂關寧鐵騎",
+      "victorStatement": "大順軍全線崩潰，李自成倉皇撤回北京登基旋即西撤，清軍入主中原。",
+      "attacker": {
+        "factionName": "大順皇帝李自成主力大軍",
+        "forcesEstimate": "二十萬騎步精銳"
+      },
+      "defender": {
+        "factionName": "吳三桂關寧軍與多爾袞八旗生力軍",
+        "forcesEstimate": "吳軍五萬 + 清軍八旗精騎八萬"
+      },
+      "summary": "改寫中國命運之千古一戰。吳軍與大順軍激戰晝夜力竭，午後狂風暴起沙石蔽天，多爾袞萬騎齊出大呼衝陣，大順軍駭奔。",
+      "strategicSignificance": "決定明清政權更迭之歷史樞紐，大清自此定都北京一統中原。",
+      "tactics": "關寧軍正面消耗、八旗精騎側翼隱蔽、借風沙雷霆突襲"
+    }
+  ];
+
+  // src/data/periods/yuanMing/events.js
+  var YUAN_MING_EVENTS = [
+    {
+      "id": "evt_ym_01",
+      "name": "大元大都定都與行省制建立",
+      "year": 1271,
+      "yearDisplay": "西元 1271 - 1276 年",
+      "eraName": "元至元年間",
+      "eraDisplay": "至元八年 至 十三年",
+      "shortDescription": "忽必烈取《易經》「大哉乾元」定國號大元，營建大都，開創行省行政體制。",
+      "description": "忽必烈改國號為大元，命劉秉忠、郭守敬規劃營建大都城（今北京），以太液池為中心奠定中軸線格局。同時在全國推行「行中書省」制度，分設中書省腹裡與嶺北、遼陽、河南、江浙、江西、湖廣、陝西、四川、雲南、甘肅十行省。",
+      "detail": "行省制度由中央派出機構演變為地方最高行政建制，徹底打破山川形便與地方割據基礎，成為後世省制之祖。",
+      "impact": "開創中國七百年行省制度與北京作為大一統首都之城市格局。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "大都 (燕京)",
+      "locationName": "大都",
+      "locationModern": "北京市市區",
+      "coords": [
+        116.4,
+        39.9
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_kublai_khan",
+        "fig_guo_shoujing"
+      ]
+    },
+    {
+      "id": "evt_ym_02",
+      "name": "澎湖巡檢司設立 (台灣首度正式設官統治)",
+      "year": 1281,
+      "yearDisplay": "西元 1281 年",
+      "eraName": "元至元十八年",
+      "eraDisplay": "至元十八年",
+      "shortDescription": "元朝於澎湖設巡檢司，隸屬福建泉州同安縣，為台灣澎湖正式設立行政官署之始。",
+      "description": "至元十八年（或至元三十四年），大元朝廷因應澎湖三十六島海商漁船聚居與防禦海盜需求，正式在澎湖設立「澎湖巡檢司」，派駐巡檢副巡檢官員並駐防弓兵，行使司法治安與市舶稽查管轄權。",
+      "detail": "《元史·地理志》記載澎湖諸島隸屬泉州路同安縣，此為中國歷代中央王朝對台灣海峽及澎湖地區正式行使國家行政管轄權之最早信史確證。",
+      "impact": "開啟台灣與澎湖群島正式納入中央政權行政區劃管轄之劃時代歷史標竿。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "澎湖巡檢司 / 媽宮",
+      "locationName": "澎湖",
+      "locationModern": "台灣澎湖縣馬公市",
+      "coords": [
+        119.57,
+        23.57
+      ],
+      "svgPos": {
+        "x": 675,
+        "y": 640
+      },
+      "figuresInvolved": [
+        "fig_kublai_khan"
+      ]
+    },
+    {
+      "id": "evt_ym_03",
+      "name": "郭守敬編訂授時曆與修通惠河",
+      "year": 1280,
+      "yearDisplay": "西元 1280 - 1292 年",
+      "eraName": "元至元十七至二十九年",
+      "eraDisplay": "至元十七年 至 二十九年",
+      "shortDescription": "郭守敬創制簡儀編纂《授時曆》，主持引白浮泉入大都開鑿通惠河。",
+      "description": "郭守敬與許衡等受命改曆，在全國設立二十七座觀測站推行「四海測驗」，測算一年週期為365.2425日，創制《授時曆》通行三百六十餘年。1292年又主持開鑿通惠河，引昌平白浮泉水注入積水潭，使南方漕船直抵大都城內。",
+      "detail": "郭守敬在天文儀器研發上發明簡儀、高表、仰儀等多達十三種精密儀器，為世界天文史里程碑。",
+      "impact": "使中國中古科技天文與水利航運工程達到世界最頂尖水準。",
+      "category": "cultural",
+      "importance": 4,
+      "locationNameAncient": "大都司天監與通惠河",
+      "locationName": "大都",
+      "locationModern": "北京市東城區積水潭一帶",
+      "coords": [
+        116.37,
+        39.94
+      ],
+      "svgPos": {
+        "x": 602,
+        "y": 318
+      },
+      "figuresInvolved": [
+        "fig_guo_shoujing",
+        "fig_kublai_khan"
+      ]
+    },
+    {
+      "id": "evt_ym_04",
+      "name": "莫道石人一隻眼·元末紅巾大起義",
+      "year": 1351,
+      "yearDisplay": "西元 1351 年",
+      "eraName": "元至正十一年",
+      "eraDisplay": "至正十一年 五月",
+      "shortDescription": "元廷強徵十五萬民伕修治黃河，韓山童、劉福通埋石人起事「莫道石人一隻眼，挑動黃河天下反」。",
+      "description": "元末吏治腐敗，鈔法濫印引發惡性通膨，丞相脫調集十五萬民工治黃河。白蓮教首韓山童與劉福通預先鑿製獨眼石人埋於黃陵岡，引爆潁州紅巾起義。隨後徐壽輝起於蘄春，郭子興起於濠州，朱元璋投奔郭子興，元末天下鼎沸。",
+      "detail": "紅巾軍頭裹紅巾，奉宋徽宗後裔韓林兒為「小明王」，國號大宋，敲響大元帝國喪鐘。",
+      "impact": "引發元末群雄逐鹿風雲，為朱元璋崛起統一天下揭開序幕。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "潁州 / 黃陵岡",
+      "locationName": "潁州",
+      "locationModern": "安徽省阜陽市潁州區 / 河南省蘭考縣境內",
+      "coords": [
+        115.81,
+        32.89
+      ],
+      "svgPos": {
+        "x": 575,
+        "y": 470
+      },
+      "figuresInvolved": [
+        "fig_zhu_yuanzhang",
+        "fig_tuotuo"
+      ]
+    },
+    {
+      "id": "evt_ym_05",
+      "name": "鄱陽湖決戰·朱元璋掃平陳友諒",
+      "year": 1363,
+      "yearDisplay": "西元 1363 年",
+      "eraName": "元至正二十三年",
+      "eraDisplay": "至正二十三年 七月",
+      "shortDescription": "朱元璋火攻破陳友諒六十萬樓船巨艦，掃除統一天下最大障礙。",
+      "description": "陳友諒率六十萬水軍圍攻洪都（南昌）八十五日不克。朱元璋親帥水師二十萬救援，於鄱陽湖展開三十六天殊死血戰。劉伯溫觀星贊畫，明軍以火筏順風縱火焚毀漢軍巨艦，陳友諒中箭殞命，漢軍瓦解。",
+      "detail": "此戰為朱元璋一生最危急之生死決戰，奠定其建立大明之軍事實力。",
+      "impact": "徹底平定江南最強軍閥，朱元璋隨即自立為吳王，平定張士誠。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "鄱陽湖康郎山水域",
+      "locationName": "鄱陽湖",
+      "locationModern": "江西省九江市都昌縣至鄱陽縣一帶",
+      "coords": [
+        116.32,
+        29.25
+      ],
+      "svgPos": {
+        "x": 615,
+        "y": 550
+      },
+      "figuresInvolved": [
+        "fig_zhu_yuanzhang",
+        "fig_liu_bowen"
+      ]
+    },
+    {
+      "id": "evt_ym_06",
+      "name": "大明立國應天與徐達北伐驅逐元廷",
+      "year": 1368,
+      "yearDisplay": "西元 1368 年",
+      "eraName": "明洪武元年",
+      "eraDisplay": "洪武元年 正月初四日",
+      "shortDescription": "朱元璋於應天府稱帝建立大明，徐達常遇春北伐攻克大都，元順帝北奔，大元滅亡。",
+      "description": "洪武元年正月初四，朱元璋於南京紫金山南麓登基，國號大明，改元洪武。隨後命徐達為征虜大將軍、常遇春為副將軍率二十五萬北伐大軍，發布「驅逐胡虜，恢復中華」檄文。八月明軍攻陷大都，元順帝攜三宮后妃退守漠北，大明一統天下。",
+      "detail": "朱元璋下令封存大都府庫圖籍，嚴禁搶掠擾民，優待元順帝后裔，展現開國天子氣度。",
+      "impact": "漢族政權在歷經元朝統治近百年後重掌華夏正統，大明二百七十六年帝業肇基。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "應天府 (南京城) / 大都 (北平)",
+      "locationName": "應天府 / 南京",
+      "locationModern": "江蘇省南京市市區",
+      "coords": [
+        118.78,
+        32.04
+      ],
+      "svgPos": {
+        "x": 640,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_zhu_yuanzhang",
+        "fig_xu_da",
+        "fig_chang_yuchun",
+        "fig_ma_huanghou"
+      ]
+    },
+    {
+      "id": "evt_ym_07",
+      "name": "廢丞相立六部與錦衣衛設立",
+      "year": 1380,
+      "yearDisplay": "西元 1380 - 1382 年",
+      "eraName": "明洪武十三至十五年",
+      "eraDisplay": "洪武十三年 正月 至 十五年",
+      "shortDescription": "太祖誅丞相胡惟庸，廢中書省與丞相職務，皇權直接統轄六部，設錦衣衛。",
+      "description": "因丞相胡惟庸專權跋扈，朱元璋以謀反罪誅胡惟庸九族。隨後下詔徹底廢除實行一千六百餘年之宰相制度，中書省不復設，分權歸於吏、戶、禮、兵、刑、工六部，直屬皇帝。洪武十五年又設「錦衣衛指揮使司」掌直駕侍衛與巡查緝捕。",
+      "detail": "朱元璋立下祖訓：「嗣後兒孫做皇帝時，並不許立丞相。臣下敢有奏請設立者，文武群臣即時劾奏，處以極刑」。",
+      "impact": "中國皇權中央集權達到歷史空前頂點，徹底重塑明清兩代官僚權力架構。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "應天府皇宮大內奉天殿",
+      "locationName": "南京紫禁城",
+      "locationModern": "江蘇省南京市玄武區明故宮遺址",
+      "coords": [
+        118.81,
+        32.03
+      ],
+      "svgPos": {
+        "x": 642,
+        "y": 522
+      },
+      "figuresInvolved": [
+        "fig_zhu_yuanzhang",
+        "fig_li_shan_chang"
+      ]
+    },
+    {
+      "id": "evt_ym_08",
+      "name": "捕魚兒海大捷·北元汗權崩解",
+      "year": 1388,
+      "yearDisplay": "西元 1388 年",
+      "eraName": "明洪武二十一年",
+      "eraDisplay": "洪武二十一年 四月",
+      "shortDescription": "大將軍藍玉率軍深入貝爾湖畔，大破北元汗帳，獲玉璽、寶印與后妃宗室數萬。",
+      "description": "藍玉率十五萬精兵跨過大沙漠，軍臨捕魚兒海（今貝爾湖）南岸。將士穴地而炊隱匿行蹤，趁風沙漫天突襲後主脫古思帖木兒汗帳。北元主力土崩瓦解，俘次子地保奴、妃嬪、公主、官吏八萬餘人，獲寶馬駝羊十五萬頭。",
+      "detail": "脫古思帖木兒西奔途中被阿里不哥後裔也速迭兒縊殺，忽必烈嫡系黃金家族汗位斷絕，蒙古陷入瓦剌與韃靼百年混戰。",
+      "impact": "徹底消除北元政權對大明北疆之集體南侵威脅，北元國號終結。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "捕魚兒海 (貝爾湖)",
+      "locationName": "捕魚兒海",
+      "locationModern": "內蒙古自治區呼倫貝爾市新巴爾虎右旗貝爾湖",
+      "coords": [
+        117.75,
+        47.8
+      ],
+      "svgPos": {
+        "x": 670,
+        "y": 190
+      },
+      "figuresInvolved": [
+        "fig_lan_yu",
+        "fig_zhu_yuanzhang"
+      ]
+    },
+    {
+      "id": "evt_ym_09",
+      "name": "靖難之役與成祖奪位",
+      "year": 1399,
+      "yearDisplay": "西元 1399 - 1402 年",
+      "eraName": "明建文元年至四年",
+      "eraDisplay": "建文元年 七月 至 四年 六月",
+      "shortDescription": "建文帝推行削藩，燕王朱棣起兵「清君側靖國難」，攻破南京登基改元永樂。",
+      "description": "建文帝即位後任用齊泰、黃子澄激進削藩，連廢周、齊、湘、代、岷五王，湘王自焚。燕王朱棣在姚廣孝謀劃下以「清君側、除奸惡」誓師起兵。歷經白溝河、夾河大血戰，1402年朱棣繞開山東堅城奔襲江淮，李景隆開金川門降，南京城陷，宮中起火建文帝不知所終。",
+      "detail": "方孝孺誓死不從成祖詔命，遭磔殺誅十族；朱棣登基即明成祖，改元永樂。",
+      "impact": "明朝皇系自太祖長房轉移至四房燕王系，開啟永樂朝拓土遷都之新時代。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北平府 (燕京) / 應天府 (南京)",
+      "locationName": "南京城",
+      "locationModern": "江蘇省南京市市區",
+      "coords": [
+        118.78,
+        32.04
+      ],
+      "svgPos": {
+        "x": 640,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_zhu_di",
+        "fig_yao_guangxiao",
+        "fig_fang_xiaoru"
+      ]
+    },
+    {
+      "id": "evt_ym_10",
+      "name": "鄭和七下西洋·萬國衣冠拜冕旒",
+      "year": 1405,
+      "yearDisplay": "西元 1405 - 1433 年",
+      "eraName": "明永樂三年至宣德八年",
+      "eraDisplay": "永樂三年 至 宣德八年",
+      "shortDescription": "三寶太監鄭和率兩百餘艘寶船艦隊七下西洋，訪問東南亞、印度洋至東非三十餘國。",
+      "description": "永樂三年六月，鄭和率將士二萬七千餘人、巨型寶船六十餘艘由太倉劉家港出發，浮海巡幸南海、印度洋。前後歷經二十八年七次遠航，最遠抵達紅海及東非麻林地（肯亞），引進長頸鹿（麒麟），建立龐大朝貢外交體系。",
+      "detail": "鄭和寶船長四十四丈四尺、闊十八丈，為當時世界最大木質帆船，展現明初航海造船與天文牽星術之巔峰。",
+      "impact": "開闢海上絲綢之路全盛時代，確立中國在東南亞與印度洋之和平宗主威望。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "太倉劉家港 / 泉州 / 麻林地",
+      "locationName": "劉家港 / 太倉",
+      "locationModern": "江蘇省蘇州市太倉市瀏河鎮",
+      "coords": [
+        121.26,
+        31.51
+      ],
+      "svgPos": {
+        "x": 660,
+        "y": 535
+      },
+      "figuresInvolved": [
+        "fig_zheng_he",
+        "fig_zhu_di"
+      ]
+    },
+    {
+      "id": "evt_ym_11",
+      "name": "永樂遷都北京與紫禁城落成",
+      "year": 1421,
+      "yearDisplay": "西元 1421 年",
+      "eraName": "明永樂十九年",
+      "eraDisplay": "永樂十九年 正月初一日",
+      "shortDescription": "朱棣正式遷都北京，紫禁城、天壇、太廟三大殿落成，「天子守國門」。",
+      "description": "成祖為扼制北方草原蒙古威脅，自永樂四年起徵發百萬軍民營建北京宮殿。1420年紫禁城告竣，1421年元旦正式遷都北京，以北京為京師、南京為留都。此舉確立「天子守國門，君王死社稷」之明代祖訓。",
+      "detail": "北京紫禁城佔地七十二萬平方公尺，房屋九千餘間，為世界現存規模最大、保存最完整之古代木結構宮殿建築群。",
+      "impact": "徹底確立北京作為中國北方政治心臟地位，延續至今六百年未改。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京紫禁城 (承天門/奉天殿)",
+      "locationName": "北京紫禁城",
+      "locationModern": "北京市市中心故宮博物院",
+      "coords": [
+        116.39,
+        39.91
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_zhu_di",
+        "fig_yao_guangxiao",
+        "fig_xie_jin"
+      ]
+    },
+    {
+      "id": "evt_ym_12",
+      "name": "土木之變與北京保衛戰",
+      "year": 1449,
+      "yearDisplay": "西元 1449 年",
+      "eraName": "明正統十四年",
+      "eraDisplay": "正統十四年 八月至十月",
+      "shortDescription": "英宗被俘土木堡京師危急，于謙力排眾議立景泰帝，九門大破瓦剌也先挽狂瀾。",
+      "description": "明英宗聽信太監王振妄自親征，於懷來土木堡斷水遭瓦剌也先全殲，英宗受俘。朝中徐珵等主遷都南京，兵部侍郎于謙怒斥南遷者斬，尊英宗弟朱祁鈺為景帝，調集山東河南漕糧入衛，列陣德勝門外九門以火砲神臂弓重創也先鐵騎，逼退瓦剌。",
+      "detail": "于謙展現「社稷為重，君為輕」之政治擔當，寫下「清風兩袖朝天去，免得閭閻話短長」。",
+      "impact": "成功拯救明朝滅頂之災，明軍自此放棄主動出塞攻勢，改採沿邊築長城防禦。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "土木堡 / 北京德勝門",
+      "locationName": "土木堡 / 德勝門",
+      "locationModern": "北京市德勝門及河北省懷來縣",
+      "coords": [
+        116.38,
+        39.95
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_yu_qian"
+      ]
+    },
+    {
+      "id": "evt_ym_13",
+      "name": "王陽明龍場悟道與平定宸濠之亂",
+      "year": 1519,
+      "yearDisplay": "西元 1508 - 1519 年",
+      "eraName": "明正德三至十四年",
+      "eraDisplay": "正德三年 至 十四年",
+      "shortDescription": "王陽明於貴州龍場大悟心即是理，任右僉都御史僅三十五日平定寧王朱宸濠叛亂。",
+      "description": "王守仁謫居貴州修文龍場，絕糧困頓中頓悟「知行合一」心學真諦。正德十四年六月，寧王朱宸濠於南昌起兵十萬謀篡大位。王陽明無兵無符節，機智發布假檄兵分三路反攻南昌，黃家渡伏兵大破叛軍，活捉寧王，化解東南浩劫。",
+      "detail": "王陽明晚年臨終遺言「此心光明，亦復何言」，被尊為立德、立功、立言三不朽大宗師。",
+      "impact": "陽明心學風靡華夏東亞，打破程朱理學思想禁錮，催生晚明個性自覺解放浪潮。",
+      "category": "cultural",
+      "importance": 5,
+      "locationNameAncient": "龍場驛 (修文) / 南昌府黃家渡",
+      "locationName": "南昌 / 龍場",
+      "locationModern": "江西省南昌市及貴州省貴陽市修文縣",
+      "coords": [
+        115.89,
+        28.68
+      ],
+      "svgPos": {
+        "x": 615,
+        "y": 555
+      },
+      "figuresInvolved": [
+        "fig_wang_yangming"
+      ]
+    },
+    {
+      "id": "evt_ym_14",
+      "name": "戚繼光抗倭·蕩平東南與長城敵樓建設",
+      "year": 1561,
+      "yearDisplay": "西元 1561 - 1571 年",
+      "eraName": "明嘉靖至隆慶年間",
+      "eraDisplay": "嘉靖四十年 至 隆慶五年",
+      "shortDescription": "戚繼光組建戚家軍九戰九捷肅清東南倭患，後鎮守薊門修築千座長城空心敵樓。",
+      "description": "嘉靖年間「倭寇」侵擾江浙閩粵沿海。戚繼光精選三千義烏礦工練成戚家軍，自創「鴛鴦陣」與狼筅火砲戰法，台州、福建、廣東連連全殲倭寇。隆慶二年調任薊鎮總兵，在山海關至居庸關間修築空心敵樓一千二百座，韃靼俺答汗畏威稱臣。",
+      "detail": "戚繼光編撰《紀效新書》、《練兵實紀》，為中國古典實用軍事典籍之絕巔。",
+      "impact": "徹底解決東南沿海半世紀倭患，促成「隆慶開關」開放海禁，海外白銀大量湧入中國。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "台州府 / 薊鎮金山嶺長城",
+      "locationName": "台州 / 薊門",
+      "locationModern": "浙江台州及河北承德灤平金山嶺長城",
+      "coords": [
+        121.13,
+        28.85
+      ],
+      "svgPos": {
+        "x": 660,
+        "y": 565
+      },
+      "figuresInvolved": [
+        "fig_qi_jiguang",
+        "fig_yu_dayou"
+      ]
+    },
+    {
+      "id": "evt_ym_15",
+      "name": "張居正萬曆新政與一條鞭法",
+      "year": 1573,
+      "yearDisplay": "西元 1573 - 1582 年",
+      "eraName": "明萬曆元至十年",
+      "eraDisplay": "萬曆元年 至 十年",
+      "shortDescription": "萬曆首輔張居正推行考成法整飭吏治，清丈全國田畝實施一條鞭法，國庫太倉粟支十年。",
+      "description": "張居正任內閣首輔輔佐萬曆幼帝。政治上立「考成法」裁汰冗官；軍事上用戚繼光守薊門、李成梁守遼東；經濟上命潘季馴治黃河，清丈全國土地得七百餘萬頃，推行「一條鞭法」將田賦、徭役合併折銀徵收。",
+      "detail": "改革使明廷財政轉虧為盈，太倉存銀數百萬兩，府庫充溢，史稱「萬曆中興」。",
+      "impact": "確立中國賦稅貨幣化改革里程碑，促使商品經濟與市井白銀資本主義萌芽蓬勃發展。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京紫禁城內閣文淵閣",
+      "locationName": "北京內閣",
+      "locationModern": "北京市市區故宮內閣遺址",
+      "coords": [
+        116.39,
+        39.91
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_zhang_juzheng",
+        "fig_qi_jiguang"
+      ]
+    },
+    {
+      "id": "evt_ym_16",
+      "name": "萬曆三大征與抗倭援朝大捷",
+      "year": 1592,
+      "yearDisplay": "西元 1592 - 1598 年",
+      "eraName": "明萬曆二十至二十六年",
+      "eraDisplay": "萬曆二十年 至 二十六年",
+      "shortDescription": "萬曆帝發動寧夏、播州與朝鮮三大征，李如松、鄧子龍抗倭援朝露梁海戰徹底挫敗日本。",
+      "description": "日本關白豐臣秀吉率十六萬大軍侵略朝鮮，朝鮮宣祖奔義州求援。萬曆帝決然出兵，提督李如松率遼東精銳跨鴨綠江收復平壤。戰事反覆七年，1598年露梁海戰老將鄧子龍與朝鮮李舜臣夾擊日軍水軍壯烈殉國，日軍全潰，豐臣秀吉憤病而亡。",
+      "detail": "三大征維護了中華宗藩體系之安危，但也耗盡大明府庫白銀逾千萬兩，遼東軍防空虛。",
+      "impact": "奠定東北亞三百年和平格局，但遼東女真部族努爾哈赤乘虛崛起。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "朝鮮平壤城 / 露梁海峽",
+      "locationName": "平壤 / 露梁海",
+      "locationModern": "朝鮮平壤及韓國慶尚南道南海郡露梁海峽",
+      "coords": [
+        125.75,
+        39.03
+      ],
+      "svgPos": {
+        "x": 710,
+        "y": 330
+      },
+      "figuresInvolved": [
+        "fig_li_rusong"
+      ]
+    },
+    {
+      "id": "evt_ym_17",
+      "name": "顏思齊鄭芝龍開闢台灣笨港",
+      "year": 1621,
+      "yearDisplay": "西元 1621 - 1628 年",
+      "eraName": "明天啟元至崇禎元年",
+      "eraDisplay": "天啟元年 至 崇禎元年",
+      "shortDescription": "顏思齊率鄭芝龍等二十八兄弟入拓台灣笨港，召募漳泉數千移民結寨開墾，奠基開台。",
+      "description": "海商領袖顏思齊與鄭芝龍因避日本幕府通緝，率船隊航抵台灣笨港（今雲林北港與嘉義新港一帶）。設立十寨，招撫平埔原住民，召募閩南漳泉飢民數千人渡海來台屯墾伐木。顏思齊病歿後，眾推鄭芝龍為首領，開創台灣早期大規模漢人墾殖社會。",
+      "detail": "顏思齊被後世尊為「開台第一人」，鄭芝龍隨後在料羅灣大破荷蘭東印度公司艦隊，稱雄東亞海域。",
+      "impact": "開啟大陸東南沿海大規模移民開闢台灣寶島之波瀾壯闊歷史先河。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "台灣笨港十寨 (大員海疆)",
+      "locationName": "笨港 / 北港",
+      "locationModern": "台灣雲林縣北港鎮與嘉義縣新港鄉交界",
+      "coords": [
+        120.3,
+        23.57
+      ],
+      "svgPos": {
+        "x": 685,
+        "y": 645
+      },
+      "figuresInvolved": [
+        "fig_zheng_zhilong"
+      ]
+    },
+    {
+      "id": "evt_ym_18",
+      "name": "努爾哈赤七大恨告天起兵薩爾滸大捷",
+      "year": 1619,
+      "yearDisplay": "西元 1616 - 1619 年",
+      "eraName": "明萬曆四十四至四十七年 / 後金天命元至四年",
+      "eraDisplay": "天命元年 至 四年",
+      "shortDescription": "努爾哈赤建國號後金，發布「七大恨」誓師反明，於薩爾滸五日內連破明軍三路主力。",
+      "description": "1616年努爾哈赤在赫圖阿拉稱汗建立後金。1618年以七大恨誓師攻佔撫順、清河。1619年明廷調集十三萬精兵兵分四路圍剿，努爾哈赤以「憑爾幾路來，我只一路去」高明策略，於薩爾滸山、吉林崖集中八旗主力分割包圍，全殲明軍四萬餘精銳。",
+      "detail": "薩爾滸之戰明名將杜松、劉綎力戰殉國，明朝在遼東經營百餘年之精銳部隊蕩然無存。",
+      "impact": "遼東戰局攻守逆轉，後金取得戰略進攻主動權，開啟明清易代四十年大動盪。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "薩爾滸山 (渾河沿線)",
+      "locationName": "薩爾滸",
+      "locationModern": "遼寧省撫順市東薩爾滸風景區",
+      "coords": [
+        124.15,
+        41.87
+      ],
+      "svgPos": {
+        "x": 690,
+        "y": 285
+      },
+      "figuresInvolved": [
+        "fig_nurhaci"
+      ]
+    },
+    {
+      "id": "evt_ym_19",
+      "name": "袁崇煥寧遠大捷與關寧錦防線",
+      "year": 1626,
+      "yearDisplay": "西元 1626 年",
+      "eraName": "明天啟六年 / 後金天命十一年",
+      "eraDisplay": "天啟六年 正月",
+      "shortDescription": "袁崇煥督守寧遠孤城，以西洋紅夷大砲擊退努爾哈赤十三萬八旗，努爾哈赤負傷後亡。",
+      "description": "遼東經略高第盡撤關外守軍，唯寧前道袁崇煥誓死不退，單騎守寧遠孤城。正月努爾哈赤率鐵騎直逼城下，袁崇煥以紅夷大砲密集轟擊後金陣地，炸死後金大將，八旗軍死傷甚眾解圍北撤。努爾哈赤不久鬱憤病逝於靉雞堡。",
+      "detail": "袁崇煥隨後與孫承宗構築自山海關、寧遠至錦州四百里之「關寧錦防線」，成為明末最堅固堡壘。",
+      "impact": "明朝在薩爾滸大敗後取得對後金之首次空前大勝，士氣大振。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "寧遠衛城 (興城古城)",
+      "locationName": "寧遠",
+      "locationModern": "遼寧省葫蘆島市興城市古城",
+      "coords": [
+        120.52,
+        40.62
+      ],
+      "svgPos": {
+        "x": 655,
+        "y": 295
+      },
+      "figuresInvolved": [
+        "fig_yuan_chonghuan",
+        "fig_nurhaci",
+        "fig_sun_chengzong"
+      ]
+    },
+    {
+      "id": "evt_ym_20",
+      "name": "袁崇煥冤殺與己巳之變",
+      "year": 1630,
+      "yearDisplay": "西元 1629 - 1630 年",
+      "eraName": "明崇禎二至三年",
+      "eraDisplay": "崇禎二年 十月 至 三年 八月",
+      "shortDescription": "皇太極避開關寧錦借道蒙古奔襲北京，崇禎中反間計將薊遼督師袁崇煥凌遲處死。",
+      "description": "皇太極見寧錦防線難破，率八旗十萬大軍繞道蒙古喜峰口入塞，兵臨北京德勝門、廣渠門下。袁崇煥率九千關寧鐵騎日夜兼程馳援廣渠門血戰退敵。然而崇禎生性多疑，聽信太監轉述清軍「反間計」流言，誣袁崇煥「通敵謀叛」，下獄凌遲，京中百姓爭食其肉。",
+      "detail": "袁崇煥臨刑前賦詩：「一生事業總成空，半世功名在訪中。死後不愁無勇將，忠魂依舊守遼東！」。",
+      "impact": "自毀萬里長城，關寧將領離心離德，明朝遼東防禦體系走向全面土崩瓦解。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京西市西四牌樓",
+      "locationName": "北京西市",
+      "locationModern": "北京市西城區西四交道口",
+      "coords": [
+        116.37,
+        39.92
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_yuan_chonghuan",
+        "fig_chongzhen",
+        "fig_hong_taiji"
+      ]
+    },
+    {
+      "id": "evt_ym_21",
+      "name": "皇太極改國號大清與松錦決戰",
+      "year": 1636,
+      "yearDisplay": "西元 1636 - 1642 年",
+      "eraName": "清崇德元年至七年 / 明崇禎九至十五年",
+      "eraDisplay": "崇德元年 至 七年",
+      "shortDescription": "皇太極在盛京稱帝改國號為大清，松錦之戰殲滅明關外最後主力，洪承疇降清。",
+      "description": "1636年皇太極在盛京（瀋陽）受滿、蒙、漢諸大臣擁戴稱帝，改國號為「大清」，改族名為「滿洲」。1640年大舉圍攻錦州祖大壽，崇禎促洪承疇帥八總兵十三萬大軍馳援。皇太極親統精騎橫截筆架山糧道，松山城破，洪承疇被俘降清，錦州降。",
+      "detail": "松錦之戰使明朝在遼東之精銳邊兵喪失殆盡，關外僅餘吳三桂守山海關孤城。",
+      "impact": "明朝關外防禦徹底瓦解，大清入主中原之軍事實力全面成型。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "盛京 (瀋陽故宮) / 松山城下",
+      "locationName": "盛京 / 松山",
+      "locationModern": "遼寧省瀋陽市及錦州市松山新區",
+      "coords": [
+        123.43,
+        41.8
+      ],
+      "svgPos": {
+        "x": 685,
+        "y": 280
+      },
+      "figuresInvolved": [
+        "fig_hong_taiji"
+      ]
+    },
+    {
+      "id": "evt_ym_22",
+      "name": "甲申國難·闖王破北京崇禎煤山自縊",
+      "year": 1644,
+      "yearDisplay": "西元 1644 年",
+      "eraName": "明崇禎十七年 / 大順永昌元年",
+      "eraDisplay": "崇禎十七年 三月十九日",
+      "shortDescription": "李自成大順軍攻陷北京城，明崇禎帝於景山自縊殉國，統治二百七十六年大明覆滅。",
+      "description": "李自成在西安建大順稱帝，率五十萬大軍渡黃河陷太原、破居庸關。三月十八日夜太監曹化淳開彰義門降。十九日拂曉天子鳴鐘百官無一至者，崇禎帝逼周后自盡、手刃長平公主，登上萬歲山（煤山）壽皇亭畔自縊殉社稷，留血衣遺書「朕死無面目見祖宗於地下，去朕冠冕，以髮覆面，任賊分裂朕屍，勿傷百姓一人」。",
+      "detail": "崇禎帝踐行了「天子守國門，君王死社稷」之大明誓言，李自成入宮嘆惜並以天子禮葬於思陵。",
+      "impact": "大明統一帝國覆亡，中國北方陷入大順政權與清軍角逐之巨大權力真空。",
+      "category": "disaster",
+      "importance": 5,
+      "locationNameAncient": "北京紫禁城煤山 (景山古槐)",
+      "locationName": "景山 / 煤山",
+      "locationModern": "北京市西城區景山公園古槐處",
+      "coords": [
+        116.39,
+        39.92
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_chongzhen",
+        "fig_li_zicheng"
+      ]
+    },
+    {
+      "id": "evt_ym_23",
+      "name": "山海關一片石大戰與清兵入關",
+      "year": 1644,
+      "yearDisplay": "西元 1644 年",
+      "eraName": "明崇禎十七年 / 清順治元年",
+      "eraDisplay": "順治元年 四月二十二日",
+      "shortDescription": "吳三桂衝冠一怒為紅顏引清兵入關，多爾袞八旗大破李自成，清世祖順治定都北京。",
+      "description": "李自成部將劉宗敏霸佔吳三桂愛妾陳圓圓並拷掠其父吳襄。吳三桂憤怒之極開山海關投降清攝政王多爾袞。四月二十二日山海關外一片石，吳軍與李自成大順軍鏖戰難解難分之際，多爾袞命阿濟格、多鐸率萬騎八旗鐵騎大呼衝殺，大順軍全線崩潰。五月初二日多爾袞率清軍進入北京，十月順治帝由瀋陽遷都北京。",
+      "detail": "吳偉業作《圓圓曲》慨嘆：「衝冠一怒為紅顏」，一片石之役徹底決定了中國近三百年歷史版圖命運。",
+      "impact": "滿洲八旗正式入主中原，大清帝國建立對全國之統治。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "山海關一片石 (威遠堡)",
+      "locationName": "山海關",
+      "locationModern": "河北省秦皇島市山海關區",
+      "coords": [
+        119.78,
+        40.01
+      ],
+      "svgPos": {
+        "x": 635,
+        "y": 310
+      },
+      "figuresInvolved": [
+        "fig_wu_sangui",
+        "fig_li_zicheng"
+      ]
+    }
+  ];
+
+  // src/data/periods/yuanMing/warlordPeriods.js
+  var YUAN_MING_WARLORD_PERIODS = [
+    {
+      "id": "ym_1279",
+      "yearNumber": 1279,
+      "yearDisplay": "西元 1279 年",
+      "shortLabel": "大元混一",
+      "headline": "大元一統四海：忽必烈行省統治天下，設澎湖巡檢司",
+      "subTitle": "崖山宋亡大元混一寰宇，推行行省制度與宣政院，澎湖巡檢司納入管轄。",
+      "chronicleLeft": [
+        "元軍水師崖山覆滅南宋，忽必烈建立中國歷史疆域最遼闊之大一統帝國。",
+        "全國劃分十行省與中書省腹裡，創立「行省制度」，奠定後世地方行政區劃七百年基石。",
+        "設立宣政院直接管轄烏思藏吐蕃軍政宗教事務，西藏正式納入中央政權統治。"
+      ],
+      "chronicleRight": [
+        "於澎湖設立「澎湖巡檢司」，隸屬福建泉州府，正式將澎湖列島及台灣海峽納入行政管轄。",
+        "郭守敬受命主持編訂《授時曆》，設立二十七處四海測驗點，測出精準回歸年。",
+        "大都營建竣工，通惠河通航，馬可波羅遊歷大都揚州，驚嘆東方文明之繁盛。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大元中書省大都路 (忽必烈帝都)",
+          "color": "#93c5fd"
+        },
+        "hebei": {
+          "warlord": "大元中書省腹裡",
+          "color": "#93c5fd"
+        },
+        "shandong": {
+          "warlord": "大元中書省腹裡",
+          "color": "#93c5fd"
+        },
+        "shanxi": {
+          "warlord": "大元中書省腹裡",
+          "color": "#93c5fd"
+        },
+        "henan": {
+          "warlord": "大元河南江北行省",
+          "color": "#93c5fd"
+        },
+        "jiangsu": {
+          "warlord": "大元江浙行省 (原南宋平江臨安府)",
+          "color": "#93c5fd"
+        },
+        "zhejiang": {
+          "warlord": "大元江浙行省杭州路",
+          "color": "#93c5fd"
+        },
+        "anhui": {
+          "warlord": "大元河南江北行省與江浙行省",
+          "color": "#93c5fd"
+        },
+        "jiangxi": {
+          "warlord": "大元江西行省 (龍興路)",
+          "color": "#93c5fd"
+        },
+        "hubei": {
+          "warlord": "大元湖廣行省 (武昌路)",
+          "color": "#93c5fd"
+        },
+        "hunan": {
+          "warlord": "大元湖廣行省長沙路",
+          "color": "#93c5fd"
+        },
+        "sichuan": {
+          "warlord": "大元四川行省 (成都路重慶路)",
+          "color": "#93c5fd"
+        },
+        "chongqing": {
+          "warlord": "大元四川行省重慶路",
+          "color": "#93c5fd"
+        },
+        "shaanxi": {
+          "warlord": "大元陝西行省 (京兆路西安)",
+          "color": "#93c5fd"
+        },
+        "gansu": {
+          "warlord": "大元甘肅行省 (張掖甘州路)",
+          "color": "#93c5fd"
+        },
+        "ningxia-hui": {
+          "warlord": "大元陝西行省寧夏府路",
+          "color": "#93c5fd"
+        },
+        "fujian": {
+          "warlord": "大元江浙行省泉州路 (澎湖巡檢司轄屬)",
+          "color": "#93c5fd"
+        },
+        "guangdong": {
+          "warlord": "大元江西行省廣東道宣慰司",
+          "color": "#93c5fd"
+        },
+        "guangxi": {
+          "warlord": "大元湖廣行省廣西兩江道",
+          "color": "#93c5fd"
+        },
+        "guizhou": {
+          "warlord": "大元湖廣行省播州土司",
+          "color": "#93c5fd"
+        },
+        "yunnan": {
+          "warlord": "大元雲南行省 (中慶路賽典赤治理)",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "大元上都開平府 / 嶺北行省",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "大元遼陽行省 (遼陽路)",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "大元遼陽行省開元路",
+          "color": "#93c5fd"
+        },
+        "heilongjiang": {
+          "warlord": "大元水達達路征東元帥府",
+          "color": "#93c5fd"
+        },
+        "qinghai": {
+          "warlord": "大元宣政院吐蕃等處宣慰使司",
+          "color": "#93c5fd"
+        },
+        "xinjiang": {
+          "warlord": "察合台汗國與別失八里宣慰司",
+          "color": "#93c5fd"
+        },
+        "shanghai": {
+          "warlord": "大元江浙行省松江府上海縣",
+          "color": "#93c5fd"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 元 帝 都 大 都 (北京)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "澎 湖 巡 檢 司 (同安縣轄管澎台)",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#dc2626",
+          "size": 13
+        },
+        {
+          "name": "大 元 夏 都 上 都 (開平)",
+          "pos": [
+            610,
+            260
+          ],
+          "color": "#1d4ed8",
+          "size": 13
+        },
+        {
+          "name": "江 浙 行 省 泉 州 路 (世界第一大港)",
+          "pos": [
+            650,
+            610
+          ],
+          "color": "#15803d",
+          "size": 12
+        },
+        {
+          "name": "宣 政 院 烏 斯 藏 轄 區",
+          "pos": [
+            350,
+            480
+          ],
+          "color": "#7e22ce",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "大都 (北京)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "上都 (開平)",
+          "pos": [
+            610,
+            260
+          ],
+          "isCap": true
+        },
+        {
+          "name": "杭州 (江浙行省)",
+          "pos": [
+            655,
+            550
+          ]
+        },
+        {
+          "name": "泉州 (市舶司)",
+          "pos": [
+            650,
+            610
+          ]
+        },
+        {
+          "name": "澎湖巡檢司",
+          "pos": [
+            675,
+            640
+          ]
+        }
+      ],
+      "battles": []
+    },
+    {
+      "id": "ym_1368",
+      "yearNumber": 1368,
+      "yearDisplay": "西元 1368 年",
+      "shortLabel": "洪武開國",
+      "headline": "大明立國應天府：徐達大軍北伐，驅逐胡虜克復大都",
+      "subTitle": "朱元璋於南京登基稱帝建立大明，徐達常遇春北伐攻克大都，元順帝北逃漠北。",
+      "chronicleLeft": [
+        "朱元璋於應天府（南京）登基改元洪武，確立「驅逐胡虜，恢復中華」開國大計。",
+        "命徐達為征虜大將軍、常遇春為副將軍，率二十五萬大軍水陸齊進大舉北伐。",
+        "北伐軍連克山東、河南，直逼大都，元順帝攜三宮后妃倉皇北逃上都，大都和平光復。"
+      ],
+      "chronicleRight": [
+        "大都改名「北平府」，收復自五代石敬瑭割讓四百三十年之燕雲十六州故土。",
+        "太祖休養生息，推行黃冊與魚鱗圖冊，減輕賦稅，開創「洪武之治」。",
+        "元順帝於漠北退保和林建立「北元」，王保保擴廓帖木兒盤踞西北，宋明軍民南北對峙。"
+      ],
+      "provinceWarlordMap": {
+        "jiangsu": {
+          "warlord": "大明京師應天府 (南京皇城)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "大明中都鳳陽府直轄",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "大明浙江布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司 (設衛所海防巡檢司)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司 (新收復)",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司 (洛陽開封收復)",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大明北平府 (徐達大將軍鎮守收復)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "大明北平行都司轄境",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司 (徐達西征攻克)",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "明夏政權明昇 (明玉珍建立即將平定)",
+          "color": "#f472b6"
+        },
+        "chongqing": {
+          "warlord": "明夏重慶政權 (明昇據守)",
+          "color": "#f472b6"
+        },
+        "gansu": {
+          "warlord": "北元擴廓帖木兒王保保兵馬",
+          "color": "#93c5fd"
+        },
+        "ningxia-hui": {
+          "warlord": "北元殘部據點",
+          "color": "#93c5fd"
+        },
+        "inner-mongolia": {
+          "warlord": "北元上都開平府 / 元順帝朝廷",
+          "color": "#93c5fd"
+        },
+        "liaoning": {
+          "warlord": "北元遼陽行省納哈出二十萬部眾",
+          "color": "#93c5fd"
+        },
+        "jilin": {
+          "warlord": "北元納哈出部與女真諸部",
+          "color": "#93c5fd"
+        },
+        "heilongjiang": {
+          "warlord": "野人女真各部落",
+          "color": "#cbd5e1"
+        },
+        "yunnan": {
+          "warlord": "大元梁王把匝剌瓦爾密據守",
+          "color": "#93c5fd"
+        },
+        "guizhou": {
+          "warlord": "水西彝族與播州楊氏土司",
+          "color": "#e2e8f0"
+        },
+        "qinghai": {
+          "warlord": "吐蕃諸部都指揮使司歸順前夕",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "東察合台汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府華亭縣",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 明 京 師 應 天 府 (南京)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 明 北 平 府 (大都收復)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "北 元 上 都 (元順帝北奔逃難)",
+          "pos": [
+            610,
+            260
+          ],
+          "color": "#1d4ed8",
+          "size": 13
+        },
+        {
+          "name": "大 元 梁 王 割 據 (雲南昆明)",
+          "pos": [
+            440,
+            620
+          ],
+          "color": "#1e40af",
+          "size": 12
+        },
+        {
+          "name": "澎 湖 巡 檢 司 (明沿襲置官)",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#ea580c",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "應天 (南京首都)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "北平 (北京)",
+          "pos": [
+            600,
+            320
+          ]
+        },
+        {
+          "name": "開封 (中原行營)",
+          "pos": [
+            570,
+            442
+          ]
+        },
+        {
+          "name": "鳳陽 (大明中都)",
+          "pos": [
+            615,
+            475
+          ]
+        },
+        {
+          "name": "上都 (北元殘都)",
+          "pos": [
+            610,
+            260
+          ],
+          "isCap": true
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 徐達北伐克大都",
+          "pos": [
+            600,
+            320
+          ],
+          "battleId": "bat_xu_da_beifa_1368",
+          "year": 1368
+        }
+      ]
+    },
+    {
+      "id": "ym_1402",
+      "yearNumber": 1402,
+      "yearDisplay": "西元 1402 年",
+      "shortLabel": "靖難遷都",
+      "headline": "燕王靖難奪位成功：成祖即位改元永樂，籌劃遷都北京",
+      "subTitle": "朱棣攻破南京金川門登基即位，方孝孺殉節，明朝迎來永樂盛世重大轉折。",
+      "chronicleLeft": [
+        "燕王朱棣靖難大軍連破白溝河、夾河，直搗江淮，李景隆開金川門投降。",
+        "建文帝於宮中烈火中失蹤，朱棣登基稱帝改元永樂，追尊廟號明成祖。",
+        "方孝孺義不受詔大書「燕賊篡位」，寧死不屈遭誅十族八百餘人。"
+      ],
+      "chronicleRight": [
+        "成祖確立以北平為帝都，改稱「北京」，正式啟動長達十八年之紫禁城營建工程。",
+        "設立內閣制度，解縉、楊士奇等入閣參預機務，奠定明清內閣體制雛形。",
+        "命姚廣孝、解縉主持修纂《永樂大典》，保存浩瀚華夏典籍兩萬餘卷。"
+      ],
+      "provinceWarlordMap": {
+        "jiangsu": {
+          "warlord": "大明留都南京 (應天府)",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大明行在順天府 (北京紫禁城營建中)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "大明北直隸直轄",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "大明浙江布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "大明四川布政使司",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大明雲南布政使司 (沐英世鎮雲南)",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "大明貴州宣撫司土司",
+          "color": "#fed7aa"
+        },
+        "liaoning": {
+          "warlord": "大明遼東都指揮使司 (納哈出降附)",
+          "color": "#fed7aa"
+        },
+        "jilin": {
+          "warlord": "大明建州女真與海西女真羈縻衛所",
+          "color": "#fed7aa"
+        },
+        "heilongjiang": {
+          "warlord": "大明奴兒干都司前身野人女真各部",
+          "color": "#cbd5e1"
+        },
+        "inner-mongolia": {
+          "warlord": "瓦剌與韃靼阿魯臺部落",
+          "color": "#fca5a5"
+        },
+        "gansu": {
+          "warlord": "大明陝西行都司與關西八衛 (沙州哈密)",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大明寧夏衛",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "大明烏斯藏都司與安定阿端等衛",
+          "color": "#fed7aa"
+        },
+        "xinjiang": {
+          "warlord": "東察合台汗國 / 吐魯番",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 明 順 天 府 (北京行在)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 明 應 天 府 (南京留都)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "沐 氏 世 鎮 雲 南 (黔國公)",
+          "pos": [
+            440,
+            620
+          ],
+          "color": "#b45309",
+          "size": 12
+        },
+        {
+          "name": "遼 東 都 司 (定遼衛)",
+          "pos": [
+            680,
+            310
+          ],
+          "color": "#ea580c",
+          "size": 12
+        },
+        {
+          "name": "澎 湖 巡 檢 司",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#ea580c",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "南京 (應天府)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "北京 (順天府)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "太原 (晉王府)",
+          "pos": [
+            530,
+            380
+          ]
+        },
+        {
+          "name": "昆明 (雲南都司)",
+          "pos": [
+            440,
+            620
+          ]
+        },
+        {
+          "name": "遼陽 (遼東都司)",
+          "pos": [
+            680,
+            310
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 白溝河大戰",
+          "pos": [
+            598,
+            335
+          ],
+          "battleId": "bat_baigouhe_1400",
+          "year": 1400
+        }
+      ]
+    },
+    {
+      "id": "ym_1420",
+      "yearNumber": 1420,
+      "yearDisplay": "西元 1420 年",
+      "shortLabel": "永樂全盛",
+      "headline": "永樂盛世萬國來朝：紫禁城落成，鄭和七下西洋遠航",
+      "subTitle": "大明遷都北京紫禁城，鄭和龐大寶船艦隊遠征印度洋東非，明成祖五次親征漠北。",
+      "chronicleLeft": [
+        "永樂十九年元旦正式遷都北京，紫禁城、天壇、太廟三大殿完工，天子親守國門。",
+        "鄭和統率兩百餘艘寶船、二萬七千水師七下西洋，訪問亞非三十餘國，萬國使臣泛海朝貢。",
+        "明成祖朱棣五次統率精騎親征漠北，大破瓦剌馬哈木與韃靼阿魯臺於忽蘭忽失溫。"
+      ],
+      "chronicleRight": [
+        "東北設立「奴兒干都司」，亦失哈乘船巡視黑龍江口，立《永寧寺碑》，極盛開疆。",
+        "西南平定思南思州叛亂，正式設立「貴州布政使司」，全面推行改土歸流。",
+        "解縉、姚廣孝總纂之《永樂大典》修成，皇朝文治武功臻於兩千年生生不息之極致。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大明京師順天府 (紫禁城落成帝都)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "大明北直隸直轄",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "大明南直隸 (應天府留都)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "大明南直隸",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "大明浙江布政使司 (海防衛所)",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "大明四川布政使司",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司 (鄭和下西洋起錨港)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大明雲南布政使司",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "大明貴州布政使司 (新設省級行省)",
+          "color": "#fed7aa"
+        },
+        "liaoning": {
+          "warlord": "大明遼東都指揮使司",
+          "color": "#fed7aa"
+        },
+        "jilin": {
+          "warlord": "大明奴兒干都司管轄建州海西各衛",
+          "color": "#fed7aa"
+        },
+        "heilongjiang": {
+          "warlord": "大明奴兒干都司 (亦失哈永寧寺碑)",
+          "color": "#fed7aa"
+        },
+        "inner-mongolia": {
+          "warlord": "韃靼阿魯臺部與瓦剌諸部 (受成祖親征痛擊)",
+          "color": "#fca5a5"
+        },
+        "gansu": {
+          "warlord": "大明陝西行都司關西八衛 (哈密衛/沙州衛)",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大明寧夏衛",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "大明烏斯藏都司與朵甘都司",
+          "color": "#fed7aa"
+        },
+        "xinjiang": {
+          "warlord": "亦力把里 (東察合台汗國)",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 明 京 師 順 天 府 (北京紫禁城)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 明 留 都 應 天 府 (南京)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "奴 兒 干 都 司 (黑龍江特林永寧寺)",
+          "pos": [
+            760,
+            160
+          ],
+          "color": "#c2410c",
+          "size": 13
+        },
+        {
+          "name": "鄭 和 下 西 洋 啟 航 地 (太倉劉家港)",
+          "pos": [
+            660,
+            535
+          ],
+          "color": "#0284c7",
+          "size": 13
+        },
+        {
+          "name": "澎 湖 巡 檢 司 (海防官暑)",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#ea580c",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (京師紫禁城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "南京 (留都大內)",
+          "pos": [
+            640,
+            520
+          ]
+        },
+        {
+          "name": "太倉 (劉家港起錨)",
+          "pos": [
+            660,
+            535
+          ]
+        },
+        {
+          "name": "特林 (奴兒干都司都治)",
+          "pos": [
+            760,
+            160
+          ]
+        },
+        {
+          "name": "貴陽 (新設貴州省城)",
+          "pos": [
+            480,
+            590
+          ]
+        }
+      ],
+      "battles": []
+    },
+    {
+      "id": "ym_1449",
+      "yearNumber": 1449,
+      "yearDisplay": "西元 1449 年",
+      "shortLabel": "土木之變",
+      "headline": "土木堡國難英宗被俘：于謙德勝門大捷，力挽狂瀾保京師",
+      "subTitle": "太監王振誤國五十萬明軍覆滅土木堡，于謙誓死堅守北京擊退瓦剌也先。",
+      "chronicleLeft": [
+        "太監王振脅持明英宗親征瓦剌，明三大營精銳於土木堡斷水遭也先騎兵全殲，天子受俘。",
+        "北京朝廷震駭，文武官員痛哭主遷都金陵，兵部侍郎于謙怒斥南遷者斬，誓死衛國。",
+        "于謙尊英宗弟朱祁鈺為景泰帝，關閉九門背城借一，調集山東河南二十萬勤王兵列陣城外。"
+      ],
+      "chronicleRight": [
+        "瓦剌也先挾持英宗兵臨北京城下，于謙親披甲冑坐鎮德勝門，以神機營火砲大破也先前鋒。",
+        "也先夜遁塞外，北京化險為夷，避免大明重蹈靖康南渡慘禍，挽救大明國祚。",
+        "後景泰帝迎回英宗軟禁南宮，八年後爆發「奪門之變」英宗復位，于謙蒙冤就義忠烈千古。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大明京師保衛戰戰場 (于謙德勝門大捷)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "大明北直隸 (土木堡大營潰敗地)",
+          "color": "#fca5a5"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司 (勤王糧軍馳援)",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司 (于謙調運糧餉)",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "大明南直隸南京留都",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "大明南直隸",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司 (大同總兵受襲)",
+          "color": "#fca5a5"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "大明浙江布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "大明四川布政使司",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大明雲南布政使司",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "大明貴州布政使司",
+          "color": "#fed7aa"
+        },
+        "liaoning": {
+          "warlord": "大明遼東都司",
+          "color": "#fed7aa"
+        },
+        "jilin": {
+          "warlord": "大明女真各衛",
+          "color": "#fed7aa"
+        },
+        "heilongjiang": {
+          "warlord": "野人女真各部",
+          "color": "#cbd5e1"
+        },
+        "inner-mongolia": {
+          "warlord": "瓦剌太師也先大本營 (兵強馬壯進犯)",
+          "color": "#f43f5e"
+        },
+        "gansu": {
+          "warlord": "大明甘肅行都司",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大明寧夏衛",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "烏斯藏各行都司",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "亦力把里汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "北 京 德 勝 門 (于謙火器大破也先)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "土 木 堡 (英宗被俘五十萬全殲)",
+          "pos": [
+            570,
+            310
+          ],
+          "color": "#991b1b",
+          "size": 13
+        },
+        {
+          "name": "瓦 剌 太 師 也 先 汗 帳",
+          "pos": [
+            520,
+            220
+          ],
+          "color": "#e11d48",
+          "size": 13
+        },
+        {
+          "name": "南 京 留 都 (拒絕南遷)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (于謙守城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "土木堡 (懷來)",
+          "pos": [
+            570,
+            310
+          ]
+        },
+        {
+          "name": "南京 (留都)",
+          "pos": [
+            640,
+            520
+          ]
+        },
+        {
+          "name": "大同 (邊防重鎮)",
+          "pos": [
+            545,
+            335
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 土木堡之變",
+          "pos": [
+            570,
+            310
+          ],
+          "battleId": "bat_tumubao_1449",
+          "year": 1449
+        },
+        {
+          "name": "※ 北京保衛戰",
+          "pos": [
+            600,
+            320
+          ],
+          "battleId": "bat_beijing_defense_1449",
+          "year": 1449
+        }
+      ]
+    },
+    {
+      "id": "ym_1561",
+      "yearNumber": 1561,
+      "yearDisplay": "西元 1561 年",
+      "shortLabel": "戚家平倭",
+      "headline": "戚家軍台州九戰九捷：蕩平東南倭患，隆慶開關通商",
+      "subTitle": "戚繼光創鴛鴦陣肅清東南倭寇，隆慶開關開放海禁，美洲白銀大量湧入中國。",
+      "chronicleLeft": [
+        "嘉靖年間「倭患」劇烈，戚繼光於義烏招募礦工練成戚家軍，自創「鴛鴦陣」與狼筅戰法。",
+        "台州花街、新河、牛田九戰九捷，斬級數千，徹底肅清浙江境內倭患。",
+        "隨後南下福建、廣東，與俞大猷水陸合擊破倭寇大本營，東南沿海海晏河清。"
+      ],
+      "chronicleRight": [
+        "明廷隨後於1567年實施「隆慶開關」，准許福建漳州月港民間出海通商，解除百年海禁。",
+        "大量美洲白銀隨大帆船貿易湧入大明，推動江南市井經濟與商品手工業繁榮。",
+        "海瑞任南直隸巡撫退田均稅，江南文人唐伯虎、祝允明吳門畫派詩酒風流。"
+      ],
+      "provinceWarlordMap": {
+        "zhejiang": {
+          "warlord": "大明浙江布政使司 (戚繼光台州大捷)",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司 (俞大猷抗倭 / 漳州月港)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司 (潮州平倭)",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "大明南直隸 (海瑞巡撫嚴整豪強)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "大明南直隸",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大明京師順天府 (嘉靖皇帝在位修道)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "大明北直隸薊鎮邊防",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司 (俺答汗庚戌之變前沿)",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司 (李時珍撰本草綱目)",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "大明四川布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大明雲南布政使司",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "大明貴州布政使司",
+          "color": "#fed7aa"
+        },
+        "liaoning": {
+          "warlord": "大明遼東都司 (李成梁即將掌印)",
+          "color": "#fed7aa"
+        },
+        "jilin": {
+          "warlord": "女真建州海西各衛所 (努爾哈赤幼年萌芽)",
+          "color": "#fed7aa"
+        },
+        "heilongjiang": {
+          "warlord": "野人女真各部",
+          "color": "#cbd5e1"
+        },
+        "inner-mongolia": {
+          "warlord": "土默特部俺答汗 (稱雄塞北即將受封順義王)",
+          "color": "#fca5a5"
+        },
+        "gansu": {
+          "warlord": "大明陝西行都司",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大明寧夏鎮",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "西藏烏斯藏諸法王",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "葉爾羌汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府上海縣",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "台 州 戚 家 軍 大 捷 (鴛鴦陣)",
+          "pos": [
+            660,
+            565
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "漳 州 月 港 (隆慶開關萬商雲集)",
+          "pos": [
+            640,
+            625
+          ],
+          "color": "#0284c7",
+          "size": 13
+        },
+        {
+          "name": "大 明 京 師 順 天 府",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "土 默 特 俺 答 汗 (歸化城)",
+          "pos": [
+            520,
+            290
+          ],
+          "color": "#b91c1c",
+          "size": 12
+        },
+        {
+          "name": "澎 湖 巡 檢 司",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#ea580c",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (京師)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "台州 (臨海)",
+          "pos": [
+            660,
+            565
+          ]
+        },
+        {
+          "name": "漳州 (月港海貿)",
+          "pos": [
+            640,
+            625
+          ]
+        },
+        {
+          "name": "南京 (留都)",
+          "pos": [
+            640,
+            520
+          ]
+        },
+        {
+          "name": "歸化 (呼和浩特)",
+          "pos": [
+            520,
+            290
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 台州大捷",
+          "pos": [
+            660,
+            565
+          ],
+          "battleId": "bat_taizhou_qi_1561",
+          "year": 1561
+        }
+      ]
+    },
+    {
+      "id": "ym_1592",
+      "yearNumber": 1592,
+      "yearDisplay": "西元 1592 年",
+      "shortLabel": "萬曆援朝",
+      "headline": "萬曆抗倭援朝大捷：李如松重砲克平壤，張居正新政餘暉",
+      "subTitle": "豐臣秀吉發動侵略朝鮮之役，大明李如松東征克復平壤，打破日軍吞併狂想。",
+      "chronicleLeft": [
+        "日本豐臣秀吉統率十六萬大軍渡海入侵朝鮮，連陷王京、開城、平壤，宣祖國王奔義州求援。",
+        "萬曆皇帝決然發動抗倭援朝，命薊遼提督李如松率四萬精銳步騎跨過鴨綠江。",
+        "明軍以紅夷大砲、佛郎機火砲攻克平壤牡丹峰，全殲日軍精銳小西行長部，光復平壤。"
+      ],
+      "chronicleRight": [
+        "戰事反覆七年，1598年露梁海戰中朝水軍合擊，鄧子龍、李舜臣殉國，日軍全線崩潰撤軍。",
+        "內閣首輔張居正生前推行「一條鞭法」與考成法，明朝人口突破一億五千萬，經濟繁榮。",
+        "然而三大征耗損國庫千萬兩白銀，遼東防務空虛，努爾哈赤趁隙統一建州女真。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大明京師順天府 (萬曆帝端坐紫禁城)",
+          "color": "#fed7aa"
+        },
+        "liaoning": {
+          "warlord": "大明遼東都司 (李如松出征基地 / 努爾哈赤建州衛)",
+          "color": "#fed7aa"
+        },
+        "jilin": {
+          "warlord": "建州女真努爾哈赤崛起區域",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "野人女真各部",
+          "color": "#cbd5e1"
+        },
+        "hebei": {
+          "warlord": "大明北直隸直轄",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "大明南直隸 (市井白話小說盛行)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "大明南直隸",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "大明浙江布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "大明四川布政使司 (播州楊應龍將叛)",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大明雲南布政使司",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "大明貴州布政使司 (播州土司叛亂)",
+          "color": "#fed7aa"
+        },
+        "inner-mongolia": {
+          "warlord": "漠南蒙古察哈爾部與土默特部",
+          "color": "#fca5a5"
+        },
+        "gansu": {
+          "warlord": "大明陝西行都司 (平定哱拜之亂)",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大明寧夏鎮 (萬曆三大征之一)",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "西藏烏斯藏都司",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "葉爾羌汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "朝 鮮 平 壤 城 (李如松重砲大捷)",
+          "pos": [
+            710,
+            330
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "大 明 京 師 順 天 府 (萬曆皇帝)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "建 州 衛 赫 圖 阿 拉 (努爾哈赤)",
+          "pos": [
+            700,
+            275
+          ],
+          "color": "#ca8a04",
+          "size": 13
+        },
+        {
+          "name": "播 州 海 龍 屯 (楊應龍反叛)",
+          "pos": [
+            470,
+            570
+          ],
+          "color": "#be185d",
+          "size": 12
+        },
+        {
+          "name": "澎 湖 巡 檢 司 (沈有容諭退荷蘭)",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#ea580c",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (紫禁城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "平壤 (朝鮮受復)",
+          "pos": [
+            710,
+            330
+          ]
+        },
+        {
+          "name": "赫圖阿拉 (建州衛)",
+          "pos": [
+            700,
+            275
+          ]
+        },
+        {
+          "name": "南京 (留都)",
+          "pos": [
+            640,
+            520
+          ]
+        },
+        {
+          "name": "播州 (遵義)",
+          "pos": [
+            470,
+            570
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 平壤之戰",
+          "pos": [
+            710,
+            330
+          ],
+          "battleId": "bat_pyongyang_1593",
+          "year": 1593
+        }
+      ]
+    },
+    {
+      "id": "ym_1619",
+      "yearNumber": 1619,
+      "yearDisplay": "西元 1619 年",
+      "shortLabel": "薩爾滸敗",
+      "headline": "薩爾滸之戰明軍慘敗：努爾哈赤破四路，遼東攻守逆轉",
+      "subTitle": "後金八旗鐵騎薩爾滸全殲明軍四萬精銳，關寧錦防線危殆，明朝陷入兩線血戰。",
+      "chronicleLeft": [
+        "努爾哈赤建國號後金，以「七大恨」誓師反明，拔撫順、清河。",
+        "明廷調集九邊十三萬精銳四路圍剿，努爾哈赤「憑爾幾路來，我只一路去」集重兵擊杜松。",
+        "五天之內明軍東路劉綎、北路馬林相繼覆滅，明朝在遼東經營百餘年之精銳喪失殆盡。"
+      ],
+      "chronicleRight": [
+        "明朝在遼東戰略徹底陷入被動防守，熊廷弼、孫承宗、袁崇煥臨危受命營建關寧錦防線。",
+        "福建海商顏思齊、鄭芝龍率船隊入拓台灣笨港，結寨開闢台灣早期漢人社會。",
+        "關內陝西旱災連年、稅賦沉重，李自成、張獻忠農民起義暗潮洶湧即將爆發。"
+      ],
+      "provinceWarlordMap": {
+        "liaoning": {
+          "warlord": "後金八旗佔領區 (努爾哈赤建後金國)",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "後金八旗統轄核心領地",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "後金征服野人女真各部",
+          "color": "#fef08a"
+        },
+        "beijing": {
+          "warlord": "大明京師順天府 (遼東慘敗舉朝震駭)",
+          "color": "#fed7aa"
+        },
+        "hebei": {
+          "warlord": "大明山海關關寧前線 (孫承宗築防線)",
+          "color": "#fed7aa"
+        },
+        "shandong": {
+          "warlord": "大明山東布政使司 (白蓮教徐鴻儒起義)",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大明河南布政使司",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大明山西布政使司",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大明陝西布政使司 (流民飢饉暗潮)",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "大明南直隸 (東林黨與魏忠賢閹黨黨爭)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "大明南直隸",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "大明浙江布政使司",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "大明江西布政使司",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "大明湖廣布政使司",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "大明四川布政使司 (秦良玉白桿兵平奢安之亂)",
+          "color": "#fed7aa"
+        },
+        "chongqing": {
+          "warlord": "石砫宣撫司 (女將軍秦良玉勤王)",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "大明福建布政使司 (海商鄭芝龍崛起)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "大明廣東布政使司",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "大明廣西布政使司",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大明雲南布政使司",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "奢安之亂戰區 (安邦彥叛明)",
+          "color": "#fca5a5"
+        },
+        "inner-mongolia": {
+          "warlord": "察哈爾部林丹汗 (受後金皇太極威逼)",
+          "color": "#fca5a5"
+        },
+        "gansu": {
+          "warlord": "大明陝西行都司",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大明寧夏鎮",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "和碩特蒙古固始汗即將入藏",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "葉爾羌汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大明南直隸松江府 (徐光啟引進西洋曆算)",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "薩 爾 滸 (努爾哈赤五日破三路)",
+          "pos": [
+            690,
+            285
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "關 寧 錦 防 線 (寧遠興城袁崇煥)",
+          "pos": [
+            655,
+            295
+          ],
+          "color": "#dc2626",
+          "size": 13
+        },
+        {
+          "name": "大 明 京 師 順 天 府",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "台 灣 笨 港 (顏思齊鄭芝龍開闢)",
+          "pos": [
+            685,
+            645
+          ],
+          "color": "#0284c7",
+          "size": 13
+        },
+        {
+          "name": "石 砫 土 司 (秦良玉白桿兵)",
+          "pos": [
+            490,
+            540
+          ],
+          "color": "#be185d",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (紫禁城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "赫圖阿拉 (後金都城)",
+          "pos": [
+            700,
+            275
+          ],
+          "isCap": true
+        },
+        {
+          "name": "寧遠 (袁崇煥駐地)",
+          "pos": [
+            655,
+            295
+          ]
+        },
+        {
+          "name": "山海關 (鎖鑰)",
+          "pos": [
+            635,
+            310
+          ]
+        },
+        {
+          "name": "笨港 (台灣開台)",
+          "pos": [
+            685,
+            645
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 薩爾滸之戰",
+          "pos": [
+            690,
+            285
+          ],
+          "battleId": "bat_sarhu_1619",
+          "year": 1619
+        }
+      ]
+    },
+    {
+      "id": "ym_1644",
+      "yearNumber": 1644,
+      "yearDisplay": "西元 1644 年",
+      "shortLabel": "甲申國難",
+      "headline": "甲申甲子巨變：崇禎煤山殉國，吳三桂開關引清兵入關",
+      "subTitle": "李自成攻破北京崇禎自縊大明亡，吳三桂聯手多爾袞一片石大戰定中原。",
+      "chronicleLeft": [
+        "李自成率大順軍攻破北京內城，崇禎皇帝於景山自縊殉國，統治二百七十六年大明覆滅。",
+        "大順軍將領拷掠京官追餉，劉宗敏掠吳三桂愛妾陳圓圓，引發吳三桂降清。",
+        "山海關一片石大戰，吳三桂引多爾袞八旗萬騎夾擊，李自成慘敗撤出北京。"
+      ],
+      "chronicleRight": [
+        "清順治帝由盛京遷都北京，多爾袞攝政發布剃髮易服令，大清一統中原。",
+        "南方明朝宗室先後建立弘光、隆武、紹武、永曆等「南明」政權，浴血抗清十八年。",
+        "鄭芝龍降清，其子鄭成功堅持抗清，誓死光復大明，轉戰東南沿海東渡台灣。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清定都北京 (順治皇帝 / 多爾袞攝政)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸八旗進駐",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京留守 (龍興之地)",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清佔領區",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大順李自成退兵殘部 / 清軍追擊",
+          "color": "#fed7aa"
+        },
+        "shaanxi": {
+          "warlord": "大順西安政權大本營 (李自成)",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "大清與大順拉鋸交火線",
+          "color": "#fef08a"
+        },
+        "hubei": {
+          "warlord": "左良玉大明防區與李自成殘部",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "張獻忠大西政權 (定都成都改元大順)",
+          "color": "#fca5a5"
+        },
+        "chongqing": {
+          "warlord": "張獻忠大西軍控制",
+          "color": "#fca5a5"
+        },
+        "jiangsu": {
+          "warlord": "南明弘光政權 (史可法督師江北四鎮)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "南明江淮防線",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "南明魯王監國政權",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "南明抗清後方",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "南明何騰蛟楚撫防線",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "南明隆武政權 (鄭芝龍鄭成功基地)",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "南明永曆政權起立",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "南明永曆朝廷駐地 (桂林瞿式耜)",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大西軍李定國孫可望即將聯明抗清",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "南明與大西軍接壤地帶",
+          "color": "#fed7aa"
+        },
+        "inner-mongolia": {
+          "warlord": "大清歸附蒙古八旗各部",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大順西北殘存駐軍",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大順軍控制",
+          "color": "#fed7aa"
+        },
+        "qinghai": {
+          "warlord": "和碩特汗國固始汗管轄",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "準噶爾汗國前身與葉爾羌汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "南明松江府 (陳子龍夏完淳抗清)",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "山 海 關 一 片 石 (清兵入關決戰)",
+          "pos": [
+            635,
+            310
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "大 清 順 治 遷 都 北 京",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "南 明 弘 光 金 陵 朝 廷 (南京)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 13
+        },
+        {
+          "name": "大 順 西 安 府 (李自成)",
+          "pos": [
+            490,
+            440
+          ],
+          "color": "#d97706",
+          "size": 12
+        },
+        {
+          "name": "大 西 成 都 府 (張獻忠)",
+          "pos": [
+            450,
+            530
+          ],
+          "color": "#be185d",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (清入關)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "南京 (南明弘光)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "山海關 (吳三桂降)",
+          "pos": [
+            635,
+            310
+          ]
+        },
+        {
+          "name": "西安 (大順京城)",
+          "pos": [
+            490,
+            440
+          ],
+          "isCap": true
+        },
+        {
+          "name": "成都 (大西京城)",
+          "pos": [
+            450,
+            530
+          ],
+          "isCap": true
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 山海關一片石之戰",
+          "pos": [
+            635,
+            310
+          ],
+          "battleId": "bat_shanhaiguan_1644",
+          "year": 1644
+        }
+      ]
+    }
+  ];
+
+  // src/data/periods/qingDynasty/demographics.js
+  var QING_DYNASTY_DEMOGRAPHICS = {
+    "periodId": "qingDynasty",
+    "title": "大清帝國人口爆炸與疆域族群融合",
+    "summary": "康熙「滋生人丁，永不加賦」與雍正「攤丁入畝」破除人頭稅，引進番薯玉米，使中國人口由一億狂飆突破四億大關；台灣設府建省，多民族國家疆域奠定。",
+    "peakPopulation": "約 43,200 萬 (宣統三年 1911 CE / 道光年間首度破四億)",
+    "censusData": [
+      {
+        "year": 1651,
+        "yearDisplay": "西元 1651 年 (順治八年)",
+        "total": "約 10,630,000 (人丁)",
+        "households": "約 800 萬",
+        "note": "明末清初戰亂瘟疫，人口大幅折損"
+      },
+      {
+        "year": 1711,
+        "yearDisplay": "西元 1711 年 (康熙五十年)",
+        "total": "24,621,324 (丁銀)",
+        "households": "約 1,800 萬",
+        "note": "康熙頒布「盛世滋生人丁，永不加賦」，奠定人口爆發制度基礎"
+      },
+      {
+        "year": 1741,
+        "yearDisplay": "西元 1741 年 (乾隆六年)",
+        "total": "143,411,559",
+        "households": "約 3,000 萬",
+        "note": "清代首次實行戶口按人頭普查，人口正式突破一億大關"
+      },
+      {
+        "year": 1794,
+        "yearDisplay": "西元 1794 年 (乾隆五十九年)",
+        "total": "313,281,755",
+        "households": "約 6,500 萬",
+        "note": "乾隆晚年人口歷史性突破三億大關"
+      },
+      {
+        "year": 1835,
+        "yearDisplay": "西元 1835 年 (道光十五年)",
+        "total": "401,008,574",
+        "households": "約 8,200 萬",
+        "note": "中國歷史上人口首度突破四億大關，佔當時全球人口三分之一"
+      },
+      {
+        "year": 1911,
+        "yearDisplay": "西元 1911 年 (宣統三年)",
+        "total": "432,000,000",
+        "households": "約 8,900 萬",
+        "note": "清帝遜位前夕人口統計"
+      }
+    ],
+    "ethnicGroups": [
+      {
+        "name": "漢民族 (農耕與市井主幹)",
+        "proportion": "91%",
+        "region": "內地十八省與東北移民、台灣全島開發",
+        "traits": "科舉文治、商幫崛起（晉商、徽商）、海外華僑移居東南亞與美洲"
+      },
+      {
+        "name": "滿洲八旗 (統治核心與軍事支柱)",
+        "proportion": "2%",
+        "region": "京師八旗、盛京盛京將軍轄地、各地駐防城",
+        "traits": "八旗制度、騎射尚武、滿漢全席、滿漢雙語公文"
+      },
+      {
+        "name": "蒙古八旗與各部盟旗 (北方邊疆盟友)",
+        "proportion": "2.5%",
+        "region": "漠南蒙古、漠北喀爾喀蒙古、漠西厄魯特蒙古",
+        "traits": "盟旗制度、聯姻封爵、藏傳佛教黃教信仰"
+      },
+      {
+        "name": "回藏與西域諸族 (大西北與雪域)",
+        "proportion": "3%",
+        "region": "新疆天山南北、青海、西藏烏斯藏",
+        "traits": "伯克制、金瓶掣籤定達賴班禪、設駐藏大臣與伊犁將軍"
+      },
+      {
+        "name": "苗瑤僮壯西南少數族群",
+        "proportion": "1%",
+        "region": "西南雲貴川湘鄂桂山區",
+        "traits": "改土歸流、設府置縣、平定苗疆"
+      },
+      {
+        "name": "台灣原住民族與開墾漢民群體",
+        "proportion": "0.5%",
+        "region": "台灣本島（熟番平埔族、生番高山族與閩客移民）",
+        "traits": "開山撫番、設台灣府改台灣省、劉銘傳新政與鐵路海防建設"
+      }
+    ]
+  };
+
+  // src/data/periods/qingDynasty/territories.js
+  var QING_DYNASTY_TERRITORIES = {
+    "qingPeak": {
+      "year": "西元 1760 年 (乾隆二十五年極盛)",
+      "name": "大清帝國極盛版圖 (1316 萬平方公里)",
+      "description": "東臨太平洋、台灣府及釣魚台列嶼，東北至外興安嶺與庫頁島，北至薩彥嶺接貝加爾湖，西北達巴爾喀什湖與帕米爾高原，西南跨喜馬拉雅山脈，南控南海諸島，版圖形如秋海棠葉。"
+    },
+    "modernBoundary": {
+      "year": "西元 1911 年 (清末宣統年間)",
+      "name": "大清帝國晚期邊疆與租借地",
+      "description": "經歷《璦琿條約》、《北京條約》、《馬關條約》等不平等條約，東北外東北與庫頁島割讓俄國，台灣及澎湖割讓日本，列強劃分勢力範圍。"
+    }
+  };
+
+  // src/data/periods/qingDynasty/figures.js
+  var QING_DYNASTY_FIGURES = [
+    {
+      "id": "fig_shunzhi",
+      "name": "順治帝 (福臨)",
+      "courtesyName": "清世祖章皇帝",
+      "lifeSpan": "1638 - 1661",
+      "faction": "qing",
+      "role": "清朝入關第一位皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_shunzhi.svg",
+      "importance": 5,
+      "hometown": "盛京 (瀋陽)",
+      "shortBio": "皇太極第九子。六歲即位，在攝政王多爾袞輔佐下入主中原定都北京，確立滿漢兼收政策，親政後重用漢官，尊崇孔孟。",
+      "historicalSignificance": "完成大清定鼎中原與滿清入關建國之宏偉奠基。",
+      "abilities": {
+        "strategy": 82,
+        "commanding": 75,
+        "politics": 88,
+        "intellect": 88,
+        "courage": 82,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_duorgon",
+      "name": "多爾袞 (睿忠親王)",
+      "courtesyName": "叔父攝政王",
+      "lifeSpan": "1612 - 1650",
+      "faction": "qing",
+      "role": "大清攝政王 / 開國統帥",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_duorgon.svg",
+      "importance": 5,
+      "hometown": "赫圖阿拉",
+      "shortBio": "努爾哈赤第十四子。山海關一片石大敗李自成，率清軍入駐北京，策劃全盤入關經緯。頒布剃髮易服與圈地投充令引發激烈抗爭。",
+      "historicalSignificance": "大清入主中原之實際最高統帥與制度決策者。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 99,
+        "politics": 95,
+        "intellect": 92,
+        "courage": 96,
+        "charisma": 95
+      }
+    },
+    {
+      "id": "fig_xiaozhuang",
+      "name": "孝莊文皇后",
+      "courtesyName": "布木布泰 / 昭聖太皇太后",
+      "lifeSpan": "1613 - 1688",
+      "faction": "qing",
+      "role": "大清國母太皇太后",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_xiaozhuang.svg",
+      "importance": 5,
+      "hometown": "蒙古科爾沁部",
+      "shortBio": "博爾濟吉特氏。先後輔佐順治、康熙兩代幼主，力挽狂瀾化解宗室皇位之爭，智除鰲拜平定三藩，一生不預政事卻左右大局。",
+      "historicalSignificance": "大清開國六十年政局穩定之定海神針。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 80,
+        "politics": 99,
+        "intellect": 98,
+        "courage": 92,
+        "charisma": 99
+      }
+    },
+    {
+      "id": "fig_kangxi",
+      "name": "康熙帝 (玄燁)",
+      "courtesyName": "清聖祖仁皇帝",
+      "lifeSpan": "1654 - 1722",
+      "faction": "qing",
+      "role": "千古一帝 / 在位六十一年",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_kangxi.svg",
+      "importance": 5,
+      "hometown": "北京紫禁城",
+      "shortBio": "八歲即位，十六歲智擒鰲拜。平定三藩之亂，命施琅攻取台灣設台灣府，雅克薩擊敗沙俄簽《尼布楚條約》，三次親征擊滅噶爾丹。",
+      "historicalSignificance": "開拓大清疆域並奠定多民族大一統格局，開創「康乾盛世」。",
+      "abilities": {
+        "strategy": 99,
+        "commanding": 98,
+        "politics": 99,
+        "intellect": 98,
+        "courage": 96,
+        "charisma": 99
+      }
+    },
+    {
+      "id": "fig_aobai",
+      "name": "鰲拜",
+      "courtesyName": "滿洲第一勇士",
+      "lifeSpan": "約1610 - 1669",
+      "faction": "qing",
+      "role": "順治輔政大臣 / 太師",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_aobai.svg",
+      "importance": 4,
+      "hometown": "滿洲鑲黃旗",
+      "shortBio": "隨皇太極征戰皮島、松錦力拔頭功。順治崩後為首輔政大臣，擅殺戶部尚書蘇納海等，驕橫專權。康熙八年為玄燁於武英殿摔跤少年生擒。",
+      "historicalSignificance": "清初八旗勳貴專權之代表，其倒台象徵康熙皇帝親政開始。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 94,
+        "politics": 75,
+        "intellect": 72,
+        "courage": 99,
+        "charisma": 85
+      }
+    },
+    {
+      "id": "fig_suoetu",
+      "name": "索額圖",
+      "courtesyName": "書泉",
+      "lifeSpan": "1636 - 1703",
+      "faction": "qing",
+      "role": "保和殿大學士 / 議政大臣",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_suoetu.svg",
+      "importance": 4,
+      "hometown": "滿洲正黃旗",
+      "shortBio": "索尼之子，協助康熙擒鰲拜。1689年作為清方首席全權代表前往尼布楚，與沙俄簽署《尼布楚條約》，劃定中俄東段邊界。",
+      "historicalSignificance": "締結中國歷史上第一個近代主權國際邊界條約。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 78,
+        "politics": 92,
+        "intellect": 90,
+        "courage": 82,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_zheng_chenggong",
+      "name": "鄭成功 (國姓爺)",
+      "courtesyName": "大木 / 延平王",
+      "lifeSpan": "1624 - 1662",
+      "faction": "ming",
+      "role": "明延平王 / 開台聖王",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_zheng_chenggong.svg",
+      "importance": 5,
+      "hometown": "福建南安 / 日本平戶",
+      "shortBio": "隆武帝賜姓朱，稱「國姓爺」。堅持抗清十八年，率大軍圍南京。1661年率四百戰船橫渡黑水溝，圍攻熱蘭遮城大敗荷蘭東印度公司，驅荷收復台灣，建立承天府。",
+      "historicalSignificance": "驅逐西方殖民者收復台灣第一人，被尊為「開台聖王」，民族英雄。",
+      "abilities": {
+        "strategy": 96,
+        "commanding": 98,
+        "politics": 92,
+        "intellect": 94,
+        "courage": 99,
+        "charisma": 99
+      }
+    },
+    {
+      "id": "fig_shi_lang",
+      "name": "施琅 (靖海侯)",
+      "courtesyName": "尊侯",
+      "lifeSpan": "1621 - 1696",
+      "faction": "qing",
+      "role": "水師提督 / 靖海將軍",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_shi_lang.svg",
+      "importance": 5,
+      "hometown": "福建晉江",
+      "shortBio": "原為鄭成功部將，後降清。1683年任福建水師提督，率三百艘戰艦於澎湖海戰大破劉國軒，促成鄭克塽出降。力諫康熙帝留台設官，設台灣府管轄台灣三縣。",
+      "historicalSignificance": "促成台灣統一並正式設府置官納入大清大一統版圖之功臣。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 98,
+        "politics": 88,
+        "intellect": 90,
+        "courage": 96,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_galdan",
+      "name": "噶爾丹",
+      "courtesyName": "博碩克圖汗",
+      "lifeSpan": "1644 - 1697",
+      "faction": "zhun",
+      "role": "準噶爾汗國大汗",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_galdan.svg",
+      "importance": 5,
+      "hometown": "伊犁河谷",
+      "shortBio": "曾於西藏隨達賴喇嘛學經。還俗奪位稱霸天山南北，擊破喀爾喀蒙古，揮戈東指威逼北京。康熙三次親征烏蘭布通、昭莫多大敗噶爾丹，兵敗服毒自盡。",
+      "historicalSignificance": "西北準噶爾強大游牧勢力之領袖，與清朝爭雄二十餘年。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 96,
+        "politics": 84,
+        "intellect": 88,
+        "courage": 98,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_yongzheng",
+      "name": "雍正帝 (胤禛)",
+      "courtesyName": "清世宗憲皇帝",
+      "lifeSpan": "1678 - 1735",
+      "faction": "qing",
+      "role": "大清第五位皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_yongzheng.svg",
+      "importance": 5,
+      "hometown": "北京紫禁城",
+      "shortBio": "九子奪嫡登基。在位十三年勤政日昃，設軍機處，創立「秘密立儲」制度。推行「攤丁入畝」、「火耗歸公」、「士紳一體當差一體納糧」與「改土歸流」，充盈府庫。",
+      "historicalSignificance": "承先啟後之改革鐵腕君主，使康乾盛世達到實質富庶之樞紐。",
+      "abilities": {
+        "strategy": 96,
+        "commanding": 85,
+        "politics": 100,
+        "intellect": 97,
+        "courage": 95,
+        "charisma": 93
+      }
+    },
+    {
+      "id": "fig_nian_gengyao",
+      "name": "年羹堯",
+      "courtesyName": "亮工",
+      "lifeSpan": "1679 - 1726",
+      "faction": "qing",
+      "role": "撫遠大將軍 / 川陝總督",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_nian_gengyao.svg",
+      "importance": 4,
+      "hometown": "安徽懷遠",
+      "shortBio": "進士出身。率清軍平定青海羅卜藏丹津叛亂，拓土千里，封一等公。後恃功驕橫，遭雍正帝削奪官爵賜自盡。",
+      "historicalSignificance": "平定青海動盪，確保大清對西藏與西北之軍事控制。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 96,
+        "politics": 72,
+        "intellect": 88,
+        "courage": 96,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_tian_wenjing",
+      "name": "田文鏡",
+      "courtesyName": "抑光",
+      "lifeSpan": "1662 - 1732",
+      "faction": "qing",
+      "role": "河南山東總督 / 模範督撫",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_tian_wenjing.svg",
+      "importance": 4,
+      "hometown": "漢軍正藍旗",
+      "shortBio": "雍正三大得力巡撫之一。鐵面無私推行攤丁入畝與官紳一體當差納糧，清查虧空，整飭吏治，雍正帝譽為「天下第一督撫」。",
+      "historicalSignificance": "貫徹雍正新政之模範實幹名臣。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 70,
+        "politics": 94,
+        "intellect": 88,
+        "courage": 95,
+        "charisma": 82
+      }
+    },
+    {
+      "id": "fig_qianlong",
+      "name": "乾隆帝 (弘曆)",
+      "courtesyName": "清高宗純皇帝 / 十全老人",
+      "lifeSpan": "1711 - 1799",
+      "faction": "qing",
+      "role": "大清第六位皇帝 / 享年八十九",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_qianlong.svg",
+      "importance": 5,
+      "hometown": "北京紫禁城",
+      "shortBio": "在位六十年、太上皇三年。平定準噶爾與大小和卓叛亂收復新疆，設伊犁將軍；平定大金川、西藏廓爾喀，誇稱「十全武功」。主持修纂《四庫全書》。晚年寵信和珅，大興文字獄。",
+      "historicalSignificance": "大清帝國疆域版圖（1316萬平方公里）與人口盛極之巔峰代表。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 92,
+        "politics": 98,
+        "intellect": 97,
+        "courage": 90,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_heshen",
+      "name": "和珅",
+      "courtesyName": "致齋",
+      "lifeSpan": "1750 - 1799",
+      "faction": "qing",
+      "role": "文華殿大學士 / 軍機大臣",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_heshen.svg",
+      "importance": 4,
+      "hometown": "滿洲正紅旗",
+      "shortBio": "乾隆晚期重臣，精通滿漢蒙藏四語，掌管戶部軍機處二十餘年。大肆收受賄賂，富可敵國。嘉慶即位後遭賜死查抄家產八億兩白銀，俗語「和珅跌倒，嘉慶吃飽」。",
+      "historicalSignificance": "乾隆晚期盛極而衰、官場貪腐沉疴之歷史代表。",
+      "abilities": {
+        "strategy": 82,
+        "commanding": 65,
+        "politics": 98,
+        "intellect": 96,
+        "courage": 75,
+        "charisma": 94
+      }
+    },
+    {
+      "id": "fig_ji_xiaolan",
+      "name": "紀曉嵐 (紀昀)",
+      "courtesyName": "曉嵐",
+      "lifeSpan": "1724 - 1805",
+      "faction": "cultural",
+      "role": "協辦大學士 / 四庫全書總纂官",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_ji_xiaolan.svg",
+      "importance": 4,
+      "hometown": "河北滄州",
+      "shortBio": "乾隆朝博學大儒。主持總纂《四庫全書》歷時二十年，收錄三千四百六十餘種書籍、七萬九千餘卷。晚年著有《閱微草堂筆記》。",
+      "historicalSignificance": "主導中華古代浩瀚文獻最大規模整理保存工作。",
+      "abilities": {
+        "strategy": 70,
+        "commanding": 50,
+        "politics": 86,
+        "intellect": 99,
+        "courage": 75,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_cao_xueqin",
+      "name": "曹雪芹",
+      "courtesyName": "芹溪 / 夢阮",
+      "lifeSpan": "約1715 - 1763",
+      "faction": "cultural",
+      "role": "紅學鼻祖 / 小說家",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_cao_xueqin.svg",
+      "importance": 5,
+      "hometown": "江寧 (南京) / 北京西郊",
+      "shortBio": "江寧織造曹寅之孫。早年歷經烈火烹油之富貴，家道中落後「蓬牖茅椽，繩床瓦灶」，嘔心瀝血十年於北京西郊創作《紅樓夢》前八十回，「滿紙荒唐言，一把辛酸淚」。",
+      "historicalSignificance": "中國古典長篇小說巔峰巨匠，開創世界性顯學「紅學」。",
+      "abilities": {
+        "strategy": 60,
+        "commanding": 40,
+        "politics": 65,
+        "intellect": 100,
+        "courage": 75,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_daoguang",
+      "name": "道光帝 (旻寧)",
+      "courtesyName": "清宣宗成皇帝",
+      "lifeSpan": "1782 - 1850",
+      "faction": "qing",
+      "role": "大清第八位皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_daoguang.svg",
+      "importance": 4,
+      "hometown": "北京紫禁城",
+      "shortBio": "以恭儉節約著稱，身著打補丁龍袍。任用林則徐赴廣東禁煙引發第一次鴉片戰爭。戰敗後被迫簽署中國近代第一個不平等條約《南京條約》割讓香港。",
+      "historicalSignificance": "見證中國由古代王朝封閉體系被迫步入近代屈辱變局之轉折點。",
+      "abilities": {
+        "strategy": 70,
+        "commanding": 60,
+        "politics": 78,
+        "intellect": 80,
+        "courage": 72,
+        "charisma": 80
+      }
+    },
+    {
+      "id": "fig_lin_zexu",
+      "name": "林則徐",
+      "courtesyName": "少穆",
+      "lifeSpan": "1785 - 1850",
+      "faction": "qing",
+      "role": "欽差大臣 / 湖廣總督兩江總督",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_lin_zexu.svg",
+      "importance": 5,
+      "hometown": "福建侯官 (福州)",
+      "shortBio": "受命為欽差大臣赴廣東查禁鴉片，嚴辭痛斥洋商，於虎門海灘銷毀鴉片兩百三十七萬斤。主持編譯《四洲志》，被譽為「近代中國開眼看世界第一人」。流放新疆推廣坎兒井。",
+      "historicalSignificance": "「苟利國家生死以，豈因禍福避趨之」，中華民族反抗外侮之偉大民族英雄。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 88,
+        "politics": 96,
+        "intellect": 98,
+        "courage": 100,
+        "charisma": 98
+      }
+    },
+    {
+      "id": "fig_guan_tianpei",
+      "name": "關天培",
+      "courtesyName": "仲因",
+      "lifeSpan": "1781 - 1841",
+      "faction": "qing",
+      "role": "廣東水師提督",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_guan_tianpei.svg",
+      "importance": 4,
+      "hometown": "江蘇淮安",
+      "shortBio": "鴉片戰爭抗英名將。全力支持林則徐虎門銷煙，修築靖遠、威遠等海防砲台。1841年英艦大舉圍攻虎門，關天培負傷十餘處親自開砲殺敵，壯烈殉國。",
+      "historicalSignificance": "近代中國抗擊西方列強侵略第一位為國捐軀之高級水師統帥。",
+      "abilities": {
+        "strategy": 82,
+        "commanding": 92,
+        "politics": 75,
+        "intellect": 80,
+        "courage": 100,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_cixi",
+      "name": "慈禧太后 (孝欽顯皇后)",
+      "courtesyName": "葉赫那拉氏 / 西太后",
+      "lifeSpan": "1835 - 1908",
+      "faction": "qing",
+      "role": "大清垂簾聽政皇太后 (執政48年)",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_cixi.svg",
+      "importance": 5,
+      "hometown": "北京",
+      "shortBio": "咸豐帝懿貴妃，同治、光緒兩朝垂簾聽政。發動辛酉政變奪權，支持曾國藩李鴻章推行洋務運動；後鎮壓戊戌變法囚禁光緒，誤信義和團向十一國宣戰致八國聯軍攻佔北京。",
+      "historicalSignificance": "掌控晚清半世紀最高權力之核心人物，左右近代中國盛衰走向。",
+      "abilities": {
+        "strategy": 90,
+        "commanding": 70,
+        "politics": 99,
+        "intellect": 92,
+        "courage": 88,
+        "charisma": 94
+      }
+    },
+    {
+      "id": "fig_hong_xiuquan",
+      "name": "洪秀全",
+      "courtesyName": "天王",
+      "lifeSpan": "1814 - 1864",
+      "faction": "taiping",
+      "role": "太平天國開創者",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_hong_xiuquan.svg",
+      "importance": 5,
+      "hometown": "廣東花縣 (廣州花都)",
+      "shortBio": "屢試不第後創立「拜上帝會」，宣揚天下人人平等。1851年於廣西金田起義，攻克南京改名「天京」定都，頒布《天朝田畝制度》。後因天京事變走向衰亡，服毒或病死於圍城中。",
+      "historicalSignificance": "引發十九世紀規模最大之反清反封建農民起義，撼動大清統治根基。",
+      "abilities": {
+        "strategy": 82,
+        "commanding": 78,
+        "politics": 85,
+        "intellect": 86,
+        "courage": 92,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_yang_xiuqing",
+      "name": "楊秀清",
+      "courtesyName": "東王九千歲",
+      "lifeSpan": "1823 - 1856",
+      "faction": "taiping",
+      "role": "太平天國軍政統帥",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_yang_xiuqing.svg",
+      "importance": 4,
+      "hometown": "廣西桂平",
+      "shortBio": "燒炭工出身，假託「天父下凡」號令全軍。統理天國軍政大權，策劃西征東征攻破清江南、江北大營。後逼洪秀全封萬歲，引發「天京事變」被韋昌輝誅殺。",
+      "historicalSignificance": "太平天國軍事與政治全盛期之實際組織指揮核心。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 96,
+        "politics": 88,
+        "intellect": 88,
+        "courage": 94,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_shi_dakai",
+      "name": "石達開",
+      "courtesyName": "翼王五千歲",
+      "lifeSpan": "1831 - 1863",
+      "faction": "taiping",
+      "role": "太平天國翼王 / 石敢當",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_shi_dakai.svg",
+      "importance": 5,
+      "hometown": "廣西貴縣",
+      "shortBio": "十九歲統千軍，湖口九江大戰逼曾國藩投水自盡。為人仁德善戰，深得軍民擁護。天京事變後帶兵出走轉戰西南，於四川大渡河遇暴漲被圍，捨命保三軍受凌遲慷慨就義。",
+      "historicalSignificance": "太平天國最具才略與人格操守之戰神名將。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 98,
+        "politics": 88,
+        "intellect": 92,
+        "courage": 100,
+        "charisma": 98
+      }
+    },
+    {
+      "id": "fig_zeng_guofan",
+      "name": "曾國藩",
+      "courtesyName": "滌生",
+      "lifeSpan": "1811 - 1872",
+      "faction": "qing",
+      "role": "兩江總督 / 武英殿大學士",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_zeng_guofan.svg",
+      "importance": 5,
+      "hometown": "湖南湘鄉",
+      "shortBio": "理學名臣。回鄉創辦「湘軍」，結硬寨打呆仗克復武昌、安慶、天京。與李鴻章創立江南製造總局，選派幼童赴美留學，開啟洋務運動先河。",
+      "historicalSignificance": "挽狂瀾於既倒延續清廷國祚半世紀，被譽為「晚清中興第一名臣」。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 92,
+        "politics": 98,
+        "intellect": 97,
+        "courage": 92,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_zuo_zongtang",
+      "name": "左宗棠",
+      "courtesyName": "季高",
+      "lifeSpan": "1812 - 1885",
+      "faction": "qing",
+      "role": "陝甘總督 / 東閣大學士",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_zuo_zongtang.svg",
+      "importance": 5,
+      "hometown": "湖南湘陰",
+      "shortBio": "創辦福州船政局。力排李鴻章「海防論」海塞之爭，堅主塞防。1876年六十四歲高齡親率楚軍「輿櫬出塞」（抬著棺材西征），兵貴神速收復天山南北百萬平方公里新疆領土。",
+      "historicalSignificance": "力保西北六分之一國土不失，促成新疆建省，千古名將民族脊樑。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 98,
+        "politics": 95,
+        "intellect": 96,
+        "courage": 100,
+        "charisma": 98
+      }
+    },
+    {
+      "id": "fig_li_hongzhang",
+      "name": "李鴻章",
+      "courtesyName": "少荃",
+      "lifeSpan": "1823 - 1901",
+      "faction": "qing",
+      "role": "直隸總督兼北洋通商大臣",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_li_hongzhang.svg",
+      "importance": 5,
+      "hometown": "安徽合肥",
+      "shortBio": "曾國藩弟子。組建淮軍，創辦輪船招商局、天津機器局、北洋水師。晚年代表清廷簽署《馬關條約》、《辛丑條約》，自稱「大清糊塗裱糊匠」。",
+      "historicalSignificance": "洋務運動核心領袖，近代外交與工業化開拓者，備受歷史爭議之風雲人物。",
+      "abilities": {
+        "strategy": 90,
+        "commanding": 85,
+        "politics": 98,
+        "intellect": 94,
+        "courage": 85,
+        "charisma": 92
+      }
+    },
+    {
+      "id": "fig_zhang_zhidong",
+      "name": "張之洞",
+      "courtesyName": "孝達 / 香濤",
+      "lifeSpan": "1837 - 1909",
+      "faction": "qing",
+      "role": "湖廣總督 / 體仁閣大學士",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_zhang_zhidong.svg",
+      "importance": 4,
+      "hometown": "直隸南皮 (河北)",
+      "shortBio": "提出「中學為體，西學為用」。督粵期間支持馮子材取得鎮南關大捷；督鄂十九年創辦漢陽鐵廠、湖北槍砲廠、自強學堂（武漢大學前身），修建盧漢鐵路。",
+      "historicalSignificance": "晚明近代重工業與新式教育之偉大推手。",
+      "abilities": {
+        "strategy": 88,
+        "commanding": 78,
+        "politics": 96,
+        "intellect": 97,
+        "courage": 90,
+        "charisma": 93
+      }
+    },
+    {
+      "id": "fig_liu_mingchuan",
+      "name": "劉銘傳",
+      "courtesyName": "省三",
+      "lifeSpan": "1836 - 1896",
+      "faction": "qing",
+      "role": "台灣首任巡撫 / 淮軍名將",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_liu_mingchuan.svg",
+      "importance": 5,
+      "hometown": "安徽肥西",
+      "shortBio": "中法戰爭時督辦台灣軍務，基隆滬尾擊退法軍孤拔艦隊保全台灣。1885年台灣建省出任首任巡撫，興建基隆至新竹鐵路、鋪設海底電報線、創辦西學堂，開創台灣近代化奇蹟。",
+      "historicalSignificance": "「台灣近代化之父」，為保衛台灣與現代化建設立下不朽功勳。",
+      "abilities": {
+        "strategy": 94,
+        "commanding": 96,
+        "politics": 95,
+        "intellect": 92,
+        "courage": 98,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_deng_shichang",
+      "name": "鄧世昌",
+      "courtesyName": "正卿",
+      "lifeSpan": "1849 - 1894",
+      "faction": "qing",
+      "role": "北洋海軍致遠艦管帶",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_deng_shichang.svg",
+      "importance": 5,
+      "hometown": "廣東番禺 (廣州)",
+      "shortBio": "甲午黃海海戰中，致遠艦彈藥將盡艦身傾斜，鄧世昌毅然開足馬力全速撞擊日主力艦「吉野號」，中魚雷沉沒。墜海後義犬游救，鄧世昌按犬首共沉汪洋殉國。光緒帝輓聯「此日漫揮天下淚，有公足壯海軍威」。",
+      "historicalSignificance": "中國海軍魂之最高化身，激勵後世百年海權奮鬥。",
+      "abilities": {
+        "strategy": 85,
+        "commanding": 96,
+        "politics": 70,
+        "intellect": 85,
+        "courage": 100,
+        "charisma": 97
+      }
+    },
+    {
+      "id": "fig_ding_ruchang",
+      "name": "丁汝昌",
+      "courtesyName": "禹廷",
+      "lifeSpan": "1836 - 1895",
+      "faction": "qing",
+      "role": "北洋海軍提督",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_ding_ruchang.svg",
+      "importance": 4,
+      "hometown": "安徽廬江",
+      "shortBio": "淮軍將領出身，李鴻章拔擢為北洋海軍提督。威海衛劉公島保衛戰中遭日軍水陸合圍孤立無援，寧死拒絕日本伊東祐亨勸降，吞服鴉片自殺殉國。",
+      "historicalSignificance": "北洋海軍最高殉國長官，恪盡軍人死戰職責。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 88,
+        "politics": 75,
+        "intellect": 78,
+        "courage": 95,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_guangxu",
+      "name": "光緒帝 (載湉)",
+      "courtesyName": "清德宗景皇帝",
+      "lifeSpan": "1871 - 1908",
+      "faction": "qing",
+      "role": "大清第十一位皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_guangxu.svg",
+      "importance": 5,
+      "hometown": "北京紫禁城",
+      "shortBio": "四歲登基，常年受慈禧太后制約。甲午戰敗恥辱後銳意圖強，支持康有為、梁啟超發動「戊戌變法」推行新政一百零三天。慈禧發動戊戌政變被幽禁瀛台至死。",
+      "historicalSignificance": "近代試圖以君主立憲變法圖強拯救中國之悲劇君王。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 60,
+        "politics": 82,
+        "intellect": 90,
+        "courage": 88,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_kang_youwei",
+      "name": "康有為",
+      "courtesyName": "廣廈 / 南海先生",
+      "lifeSpan": "1858 - 1927",
+      "faction": "reform",
+      "role": "戊戌變法領袖 / 保皇會會長",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_kang_youwei.svg",
+      "importance": 5,
+      "hometown": "廣東南海",
+      "shortBio": "公車上書發起人，撰《孔子改制考》、《新學偽經考》。獲得光緒帝信任發動百日維新，政變後流亡海外組織保皇會，主張君主立憲。",
+      "historicalSignificance": "近代資產階級改良維新運動之代表人物。",
+      "abilities": {
+        "strategy": 82,
+        "commanding": 55,
+        "politics": 88,
+        "intellect": 96,
+        "courage": 85,
+        "charisma": 94
+      }
+    },
+    {
+      "id": "fig_liang_qichao",
+      "name": "梁啟超",
+      "courtesyName": "卓如 / 任公",
+      "lifeSpan": "1873 - 1929",
+      "faction": "reform",
+      "role": "維新思想家 / 新民說倡導者",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_liang_qichao.svg",
+      "importance": 5,
+      "hometown": "廣東新會",
+      "shortBio": "康有為高足。創辦《時務報》、《新民叢報》，其文章筆鋒常帶感情，撰《少年中國說》「少年強則國強」。晚年任清華國學研究院四大導師之一。",
+      "historicalSignificance": "啟蒙近代數代青年思想之輿論巨擘與文化大師。",
+      "abilities": {
+        "strategy": 85,
+        "commanding": 60,
+        "politics": 90,
+        "intellect": 99,
+        "courage": 88,
+        "charisma": 98
+      }
+    },
+    {
+      "id": "fig_tan_sitong",
+      "name": "譚嗣同",
+      "courtesyName": "復生",
+      "lifeSpan": "1865 - 1898",
+      "faction": "reform",
+      "role": "戊戌六君子 / 軍機章京",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_tan_sitong.svg",
+      "importance": 5,
+      "hometown": "湖南瀏陽",
+      "shortBio": "著《仁學》倡衝決網羅。政變後勸梁啟超逃亡日本，自己拒絕出走：「各國變法無不從流血而成，今日中國未聞有因變法而流血者，此國之所以不昌也。有之，請自嗣同始！」菜市口就義留下「我自橫刀向天笑，去留肝膽兩崑崙」。",
+      "historicalSignificance": "中國近代為改革變法自願捨身成仁之最高精神標竿。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 65,
+        "politics": 85,
+        "intellect": 96,
+        "courage": 100,
+        "charisma": 99
+      }
+    },
+    {
+      "id": "fig_yan_fu",
+      "name": "嚴復",
+      "courtesyName": "又陵 / 幾道",
+      "lifeSpan": "1854 - 1921",
+      "faction": "reform",
+      "role": "啟蒙思想家 / 京師大學堂總監督",
+      "roleType": "advisor",
+      "avatar": "./images/figures/fig_yan_fu.svg",
+      "importance": 4,
+      "hometown": "福建侯官",
+      "shortBio": "留學英國格林威治海軍學院。甲午戰後翻譯赫胥黎《天演論》，提出「物競天擇，適者生存」震動知識界，首倡「信達雅」翻譯準則。",
+      "historicalSignificance": "將西方現代社會學哲學系統介紹至中國之第一啟蒙思想家。",
+      "abilities": {
+        "strategy": 75,
+        "commanding": 60,
+        "politics": 82,
+        "intellect": 99,
+        "courage": 82,
+        "charisma": 90
+      }
+    },
+    {
+      "id": "fig_sun_yat_sen",
+      "name": "孫中山 (孫文)",
+      "courtesyName": "逸仙 / 國父",
+      "lifeSpan": "1866 - 1925",
+      "faction": "republic",
+      "role": "中華民國臨時大總統 / 國父",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_sun_yat_sen.svg",
+      "importance": 5,
+      "hometown": "廣東香山 (中山市)",
+      "shortBio": "早年習醫，後立志革命救國。創立興中會、同盟會，提出「三民主義」與「驅除韃虜，恢復中華，創立民國，平均地權」。領導多次武裝起義，1911年辛亥革命終結兩千年帝制，就任中華民國首任臨時大總統。",
+      "historicalSignificance": "推翻兩千年封建帝制、開創亞洲第一個民主共和國之千古偉人。",
+      "abilities": {
+        "strategy": 98,
+        "commanding": 85,
+        "politics": 99,
+        "intellect": 99,
+        "courage": 100,
+        "charisma": 100
+      }
+    },
+    {
+      "id": "fig_huang_xing",
+      "name": "黃興 (黃克強)",
+      "courtesyName": "克強",
+      "lifeSpan": "1874 - 1916",
+      "faction": "republic",
+      "role": "同盟會元勳 / 陸軍總長",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_huang_xing.svg",
+      "importance": 5,
+      "hometown": "湖南善化 (長沙)",
+      "shortBio": "華興會創始人，與孫中山並稱「孫黃」。親自率敢死隊發動廣州黃花崗起義，右手斷兩指力戰突圍。武昌起義後抵達武漢任戰時總司令指揮陽邏漢陽保衛戰。",
+      "historicalSignificance": "辛亥革命軍事統帥與共和締造者，「無公則無民國」。",
+      "abilities": {
+        "strategy": 92,
+        "commanding": 96,
+        "politics": 90,
+        "intellect": 92,
+        "courage": 100,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_qiu_jin",
+      "name": "秋瑾 (鑑湖女俠)",
+      "courtesyName": "競雄",
+      "lifeSpan": "1875 - 1907",
+      "faction": "republic",
+      "role": "辛亥革命女烈士",
+      "roleType": "statesman",
+      "avatar": "./images/figures/fig_qiu_jin.svg",
+      "importance": 4,
+      "hometown": "浙江紹興",
+      "shortBio": "自稱鑑湖女俠。東渡日本留學加入同盟會與光復會，創辦《中國女報》倡導女權解放。回國任大通學堂督辦策劃浙皖起義，遭清廷捕殺於紹興軒亭口，留絕筆「秋風秋雨愁煞人」。",
+      "historicalSignificance": "中國近代女權自覺與為共和流血犧牲之先鋒英烈。",
+      "abilities": {
+        "strategy": 80,
+        "commanding": 82,
+        "politics": 85,
+        "intellect": 94,
+        "courage": 100,
+        "charisma": 96
+      }
+    },
+    {
+      "id": "fig_yuan_shikai",
+      "name": "袁世凱",
+      "courtesyName": "慰亭",
+      "lifeSpan": "1859 - 1916",
+      "faction": "republic",
+      "role": "北洋軍閥首領 / 中華民國大總統",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_yuan_shikai.svg",
+      "importance": 5,
+      "hometown": "河南項城",
+      "shortBio": "早年駐朝鮮立威。天津小站練兵組建北洋新軍。辛亥革命爆發後兩面弄權，逼迫清廷隆裕太后頒布《清帝遜位詔書》，終結清朝統治就任大總統。後稱帝洪憲八十三天而卒。",
+      "historicalSignificance": "終結大清兩百六十八年統治之關鍵實權軍事政治強人。",
+      "abilities": {
+        "strategy": 95,
+        "commanding": 94,
+        "politics": 98,
+        "intellect": 90,
+        "courage": 90,
+        "charisma": 94
+      }
+    },
+    {
+      "id": "fig_li_yuanhong",
+      "name": "黎元洪",
+      "courtesyName": "宋卿",
+      "lifeSpan": "1864 - 1928",
+      "faction": "republic",
+      "role": "鄂軍都督 / 中華民國副總統",
+      "roleType": "general",
+      "avatar": "./images/figures/fig_li_yuanhong.svg",
+      "importance": 4,
+      "hometown": "湖北黃陂",
+      "shortBio": "北洋水師管輪出身。武昌起義夜革命黨人推舉其為湖北軍政府都督。後歷任南京臨時政府副總統、北京政府大總統。",
+      "historicalSignificance": "辛亥武昌起義象徵性核心人物，開創民國初期軍閥議會政局。",
+      "abilities": {
+        "strategy": 78,
+        "commanding": 82,
+        "politics": 85,
+        "intellect": 84,
+        "courage": 80,
+        "charisma": 88
+      }
+    },
+    {
+      "id": "fig_puyi",
+      "name": "溥儀 (宣統帝)",
+      "courtesyName": "末代皇帝 / 遜帝",
+      "lifeSpan": "1906 - 1967",
+      "faction": "qing",
+      "role": "中國最後一位皇帝",
+      "roleType": "monarch",
+      "avatar": "./images/figures/fig_puyi.svg",
+      "importance": 5,
+      "hometown": "北京醇親王府",
+      "shortBio": "光緒三十四年三歲登基。1912年2月12日隆裕太后頒布退位詔書，宣告大清滅亡與秦始皇以來二千一百三十二年中國君主專制帝制正式終結。後曾任偽滿洲國皇帝，晚年獲特赦為全國政協委員。",
+      "historicalSignificance": "終結中國兩千多年君主專制體制之最後歷史見證者。",
+      "abilities": {
+        "strategy": 50,
+        "commanding": 40,
+        "politics": 65,
+        "intellect": 80,
+        "courage": 60,
+        "charisma": 82
+      }
+    }
+  ];
+
+  // src/data/periods/qingDynasty/battles.js
+  var QING_DYNASTY_BATTLES = [
+    {
+      "id": "bat_zheng_taiwan_1661",
+      "name": "鄭成功驅荷復台之役 (熱蘭遮城大圍攻)",
+      "year": 1661,
+      "yearDisplay": "西元 1661 - 1662 年",
+      "eraName": "南明永曆十五至十六年",
+      "eraDisplay": "永曆十五年 四月 至 十六年 二月",
+      "shortDescription": "鄭成功率四百戰船跨越台灣海峽登陸鹿耳門，圍攻熱蘭遮城九個月，荷蘭東印度公司出降簽約退回巴達維亞。",
+      "locationAncient": "台灣大員熱蘭遮城與普羅民遮城",
+      "locationName": "熱蘭遮城 / 安平",
+      "locationModern": "台灣台南市安平區安平古堡與赤崁樓",
+      "coords": [
+        120.16,
+        23
+      ],
+      "importance": 5,
+      "winner": "大明延平王鄭成功水陸大軍",
+      "victorStatement": "荷蘭長官揆一簽署投降協議退回印尼，台灣回歸華夏，建立明鄭政權。",
+      "attacker": {
+        "factionName": "延平王鄭成功抗清水師陸軍",
+        "forcesEstimate": "戰船四百艘、精兵兩萬五千人"
+      },
+      "defender": {
+        "factionName": "荷蘭東印度公司駐台守軍與援艦",
+        "forcesEstimate": "城堡守軍兩千餘人、夾板戰艦十餘艘"
+      },
+      "summary": "鄭成功乘天文大潮突破鹿耳門天險直插普羅民遮城，隨後構築長圍圍困熱蘭遮城九個月，擊沉荷蘭巴達維亞援艦，最終迫使揆一簽字投降。",
+      "strategicSignificance": "終結荷蘭在台灣三十八年殖民統治，建立明鄭承天府，開創台灣歷史新紀元。",
+      "tactics": "乘潮奪渡鹿耳門、築壘長圍封鎖、砲轟烏特勒支碉堡"
+    },
+    {
+      "id": "bat_penghu_shilang_1683",
+      "name": "澎湖海戰 (施琅大破劉國軒鄭克塽出降)",
+      "year": 1683,
+      "yearDisplay": "西元 1683 年",
+      "eraName": "清康熙二十二年",
+      "eraDisplay": "康熙二十二年 六月",
+      "shortDescription": "福建水師提督施琅率三百艘戰艦出銅山攻澎湖，大破劉國軒主力水師，鄭克塽納土歸降，康熙設台灣府。",
+      "locationAncient": "澎湖群島媽宮港與娘媽宮海面",
+      "locationName": "澎湖海面",
+      "locationModern": "台灣澎湖縣馬公市海面",
+      "coords": [
+        119.57,
+        23.57
+      ],
+      "importance": 5,
+      "winner": "大清福建水師 (施琅)",
+      "victorStatement": "劉國軒狼狽遁走安平，鄭克塽見大勢已去奉表納土出降，明鄭二十二年政權終結。",
+      "attacker": {
+        "factionName": "大清福建水師主力 (施琅統帥)",
+        "forcesEstimate": "戰船三百艘、水師將士三萬餘人"
+      },
+      "defender": {
+        "factionName": "明鄭延平王水師 (劉國軒統帥)",
+        "forcesEstimate": "戰艦兩百餘艘、守軍兩萬人"
+      },
+      "summary": "施琅採取「五爪捧蛋」戰法，集中主力順風直撲娘媽宮，以開花砲連續擊沉焚毀明鄭戰艦百餘艘。戰後施琅力主留台，康熙設立台灣府隸屬福建省。",
+      "strategicSignificance": "台灣全島正式納入大清大一統版圖，開啟清代統治台灣二百一十二年歷史。",
+      "tactics": "藉西南季風順風衝陣、五船環攻一船密集火砲、圍點打援"
+    },
+    {
+      "id": "bat_albazin_1685",
+      "name": "雅克薩之戰 (清軍擊退沙俄締結尼布楚條約)",
+      "year": 1685,
+      "yearDisplay": "西元 1685 - 1686 年",
+      "eraName": "清康熙二十四至二十五年",
+      "eraDisplay": "康熙二十四年 至 二十五年",
+      "shortDescription": "康熙命彭春、薩布素統帥黑龍江水陸清軍兩度圍攻雅克薩城，重創沙俄哥薩克侵略軍。",
+      "locationAncient": "黑龍江雅克薩城 (阿爾巴津諾)",
+      "locationName": "雅克薩",
+      "locationModern": "俄羅斯阿穆爾州阿爾巴津諾 (黑龍江北岸)",
+      "coords": [
+        124.08,
+        53.38
+      ],
+      "importance": 5,
+      "winner": "大清黑龍江駐防清軍",
+      "victorStatement": "沙俄守將托爾布津中砲斃命，沙皇被迫同意停火談判簽署《尼布楚條約》。",
+      "attacker": {
+        "factionName": "大清都統彭春與黑龍江將軍薩布素",
+        "forcesEstimate": "水陸軍一萬人、神威無敵大將軍砲"
+      },
+      "defender": {
+        "factionName": "沙俄哥薩克探險侵略軍 (托爾布津)",
+        "forcesEstimate": "築木石城守軍近千人、火銃巨砲"
+      },
+      "summary": "清軍打造木筏戰船順黑龍江而下，神威大將軍砲猛轟雅克薩城樓，阻斷沙俄沿黑龍江南侵企圖。促成1689年索額圖簽訂《尼布楚條約》，劃定外興安嶺與格爾必齊河為邊界。",
+      "strategicSignificance": "保障黑龍江流域東北邊疆一百七十餘年領土主權與和平。",
+      "tactics": "水陸並進圍城、神威紅夷重砲晝夜轟擊、深挖長壕斷其外援"
+    },
+    {
+      "id": "bat_wulanbutong_1690",
+      "name": "烏蘭布通與昭莫多之戰 (康熙親征噶爾丹)",
+      "year": 1690,
+      "yearDisplay": "西元 1690 - 1696 年",
+      "eraName": "清康熙二十九至三十五年",
+      "eraDisplay": "康熙二十九年 至 三十五年",
+      "shortDescription": "康熙皇帝三次親征塞北，烏蘭布通火砲轟破駝城，昭莫多費揚古伏兵大殲噶爾丹精銳。",
+      "locationAncient": "烏蘭布通 (克什克騰) / 昭莫多 (肯特山)",
+      "locationName": "烏蘭布通 / 昭莫多",
+      "locationModern": "內蒙古赤峰克什克騰旗與蒙古國烏蘭巴托南",
+      "coords": [
+        117.2,
+        42.6
+      ],
+      "importance": 5,
+      "winner": "大清康熙皇帝親征大軍",
+      "victorStatement": "噶爾丹主力潰散服毒自殺，喀爾喀蒙古三部歸順大清，漠北漠南蒙古劃一統治。",
+      "attacker": {
+        "factionName": "大清康熙皇帝親征八旗大軍",
+        "forcesEstimate": "八旗精銳十萬人、子母大砲百門"
+      },
+      "defender": {
+        "factionName": "準噶爾汗國精銳騎兵 (噶爾丹統帥)",
+        "forcesEstimate": "三萬鐵騎、萬駝圍陣「駝城」"
+      },
+      "summary": "噶爾丹將萬峰駱駝縛足伏地，背負箱垛填濕氈組「駝城」防禦。清軍以子母砲、大將軍砲排山倒海轟破駝城缺口，鐵騎奮勇衝殺大捷。",
+      "strategicSignificance": "瓦解準噶爾東侵企圖，徹底確立大清對蒙古高原漠北喀爾喀三部之主權統轄。",
+      "tactics": "紅夷火砲密集轟破駝城、大將軍兩翼側抄、分路長途合圍"
+    },
+    {
+      "id": "bat_humen_opium_1841",
+      "name": "鴉片戰爭虎門之役 (關天培血染靖遠砲台)",
+      "year": 1841,
+      "yearDisplay": "西元 1841 年",
+      "eraName": "清道光二十一年",
+      "eraDisplay": "道光二十一年 二月",
+      "shortDescription": "英國伯麥艦隊猛轟虎門要塞，水師提督關天培率孤軍血戰靖遠砲台，身中數十創力竭殉國。",
+      "locationAncient": "廣東虎門海口靖遠砲台與威遠砲台",
+      "locationName": "虎門海口",
+      "locationModern": "廣東省東莞市虎門鎮虎門要塞遺址",
+      "coords": [
+        113.62,
+        22.82
+      ],
+      "importance": 5,
+      "winner": "英國皇家海軍遠征艦隊",
+      "victorStatement": "英軍攻陷虎門要塞直逼廣州城下，琦善被押解入京，清廷被迫媾和。",
+      "attacker": {
+        "factionName": "英國皇家海軍蒸汽鐵甲艦隊",
+        "forcesEstimate": "戰艦巡洋艦十餘艘、登陸陸戰隊三千人"
+      },
+      "defender": {
+        "factionName": "大清廣東水師 (關天培統帥)",
+        "forcesEstimate": "砲台守軍數百人、岸防舊式鐵砲"
+      },
+      "summary": "關天培向琦善泣求發兵無援，親拔寶劍督守靖遠砲台，以老舊鐵砲同英軍蒸汽現代巨艦對射。彈盡援絕之際，手刃數名敵兵，迎彈殉國，全台官兵皆沒。",
+      "strategicSignificance": "揭開近代西方堅船利砲打開中國大門之屈辱開端，隨後簽訂《南京條約》。",
+      "tactics": "英艦蒸汽動力機動穿插、排砲轟毀固定砲台、側翼登陸包抄"
+    },
+    {
+      "id": "bat_sanhe_taiping_1858",
+      "name": "三河鎮大捷 (陳玉成李秀成全殲湘軍精銳)",
+      "year": 1858,
+      "yearDisplay": "西元 1858 年",
+      "eraName": "清咸豐八年 / 太平天國戊午八年",
+      "eraDisplay": "咸豐八年 十月",
+      "shortDescription": "陳玉成李秀成太平軍合圍三河鎮，全殲湘軍第一悍將李續賓六千精銳，曾國藩聞訊痛哭。",
+      "locationAncient": "安徽廬州三河鎮 (巢湖西岸)",
+      "locationName": "三河鎮",
+      "locationModern": "安徽省合肥市肥西縣三河古鎮",
+      "coords": [
+        117.25,
+        31.52
+      ],
+      "importance": 4,
+      "winner": "太平天國英王陳玉成與忠王李秀成",
+      "victorStatement": "湘軍精銳老湘營全軍覆沒，李續賓、曾國藩之弟曾國華自縊陣亡。",
+      "attacker": {
+        "factionName": "太平天國青年將領陳玉成李秀成兵團",
+        "forcesEstimate": "十餘萬精悍太平軍"
+      },
+      "defender": {
+        "factionName": "湘軍第一主力精銳 (李續賓統帥)",
+        "forcesEstimate": "六千精銳老湘營"
+      },
+      "summary": "太平軍天京事變後最輝煌戰略大捷。陳玉成大軍築三重長壕反包圍三河鎮，晨霧中發動總攻斬殺李續賓，挽救安慶與天京防線。",
+      "strategicSignificance": "湘軍自出山以來遭受最慘重之毀滅性挫敗，太平天國軍事力量迎來中興巔峰。",
+      "tactics": "多重長壕反包圍、晨霧突襲、斷其退路殲滅"
+    },
+    {
+      "id": "bat_tianjing_fall_1864",
+      "name": "天京保衛戰 (湘軍地道炸城攻陷南京)",
+      "year": 1864,
+      "yearDisplay": "西元 1864 年",
+      "eraName": "清同治三年 / 太平天國甲子十四年",
+      "eraDisplay": "同治三年 六月",
+      "shortDescription": "曾國荃湘軍合圍天京數年，太平門地道火藥炸塌城牆二十餘丈，天京淪陷，太平天國覆滅。",
+      "locationAncient": "江寧府天京 (太平門外城)",
+      "locationName": "天京 / 南京",
+      "locationModern": "江蘇省南京市玄武區太平門遺址",
+      "coords": [
+        118.82,
+        32.06
+      ],
+      "importance": 5,
+      "winner": "大清曾國藩曾國荃湘軍",
+      "victorStatement": "天王洪秀全病逝，幼天王出奔被俘，忠王李秀成受縛，太平天國歷十四年落幕。",
+      "attacker": {
+        "factionName": "大清九帥曾國荃湘軍精銳主力",
+        "forcesEstimate": "五萬老湘營與水師"
+      },
+      "defender": {
+        "factionName": "太平天國忠王李秀成守城軍民",
+        "forcesEstimate": "飢饉將士萬餘人"
+      },
+      "summary": "湘軍深掘地道至太平門下埋巨量黑火藥轟塌城垣，湘軍蟻附登城。城破後天王府烈火三日，湘軍屠城搶掠，忠王李秀成護送幼天王突圍被捕，撰寫數萬字自述。",
+      "strategicSignificance": "徹底平定轉戰十八省、死傷數千萬之太平天國農民起義，清廷確立湘淮軍人政治格局。",
+      "tactics": "長年圍城結硬寨、穴地坑道火藥爆破城垣、水師封鎖長江"
+    },
+    {
+      "id": "bat_zuo_xinjiang_1876",
+      "name": "左宗棠收復新疆之戰 (抬棺西征兵貴神速)",
+      "year": 1876,
+      "yearDisplay": "西元 1876 - 1878 年",
+      "eraName": "清光緒二至四年",
+      "eraDisplay": "光緒二年 至 四年",
+      "shortDescription": "六十四歲欽差大臣左宗棠力排眾議抬棺西征，劉錦棠銳不可當收復天山南北百萬疆土。",
+      "locationAncient": "天山南北烏魯木齊至喀什噶爾",
+      "locationName": "迪化 / 喀什",
+      "locationModern": "新疆維吾爾自治區烏魯木齊市與喀什市",
+      "coords": [
+        87.62,
+        43.82
+      ],
+      "importance": 5,
+      "winner": "大清欽差大臣左宗棠西征楚軍",
+      "victorStatement": "阿古柏暴斃其偽政權土崩瓦解，左宗棠收復除伊犁外新疆全境，1884年新疆正式建省。",
+      "attacker": {
+        "factionName": "大清西征大軍 (左宗棠劉錦棠統率)",
+        "forcesEstimate": "楚軍八萬人、新式西洋後膛槍砲"
+      },
+      "defender": {
+        "factionName": "中亞浩罕汗國阿古柏侵略軍",
+        "forcesEstimate": "四萬偽軍、英俄暗中軍援"
+      },
+      "summary": "左宗棠採取「緩進急戰」、「先北後南」方針，大辦糧運修築驛道，先取烏魯木齊，再翻天山直搗南疆八城，阿古柏自盡。隨後逼俄國退還伊犁。",
+      "strategicSignificance": "保衛中國六分之一陸地國土完整，遏制沙俄英帝國瓜分西北之野心，千古功業。",
+      "tactics": "緩進急戰儲糧備械、利用天山天險逐個擊破、騎兵長途奔襲"
+    },
+    {
+      "id": "bat_taiwan_liu_1884",
+      "name": "中法戰爭基隆滬尾之戰 (劉銘傳保衛台灣大捷)",
+      "year": 1884,
+      "yearDisplay": "西元 1884 年",
+      "eraName": "清光緒十年",
+      "eraDisplay": "光緒十年 八月至十月",
+      "shortDescription": "法國遠東艦隊孤拔猛攻基隆滬尾，督辦台灣軍務劉銘傳撤守基隆誘敵，滬尾擊斃法軍大捷。",
+      "locationAncient": "台灣基隆要塞與淡水滬尾砲台",
+      "locationName": "基隆 / 淡水滬尾",
+      "locationModern": "台灣新北市淡水區紅毛城滬尾砲台及基隆港",
+      "coords": [
+        121.43,
+        25.17
+      ],
+      "importance": 5,
+      "winner": "大清台灣守軍 (劉銘傳)",
+      "victorStatement": "法軍登陸滬尾遭守將孫開華伏兵痛擊傷亡慘重撤退，孤拔將軍飲恨澎湖病死。",
+      "attacker": {
+        "factionName": "法國海軍遠東艦隊 (孤拔將軍指揮)",
+        "forcesEstimate": "鐵甲裝甲艦八艘、海軍陸戰隊兩千人"
+      },
+      "defender": {
+        "factionName": "大清台灣防守軍 (劉銘傳孫開華指揮)",
+        "forcesEstimate": "淮軍湘軍守備部隊與台灣義勇"
+      },
+      "summary": "劉銘傳當機立斷「棄基隆保滬尾」，在淡水河口沉石塞港埋設水雷，法軍強行搶灘時，淮軍與台灣本地林朝棟義軍自黃槿樹林伏兵突出肉搏，斬殺法軍首級百餘。",
+      "strategicSignificance": "近代反侵略戰爭中少數取得戰術輝煌大勝之戰例，直接促成1885年清廷決定將台灣單獨建省。",
+      "tactics": "沉船封江水道埋雷、黃槿灌木叢誘敵伏擊、以退為進誘敵深入"
+    },
+    {
+      "id": "bat_zhennanguan_1885",
+      "name": "中法戰爭鎮南關大捷 (老將馮子材持矛陷陣)",
+      "year": 1885,
+      "yearDisplay": "西元 1885 年",
+      "eraName": "清光緒十一年",
+      "eraDisplay": "光緒十一年 二月",
+      "shortDescription": "近七旬老將馮子材帶二子持長矛率先衝鋒，關前隘大破法軍尼格里部，收復諒山。",
+      "locationAncient": "廣西鎮南關 (今友誼關) 關前隘",
+      "locationName": "鎮南關",
+      "locationModern": "廣西壯族自治區崇左市憑祥市友誼關",
+      "coords": [
+        106.71,
+        21.97
+      ],
+      "importance": 5,
+      "winner": "大清萃軍與黑旗軍 (馮子材統率)",
+      "victorStatement": "法軍統帥尼格里重傷潰逃，巴黎茹費理內閣因鎮南關慘敗倒台。",
+      "attacker": {
+        "factionName": "法軍遠征軍尼格里旅團",
+        "forcesEstimate": "兩千餘精銳法軍與外籍兵團"
+      },
+      "defender": {
+        "factionName": "大清老將馮子材萃軍與劉永福黑旗軍",
+        "forcesEstimate": "近三萬將士、依託關前隘長牆"
+      },
+      "summary": "馮子材預築長達三里之關前隘長牆，法軍以重砲猛轟搶奪。七十歲馮子材赤足著草鞋手持長矛親率二子躍出長壕大呼殺敵，全軍士氣雷動撲殺法軍。",
+      "strategicSignificance": "中國近代反侵略戰爭陸戰第一場重大戰略勝利，直接導致法國政府垮台。",
+      "tactics": "修築關前隘橫牆地道、近戰肉搏抵消洋槍優勢、兩翼合抄"
+    },
+    {
+      "id": "bat_yellow_sea_1894",
+      "name": "甲午黃海海戰 (鄧世昌致遠艦撞吉野號壯烈殉國)",
+      "year": 1894,
+      "yearDisplay": "西元 1894 年",
+      "eraName": "清光緒二十年 / 日本明治二十七年",
+      "eraDisplay": "光緒二十年 八月十八日",
+      "shortDescription": "北洋水師主力與日本聯合艦隊於大東溝海面爆發人類近代最大鐵甲艦海戰，鄧世昌撞艦殉國。",
+      "locationAncient": "鴨綠江口大東溝黃海海面",
+      "locationName": "大東溝海面",
+      "locationModern": "遼寧省東港市大東溝西南黃海海域",
+      "coords": [
+        123.95,
+        39.8
+      ],
+      "importance": 5,
+      "winner": "日本聯合艦隊 (伊東祐亨)",
+      "victorStatement": "北洋水師損失致遠、經遠等五艦，退保威海衛，日本取得黃海制海權。",
+      "attacker": {
+        "factionName": "日本帝國海軍聯合艦隊 (伊東祐亨指揮)",
+        "forcesEstimate": "主力戰艦巡洋艦十二艘、速射砲優勢"
+      },
+      "defender": {
+        "factionName": "大清北洋水師主力 (丁汝昌鄧世昌指揮)",
+        "forcesEstimate": "定遠鎮遠鐵甲艦等十艘"
+      },
+      "summary": "世界海軍史上首次大規模蒸汽鐵甲艦隊戰役。日軍以單縱陣依託高射速速射砲覆蓋，北洋水師以人字雁行夾擊。致遠艦傷重彈盡，鄧世昌毅然開足馬力全速撞擊日旗艦吉野號，中魚雷沉沒，全艦將士共赴國難。",
+      "strategicSignificance": "北洋水師喪失黃海制海權，隨後威海衛覆滅，引發《馬關條約》割讓台灣與澎湖之世紀浩劫。",
+      "tactics": "鐵甲重砲正面陣型 vs 現代速射砲單縱隊穿插"
+    },
+    {
+      "id": "bat_yiwei_taiwan_1895",
+      "name": "乙未抗日保台戰役 (台灣軍民血戰八卦山)",
+      "year": 1895,
+      "yearDisplay": "西元 1895 年",
+      "eraName": "清光緒二十一年",
+      "eraDisplay": "光緒二十一年 五月至十月",
+      "shortDescription": "《馬關條約》割台，台灣軍民成立台灣民主國誓死拒降，姜紹祖、吳湯興、徐驤八卦山血戰殉國。",
+      "locationAncient": "台灣基隆、新竹、彰化八卦山至台南",
+      "locationName": "八卦山 / 台灣全境",
+      "locationModern": "台灣彰化縣彰化市八卦山及全台各地",
+      "coords": [
+        120.55,
+        24.08
+      ],
+      "importance": 5,
+      "winner": "大日本帝國近衛師團 (樺山資紀)",
+      "victorStatement": "台灣軍民彈盡援絕，近五個月浴血奮戰殺死日近衛師團長北白川宮能久親王等，全島淪陷。",
+      "attacker": {
+        "factionName": "大日本帝國陸海軍侵台大軍 (樺山資紀指揮)",
+        "forcesEstimate": "近衛師團等陸軍七萬人、戰艦數十艘"
+      },
+      "defender": {
+        "factionName": "台灣義軍民軍與黑旗軍 (吳湯興徐驤姜紹祖劉永福)",
+        "forcesEstimate": "義民軍數萬人、土砲鳥銃竹竿槍"
+      },
+      "summary": "台灣歷史上規模最大、傷亡最慘烈之抗日反割台保衛戰。新竹客家義軍、彰化八卦山大決戰，吳湯興、徐驤壯烈犧牲，日軍死傷近五千人，親王斃命，展現台灣人不屈風骨。",
+      "strategicSignificance": "近代中華兒女誓死不屈抗擊外侮最悲壯史詩，深烙台灣歷史集體記憶。",
+      "tactics": "利用丘陵叢林游擊戰、土壘砲台死守、全民鄉兵抗敵"
+    },
+    {
+      "id": "bat_wuchang_1911",
+      "name": "辛亥武昌起義 (首義破楚望台推翻清廷)",
+      "year": 1911,
+      "yearDisplay": "西元 1911 年",
+      "eraName": "清宣統三年 / 辛亥年",
+      "eraDisplay": "宣統三年 八月十九日夜 (陽曆10月10日)",
+      "shortDescription": "湖北新軍革命黨人熊秉坤打響第一槍，攻佔楚望台軍械庫與湖廣總督衙門，建立軍政府。",
+      "locationAncient": "湖北武昌城楚望台軍械庫與蛇山",
+      "locationName": "武昌",
+      "locationModern": "湖北省武漢市武昌區首義廣場與紅樓",
+      "coords": [
+        114.3,
+        30.54
+      ],
+      "importance": 5,
+      "winner": "湖北革命黨新軍 (同盟會/文學社/共進會)",
+      "victorStatement": "湖廣總督瑞澂翻牆逃遁，建立中華民國軍政府鄂軍都督府，全國十餘省迅速響應獨立。",
+      "attacker": {
+        "factionName": "湖北新軍第八鎮工程營革命官兵 (熊秉坤等)",
+        "forcesEstimate": "起義新軍數千人"
+      },
+      "defender": {
+        "factionName": "大清湖廣總督衙門留守督標清軍",
+        "forcesEstimate": "官軍數千人"
+      },
+      "summary": "彭楚藩、劉復基就義後，工程營後隊正目熊秉坤於十月十日夜率眾起事發第一槍，奪取楚望台數萬枝槍械，以蛇山大砲轟擊總督衙門。次晨武昌全城光復，黎元洪為都督。",
+      "strategicSignificance": "辛亥革命成功之導火線，直接導致大清王朝崩潰與兩千年封建帝制覆滅，亞洲第一個共和國誕生。",
+      "tactics": "秘密串聯兵變、夜襲奪取軍械庫、佔領制高點砲轟官衙"
+    }
+  ];
+
+  // src/data/periods/qingDynasty/events.js
+  var QING_DYNASTY_EVENTS = [
+    {
+      "id": "evt_qing_01",
+      "name": "清世祖順治定都北京與滿清入關",
+      "year": 1644,
+      "yearDisplay": "西元 1644 年",
+      "eraName": "清順治元年",
+      "eraDisplay": "順治元年 九月至十月",
+      "shortDescription": "清世祖順治由盛京遷都北京紫禁城，多爾袞攝政頒布政策，大清正式入主中原。",
+      "description": "一片石戰役清軍擊潰李自成後，攝政王多爾袞進駐北京。九月順治皇帝奉孝莊太后車駕自瀋陽出發抵京，十月初一於天壇祭天登基，宣告以北京為大清帝國首都。隨後多爾袞推行「剃髮易服」與「圈地令」，引發江南激烈抗清。",
+      "detail": "順治帝下令為明崇禎帝發喪，任用范文程、洪承疇等漢官，確立滿漢雙語官制體系。",
+      "impact": "標誌滿清政權正式取代明朝成為統治全中國之正統中央王朝。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京紫禁城太和殿",
+      "locationName": "北京",
+      "locationModern": "北京市故宮博物院太和殿",
+      "coords": [
+        116.39,
+        39.91
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_shunzhi",
+        "fig_duorgon",
+        "fig_xiaozhuang"
+      ]
+    },
+    {
+      "id": "evt_qing_02",
+      "name": "揚州十日與史可法梅花嶺殉國",
+      "year": 1645,
+      "yearDisplay": "西元 1645 年",
+      "eraName": "清順治二年 / 南明弘光元年",
+      "eraDisplay": "弘光元年 四月二十五日",
+      "shortDescription": "多鐸清軍圍攻揚州，南明督師史可法誓死不降城破就義，清軍屠殺揚州城十日。",
+      "description": "清豫親王多鐸率大軍南下合圍揚州。南明督師兵部尚書史可法率軍民死守數旬，多鐸數次招降史可法皆嚴辭痛斥。四月二十五日清軍以紅夷大砲破西北城角，史可法自刎未遂被俘不屈就義，葬衣冠於梅花嶺。隨後清軍在揚州大肆屠殺十日，死難者達數十萬。",
+      "detail": "王秀楚撰《揚州十日記》記錄這場人間慘劇，史可法浩然正氣化為民族不屈脊樑。",
+      "impact": "南明弘光政權覆亡，江浙反清義軍與剃髮抗暴運動波瀾壯闊爆發。",
+      "category": "disaster",
+      "importance": 5,
+      "locationNameAncient": "揚州府城梅花嶺",
+      "locationName": "揚州",
+      "locationModern": "江蘇省揚州市廣陵區梅花嶺史可法紀念館",
+      "coords": [
+        119.42,
+        32.4
+      ],
+      "svgPos": {
+        "x": 642,
+        "y": 512
+      },
+      "figuresInvolved": [
+        "fig_duorgon"
+      ]
+    },
+    {
+      "id": "evt_qing_03",
+      "name": "鄭成功驅荷復台與建立東寧政權",
+      "year": 1662,
+      "yearDisplay": "西元 1661 - 1662 年",
+      "eraName": "南明永曆十五至十六年",
+      "eraDisplay": "永曆十五年 四月 至 十六年 二月",
+      "shortDescription": "鄭成功跨海東征驅逐荷蘭東印度公司，收復台灣設立承天府天興萬年二縣，開疆拓土。",
+      "description": "南明延平王鄭成功金門誓師，率戰艦數百艘渡過黑水溝，突破鹿耳門潮水搶灘登陸。圍困熱蘭遮城九個月，荷蘭長官揆一開城投降，結束荷蘭在台灣三十八年殖民統治。鄭成功改赤崁為承天府、熱蘭遮城為安平鎮，屯田開墾，廣設文廟學校。",
+      "detail": "鄭成功收復台灣數月後因積勞成疾不幸英年早逝，年僅三十九歲，被台灣人民尊奉為「開台聖王」。其子鄭經繼位改稱東寧王國。",
+      "impact": "開闢台灣成為漢人聚落繁衍生息之海角福地，奠定台灣歷史文明歸屬之根本基石。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "台灣承天府 (赤崁樓 / 熱蘭遮城)",
+      "locationName": "台南承天府",
+      "locationModern": "台灣台南市中西區赤崁樓與安平古堡",
+      "coords": [
+        120.2,
+        22.99
+      ],
+      "svgPos": {
+        "x": 680,
+        "y": 650
+      },
+      "figuresInvolved": [
+        "fig_zheng_chenggong"
+      ]
+    },
+    {
+      "id": "evt_qing_04",
+      "name": "康熙智擒鰲拜與親政",
+      "year": 1669,
+      "yearDisplay": "西元 1669 年",
+      "eraName": "清康熙八年",
+      "eraDisplay": "康熙八年 五月",
+      "shortDescription": "十六歲康熙帝訓練少年布庫摔跤手，於武英殿突發擒拿專權輔政大臣鰲拜，正式親政。",
+      "description": "輔政大臣鰲拜自恃功高專橫跋扈，濫殺無辜、欺蔑幼主。康熙帝表面沉溺於與八旗貴胄少年練習摔跤摔角遊戲，暗中物色忠勇衛士。五月十六日鰲拜單獨入宮奏事，康熙一聲令下，布庫少年一擁而上將其摔倒生擒，宣布其三十條大罪囚禁之。",
+      "detail": "康熙不興大獄僅誅首惡，展現驚人帝王沉著與政治早熟，從此大權獨攬開展六十年治世。",
+      "impact": "徹底結束輔政權臣亂政格局，康熙帝正式掌握實權，開展裁撤三藩之決心。",
+      "category": "political",
+      "importance": 4,
+      "locationNameAncient": "北京紫禁城武英殿",
+      "locationName": "北京武英殿",
+      "locationModern": "北京市故宮博物院武英殿",
+      "coords": [
+        116.39,
+        39.91
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_kangxi",
+        "fig_aobai",
+        "fig_xiaozhuang"
+      ]
+    },
+    {
+      "id": "evt_qing_05",
+      "name": "平定三藩之亂·天下一統",
+      "year": 1673,
+      "yearDisplay": "西元 1673 - 1681 年",
+      "eraName": "清康熙十二至二十年",
+      "eraDisplay": "康熙十二年 至 二十年",
+      "shortDescription": "平西王吳三桂起兵叛亂席捲半壁江山，康熙堅定削藩歷經八年平定吳三桂耿精忠尚之信。",
+      "description": "康熙帝下詔撤藩，雲南平西王吳三桂起兵反清自稱天下都招討兵馬大元帥，福建耿精忠、廣東尚之信、陝西王輔臣相繼響應，天下震動。康熙帝在太皇太后孝莊支持下沉著調度，以圖海平陝西，厚撫漢官，分化瓦解叛軍。1681年清軍攻破昆明，吳世璠自盡，三藩徹底平定。",
+      "detail": "此戰消弭了清初漢人降將軍閥割據獨立王國之極大威脅，徹底確立中央集權統治。",
+      "impact": "徹底掃除割據藩鎮，實現全國政令軍令之高度大一統。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "雲南昆明府五華山",
+      "locationName": "昆明",
+      "locationModern": "雲南省昆明市五華山",
+      "coords": [
+        102.71,
+        25.04
+      ],
+      "svgPos": {
+        "x": 440,
+        "y": 620
+      },
+      "figuresInvolved": [
+        "fig_kangxi",
+        "fig_xiaozhuang"
+      ]
+    },
+    {
+      "id": "evt_qing_06",
+      "name": "施琅平台灣與設立台灣府",
+      "year": 1683,
+      "yearDisplay": "西元 1683 - 1684 年",
+      "eraName": "清康熙二十二至二十三年",
+      "eraDisplay": "康熙二十二年 六月 至 二十三年 四月",
+      "shortDescription": "水師提督施琅澎湖海戰大勝促成鄭克塽降清，康熙力納施琅之言設立台灣府，納入版圖。",
+      "description": "康熙任施琅為福建水師提督發兵平台。施琅於澎湖海戰大破明鄭劉國軒主力戰艦，鄭克塽遣使請降。朝中多數大臣以「台灣孤懸海外得之無益」主張棄守遷民，施琅上呈《恭陳台灣棄留疏》極言台灣為江浙閩粵四省門戶「棄之必釀大患，留之足以固海防」。康熙帝力排眾議，於1684年設「台灣府」，下轄台灣、鳳山、諸羅三縣，隸屬福建省。",
+      "detail": "設台灣府總兵駐防八千綠營兵，設海防同知，確立清朝對台灣全島之正式管轄體制。",
+      "impact": "台灣與澎湖群島完整納入大清大一統帝國行政疆域，開拓海疆二百年和平。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "台灣府 (台南府城) / 澎湖媽宮",
+      "locationName": "台灣府 / 台南",
+      "locationModern": "台灣台南市中西區大南門及孔廟一帶",
+      "coords": [
+        120.2,
+        22.99
+      ],
+      "svgPos": {
+        "x": 680,
+        "y": 650
+      },
+      "figuresInvolved": [
+        "fig_kangxi",
+        "fig_shi_lang"
+      ]
+    },
+    {
+      "id": "evt_qing_07",
+      "name": "中俄尼布楚條約簽訂·界定北疆",
+      "year": 1689,
+      "yearDisplay": "西元 1689 年",
+      "eraName": "清康熙二十八年",
+      "eraDisplay": "康熙二十八年 七月二十四日",
+      "shortDescription": "清軍兩次雅克薩大捷後，索額圖與沙俄戈洛文於尼布楚簽約，劃定外興安嶺中俄東段邊界。",
+      "description": "清軍擊退沙俄侵略雅克薩後，康熙帝派領侍衛內大臣索額圖為全權首席代表赴尼布楚與俄國談判。雙方簽署《尼布楚條約》，以滿、俄、拉丁文鐫刻，明確劃定黑龍江流域以北外興安嶺至海為中俄邊界，黑龍江以北、烏蘇里江以東包括庫頁島均屬中國領土。",
+      "detail": "條約中首次使用「中國」（Dulimbai Gurun）作為主權國家之正式法律國名稱號。",
+      "impact": "近代中國歷史上第一個在平等基礎上簽署之劃界國際條約，鎖定東北疆界百年安定。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "尼布楚城 (涅爾琴斯克)",
+      "locationName": "尼布楚",
+      "locationModern": "俄羅斯外貝加爾邊疆區涅爾琴斯克",
+      "coords": [
+        116.57,
+        51.97
+      ],
+      "svgPos": {
+        "x": 650,
+        "y": 150
+      },
+      "figuresInvolved": [
+        "fig_kangxi",
+        "fig_suoetu"
+      ]
+    },
+    {
+      "id": "evt_qing_08",
+      "name": "康熙三征噶爾丹·統一漠北",
+      "year": 1696,
+      "yearDisplay": "西元 1690 - 1696 年",
+      "eraName": "清康熙二十九至三十五年",
+      "eraDisplay": "康熙二十九年 至 三十五年",
+      "shortDescription": "康熙皇帝親率六師大軍出塞，昭莫多費揚古設伏大殲準噶爾，噶爾丹飲鴆自殺。",
+      "description": "準噶爾部噶爾丹統一西域後南侵喀爾喀蒙古，威逼北京。康熙二十九年烏蘭布通之戰清軍火砲破駝城擊退敵軍；三十五年康熙再度三路親征塞北，大將軍費揚古於昭莫多（今蒙古國宗莫德）依山設伏，居高臨下猛衝，斬首數千，噶爾丹兵敗服毒自盡。隨後清廷於多倫諾爾會盟，漠北喀爾喀蒙古徹底納入版圖。",
+      "detail": "康熙帝於軍中親冒風霜同甘共苦，開創皇帝親征大勝游牧大汗之千古武功。",
+      "impact": "消除西北蒙古部族對塞北腹地之百年侵擾，奠定大清對外蒙古之穩固統治。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "昭莫多 (肯特山南麓) / 烏蘭布通",
+      "locationName": "昭莫多",
+      "locationModern": "蒙古國中央省宗莫德市一帶",
+      "coords": [
+        106.93,
+        47.7
+      ],
+      "svgPos": {
+        "x": 500,
+        "y": 200
+      },
+      "figuresInvolved": [
+        "fig_kangxi",
+        "fig_galdan"
+      ]
+    },
+    {
+      "id": "evt_qing_09",
+      "name": "盛世滋生人丁永不加賦與攤丁入畝",
+      "year": 1712,
+      "yearDisplay": "西元 1712 - 1726 年",
+      "eraName": "清康熙五十一年至雍正四年",
+      "eraDisplay": "康熙五十一年 至 雍正四年",
+      "shortDescription": "康熙宣布「滋生人丁，永不加賦」，雍正推行「攤丁入畝」，徹底廢除人頭稅引發人口狂飆。",
+      "description": "為根除民間為避丁稅而溺殺嬰兒與隱瞞戶口之弊病，康熙五十一年詔令以1711年全國丁額兩千四百六十二萬為基準，以後「滋生人丁，永不加賦」。雍正帝更進一步在全國強制推行「攤丁入畝」（地丁合一），將人頭稅併入田賦徵收，無田者不納稅。",
+      "detail": "此改革使農民擺脫歷朝歷代束縛於土地上的人身依附關係，流民獲准合法落戶，催生中國歷史空前的人口大爆炸。",
+      "impact": "中國賦稅制度歷史性跨越，推動乾隆年間人口突破三億、道光突破四億大關。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京紫禁城戶部衙門",
+      "locationName": "北京戶部",
+      "locationModern": "北京市市區戶部遺址",
+      "coords": [
+        116.39,
+        39.91
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_kangxi",
+        "fig_yongzheng",
+        "fig_tian_wenjing"
+      ]
+    },
+    {
+      "id": "evt_qing_10",
+      "name": "雍正改土歸流與軍機處設立",
+      "year": 1726,
+      "yearDisplay": "西元 1726 - 1729 年",
+      "eraName": "清雍正四至七年",
+      "eraDisplay": "雍正四年 至 七年",
+      "shortDescription": "鄂爾泰力主西南大規模改土歸流改設流官，雍正設軍機處確立極致君主集權體制。",
+      "description": "雍正任命鄂爾泰為雲貴廣西三省總督，堅決廢除世襲跋扈土司，由中央委派流官設府置縣，推廣儒學學校，編入保甲賦稅，史稱「改土歸流」。同年因對西北準噶爾用兵保密需要，於隆宗門內設立「軍機處」，軍機大臣日日進見「承旨書諭」，議政王大臣會議自此徹底廢除。",
+      "detail": "軍機處「跪受筆錄，承旨傳達」，簡練保密高效率，成為大清統治帝國兩百年之最高決策樞紐。",
+      "impact": "西南少數民族地區全面與中原行政體制融為一體，皇權專制達到封建王朝最高頂點。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京紫禁城乾清門外軍機處",
+      "locationName": "軍機處",
+      "locationModern": "北京市故宮博物院隆宗門內軍機處值房",
+      "coords": [
+        116.39,
+        39.92
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_yongzheng"
+      ]
+    },
+    {
+      "id": "evt_qing_11",
+      "name": "乾隆平定準噶爾與收復新疆",
+      "year": 1759,
+      "yearDisplay": "西元 1755 - 1759 年",
+      "eraName": "清乾隆二十至二十四年",
+      "eraDisplay": "乾隆二十年 至 二十四年",
+      "shortDescription": "兆惠阿睦爾撒納大軍西征平定準噶爾部，平定大小和卓之亂，收復新疆設伊犁將軍。",
+      "description": "乾隆二十年清軍分路西進伊犁，平定達瓦齊準噶爾內亂。隨後阿睦爾撒納叛亂，副將軍兆惠於黑水營被圍三月大捷，徹底消滅準噶爾汗國殘部。二十四年兆惠再破南疆大小和卓叛亂。乾隆帝取「故土新歸」之意，定名為「新疆」，於惠遠城設立「伊犁將軍」統轄天山南北兩路。",
+      "detail": "至此康、雍、乾祖孫三代歷經七十餘年對準噶爾之戰役徹底告捷，大清帝國版圖達到1316萬平方公里極盛。",
+      "impact": "西域新疆永久納入中國大一統不可分割版圖，奠定現代中國西北邊疆雄闊疆界。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "伊犁惠遠城 (將軍府駐地)",
+      "locationName": "伊犁 / 惠遠",
+      "locationModern": "新疆伊犁哈薩克自治州霍城縣惠遠鎮",
+      "coords": [
+        80.86,
+        43.95
+      ],
+      "svgPos": {
+        "x": 250,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_qianlong"
+      ]
+    },
+    {
+      "id": "evt_qing_12",
+      "name": "四庫全書纂修與文字獄之酷",
+      "year": 1773,
+      "yearDisplay": "西元 1773 - 1782 年",
+      "eraName": "清乾隆三十八至四十七年",
+      "eraDisplay": "乾隆三十八年 至 四十七年",
+      "shortDescription": "紀曉嵐陸錫熊總纂《四庫全書》凡七萬九千餘卷，修書同時大肆查禁焚毀不利著作。",
+      "description": "乾隆三十八年開四庫全書館，命紀曉嵐為總纂官，歷時十年纂修完成中國古代最大叢書《四庫全書》，分經、史、子、集四部，收錄古籍3,461種、79,309卷。文津閣、文淵閣、文溯閣、文源閣等北四閣與南三閣藏書。然而修書過程中大興「文字獄」，焚毀、刪改違礙典籍達三千餘種、十五萬部以上。",
+      "detail": "《四庫全書》集古代文獻之大成，亦對明清之際抗清思想進行系統性閹割禁錮。",
+      "impact": "中國古典文化典籍之集大成保存，亦伴隨封建思想管制的高壓極致。",
+      "category": "cultural",
+      "importance": 4,
+      "locationNameAncient": "北京紫禁城文淵閣",
+      "locationName": "文淵閣",
+      "locationModern": "北京市故宮博物院文淵閣",
+      "coords": [
+        116.39,
+        39.92
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_qianlong",
+        "fig_ji_xiaolan"
+      ]
+    },
+    {
+      "id": "evt_qing_13",
+      "name": "馬戛爾尼使團訪華·天朝體制遇西方工業文明",
+      "year": 1793,
+      "yearDisplay": "西元 1793 年",
+      "eraName": "清乾隆五十八年",
+      "eraDisplay": "乾隆五十八年 八月",
+      "shortDescription": "英國使節馬戛爾尼覲見乾隆皇帝引發跪拜之爭，要求通商遭拒，中國錯失融入世界契機。",
+      "description": "英國國王遣馬戛爾尼勛爵率艦隊攜天文望遠鏡、蒸氣機模型、赫歇爾望遠鏡等六百箱工業科技禮物訪華，企圖打開中國市場。在承德避暑山莊覲見乾隆帝時因「單膝跪拜抑或三跪九叩」引發激烈禮儀衝突。乾隆以「天朝物產豐盈，無所不有，原不藉外夷貨物以通有無」傲然拒絕所有通商開放要求。",
+      "detail": "馬戛爾尼回國後在日記中寫下：「中華帝國是一艘陳舊破爛的一等戰艦，只要一個勇敢的人掌舵，就能在海岸橫衝直撞」。",
+      "impact": "東西方文明近距離碰撞之重大歷史失之交臂，閉關鎖國引發數十年後之鴉片浩劫。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "熱河避暑山莊萬樹園",
+      "locationName": "承德避暑山莊",
+      "locationModern": "河北省承德市雙橋區避暑山莊",
+      "coords": [
+        117.93,
+        40.98
+      ],
+      "svgPos": {
+        "x": 610,
+        "y": 300
+      },
+      "figuresInvolved": [
+        "fig_qianlong",
+        "fig_heshen"
+      ]
+    },
+    {
+      "id": "evt_qing_14",
+      "name": "林則徐虎門銷煙·抗英衛國開先聲",
+      "year": 1839,
+      "yearDisplay": "西元 1839 年",
+      "eraName": "清道光十九年",
+      "eraDisplay": "道光十九年 四月二十二日至五月十五日 (6月3日 - 25日)",
+      "shortDescription": "欽差大臣林則徐嚴厲查禁鴉片，於東莞虎門海灘當眾銷毀英美鴉片兩百三十七萬斤。",
+      "description": "英國東印度公司為扭轉對華貿易逆差，大肆走私毒品鴉片，導致清廷白銀大量外流、國人身心受戕。道光帝任命林則徐為欽差大臣赴粵。林則徐查封外國商館，逼迫義律交出鴉片兩萬零二百八十三箱。於虎門海灘挖雙池引海水石灰沸煮，歷時二十三天徹底銷毀入海，池邊萬民歡呼。",
+      "detail": "林則徐主持翻譯外報外書撰寫《四洲志》，積極籌購西洋洋砲加固海防要塞。6月3日銷煙之日被定為國際禁毒日先驅。",
+      "impact": "中華民族反抗毒品與外國霸凌之偉大壯舉，直接成為英國發動第一次鴉片戰爭之導火線。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "廣東省東莞縣虎門海灘",
+      "locationName": "虎門",
+      "locationModern": "廣東省東莞市虎門鎮海灘銷煙池遺址",
+      "coords": [
+        113.67,
+        22.82
+      ],
+      "svgPos": {
+        "x": 580,
+        "y": 650
+      },
+      "figuresInvolved": [
+        "fig_lin_zexu",
+        "fig_daoguang"
+      ]
+    },
+    {
+      "id": "evt_qing_15",
+      "name": "第一次鴉片戰爭與南京條約·割讓香港",
+      "year": 1842,
+      "yearDisplay": "西元 1840 - 1842 年",
+      "eraName": "清道光二十至二十二年",
+      "eraDisplay": "道光二十二年 七月二十四日 (8月29日)",
+      "shortDescription": "英軍堅船利砲攻陷定海鎮江逼臨南京，清廷被迫簽訂《南京條約》割讓香港島、開放五口通商。",
+      "description": "1840年英艦封鎖珠江口北上攻陷定海、逼天津大沽口。道光帝動搖罷黜林則徐改用琦善。英軍續攻陷廈門、定海、寧波、吳淞，沿長江溯流攻克鎮江，兵臨南京城下。1842年八月，耆英於靜海寺英艦「康華麗號」簽署中國近代第一個不平等條約《南京條約》，割讓香港島，賠款兩千一百萬銀元，開放廣州、廈門、福州、寧波、上海五口通商，協定關稅。",
+      "detail": "《南京條約》徹底打破清朝宗藩天朝秩序，主權完整遭嚴重破壞。",
+      "impact": "中國近代百年屈辱史開端，由封建傳統帝制淪入半殖民地半封建社會之歷史轉折點。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "江寧府靜海寺與英艦康華麗號",
+      "locationName": "南京靜海寺",
+      "locationModern": "江蘇省南京市鼓樓區靜海寺紀念館",
+      "coords": [
+        118.73,
+        32.08
+      ],
+      "svgPos": {
+        "x": 640,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_daoguang",
+        "fig_lin_zexu",
+        "fig_guan_tianpei"
+      ]
+    },
+    {
+      "id": "evt_qing_16",
+      "name": "太平天國金田起義與定都天京",
+      "year": 1851,
+      "yearDisplay": "西元 1851 - 1853 年",
+      "eraName": "清咸豐元至三年 / 太平天國辛開至癸好三年",
+      "eraDisplay": "咸豐元年 正月 至 三年 二月",
+      "shortDescription": "洪秀全於廣西桂平金田村誓師建號太平天國，席捲長江克南京定都天京，分封諸王。",
+      "description": "洪秀全、楊秀清、蕭朝貴、馮雲山、韋昌輝、石達開結拜兄弟於金田起義，建號「太平天國」，號召農民「共享天父天兄平等」。太平軍出廣西破全州、攻長沙、克武昌，乘數萬民舟順流東下，於1853年攻破江寧府，改名「天京」定都。頒布《天朝田畝制度》提出「有田同耕，有飯同食，有衣同穿，有錢同使」。",
+      "detail": "太平軍組織嚴密女軍同役，沉重打擊滿清八旗與綠營軍隊，引發曾國藩創立湘軍勤王。",
+      "impact": "近代中國規模最宏大之農民反清戰爭，歷時十四年席捲十八省，重塑南方政治結構。",
+      "category": "military",
+      "importance": 5,
+      "locationNameAncient": "廣西金田村 / 江寧府天朝宮殿",
+      "locationName": "金田 / 天京",
+      "locationModern": "廣西貴港桂平金田鎮及南京總統府遺址",
+      "coords": [
+        109.95,
+        23.58
+      ],
+      "svgPos": {
+        "x": 530,
+        "y": 640
+      },
+      "figuresInvolved": [
+        "fig_hong_xiuquan",
+        "fig_yang_xiuqing",
+        "fig_shi_dakai"
+      ]
+    },
+    {
+      "id": "evt_qing_17",
+      "name": "第二次鴉片戰爭與火燒圓明園",
+      "year": 1860,
+      "yearDisplay": "西元 1856 - 1860 年",
+      "eraName": "清咸豐六至十年",
+      "eraDisplay": "咸豐十年 九月 (1860年10月)",
+      "shortDescription": "英法聯軍攻破北京，額爾金下令焚毀萬園之園圓明園，咸豐奔承德，簽署北京條約割九龍。",
+      "description": "英法以亞羅號與馬神甫事件為藉口挑起戰端。1860年英法聯軍兩萬餘人攻陷大沽口、八里橋，咸豐帝攜慈禧倉皇逃往承德避暑山莊。十月英法聯軍洗劫皇家瑰寶「圓明園」，英國全權代表額爾金下令縱火焚園，大火連燒三天三夜，萬園之園化為灰燼。恭親王奕訢主持求和簽訂《北京條約》割讓九龍半島；沙俄乘機逼簽《北京條約》強佔烏蘇里江以東四十萬平方公里（包括海參崴）。",
+      "detail": "咸豐皇帝次年病死於避暑山莊，慈禧發動辛酉政變垂簾聽政。",
+      "impact": "中華文明承受空前浩劫，催生洋務派官員發起「師夷長技以自強」之洋務運動。",
+      "category": "disaster",
+      "importance": 5,
+      "locationNameAncient": "北京西郊海淀圓明園",
+      "locationName": "圓明園遺址",
+      "locationModern": "北京市海淀區圓明園遺址公園",
+      "coords": [
+        116.3,
+        40
+      ],
+      "svgPos": {
+        "x": 598,
+        "y": 318
+      },
+      "figuresInvolved": [
+        "fig_cixi"
+      ]
+    },
+    {
+      "id": "evt_qing_18",
+      "name": "曾李左洋務運動·師夷長技以自強",
+      "year": 1861,
+      "yearDisplay": "西元 1861 - 1894 年",
+      "eraName": "清同治至光緒初年",
+      "eraDisplay": "同治元年 至 光緒二十年",
+      "shortDescription": "曾國藩李鴻章左宗棠發起洋務運動，創安慶內軍械所、江南製造總局、福州船政局、北洋水師。",
+      "description": "面對內憂外患，恭親王奕訢、曾國藩、李鴻章、左宗棠提出「自強」、「求富」口號。創辦江南製造局、金陵製造局、福州船政局、漢陽鐵廠等近代近代軍工企業，設立輪船招商局、開平煤礦、上海機器織布局等民用民生企業。組建北洋水師，設立同文館選派詹天佑等幼童留美，開創中國近代化工業先河。",
+      "detail": "李鴻章名言「三千年未有之大變局」，洋務運動邁出中國邁向工業化之第一步。",
+      "impact": "引進近代西方科技與軍事工業，為近代中國民族資本主義萌芽與新式知識分子崛起播撒火種。",
+      "category": "cultural",
+      "importance": 5,
+      "locationNameAncient": "上海江南製造總局 / 天津北洋水師駐地",
+      "locationName": "江南製造局 / 北洋",
+      "locationModern": "上海市黃浦區世博園區江南造船廠舊址",
+      "coords": [
+        121.48,
+        31.2
+      ],
+      "svgPos": {
+        "x": 665,
+        "y": 535
+      },
+      "figuresInvolved": [
+        "fig_zeng_guofan",
+        "fig_li_hongzhang",
+        "fig_zuo_zongtang",
+        "fig_zhang_zhidong"
+      ]
+    },
+    {
+      "id": "evt_qing_19",
+      "name": "左宗棠收復新疆與新疆建省",
+      "year": 1876,
+      "yearDisplay": "西元 1876 - 1884 年",
+      "eraName": "清光緒二至十年",
+      "eraDisplay": "光緒二年 至 十年",
+      "shortDescription": "左宗棠抬棺西征全殲阿古柏收復新疆全境，1884年清廷正式設立新疆省，設巡撫治理。",
+      "description": "阿古柏在英俄支持下侵入天山南北建偽國。朝中爆發李鴻章「海防」與左宗棠「塞防」大爭論，左宗棠義正辭嚴「重新疆所以保蒙古，保蒙古所以衛京師」。六十四歲老將率楚軍輿櫬出關，二年內如疾風掃落葉收復天山南北百萬平方公里國土，逼退沙俄歸還伊犁。1884年清廷依左宗棠之請，正式設立「新疆省」，改烏魯木齊為「迪化」省會，劉錦棠為首任巡撫。",
+      "detail": "左宗棠在新疆沿途種植柳樹數千里，時人賦詩「大將籌邊尚未還，湖湘子弟滿天山。新栽楊柳三千里，引得春風度玉關」。",
+      "impact": "成功捍衛中國六分之一陸疆國土完整，確立西北各族人民同呼吸共命運之現代中華民族格局。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "新疆迪化巡撫衙門 (烏魯木齊)",
+      "locationName": "迪化 / 烏魯木齊",
+      "locationModern": "新疆維吾爾自治區烏魯木齊市天山區",
+      "coords": [
+        87.62,
+        43.82
+      ],
+      "svgPos": {
+        "x": 310,
+        "y": 270
+      },
+      "figuresInvolved": [
+        "fig_zuo_zongtang"
+      ]
+    },
+    {
+      "id": "evt_qing_20",
+      "name": "中法戰爭保台大捷與台灣正式建省",
+      "year": 1885,
+      "yearDisplay": "西元 1884 - 1885 年",
+      "eraName": "清光緒十至十一年",
+      "eraDisplay": "光緒十年 至 十一年 九月 (1885年10月)",
+      "shortDescription": "中法戰爭基隆滬尾擊退法艦，光緒帝下詔台灣獨立建省，劉銘傳出任首任巡撫大展新政。",
+      "description": "中法戰爭中法國孤拔艦隊企圖強佔台灣逼清廷求和。督辦台灣軍務劉銘傳堅守淡水滬尾、基隆要塞，重創法軍，孤拔飲恨死於澎湖。朝野深感台灣海防地位攸關東南門戶「台灣孤懸海外，逼近列強，若非建省難資控馭」。1885年十月光緒帝頒旨設「福建台灣省」，命劉銘傳為首任巡撫。劉銘傳在台北設省會，修築大稻埕至新竹鐵路，創辦電報局、西學堂、郵政局。",
+      "detail": "台灣建省使台灣近代化基礎設施與經濟水準迅速躍居當時全國各省之前列。",
+      "impact": "台灣由府升格為正式行省，確立現代台灣省政建制與近代化發展先聲。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "台灣省台北府撫台衙門 (大稻埕/北門)",
+      "locationName": "台北府城",
+      "locationModern": "台灣台北市中正區台北府城北門與撫台街洋樓",
+      "coords": [
+        121.51,
+        25.04
+      ],
+      "svgPos": {
+        "x": 690,
+        "y": 630
+      },
+      "figuresInvolved": [
+        "fig_liu_mingchuan"
+      ]
+    },
+    {
+      "id": "evt_qing_21",
+      "name": "甲午戰爭與馬關條約·割讓台灣澎湖",
+      "year": 1895,
+      "yearDisplay": "西元 1894 - 1895 年",
+      "eraName": "清光緒二十至二十一年",
+      "eraDisplay": "光緒二十一年 三月二十三日 (4月17日)",
+      "shortDescription": "北洋水師覆滅，李鴻章於日本馬關簽訂《馬關條約》，割讓台灣澎湖遼東，賠款白銀兩億兩。",
+      "description": "日本為吞併朝鮮與入侵中國發動甲午戰爭。平壤戰役、黃海海戰、威海衛大戰，鄧世昌、丁汝昌壯烈殉國，北洋海軍全軍覆滅。1895年李鴻章赴日本馬關春帆樓與伊藤博文簽判《馬關條約》：割讓台灣全島及所有附屬各島嶼、澎湖列島與遼東半島（後三國干涉還遼），賠償日本軍費白銀二億兩，允許日本在通商口岸設廠製造。",
+      "detail": "消息傳回國內，台灣舉島悲泣鳴鑼罷市「若午夜暴聞轟雷，驚駭無人色，奔走相告，哭聲達於四野」，康有為梁啟超發動「公車上書」。",
+      "impact": "三十年洋務運動神話破滅，帝國主義掀起瓜分中國狂潮，台灣淪入日本五十年殖民統治。",
+      "category": "diplomacy",
+      "importance": 5,
+      "locationNameAncient": "日本馬關春帆樓 / 台灣全境",
+      "locationName": "馬關 / 台灣",
+      "locationModern": "日本山口縣下關市春帆樓及台灣全島",
+      "coords": [
+        130.93,
+        33.95
+      ],
+      "svgPos": {
+        "x": 740,
+        "y": 400
+      },
+      "figuresInvolved": [
+        "fig_li_hongzhang",
+        "fig_deng_shichang",
+        "fig_ding_ruchang"
+      ]
+    },
+    {
+      "id": "evt_qing_22",
+      "name": "公車上書與戊戌維新百日變法",
+      "year": 1898,
+      "yearDisplay": "西元 1895 - 1898 年",
+      "eraName": "清光緒二十一至二十四年",
+      "eraDisplay": "光緒二十四年 四月二十三日至八月初六日",
+      "shortDescription": "康有為梁啟超公車上書，光緒帝頒《明定國是詔》行新政一百零三日，慈禧發動政變囚帝。",
+      "description": "馬關條約割台消息傳至北京，康有為、梁啟超聯絡十八省一千三百名入京應試舉人聯名上書，請求「拒和、遷都、變法」。光緒二十四年六月十一日，光緒帝下詔維新，任用譚嗣同、楊銳、林旭、劉光第為軍機章京，改革科舉、裁汰冗官、設立京師大學堂（北京大學前身）。新政觸動慈禧與滿洲權貴利益，九月二十一日慈禧發動戊戌政變幽禁光緒於中南海瀛台，殺譚嗣同等「戊戌六君子」於菜市口。",
+      "detail": "譚嗣同留千古絕句「我自橫刀向天笑，去留肝膽兩崑崙」，變法歷時一百零三天而亡。",
+      "impact": "封建君主立憲改良道路宣告徹底破產，促使更多仁人志士毅然轉向暴力推翻清廷之民主革命。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "北京中南海瀛台 / 菜市口法場",
+      "locationName": "瀛台 / 菜市口",
+      "locationModern": "北京市西城區中南海瀛台及西四菜市口遺址",
+      "coords": [
+        116.38,
+        39.91
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_guangxu",
+        "fig_kang_youwei",
+        "fig_liang_qichao",
+        "fig_tan_sitong",
+        "fig_cixi"
+      ]
+    },
+    {
+      "id": "evt_qing_23",
+      "name": "八國聯軍侵華與辛丑條約奇恥",
+      "year": 1900,
+      "yearDisplay": "西元 1900 - 1901 年",
+      "eraName": "清光緒二十六至二十七年",
+      "eraDisplay": "光緒二十六年 七月 至 二十七年 七月",
+      "shortDescription": "慈禧向十一國宣戰，八國聯軍攻陷北京，太后西逃西安，簽署《辛丑條約》賠款四億五千萬兩。",
+      "description": "義和團以「扶清滅洋」興起於山東直隸，慈禧太后企圖藉團民抵制洋人，盲目下詔向英美法德俄日意奧等十一國宣戰。八國聯軍瓦德西統帥五萬大軍攻破大沽口直撲北京，京師淪陷遭聯軍瘋狂劫掠。慈禧扮農婦攜光緒西逃西安。1901年九月李鴻章代表清廷簽訂《辛丑條約》，賠償各國白銀四億五千萬兩（按全國人口每人一兩），本息共計九億八千萬兩，拆毀大沽砲台，准各國駐兵北京使館界。",
+      "detail": "南方各省督撫李鴻章、劉坤一、張之洞發動「東南互保」，清中央朝廷威信名存實亡。",
+      "impact": "清朝徹底淪為「洋人的朝廷」，中國完全墮入半殖民地深淵，革命風暴蓄勢待發。",
+      "category": "disaster",
+      "importance": 5,
+      "locationNameAncient": "北京東交民巷使館界 / 景山紫禁城",
+      "locationName": "東交民巷",
+      "locationModern": "北京市東城區東交民巷使館建築群",
+      "coords": [
+        116.4,
+        39.9
+      ],
+      "svgPos": {
+        "x": 600,
+        "y": 320
+      },
+      "figuresInvolved": [
+        "fig_cixi",
+        "fig_li_hongzhang"
+      ]
+    },
+    {
+      "id": "evt_qing_24",
+      "name": "中國同盟會成立與黃花崗七十二烈士",
+      "year": 1905,
+      "yearDisplay": "西元 1905 - 1911 年",
+      "eraName": "清光緒三十一年至宣統三年",
+      "eraDisplay": "光緒三十一年 八月 至 宣統三年 三月",
+      "shortDescription": "孫中山黃興於東京成立中國同盟會確立三民主義，廣州起義黃花崗七十二烈士碧血丹心。",
+      "description": "1905年八月，孫中山、黃興在東京將興中會、華興會、光復會聯合組建「中國同盟會」，確立政治綱領：「驅除韃虜，恢復中華，創立民國，平均地權」，創辦《民報》。1911年四月二十七日（農曆三月二十九），黃興親率敢死隊一百餘人進攻廣州兩廣總督衙門，激戰晝夜，喻培倫、林覺民（留《與妻書》）等八十餘人壯烈殉國，後合葬於廣州黃花崗。",
+      "detail": "孫中山讚曰：「是役也，碧血橫飛，浩氣成虹，草木為之含悲，風雲因而變色，全國久蟄之人心，乃大興奮」。",
+      "impact": "為辛亥革命全國武裝推翻清廷奠定精神火種與組織最高領導核心。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "日本東京 / 廣州黃花崗紅花崗",
+      "locationName": "廣州黃花崗",
+      "locationModern": "廣東省廣州市越秀區黃花崗七十二烈士陵園",
+      "coords": [
+        113.29,
+        23.14
+      ],
+      "svgPos": {
+        "x": 575,
+        "y": 645
+      },
+      "figuresInvolved": [
+        "fig_sun_yat_sen",
+        "fig_huang_xing"
+      ]
+    },
+    {
+      "id": "evt_qing_25",
+      "name": "辛亥革命·武昌首義武漢三鎮光復",
+      "year": 1911,
+      "yearDisplay": "西元 1911 年",
+      "eraName": "清宣統三年 / 辛亥年",
+      "eraDisplay": "宣統三年 八月十九日夜 (陽曆10月10日)",
+      "shortDescription": "湖北新軍革命黨人打響第一槍，攻克武昌總督衙門，全國十五省宣告獨立脫離清朝。",
+      "description": "因四川保路運動爆發引發清廷調端方入川，武漢防務空虛。1911年十月十日夜，湖北新軍工程第八營正目熊秉坤鳴槍起義，吳兆麟等率部搶佔楚望台軍械庫，礮隊佔領蛇山砲轟湖廣總督署。總督瑞澂翻牆逃遁，起義軍通宵奮戰光復武昌。十一日成立中華民國軍政府鄂軍都督府，黎元洪為都督，發布通電宣告廢除宣統年號，建立中華民國。",
+      "detail": "一個月內，湖南、陝西、江西、山西、雲南、貴州、浙江、江蘇、廣東、福建、廣西、四川等十五省相繼響應宣布獨立。",
+      "impact": "敲響大清王朝喪鐘，開啟近代中國民主共和新紀元。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "武昌蛇山鄂軍都督府 (紅樓)",
+      "locationName": "武昌紅樓",
+      "locationModern": "湖北省武漢市武昌區武珞路1號辛亥革命博物館",
+      "coords": [
+        114.3,
+        30.54
+      ],
+      "svgPos": {
+        "x": 590,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_sun_yat_sen",
+        "fig_huang_xing",
+        "fig_li_yuanhong"
+      ]
+    },
+    {
+      "id": "evt_qing_26",
+      "name": "清帝遜位·二千年帝制告終民國肇建",
+      "year": 1912,
+      "yearDisplay": "西元 1912 年",
+      "eraName": "中華民國元年 / 清宣統三年",
+      "eraDisplay": "1912年1月1日 至 2月12日 (宣統三年十二月二十五日)",
+      "shortDescription": "孫中山於南京宣誓就職臨時大總統，隆裕太后頒布退位詔書，秦漢以來兩千年君主帝制終結。",
+      "description": "1912年1月1日，孫中山在南京宣誓就職中華民國臨時大總統，宣告中華民國正式建立，定五色旗為國旗，改用陽曆。南北議和中，袁世凱威逼利誘清室。2月12日，清廷隆裕太后攜六歲幼帝溥儀頒布《清帝遜位詔書》：「大勢所趨，人心所向，特率皇帝將統治權公諸全國，定為共和立憲國體」。孫中山隨即辭職，由袁世凱繼任臨時大總統。",
+      "detail": "詔書下達，標誌大清王朝統治二百六十八年終結，更標誌自西元前221年秦始皇稱皇帝以來長達二千一百三十二年之封建君主專制體制徹底走入歷史。",
+      "impact": "華夏大地翻開共和民主嶄新篇章，亞洲第一個民主共和國正式屹立於世界東方。",
+      "category": "political",
+      "importance": 5,
+      "locationNameAncient": "南京臨時大總統府 / 北京養心殿",
+      "locationName": "南京總統府 / 養心殿",
+      "locationModern": "江蘇省南京市長江路總統府與北京故宮養心殿",
+      "coords": [
+        118.79,
+        32.04
+      ],
+      "svgPos": {
+        "x": 640,
+        "y": 520
+      },
+      "figuresInvolved": [
+        "fig_sun_yat_sen",
+        "fig_puyi",
+        "fig_yuan_shikai"
+      ]
+    }
+  ];
+
+  // src/data/periods/qingDynasty/warlordPeriods.js
+  var QING_DYNASTY_WARLORD_PERIODS = [
+    {
+      "id": "qing_1644",
+      "yearNumber": 1644,
+      "yearDisplay": "西元 1644 年",
+      "shortLabel": "入關定鼎",
+      "headline": "大清入關定都北京：多爾袞攝政定鼎，南明弘光立金陵",
+      "subTitle": "順治帝由盛京遷都北京，一片石擊潰李自成，南方明朝宗室先後建立南明政權。",
+      "chronicleLeft": [
+        "清攝政王多爾袞率滿蒙漢八旗鐵騎入山海關，定都北京紫禁城，祭天受朝。",
+        "順治帝即位大赦天下，發布開科取士諭旨，招撫北方形勢漸定。",
+        "多爾袞強行推行剃髮易服與圈地令，引發江浙與中原廣大漢民殊死抵抗。"
+      ],
+      "chronicleRight": [
+        "南京文武迎立福王朱由崧建立「南明弘光政權」，史可法督師江北四鎮。",
+        "李自成大順軍退守陝西西安，張獻忠大西軍盤踞四川稱帝。",
+        "鄭芝龍於福建東南沿海掌控海上水師與海關大權，抗清復明薪火不熄。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清京師順天府 (多爾袞入關定都)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸八旗進駐",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清佔領區",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大清與大順拉鋸接壤",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京留守府 (龍興重地)",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清寧古塔駐防",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江八旗索倫各部",
+          "color": "#fef08a"
+        },
+        "jiangsu": {
+          "warlord": "南明弘光金陵政權 (史可法抗清)",
+          "color": "#fed7aa"
+        },
+        "anhui": {
+          "warlord": "南明江淮四鎮駐地",
+          "color": "#fed7aa"
+        },
+        "zhejiang": {
+          "warlord": "南明魯王監國後方",
+          "color": "#fed7aa"
+        },
+        "fujian": {
+          "warlord": "南明隆武政權基地 (鄭芝龍水師)",
+          "color": "#fed7aa"
+        },
+        "jiangxi": {
+          "warlord": "南明抗清後方諸州",
+          "color": "#fed7aa"
+        },
+        "hubei": {
+          "warlord": "大明左良玉楚師駐屯",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "南明何騰蛟轄區",
+          "color": "#fed7aa"
+        },
+        "sichuan": {
+          "warlord": "張獻忠大西皇帝政權 (成都)",
+          "color": "#fca5a5"
+        },
+        "chongqing": {
+          "warlord": "大西軍控制重慶峽口",
+          "color": "#fca5a5"
+        },
+        "shaanxi": {
+          "warlord": "大順李自成大本營 (西安)",
+          "color": "#fed7aa"
+        },
+        "gansu": {
+          "warlord": "大順軍控制西陲",
+          "color": "#fed7aa"
+        },
+        "ningxia-hui": {
+          "warlord": "大順軍控制",
+          "color": "#fed7aa"
+        },
+        "guangdong": {
+          "warlord": "南明永曆帝起家地",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "南明永曆朝廷行在",
+          "color": "#fed7aa"
+        },
+        "yunnan": {
+          "warlord": "大西軍李定國孫可望部",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "南明與大西軍接壤",
+          "color": "#fed7aa"
+        },
+        "inner-mongolia": {
+          "warlord": "大清附屬蒙古科爾沁等盟旗",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "和碩特汗國固始汗",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "準噶爾部巴圖爾琿台吉與葉爾羌汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "南明松江府 (陳子龍夏完淳抗清)",
+          "color": "#fed7aa"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 清 京 師 順 天 府 (北京定都)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "南 明 弘 光 金 陵 (南京史可法)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#ea580c",
+          "size": 14
+        },
+        {
+          "name": "大 順 西 安 府 (李自成)",
+          "pos": [
+            490,
+            440
+          ],
+          "color": "#d97706",
+          "size": 12
+        },
+        {
+          "name": "大 西 成 都 府 (張獻忠)",
+          "pos": [
+            450,
+            530
+          ],
+          "color": "#be185d",
+          "size": 12
+        },
+        {
+          "name": "大 清 盛 京 (瀋陽皇城留守)",
+          "pos": [
+            685,
+            280
+          ],
+          "color": "#b45309",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (清京師)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "南京 (南明都城)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "西安 (大順都城)",
+          "pos": [
+            490,
+            440
+          ],
+          "isCap": true
+        },
+        {
+          "name": "成都 (大西都城)",
+          "pos": [
+            450,
+            530
+          ],
+          "isCap": true
+        },
+        {
+          "name": "盛京 (瀋陽)",
+          "pos": [
+            685,
+            280
+          ]
+        }
+      ],
+      "battles": []
+    },
+    {
+      "id": "qing_1662",
+      "yearNumber": 1662,
+      "yearDisplay": "西元 1662 年",
+      "shortLabel": "延平復台",
+      "headline": "鄭成功驅荷光復台灣：建立承天府，明鄭海外抗清",
+      "subTitle": "延平王鄭成功大敗荷蘭收復台灣，建立承天府與天興萬年二縣，為漢人開闢寶島。",
+      "chronicleLeft": [
+        "鄭成功率四百戰船跨越海峽登陸鹿耳門，圍攻熱蘭遮城九個月逼降荷蘭長官揆一。",
+        "台灣正式告別荷蘭殖民統治回歸華夏，設立承天府，推廣儒學、官制、軍屯制度。",
+        "清廷實施殘酷「遷界禁海令」，東南沿海三十里百姓盡被強遷入內地以斷絕鄭氏。"
+      ],
+      "chronicleRight": [
+        "鄭成功病歿後其子鄭經繼承延平王位，改東寧王國，陳永華輔政推動文教屯田。",
+        "清順治帝崩康熙即位，鰲拜等四輔政大臣掌政，清軍陸續消滅西南永曆殘部。",
+        "台灣成為東南抗清復明之最後海角孤島與繁榮國際海上貿易中樞。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清直隸京師 (康熙幼年鰲拜輔政)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸省",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大清山西省",
+          "color": "#fef08a"
+        },
+        "henan": {
+          "warlord": "大清河南省",
+          "color": "#fef08a"
+        },
+        "jiangsu": {
+          "warlord": "大清江南省 (東南遷界禁海)",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "大清江南省",
+          "color": "#fef08a"
+        },
+        "zhejiang": {
+          "warlord": "大清浙江省 (沿海三十里盡成焦土遷界)",
+          "color": "#fef08a"
+        },
+        "fujian": {
+          "warlord": "大清福建省 (沿邊設寨隔絕金廈)",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "大清平南王尚可喜轄地",
+          "color": "#fca5a5"
+        },
+        "guangxi": {
+          "warlord": "大清定南王孔有德舊部轄地",
+          "color": "#fca5a5"
+        },
+        "yunnan": {
+          "warlord": "大清平西王吳三桂藩邸 (永曆帝被殺)",
+          "color": "#fca5a5"
+        },
+        "guizhou": {
+          "warlord": "大清平西王吳三桂控制區",
+          "color": "#fca5a5"
+        },
+        "sichuan": {
+          "warlord": "大清四川省 (人口凋敝等待湖廣填四川)",
+          "color": "#fef08a"
+        },
+        "chongqing": {
+          "warlord": "大清四川重慶府",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大清陝西省",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大清甘肅提督管轄",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "大清寧夏將軍",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍轄地",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍轄區",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江將軍轄區 (沙俄開始滲透雅克薩)",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清內扎薩克蒙古各盟旗",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "和碩特汗國",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "準噶爾部僧格與葉爾羌汗國",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "大清江南省松江府 (空界荒涼)",
+          "color": "#fef08a"
+        }
+      },
+      "labels": [
+        {
+          "name": "台 灣 承 天 府 (鄭成功復台建都)",
+          "pos": [
+            680,
+            650
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "大 清 京 師 (八歲康熙即位)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "平 西 王 吳 三 桂 藩 鎮 (雲南昆明)",
+          "pos": [
+            440,
+            620
+          ],
+          "color": "#7c2d12",
+          "size": 13
+        },
+        {
+          "name": "熱 蘭 遮 城 (荷蘭揆一降表)",
+          "pos": [
+            678,
+            655
+          ],
+          "color": "#15803d",
+          "size": 12
+        },
+        {
+          "name": "金 門 廈 門 鄭 氏 前 哨",
+          "pos": [
+            640,
+            620
+          ],
+          "color": "#dc2626",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "承天府 (台南首府)",
+          "pos": [
+            680,
+            650
+          ],
+          "isCap": true
+        },
+        {
+          "name": "北京 (大清京師)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "昆明 (吳三桂藩都)",
+          "pos": [
+            440,
+            620
+          ]
+        },
+        {
+          "name": "廈門 (思明州)",
+          "pos": [
+            640,
+            620
+          ]
+        },
+        {
+          "name": "盛京 (瀋陽)",
+          "pos": [
+            685,
+            280
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 鄭成功驅荷復台",
+          "pos": [
+            680,
+            650
+          ],
+          "battleId": "bat_zheng_taiwan_1661",
+          "year": 1661
+        }
+      ]
+    },
+    {
+      "id": "qing_1683",
+      "yearNumber": 1683,
+      "yearDisplay": "西元 1683 年",
+      "shortLabel": "康熙平台",
+      "headline": "施琅澎湖海戰大勝：鄭克塽出降，康熙設立台灣府",
+      "subTitle": "大清統一台灣設台灣府下轄三縣，平定三藩之亂，國家走向全面大一統。",
+      "chronicleLeft": [
+        "康熙任施琅為福建水師提督率三百戰船出征，澎湖海戰大破明鄭劉國軒主力。",
+        "鄭克塽見大勢已去遣使奉表納土出降，歷時二十二年之明鄭政權宣告和平終結。",
+        "施琅上《恭陳台灣棄留疏》力諫台灣不可放棄，康熙採納於1684年正式設「台灣府」。"
+      ],
+      "chronicleRight": [
+        "台灣府下設台灣、鳳山、諸羅三縣，隸屬福建省，設總兵駐軍八千，海疆永固。",
+        "清廷隨後平定吳三桂三藩之亂，全國政令高度集中，社會經濟邁向全面繁榮。",
+        "北方黑龍江流域沙俄哥薩克修築雅克薩城侵擾邊界，康熙著手籌劃東北邊防。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清京師順天府 (康熙皇帝親政盛治)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸省",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大清山西省",
+          "color": "#fef08a"
+        },
+        "henan": {
+          "warlord": "大清河南省",
+          "color": "#fef08a"
+        },
+        "jiangsu": {
+          "warlord": "大清江南省 (即將分設江蘇安徽)",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "大清江南省",
+          "color": "#fef08a"
+        },
+        "zhejiang": {
+          "warlord": "大清浙江省 (解除遷界開海貿易)",
+          "color": "#fef08a"
+        },
+        "fujian": {
+          "warlord": "大清福建省 (新設台灣府統轄台灣)",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "大清廣東省 (三藩平定歸朝廷)",
+          "color": "#fef08a"
+        },
+        "guangxi": {
+          "warlord": "大清廣西省",
+          "color": "#fef08a"
+        },
+        "yunnan": {
+          "warlord": "大清雲南省 (吳三桂三藩平定清丈田糧)",
+          "color": "#fef08a"
+        },
+        "guizhou": {
+          "warlord": "大清貴州省",
+          "color": "#fef08a"
+        },
+        "sichuan": {
+          "warlord": "大清四川省 (湖廣填四川移民大潮起)",
+          "color": "#fef08a"
+        },
+        "chongqing": {
+          "warlord": "大清重慶府",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大清陝西省",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大清甘肅省",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "大清寧夏鎮",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍轄地",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍 (造船備戰雅克薩)",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江將軍薩布素駐防地",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清內扎薩克四十九旗",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "和碩特蒙古各部",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "準噶爾汗國噶爾丹雄踞天山南北",
+          "color": "#fca5a5"
+        },
+        "shanghai": {
+          "warlord": "大清江蘇省松江府上海縣市舶復興",
+          "color": "#fef08a"
+        }
+      },
+      "labels": [
+        {
+          "name": "大 清 福 建 省 台 灣 府 (台南首府)",
+          "pos": [
+            680,
+            650
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "澎 湖 水 師 提 督 駐 泊 營 (施琅大捷)",
+          "pos": [
+            675,
+            640
+          ],
+          "color": "#dc2626",
+          "size": 13
+        },
+        {
+          "name": "大 清 京 師 (康熙二十二年盛治)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "黑 龍 江 雅 克 薩 (沙俄盤踞備戰)",
+          "pos": [
+            690,
+            140
+          ],
+          "color": "#e11d48",
+          "size": 12
+        },
+        {
+          "name": "準 噶 爾 噶 爾 丹 汗 國",
+          "pos": [
+            320,
+            320
+          ],
+          "color": "#be185d",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (大清京師)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "台灣府 (台南府城)",
+          "pos": [
+            680,
+            650
+          ]
+        },
+        {
+          "name": "福州 (閩浙總督署)",
+          "pos": [
+            645,
+            595
+          ]
+        },
+        {
+          "name": "澎湖 (馬公要塞)",
+          "pos": [
+            675,
+            640
+          ]
+        },
+        {
+          "name": "江寧 (兩江總督署)",
+          "pos": [
+            640,
+            520
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 澎湖海戰",
+          "pos": [
+            675,
+            640
+          ],
+          "battleId": "bat_penghu_shilang_1683",
+          "year": 1683
+        }
+      ]
+    },
+    {
+      "id": "qing_1689",
+      "yearNumber": 1689,
+      "yearDisplay": "西元 1689 年",
+      "shortLabel": "尼布楚約",
+      "headline": "中俄尼布楚條約：外興安嶺劃界，黑龍江邊疆永固",
+      "subTitle": "清軍兩次雅克薩重砲破城，索額圖代表大清簽訂歷史上首個近代平等劃界條約。",
+      "chronicleLeft": [
+        "清將薩布素、彭春率水陸大軍兩次圍攻雅克薩城，紅夷大將軍砲斃俄將托爾布津。",
+        "沙俄被迫求和，康熙派索額圖為全權首席大臣遠赴尼布楚與俄國全權使節談判。",
+        "雙方簽訂《尼布楚條約》，明確黑龍江以北、烏蘇里江以東及庫頁島均屬中國領土。"
+      ],
+      "chronicleRight": [
+        "條約以外興安嶺至格爾必齊河為界，保障大清東北黑龍江流域百餘年主權與安寧。",
+        "條約中首次使用「中國」（滿語 Dulimbai Gurun）作為對外國際法律正式稱號。",
+        "解決東北後顧之憂後，康熙帝得以騰出手全面對決西北準噶爾大汗噶爾丹。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清京師順天府 (康熙帝盛世文治)",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江將軍轄地 (雅克薩大捷收復)",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍轄地",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍轄地",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清內蒙古盟旗",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸省",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大清山西省",
+          "color": "#fef08a"
+        },
+        "henan": {
+          "warlord": "大清河南省",
+          "color": "#fef08a"
+        },
+        "jiangsu": {
+          "warlord": "大清江蘇省 (康熙南巡考察河工)",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "大清安徽省",
+          "color": "#fef08a"
+        },
+        "zhejiang": {
+          "warlord": "大清浙江省",
+          "color": "#fef08a"
+        },
+        "fujian": {
+          "warlord": "大清福建省 (管轄台灣府)",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "大清廣東省 (廣州十三行貿易雛形)",
+          "color": "#fef08a"
+        },
+        "guangxi": {
+          "warlord": "大清廣西省",
+          "color": "#fef08a"
+        },
+        "hubei": {
+          "warlord": "大清湖北省",
+          "color": "#fef08a"
+        },
+        "hunan": {
+          "warlord": "大清湖南省",
+          "color": "#fef08a"
+        },
+        "jiangxi": {
+          "warlord": "大清江西省",
+          "color": "#fef08a"
+        },
+        "sichuan": {
+          "warlord": "大清四川省",
+          "color": "#fef08a"
+        },
+        "chongqing": {
+          "warlord": "大清重慶府",
+          "color": "#fef08a"
+        },
+        "yunnan": {
+          "warlord": "大清雲南省",
+          "color": "#fef08a"
+        },
+        "guizhou": {
+          "warlord": "大清貴州省",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大清陝西省",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大清甘肅省",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "大清寧夏鎮",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "和碩特汗國",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "準噶爾汗國噶爾丹揮師東犯",
+          "color": "#fca5a5"
+        },
+        "shanghai": {
+          "warlord": "大清江蘇省松江府上海縣",
+          "color": "#fef08a"
+        }
+      },
+      "labels": [
+        {
+          "name": "尼 布 楚 (中俄簽約劃定外興安嶺)",
+          "pos": [
+            650,
+            150
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "雅 克 薩 (黑龍江紅夷重砲破城)",
+          "pos": [
+            690,
+            140
+          ],
+          "color": "#15803d",
+          "size": 13
+        },
+        {
+          "name": "大 清 京 師 順 天 府",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "準 噶 爾 汗 國 噶 爾 丹 (即將東侵)",
+          "pos": [
+            320,
+            320
+          ],
+          "color": "#be185d",
+          "size": 13
+        },
+        {
+          "name": "台 灣 府 (康熙設官撫民)",
+          "pos": [
+            680,
+            650
+          ],
+          "color": "#b45309",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (大清首都)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "尼布楚 (條約簽署)",
+          "pos": [
+            650,
+            150
+          ]
+        },
+        {
+          "name": "璦琿 (黑龍江城)",
+          "pos": [
+            710,
+            190
+          ]
+        },
+        {
+          "name": "盛京 (瀋陽)",
+          "pos": [
+            685,
+            280
+          ]
+        },
+        {
+          "name": "台灣府 (台南)",
+          "pos": [
+            680,
+            650
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 雅克薩之戰",
+          "pos": [
+            690,
+            140
+          ],
+          "battleId": "bat_albazin_1685",
+          "year": 1685
+        }
+      ]
+    },
+    {
+      "id": "qing_1759",
+      "yearNumber": 1759,
+      "yearDisplay": "西元 1759 年",
+      "shortLabel": "乾隆極盛",
+      "headline": "乾隆盛世十全武功：收復新疆設伊犁，四庫全書人口破三億",
+      "subTitle": "大清徹底平定準噶爾與大小和卓，疆域達一千三百一十六萬平方公里秋海棠極盛。",
+      "chronicleLeft": [
+        "兆惠清軍黑水營力戰突圍，徹底平定大小和卓叛亂，天山南北全境平定。",
+        "乾隆帝定名為「新疆」，設伊犁將軍督理天山南北軍政，設駐藏大臣治理西藏。",
+        "版圖東北抵外興安嶺庫頁島，西北達巴爾喀什湖，西南達喜馬拉雅山脈，達1316萬平方公里極盛。"
+      ],
+      "chronicleRight": [
+        "「攤丁入畝」與「永不加賦」制度紅利釋放，番薯玉米推廣，全國人口突破三億大關。",
+        "紀曉嵐總纂《四庫全書》兩萬二千卷，曹雪芹寫就文學名著《紅樓夢》。",
+        "乾隆誇稱「十全武功」，廣州設「十三行」一口通商，盛世表面下閉關鎖國與貪腐暗潮湧動。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清京師順天府 (乾隆盛世繁華中心)",
+          "color": "#fef08a"
+        },
+        "xinjiang": {
+          "warlord": "大清伊犁將軍轄區 (平定準部回部新歸疆土)",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "大清西寧辦事大臣管轄",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江將軍轄地 (外興安嶺至庫頁島)",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍轄區",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍轄區",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清內蒙古盟旗",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸省",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大清山西省 (晉商日昇昌票號通天下)",
+          "color": "#fef08a"
+        },
+        "henan": {
+          "warlord": "大清河南省",
+          "color": "#fef08a"
+        },
+        "jiangsu": {
+          "warlord": "大清江蘇省 (兩江總督江南織造極盛)",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "大清安徽省",
+          "color": "#fef08a"
+        },
+        "zhejiang": {
+          "warlord": "大清浙江省 (文瀾閣四庫全書藏)",
+          "color": "#fef08a"
+        },
+        "fujian": {
+          "warlord": "大清福建省 (管轄台灣府一府四縣二廳)",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "大清廣東省 (廣州十三行一口通商)",
+          "color": "#fef08a"
+        },
+        "guangxi": {
+          "warlord": "大清廣西省",
+          "color": "#fef08a"
+        },
+        "hubei": {
+          "warlord": "大清湖北省",
+          "color": "#fef08a"
+        },
+        "hunan": {
+          "warlord": "大清湖南省",
+          "color": "#fef08a"
+        },
+        "jiangxi": {
+          "warlord": "大清江西省 (景德鎮御窯瓷業極盛)",
+          "color": "#fef08a"
+        },
+        "sichuan": {
+          "warlord": "大清四川省 (大小金川之戰戰區)",
+          "color": "#fef08a"
+        },
+        "chongqing": {
+          "warlord": "大清四川省重慶府",
+          "color": "#fef08a"
+        },
+        "yunnan": {
+          "warlord": "大清雲南省 (改土歸流大成)",
+          "color": "#fef08a"
+        },
+        "guizhou": {
+          "warlord": "大清貴州省",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大清陝西省",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大清甘肅省 (陝甘總督)",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "大清寧夏將軍",
+          "color": "#fef08a"
+        },
+        "shanghai": {
+          "warlord": "大清江蘇省松江府上海縣",
+          "color": "#fef08a"
+        }
+      },
+      "labels": [
+        {
+          "name": "伊 犁 將 軍 府 (惠遠城統治天山南北)",
+          "pos": [
+            250,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "大 清 京 師 (紫禁城乾隆在位)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "廣 州 十 三 行 (全國唯一對外通商口岸)",
+          "pos": [
+            580,
+            640
+          ],
+          "color": "#0284c7",
+          "size": 13
+        },
+        {
+          "name": "西 藏 駐 藏 大 臣 衙 門 (金瓶掣籤)",
+          "pos": [
+            330,
+            490
+          ],
+          "color": "#7e22ce",
+          "size": 13
+        },
+        {
+          "name": "台 灣 府 (林爽文事件前夕開墾繁衍)",
+          "pos": [
+            680,
+            650
+          ],
+          "color": "#b45309",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (大清京師)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "惠遠 (伊犁將軍府)",
+          "pos": [
+            250,
+            320
+          ]
+        },
+        {
+          "name": "拉薩 (駐藏大臣)",
+          "pos": [
+            330,
+            490
+          ]
+        },
+        {
+          "name": "廣州 (十三行)",
+          "pos": [
+            580,
+            640
+          ]
+        },
+        {
+          "name": "台灣府 (台南)",
+          "pos": [
+            680,
+            650
+          ]
+        }
+      ],
+      "battles": []
+    },
+    {
+      "id": "qing_1840",
+      "yearNumber": 1840,
+      "yearDisplay": "西元 1840 年",
+      "shortLabel": "鴉片戰爭",
+      "headline": "鴉片戰爭烽煙遽起：堅船利砲裂國門，南京條約割香港",
+      "subTitle": "林則徐虎門銷煙引發英國堅船利砲侵略，簽署《南京條約》，中國邁入近代變局。",
+      "chronicleLeft": [
+        "林則徐受命欽差大臣於虎門海灘銷毀鴉片二百三十七萬斤，編譯《四洲志》開眼看世界。",
+        "英國發動侵略戰爭，皇家海軍鐵甲艦隊攻陷定海、寧波，砲轟吳淞，直插長江咽喉。",
+        "水師提督關天培血戰虎門靖遠砲台壯烈殉國，鎮江副都統海齡率滿漢軍民死戰到底。"
+      ],
+      "chronicleRight": [
+        "清軍全面戰敗，道光二十二年簽署近代首個不平等條約《南京條約》，割讓香港島。",
+        "賠款二千一百萬銀元，開放廣州、廈門、福州、寧波、上海五口通商，關稅協定。",
+        "兩千年傳統天朝體系遭西方資本主義工業文明猛烈衝擊，半殖民地半封建歷史開端。"
+      ],
+      "provinceWarlordMap": {
+        "beijing": {
+          "warlord": "大清京師順天府 (道光皇帝罷黜林則徐)",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "第一次鴉片戰爭主戰區 (林則徐虎門銷煙)",
+          "color": "#fca5a5"
+        },
+        "zhejiang": {
+          "warlord": "定海寧波淪陷交火戰區",
+          "color": "#fca5a5"
+        },
+        "jiangsu": {
+          "warlord": "南京條約簽署地與鎮江保衛戰區",
+          "color": "#fca5a5"
+        },
+        "fujian": {
+          "warlord": "英艦圍攻廈門通商前線",
+          "color": "#fca5a5"
+        },
+        "shanghai": {
+          "warlord": "吳淞口陳化成殉國 / 五口通商開埠",
+          "color": "#fca5a5"
+        },
+        "hebei": {
+          "warlord": "大清直隸大沽口受逼",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省",
+          "color": "#fef08a"
+        },
+        "shanxi": {
+          "warlord": "大清山西省",
+          "color": "#fef08a"
+        },
+        "henan": {
+          "warlord": "大清河南省",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "大清安徽省",
+          "color": "#fef08a"
+        },
+        "jiangxi": {
+          "warlord": "大清江西省",
+          "color": "#fef08a"
+        },
+        "hubei": {
+          "warlord": "大清湖北省",
+          "color": "#fef08a"
+        },
+        "hunan": {
+          "warlord": "大清湖南省",
+          "color": "#fef08a"
+        },
+        "sichuan": {
+          "warlord": "大清四川省",
+          "color": "#fef08a"
+        },
+        "chongqing": {
+          "warlord": "大清重慶府",
+          "color": "#fef08a"
+        },
+        "guangxi": {
+          "warlord": "洪秀全拜上帝會秘密傳播中",
+          "color": "#fef08a"
+        },
+        "yunnan": {
+          "warlord": "大清雲南省",
+          "color": "#fef08a"
+        },
+        "guizhou": {
+          "warlord": "大清貴州省",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大清陝西省",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大清甘肅省",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "大清寧夏鎮",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍轄地",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍轄區",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江將軍轄地",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清蒙古盟旗",
+          "color": "#fef08a"
+        },
+        "xinjiang": {
+          "warlord": "大清伊犁將軍 (林則徐流放發配處)",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "西寧辦事大臣",
+          "color": "#fef08a"
+        }
+      },
+      "labels": [
+        {
+          "name": "南 京 靜 海 寺 (南京條約割讓香港)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "虎 門 銷 煙 池 (關天培殉國戰場)",
+          "pos": [
+            580,
+            650
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "大 清 京 師 順 天 府 (道光帝)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "上 海 五 口 通 商 開 埠",
+          "pos": [
+            665,
+            535
+          ],
+          "color": "#0284c7",
+          "size": 13
+        },
+        {
+          "name": "台 灣 府 (姚瑩擊退英艦進犯雞籠)",
+          "pos": [
+            680,
+            650
+          ],
+          "color": "#15803d",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "北京 (紫禁城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "南京 (簽約處)",
+          "pos": [
+            640,
+            520
+          ]
+        },
+        {
+          "name": "虎門 (銷煙遺址)",
+          "pos": [
+            580,
+            650
+          ]
+        },
+        {
+          "name": "上海 (開埠口岸)",
+          "pos": [
+            665,
+            535
+          ]
+        },
+        {
+          "name": "香港島 (被割讓)",
+          "pos": [
+            585,
+            660
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 虎門之役",
+          "pos": [
+            580,
+            650
+          ],
+          "battleId": "bat_humen_opium_1841",
+          "year": 1841
+        }
+      ]
+    },
+    {
+      "id": "qing_1851",
+      "yearNumber": 1851,
+      "yearDisplay": "西元 1851 年",
+      "shortLabel": "太平天國",
+      "headline": "太平天國金田起義：定都天京席捲半壁，曾國藩興湘軍",
+      "subTitle": "洪秀全拜上帝會金田誓師定都南京，石達開戰神縱橫，曾國藩創湘軍結硬寨死守。",
+      "chronicleLeft": [
+        "洪秀全、楊秀清於廣西金田起義，席捲桂、湘、鄂、贛、皖、蘇，破南京改名「天京」定都。",
+        "頒布《天朝田畝制度》倡耕者有其田，北伐軍直逼天津，西征軍佔領長江中游要塞。",
+        "太平軍男女平等設女館、廢除纏足、嚴禁鴉片，沉重打擊滿清綠營與八旗權貴統治。"
+      ],
+      "chronicleRight": [
+        "曾國藩回湖南創辦「湘軍」，提倡程朱理學忠君倫理，以結硬寨打呆仗死守曾國藩長江防線。",
+        "翼王石達開湖口大捷逼曾國藩投水自盡，天京事變後出走大渡河慷慨就義。",
+        "清廷隨後藉李鴻章淮軍、洋槍隊合圍，天京地道炸城城陷，太平天國十四年落幕。"
+      ],
+      "provinceWarlordMap": {
+        "jiangsu": {
+          "warlord": "太平天國天京首都轄區 (南京)",
+          "color": "#f43f5e"
+        },
+        "anhui": {
+          "warlord": "太平天國核心根據地 (三河鎮陳玉成李秀成)",
+          "color": "#f43f5e"
+        },
+        "zhejiang": {
+          "warlord": "太平天國李秀成征服各府",
+          "color": "#f43f5e"
+        },
+        "jiangxi": {
+          "warlord": "太平軍與曾國藩湘軍激戰戰區",
+          "color": "#f43f5e"
+        },
+        "hubei": {
+          "warlord": "湘軍曾國藩曾國荃收復基地",
+          "color": "#fed7aa"
+        },
+        "hunan": {
+          "warlord": "湘軍老巢 (曾國藩左宗棠大本營)",
+          "color": "#fed7aa"
+        },
+        "guangxi": {
+          "warlord": "太平天國金田起事策源地",
+          "color": "#f43f5e"
+        },
+        "beijing": {
+          "warlord": "大清京師順天府 (咸豐皇帝憂懼)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "僧格林沁蒙古鐵騎防禦線 (全殲林鳳祥北伐軍)",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省 (捻軍起義戰火紛飛)",
+          "color": "#fed7aa"
+        },
+        "henan": {
+          "warlord": "捻軍起義與清軍拉鋸戰場",
+          "color": "#fed7aa"
+        },
+        "shanxi": {
+          "warlord": "大清山西省",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "陝西回民起義前夕",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "西北回民起義戰火",
+          "color": "#fca5a5"
+        },
+        "sichuan": {
+          "warlord": "石達開西征入蜀大渡河戰區",
+          "color": "#fca5a5"
+        },
+        "chongqing": {
+          "warlord": "大清重慶府",
+          "color": "#fef08a"
+        },
+        "fujian": {
+          "warlord": "大清福建省",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "大清廣東省 (天地會洪兵起義)",
+          "color": "#fca5a5"
+        },
+        "yunnan": {
+          "warlord": "杜文秀大理政權起義",
+          "color": "#fca5a5"
+        },
+        "guizhou": {
+          "warlord": "苗民起義爆發戰區",
+          "color": "#fca5a5"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍轄地",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍轄區",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "沙俄藉機逼侵璦琿條約割黑龍江以北",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清蒙古盟旗",
+          "color": "#fef08a"
+        },
+        "xinjiang": {
+          "warlord": "阿古柏侵略軍佔領天山南北",
+          "color": "#fca5a5"
+        },
+        "qinghai": {
+          "warlord": "青海西寧辦事大臣",
+          "color": "#fef08a"
+        },
+        "shanghai": {
+          "warlord": "租界洋人保護與華爾洋槍隊",
+          "color": "#0284c7"
+        }
+      },
+      "labels": [
+        {
+          "name": "太 平 天 國 天 京 (南京天王洪秀全)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#e11d48",
+          "size": 14
+        },
+        {
+          "name": "廣 西 金 田 起 義 誓 師 地",
+          "pos": [
+            530,
+            640
+          ],
+          "color": "#e11d48",
+          "size": 13
+        },
+        {
+          "name": "曾 國 藩 湘 軍 大 營 (安慶圍城)",
+          "pos": [
+            620,
+            525
+          ],
+          "color": "#ea580c",
+          "size": 13
+        },
+        {
+          "name": "大 清 京 師 順 天 府 (咸豐帝)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#b45309",
+          "size": 14
+        },
+        {
+          "name": "台 灣 府 (戴潮春起義波及中部)",
+          "pos": [
+            680,
+            650
+          ],
+          "color": "#b45309",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "天京 (南京太平天國都)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "北京 (清京師)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "安慶 (天京門戶大戰)",
+          "pos": [
+            620,
+            525
+          ]
+        },
+        {
+          "name": "金田 (起義聖地)",
+          "pos": [
+            530,
+            640
+          ]
+        },
+        {
+          "name": "上海 (租界洋槍隊)",
+          "pos": [
+            665,
+            535
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 三河鎮大捷",
+          "pos": [
+            630,
+            510
+          ],
+          "battleId": "bat_sanhe_taiping_1858",
+          "year": 1858
+        },
+        {
+          "name": "※ 天京保衛戰",
+          "pos": [
+            640,
+            520
+          ],
+          "battleId": "bat_tianjing_fall_1864",
+          "year": 1864
+        }
+      ]
+    },
+    {
+      "id": "qing_1885",
+      "yearNumber": 1885,
+      "yearDisplay": "西元 1885 年",
+      "shortLabel": "台灣建省",
+      "headline": "台灣正式設省建制：劉銘傳抗法大捷，推動近代化新政",
+      "subTitle": "中法戰爭基隆滬尾擊退法艦，光緒帝下詔台灣獨立建省，劉銘傳鐵路新政領先全華。",
+      "chronicleLeft": [
+        "中法戰爭孤拔艦隊封鎖攻打台灣，督辦軍務劉銘傳於滬尾淡水設伏痛擊法軍大捷。",
+        "清廷深痛體認「台灣為東南七省七門戶」，光緒十一年頒詔設立「福建台灣省」。",
+        "劉銘傳出任台灣首任巡撫，駐節台北府大稻埕，興建台北至基隆、新竹第一條官辦鐵路。"
+      ],
+      "chronicleRight": [
+        "鋪設台灣至福州水底電報線，設西學堂、電報局、撫墾局，推行「開山撫番」。",
+        "左宗棠西征收復新疆設省，馮子材鎮南關大捷，晚清國防出現短暫回光返照。",
+        "李鴻章組建亞洲最大鐵甲艦隊「北洋水師」，定遠鎮遠旗艦下水，威震東亞。"
+      ],
+      "provinceWarlordMap": {
+        "fujian": {
+          "warlord": "大清福建台灣省 (劉銘傳巡撫建省新政)",
+          "color": "#fed7aa"
+        },
+        "beijing": {
+          "warlord": "大清京師順天府 (慈禧太后歸政光緒)",
+          "color": "#fef08a"
+        },
+        "hebei": {
+          "warlord": "大清直隸省 (李鴻章北洋水師基地旅順威海)",
+          "color": "#fef08a"
+        },
+        "shandong": {
+          "warlord": "大清山東省 (威海衛軍港成型)",
+          "color": "#fef08a"
+        },
+        "guangxi": {
+          "warlord": "大清廣西省 (馮子材鎮南關大捷)",
+          "color": "#fed7aa"
+        },
+        "xinjiang": {
+          "warlord": "大清新疆省 (左宗棠收復建省劉錦棠巡撫)",
+          "color": "#fed7aa"
+        },
+        "jiangsu": {
+          "warlord": "大清江蘇省 (洋務派江南製造局擴張)",
+          "color": "#fef08a"
+        },
+        "hubei": {
+          "warlord": "大清湖北省 (張之洞即將督鄂建重工業)",
+          "color": "#fef08a"
+        },
+        "hunan": {
+          "warlord": "大清湖南省",
+          "color": "#fef08a"
+        },
+        "zhejiang": {
+          "warlord": "大清浙江省",
+          "color": "#fef08a"
+        },
+        "anhui": {
+          "warlord": "大清安徽省",
+          "color": "#fef08a"
+        },
+        "jiangxi": {
+          "warlord": "大清江西省",
+          "color": "#fef08a"
+        },
+        "guangdong": {
+          "warlord": "大清廣東省 (張之洞督粵抗法後方)",
+          "color": "#fef08a"
+        },
+        "sichuan": {
+          "warlord": "大清四川省",
+          "color": "#fef08a"
+        },
+        "chongqing": {
+          "warlord": "大清重慶府",
+          "color": "#fef08a"
+        },
+        "yunnan": {
+          "warlord": "大清雲南省 (岑毓英滇軍援越抗法)",
+          "color": "#fed7aa"
+        },
+        "guizhou": {
+          "warlord": "大清貴州省",
+          "color": "#fef08a"
+        },
+        "shaanxi": {
+          "warlord": "大清陝西省",
+          "color": "#fef08a"
+        },
+        "gansu": {
+          "warlord": "大清甘肅省",
+          "color": "#fef08a"
+        },
+        "ningxia-hui": {
+          "warlord": "大清寧夏將軍",
+          "color": "#fef08a"
+        },
+        "liaoning": {
+          "warlord": "大清盛京將軍 (旅順船塢興建)",
+          "color": "#fef08a"
+        },
+        "jilin": {
+          "warlord": "大清吉林將軍",
+          "color": "#fef08a"
+        },
+        "heilongjiang": {
+          "warlord": "大清黑龍江將軍",
+          "color": "#fef08a"
+        },
+        "inner-mongolia": {
+          "warlord": "大清內蒙古盟旗",
+          "color": "#fef08a"
+        },
+        "qinghai": {
+          "warlord": "青海西寧辦事大臣",
+          "color": "#fef08a"
+        },
+        "shanghai": {
+          "warlord": "江蘇松江府上海縣 (十里洋場金融中心)",
+          "color": "#0284c7"
+        }
+      },
+      "labels": [
+        {
+          "name": "福 建 台 灣 省 巡 撫 衙 門 (台北首府劉銘傳)",
+          "pos": [
+            690,
+            630
+          ],
+          "color": "#dc2626",
+          "size": 14
+        },
+        {
+          "name": "滬 尾 淡 水 砲 台 (法軍登陸被擊潰)",
+          "pos": [
+            685,
+            625
+          ],
+          "color": "#15803d",
+          "size": 13
+        },
+        {
+          "name": "廣 西 鎮 南 關 (老將馮子材大捷)",
+          "pos": [
+            510,
+            650
+          ],
+          "color": "#dc2626",
+          "size": 13
+        },
+        {
+          "name": "北 洋 水 師 旅 順 威 海 軍 港",
+          "pos": [
+            660,
+            345
+          ],
+          "color": "#0284c7",
+          "size": 13
+        },
+        {
+          "name": "新 疆 省 巡 撫 衙 門 (迪化烏魯木齊建省)",
+          "pos": [
+            310,
+            270
+          ],
+          "color": "#b45309",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "台北 (台灣省會)",
+          "pos": [
+            690,
+            630
+          ],
+          "isCap": true
+        },
+        {
+          "name": "北京 (紫禁城)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "威海衛 (北洋艦隊)",
+          "pos": [
+            660,
+            345
+          ]
+        },
+        {
+          "name": "迪化 (新疆省會)",
+          "pos": [
+            310,
+            270
+          ]
+        },
+        {
+          "name": "鎮南關 (友誼關)",
+          "pos": [
+            510,
+            650
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 基隆滬尾之戰",
+          "pos": [
+            685,
+            625
+          ],
+          "battleId": "bat_taiwan_liu_1884",
+          "year": 1884
+        },
+        {
+          "name": "※ 鎮南關大捷",
+          "pos": [
+            510,
+            650
+          ],
+          "battleId": "bat_zhennanguan_1885",
+          "year": 1885
+        }
+      ]
+    },
+    {
+      "id": "qing_1912",
+      "yearNumber": 1912,
+      "yearDisplay": "西元 1912 年",
+      "shortLabel": "民國肇建",
+      "headline": "辛亥革命推翻帝制：清帝遜位詔書，中華民國誕生",
+      "subTitle": "武昌起義終結大清兩百六十八年統治，清帝遜位，亞洲首個民主共和國肇建。",
+      "chronicleLeft": [
+        "湖北新軍革命黨人打響武昌起義第一槍，光復三鎮，全國十五省迅速響應宣布獨立脫離清廷。",
+        "1912年1月1日孫中山於南京宣誓就職中華民國臨時大總統，宣告中華民國正式成立。",
+        "定「五色旗」為國旗象徵漢滿蒙回藏五族共和，頒布《中華民國臨時約法》保障主權在民。"
+      ],
+      "chronicleRight": [
+        "南北議和達成妥協，袁世凱逼迫清廷皇室，隆裕太后頒布《宣統帝退位詔書》。",
+        "歷時268年之大清王朝滅亡，秦始皇以來長達2132年之中國君主專制封建帝制徹底畫下句點。",
+        "孫中山辭職由袁世凱繼任臨時大總統，中國歷史翻開現代共和國之嶄新宏偉篇章。"
+      ],
+      "provinceWarlordMap": {
+        "jiangsu": {
+          "warlord": "中華民國臨時政府 (南京臨時大總統府孫中山)",
+          "color": "#93c5fd"
+        },
+        "hubei": {
+          "warlord": "中華民國軍政府鄂軍都督府 (黎元洪首義之區)",
+          "color": "#93c5fd"
+        },
+        "zhejiang": {
+          "warlord": "中華民國獨立各省軍政府",
+          "color": "#93c5fd"
+        },
+        "fujian": {
+          "warlord": "中華民國獨立各省軍政府",
+          "color": "#93c5fd"
+        },
+        "guangdong": {
+          "warlord": "中華民國獨立省份 (胡漢民都督)",
+          "color": "#93c5fd"
+        },
+        "guangxi": {
+          "warlord": "中華民國獨立省份 (陸榮廷桂系雛形)",
+          "color": "#93c5fd"
+        },
+        "jiangxi": {
+          "warlord": "中華民國獨立軍政府",
+          "color": "#93c5fd"
+        },
+        "hunan": {
+          "warlord": "中華民國獨立省份 (焦達峰譚延闓)",
+          "color": "#93c5fd"
+        },
+        "sichuan": {
+          "warlord": "大漢四川軍政府 (保路運動先鋒)",
+          "color": "#93c5fd"
+        },
+        "chongqing": {
+          "warlord": "蜀軍政府 (張培爵張列五)",
+          "color": "#93c5fd"
+        },
+        "yunnan": {
+          "warlord": "中華民國雲南軍政府 (蔡鍔重九起義)",
+          "color": "#93c5fd"
+        },
+        "guizhou": {
+          "warlord": "中華民國貴州軍政府",
+          "color": "#93c5fd"
+        },
+        "shaanxi": {
+          "warlord": "秦隴復漢軍政府 (張鳳翽起義)",
+          "color": "#93c5fd"
+        },
+        "shanxi": {
+          "warlord": "山西軍政府 (閻錫山都督)",
+          "color": "#93c5fd"
+        },
+        "beijing": {
+          "warlord": "大清遜清內閣 / 袁世凱北洋總理府",
+          "color": "#cbd5e1"
+        },
+        "hebei": {
+          "warlord": "袁世凱北洋陸軍掌控區",
+          "color": "#cbd5e1"
+        },
+        "shandong": {
+          "warlord": "袁世凱北洋勢力控制區",
+          "color": "#cbd5e1"
+        },
+        "henan": {
+          "warlord": "北洋新軍控制樞紐 (袁世凱項城老巢)",
+          "color": "#cbd5e1"
+        },
+        "liaoning": {
+          "warlord": "奉天巡防營張作霖掌握東三省",
+          "color": "#cbd5e1"
+        },
+        "jilin": {
+          "warlord": "奉天張作霖勢力輻射區",
+          "color": "#cbd5e1"
+        },
+        "heilongjiang": {
+          "warlord": "黑龍江各部駐軍",
+          "color": "#cbd5e1"
+        },
+        "gansu": {
+          "warlord": "甘肅馬家軍回族部隊",
+          "color": "#cbd5e1"
+        },
+        "ningxia-hui": {
+          "warlord": "寧夏馬福祥防區",
+          "color": "#cbd5e1"
+        },
+        "inner-mongolia": {
+          "warlord": "蒙古各盟旗王公歸屬議和",
+          "color": "#cbd5e1"
+        },
+        "xinjiang": {
+          "warlord": "楊增新主政新疆 (宣布擁護共和保境安民)",
+          "color": "#93c5fd"
+        },
+        "qinghai": {
+          "warlord": "青海西寧馬麒防區",
+          "color": "#cbd5e1"
+        },
+        "shanghai": {
+          "warlord": "滬軍都督府 (陳其美同盟會總部)",
+          "color": "#93c5fd"
+        }
+      },
+      "labels": [
+        {
+          "name": "中 華 民 國 臨 時 大 總 統 府 (南京孫中山)",
+          "pos": [
+            640,
+            520
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "武 昌 首 義 鄂 軍 都 督 府 (黎元洪紅樓)",
+          "pos": [
+            590,
+            520
+          ],
+          "color": "#1d4ed8",
+          "size": 14
+        },
+        {
+          "name": "清 帝 遜 位 養 心 殿 (宣統退位帝制終結)",
+          "pos": [
+            600,
+            320
+          ],
+          "color": "#64748b",
+          "size": 14
+        },
+        {
+          "name": "袁 世 凱 北 洋 總 理 衙 門 (北京即將掌權)",
+          "pos": [
+            595,
+            335
+          ],
+          "color": "#334155",
+          "size": 13
+        },
+        {
+          "name": "台 灣 總 督 府 (日據五十年殖民抵抗不熄)",
+          "pos": [
+            690,
+            630
+          ],
+          "color": "#dc2626",
+          "size": 12
+        }
+      ],
+      "cities": [
+        {
+          "name": "南京 (臨時首都)",
+          "pos": [
+            640,
+            520
+          ],
+          "isCap": true
+        },
+        {
+          "name": "北京 (清廷退位)",
+          "pos": [
+            600,
+            320
+          ],
+          "isCap": true
+        },
+        {
+          "name": "武昌 (首義之都)",
+          "pos": [
+            590,
+            520
+          ]
+        },
+        {
+          "name": "上海 (革命機關)",
+          "pos": [
+            665,
+            535
+          ]
+        },
+        {
+          "name": "廣州 (黃花崗遺址)",
+          "pos": [
+            575,
+            645
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "name": "※ 辛亥武昌起義",
+          "pos": [
+            590,
+            520
+          ],
+          "battleId": "bat_wuchang_1911",
+          "year": 1911
+        }
+      ]
+    }
+  ];
+
   // src/data/periodsRegistry.js
   var HISTORICAL_PERIODS = {
     xiaShangZhou: {
@@ -80417,6 +88842,36 @@
       territories: SONG_LIAO_TERRITORIES,
       warlordPeriods: SONG_LIAO_WARLORD_PERIODS,
       demographics: SONG_LIAO_DEMOGRAPHICS
+    },
+    yuanMing: {
+      id: "yuanMing",
+      name: "元明帝國",
+      dateRangeDisplay: "1271 - 1644 CE",
+      shortEra: "西元 1271 — 1644 年",
+      fullTitle: "元明帝國與大航海時代（1271 - 1644 CE）",
+      badge: "行省混一·日月光華",
+      description: "大元大都定都立行省、設澎湖巡檢司管轄澎台、郭守敬授時曆、紅巾起義、朱元璋洪武開國、徐達北伐驅逐元廷、永樂遷都紫禁城、鄭和七下西洋、土木堡之變于謙保京師、王陽明心學、戚繼光抗倭、萬曆援朝逐倭、顏思齊鄭芝龍開闢台灣笨港、薩爾滸之戰至崇禎煤山殉國",
+      events: YUAN_MING_EVENTS,
+      figures: YUAN_MING_FIGURES,
+      battles: YUAN_MING_BATTLES,
+      territories: YUAN_MING_TERRITORIES,
+      warlordPeriods: YUAN_MING_WARLORD_PERIODS,
+      demographics: YUAN_MING_DEMOGRAPHICS
+    },
+    qingDynasty: {
+      id: "qingDynasty",
+      name: "大清帝國",
+      dateRangeDisplay: "1644 - 1912 CE",
+      shortEra: "西元 1644 — 1912 年",
+      fullTitle: "大清帝國與近代天翻地覆（1644 - 1912 CE）",
+      badge: "秋海棠葉·共和肇建",
+      description: "順治入關定都北京、揚州十日、鄭成功驅荷光復台灣建立東寧、平定三藩、施琅平台設台灣府、尼布楚條約定北疆、康雍乾盛世、改土歸流、平定準噶爾收復新疆、林則徐虎門銷煙、鴉片戰爭南京條約、太平天國定都天京、洋務運動、左宗棠抬棺收復新疆、劉銘傳中法保台與台灣建省、甲午海戰割讓台灣、乙未抗日保台、戊戌變法、八國聯軍辛丑條約、辛亥武昌起義至清帝退位共和肇建",
+      events: QING_DYNASTY_EVENTS,
+      figures: QING_DYNASTY_FIGURES,
+      battles: QING_DYNASTY_BATTLES,
+      territories: QING_DYNASTY_TERRITORIES,
+      warlordPeriods: QING_DYNASTY_WARLORD_PERIODS,
+      demographics: QING_DYNASTY_DEMOGRAPHICS
     }
   };
   var PERIOD_OPTIONS = [
@@ -80426,13 +88881,15 @@
     { id: "threeKingdoms", name: "三國鼎立", range: "184 - 280 CE", count: "37事件·28戰役·500人物" },
     { id: "weiJin", name: "魏晉南北朝", range: "220 - 589 CE", count: "20事件·10戰役·39人物" },
     { id: "suiTang", name: "隋唐五代", range: "581 - 960 CE", count: "25事件·30戰役·95人物" },
-    { id: "songLiao", name: "宋遼金夏", range: "960 - 1279 CE", count: "26事件·14戰役·44人物" }
+    { id: "songLiao", name: "宋遼金夏", range: "960 - 1279 CE", count: "26事件·14戰役·44人物" },
+    { id: "yuanMing", name: "元明帝國", range: "1271 - 1644 CE", count: "23事件·13戰役·44人物" },
+    { id: "qingDynasty", name: "大清帝國", range: "1644 - 1912 CE", count: "26事件·13戰役·41人物" }
   ];
 
   // src/app.js
   var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
   function App() {
-    const [activePeriodId, setActivePeriodId] = (0, import_react11.useState)("songLiao");
+    const [activePeriodId, setActivePeriodId] = (0, import_react11.useState)("yuanMing");
     const [activeTab, setActiveTab] = (0, import_react11.useState)("map-timeline");
     const [ancientNamesOnly, setAncientNamesOnly] = (0, import_react11.useState)(false);
     const [searchTerm, setSearchTerm] = (0, import_react11.useState)("");
