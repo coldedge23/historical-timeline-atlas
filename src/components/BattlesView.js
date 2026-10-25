@@ -185,23 +185,23 @@ export const BattlesView = ({
                 <div className="bg-black/30 p-2.5 rounded-lg border border-white/5">
                   <span className="text-[10px] text-zinc-500 block">進攻方軍團</span>
                   <span className="font-bold text-blue-300 truncate block">
-                    {battle.attacker.factionName.split('(')[0].split('（')[0]}
+                    {((battle.attacker?.factionName || battle.attacker?.name || '進攻方').split('(')[0] || '').split('（')[0]}
                   </span>
                   <span className="text-[11px] text-zinc-400 mt-0.5 block truncate">
-                    兵力：{battle.attacker.forcesEstimate.split('，')[0]}
+                    兵力：{(battle.attacker?.forcesEstimate || battle.attacker?.troops || '兵力不詳').split('，')[0]}
                   </span>
-                  {renderCommandersPreview(battle.attacker.commanders)}
+                  {renderCommandersPreview(battle.attacker?.commanders)}
                 </div>
 
                 <div className="bg-black/30 p-2.5 rounded-lg border border-white/5">
                   <span className="text-[10px] text-zinc-500 block">迎戰方軍團</span>
                   <span className="font-bold text-emerald-300 truncate block">
-                    {battle.defender.factionName.split('(')[0].split('（')[0]}
+                    {((battle.defender?.factionName || battle.defender?.name || '迎戰方').split('(')[0] || '').split('（')[0]}
                   </span>
                   <span className="text-[11px] text-zinc-400 mt-0.5 block truncate">
-                    兵力：{battle.defender.forcesEstimate.split('，')[0]}
+                    兵力：{(battle.defender?.forcesEstimate || battle.defender?.troops || '兵力不詳').split('，')[0]}
                   </span>
-                  {renderCommandersPreview(battle.defender.commanders)}
+                  {renderCommandersPreview(battle.defender?.commanders)}
                 </div>
               </div>
 

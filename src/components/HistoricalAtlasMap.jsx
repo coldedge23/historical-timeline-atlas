@@ -194,7 +194,10 @@ export const HistoricalAtlasMap = ({
             <div className="flex items-center gap-1.5 bg-[#2b2117] text-[#fef08a] px-2.5 py-1 rounded-lg border border-[#8c7355] text-[11px] shrink-0 shadow">
               <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span className="text-[#d6c5af]">聚焦事件：</span>
-              <b className="text-amber-300">{selectedEvent.year}年 · {selectedEvent.title.split('：')[0].split('，')[0]}</b>
+              <b className="text-amber-300">
+                {selectedEvent.year ? `${selectedEvent.year}年 · ` : ''}
+                {(selectedEvent.title || '').split('：')[0].split('，')[0]}
+              </b>
             </div>
           )}
         </div>
@@ -333,7 +336,7 @@ export const HistoricalAtlasMap = ({
             {/* 1. SEAMLESS REAL GEOGRAPHICAL PROVINCES OF CHINA */}
             <g>
               {Object.entries(CHINA_PROVINCE_PATHS).map(([provId, pathStr]) => {
-                const conf = activePreset.provinceWarlordMap[provId];
+                const conf = (activePreset.provinceWarlordMap || {})[provId];
                 if (!conf) return null;
                 const isHovered = hoveredWarlord === conf.warlord;
 
@@ -380,7 +383,7 @@ export const HistoricalAtlasMap = ({
 
             {/* 3. WARLORD CALLIGRAPHY LABELS */}
             <g fontWeight="bold" className="pointer-events-none select-none font-serif">
-              {activePreset.labels.map((lbl, idx) => (
+              {(activePreset.labels || []).map((lbl, idx) => (
                 <text
                   key={idx}
                   x={lbl.pos[0]}
@@ -400,7 +403,7 @@ export const HistoricalAtlasMap = ({
 
             {/* 4. HISTORIC STRATEGIC CITIES */}
             <g className="select-none pointer-events-none">
-              {activePreset.cities.map((c, idx) => (
+              {(activePreset.cities || []).map((c, idx) => (
                 <g key={idx} transform={`translate(${c.pos[0]}, ${c.pos[1]})`}>
                   <circle cx="0" cy="0" r={c.isCap ? '4' : '2.8'} fill="#18181b" />
                   {c.isCap && <circle cx="0" cy="0" r="1.5" fill="#ffffff" />}
@@ -422,7 +425,7 @@ export const HistoricalAtlasMap = ({
 
             {/* 5. INTERACTIVE STRATEGIC BATTLEFIELDS */}
             <g className="select-none">
-              {activePreset.battles.map((b, idx) => (
+              {(activePreset.battles || []).map((b, idx) => (
                 <g
                   key={idx}
                   transform={`translate(${b.pos[0]}, ${b.pos[1]})`}
@@ -521,7 +524,7 @@ export const HistoricalAtlasMap = ({
                     strokeWidth="2.5"
                     paintOrder="stroke"
                   >
-                    ★ {selectedEvent.locationNameAncient.split('/')[0].split(' ').pop().trim()}
+                    ★ {((selectedEvent.locationNameAncient || selectedEvent.locationName || '').split('/')[0] || '').split(' ').pop().trim()}
                   </text>
                 </g>
               </g>

@@ -54,11 +54,11 @@ export const DemographicsModal = ({
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-1.5 font-serif">
               <FileText className="w-4 h-4 text-amber-400" />
-              <span>魏、蜀、吳三大政權官方編戶與軍吏對比</span>
+              <span>主要政權官方編戶、人口與軍吏考證</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              {data.dataPoints.map((dp, idx) => {
+              {(data.dataPoints || []).map((dp, idx) => {
                 const borderColors = [
                   'border-blue-500/40 bg-blue-950/20 text-blue-300',
                   'border-emerald-500/40 bg-emerald-950/20 text-emerald-300',
@@ -66,9 +66,9 @@ export const DemographicsModal = ({
                 ];
 
                 return (
-                  <div key={idx} className={`p-4 rounded-xl border ${borderColors[idx]} space-y-2.5`}>
+                  <div key={idx} className={`p-4 rounded-xl border ${borderColors[idx % borderColors.length]} space-y-2.5`}>
                     <h4 className="font-bold text-sm font-serif border-b border-white/10 pb-1.5">
-                      {dp.regimeName.split('（')[0]}
+                      {(dp.regimeName || dp.name || '主要政權').split('（')[0]}
                     </h4>
                     
                     <div className="space-y-1.5 text-xs text-zinc-300">
@@ -104,30 +104,32 @@ export const DemographicsModal = ({
           </div>
 
           {/* Ethnic Groups Distribution */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-1.5 font-serif">
-              <Globe className="w-4 h-4 text-amber-400" />
-              <span>疆域內外少數民族與族群共融</span>
-            </h3>
+          {Array.isArray(data.ethnicGroups) && data.ethnicGroups.length > 0 && (
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-1.5 font-serif">
+                <Globe className="w-4 h-4 text-amber-400" />
+                <span>疆域內外少數民族與族群共融</span>
+              </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-              {data.ethnicGroups.map((group, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-zinc-900/80 border border-white/5 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-amber-300 font-serif text-sm">
-                      {group.name}
-                    </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/5">
-                      {group.distributionRegion}
-                    </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                {data.ethnicGroups.map((group, idx) => (
+                  <div key={idx} className="p-3.5 rounded-xl bg-zinc-900/80 border border-white/5 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-amber-300 font-serif text-sm">
+                        {group.name}
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/5">
+                        {group.distributionRegion}
+                      </span>
+                    </div>
+                    <p className="text-zinc-300 leading-relaxed text-justify text-[11px]">
+                      {group.relationshipWithRegime}
+                    </p>
                   </div>
-                  <p className="text-zinc-300 leading-relaxed text-justify text-[11px]">
-                    {group.relationshipWithRegime}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

@@ -11,8 +11,8 @@ import {
 import { getFactionMeta } from '../data/factionConfig.js';
 
 export const Timeline = ({
-  events,
-  figures,
+  events = [],
+  figures = [],
   selectedEvent,
   onSelectEvent,
   onSelectFigureById,
@@ -251,7 +251,7 @@ export const Timeline = ({
           const isSelected = selectedEvent?.id === evt.id;
           const factionBadge = getFactionBadge(evt.faction);
           const allEvtFigures = (evt.figureIds || [])
-            .map((fid) => figures.find((f) => f.id === fid))
+            .map((fid) => (figures || []).find((f) => f.id === fid))
             .filter(Boolean);
           const showAllFigs = expandedFiguresEventId === evt.id;
           const displayLimit = isSelected ? (showAllFigs ? 30 : 8) : 4;
