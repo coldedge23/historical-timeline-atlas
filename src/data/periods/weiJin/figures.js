@@ -10,7 +10,7 @@ export const WEI_JIN_FIGURES = [
     faction: "jin",
     birthYear: 236,
     deathYear: 290,
-    avatar: "images/figures/sima_yan.jpg",
+    avatar: "images/figures/sima_yan.svg",
     bio: "字安世，司馬昭長子，司馬懿之孫。咸熙二年受魏禪登基建立西晉。西元 280 年發動六路大軍順江平滅東吳，徹底結束三國鼎立六十年大分裂，天下一統。在位推行太康之治，開創戶調式與佔田制，人口大舉復興。晚年荒淫怠政，立癡愚子司馬衷為嗣，種下八王之亂禍根。",
     tags: ["晉武帝", "三國歸晉", "太康之治", "西晉開國"],
     relations: [
@@ -219,7 +219,7 @@ export const WEI_JIN_FIGURES = [
     faction: "jin",
     birthYear: 222,
     deathYear: 285,
-    avatar: "images/figures/du_yu.jpg",
+    avatar: "images/figures/du_yu.svg",
     bio: "字元凱，京兆杜陵人。西晉名將、學者，鎮南大將軍都督荊州諸軍事。嗜好《左傳》自稱有『左傳癖』，作《春秋左氏經傳集解》。平吳之役統率荊襄兵團，克江陵、下西陵，勢如破竹。平吳後興修水利、減免賦稅，被荊州百姓歌頌為『杜父』。為中國歷史上唯一同時配享文廟與武廟之全人。",
     tags: ["平吳統帥", "勢如破竹", "左傳癖", "文武雙全", "配享文武兩廟"],
     relations: [
@@ -237,7 +237,7 @@ export const WEI_JIN_FIGURES = [
     faction: "jin",
     birthYear: 221,
     deathYear: 278,
-    avatar: "images/figures/yang_hu.jpg",
+    avatar: "images/figures/yang_hu.svg",
     bio: "字叔子，泰山南城人。博學能文，清廉仁厚。晉武帝時都督荊州諸軍事鎮守襄陽近十年，與東吳陸抗對峙，講信修睦互通醫藥，人稱『羊陸之交』。臨終前上書平吳全策，並力薦杜預自代。卒後襄陽百姓望峴山羊公碑莫不墮淚，杜預名其為『墮淚碑』。",
     tags: ["羊陸之交", "墮淚碑", "襄陽羊公", "平吳籌畫者"],
     relations: [
@@ -254,7 +254,7 @@ export const WEI_JIN_FIGURES = [
     faction: "jin",
     birthYear: 206,
     deathYear: 286,
-    avatar: "images/figures/wang_jun.jpg",
+    avatar: "images/figures/wang_jun.svg",
     bio: "字士治，弘農湖縣人。西晉益州刺史、龍驤將軍。奉武帝密令於四川密造巨型樓船五牙大艦數千艘，長百二十步，容二千人，上設飛樓女牆。平吳時統率巴蜀舟師順長江順流而下，以火筏燒斷江底鐵鎖，旌旗蔽日直搗建業石頭城，受孫皓出降，立平吳第一功。",
     tags: ["造樓船破吳", "龍驤將軍", "火燒鐵鎖", "直搗石頭城"],
     relations: [

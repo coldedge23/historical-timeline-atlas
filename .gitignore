@@ -4,6 +4,7 @@ node_modules/
 
 # Backups
 _backups/
+images/archive_koei_backup/
 *.zip
 *.tar.gz
 *.bak

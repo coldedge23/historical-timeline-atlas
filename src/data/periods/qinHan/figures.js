@@ -474,7 +474,7 @@ export const QIN_HAN_FIGURES = [
     nativePlaceModern: '山西省平遙縣',
     faction: 'han',
     roles: ['漢景帝', '中央集權奠基人'],
-    avatar: './images/figures/liu_qi.jpg',
+    avatar: './images/figures/liu_qi.svg',
     bio: '漢文帝劉恆長子，西漢第六位皇帝。在位十六年，繼承文帝清靜恭儉政策，推動深層政治改革。採御史大夫晁錯之議推行《削藩策》，果斷起用周亞夫於三個月內平定吳楚七國之亂，徹底收回諸侯王軍政司法特權，使中央集權空前加強。為漢武帝的盛世文治武功積累了無與倫比的雄厚國力。',
     keyAchievements: [
       '堅定推行削藩，平定吳楚七國之亂，加強中央集權',
