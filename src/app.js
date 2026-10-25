@@ -267,11 +267,11 @@ export function App() {
 
       {/* Main Content Area */}
       <ErrorBoundary>
-        <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 md:p-6">
+        <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0">
           {activeTab === 'map-timeline' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[calc(100vh-115px)] min-h-[700px]">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:h-[calc(100vh-104px)] md:max-h-[calc(100vh-104px)] min-h-0 overflow-hidden">
               {/* Authentic Historical Atlas Scroll Map */}
-              <div className="lg:col-span-7 h-full flex flex-col">
+              <div className="md:col-span-7 h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col">
                 <HistoricalAtlasMap
                   warlordPeriodConfigs={currentWarlordPeriods}
                   territories={currentTerritories}
@@ -285,7 +285,7 @@ export function App() {
               </div>
 
               {/* Dual-Axis Timeline (5 cols on Desktop) */}
-              <div className="lg:col-span-5 h-full flex flex-col">
+              <div className="md:col-span-5 h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col">
                 <Timeline
                   events={eventsForTimeline}
                   figures={currentFigures}

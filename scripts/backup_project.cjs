@@ -26,7 +26,8 @@ console.log(`🎯 備份目標檔案: ${targetZip}`);
 const itemsToInclude = [
   'src',
   'images',
-  'dist',
+  'dist/bundle.js',
+  'dist/bundle_v47.js',
   'scripts',
   'index.html',
   'server.cjs',

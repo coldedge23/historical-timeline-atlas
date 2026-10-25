@@ -52,40 +52,29 @@ export const Timeline = ({
     return evt.category === selectedCategory;
   });
 
-  // Smoothly and reliably scroll target event card to upper view, level with the map
+  // Smoothly and reliably scroll target event card inside the Timeline container, level with the map
   const scrollToSelectedCard = (eventId) => {
     if (!eventId) return;
     const el = itemRefs.current[eventId];
-    if (!el) return;
+    const container = containerRef.current;
+    if (!el || !container) return;
 
     // Lock programmatic scrolling so onScroll doesn't overwrite selectedEvent during travel
     isProgrammaticScrolling.current = true;
     if (programmaticScrollTimer.current) clearTimeout(programmaticScrollTimer.current);
     programmaticScrollTimer.current = setTimeout(() => {
       isProgrammaticScrolling.current = false;
-    }, 700);
+    }, 750);
 
-    // 1. Native browser scrollIntoView (guaranteed to scroll the containing viewport)
-    try {
-      el.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    } catch (e) {}
-
-    // 2. Also adjust container explicit scrollTop for precision
-    const container = containerRef.current;
-    if (container) {
-      const containerRect = container.getBoundingClientRect();
-      const elRect = el.getBoundingClientRect();
-      const relativeTop = elRect.top - containerRect.top + container.scrollTop;
-      // Position target card in upper section (~18%) for immediate prominent visibility
-      const targetTop = relativeTop - (container.clientHeight * 0.18);
-      container.scrollTo({
-        top: Math.max(0, targetTop),
-        behavior: 'smooth',
-      });
-    }
+    const containerRect = container.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const relativeTop = elRect.top - containerRect.top + container.scrollTop;
+    // Align target card near the top of the timeline viewport (12px padding) so it sits right next to the map
+    const targetTop = Math.max(0, relativeTop - 12);
+    container.scrollTo({
+      top: targetTop,
+      behavior: 'smooth',
+    });
   };
 
   // Real-time scroll-spy: when user scrolls timeline with wheel/scrollbar/touch, synchronize the map in real-time
@@ -150,7 +139,7 @@ export const Timeline = ({
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, [selectedEvent?.id]);
+  }, [selectedEvent?.id, selectedEvent?._scrollTs]);
 
   // Reset scroll when switching historical epoch
   useEffect(() => {
@@ -172,9 +161,9 @@ export const Timeline = ({
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#141519] rounded-xl border border-white/10 overflow-hidden shadow-xl">
+    <div className="flex flex-col h-full max-h-full min-h-0 bg-[#141519] rounded-xl border border-white/10 overflow-hidden shadow-xl">
       {/* Timeline Controls & Auto-Play Header */}
-      <div className="p-3 border-b border-white/10 glass-panel space-y-2">
+      <div className="p-3 border-b border-white/10 glass-panel space-y-2 shrink-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-amber-400" />
@@ -245,7 +234,7 @@ export const Timeline = ({
       <div
         ref={containerRef}
         onScroll={handleContainerScroll}
-        className="flex-1 overflow-y-auto p-3 space-y-3"
+        className="flex-1 min-h-0 overflow-y-auto p-3 space-y-3"
       >
         {filteredEvents.map((evt) => {
           const isSelected = selectedEvent?.id === evt.id;

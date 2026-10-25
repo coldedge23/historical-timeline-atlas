@@ -121,7 +121,7 @@ export const HistoricalAtlasMap = ({
     // Also synchronize timeline event
     if (events && onSelectEvent) {
       const foundEvt = events.find((ev) => (b.eventId && ev.id === b.eventId) || (b.battleId && ev.battleId === b.battleId));
-      if (foundEvt) onSelectEvent(foundEvt);
+      if (foundEvt) onSelectEvent({ ...foundEvt, _scrollTs: Date.now() });
     }
   };
 
@@ -137,9 +137,9 @@ export const HistoricalAtlasMap = ({
   };
 
   return (
-    <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-[#8c7355] shadow-2xl bg-[#f5eedb] select-none flex flex-col font-serif">
+    <div className="relative w-full h-full max-h-full min-h-0 rounded-xl overflow-hidden border-2 border-[#8c7355] shadow-2xl bg-[#f5eedb] select-none flex flex-col font-serif">
       {/* 1. Header Toolbar with Chronological Year Preset Tabs */}
-      <div className="px-3 py-2 bg-[#2b2117] border-b-2 border-[#8c7355] flex flex-wrap items-center justify-between gap-2 text-xs text-[#f5ebd9]">
+      <div className="px-3 py-2 bg-[#2b2117] border-b-2 border-[#8c7355] flex flex-wrap items-center justify-between gap-2 text-xs text-[#f5ebd9] shrink-0">
         <div ref={tabsScrollRef} className="flex items-center gap-1 overflow-x-auto py-0.5 scrollbar-none">
           <span className="text-[#e8c89b] font-bold text-xs flex items-center gap-1 mr-1 shrink-0">
             <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
@@ -158,7 +158,7 @@ export const HistoricalAtlasMap = ({
                       return Math.abs(e.year - p.yearNumber) < Math.abs(best.year - p.yearNumber) ? e : best;
                     }, events[0]);
                     if (closestEvt && onSelectEvent) {
-                      onSelectEvent({ ...closestEvt });
+                      onSelectEvent({ ...closestEvt, _scrollTs: Date.now() });
                     }
                   }
                 }}
@@ -176,7 +176,7 @@ export const HistoricalAtlasMap = ({
       </div>
 
       {/* 2. Main Map Graphic (100% Real Geographical Boundary Integration) */}
-      <div ref={mapScrollContainerRef} className="relative flex-1 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center">
+      <div ref={mapScrollContainerRef} className="relative flex-1 min-h-0 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center">
         {/* Top-Left Big Headline Stamp */}
         <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2">
           <div>
