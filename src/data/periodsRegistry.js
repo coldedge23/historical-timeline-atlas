@@ -106,5 +106,5 @@ export const PERIOD_OPTIONS = [
   { id: 'qinHan', name: '秦漢帝國', range: '206 BCE - 184 CE', count: '20事件·13戰役·47人物' },
   { id: 'threeKingdoms', name: '三國鼎立', range: '184 - 280 CE', count: '37事件·28戰役·500人物' },
   { id: 'weiJin', name: '魏晉南北朝', range: '220 - 589 CE', count: '20事件·10戰役·39人物' },
-  { id: 'suiTang', name: '隋唐五代', range: '581 - 960 CE', count: '25事件·10戰役·47人物' },
+  { id: 'suiTang', name: '隋唐五代', range: '581 - 960 CE', count: '25事件·30戰役·95人物' },
 ];
