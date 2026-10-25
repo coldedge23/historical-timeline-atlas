@@ -19,9 +19,9 @@ try {
   // Also create unique versioned bundle to bypass file:/// memory cache in Chrome
   fs.copyFileSync(
     path.join(__dirname, 'dist', 'bundle.js'),
-    path.join(__dirname, 'dist', 'bundle_v42.js')
+    path.join(__dirname, 'dist', 'bundle_v43.js')
   );
-  console.log('BUILD SUCCESS! Created dist/bundle.js and dist/bundle_v42.js');
+  console.log('BUILD SUCCESS! Created dist/bundle.js and dist/bundle_v43.js');
 } catch (err) {
   console.error('BUILD FAILED:', err);
   process.exit(1);

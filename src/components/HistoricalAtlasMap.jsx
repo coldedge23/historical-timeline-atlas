@@ -168,7 +168,7 @@ export const HistoricalAtlasMap = ({
                     : 'bg-[#3d3022] text-[#d6c5af] hover:bg-[#53412d] hover:text-white'
                 }`}
               >
-                {p.yearDisplay} {p.shortLabel}
+                {p.yearDisplay} {p.shortLabel ? p.shortLabel.replace(new RegExp(`^(?:西元\\s*)?${p.yearNumber}(?:\\s*年)?\\s*`), '') : ''}
               </button>
             );
           })}
@@ -565,7 +565,7 @@ export const HistoricalAtlasMap = ({
         <div className="flex items-center gap-2">
           <span className="text-[#e8c89b] font-bold">當前沙盤年代：</span>
           <span className="font-bold text-white bg-[#78350f] px-2 py-0.5 rounded border border-[#b45309]">
-            {activePreset.yearDisplay} · {activePreset.shortLabel}
+            {activePreset.yearDisplay} · {activePreset.shortLabel ? activePreset.shortLabel.replace(new RegExp(`^(?:西元\\s*)?${activePreset.yearNumber}(?:\\s*年)?\\s*`), '') : ''}
           </span>
           {hoveredWarlord ? (
             <span className="text-[#fef08a] ml-2">

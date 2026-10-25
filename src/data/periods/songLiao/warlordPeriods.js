@@ -3,8 +3,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_960",
     "yearNumber": 960,
-    "yearDisplay": "960 CE",
-    "shortLabel": "960 北宋立國",
+    "yearDisplay": "西元 960 年",
+    "shortLabel": "北宋立國",
     "headline": "北宋建立與五代殘局：陳橋兵變，南方十國星羅棋布",
     "subTitle": "宋太祖趙匡胤陳橋兵變代周立宋，定都開封；北方遼國與北漢虎視眈眈，南方割據諸國尚存。",
     "chronicleLeft": [
@@ -265,8 +265,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_979",
     "yearNumber": 979,
-    "yearDisplay": "979 CE",
-    "shortLabel": "979 宋遼對峙",
+    "yearDisplay": "西元 979 年",
+    "shortLabel": "宋遼對峙",
     "headline": "北漢滅亡天下歸宋：高梁河戰役引爆宋遼世紀之爭",
     "subTitle": "太宗滅北漢終結五代十國，乘勝直插幽州；遼將耶律休哥高梁河反撲重挫宋軍。",
     "chronicleLeft": [
@@ -524,8 +524,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1004",
     "yearNumber": 1004,
-    "yearDisplay": "1004 CE",
-    "shortLabel": "1004 澶淵之盟",
+    "yearDisplay": "西元 1004 年",
+    "shortLabel": "澶淵之盟",
     "headline": "澶州城下兄弟誓盟：蕭太后揮戈南下，寇準力主真宗親征",
     "subTitle": "遼聖宗與蕭太后率二十萬大軍逼臨黃河澶州，宋真宗御駕親征，雙方立盟百餘年息兵通商。",
     "chronicleLeft": [
@@ -751,8 +751,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1044",
     "yearNumber": 1044,
-    "yearDisplay": "1044 CE",
-    "shortLabel": "1044 慶曆鼎立",
+    "yearDisplay": "西元 1044 年",
+    "shortLabel": "慶曆鼎立",
     "headline": "宋遼夏三國鼎立：元昊稱帝西北震動，范仲淹慶曆新政",
     "subTitle": "李元昊建大夏稱帝引發宋夏大戰，范仲淹韓琦經略西北築城禦敵，宋夏遼三方達成戰略均勢。",
     "chronicleLeft": [
@@ -985,8 +985,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1111",
     "yearNumber": 1111,
-    "yearDisplay": "1111 CE",
-    "shortLabel": "1111 政和大觀",
+    "yearDisplay": "西元 1111 年",
+    "shortLabel": "政和大觀",
     "headline": "兩宋極盛清明上河：人口破億文明臻峰，遼國衰朽女真待發",
     "subTitle": "宋徽宗在位宣和畫院百花齊放，戶口破億市井繁盛；東北長白山下生女真崛起即將撼動東亞。",
     "chronicleLeft": [
@@ -1210,8 +1210,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1127",
     "yearNumber": 1127,
-    "yearDisplay": "1127 CE",
-    "shortLabel": "1127 靖康之難",
+    "yearDisplay": "西元 1127 年",
+    "shortLabel": "靖康之難",
     "headline": "靖康浩劫汴梁失陷：徽欽二帝被虜北狩，趙構南渡建立南宋",
     "subTitle": "金軍兩路鐵騎南下破汴京滅北宋，趙構於應天府登基南渡，江南半壁浴血抗金。",
     "chronicleLeft": [
@@ -1453,8 +1453,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1141",
     "yearNumber": 1141,
-    "yearDisplay": "1141 CE",
-    "shortLabel": "1141 紹興和議",
+    "yearDisplay": "西元 1141 年",
+    "shortLabel": "紹興和議",
     "headline": "南北劃界風波奇冤：岳飛郾城飲恨，紹興和議劃淮為界",
     "subTitle": "岳家軍北伐大破拐子馬直抵朱仙鎮，宋高宗秦檜一意求和殺岳飛，宋金劃淮分立。",
     "chronicleLeft": [
@@ -1696,8 +1696,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1206",
     "yearNumber": 1206,
-    "yearDisplay": "1206 CE",
-    "shortLabel": "1206 斡難稱汗",
+    "yearDisplay": "西元 1206 年",
+    "shortLabel": "斡難稱汗",
     "headline": "蒙古成吉思汗稱汗：開禧北伐折戟沉沙，草原鐵騎席捲天下",
     "subTitle": "鐵木真統一漠北諸部受尊成吉思汗，南宋韓侂冑發動開禧北伐受挫，東亞格局巨變。",
     "chronicleLeft": [
@@ -1921,8 +1921,8 @@ export const SONG_LIAO_WARLORD_PERIODS = [
   {
     "id": "song_1279",
     "yearNumber": 1279,
-    "yearDisplay": "1279 CE",
-    "shortLabel": "1279 崖山宋亡",
+    "yearDisplay": "西元 1279 年",
+    "shortLabel": "崖山宋亡",
     "headline": "崖門絕唱天下混一：陸秀夫負帝投海，大元大一統版圖確立",
     "subTitle": "忽必烈定國號大元滅襄樊破臨安，張弘範水師崖山決戰，文天祥丹心照汗青。",
     "chronicleLeft": [
