@@ -661,3 +661,6 @@ export const WARLORD_PERIOD_CONFIGS = [
     ]
   }
 ];
+
+export const THREE_KINGDOMS_WARLORD_PERIODS = WARLORD_PERIOD_CONFIGS;
+

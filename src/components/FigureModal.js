@@ -1,6 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { X, Award, Quote, MapPin, Calendar, GitFork, BookOpen, Layers, Swords } from './Icons.js';
+import { X, Award, Quote, MapPin, Calendar, GitFork, BookOpen, Layers, Swords, Sparkles } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
+
+const ABILITY_AXES = [
+  { key: 'strategy', label: '謀略', color: '#38bdf8', barClass: 'from-sky-500 to-cyan-400' },
+  { key: 'commanding', label: '統帥', color: '#f43f5e', barClass: 'from-rose-500 to-amber-400' },
+  { key: 'courage', label: '勇武', color: '#fb923c', barClass: 'from-orange-500 to-red-400' },
+  { key: 'charisma', label: '魅力', color: '#fbbf24', barClass: 'from-amber-500 to-yellow-300' },
+  { key: 'politics', label: '政治', color: '#34d399', barClass: 'from-emerald-500 to-teal-300' },
+  { key: 'intellect', label: '智識', color: '#a78bfa', barClass: 'from-violet-500 to-fuchsia-400' },
+];
 
 export const FigureModal = ({
   figure,
@@ -19,8 +28,9 @@ export const FigureModal = ({
   if (!figure) return null;
 
   // Automatically detect period if not passed
-  const effectivePeriodId = activePeriodId || (
-    allFigures.some((f) => f.faction === 'xia' || f.faction === 'shang')
+  const effectivePeriodId =
+    activePeriodId ||
+    (allFigures.some((f) => f.faction === 'xia' || f.faction === 'shang')
       ? 'xiaShangZhou'
       : allFigures.some((f) => f.faction === 'northern' || f.faction === 'southern' || f.faction === 'sixteen')
       ? 'weiJin'
@@ -36,8 +46,7 @@ export const FigureModal = ({
       ? 'warringStates'
       : allFigures.some((f) => f.faction === 'shu' || f.faction === 'wu')
       ? 'threeKingdoms'
-      : 'qinHan'
-  );
+      : 'qinHan');
 
   const getFactionBadge = (faction) => {
     const meta = getFactionMeta(faction, effectivePeriodId);
@@ -49,6 +58,76 @@ export const FigureModal = ({
   };
 
   const badge = getFactionBadge(figure.faction);
+
+  // Normalized fields with fallbacks
+  const displayRoles =
+    Array.isArray(figure.roles) && figure.roles.length > 0
+      ? figure.roles
+      : figure.role
+      ? figure.role.split(/[\/、，,]/).map((s) => s.trim()).filter(Boolean)
+      : [];
+  const birthDeathText = figure.birthDeathDisplay || figure.lifeSpan || '待考';
+  const nativeAncientText = figure.nativePlaceAncient || figure.hometown || figure.origin || '華夏九州';
+  const bioText = figure.bio || figure.shortBio || '';
+  const achievementsList =
+    Array.isArray(figure.keyAchievements) && figure.keyAchievements.length > 0
+      ? figure.keyAchievements
+      : Array.isArray(figure.achievements) && figure.achievements.length > 0
+      ? figure.achievements
+      : figure.historicalSignificance
+      ? [figure.historicalSignificance]
+      : [];
+  const quotesList =
+    Array.isArray(figure.famousQuotes) && figure.famousQuotes.length > 0
+      ? figure.famousQuotes
+      : Array.isArray(figure.quotes) && figure.quotes.length > 0
+      ? figure.quotes
+      : [];
+
+  // 6-Dimension Abilities
+  const abilities = figure.abilities || {
+    strategy: 82,
+    commanding: 78,
+    politics: 80,
+    intellect: 85,
+    courage: 76,
+    charisma: 84,
+  };
+
+  const totalScore = ABILITY_AXES.reduce((sum, ax) => sum + (abilities[ax.key] || 75), 0);
+  const maxStat = Math.max(...ABILITY_AXES.map((ax) => abilities[ax.key] || 75));
+  const tierInfo =
+    maxStat >= 96 || totalScore >= 535
+      ? { rank: 'SSR · 曠世奇才', badge: 'bg-amber-500/20 text-amber-200 border-amber-400/60' }
+      : maxStat >= 90 || totalScore >= 500
+      ? { rank: 'SR · 國士無雙', badge: 'bg-purple-500/20 text-purple-200 border-purple-400/60' }
+      : { rank: 'R · 時代棟樑', badge: 'bg-sky-500/20 text-sky-200 border-sky-400/60' };
+
+  // Radar Geometry
+  const rCx = 115;
+  const rCy = 105;
+  const rMax = 68;
+
+  const getHexPoints = (scale = 1) =>
+    ABILITY_AXES.map((_, idx) => {
+      const angle = (idx * Math.PI) / 3 - Math.PI / 2;
+      const x = rCx + Math.cos(angle) * rMax * scale;
+      const y = rCy + Math.sin(angle) * rMax * scale;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(' ');
+
+  const radarVertices = ABILITY_AXES.map((ax, idx) => {
+    const val = Math.max(30, Math.min(100, abilities[ax.key] || 75));
+    const ratio = val / 100;
+    const angle = (idx * Math.PI) / 3 - Math.PI / 2;
+    const x = rCx + Math.cos(angle) * rMax * ratio;
+    const y = rCy + Math.sin(angle) * rMax * ratio;
+    const lx = rCx + Math.cos(angle) * (rMax + 23);
+    const ly = rCy + Math.sin(angle) * (rMax + 20);
+    return { ...ax, val, x, y, lx, ly };
+  });
+
+  const radarPolygonPoints = radarVertices.map((v) => `${v.x.toFixed(1)},${v.y.toFixed(1)}`).join(' ');
 
   // Combine direct relations + reverse relations (up to 8 nodes for rich star graph)
   const combinedRelations = useMemo(() => {
@@ -64,7 +143,6 @@ export const FigureModal = ({
       }
     });
 
-    // Also include reverse links if we have fewer than 6 nodes
     if (map.size < 6) {
       for (const other of allFigures) {
         if (other.id === figure.id || map.has(other.id)) continue;
@@ -89,10 +167,17 @@ export const FigureModal = ({
       ...(bat.attacker?.commanders || []),
       ...(bat.defender?.commanders || []),
     ];
-    if (cmds.some((c) => c.figureId === figure.id || c.name.includes(figure.name))) {
+    const cleanName = (figure.cleanName || figure.name || '').split('(')[0].split('（')[0].trim();
+    if (
+      cmds.some(
+        (c) =>
+          c.figureId === figure.id ||
+          (typeof c === 'string' ? c.includes(cleanName) : (c.name || '').includes(cleanName))
+      )
+    ) {
       return true;
     }
-    return (bat.summary || '').includes(figure.name);
+    return cleanName.length >= 2 && (bat.summary || '').includes(cleanName);
   });
 
   const getRelEdgeStyle = (relType) => {
@@ -100,6 +185,7 @@ export const FigureModal = ({
       case 'monarch-subject':
         return { color: '#f59e0b', dashed: false, tag: '君臣' };
       case 'family':
+      case 'kinship':
         return { color: '#fb7185', dashed: false, tag: '宗族/結義' };
       case 'rival':
         return { color: '#ef4444', dashed: true, tag: '宿敵/交鋒' };
@@ -150,7 +236,7 @@ export const FigureModal = ({
 
             {/* Names & Titles */}
             <div className="space-y-1.5">
-              <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2.5 flex-wrap">
                 <h2 className="text-2xl font-bold font-serif text-amber-200">{figure.name}</h2>
                 {figure.courtesyName && (
                   <span className="text-sm text-zinc-400">字 {figure.courtesyName}</span>
@@ -167,7 +253,7 @@ export const FigureModal = ({
 
               {/* Roles */}
               <div className="flex flex-wrap gap-1.5 pt-1">
-                {(figure.roles || []).map((role, idx) => (
+                {displayRoles.map((role, idx) => (
                   <span
                     key={idx}
                     className="text-[11px] px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-white/5"
@@ -181,12 +267,12 @@ export const FigureModal = ({
               <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400 pt-1">
                 <span className="flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                  <span>生卒：{figure.birthDeathDisplay || '待考'}</span>
+                  <span>生卒：{birthDeathText}</span>
                 </span>
                 <span className="flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-amber-400" />
                   <span>
-                    籍貫：{figure.nativePlaceAncient}
+                    籍貫：{nativeAncientText}
                     {!ancientNamesOnly && figure.nativePlaceModern && ` (今${figure.nativePlaceModern})`}
                   </span>
                 </span>
@@ -204,19 +290,164 @@ export const FigureModal = ({
               <span>生平列傳</span>
             </h3>
             <p className="text-xs md:text-sm text-zinc-300 leading-relaxed text-justify bg-black/20 p-4 rounded-xl border border-white/5">
-              {figure.bio}
+              {bioText}
             </p>
           </div>
 
+          {/* 6-Dimension Ability Radar Chart */}
+          <div>
+            <div className="flex items-center justify-between gap-2 mb-2.5 flex-wrap">
+              <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5 font-serif">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>歷史人物六維能力星象圖譜</span>
+              </h3>
+              <div className="flex items-center gap-2">
+                <span className={`text-[11px] px-2.5 py-0.5 rounded-full border font-bold ${tierInfo.badge}`}>
+                  {tierInfo.rank}
+                </span>
+                <span className="text-[11px] font-mono text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-white/5">
+                  六維總評：<b className="text-amber-300">{totalScore}</b> / 600
+                </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#0f1015] p-4 rounded-xl border border-amber-500/20">
+              {/* Left: SVG Hexagon Radar */}
+              <div className="sm:col-span-6 flex justify-center">
+                <svg viewBox="0 0 230 210" className="w-52 h-48 select-none overflow-visible">
+                  <defs>
+                    <radialGradient id="radarPolyFill" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.45" />
+                      <stop offset="100%" stopColor="#ea580c" stopOpacity="0.18" />
+                    </radialGradient>
+                  </defs>
+
+                  {/* Concentric Hexagon Grids */}
+                  {[0.25, 0.5, 0.75, 1].map((scale, i) => (
+                    <polygon
+                      key={i}
+                      points={getHexPoints(scale)}
+                      fill={scale === 1 ? '#181920' : 'none'}
+                      fillOpacity={scale === 1 ? '0.6' : '0'}
+                      stroke="#ffffff"
+                      strokeOpacity={scale === 1 ? '0.2' : '0.08'}
+                      strokeWidth="1"
+                      strokeDasharray={scale < 1 ? '2 2' : 'none'}
+                    />
+                  ))}
+
+                  {/* Axis Spokes */}
+                  {ABILITY_AXES.map((_, idx) => {
+                    const angle = (idx * Math.PI) / 3 - Math.PI / 2;
+                    const x2 = rCx + Math.cos(angle) * rMax;
+                    const y2 = rCy + Math.sin(angle) * rMax;
+                    return (
+                      <line
+                        key={idx}
+                        x1={rCx}
+                        y1={rCy}
+                        x2={x2}
+                        y2={y2}
+                        stroke="#ffffff"
+                        strokeOpacity="0.12"
+                        strokeWidth="1"
+                      />
+                    );
+                  })}
+
+                  {/* Data Polygon */}
+                  <polygon
+                    points={radarPolygonPoints}
+                    fill="url(#radarPolyFill)"
+                    stroke="#fbbf24"
+                    strokeWidth="2"
+                  />
+
+                  {/* Data Vertex Dots & Outer Labels */}
+                  {radarVertices.map((v) => (
+                    <g key={v.key}>
+                      <circle
+                        cx={v.x}
+                        cy={v.y}
+                        r="3.5"
+                        fill={v.color}
+                        stroke="#0f1015"
+                        strokeWidth="1.2"
+                      />
+                      <text
+                        x={v.lx}
+                        y={v.ly - 3}
+                        fill="#e4e4e7"
+                        fontSize="10"
+                        fontWeight="bold"
+                        textAnchor="middle"
+                      >
+                        {v.label}
+                      </text>
+                      <text
+                        x={v.lx}
+                        y={v.ly + 9}
+                        fill={v.color}
+                        fontSize="10"
+                        fontWeight="bold"
+                        fontFamily="monospace"
+                        textAnchor="middle"
+                      >
+                        {v.val}
+                      </text>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+
+              {/* Right: 6 Progress Bars */}
+              <div className="sm:col-span-6 space-y-2.5">
+                {radarVertices.map((v) => (
+                  <div key={v.key} className="space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-serif font-bold text-zinc-300 flex items-center gap-1.5">
+                        <span
+                          className="w-2 h-2 rounded-full"
+                          style={{ backgroundColor: v.color }}
+                        />
+                        {v.label}
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] text-zinc-500">
+                          {v.val >= 95
+                            ? '絕世'
+                            : v.val >= 90
+                            ? '卓絕'
+                            : v.val >= 82
+                            ? '上乘'
+                            : '幹練'}
+                        </span>
+                        <span className="font-mono font-bold text-amber-300 w-6 text-right">
+                          {v.val}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="w-full h-2 bg-zinc-800/90 rounded-full overflow-hidden border border-white/5">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${v.barClass}`}
+                        style={{ width: `${v.val}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Key Achievements */}
-          {figure.keyAchievements && figure.keyAchievements.length > 0 && (
+          {achievementsList.length > 0 && (
             <div>
               <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5 mb-2 font-serif">
                 <Award className="w-4 h-4 text-amber-400" />
                 <span>歷史重大功績與影響</span>
               </h3>
               <ul className="grid grid-cols-1 gap-2 text-xs text-zinc-300">
-                {figure.keyAchievements.map((ach, idx) => (
+                {achievementsList.map((ach, idx) => (
                   <li key={idx} className="flex items-start gap-2 bg-zinc-900/60 p-2.5 rounded-lg border border-white/5">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />
                     <span>{ach}</span>
@@ -227,14 +458,14 @@ export const FigureModal = ({
           )}
 
           {/* Famous Quotes */}
-          {figure.famousQuotes && figure.famousQuotes.length > 0 && (
+          {quotesList.length > 0 && (
             <div>
               <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5 mb-2 font-serif">
                 <Quote className="w-4 h-4 text-amber-400" />
-                <span>傳世名言與詩詞</span>
+                <span>傳世名言與詩詞史評</span>
               </h3>
               <div className="space-y-2">
-                {figure.famousQuotes.map((q, idx) => (
+                {quotesList.map((q, idx) => (
                   <div key={idx} className="p-3 rounded-lg bg-amber-950/20 border-l-2 border-amber-500 text-xs italic text-amber-100/90 font-serif">
                     「{q}」
                   </div>

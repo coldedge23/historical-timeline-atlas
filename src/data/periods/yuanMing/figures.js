@@ -19,7 +19,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 88,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1215 - 1294",
+    "nativePlaceAncient": "蒙古草原肯特山",
+    "roles": [
+      "大元世祖開國皇帝"
+    ],
+    "bio": "大蒙古國第五任大汗、大元開國皇帝。滅南宋統一天下，定都大都（北京），開創行省制度，設澎湖巡檢司。",
+    "keyAchievements": [
+      "建立第一個少數民族統治全中國之大一統王朝，創立行省制奠定後世七百年行政區劃之雛形。"
+    ]
   },
   {
     "id": "fig_chahan_tiemu",
@@ -41,7 +50,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 84,
       "courage": 90,
       "charisma": 86
-    }
+    },
+    "birthDeathDisplay": "1320 - 1362",
+    "nativePlaceAncient": "河南沈丘",
+    "roles": [
+      "元末中興名將",
+      "潁川侯"
+    ],
+    "bio": "元末將領，率義兵鎮壓劉福通紅巾軍，收復汴梁洛陽，威震北方。後於圍攻益都時為降將田豐刺殺。",
+    "keyAchievements": [
+      "元末北方中流砥柱，若非遇刺身亡，朱元璋北伐進程將面臨極大阻礙。"
+    ]
   },
   {
     "id": "fig_wang_baobao",
@@ -63,7 +82,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 85,
       "courage": 92,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1335 - 1375",
+    "nativePlaceAncient": "河南沈丘",
+    "roles": [
+      "北元柱石",
+      "齊王"
+    ],
+    "bio": "察罕帖木兒外甥兼養子。元亡後退保漠北，於嶺北之戰重創徐達大軍，朱元璋譽為「當世第一奇男子」。",
+    "keyAchievements": [
+      "北元軍事核心，延續北元殘部與明朝長達十餘年之抗衡。"
+    ]
   },
   {
     "id": "fig_tuotuo",
@@ -85,7 +114,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 82,
       "charisma": 88
-    }
+    },
+    "birthDeathDisplay": "1314 - 1355",
+    "nativePlaceAncient": "蒙古蔑兒乞部",
+    "roles": [
+      "大元右丞相",
+      "太師"
+    ],
+    "bio": "元順帝朝右丞相，主持修撰《宋史》、《遼史》、《金史》，親自督師治理黃河，圍攻高郵張士誠時遭朝中讒言奪職冤殺。",
+    "keyAchievements": [
+      "脫脫罷相致使元朝最後一支精銳官軍崩潰，史稱「脫脫被逮，天下事遂不可為矣」。"
+    ]
   },
   {
     "id": "fig_guo_shoujing",
@@ -107,7 +146,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 75,
       "charisma": 85
-    }
+    },
+    "birthDeathDisplay": "1231 - 1316",
+    "nativePlaceAncient": "河北邢台",
+    "roles": [
+      "天文水利巨擘",
+      "太史令"
+    ],
+    "bio": "元代著名天文學家、數學家、水利工程專家。編訂《授時曆》，主持修築大都通惠河，主持四海測驗。",
+    "keyAchievements": [
+      "《授時曆》推算一年為365.2425日，與現代公曆完全相同，領先西方格里高利曆三百餘年。"
+    ]
   },
   {
     "id": "fig_zhao_mengfu",
@@ -129,7 +178,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 96,
       "courage": 65,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1254 - 1322",
+    "nativePlaceAncient": "浙江湖州",
+    "roles": [
+      "翰林學士承旨",
+      "楷書四大家"
+    ],
+    "bio": "宋太祖十一世孫，入元官至翰林學士承旨。精通詩文書畫，楷書與顏真卿、柳公權、歐陽詢並稱「楷書四大家」。",
+    "keyAchievements": [
+      "元代藝壇宗師，引領中國文人畫風尚，字體圓轉遒麗享譽古今。"
+    ]
   },
   {
     "id": "fig_guan_hanqing",
@@ -151,7 +210,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 97,
       "courage": 85,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "約1234 - 1300",
+    "nativePlaceAncient": "大都 (北京)",
+    "roles": [
+      "元雜劇領袖",
+      "元曲四大家"
+    ],
+    "bio": "元代戲劇奠基人，著有《竇娥冤》、《救風塵》、《單刀會》等六十餘部名劇，自詡「蒸不爛、煮不熟、捶不扁、炒不爆響噹噹一粒銅豌豆」。",
+    "keyAchievements": [
+      "中國戲劇史上最偉大之悲劇大師，被譽為「東方莎士比亞」。"
+    ]
   },
   {
     "id": "fig_zhu_yuanzhang",
@@ -173,7 +242,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 95,
       "courage": 97,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1328 - 1398",
+    "nativePlaceAncient": "安徽鳳陽 (濠州鍾離)",
+    "roles": [
+      "大明太祖洪武皇帝"
+    ],
+    "bio": "出身貧寒赤貧農家，投郭子興紅巾軍起義。採納朱升「高築牆，廣積糧，緩稱王」之策，鄱陽湖滅陳友諒，平張士誠，命徐達北伐驅逐元廷，建立大明。",
+    "keyAchievements": [
+      "廢除千年中書省丞相制，設錦衣衛與衛所制，編《大明律》與《黃冊》，開創洪武之治。"
+    ]
   },
   {
     "id": "fig_ma_huanghou",
@@ -195,7 +273,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 92,
       "courage": 94,
       "charisma": 98
-    }
+    },
+    "birthDeathDisplay": "1332 - 1382",
+    "nativePlaceAncient": "安徽宿州",
+    "roles": [
+      "大明開國皇后"
+    ],
+    "bio": "朱元璋結髮妻子，隨夫征戰於行伍間，曾懷揣熱餅燙傷胸口以濟太祖。貴為皇后後仍親自織紕衣，直言勸諫太祖少誅戮功臣。",
+    "keyAchievements": [
+      "大明賢后典範，多次保護宋濂、朱標及朝臣免遭殺戮，受天下萬民景仰。"
+    ]
   },
   {
     "id": "fig_zhu_biao",
@@ -217,7 +304,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 88,
       "courage": 80,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1355 - 1392",
+    "nativePlaceAncient": "安徽鳳陽",
+    "roles": [
+      "大明皇太子"
+    ],
+    "bio": "明太祖長子，宋濂為師，悉心培養之儲君。為人溫和敦厚，深得朝中文武諸公與弟弟諸王愛戴。英年早逝引發繼位危機。",
+    "keyAchievements": [
+      "其早逝直接促使朱元璋晚年誅殺藍玉等驕兵悍將，並埋下建文帝削藩與靖難之役伏筆。"
+    ]
   },
   {
     "id": "fig_liu_bowen",
@@ -239,7 +335,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 85,
       "charisma": 91
-    }
+    },
+    "birthDeathDisplay": "1311 - 1375",
+    "nativePlaceAncient": "浙江青田",
+    "roles": [
+      "誠意伯",
+      "開國謀士"
+    ],
+    "bio": "明朝開國元勳，朱元璋稱其為「吾之子房」。上陳「時務十八策」，精通天文兵法，策劃鄱陽湖之戰大捷。",
+    "keyAchievements": [
+      "民間譽為「三分天下諸葛亮，一統江山劉伯溫」，明朝開國制度奠基者之一。"
+    ]
   },
   {
     "id": "fig_li_shan_chang",
@@ -261,7 +367,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 92,
       "courage": 72,
       "charisma": 86
-    }
+    },
+    "birthDeathDisplay": "1314 - 1390",
+    "nativePlaceAncient": "安徽定遠",
+    "roles": [
+      "韓國公",
+      "左丞相"
+    ],
+    "bio": "明朝開國功臣之首，通曉典故法制，掌管後勤軍需與賦稅錢糧，比之於漢之蕭何。後受胡惟庸案牽連被誅。",
+    "keyAchievements": [
+      "建立明朝初期典章制度與戶口田冊體系。"
+    ]
   },
   {
     "id": "fig_xu_da",
@@ -283,7 +399,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 96,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1332 - 1385",
+    "nativePlaceAncient": "安徽鳳陽",
+    "roles": [
+      "魏國公",
+      "右丞相大將軍"
+    ],
+    "bio": "明朝第一名將，淮西二十四將之一。統帥北伐大軍攻克元大都，追擊擴廓帖木兒，功高不矜，太祖譽為「萬里長城」。",
+    "keyAchievements": [
+      "終結元朝在中國之統治，收復幽燕十六州，為大明開疆拓土第一功臣。"
+    ]
   },
   {
     "id": "fig_chang_yuchun",
@@ -305,7 +431,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 82,
       "courage": 99,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1330 - 1369",
+    "nativePlaceAncient": "安徽懷遠",
+    "roles": [
+      "鄂國公",
+      "副將軍"
+    ],
+    "bio": "勇冠諸將，自言「統十萬眾橫行天下」，人稱「常十萬」。攻采石、破九華山、克元上都開平，暴卒於北征軍中。",
+    "keyAchievements": [
+      "朱元璋麾下摧鋒陷陣第一猛將，追封開平王。"
+    ]
   },
   {
     "id": "fig_tang_he",
@@ -327,7 +463,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 86,
       "courage": 90,
       "charisma": 89
-    }
+    },
+    "birthDeathDisplay": "1326 - 1395",
+    "nativePlaceAncient": "安徽鳳陽",
+    "roles": [
+      "信國公",
+      "築海防禦倭名將"
+    ],
+    "bio": "引導朱元璋參加郭子興紅巾軍之元老，沉敏多智。晚年主動請解兵權，巡視江浙沿海構築五十九座海防城堡抗倭。",
+    "keyAchievements": [
+      "淮西開國宿將中少數得以善終者，奠定明朝早期海防衛所基礎。"
+    ]
   },
   {
     "id": "fig_lan_yu",
@@ -349,7 +495,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 80,
       "courage": 98,
       "charisma": 88
-    }
+    },
+    "birthDeathDisplay": "約1340 - 1393",
+    "nativePlaceAncient": "安徽定遠",
+    "roles": [
+      "涼國公",
+      "大將軍"
+    ],
+    "bio": "常遇春內弟。率十五萬大軍深突漠北，於捕魚兒海（貝加爾湖東南貝爾湖）大破北元後主脫古思帖木兒，俘太子后妃八萬餘人。",
+    "keyAchievements": [
+      "徹底打碎北元統一帝國架構，後因恃功跋扈引發「藍玉案」遭太祖誅殺。"
+    ]
   },
   {
     "id": "fig_zhu_di",
@@ -371,7 +527,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 94,
       "courage": 98,
       "charisma": 97
-    }
+    },
+    "birthDeathDisplay": "1360 - 1424",
+    "nativePlaceAncient": "南京",
+    "roles": [
+      "大明成祖皇帝"
+    ],
+    "bio": "朱元璋四子，初封燕王戍守北平。建文削藩時以「清君側」發動靖難之役奪位。五次親征漠北，命鄭和下西洋，修《永樂大典》，遷都北京。",
+    "keyAchievements": [
+      "奠定北京都城格局，開拓奴兒干與安南，使大明國威遠播亞非，開創「永樂盛世」。"
+    ]
   },
   {
     "id": "fig_yao_guangxiao",
@@ -393,7 +558,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 88,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1335 - 1418",
+    "nativePlaceAncient": "江蘇蘇州",
+    "roles": [
+      "黑衣宰相",
+      "太子少師"
+    ],
+    "bio": "佛門僧侶出身，通儒道兵陰陽之術。全力謀劃燕王起兵奪位，靖難中坐鎮北平督守孤城。成祖即位後官居一品仍居僧寺。",
+    "keyAchievements": [
+      "靖難之役首席策劃者，主持北京紫禁城規劃與《永樂大典》修纂。"
+    ]
   },
   {
     "id": "fig_fang_xiaoru",
@@ -415,7 +590,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 98,
       "courage": 100,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1357 - 1402",
+    "nativePlaceAncient": "浙江寧海",
+    "roles": [
+      "翰林學士",
+      "天下讀書種子"
+    ],
+    "bio": "建文帝重臣，宋濂弟子。燕軍破南京後成祖命其草擬即位詔書，方孝孺大書「燕賊篡位」，寧死不屈遭誅十族八百七十餘人。",
+    "keyAchievements": [
+      "士大夫氣節忠烈之化身，天下讀書人之風骨象徵。"
+    ]
   },
   {
     "id": "fig_zheng_he",
@@ -437,7 +622,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 95,
       "courage": 96,
       "charisma": 97
-    }
+    },
+    "birthDeathDisplay": "1371 - 1433",
+    "nativePlaceAncient": "雲南昆陽",
+    "roles": [
+      "正使太監",
+      "大航海統帥"
+    ],
+    "bio": "回族穆斯林世家，自幼入侍朱棣立戰功。1405至1433年間率龐大寶船艦隊七下西洋，歷訪三十餘國，最遠抵達東非海岸。",
+    "keyAchievements": [
+      "世界航海史空前壯舉，比哥倫布發現新大陸早八十七年，開創海上絲路空前繁榮。"
+    ]
   },
   {
     "id": "fig_xie_jin",
@@ -459,7 +654,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 80,
       "charisma": 88
-    }
+    },
+    "birthDeathDisplay": "1369 - 1415",
+    "nativePlaceAncient": "江西吉水",
+    "roles": [
+      "文淵閣大學士",
+      "永樂內閣首輔"
+    ],
+    "bio": "明朝第一位內閣首輔，才思敏捷，總纂《永樂大典》，兩萬二千八百七十七卷，為中國古代最大類書。",
+    "keyAchievements": [
+      "主導保存中華浩瀚典籍，確立明代內閣首輔參預機務體制。"
+    ]
   },
   {
     "id": "fig_yu_qian",
@@ -481,7 +686,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 96,
       "courage": 100,
       "charisma": 99
-    }
+    },
+    "birthDeathDisplay": "1398 - 1457",
+    "nativePlaceAncient": "浙江錢塘 (杭州)",
+    "roles": [
+      "兵部尚書",
+      "救時宰相"
+    ],
+    "bio": "土木堡之變英宗被俘，京師大震主遷都金陵。于謙厲聲疾呼「言南遷者可斬」，立景帝，親率軍民取得北京保衛戰大捷。奪門之變後冤死，留下「粉骨碎身渾不怕，要留清白在人間」。",
+    "keyAchievements": [
+      "力挽狂瀾挽救大明國祚於累卵，為中國歷史最偉大之民族英雄與賢相之一。"
+    ]
   },
   {
     "id": "fig_wang_yangming",
@@ -503,7 +718,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 100,
       "courage": 96,
       "charisma": 99
-    }
+    },
+    "birthDeathDisplay": "1472 - 1529",
+    "nativePlaceAncient": "浙江餘姚",
+    "roles": [
+      "新建伯",
+      "心學大宗師"
+    ],
+    "bio": "龍場悟道創立陽明心學，倡「知行合一」與「致良知」。以都察院僉都御史僅用三十五日平定寧王宸濠之亂，立德立功立言三不朽。",
+    "keyAchievements": [
+      "宋明理學集大成者，心學流播日本東亞，推動東亞近世思想自覺運動。"
+    ]
   },
   {
     "id": "fig_zhang_juzheng",
@@ -525,7 +750,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 97,
       "courage": 95,
       "charisma": 94
-    }
+    },
+    "birthDeathDisplay": "1525 - 1582",
+    "nativePlaceAncient": "湖北江陵",
+    "roles": [
+      "萬曆內閣首輔",
+      "江陵相國"
+    ],
+    "bio": "萬曆朝首輔，輔政十年推行考成法整飭吏治，丈量全國土地推行「一條鞭法」，起用戚繼光、李成梁鞏固邊防，國庫充盈。",
+    "keyAchievements": [
+      "晚明最傑出之政治家與改革家，為大明延續數十年國運之「萬曆中興」。"
+    ]
   },
   {
     "id": "fig_hai_rui",
@@ -547,7 +782,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 100,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1514 - 1587",
+    "nativePlaceAncient": "廣東瓊山 (海南海口)",
+    "roles": [
+      "南京右都御史",
+      "海青天"
+    ],
+    "bio": "明代著名清官。任戶部主事時自備棺木上《治安策》直斥嘉靖帝「嘉靖嘉靖，家家皆淨」，罷官入獄。出獄後推行清丈田畝退還民產。",
+    "keyAchievements": [
+      "中國歷史清廉剛直官員之最高道德化身。"
+    ]
   },
   {
     "id": "fig_qi_jiguang",
@@ -569,7 +814,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 95,
       "courage": 98,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1528 - 1588",
+    "nativePlaceAncient": "山東蓬萊",
+    "roles": [
+      "薊遼保定總兵",
+      "抗倭名將"
+    ],
+    "bio": "創立戚家軍與鴛鴦陣，發明狼筅、虎蹲砲，台州九戰九捷盪平東南沿海倭寇。後鎮守薊門十六年，修築包磚長城敵樓，韃靼不敢犯。",
+    "keyAchievements": [
+      "著《紀效新書》、《練兵實紀》，中國兵法史一代宗師，民族英雄。"
+    ]
   },
   {
     "id": "fig_yu_dayou",
@@ -591,7 +846,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 96,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1503 - 1579",
+    "nativePlaceAncient": "福建晉江 (泉州)",
+    "roles": [
+      "福建總兵",
+      "抗倭名將"
+    ],
+    "bio": "與戚繼光並稱「俞龍戚虎」。精通劍術兵法，創立「車營」與水軍戰法，屢破倭寇於興化、潮州，著《劍經》。",
+    "keyAchievements": [
+      "抗倭雙壁之一，對明代沿海防禦體系與武術傳承貢獻卓著。"
+    ]
   },
   {
     "id": "fig_li_rusong",
@@ -613,7 +878,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 84,
       "courage": 98,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1549 - 1598",
+    "nativePlaceAncient": "遼寧鐵嶺",
+    "roles": [
+      "薊遼提督",
+      "抗倭援朝提督"
+    ],
+    "bio": "李成梁長子。萬曆三大征統帥，四萬精銳入朝抗倭援朝，火砲攻克平壤大敗小西行長，碧蹄館力戰不屈，促成日軍全線南退。",
+    "keyAchievements": [
+      "收復朝鮮平壤開城，打破豐臣秀吉征服東亞之狂妄野心。"
+    ]
   },
   {
     "id": "fig_li_shizhen",
@@ -635,7 +910,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 100,
       "courage": 85,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1518 - 1593",
+    "nativePlaceAncient": "湖北蘄州",
+    "roles": [
+      "藥聖",
+      "醫藥學泰斗"
+    ],
+    "bio": "歷時二十七載踏遍山川，參考八百餘部醫籍，完成五十二卷巨著《本草綱目》，收錄藥物1,892種、附方11,096首。",
+    "keyAchievements": [
+      "世界醫藥學寶庫，達爾文譽為「中國古代的百科全書」。"
+    ]
   },
   {
     "id": "fig_xu_xiake",
@@ -657,7 +942,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 98,
       "courage": 95,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1587 - 1641",
+    "nativePlaceAncient": "江蘇江陰",
+    "roles": [
+      "千古奇人",
+      "地理探險家"
+    ],
+    "bio": "歷經三十四載徒步考察大半個中國，詳細記錄喀斯特地貌與江河源頭，撰寫六十萬字《徐霞客遊記》。",
+    "keyAchievements": [
+      "世界最早對石灰岩溶洞喀斯特地貌進行系統科學研究之探險家。"
+    ]
   },
   {
     "id": "fig_song_yingxing",
@@ -679,7 +974,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 80,
       "charisma": 88
-    }
+    },
+    "birthDeathDisplay": "1587 - 1666",
+    "nativePlaceAncient": "江西奉新",
+    "roles": [
+      "科技先驅",
+      "奉新教諭"
+    ],
+    "bio": "著《天工開物》，全面系統總結農業、手工業、採礦、冶煉、陶瓷、火藥與舟車製造技術，附有一百二十三幅精美插圖。",
+    "keyAchievements": [
+      "外國學者譽為「十七世紀中國工藝技術的百科全書」。"
+    ]
   },
   {
     "id": "fig_tang_bohu",
@@ -701,7 +1006,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 96,
       "courage": 70,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1470 - 1524",
+    "nativePlaceAncient": "江蘇蘇州",
+    "roles": [
+      "江南第一才子",
+      "吳門四家"
+    ],
+    "bio": "應天府解元。因科場舞弊案受株連終身不得為官，自刻印「江南第一風流才子」，以詩文書畫自娛，作《桃花庵歌》。",
+    "keyAchievements": [
+      "明代文人浪漫性格與書畫藝術之巔峰象徵。"
+    ]
   },
   {
     "id": "fig_yuan_chonghuan",
@@ -723,7 +1038,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 88,
       "courage": 98,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1584 - 1630",
+    "nativePlaceAncient": "廣東東莞",
+    "roles": [
+      "薊遼督師",
+      "兵部尚書"
+    ],
+    "bio": "進士出身投筆從戎。單騎閱塞築寧遠城，以紅夷大砲取得寧遠大捷（努爾哈赤負傷後亡）與寧錦大捷。後中皇太極反間計遭崇禎凌遲處死。",
+    "keyAchievements": [
+      "明朝遼東防禦之靈魂人物，「自崇煥死，邊事益不可為」。"
+    ]
   },
   {
     "id": "fig_sun_chengzong",
@@ -745,7 +1070,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 95,
       "courage": 98,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1563 - 1638",
+    "nativePlaceAncient": "河北高陽",
+    "roles": [
+      "帝師",
+      "薊遼督師大學士"
+    ],
+    "bio": "明熹宗帝師，督師薊遼，構建關寧錦防線數百里，起用袁崇煥、趙率教、祖大壽等名將。清軍破高陽，率全家殉國。",
+    "keyAchievements": [
+      "遼東戰略防禦體系之總設計師，滿門忠烈。"
+    ]
   },
   {
     "id": "fig_lu_xiangsheng",
@@ -767,7 +1102,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 88,
       "courage": 100,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1600 - 1639",
+    "nativePlaceAncient": "江蘇宜興",
+    "roles": [
+      "宣大總督",
+      "天雄軍統帥"
+    ],
+    "bio": "文官出身提大刀百三十斤。組建天雄軍剿闖王流寇百戰百勝。巨鹿賈莊之役遭太監高起潛扣發援軍，孤軍力竭壯烈殉國。",
+    "keyAchievements": [
+      "晚明最有血性戰意之統帥，其死令關內剿匪軍事土崩瓦解。"
+    ]
   },
   {
     "id": "fig_sun_chuanting",
@@ -789,7 +1134,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 96,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1593 - 1643",
+    "nativePlaceAncient": "山西代縣",
+    "roles": [
+      "陝西總督",
+      "兵部尚書"
+    ],
+    "bio": "組建秦軍，黑水峪擒闖王高迎祥，潼關南原合擊大破李自成僅剩十八騎。後崇禎屢下嚴旨促出關，戰死於潼關柿園。",
+    "keyAchievements": [
+      "《明史》評「傳庭死，而明亡矣」，晚明最後之擎天白玉柱。"
+    ]
   },
   {
     "id": "fig_qin_liangyu",
@@ -811,7 +1166,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 85,
       "courage": 98,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1574 - 1648",
+    "nativePlaceAncient": "重慶忠縣 (忠州)",
+    "roles": [
+      "石砫土司",
+      "忠貞侯大將軍"
+    ],
+    "bio": "率白桿兵先後抗擊播州楊應龍、遼東後金八旗與張獻忠流寇，崇禎帝親賦詩四首表彰。為正史唯一單獨列傳之女將軍。",
+    "keyAchievements": [
+      "巾幗英雄千古絕唱，滿門忠烈鎮守西南半壁。"
+    ]
   },
   {
     "id": "fig_chongzhen",
@@ -833,7 +1198,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 85,
       "courage": 90,
       "charisma": 86
-    }
+    },
+    "birthDeathDisplay": "1611 - 1644",
+    "nativePlaceAncient": "北京",
+    "roles": [
+      "大明第十六任皇帝 (末帝)"
+    ],
+    "bio": "即位剷除魏忠賢閹黨，勤政節儉十七年未嘗懈怠。然生性多疑剛愎自用，誅殺督師袁崇煥，加速局勢崩解。李自成破京，於煤山自縊殉國。",
+    "keyAchievements": [
+      "君王死社稷，不割地不納貢天子守國門，大明二百七十六年帝業終結。"
+    ]
   },
   {
     "id": "fig_li_zicheng",
@@ -855,7 +1229,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 80,
       "courage": 95,
       "charisma": 94
-    }
+    },
+    "birthDeathDisplay": "1606 - 1645",
+    "nativePlaceAncient": "陝西米脂",
+    "roles": [
+      "大順政權建立者"
+    ],
+    "bio": "驛卒出身投農民軍，提出「迎闖王，不納糧」深得流民歸附。攻克洛陽、西安，1644年三月破北京逼崇禎自縊。一片石戰敗後退走九宮山死於民兵。",
+    "keyAchievements": [
+      "推翻大明王朝，終結朱明政權，隨後引發清兵入關。"
+    ]
   },
   {
     "id": "fig_zhang_xianzhong",
@@ -877,7 +1260,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 75,
       "courage": 92,
       "charisma": 86
-    }
+    },
+    "birthDeathDisplay": "1606 - 1647",
+    "nativePlaceAncient": "陝西定邊",
+    "roles": [
+      "大西政權建立者"
+    ],
+    "bio": "明末農民起義領袖，率軍橫掃楚蜀，於成都稱帝建立大西政權。後清將豪格入川，張獻忠於鳳凰山中箭陣亡。",
+    "keyAchievements": [
+      "徹底打碎四川明朝防衛體系，其部將李定國後成為南明抗清主力。"
+    ]
   },
   {
     "id": "fig_zheng_zhilong",
@@ -899,7 +1291,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 90,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1604 - 1661",
+    "nativePlaceAncient": "福建南安",
+    "roles": [
+      "海商霸主",
+      "明朝南安伯"
+    ],
+    "bio": "早年隨顏思齊入台灣笨港墾殖，後建構橫跨東亞海域之武裝商船帝國。於料羅灣大海戰大破荷蘭東印度公司艦隊，接受明廷招撫。",
+    "keyAchievements": [
+      "早期拓墾台灣關鍵先驅，開創鄭氏海上集團，為鄭成功驅荷復台奠定海權基礎。"
+    ]
   },
   {
     "id": "fig_nurhaci",
@@ -921,7 +1323,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 96,
       "charisma": 97
-    }
+    },
+    "birthDeathDisplay": "1559 - 1626",
+    "nativePlaceAncient": "遼寧新賓 (赫圖阿拉)",
+    "roles": [
+      "後金開國大汗"
+    ],
+    "bio": "以十三副遺甲起兵統治女真各部，創立八旗制度與滿文。1616年建立後金，以「七大恨」告天誓師反明，薩爾滸大捷殲明軍十餘萬。",
+    "keyAchievements": [
+      "清朝奠基人，徹底改變明清攻守均勢。"
+    ]
   },
   {
     "id": "fig_hong_taiji",
@@ -943,7 +1354,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 96,
       "courage": 94,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1592 - 1643",
+    "nativePlaceAncient": "赫圖阿拉",
+    "roles": [
+      "清太宗文皇帝"
+    ],
+    "bio": "努爾哈赤第八子。征服朝鮮與漠南蒙古各部，改族名女真為「滿洲」，1636年稱帝改國號為「大清」，松錦之戰全殲明軍主力洪承疇。",
+    "keyAchievements": [
+      "創制漢軍八旗與蒙古八旗，建立三省六部制度，為清朝入關奠定基石。"
+    ]
   },
   {
     "id": "fig_wu_sangui",
@@ -965,7 +1385,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 84,
       "courage": 92,
       "charisma": 86
-    }
+    },
+    "birthDeathDisplay": "1612 - 1678",
+    "nativePlaceAncient": "遼寧綏中 (中後所)",
+    "roles": [
+      "山海關總兵",
+      "平西王"
+    ],
+    "bio": "鎮守山海關之明軍悍將。李自成破京後因愛妾陳圓圓被掠，憤而開山海關引清兵多爾袞入關擊潰大順軍，受封平西王。晚年起兵反清引發三藩之亂。",
+    "keyAchievements": [
+      "關鍵引清兵入關之歷史爭議人物，左右中國十七世紀政權走向。"
+    ]
   },
   {
     "id": "fig_xu_guangqi",
@@ -987,7 +1417,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 84,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1562 - 1633",
+    "nativePlaceAncient": "南直隸松江府上海縣",
+    "roles": [
+      "文淵閣大學士",
+      "中西科學交流先驅"
+    ],
+    "bio": "明末內閣首輔，科學家、天文學家、農業學家。與利瑪竇合譯《幾何原本》，著《農政全書》，主持崇禎曆局編修新曆，引進西方紅夷大砲強化京師防務。",
+    "keyAchievements": [
+      "中西文化科學交流先驅，奠定中國近代數學、天文學與西方科技譯介基礎。"
+    ]
   },
   {
     "id": "fig_li_zhizao",
@@ -1009,7 +1449,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 96,
       "courage": 78,
       "charisma": 85
-    }
+    },
+    "birthDeathDisplay": "1565 - 1630",
+    "nativePlaceAncient": "浙江杭州府仁和縣",
+    "roles": [
+      "太僕寺少卿",
+      "西學譯介重臣"
+    ],
+    "bio": "明末學者與大臣，與徐光啟、楊廷筠並稱「天主教三大柱石」。與利瑪竇等合譯《渾蓋通憲圖說》、《同文算指》、《名理探》，刊印《坤輿萬國全圖》。",
+    "keyAchievements": [
+      "致力於西方數理、邏輯與地理學譯介，拓寬晚明天下一代士人的世界眼界。"
+    ]
   },
   {
     "id": "fig_fang_yizhi",
@@ -1031,7 +1481,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 97,
       "courage": 88,
       "charisma": 88
-    }
+    },
+    "birthDeathDisplay": "1611 - 1671",
+    "nativePlaceAncient": "南直隸安慶府桐城縣",
+    "roles": [
+      "明末清初通儒",
+      "物理啟蒙大師"
+    ],
+    "bio": "明末四公子之一，崇禎進士。明亡後削髮為僧。精通中西自然哲學與博學，著有《物理小識》、《通雅》，提出「質測即藏通幾」之科學實證思想。",
+    "keyAchievements": [
+      "中國近代百科全書式學者，在自然科學哲學上兼收中西精粹。"
+    ]
   },
   {
     "id": "fig_huang_zongxi",
@@ -1053,7 +1513,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 92,
       "charisma": 94
-    }
+    },
+    "birthDeathDisplay": "1610 - 1695",
+    "nativePlaceAncient": "浙江紹興府餘姚縣",
+    "roles": [
+      "啟蒙思想家",
+      "東林後勁"
+    ],
+    "bio": "明末清初三大儒之一，抗清義士。著《明夷待訪錄》，猛烈批判君主專制，提出「天下為主，君為客」之民本主權觀，被譽為中國啟蒙運動之父。",
+    "keyAchievements": [
+      "奠定近代反君主專制政治哲學之基石，梁啟超譽為東方盧梭。"
+    ]
   },
   {
     "id": "fig_gu_yanwu",
@@ -1075,7 +1545,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 98,
       "courage": 95,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1613 - 1682",
+    "nativePlaceAncient": "南直隸蘇州府崑山縣",
+    "roles": [
+      "實學開山導師",
+      "考據學宗師"
+    ],
+    "bio": "明末清初三大儒之一。提倡「經世致用」，痛斥空談心學，著《日知錄》、《天下郡國利病書》，名言「天下興亡，匹夫有責」傳誦千古。",
+    "keyAchievements": [
+      "開創清代乾嘉考據與經世致用學風，近代愛國主義精神之崇高典範。"
+    ]
   },
   {
     "id": "fig_wang_fuzhi",
@@ -1097,7 +1577,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 92,
       "charisma": 91
-    }
+    },
+    "birthDeathDisplay": "1619 - 1692",
+    "nativePlaceAncient": "湖廣衡州府衡陽縣",
+    "roles": [
+      "唯物主義哲學巨擘"
+    ],
+    "bio": "明末清初三大儒之一。隱居石船山四十餘載著書立說，築土室曰湘西草堂，著《讀通鑑論》、《宋論》，建立博大深奧之唯物主義氣一元論體系。",
+    "keyAchievements": [
+      "集古典哲學之大成，湖湘文化與近代湖湘人才輩出之思想源泉。"
+    ]
   },
   {
     "id": "fig_zhu_yunming",
@@ -1119,7 +1608,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 92,
       "courage": 75,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1460 - 1526",
+    "nativePlaceAncient": "南直隸蘇州府長洲縣",
+    "roles": [
+      "江南四大才子",
+      "草書名家"
+    ],
+    "bio": "江南四大才子之一，右手生六指，自號枝山。狂草豪放狂放跌宕，神采飛揚，與唐寅、文徵明、徐禎卿並稱吳中四才子。",
+    "keyAchievements": [
+      "明代書法狂草藝術頂峰代表，吳門書派靈魂人物。"
+    ]
   },
   {
     "id": "fig_wen_zhengming",
@@ -1141,7 +1640,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 94,
       "courage": 78,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1470 - 1559",
+    "nativePlaceAncient": "南直隸蘇州府長洲縣",
+    "roles": [
+      "吳門畫派領袖",
+      "文藝巨擘"
+    ],
+    "bio": "詩文、書畫皆登峰造極，弟子門生遍江南。行書得王羲之法，山水細筆清麗超逸，沈周逝後主盟江南文壇畫壇三十載。",
+    "keyAchievements": [
+      "吳門畫派集大成者，明代江南士紳高雅文藝美學之最高代表。"
+    ]
   },
   {
     "id": "fig_xu_wei",
@@ -1163,7 +1672,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 98,
       "courage": 86,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1521 - 1593",
+    "nativePlaceAncient": "浙江紹興府山陰縣",
+    "roles": [
+      "潑墨大寫意始祖",
+      "天才奇士"
+    ],
+    "bio": "明代奇才，胡宗憲幕府策士，曾畫策擒汪直、徐海。畫風大開大合、水墨淋漓，開創青藤畫派；劇作《四聲猿》被湯顯祖譽為海內奇作。",
+    "keyAchievements": [
+      "中國大寫意水墨畫之奠基大師，齊白石曾云「恨不生三百年前為青藤門下走狗」。"
+    ]
   },
   {
     "id": "fig_tang_xianzu",
@@ -1185,7 +1704,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 97,
       "courage": 80,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1550 - 1616",
+    "nativePlaceAncient": "江西撫州府臨川縣",
+    "roles": [
+      "東方莎士比亞",
+      "戲曲傳奇大師"
+    ],
+    "bio": "明代最傑出之戲劇家，著「臨川四夢」，尤以《牡丹亭》名滿天下。「情不知所起，一往而深」傳誦數百年，與同時代英國莎士比亞齊名震鑠世界戲劇史。",
+    "keyAchievements": [
+      "世界級戲劇泰斗，浪漫主義情感文學的崇高高峰。"
+    ]
   },
   {
     "id": "fig_feng_menglong",
@@ -1207,7 +1736,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 94,
       "courage": 75,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1574 - 1646",
+    "nativePlaceAncient": "南直隸蘇州府長洲縣",
+    "roles": [
+      "通俗文學泰斗",
+      "白話小說奠基人"
+    ],
+    "bio": "編纂「三言」（《喻世明言》、《警世通言》、《醒世恆言》），整理改編《東周列國志》，極大推動市井大眾白話通俗文學與市民文化狂飆發展。",
+    "keyAchievements": [
+      "中國古代白話短篇小說繁榮的第一功臣。"
+    ]
   },
   {
     "id": "fig_yang_shen",
@@ -1229,7 +1768,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 99,
       "courage": 94,
       "charisma": 93
-    }
+    },
+    "birthDeathDisplay": "1488 - 1559",
+    "nativePlaceAncient": "四川成都府新都縣",
+    "roles": [
+      "大明第一才子",
+      "翰林修撰"
+    ],
+    "bio": "正德六年狀元，內閣首輔楊廷和之子。因大禮議案抗爭廷杖謫戍雲南永昌三十餘年，博覽群書著述浩瀚，詞作《臨江仙·滾滾長江東逝水》後世定為《三國演義》卷首詞。",
+    "keyAchievements": [
+      "明代三才子之首，在西南邊陲播撒中原文化，詞作千古不朽。"
+    ]
   },
   {
     "id": "fig_tie_xuan",
@@ -1251,7 +1800,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 88,
       "courage": 99,
       "charisma": 95
-    }
+    },
+    "birthDeathDisplay": "1366 - 1402",
+    "nativePlaceAncient": "河南鄧州",
+    "roles": [
+      "兵部尚書",
+      "濟南鐵壁忠烈"
+    ],
+    "bio": "回族將領。靖難之役時堅守濟南城，設鐵板掛朱元璋畫像重創朱棣燕軍，力挫燕軍三月之久。燕王奪位後誓死不屈，受磔刑壯烈殉國。",
+    "keyAchievements": [
+      "忠義節烈不懼權逆的千古代表，濟南市民世代立廟祭祀鐵公祠。"
+    ]
   },
   {
     "id": "fig_shi_heng",
@@ -1273,7 +1832,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 70,
       "courage": 96,
       "charisma": 75
-    }
+    },
+    "birthDeathDisplay": "1410 - 1460",
+    "nativePlaceAncient": "北直隸順天府大興縣",
+    "roles": [
+      "武清侯",
+      "京師保衛戰驍將"
+    ],
+    "bio": "土木堡之變後協助于謙守衛德勝門，奮勇搏殺重創瓦剌也先騎兵，戰功第一。後參與奪門之變擁復英宗，封忠國公，晚年驕橫跋扈下獄死。",
+    "keyAchievements": [
+      "北京保衛戰戰場第一戰將，功績赫赫但命運起伏昭示權力更迭無常。"
+    ]
   },
   {
     "id": "fig_kuang_zhong",
@@ -1295,7 +1864,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 90,
       "courage": 92,
       "charisma": 94
-    }
+    },
+    "birthDeathDisplay": "1383 - 1443",
+    "nativePlaceAncient": "江西靖安縣",
+    "roles": [
+      "蘇州知府",
+      "況青天"
+    ],
+    "bio": "宣德年間任蘇州知府十三年，廉潔自持，嚴懲豪強貪吏，平反冤獄，減免重賦興修水利，百姓刻石頌德，譽為「況青天」，與包拯、海瑞齊名。",
+    "keyAchievements": [
+      "明代地方良吏清官之最高典範，戲曲《十五貫》之核心主角原型。"
+    ]
   },
   {
     "id": "fig_xia_yan",
@@ -1317,7 +1896,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 92,
       "courage": 95,
       "charisma": 88
-    }
+    },
+    "birthDeathDisplay": "1482 - 1548",
+    "nativePlaceAncient": "江西廣信府貴溪縣",
+    "roles": [
+      "內閣首輔",
+      "耿介忠直直言敢諫"
+    ],
+    "bio": "嘉靖朝名相，為官剛烈方正，力整朝綱抗衡權臣。支持曾銑收復河套之策，遭嚴嵩奸謀陷害棄市。後隆慶帝平反追諡文愍。",
+    "keyAchievements": [
+      "嘉靖朝抗擊韃靼與整頓內政之中樞梁柱，嚴嵩掌權前夕之正義防線。"
+    ]
   },
   {
     "id": "fig_gao_gong",
@@ -1339,7 +1928,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 94,
       "courage": 92,
       "charisma": 89
-    }
+    },
+    "birthDeathDisplay": "1513 - 1578",
+    "nativePlaceAncient": "河南開封府新鄭縣",
+    "roles": [
+      "內閣首輔",
+      "隆慶新政擘劃者"
+    ],
+    "bio": "隆慶朝首輔，果決善斷，力主俺答封貢結束北方百年戰事，拔擢戚繼光守薊鎮、李成梁守遼東，起用張居正推行吏治，為萬曆中興奠下宏基。",
+    "keyAchievements": [
+      "隆慶和議與邊防強化的核心推手，明中後期名相重臣。"
+    ]
   },
   {
     "id": "fig_chen_lin",
@@ -1361,7 +1960,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 84,
       "courage": 95,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1543 - 1607",
+    "nativePlaceAncient": "廣東韶州府翁源縣",
+    "roles": [
+      "水軍都督",
+      "露梁海戰明軍總指揮"
+    ],
+    "bio": "萬曆援朝抗日水師總指揮，率明朝舟師萬餘出海戰鬥。在露梁海戰與朝鮮統制使李舜臣並肩浴血作戰，焚毀擊沉日艦數百艘，徹底終結豐臣秀吉侵略野心。",
+    "keyAchievements": [
+      "萬曆援朝戰爭海戰決戰總舵手，中朝共同尊崇之抗倭民族英雄。"
+    ]
   },
   {
     "id": "fig_deng_zilong",
@@ -1383,7 +1992,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 78,
       "courage": 99,
       "charisma": 90
-    }
+    },
+    "birthDeathDisplay": "1531 - 1598",
+    "nativePlaceAncient": "江西撫州府豐城縣",
+    "roles": [
+      "副總兵",
+      "露梁海戰壯烈殉國老將"
+    ],
+    "bio": "明朝抗倭及平定西南邊境悍將，年近七旬主動請纓援朝。於露梁海戰率巨艦先登直衝日軍主力，奮戰手格數十人，戰船中火壯烈殉國。",
+    "keyAchievements": [
+      "老當益壯氣吞山河，中韓兩國共同建廟立碑世世銘念之名將。"
+    ]
   },
   {
     "id": "fig_zhang_huangyan",
@@ -1405,7 +2024,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 95,
       "courage": 99,
       "charisma": 97
-    }
+    },
+    "birthDeathDisplay": "1620 - 1664",
+    "nativePlaceAncient": "浙江寧波府鄞縣",
+    "roles": [
+      "兵部尚書",
+      "東南抗清柱石"
+    ],
+    "bio": "南明抗清領袖兼傑出詩人。堅持浙東抗清近二十年，曾與鄭成功大舉北伐合圍南京，震動江南。被捕後寧死不降，臨刑慷慨賦詩《正氣歌》，與岳飛、于謙並稱「西湖三傑」。",
+    "keyAchievements": [
+      "明末氣節與愛國詩歌最高象徵，中華民族錚錚鐵骨之代表。"
+    ]
   },
   {
     "id": "fig_yan_siqi",
@@ -1427,7 +2056,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 84,
       "courage": 93,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1586 - 1625",
+    "nativePlaceAncient": "福建漳州府海澄縣",
+    "roles": [
+      "開台第一人",
+      "笨港開拓大寨主"
+    ],
+    "bio": "明代海商開台拓墾先驅。率眾入台灣登陸笨港（今雲林北港、嘉義新港），築寨分定十寨，招徠閩南流民移民三千餘人拓荒墾殖，奠定漢人開闢台灣之基業。",
+    "keyAchievements": [
+      "史稱「開台王」，台灣有組織拓墾農墾文明實質奠基者。"
+    ]
   },
   {
     "id": "fig_shen_yourong",
@@ -1449,7 +2088,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 85,
       "courage": 97,
       "charisma": 92
-    }
+    },
+    "birthDeathDisplay": "1557 - 1628",
+    "nativePlaceAncient": "南直隸徽州府宣城縣",
+    "roles": [
+      "福建都司副總兵",
+      "澎湖諭退紅毛番"
+    ],
+    "bio": "明代抗倭水師名將。1604年荷蘭提督韋麻郎佔領澎湖，沈有容單舟渡海直闖荷蘭艦隊宣明國威，折服韋麻郎不血刃退出澎湖，立碑「沈有容諭退紅毛番韋麻郎等」，為台灣歷史最古老碑碣。",
+    "keyAchievements": [
+      "台灣澎湖早期海權主權維護者，留下台澎現存最早之歷史石碑原蹟。"
+    ]
   },
   {
     "id": "fig_he_bin",
@@ -1471,7 +2120,17 @@ export const YUAN_MING_FIGURES = [
       "intellect": 94,
       "courage": 88,
       "charisma": 86
-    }
+    },
+    "birthDeathDisplay": "1610 - 1675",
+    "nativePlaceAncient": "福建泉州府南安縣",
+    "roles": [
+      "荷蘭東印度公司通事",
+      "助鄭收台策士"
+    ],
+    "bio": "原為荷蘭大員通事，精通荷語與海情地理。暗中繪製台灣鹿耳門水道與熱蘭遮城潮汐水文圖，親赴廈門面呈鄭成功，力陳「台灣沃野千里為霸王之資」，為鄭氏指引登陸收復台灣奇兵。",
+    "keyAchievements": [
+      "鄭成功收復台灣的關鍵地緣情報軍師，扭轉台灣歷史走向之奇士。"
+    ]
   },
   {
     "id": "fig_yelv_chucai",
@@ -1493,6 +2152,16 @@ export const YUAN_MING_FIGURES = [
       "intellect": 98,
       "courage": 94,
       "charisma": 96
-    }
+    },
+    "birthDeathDisplay": "1190 - 1244",
+    "nativePlaceAncient": "契丹皇族後裔 / 燕京",
+    "roles": [
+      "中書令",
+      "蒙古帝國文治奠基人"
+    ],
+    "bio": "成吉思汗與窩闊台汗首席謀臣。力阻蒙古貴族「盡屠漢人變農田為牧場」之暴虐主張，建立賦稅、科舉、法制與官學，保護中原數百萬百姓性命與漢文化道統不墜。",
+    "keyAchievements": [
+      "「興文教、定賦稅、禁屠殺」，挽救中原文明火種於蒙古馬蹄之下的曠世名相。"
+    ]
   }
 ];

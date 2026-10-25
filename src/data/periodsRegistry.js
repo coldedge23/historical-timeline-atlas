@@ -1,5 +1,5 @@
 // Central Historical Periods Registry
-// Supports multi-epoch historical exploration across Chinese dynasties
+// Supports multi-epoch historical exploration across Chinese dynasties with unified Schema Normalization
 import * as ThreeKingdoms from './threeKingdoms/index.js';
 import * as QinHan from './periods/qinHan/index.js';
 import * as WarringStates from './periods/warringStates/index.js';
@@ -9,8 +9,9 @@ import * as SuiTang from './periods/suiTang/index.js';
 import * as SongLiao from './periods/songLiao/index.js';
 import * as YuanMing from './periods/yuanMing/index.js';
 import * as QingDynasty from './periods/qingDynasty/index.js';
+import { normalizePeriodDataset } from './schemaNormalizer.js';
 
-export const HISTORICAL_PERIODS = {
+const RAW_HISTORICAL_PERIODS = {
   xiaShangZhou: {
     id: 'xiaShangZhou',
     name: '夏商西周',
@@ -68,7 +69,7 @@ export const HISTORICAL_PERIODS = {
     figures: ThreeKingdoms.THREE_KINGDOMS_FIGURES,
     battles: ThreeKingdoms.THREE_KINGDOMS_BATTLES,
     territories: ThreeKingdoms.THREE_KINGDOMS_TERRITORIES,
-    warlordPeriods: ThreeKingdoms.WARLORD_PERIOD_CONFIGS,
+    warlordPeriods: ThreeKingdoms.THREE_KINGDOMS_WARLORD_PERIODS || ThreeKingdoms.WARLORD_PERIOD_CONFIGS,
     demographics: ThreeKingdoms.THREE_KINGDOMS_DEMOGRAPHICS,
   },
   weiJin: {
@@ -145,17 +146,20 @@ export const HISTORICAL_PERIODS = {
     territories: QingDynasty.QING_DYNASTY_TERRITORIES,
     warlordPeriods: QingDynasty.QING_DYNASTY_WARLORD_PERIODS,
     demographics: QingDynasty.QING_DYNASTY_DEMOGRAPHICS,
-  }
+  },
 };
 
-export const PERIOD_OPTIONS = [
-  { id: 'xiaShangZhou', name: '夏商西周', range: '2070 - 771 BCE', count: '18事件·10戰役·33人物' },
-  { id: 'warringStates', name: '春秋戰國', range: '770 - 221 BCE', count: '58事件·30戰役·90人物' },
-  { id: 'qinHan', name: '秦漢帝國', range: '206 BCE - 184 CE', count: '20事件·13戰役·47人物' },
-  { id: 'threeKingdoms', name: '三國鼎立', range: '184 - 280 CE', count: '37事件·28戰役·500人物' },
-  { id: 'weiJin', name: '魏晉南北朝', range: '220 - 589 CE', count: '20事件·10戰役·39人物' },
-  { id: 'suiTang', name: '隋唐五代', range: '581 - 960 CE', count: '25事件·30戰役·95人物' },
-  { id: 'songLiao', name: '宋遼金夏', range: '960 - 1279 CE', count: '26事件·14戰役·44人物' },
-  { id: 'yuanMing', name: '元明帝國', range: '1271 - 1644 CE', count: '23事件·13戰役·44人物' },
-  { id: 'qingDynasty', name: '大清帝國', range: '1644 - 1912 CE', count: '26事件·13戰役·41人物' },
-];
+// Apply unified schema normalization across all 9 historical periods
+export const HISTORICAL_PERIODS = Object.fromEntries(
+  Object.entries(RAW_HISTORICAL_PERIODS).map(([key, config]) => [
+    key,
+    normalizePeriodDataset(config),
+  ])
+);
+
+export const PERIOD_OPTIONS = Object.values(HISTORICAL_PERIODS).map((p) => ({
+  id: p.id,
+  name: p.name,
+  range: p.dateRangeDisplay,
+  count: `${(p.events || []).length}事件·${(p.battles || []).length}戰役·${(p.figures || []).length}人物`,
+}));

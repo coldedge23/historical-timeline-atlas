@@ -343,14 +343,16 @@ export const FACTION_CONFIGS = {
     }
   },
   yuanMing: {
-    order: ['ming', 'yuan', 'peasant', 'jin', 'maritime', 'cultural', 'other'],
+    order: ['ming', 'yuan', 'peasant', 'jin', 'maritime', 'taiwan', 'cultural', 'science', 'other'],
     labels: {
       ming: '大明王朝',
       yuan: '大元/北元',
       peasant: '農民起義/大順大西',
       jin: '後金女真',
       maritime: '海商/開台鄭氏',
+      taiwan: '臺灣開拓先驅',
       cultural: '科技/文豪/名醫',
+      science: '西學/格物先驅',
       other: '邊疆/列國/其他',
     },
     styles: {
@@ -379,10 +381,20 @@ export const FACTION_CONFIGS = {
         badge: 'bg-cyan-950/70 text-cyan-200 border-cyan-500/50',
         stroke: '#06b6d4',
       },
+      taiwan: {
+        card: 'border-teal-600/50 hover:border-teal-400',
+        badge: 'bg-teal-950/70 text-teal-200 border-teal-500/50',
+        stroke: '#14b8a6',
+      },
       cultural: {
         card: 'border-emerald-600/50 hover:border-emerald-400',
         badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
         stroke: '#10b981',
+      },
+      science: {
+        card: 'border-violet-600/50 hover:border-violet-400',
+        badge: 'bg-violet-950/70 text-violet-200 border-violet-500/50',
+        stroke: '#8b5cf6',
       },
       other: {
         card: 'border-zinc-600/50 hover:border-zinc-400',
@@ -392,14 +404,16 @@ export const FACTION_CONFIGS = {
     }
   },
   qingDynasty: {
-    order: ['qing', 'ming', 'taiping', 'zhun', 'reform', 'republic', 'cultural', 'other'],
+    order: ['qing', 'ming', 'taiwan', 'taiping', 'zhun', 'reform', 'republic', 'science', 'cultural', 'other'],
     labels: {
       qing: '大清帝國',
       ming: '明鄭/反清復明',
+      taiwan: '臺灣開闢與抗暴',
       taiping: '太平天國',
       zhun: '準噶爾汗國',
       reform: '維新變法派',
       republic: '辛亥革命/民國',
+      science: '近代科學/工程先驅',
       cultural: '文人學者',
       other: '列強/邊疆/其他',
     },
@@ -413,6 +427,11 @@ export const FACTION_CONFIGS = {
         card: 'border-red-600/50 hover:border-red-400',
         badge: 'bg-red-950/70 text-red-200 border-red-500/50',
         stroke: '#ef4444',
+      },
+      taiwan: {
+        card: 'border-teal-600/50 hover:border-teal-400',
+        badge: 'bg-teal-950/70 text-teal-200 border-teal-500/50',
+        stroke: '#14b8a6',
       },
       taiping: {
         card: 'border-rose-600/50 hover:border-rose-400',
@@ -433,6 +452,11 @@ export const FACTION_CONFIGS = {
         card: 'border-blue-600/50 hover:border-blue-400',
         badge: 'bg-blue-950/70 text-blue-200 border-blue-500/50',
         stroke: '#2563eb',
+      },
+      science: {
+        card: 'border-violet-600/50 hover:border-violet-400',
+        badge: 'bg-violet-950/70 text-violet-200 border-violet-500/50',
+        stroke: '#8b5cf6',
       },
       cultural: {
         card: 'border-emerald-600/50 hover:border-emerald-400',

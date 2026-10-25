@@ -89,25 +89,43 @@ export const FiguresView = ({
   const roleCategories = [
     { id: 'all', label: '全部定位' },
     { id: 'ruler', label: '👑 君主/諸侯' },
-    { id: 'strategist', label: '📜 謀士/文臣' },
-    { id: 'general', label: '⚔️ 名將/武臣' },
+    { id: 'strategist', label: '📜 文臣/謀士/學者' },
+    { id: 'general', label: '⚔️ 名將/武臣/義士' },
     { id: 'lady', label: '🌸 后妃/名媛' },
   ];
 
   const matchRoleCategory = (fig, roleCat) => {
     if (roleCat === 'all') return true;
-    const text = [...(fig.roles || []), fig.bio || ''].join(' ');
+    const roleStr = [...(fig.roles || []), fig.role || ''].join(' ');
+    const text = `${roleStr} ${fig.bio || ''}`;
     if (roleCat === 'ruler') {
-      return /皇帝|君主|主公|霸主|王|州牧|太守|盟主|單于|大王|天公將軍/.test((fig.roles || []).join(' '));
+      return (
+        fig.roleType === 'monarch' ||
+        /皇帝|君主|主公|霸主|王|州牧|太守|盟主|單于|可汗|大總統|太祖|太宗|世祖|高祖/.test(roleStr)
+      );
     }
     if (roleCat === 'lady') {
-      return /皇后|夫人|昭儀|公主|才女|美人|名媛|女將|妻|母|女|氏/.test((fig.roles || []).join(' ')) || fig.name.endsWith('氏');
+      return (
+        /皇后|皇太后|太后|夫人|昭儀|貴妃|公主|才女|美人|名媛|女將|女詞人|妻|母|氏/.test(roleStr) ||
+        fig.name.endsWith('氏')
+      );
     }
     if (roleCat === 'strategist') {
-      return /謀|軍師|丞相|尚書|侍中|從事|別駕|長史|主簿|太常|司徒|司空|大夫|名士|文|才子|智|諫|太傅/.test((fig.roles || []).join(' '));
+      return (
+        fig.roleType === 'scholar' ||
+        fig.roleType === 'minister' ||
+        /謀|軍師|丞相|宰相|首輔|大學士|尚書|侍中|從事|別駕|長史|主簿|太常|司徒|司空|大夫|名士|文|才子|智|諫|太傅|思想|大儒|哲學|科學|工程|詩|詞|小說|戲|書|畫|醫|變法|維新|清官/.test(
+          roleStr
+        )
+      );
     }
     if (roleCat === 'general') {
-      return /將|都督|校尉|先鋒|騎|統帥|太守|猛|驍|勇士|力士|護衛|都尉/.test(text);
+      return (
+        fig.roleType === 'general' ||
+        /將|都督|元帥|總兵|提督|校尉|先鋒|騎|統帥|太守|猛|驍|勇士|力士|護衛|都尉|節度使|水師|起義|烈士|英雄/.test(
+          text
+        )
+      );
     }
     return true;
   };
@@ -139,7 +157,14 @@ export const FiguresView = ({
     });
 
     if (sortBy === 'birth_asc') {
-      return [...list].sort((a, b) => (a.birthYear || 999) - (b.birthYear || 999));
+      return [...list].sort((a, b) => (a.birthYear ?? 9999) - (b.birthYear ?? 9999));
+    }
+    if (sortBy === 'abilities_desc') {
+      const sumAbilities = (f) =>
+        f.abilities
+          ? Object.values(f.abilities).reduce((acc, v) => acc + (Number(v) || 0), 0)
+          : 0;
+      return [...list].sort((a, b) => sumAbilities(b) - sumAbilities(a));
     }
     if (sortBy === 'events_desc') {
       return [...list].sort(
@@ -225,6 +250,7 @@ export const FiguresView = ({
               className="bg-zinc-900 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-amber-500"
             >
               <option value="default">排序：史冊預設</option>
+              <option value="abilities_desc">排序：六維綜合能力 (高→低)</option>
               <option value="birth_asc">排序：出生年代 (早→晚)</option>
               <option value="events_desc">排序：參與事件數 (多→少)</option>
               <option value="relations_desc">排序：關係連結數 (多→少)</option>
