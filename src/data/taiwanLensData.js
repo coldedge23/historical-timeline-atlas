@@ -1,6 +1,5 @@
 // Taiwan Chronological Lens (臺灣四千年歷史縱貫專題視角資料集)
-// Comprehensive dataset spanning Austronesian Prehistory, Dutch-Spanish Rivalry, Kingdom of Tungning,
-// Qing Pioneer Rule & Provincial Era, Japanese Rule & Civil Enlightenment, Post-War Defense & Modern Silicon Island
+// Super-Expanded Dataset: 80 Iconic Events, 25 Historic Battles, and 85 Figures
 
 export const TAIWAN_LENS_ERAS = [
   {
@@ -12,28 +11,52 @@ export const TAIWAN_LENS_ERAS = [
     description: "長濱文化舊石器時代、大坌坑文化新石器時代南島語系擴散；中臺灣跨部落「大肚王國」跨族群邦聯；三國衛溫夷州、隋代朱寬流求訪察；1281年元世祖設澎湖巡檢司，為中央政府管轄澎臺之始。",
     keyEvents: [
       {
-        id: "evt_tw_changbin_dabenkeng",
+        id: "evt_tw_changbin_culture",
+        year: -30000,
+        yearDisplay: "約三萬年前 (舊石器時代)",
+        title: "長濱文化八仙洞海蝕洞穴遺址",
+        summary: "臺東長濱鄉八仙洞發現臺灣最古老之舊石器時代文化，證實數萬年前人類已在東臺灣繁衍生息。",
+        detail: "中央研究院考古隊在臺東長濱八仙洞海蝕洞穴群發掘出打製石器、骨角器與火塘遺跡，經碳十四測定距今約兩萬至三萬年前，命名為「長濱文化」，為臺灣迄今所知最古老之人類史前文明起源。",
+        locationNameAncient: "長濱八仙洞岩穴",
+        locationNameModern: "臺東縣長濱鄉八仙洞遺址",
+        coordinates: [121.49, 23.40],
+        tags: ["長濱文化", "舊石器時代", "八仙洞", "史前文明"]
+      },
+      {
+        id: "evt_tw_dabenkeng_culture",
         year: -3000,
         yearDisplay: "約西元前 3000 年前",
         title: "大坌坑文化與南島語系出臺灣說",
         summary: "新石器時代大坌坑文化揭開農耕與陶器文明，語言學與基因學證實臺灣為南島語族全球擴散母港。",
-        detail: "臺灣舊石器時代長濱文化以降，距今五千年前大坌坑文化在八里、南科繁盛發展。族人掌握航海與根莖農業，語言學大師白樂思（Robert Blust）與現代基因學提出「南島語系出臺灣說（Out of Taiwan）」，證實臺灣原住民族為太平洋與印度洋近四億南島語族之祖源原鄉。",
+        detail: "距今五千年前大坌坑文化在八里、南科繁盛發展。族人掌握航海與根莖農業，語言學大師白樂思與現代基因學提出「南島語系出臺灣說（Out of Taiwan）」，證實臺灣原住民族為太平洋與印度洋近四億南島語族之祖源原鄉。",
         locationNameAncient: "大坌坑遺址 (觀音山麓)",
-        locationNameModern: "新北市八里區",
+        locationNameModern: "新北市八里區大坌坑",
         coordinates: [121.41, 25.14],
-        tags: ["大坌坑文化", "南島語系", "出臺灣說", "八里"]
+        tags: ["大坌坑文化", "南島語系", "出臺灣說", "新石器時代"]
       },
       {
         id: "evt_tw_beinan_culture",
         year: -1000,
         yearDisplay: "約西元前 1000 年",
         title: "卑南文化與巨石石板棺聚落",
-        summary: "臺東平原發展出東亞最大石板棺巨石文化與高度精緻臺灣玉（閃玉）器工藝網絡。",
+        summary: "臺東平原發展出東亞最大石板棺巨石文化與高度精緻臺灣玉（閃玉）器工藝貿易網絡。",
         detail: "卑南遺址出土數千座地下石板棺與巨型石柱，隨葬精美玉耳飾、玉玦與陶器。卑南族人採集花蓮豐田閃玉，打磨出兼具禮儀與威望之玉器，其貿易網絡遠達菲律賓與東南亞沿岸，展現高度發達之史前海洋工藝文明。",
         locationNameAncient: "卑南平原石柱聚落",
         locationNameModern: "臺東縣臺東市卑南遺址公園",
         coordinates: [121.12, 22.79],
         tags: ["卑南文化", "臺灣玉", "石板棺", "史前巨石"]
+      },
+      {
+        id: "evt_tw_shisanhang_culture",
+        year: 500,
+        yearDisplay: "西元 500 — 1000 年",
+        title: "十三行文化與史前煉鐵金屬工藝",
+        summary: "北臺灣淡水河口十三行遺址展現煉鐵高爐、幾何印紋陶器及跨海琉璃珠貿易文明。",
+        detail: "十三行文化代表臺灣史前金屬器時代之巔峰。族人利用本地褐鐵礦煉鐵，並出土漢代銅錢、西亞玻璃珠與瓷器，證明距今一千年前淡水河口之凱達格蘭先民已展開蓬勃之東亞跨海貿易。",
+        locationNameAncient: "十三行聚落 (淡水河口)",
+        locationNameModern: "新北市八里區十三行博物館",
+        coordinates: [121.40, 25.16],
+        tags: ["十三行文化", "金屬器時代", "煉鐵技術", "跨海貿易"]
       },
       {
         id: "evt_tw_weiwen_yizhou_230",
@@ -72,6 +95,30 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["澎湖巡檢司", "大元行省", "海疆管理"]
       },
       {
+        id: "evt_tw_daoyi_zhilue_1349",
+        year: 1349,
+        yearDisplay: "西元 1349 年 (至正九年)",
+        title: "汪大淵《島夷志略》記載澎湖與琉球風土",
+        summary: "元代航海家汪大淵兩度隨商船遠航西洋，歸國著書詳實記述澎湖巡檢司官制與臺灣風物。",
+        detail: "南昌航海家汪大淵著《島夷志略》，其「澎湖」條載：地隸泉州晉江縣，至元間立巡檢司，戶各家自為活。其「琉球」條記載原住民族農耕、織布、煮海為鹽風尚，為研究宋元時期澎臺社會之重要文獻。",
+        locationNameAncient: "澎湖島港與琉球山面",
+        locationNameModern: "澎湖縣與西南海岸",
+        coordinates: [119.58, 23.58],
+        tags: ["島夷志略", "汪大淵", "澎湖巡檢司", "元代海運"]
+      },
+      {
+        id: "evt_tw_ming_ban_penghu_1384",
+        year: 1384,
+        yearDisplay: "西元 1384 年 (洪武十七年)",
+        title: "明太祖海禁與澎湖巡檢司移防",
+        summary: "明太祖朱元璋實施嚴格海禁政策，廢澎湖巡檢司遷民回漳泉，海防形勢轉向消極。",
+        detail: "明初因倭寇猖獗，朱元璋採「寸板不許下海」之閉關海禁政策，洪武十七年廢澎湖巡檢司，將島民全數內遷漳泉安置。此舉反使澎湖與臺灣西南沿岸成為林道乾、顏思齊等海商與海盜活動之自由樂園。",
+        locationNameAncient: "澎湖媽宮巡防寨",
+        locationNameModern: "澎湖縣馬公市水仙宮一帶",
+        coordinates: [119.57, 23.56],
+        tags: ["明初海禁", "朱元璋", "澎湖遷民", "海商興起"]
+      },
+      {
         id: "evt_tw_dadu_kingdom",
         year: 1500,
         yearDisplay: "約西元 1500 年前",
@@ -79,7 +126,7 @@ export const TAIWAN_LENS_ERAS = [
         summary: "中臺灣跨部族原住民族邦聯大肚王國，由拍瀑拉族白晝之王（Kamachat）統御十八社。",
         detail: "在荷蘭人抵達臺灣前，中臺灣大甲溪以南至大肚溪流域已建立跨部落邦聯「大肚王國」，由巴布拉族領袖世襲稱為Quataong（白晝之王）。其版圖涵蓋臺中、彰化、南投各社，農牧互市，自給自足維持高度獨立自主，並於1644年重挫荷蘭遠征軍。",
         locationNameAncient: "大肚社 (中臺灣)",
-        locationNameModern: "臺中市大肚區",
+        locationNameModern: "臺中市大肚區大肚國小遺址",
         coordinates: [120.54, 24.16],
         tags: ["大肚王國", "南島原鄉", "部落邦聯", "白晝之王"]
       }
@@ -124,11 +171,47 @@ export const TAIWAN_LENS_ERAS = [
         yearDisplay: "西元 1626 年 (天啟六年)",
         title: "西班牙佔領雞籠淡水築聖多明哥城",
         summary: "西班牙菲律賓總督派遣遠征軍登陸三貂角，修築和平島聖救主城與淡水聖多明哥城。",
-        detail: "西班牙為防禦荷蘭壟斷對日、對華航路，由伐爾得斯（Antonio Carreño Valdés）率艦隊自馬尼拉出航，登陸三貂角（San Diego），進駐雞籠灣和平島修築聖薩爾瓦多城（San Salvador），後進抵淡水築聖多明哥城（紅毛城前身），展開十六年天主教傳教與硫磺金礦貿易。",
+        detail: "西班牙為防禦荷蘭壟斷對日、對華航路，由伐爾得斯率艦隊自馬尼拉出航登陸三貂角，進駐雞籠灣和平島修築聖薩爾瓦多城，後進抵淡水築聖多明哥城（紅毛城前身），展開十六年天主教傳教與硫磺金礦貿易。",
         locationNameAncient: "雞籠社寮島聖救主城",
-        locationNameModern: "基隆市中正區和平島與新北市淡水區",
+        locationNameModern: "基隆市中正區和平島與新北市淡水區紅毛城",
         coordinates: [121.76, 25.15],
         tags: ["西治時期", "聖多明哥城", "聖救主城", "和平島"]
+      },
+      {
+        id: "evt_tw_hamada_yahei_1628",
+        year: 1628,
+        yearDisplay: "西元 1628 年 (寬永五年)",
+        title: "濱田彌兵衛事件 (日荷大員通商衝突)",
+        summary: "日本朱印船船長濱田彌兵衛因荷蘭徵收關稅衝突，在大員挾持荷蘭長官奴易茲。",
+        detail: "荷蘭東印度公司對進出大員之日本朱印商船課稅引發江戶幕府強烈不滿。船長濱田彌兵衛率勇士在熱蘭遮城內拔刀挾持長官彼得·奴易茲，雙方簽訂協議放行。事件導致日本一度扣押荷蘭在平戶商館與貨物。",
+        locationNameAncient: "大員熱蘭遮城長官公署",
+        locationNameModern: "臺南市安平古堡內城",
+        coordinates: [120.16, 23.00],
+        tags: ["濱田彌兵衛", "朱印船", "奴易茲", "荷日貿易衝突"]
+      },
+      {
+        id: "evt_tw_liaoluo_bay_1633",
+        year: 1633,
+        yearDisplay: "西元 1633 年 (崇禎六年)",
+        title: "料羅灣海戰 (鄭芝龍大破荷蘭東印度艦隊)",
+        summary: "明朝水師副總兵鄭芝龍於金門料羅灣以火攻大破荷蘭提督普特曼斯艦隊，確立東南沿海霸權。",
+        detail: "荷蘭東印度公司企圖以武力強行迫使明朝開海通商，派遣戰艦與海盜劉香合流劫掠福建。鄭芝龍統帥百餘艘火攻戰船於料羅灣順風奇襲，焚毀荷蘭旗艦與戰艦多艘，普特曼斯狼狽敗退大員，奠定鄭氏家族掌握東亞航運制海權基礎。",
+        locationNameAncient: "福建金門料羅灣海面",
+        locationNameModern: "金門縣金湖鎮料羅灣",
+        coordinates: [118.42, 24.41],
+        tags: ["料羅灣海戰", "鄭芝龍", "火攻", "海權角逐"]
+      },
+      {
+        id: "evt_tw_landdag_1636",
+        year: 1636,
+        yearDisplay: "西元 1636 年 (崇禎九年)",
+        title: "荷蘭召開全島地方會議 (Landdag秩序確立)",
+        summary: "荷蘭駐臺長官普特曼斯在新港社召開首屆地方會議，確立長官頒賜權杖之朝貢體系。",
+        detail: "在麻豆社事件平定後，荷蘭當局召集南部各平埔族長老召開全島「地方會議（Landdag）」。長官向歸順頭目頒賜象徵威信的「荷蘭東印度公司藤杖（權杖）」，規範各社互不攻伐、改信基督教並宣誓效忠，奠定荷蘭統治原住民社會之制度架構。",
+        locationNameAncient: "臺南新港社禮堂",
+        locationNameModern: "臺南市新市區",
+        coordinates: [120.29, 23.08],
+        tags: ["地方會議", "Landdag", "長官權杖", "平埔族秩序"]
       },
       {
         id: "evt_tw_sinkang_manuscripts_1636",
@@ -138,7 +221,7 @@ export const TAIWAN_LENS_ERAS = [
         summary: "荷蘭牧師尤羅伯以羅馬字母拼寫西拉雅平埔族語，創立全臺第一套本土拼音文字系統。",
         detail: "荷蘭傳教士於新港社開辦學校，以拉丁字母拼寫西拉雅族語翻譯聖經，族人廣泛運用於土地買賣契約、債務契據，即聞名於世之「新港文書」（番仔契）。此套拼音系統在民間流傳使用逾一百五十年，直到清嘉慶道光年間仍具法定效力。",
         locationNameAncient: "臺南新港社 (西拉雅大社)",
-        locationNameModern: "臺南市新市區",
+        locationNameModern: "臺南市新市區新港國小一帶",
         coordinates: [120.30, 23.08],
         tags: ["新港文書", "西拉雅族", "羅馬拼音", "平埔族文化"]
       },
@@ -155,10 +238,22 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["雞籠之戰", "荷西爭霸", "大航海時代", "和平島"]
       },
       {
+        id: "evt_tw_dadu_resistance_1644",
+        year: 1644,
+        yearDisplay: "西元 1644 年 (崇禎十七年)",
+        title: "大肚王國抵抗荷蘭軍隊進犯大甲溪",
+        summary: "白晝之王甘馬轄·阿達夫統御拍瀑拉族與巴布薩族聯軍，在大甲溪流域成功重創荷軍遠征隊。",
+        detail: "為打通大員通往北部基隆、淡水之陸路交通，荷蘭派遣布恩中尉率軍進攻中臺灣。大肚王甘馬轄率部族戰士依託林莽伏擊，荷軍傷亡慘重無法突破大甲溪防線，最終被迫放棄武力征服改採簽約和解。",
+        locationNameAncient: "大甲溪下游林莽",
+        locationNameModern: "臺中市清水區與大甲區",
+        coordinates: [120.54, 24.28],
+        tags: ["大肚王國", "甘馬轄", "抗荷戰事", "大甲溪"]
+      },
+      {
         id: "evt_tw_guohuaiyi_1652",
         year: 1652,
         yearDisplay: "西元 1652 年 (順治九年)",
-        title: "郭懷一農民起義抗荷",
+        title: "郭懷一農民起義抗荷血戰赤崁",
         summary: "臺灣漢人農民因苛捐雜稅發動大規模反荷抗爭，血戰普羅民遮城。",
         detail: "荷蘭東印度公司對臺灣漢人移民課徵沈重之人頭稅與重稅。佃農領袖郭懷一聯絡四千餘漢人農民在油車行（今臺南永康）揭竿起義，進攻赤崁樓。荷軍調集火槍隊與原住民聯軍殘酷鎮壓，郭懷一殉難，此事件促使荷軍築普羅民遮城強化控制。",
         locationNameAncient: "臺灣府赤崁普羅民遮城",
@@ -202,18 +297,6 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["沈光文", "東瀛詩社", "開臺先師", "善化"]
       },
       {
-        id: "evt_tw_chen_yonghua_confucius",
-        year: 1666,
-        yearDisplay: "西元 1666 年 (永曆二十年)",
-        title: "陳永華建全臺首學臺南孔廟",
-        summary: "諮議參軍陳永華輔佐鄭經興學制禮，建立全臺第一座孔廟設立國子監太學。",
-        detail: "陳永華被譽為「東寧宰相」。為培育經世致用人才，力勸鄭經於承天府興建全臺首座孔廟（全臺首學），推動科舉取士，設府學與八思學校。推行保甲制與軍屯制，改良淋鹵曬鹽法開創七股鹽田，使東寧臺灣民豐物阜文教大開。",
-        locationNameAncient: "承天府寧南坊全臺首學",
-        locationNameModern: "臺南市中西區孔廟",
-        coordinates: [120.20, 22.99],
-        tags: ["陳永華", "全臺首學", "臺南孔廟", "東寧宰相"]
-      },
-      {
         id: "evt_tw_chen_yonghua_salt_tax",
         year: 1665,
         yearDisplay: "西元 1665 年 (永曆十九年)",
@@ -226,6 +309,18 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["陳永華", "鹽業改革", "七股鹽田", "軍屯制度"]
       },
       {
+        id: "evt_tw_chen_yonghua_confucius",
+        year: 1666,
+        yearDisplay: "西元 1666 年 (永曆二十年)",
+        title: "陳永華建全臺首學臺南孔廟",
+        summary: "諮議參軍陳永華輔佐鄭經興學制禮，建立全臺第一座孔廟設立國子監太學。",
+        detail: "陳永華被譽為「東寧宰相」。為培育經世致用人才，力勸鄭經於承天府興建全臺首座孔廟（全臺首學），推動科舉取士，設府學與八思學校。推行保甲制與軍屯制，改良淋鹵曬鹽法開創七股鹽田，使東寧臺灣民豐物阜文教大開。",
+        locationNameAncient: "承天府寧南坊全臺首學",
+        locationNameModern: "臺南市中西區孔廟",
+        coordinates: [120.20, 22.99],
+        tags: ["陳永華", "全臺首學", "臺南孔廟", "東寧宰相"]
+      },
+      {
         id: "evt_tw_zheng_jing_trade_treaty",
         year: 1672,
         yearDisplay: "西元 1672 年 (永曆二十六年)",
@@ -236,9 +331,69 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺南市安平區洋行遺址群",
         coordinates: [120.16, 22.99],
         tags: ["英鄭條約", "鄭經", "國際貿易", "安平商館"]
+      },
+      {
+        id: "evt_tw_zheng_jing_sanfan_1674",
+        year: 1674,
+        yearDisplay: "西元 1674 年 (永曆二十八年)",
+        title: "鄭經西征參與三藩之役出兵閩粵",
+        summary: "響應吳三桂與耿精忠起事，鄭經率水師主力渡海反攻廈門、泉州、漳州與潮州。",
+        detail: "清初三藩之亂爆發，耿精忠派使約鄭經會師抗清。鄭經親統萬餘大軍渡海進駐廈門，先後攻克海澄、泉州、漳州、同安等地，震動清廷南疆。後因鄭耿嫌隙與清軍反撲，東寧主力於1680年撤回臺灣。",
+        locationNameAncient: "金門料羅灣至廈門港",
+        locationNameModern: "金門與廈門海峽兩岸",
+        coordinates: [118.32, 24.44],
+        tags: ["三藩之役", "鄭經", "反清復明", "西征"]
+      },
+      {
+        id: "evt_tw_chen_yonghua_death_1680",
+        year: 1680,
+        yearDisplay: "西元 1680 年 (永曆三十四年)",
+        title: "陳永華退隱辭官與一代宰相病逝",
+        summary: "馮錫範、劉國軒排擠陳永華，一代名相解甲退隱龍湖巖，同年病逝，東寧失去棟樑。",
+        detail: "西征失利後，陳永華遭侍衛鎮馮錫範以退為進奪取兵權。陳永華以大局為重辭去勇衛職守，隱居赤山龍湖巖修道，同年七月鬱悒染疾而卒。鄭經痛哭失聲，士民如喪考妣，東寧朝局自此陷入權臣爭權。",
+        locationNameAncient: "承天府赤山龍湖巖",
+        locationNameModern: "臺南市六甲區龍湖巖",
+        coordinates: [120.36, 23.23],
+        tags: ["陳永華", "東寧政爭", "赤山龍湖巖", "一代名相"]
+      },
+      {
+        id: "evt_tw_dongning_coup_1681",
+        year: 1681,
+        yearDisplay: "西元 1681 年 (永曆三十五年)",
+        title: "東寧政變 (鄭克𡒉遇害與鄭克塽即位)",
+        summary: "鄭經薨逝，馮錫範聯絡宗室發動東寧之變縊殺監國鄭克𡒉，擁立年僅十二歲之鄭克塽。",
+        detail: "鄭經長子鄭克𡒉剛毅勇決、深得軍心民望，受陳永華悉心教導。鄭經病逝後，馮錫範與鄭聰誣其非鄭氏骨肉，發動兵變於北園別館殺害鄭克𡒉，改立其婿鄭克塽。政變導致東寧文武離心，為施琅平台埋下禍端。",
+        locationNameAncient: "承天府北園別館 (今開元寺)",
+        locationNameModern: "臺南市北區開元寺",
+        coordinates: [120.22, 23.01],
+        tags: ["東寧政變", "鄭克𡒉", "鄭克塽", "開元寺"]
+      },
+      {
+        id: "evt_tw_shi_lang_penghu_1683",
+        year: 1683,
+        yearDisplay: "西元 1683 年 (康熙二十二年)",
+        title: "施琅澎湖海戰大捷東寧請降",
+        summary: "施琅率三百艘水師精銳順風奇襲澎湖大破劉國軒，鄭克塽奉表納降，東寧王朝落幕。",
+        detail: "康熙帝命施琅為福建水師提督專征臺灣。1683年7月施琅藉西南季風順流突入澎湖八罩水域，實施五方分進合擊大破劉國軒水師主力。劉國軒乘快船逃回臺灣，鄭克塽君臣見大勢已去奉表納土稱臣，明鄭歷時二十三年之治結束。",
+        locationNameAncient: "澎湖娘媽宮海面至大員港",
+        locationNameModern: "澎湖縣馬公市與臺南市安平區",
+        coordinates: [119.56, 23.56],
+        tags: ["澎湖海戰", "施琅", "劉國軒", "鄭克塽納降"]
+      },
+      {
+        id: "evt_tw_koxinga_spirit_legacy",
+        year: 1683,
+        yearDisplay: "西元 1683 年 (明鄭遺緒)",
+        title: "開臺聖王精神傳承與延平郡王祠",
+        summary: "鄭成功開拓之功深受全臺民眾代代崇敬，康熙帝亦題輓聯讚揚其忠烈，尊為民族英雄。",
+        detail: "鄭成功雖反清，但其驅逐外侮、闢土安民之功德受後世無比敬重。康熙帝特頒御聯：「四鎮多二心，兩島屯師，敢向東南爭半壁；諸生作一隊，九死不悔，願隨孤臣延祚綿。」後清光緒年間欽差沈葆楨奏請追諡並建延平郡王祠官祀，成為臺灣共同尊奉之守護圖騰。",
+        locationNameAncient: "臺灣府開山王廟 (延平郡王祠)",
+        locationNameModern: "臺南市中西區延平郡王祠",
+        coordinates: [120.21, 22.99],
+        tags: ["開臺聖王", "延平郡王祠", "民族精神", "沈葆楨追諡"]
       }
     ],
-    highlightFigures: ["fig_zheng_chenggong", "fig_chen_yonghua", "fig_zheng_jing", "fig_liu_guoxuan", "fig_tw_shen_guangwen"]
+    highlightFigures: ["fig_zheng_chenggong", "fig_chen_yonghua", "fig_tw_shen_guangwen", "fig_zheng_jing", "fig_liu_guoxuan"]
   },
   {
     id: "tw_qing_early",
@@ -261,12 +416,36 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["施琅", "臺灣府", "康熙設治", "納入版圖"]
       },
       {
+        id: "evt_tw_dantai_bans_1684",
+        year: 1684,
+        yearDisplay: "西元 1684 年 (康熙二十三年)",
+        title: "頒布渡臺禁令與土牛紅線界碑",
+        summary: "清廷為防臺灣成為反清溫床，實施渡臺三禁嚴防攜眷，立石劃定漢番分界「土牛線」。",
+        detail: "清廷規定渡臺需領照准許、嚴禁攜家帶眷、禁止粵東客民入臺。導致早期渡臺移民男女比例嚴重失衡，多單身羅漢腳，促成「有唐山公，無唐山媽」之與平埔女性通婚現象。同時沿山麓挑溝堆土立石劃定「土牛線」，嚴禁漢人越界拓墾原住民保留區。",
+        locationNameAncient: "臺灣府南北路土牛界碑",
+        locationNameModern: "臺中石岡與桃園楊梅土牛碑",
+        coordinates: [120.78, 24.27],
+        tags: ["渡臺禁令", "土牛線", "羅漢腳", "漢番分界"]
+      },
+      {
+        id: "evt_tw_yu_yonghe_sulfur_1697",
+        year: 1697,
+        yearDisplay: "西元 1697 年 (康熙三十六年)",
+        title: "郁永河採硫探險與著成《裨海紀遊》",
+        summary: "郁永河自府城搭牛車一路向北穿越全島荒野，在北投大磺嘴採硫著成全臺第一散文名著。",
+        detail: "福州火藥庫爆炸後，浙江文士郁永河自告奮勇來臺採硫。自臺南出發歷經兩月牛車跋涉抵達淡水河口北投，在毒瘴地熱中搭屋煮硫二十餘萬斤。所著《裨海紀遊》文字靈動，詳記臺灣西部平原山川、動植物與平埔族原始風俗，為臺灣文學史開山經典。",
+        locationNameAncient: "淡水廳北投大磺嘴",
+        locationNameModern: "臺北市北投區硫磺谷",
+        coordinates: [121.52, 25.14],
+        tags: ["郁永河", "裨海紀遊", "北投採硫", "古典散文"]
+      },
+      {
         id: "evt_tw_babao_canal_1719",
         year: 1719,
         yearDisplay: "西元 1719 年 (康熙五十八年)",
         title: "施世榜開闢八堡圳 (中臺灣水利豐饒奠基)",
         summary: "施世榜傾資開鑿八堡圳引濁水溪，奠定彰化平原數百年稻作米倉之基石。",
-        detail: "墾首施世榜歷經十年艱辛，引濁水溪水修築八堡圳（長逾百里，灌溉彰化十三堡中之八堡）。林先生傳授「笱仔」擋水引水秘法順利通水。郭錫瑠隨後開闢臺北「瑠公圳」，鳳山知縣曹謹修築「曹公圳」，全島水網縱橫，荒埔化為千頃沃野。",
+        detail: "墾首施世榜歷經十年艱辛，引濁水溪水修築八堡圳（長逾百里，灌溉彰化十三堡中之八堡）。林先生傳授「笱仔」擋水引水秘法順利通水。全島水網縱橫，荒埔化為千頃沃野。",
         locationNameAncient: "臺灣府諸羅縣半線 (彰化)",
         locationNameModern: "彰化縣二水鄉鼻仔頭水圳頭",
         coordinates: [120.62, 23.81],
@@ -285,11 +464,35 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["朱一貴", "鴨母王", "民變", "反清"]
       },
       {
+        id: "evt_tw_lan_dingyuan_treatise_1723",
+        year: 1723,
+        yearDisplay: "西元 1723 年 (雍正元年)",
+        title: "藍鼎元著《東征集》推動設立淡水廳與彰化縣",
+        summary: "經略名臣藍鼎元著書力陳「經略臺灣十策」，促成清廷增設彰化縣與淡水廳拓展北臺。",
+        detail: "隨施世驃平亂之文士藍鼎元深入考察全島，上書巡撫力主積極拓墾，著《東征集》與《平臺紀略》。藍鼎元指出竹塹、大加蚋（臺北）原野平闊沃衍，建議官設淡水廳管轄大甲溪以北，促使臺灣政經建設邁向北臺灣大開發。",
+        locationNameAncient: "福建巡撫衙門與臺灣府署",
+        locationNameModern: "新竹市與臺中市",
+        coordinates: [120.97, 24.81],
+        tags: ["藍鼎元", "東征集", "淡水廳", "彰化縣設治"]
+      },
+      {
+        id: "evt_tw_guoxi_liu_canal_1760",
+        year: 1760,
+        yearDisplay: "西元 1760 年 (乾隆二十五年)",
+        title: "郭錫瑠興築瑠公圳潤澤大臺北平原",
+        summary: "郭錫瑠父子鑿通新店碧潭岩壁，引新店溪溪水修築木梘暗渠，使臺北盆地成為良田。",
+        detail: "墾首郭錫瑠傾盡家產，克服泰雅族出草與洪水泥沙險阻，鑿通碧潭岩壁，並以巨型木梘跨越景美溪引水北進，灌溉大加蚋堡（今臺北大安、信義、松山）數萬畝荒地，奠定臺北城富庶之農經基底。",
+        locationNameAncient: "大加蚋堡新店溪碧潭引水閘",
+        locationNameModern: "新北市新店區碧潭與臺北市大安區",
+        coordinates: [121.53, 24.95],
+        tags: ["瑠公圳", "郭錫瑠", "臺北水利", "新店溪"]
+      },
+      {
         id: "evt_tw_linshuangwen_1786",
         year: 1786,
         yearDisplay: "西元 1786 年 (乾隆五十一年)",
-        title: "林爽文天地會大起義",
-        summary: "臺灣歷史規模最大民變，天地會林爽文攻陷彰化諸羅，乾隆派福康安渡海平亂。",
+        title: "林爽文天地會大起義與諸羅死守賜名嘉義",
+        summary: "臺灣歷史規模最大民變，天地會林爽文攻陷彰化諸羅，乾隆派福康安渡海平亂賜名嘉義。",
         detail: "大里杙天地會首領林爽文起義，自稱盟主改元順天，全臺南北呼應包圍諸羅城。乾隆帝派大學士福康安率數萬大軍渡臺解圍，諸羅軍民堅守數月「嘉其死守之義」，乾隆特賜名諸羅為「嘉義」，名列乾隆十全武功之一。",
         locationNameAncient: "臺灣府諸羅縣 (嘉義)",
         locationNameModern: "嘉義市東區與西區",
@@ -300,7 +503,7 @@ export const TAIWAN_LENS_ERAS = [
         id: "evt_tw_wu_sha_kavalan_1796",
         year: 1796,
         yearDisplay: "西元 1796 年 (嘉慶元年)",
-        title: "吳沙率三籍移民入墾蘭陽平原",
+        title: "吳沙率三籍移民入墾蘭陽平原 (開蘭始祖)",
         summary: "「開蘭始祖」吳沙率漳泉粵移民千餘人翻越雪山草嶺入墾頭圍，開闢宜蘭沃野。",
         detail: "吳沙召募墾民千餘人、鄉勇兩百人，攜帶農具穀種翻越三貂嶺草嶺古道入墾頭圍。初遭強烈抵抗，後蘭陽發生天花痘症，吳沙以漢藥方劑救治平埔族幼童無數，族人感激化干戈為玉帛，迅速開闢二圍、三圍至員山，奠定東臺灣開拓第一基石。",
         locationNameAncient: "蛤仔難頭圍 (頭城)",
@@ -321,7 +524,7 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["曹公圳", "曹謹", "鳳山知縣", "南臺灣水利"]
       }
     ],
-    highlightFigures: ["fig_shi_lang", "fig_tw_shi_shibang", "fig_zhu_yigui", "fig_lin_shuangwen", "fig_tw_wu_sha", "fig_tw_cao_jin", "fig_tw_yang_tingli", "fig_fu_kangan"]
+    highlightFigures: ["fig_shi_lang", "fig_tw_shi_shibang", "fig_tw_guoxi_liu", "fig_zhu_yigui", "fig_tw_lan_dingyuan", "fig_tw_yu_tengfeng", "fig_lin_shuangwen", "fig_tw_wu_sha", "fig_tw_cao_jin", "fig_tw_yang_tingli", "fig_tw_wang_delu", "fig_fu_kangan"]
   },
   {
     id: "tw_qing_late",
@@ -333,7 +536,7 @@ export const TAIWAN_LENS_ERAS = [
     keyEvents: [
       {
         id: "evt_tw_tianjin_treaty_ports_1860",
-        year: 1660,
+        year: 1860,
         yearDisplay: "西元 1860 年 (咸豐十年)",
         title: "天津條約開港通商 (茶葉樟腦行銷全球)",
         summary: "安平、淡水、雞籠、打狗四港正式開港，洋行林立，臺灣茶與樟腦躍居外銷第一主力。",
@@ -344,12 +547,24 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["開港通商", "大稻埕", "烏龍茶", "洋行"]
       },
       {
+        id: "evt_tw_james_maxwell_1865",
+        year: 1865,
+        yearDisplay: "西元 1865 年 (同治四年)",
+        title: "馬雅各醫師創辦全臺第一間西醫新樓醫院",
+        summary: "英國長老教會馬雅各醫師於臺南看西街設立醫館，開啟臺灣現代西方公衛醫療之門。",
+        detail: "愛丁堡大學醫學博士馬雅各奉派來臺，在府城看西街租屋行醫，引進現代化外科手術、眼科白內障治療與奎寧抗瘧藥物。後於新樓建立現代醫院，以醫療傳道消弭原漢對西學之疑懼，為臺灣現代西醫之濫觴。",
+        locationNameAncient: "臺灣府城看西街醫館",
+        locationNameModern: "臺南市東區新樓醫院",
+        coordinates: [120.21, 22.99],
+        tags: ["馬雅各", "新樓醫院", "現代西醫", "臺南"]
+      },
+      {
         id: "evt_tw_mackay_tamsui_hospital_1872",
         year: 1872,
         yearDisplay: "西元 1872 年 (同治十一年)",
         title: "馬偕博士抵臺創立滬尾偕醫館與牛津學堂",
         summary: "加拿大長老教會宣教士馬偕立足淡水，創立偕醫館與全臺首座現代高等學府牛津學堂。",
-        detail: "1872年3月馬偕（George Leslie Mackay）博士搭船抵達淡水，以「寧願燒盡，不願銹壞」之偉大情懷宣教三十年。設立滬尾偕醫館（馬偕紀念醫院前身）免費醫治病患、拔牙逾兩萬顆，設立牛津學堂引進天文、地理、物理新知，並創辦全臺第一所女子學校「淡水女學堂」，推動現代醫學與女性受教權。",
+        detail: "1872年3月馬偕博士搭船抵達淡水，以「寧願燒盡，不願銹壞」之偉大情懷宣教三十年。設立滬尾偕醫館免費醫治病患、拔牙逾兩萬顆，設立牛津學堂引進天文、地理、物理新知，並創辦全臺第一所女子學校「淡水女學堂」，推動現代醫學與女性受教權。",
         locationNameAncient: "淡水廳滬尾牛津學堂",
         locationNameModern: "新北市淡水區真理大學與淡江中學",
         coordinates: [121.44, 25.17],
@@ -380,16 +595,40 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["八通關古道", "吳光亮", "沈葆楨", "開山撫番"]
       },
       {
+        id: "evt_tw_sino_french_tamsui_1884",
+        year: 1884,
+        yearDisplay: "西元 1884 年 (光緒十年)",
+        title: "中法戰爭滬尾大捷與基隆獅球嶺保衛戰",
+        summary: "孤拔艦隊砲轟淡水基隆，劉銘傳、孫開華、林朝棟督師奮戰，重創法軍海軍陸戰隊。",
+        detail: "法國遠東艦隊企圖奪取臺灣煤礦與港口以逼清和談。孫開華將軍設伏於淡水沙崙防風林白刃肉搏殲敵數百，林朝棟率鄉勇「棟軍」死守基隆獅球嶺要塞數月。法軍死傷慘重無法前進一步，孤拔中將飲恨澎湖病逝。",
+        locationNameAncient: "淡水沙崙與基隆獅球嶺",
+        locationNameModern: "新北市淡水區與基隆市仁愛區",
+        coordinates: [121.43, 25.17],
+        tags: ["中法戰爭", "滬尾大捷", "孫開華", "林朝棟", "獅球嶺"]
+      },
+      {
         id: "evt_tw_liumingchuan_province_1885",
         year: 1885,
         yearDisplay: "西元 1885 年 (光緒十一年)",
-        title: "劉銘傳中法保臺大捷與臺灣建省",
-        summary: "劉銘傳於滬尾淡水擊退法軍艦隊，清廷下詔臺灣獨立建省，劉銘傳任首任巡撫推動全島現代化。",
-        detail: "中法戰爭孤拔艦隊封鎖臺灣基隆、淡水。巡撫劉銘傳督師淡水滬尾以水雷沉船與近戰大敗法軍陸戰隊。戰後清廷深刻認識臺灣海防樞紐地位，於1885年10月12日慈禧太后頒旨宣示「臺灣為南洋門戶，關係緊要，自應設立行省」，正式分立臺灣省。劉銘傳築造中國第一條現代客運鐵路（基隆至新竹）、鋪設海底電報線、設立全臺郵政總局與西學堂。",
+        title: "慈禧太后頒詔臺灣正式建省",
+        summary: "清廷確立臺灣為南洋門戶海防要衝，下旨設立行省，劉銘傳任首任巡撫推動全島自強現代化。",
+        detail: "中法戰爭後，清廷體認臺灣「為南洋門戶，關係緊要」。光緒十一年九月初五慈禧太后頒懿旨，正式將臺灣自福建省劃出獨立建省，改設三府一直接州。劉銘傳督辦全省新政，推行全島清賦、開山撫番、設西學堂電報學堂，使臺灣一躍成為全國最先進之模範行省。",
         locationNameAncient: "臺灣省巡撫衙門 (臺北府城)",
         locationNameModern: "臺北市中正區中山堂原址",
         coordinates: [121.51, 25.04],
-        tags: ["臺灣建省", "劉銘傳", "現代化之父", "淡水大捷"]
+        tags: ["臺灣建省", "劉銘傳", "現代化之父", "模範省"]
+      },
+      {
+        id: "evt_tw_telegraph_cable_1887",
+        year: 1887,
+        yearDisplay: "西元 1887 年 (光緒十三年)",
+        title: "鋪設臺灣福州海底電報線與大清郵政局",
+        summary: "劉銘傳架設全臺陸上電報線並鋪設橫跨臺灣海峽之海底電纜，首創現代郵電通訊制度。",
+        detail: "劉銘傳聘請丹麥工程師鋪設滬尾至福州川石島長達四百餘里之海底電報電纜，並建立全臺自基隆、臺北通達臺南之陸上電報線路。設立「臺灣郵政總局」，發行中國第一套現代郵票「龍馬圖郵票」，使臺灣資訊傳遞一日千里。",
+        locationNameAncient: "臺北府城大清臺灣郵政總局",
+        locationNameModern: "臺北市中正區忠孝西路郵政博物館原址",
+        coordinates: [121.51, 25.04],
+        tags: ["海底電纜", "臺灣郵政", "劉銘傳", "現代通訊"]
       },
       {
         id: "evt_tw_first_railway_1891",
@@ -402,9 +641,21 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺北市大同區鄭州路與基隆獅球嶺隧道遺址",
         coordinates: [121.51, 25.05],
         tags: ["臺灣鐵路", "劉銘傳", "騰雲號", "獅球嶺隧道"]
+      },
+      {
+        id: "evt_tw_lin_weiyuan_garden_1893",
+        year: 1893,
+        yearDisplay: "西元 1893 年 (光緒十九年)",
+        title: "板橋林家花園落成與巨紳贊助實業",
+        summary: "臺灣首富林維源斥巨資修築板橋林本源園邸，出資百萬贊助鐵路軍防，冠蓋雲集。",
+        detail: "板橋林家林維源歷經數十年落成佔地兩萬餘平方公尺之江南園林「林家花園（汲古書屋、來青閣）」。林維源以實業興邦，出資數十萬兩白銀贊助劉銘傳興築鐵路、電報與安撫原住民，展現臺灣本土士紳投身現代化建設之雄厚實力。",
+        locationNameAncient: "臺北府淡水縣枋橋林本源園邸",
+        locationNameModern: "新北市板橋區林本源園邸 (板橋林家花園)",
+        coordinates: [121.45, 25.01],
+        tags: ["板橋林家", "林維源", "林家花園", "臺灣實業"]
       }
     ],
-    highlightFigures: ["fig_shen_baozhen", "fig_liu_mingchuan", "fig_tw_lin_chaodong", "fig_tw_mackay", "fig_tang_jingsong", "fig_qiu_fengjia", "fig_liu_yongfu"]
+    highlightFigures: ["fig_shen_baozhen", "fig_liu_mingchuan", "fig_tw_lin_chaodong", "fig_tw_lin_weiyuan", "fig_tw_wu_guangliang", "fig_tw_mackay", "fig_tw_james_maxwell", "fig_tang_jingsong", "fig_qiu_fengjia", "fig_liu_yongfu"]
   },
   {
     id: "tw_japanese",
@@ -427,6 +678,54 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["乙未戰爭", "臺灣民主國", "八卦山戰役", "保臺英烈"]
       },
       {
+        id: "evt_tw_barclay_tainan_peace_1895",
+        year: 1895,
+        yearDisplay: "西元 1895 年 (明治二十八年)",
+        title: "巴克禮牧師冒死交涉保全臺南府城百萬生靈",
+        summary: "日軍圍攻臺南之際，巴克禮牧師受府城士紳懇請深夜出城和平交涉，使府城和平開城免遭屠戮。",
+        detail: "黑旗軍劉永福內渡後，日軍三路包圍臺南府城。英國宣教士巴克禮與宋忠堅牧師受府城富紳懇託，深夜手持和平請願書穿過戰火出城與乃木希典將軍談判。日軍接受和平開城條件軍紀嚴整進城，全城百姓免於戰火屠殺滅頂之災。",
+        locationNameAncient: "臺南府城小南門與南門路",
+        locationNameModern: "臺南市中西區巴克禮紀念公園",
+        coordinates: [120.21, 22.98],
+        tags: ["巴克禮", "和平交涉", "臺南開城", "仁愛大德"]
+      },
+      {
+        id: "evt_tw_gotoshinpei_land_survey_1898",
+        year: 1898,
+        yearDisplay: "西元 1898 — 1904 年",
+        title: "後藤新平推行全島土地大調查與專賣公衛改革",
+        summary: "民政長官後藤新平推行生物學統治原理，清丈全島地籍消除大租權，奠定近代行政財政基石。",
+        detail: "後藤新平採用「舊慣調查」方式，全面清查全島土地隱田，發行公債收買大租戶產權，確立實質耕作小租戶為單一土地所有者，大幅增加田賦收入。同時實施鴉片漸禁、樟腦食鹽專賣，創立下水道防疫系統與臺北帝國大學醫學部前身。",
+        locationNameAncient: "臺灣總督府民政部",
+        locationNameModern: "臺北市中正區總統府原址",
+        coordinates: [121.51, 25.03],
+        tags: ["後藤新平", "土地調查", "公衛現代化", "專賣制度"]
+      },
+      {
+        id: "evt_tw_cross_island_railway_1908",
+        year: 1908,
+        yearDisplay: "西元 1908 年 (明治四十一年)",
+        title: "縱貫鐵路基隆至高雄405公里全線通車",
+        summary: "歷時十年艱辛鑿山築橋，基隆至打狗（高雄）南北縱貫縱貫鐵路全線貫通通車。",
+        detail: "總督府鐵道部克服大安溪、大安山、三義勝興陡坡與濁水溪險阻，完成長達405公里的南北縱貫鐵路。1908年10月於臺中公園舉行盛大通車典禮，行車時間由過去數日縮減為九小時，徹底打通全島物流、人流與現代經濟動脈。",
+        locationNameAncient: "臺中火車站與臺中公園通車會場",
+        locationNameModern: "臺中市中區臺中舊火車站與臺中公園",
+        coordinates: [120.68, 24.14],
+        tags: ["縱貫鐵路", "南北貫通", "臺中公園", "鐵道工藝"]
+      },
+      {
+        id: "evt_tw_luofuxing_miaoli_1913",
+        year: 1913,
+        yearDisplay: "西元 1913 年 (大正二年)",
+        title: "羅福星同盟會苗栗抗日起義",
+        summary: "同盟會烈士羅福星受孫中山之命赴臺組織同盟會支部，策劃全島武裝起義壯烈犧牲。",
+        detail: "辛亥革命成功後，同盟會會員羅福星潛入臺灣，在苗栗大湖、大圍秘密招募會員逾千人，發表《大漢篇》誓言驅除日本總督統治恢復臺灣。事洩被捕，羅福星從容就義，臨刑留下名言：「殺頭相似風吹帽，敢在人間做豪傑！」。",
+        locationNameAncient: "新竹州苗栗郡大湖庄",
+        locationNameModern: "苗栗縣大湖鄉昭忠祠",
+        coordinates: [120.87, 24.42],
+        tags: ["羅福星", "苗栗事件", "同盟會", "辛亥烈士"]
+      },
+      {
         id: "evt_tw_tapani_incident_1915",
         year: 1915,
         yearDisplay: "西元 1915 年 (大正四年)",
@@ -439,16 +738,28 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["噍吧哖事件", "西來庵起義", "余清芳", "玉井"]
       },
       {
+        id: "evt_tw_parliament_petition_1921",
+        year: 1921,
+        yearDisplay: "西元 1921 — 1934 年",
+        title: "林獻堂發起臺灣議會設置請願運動",
+        summary: "霧峰林家林獻堂領導全島菁英赴東京帝國議會請願，堅持十四年爭取臺灣人高度立法自治。",
+        detail: "受威爾遜「民族自決」浪潮啟發，林獻堂、蔡培火等組成請願團，連續十五次向日本帝國議會遞交請願書，要求設立屬於臺灣人之地方民選議會。此非暴力憲政啟蒙運動長達十四年，培育全臺整整一代民主法治菁英。",
+        locationNameAncient: "臺中州大屯郡霧峰林家花園景薰樓",
+        locationNameModern: "臺中市霧峰區林家宅第",
+        coordinates: [120.69, 24.06],
+        tags: ["議會請願", "林獻堂", "自治精神", "非暴力爭取"]
+      },
+      {
         id: "evt_tw_cultural_golden_age",
         year: 1921,
         yearDisplay: "西元 1921 — 1931 年",
         title: "臺灣文化協會創立與政治社會啟蒙黃金時代",
         summary: "蔣渭水、林獻堂、蔡培火引領體制內非暴力啟蒙，創立文化協會與臺灣民眾黨。",
-        detail: "1920年代林獻堂赴日發起「臺灣議會設置請願運動」連辦十四年。蔣渭水成立「臺灣文化協會」發表《臨床講義》，設立讀報社巡迴全島演講破除迷信，創立首個政黨「臺灣民眾黨」，賴和推動鄉土新文學。此時期標誌臺灣人民自武裝抗爭轉型為現代公民自主自覺。",
-        locationNameAncient: "臺北州臺北市大稻埕",
-        locationNameModern: "臺北市大同區大稻埕靜修女中原址",
+        detail: "蔣渭水於臺北大稻埕靜修女中發起成立「臺灣文化協會」，發表撼動人心之《臨床講義》，診斷臺灣罹患「智識營養不良症」。廣設讀報社、開辦夏季學校、巡迴演講，賴和開闢臺灣鄉土新文學，開啟全臺波瀾壯闊之自覺覺民黃金時代。",
+        locationNameAncient: "臺北州臺北市大稻埕靜修女中",
+        locationNameModern: "臺北市大同區大稻埕",
         coordinates: [121.51, 25.05],
-        tags: ["臺灣文化協會", "蔣渭水", "林獻堂", "非暴力抗爭", "新文學"]
+        tags: ["臺灣文化協會", "蔣渭水", "臨床講義", "新文學"]
       },
       {
         id: "evt_tw_wushe_uprising",
@@ -456,9 +767,9 @@ export const TAIWAN_LENS_ERAS = [
         yearDisplay: "西元 1930 年 (昭和五年)",
         title: "莫那·魯道霧社起義抗日",
         summary: "賽德克族馬赫坡社首領莫那·魯道聯合六社抗暴起義，彰顯原住民族浩然不屈精神。",
-        detail: "1930年10月27日，因長年山林苛役與殖民欺凌，賽德克族頭目莫那·魯道率部落勇士奇襲霧社公學校運動會。日軍出動大軍、飛機與糜爛性毒氣瓦斯圍攻，原住民族戰士以險阻山地血戰數十日，最後全數壯烈成仁，震撼國際聯盟關注原住民族人權。",
-        locationNameAncient: "臺中州能高郡霧社",
-        locationNameModern: "南投縣仁愛鄉霧社紀念公園",
+        detail: "因長年山林苛役與殖民欺凌，賽德克族頭目莫那·魯道率三百勇士奇襲霧社公學校運動會。日軍出動大軍、飛機與糜爛性毒氣瓦斯圍攻，勇士們依託險峻奇岩浴血奮戰數十日，最後全數壯烈成仁，震撼國際聯盟高度關注原住民族生存人權。",
+        locationNameAncient: "臺中州能高郡霧社馬赫坡社",
+        locationNameModern: "南投縣仁愛鄉霧社紀念公園與廬山溫泉",
         coordinates: [121.13, 24.02],
         tags: ["莫那魯道", "霧社事件", "賽德克族", "原民英烈"]
       },
@@ -473,21 +784,9 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺南市官田區烏山頭水庫風景區",
         coordinates: [120.36, 23.20],
         tags: ["八田與一", "烏山頭水庫", "嘉南大圳", "綠色奇蹟"]
-      },
-      {
-        id: "evt_tw_kano_koshien_1931",
-        year: 1931,
-        yearDisplay: "西元 1931 年 (昭和六年)",
-        title: "嘉義農林棒球隊KANO進軍甲子園獲準優勝",
-        summary: "近藤兵衛教練率漢、和、原三族融合之嘉義農林棒球隊遠征日本甲子園，勇奪全國準優勝。",
-        detail: "嘉義農林學校棒球隊（KANO）打破傳統族群成見，結合原住民之速度敏捷、漢人之打擊協調與和人之防守紀律。1931年首次代表臺灣遠征阪神甲子園球場，一路過關斬將殺入總決賽榮獲亞軍，贏得全場五萬觀眾齊聲高呼「英雄戰場·天下嘉農」之美名，奠定臺灣棒球王國傳奇基石。",
-        locationNameAncient: "臺南州嘉義市山下町嘉義商工球場",
-        locationNameModern: "嘉義市東區國立嘉義大學",
-        coordinates: [120.48, 23.47],
-        tags: ["KANO", "天下嘉農", "甲子園", "臺灣棒球傳奇"]
       }
     ],
-    highlightFigures: ["fig_tw_wu_tangxing", "fig_tw_xu_xiang", "fig_lin_xiantang", "fig_chiang_weishui", "fig_lai_he", "fig_tw_hatta_yoichi", "fig_mona_rudao", "fig_yu_qingfang", "fig_tw_deng_yuxian", "fig_tw_huang_tushui", "fig_tw_chen_chengpo"]
+    highlightFigures: ["fig_tw_wu_tangxing", "fig_tw_xu_xiang", "fig_tw_xiao_guangming", "fig_tw_wu_pengnian", "fig_tw_barclay", "fig_lin_xiantang", "fig_chiang_weishui", "fig_lai_he", "fig_tw_hatta_yoichi", "fig_tw_tu_tsung_ming", "fig_mona_rudao", "fig_luo_fuxing", "fig_yu_qingfang", "fig_tw_deng_yuxian", "fig_tw_huang_tushui", "fig_tw_chen_chengpo", "fig_tw_kondo_hyoe"]
   },
   {
     id: "tw_postwar",
@@ -546,6 +845,30 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["故宮國寶", "文博傳承", "毛公鼎", "外雙溪"]
       },
       {
+        id: "evt_tw_daerdan_victory_1950",
+        year: 1950,
+        yearDisplay: "西元 1950 年 (民國三十九年)",
+        title: "大二膽島戰役 (史恆豐營長以寡敵眾立奇功)",
+        summary: "解放軍夜襲金門門戶大二膽島，史恆豐少校率不到三百兵力全殲登陸敵軍生擒敵營長。",
+        detail: "解放軍加強營七百餘人突擊大二膽島。史恆豐營長指揮沉著，傳令兵賴生明冒死穿過重重彈雨傳遞軍令，全營將士刺刀肉搏將敵軍包圍聚殲於沙灘。蔣經國親赴戰地題碑「島孤人不孤」，確立大膽島海防第一堡壘地位。",
+        locationNameAncient: "金門縣大膽島生明廳",
+        locationNameModern: "金門縣烈嶼鄉大膽島風景區",
+        coordinates: [118.20, 24.38],
+        tags: ["大二膽戰役", "史恆豐", "島孤人不孤", "大膽島"]
+      },
+      {
+        id: "evt_tw_us_aid_yin_1950",
+        year: 1950,
+        yearDisplay: "西元 1950 — 1965 年",
+        title: "尹仲容主導美援引進與外匯民營化改革",
+        summary: "「臺灣經濟奇蹟總工程師」尹仲容主導運用美援十五億美元，培植民間紡織與石化工業。",
+        detail: "韓戰爆發後美國重啟對臺經濟軍事援助。經濟部長尹仲容以超凡魄力推動「單一匯率改革」、鼓勵民間創業投資，扶持台塑王永慶、遠東徐有庠等民營企業家，奠定臺灣由農業社會邁向工業化外銷導向之黃金基石。",
+        locationNameAncient: "行政院美援運用委員會署",
+        locationNameModern: "臺北市中正區行政院原址",
+        coordinates: [121.52, 25.04],
+        tags: ["美援", "尹仲容", "外匯改革", "經濟起飛"]
+      },
+      {
         id: "evt_tw_land_reform_1953",
         year: 1953,
         yearDisplay: "西元 1953 年 (民國四十二年)",
@@ -556,6 +879,18 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺灣各地農村",
         coordinates: [120.30, 23.50],
         tags: ["土地改革", "耕者有其田", "陳誠", "經濟基礎"]
+      },
+      {
+        id: "evt_tw_yijiangshan_treaty_1955",
+        year: 1955,
+        yearDisplay: "西元 1955 年 (民國四十四年)",
+        title: "一江山血戰成仁與《中美共同防禦條約》生效",
+        summary: "王生明司令官率千餘守軍堅守一江山浴血三晝夜全員壯烈殉國，促成臺美同盟條約生效。",
+        detail: "共軍陸海空軍大舉合圍一江山島，王生明率千餘官兵誓死死守，擊沉敵艦多艘，最後引爆手榴彈成仁。此悲壯血戰震撼自由世界，美國國會迅速通過《臺灣決議案》，《中美共同防禦條約》正式批准生效，大陳島萬餘軍民安全撤退臺灣，奠定海峽冷戰安全鐵壁。",
+        locationNameAncient: "一江山防區至大陳島",
+        locationNameModern: "臺北市一江街紀念碑與大陳新村",
+        coordinates: [121.40, 25.80],
+        tags: ["一江山島", "王生明", "中美防禦條約", "大陳撤退"]
       },
       {
         id: "evt_tw_823_1958",
@@ -605,6 +940,18 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["十大建設", "蔣經國", "孫運璿", "亞洲四小龍"]
       },
       {
+        id: "evt_tw_itri_rca_1976",
+        year: 1976,
+        yearDisplay: "西元 1976 年 (民國六十五年)",
+        title: "潘文淵李國鼎引進RCA半導體技術 (工研院成立)",
+        summary: "經濟部推動潘文淵「積體電路計畫」，引進美國RCA技術在工研院試產晶圓，啟動矽島傳奇。",
+        detail: "在臺北小欣欣豆漿店的一場早餐會中，潘文淵向孫運璿、李國鼎建言發展半導體。經濟部派遣曹興誠、曾繁城等第一批種子工程師赴美學習，在工業技術研究院（ITRI）成功自製第一顆IC晶片，隨後衍生聯電與台積電，開啟臺灣半導體霸業。",
+        locationNameAncient: "新竹縣竹東鎮工業技術研究院",
+        locationNameModern: "新竹縣竹東鎮工研院中興院區",
+        coordinates: [121.04, 24.77],
+        tags: ["工研院", "李國鼎", "孫運璿", "RCA計畫", "半導體起步"]
+      },
+      {
         id: "evt_tw_hsinchu_tsmc_1980",
         year: 1980,
         yearDisplay: "西元 1980 — 1987 年",
@@ -617,16 +964,28 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["台積電", "新竹科學園區", "張忠謀", "李國鼎", "護國神山"]
       },
       {
-        id: "evt_tw_democratization_1987",
+        id: "evt_tw_end_martial_law_1987",
         year: 1987,
-        yearDisplay: "西元 1987 — 1996 年",
-        title: "解除戒嚴令與全民直選總統完成民主寧靜革命",
-        summary: "蔣經國宣告解嚴開放黨禁報禁，李登輝推動憲改廢萬年國會，1996年全民直選總統。",
-        detail: "1987年7月15日蔣經國宣布臺灣解除實施三十八年之戒嚴令，開放組黨與兩岸探親。李登輝繼任總統後終止動員戡亂時期、廢除萬年國會，並於1996年面對臺海飛彈危機如期完成中華民國首次總統公民直接選舉，達成不流血和平民主過渡之「寧靜革命」，成為全球華人民主燈塔。",
-        locationNameAncient: "臺灣省臺北市",
-        locationNameModern: "臺北市中正區總統府",
+        yearDisplay: "西元 1987 年 (民國七十六年)",
+        title: "蔣經國總統宣告臺灣解除戒嚴與開放探親",
+        summary: "宣布自7月15日零時起終止實施三十八年之戒嚴令，開放黨禁報禁與兩岸探親，邁入自由社會。",
+        detail: "蔣經國總統晚年順應時代巨浪，明智宣示「時代在變，環境在變，潮流也在變」，毅然簽署總統令解除戒嚴。同日開放報紙登記與組黨自由，11月正式開放退伍老兵與民眾赴大陸探親，徹底打開臺灣民主政治開放與海峽交流之大門。",
+        locationNameAncient: "臺北市中正區總統府",
+        locationNameModern: "臺北市中正區重慶南路總統府",
         coordinates: [121.51, 25.03],
-        tags: ["解除戒嚴", "民主化", "總統直選", "李登輝", "民主燈塔"]
+        tags: ["解除戒嚴", "蔣經國", "開放探親", "自由民主"]
+      },
+      {
+        id: "evt_tw_wild_lily_1990",
+        year: 1990,
+        yearDisplay: "西元 1990 年 (民國七十九年)",
+        title: "野百合學運與廢除動員戡亂體制",
+        summary: "數千大學生齊聚中正紀念堂靜坐抗議萬年國會，李登輝總統接見承諾國會全面改選推進民主改革。",
+        detail: "1990年3月全臺數千大學生在臺北中正紀念堂廣場靜坐，提出「解散國民大會、廢除臨時條款、召開國是會議」四大訴求。李登輝總統親自接見學生代表並信守承諾，於次年宣告終止動員戡亂時期、廢除萬年國會，使中央民意代表全面直選。",
+        locationNameAncient: "臺北市中正紀念堂廣場 (自由廣場)",
+        locationNameModern: "臺北市中正區自由廣場牌樓",
+        coordinates: [121.52, 25.03],
+        tags: ["野百合學運", "李登輝", "廢除動員戡亂", "萬年國會改選"]
       },
       {
         id: "evt_tw_nhi_health_1995",
@@ -634,11 +993,23 @@ export const TAIWAN_LENS_ERAS = [
         yearDisplay: "西元 1995 年 (民國八十四年)",
         title: "開辦全民健康保險制度 (NHI全球醫療典範)",
         summary: "開辦涵蓋全體國民之全民健保，覆蓋率超過99%，獲諾貝爾獎得主與國際評為全球最佳公醫制度。",
-        detail: "1995年3月1日全民健康保險（National Health Insurance）正式開辦，打破身分職業限制，將全體國民納入單一社會保險保護傘。以高就醫便利性、低行政成本及高覆蓋率聞名，諾貝爾經濟學獎得主克魯曼譽為「全球公共政策之奇蹟」。",
+        detail: "1995年3月1日全民健康保險正式開辦，打破身分職業限制，將全體國民納入單一社會保險保護傘。以高就醫便利性、低行政成本及高覆蓋率聞名，諾貝爾經濟學獎得主克魯曼譽為「全球公共政策之奇蹟」。",
         locationNameAncient: "臺北市中央健康保險局署",
         locationNameModern: "臺北市大安區衛生福利部中央健康保險署",
         coordinates: [121.54, 25.03],
         tags: ["全民健保", "醫療福祉", "全球模範", "公共衛生"]
+      },
+      {
+        id: "evt_tw_presidential_election_1996",
+        year: 1996,
+        yearDisplay: "西元 1996 年 (民國八十五年)",
+        title: "中華民國首次公民直選總統完成寧靜革命",
+        summary: "李登輝當選首位民選總統，面對臺海飛彈危機堅定完成首次公民直接選舉，成為民主燈塔。",
+        detail: "1996年3月23日，臺灣舉行華人歷史五千年來第一次國家元首公民直接投票。面對解放軍在臺海發射飛彈演習軍事威嚇，兩千一百萬臺灣人民無畏威脅以76%投票率完成大選。李登輝連任首任民選總統，國際媒體稱譽臺灣達成不流血過渡之「寧靜革命」。",
+        locationNameAncient: "臺灣全島各投開票所",
+        locationNameModern: "臺北市中正區總統府",
+        coordinates: [121.51, 25.04],
+        tags: ["總統直選", "李登輝", "寧靜革命", "民主燈塔"]
       },
       {
         id: "evt_tw_thsr_bullet_train_2007",
@@ -653,6 +1024,18 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["臺灣高鐵", "新幹線", "一日生活圈", "現代工程"]
       },
       {
+        id: "evt_tw_taiwan_democracy_turnover",
+        year: 2000,
+        yearDisplay: "西元 2000 — 2016 年",
+        title: "三度政黨輪替與成熟民主法治社會確立",
+        summary: "2000年、2008年、2016年經歷三次和平政黨輪替，確立權力和平轉移之成熟憲政典範。",
+        detail: "2000年陳水扁當選終結國民黨半世紀執政；2008年馬英九當選完成二度輪替；2016年蔡英文當選成為華人社會首位女性國家元首。三次政黨輪替完全透過民主選票和平過渡，在亞洲樹立最高人權自由與政制典範。",
+        locationNameAncient: "臺北市中正區總統府",
+        locationNameModern: "臺北市中正區凱達格蘭大道",
+        coordinates: [121.51, 25.04],
+        tags: ["政黨輪替", "民主深化", "和平過渡", "憲政主義"]
+      },
+      {
         id: "evt_tw_silicon_island_ai_2024",
         year: 2024,
         yearDisplay: "西元 2024 年 (民國一一三年)",
@@ -665,11 +1048,11 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["矽島巔峰", "AI運算", "台積電先進製程", "全球護國神山"]
       }
     ],
-    highlightFigures: ["fig_sun_yunsuan", "fig_li_guoding", "fig_zhang_zhongmou", "fig_wang_yongqing", "fig_chiang_chingkuo", "fig_li_denghui", "fig_tw_chi_cheng"]
+    highlightFigures: ["fig_sun_yunsuan", "fig_li_guoding", "fig_zhang_zhongmou", "fig_wang_yongqing", "fig_chiang_chingkuo", "fig_li_denghui", "fig_tw_jensen_huang", "fig_tw_lisa_su", "fig_tw_stan_shih", "fig_tw_terry_gou", "fig_tw_li_yuan_tseh", "fig_tw_chi_cheng", "fig_tw_lin_huaimin", "fig_tw_ang_lee", "fig_tw_chen_shu_chu", "fig_tw_tai_tzu_ying"]
   }
 ];
 
-// Dedicated Taiwan Figures (to be merged seamlessly into Figures Tab & Profile Modals)
+// 41 Dedicated Taiwan Figures (merged dynamically with all 10 periods in app.js)
 export const TAIWAN_DEDICATED_FIGURES = [
   {
     "id": "fig_tw_kamachat",
@@ -1110,48 +1493,515 @@ export const TAIWAN_DEDICATED_FIGURES = [
       "courage": 100,
       "charisma": 99
     }
+  },
+  {
+    "id": "fig_tw_wang_delu",
+    "name": "王得祿",
+    "courtesyName": "玉峰",
+    "lifeSpan": "1770 - 1842",
+    "faction": "military",
+    "role": "太子太保 / 浙江水師提督",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_tw_wang_delu.svg",
+    "importance": 5,
+    "hometown": "臺灣府諸羅縣溝尾庄 (今嘉義太保)",
+    "shortBio": "大清官位最高之臺籍武將。出任水師提督，平定蔡牽、朱濆等海盜狂瀾，立下赫赫戰功。病逝追贈伯爵加太子太師，其故鄉嘉義溝尾特改名「太保」，太保市之由來。",
+    "historicalSignificance": "臺灣四百年清代官階最崇隆之軍事統帥，嘉義太保市地名歷史源頭。",
+    "abilities": {
+      "strategy": 90,
+      "commanding": 96,
+      "politics": 84,
+      "intellect": 82,
+      "courage": 98,
+      "charisma": 92
+    }
+  },
+  {
+    "id": "fig_tw_guoxi_liu",
+    "name": "郭錫瑠",
+    "courtesyName": "錫瑠公",
+    "lifeSpan": "1705 - 1765",
+    "faction": "taiwan",
+    "role": "瑠公圳開創者 / 臺北水利之祖",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_guoxi_liu.svg",
+    "importance": 5,
+    "hometown": "福建省漳州府南靖縣 (立足臺北大安)",
+    "shortBio": "傾盡家財數十載，鑿穿碧潭堅硬岩壁，引新店溪溪水修築長達數十里之「瑠公圳」，灌溉臺北盆地萬餘甲良田，造就艋舺、大稻埕百年米穀繁榮。",
+    "historicalSignificance": "大臺北盆地水利之父，瑠公圳至今為臺北水利開拓之第一象徵。",
+    "abilities": {
+      "strategy": 86,
+      "commanding": 74,
+      "politics": 82,
+      "intellect": 95,
+      "courage": 92,
+      "charisma": 90
+    }
+  },
+  {
+    "id": "fig_tw_lin_weiyuan",
+    "name": "林維源",
+    "courtesyName": "時甫 / 號冏卿",
+    "lifeSpan": "1840 - 1905",
+    "faction": "taiwan",
+    "role": "板橋林家首富 / 臺灣巡撫總理墾撫事宜",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_lin_weiyuan.svg",
+    "importance": 5,
+    "hometown": "臺灣府淡水廳枋橋 (今新北板橋)",
+    "shortBio": "板橋林本源家族第四代族長，臺灣首富。出巨資力挺劉銘傳開闢鐵路、架設電報與開山撫番，任幫辦臺灣撫墾大臣，興建國寶建築「板橋林家花園」。",
+    "historicalSignificance": "近代臺灣首屈一指之實業與政商領袖，傾力贊助劉銘傳全島現代化建設。",
+    "abilities": {
+      "strategy": 89,
+      "commanding": 78,
+      "politics": 95,
+      "intellect": 93,
+      "courage": 85,
+      "charisma": 96
+    }
+  },
+  {
+    "id": "fig_tw_wu_guangliang",
+    "name": "吳光亮",
+    "courtesyName": "霽軒",
+    "lifeSpan": "1834 - 1898",
+    "faction": "military",
+    "role": "南澳總兵 / 八通關古道開築統帥",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_tw_wu_guangliang.svg",
+    "importance": 5,
+    "hometown": "廣東省大埔縣",
+    "shortBio": "南澳鎮總兵。受沈葆楨命率兩千飛虎軍開闢中路越嶺古道，劈山築路橫貫中央山脈玉山鞍部，完成長達三百里之八通關古道，題字「萬里鴻基」、「山高水長」。",
+    "historicalSignificance": "首度以現代軍事工程貫通中央山脈東西交通之拓荒名將。",
+    "abilities": {
+      "strategy": 88,
+      "commanding": 94,
+      "politics": 80,
+      "intellect": 85,
+      "courage": 97,
+      "charisma": 91
+    }
+  },
+  {
+    "id": "fig_tw_james_maxwell",
+    "name": "馬雅各",
+    "courtesyName": "James Laidlaw Maxwell",
+    "lifeSpan": "1836 - 1921",
+    "faction": "foreign",
+    "role": "英國長老教會宣教士 / 新樓醫院創辦人",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_james_maxwell.svg",
+    "importance": 5,
+    "hometown": "蘇格蘭愛丁堡",
+    "shortBio": "愛丁堡大學醫學博士。1865年抵臺南創立看西街醫館（新樓醫院前身），為全臺灣第一所現代西醫醫院。以仁心仁術免費施醫救治原漢平民，奠定南部現代醫療根基。",
+    "historicalSignificance": "引進現代西方醫療體系至臺灣之第一位宣教醫師，深受南臺灣人民愛戴。",
+    "abilities": {
+      "strategy": 84,
+      "commanding": 72,
+      "politics": 86,
+      "intellect": 98,
+      "courage": 94,
+      "charisma": 97
+    }
+  },
+  {
+    "id": "fig_tw_xiao_guangming",
+    "name": "蕭光明",
+    "courtesyName": "左堆總理 / 佳冬步月樓英雄",
+    "lifeSpan": "1840 - 1900",
+    "faction": "military",
+    "role": "六堆客家抗日義軍統領",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_tw_xiao_guangming.svg",
+    "importance": 5,
+    "hometown": "屏東縣佳冬鄉蕭家古厝",
+    "shortBio": "六堆客家左堆總理。乙未戰爭乃木希典日軍登陸枋寮，蕭光明率六堆子弟兵依託步月樓紅磚圍龍大屋巷戰死守，兩子蕭昇祥、蕭達祥壯烈殉難，守衛南臺灣氣節千古。",
+    "historicalSignificance": "南臺灣六堆客家抗日第一烈士家族，步月樓血戰名垂青史。",
+    "abilities": {
+      "strategy": 85,
+      "commanding": 92,
+      "politics": 82,
+      "intellect": 84,
+      "courage": 99,
+      "charisma": 94
+    }
+  },
+  {
+    "id": "fig_tw_wu_pengnian",
+    "name": "吳彭年",
+    "courtesyName": "黑旗軍名將 / 八卦山統領",
+    "lifeSpan": "1855 - 1895",
+    "faction": "military",
+    "role": "黑旗軍前線副統領 / 八卦山殉國烈士",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_tw_wu_pengnian.svg",
+    "importance": 5,
+    "hometown": "浙江省餘姚縣",
+    "shortBio": "劉永福黑旗軍頭號勇將。乙未戰爭奉命北上督師彰化，與吳湯興、徐驤客家義軍並肩死守八卦山要塞。在彈盡糧絕之際身先士卒發動白刃反撲，身中數彈壯烈成仁。",
+    "historicalSignificance": "八卦山會戰黑旗軍最高指揮官，與客家義民同袍共死之英雄典範。",
+    "abilities": {
+      "strategy": 86,
+      "commanding": 95,
+      "politics": 74,
+      "intellect": 80,
+      "courage": 100,
+      "charisma": 93
+    }
+  },
+  {
+    "id": "fig_tw_yu_tengfeng",
+    "name": "郁永河",
+    "courtesyName": "字慢翁",
+    "lifeSpan": "1645 - 1715",
+    "faction": "culture",
+    "role": "清初旅行地理家 /《裨海紀遊》作者",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_yu_tengfeng.svg",
+    "importance": 4,
+    "hometown": "浙江省杭州府仁和縣",
+    "shortBio": "康熙三十六年因福州火藥庫爆炸，自告奮勇渡海來臺採硫。自府城搭牛車一路向北深入平埔各社，在北投大磺嘴煮硫數月，著成《裨海紀遊》，為臺灣最早全島山川風土第一名著。",
+    "historicalSignificance": "臺灣第一部現代地質、地理與人類風土實地考察經典之作者。",
+    "abilities": {
+      "strategy": 76,
+      "commanding": 65,
+      "politics": 78,
+      "intellect": 96,
+      "courage": 92,
+      "charisma": 89
+    }
+  },
+  {
+    "id": "fig_tw_lan_dingyuan",
+    "name": "藍鼎元",
+    "courtesyName": "玉霖 / 號鹿洲",
+    "lifeSpan": "1680 - 1733",
+    "faction": "culture",
+    "role": "經略臺灣名臣 /《東征集》作者",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_lan_dingyuan.svg",
+    "importance": 5,
+    "hometown": "福建省漳州府漳浦縣",
+    "shortBio": "隨族兄藍廷珍渡臺平定朱一貴起義。深入考察臺灣全島，力倡在竹塹（新竹）設縣、拓墾半線與後山，嚴禁官吏剝削原住民。其著《東征集》《平臺紀略》成為清代治臺最高綱領。",
+    "historicalSignificance": "清代最具遠見之臺灣經略大師，促成淡水廳竹塹石城與北部行政中樞之設立。",
+    "abilities": {
+      "strategy": 92,
+      "commanding": 80,
+      "politics": 96,
+      "intellect": 97,
+      "courage": 88,
+      "charisma": 93
+    }
+  },
+  {
+    "id": "fig_tw_tu_tsung_ming",
+    "name": "杜聰明",
+    "courtesyName": "臺灣首位醫學博士",
+    "lifeSpan": "1893 - 1986",
+    "faction": "tech",
+    "role": "京都帝大醫學博士 / 高雄醫學院創辦人",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_tu_tsung_ming.svg",
+    "importance": 5,
+    "hometown": "新北市淡水區",
+    "shortBio": "臺灣第一位獲得帝國大學醫學博士學位者。創立鴉片漸禁斷癮療法與蛇毒免疫藥理研究聞名國際，創辦高雄醫學院與臺灣醫學會，培育全臺無數名醫，被譽為「臺灣醫學之父」。",
+    "historicalSignificance": "臺灣本土高等醫學教育與現代藥理研究奠基宗師，立功立德名垂杏林。",
+    "abilities": {
+      "strategy": 85,
+      "commanding": 76,
+      "politics": 86,
+      "intellect": 100,
+      "courage": 92,
+      "charisma": 96
+    }
+  },
+  {
+    "id": "fig_tw_hsieh_hsueh_hung",
+    "name": "謝雪紅",
+    "courtesyName": "阿女",
+    "lifeSpan": "1901 - 1970",
+    "faction": "taiwan",
+    "role": "臺灣社會運動先驅 / 二七部隊精神領袖",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_tw_hsieh_hsueh_hung.svg",
+    "importance": 4,
+    "hometown": "彰化縣彰化市",
+    "shortBio": "日治時期投入農民組合與反殖民運動，曾留學莫斯科東方大學。二二八事件期間在臺中召開市民大會，成立「二七部隊」進駐埔里山區抵抗，展現堅毅抗爭勇氣。",
+    "historicalSignificance": "臺灣近代女性政治社會運動傳奇領袖，象徵臺灣人民反抗威權之自主精神。",
+    "abilities": {
+      "strategy": 82,
+      "commanding": 88,
+      "politics": 85,
+      "intellect": 84,
+      "courage": 98,
+      "charisma": 91
+    }
+  },
+  {
+    "id": "fig_tw_kondo_hyoe",
+    "name": "近藤兵衛",
+    "courtesyName": "天下嘉農教練",
+    "lifeSpan": "1888 - 1966",
+    "faction": "sports",
+    "role": "嘉義農林棒球隊總教練",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_kondo_hyoe.svg",
+    "importance": 4,
+    "hometown": "日本愛媛縣松山 (立足臺灣嘉義)",
+    "shortBio": "松山商業棒球名將。接任嘉義農林棒球隊（KANO）總教練，打破種族界線，融合漢族協調、和族守備與原住民速度，1931年率隊殺入甲子園決賽奪得亞軍，締造「天下嘉農」傳奇。",
+    "historicalSignificance": "臺灣棒球運動魂魄第一塑造者，奠定臺灣棒球王國超越族群之運動家精神。",
+    "abilities": {
+      "strategy": 90,
+      "commanding": 96,
+      "politics": 78,
+      "intellect": 85,
+      "courage": 95,
+      "charisma": 94
+    }
+  },
+  {
+    "id": "fig_tw_lin_huaimin",
+    "name": "林懷民",
+    "courtesyName": "雲門舞集創辦人",
+    "lifeSpan": "1947 - 活耀",
+    "faction": "culture",
+    "role": "國家文藝獎得主 / 現代舞蹈藝術大師",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_lin_huaimin.svg",
+    "importance": 5,
+    "hometown": "嘉義縣新港鄉",
+    "shortBio": "1973年創立華語世界第一個現代專業舞團「雲門舞集」。以臺灣拓荒史詩《薪傳》、古典東方美學《白蛇傳》《水月》《九歌》震撼全球，獲頒時代雜誌「亞洲英雄」。",
+    "historicalSignificance": "以臺灣土地情感結合現代舞與書法太極，將臺灣文化美學推向世界巔峰之國寶大師。",
+    "abilities": {
+      "strategy": 84,
+      "commanding": 82,
+      "politics": 85,
+      "intellect": 99,
+      "courage": 95,
+      "charisma": 99
+    }
+  },
+  {
+    "id": "fig_tw_li_yuan_tseh",
+    "name": "李遠哲",
+    "courtesyName": "諾貝爾化學獎得主",
+    "lifeSpan": "1936 - 活耀",
+    "faction": "tech",
+    "role": "諾貝爾化學獎得主 / 中央研究院院長",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_li_yuan_tseh.svg",
+    "importance": 5,
+    "hometown": "新竹市",
+    "shortBio": "加州大學柏克萊分校化學博士。發明交叉分子束技術，1986年榮獲諾貝爾化學獎，為第一位在臺灣本土受完整基礎教育之諾貝爾獎得主。1994年毅然返臺出任中研院院長，推動科研教育轉型。",
+    "historicalSignificance": "臺灣首位諾貝爾獎得主，引領臺灣基礎科學與前沿學術躍登國際頂尖行列。",
+    "abilities": {
+      "strategy": 92,
+      "commanding": 80,
+      "politics": 88,
+      "intellect": 100,
+      "courage": 94,
+      "charisma": 97
+    }
+  },
+  {
+    "id": "fig_tw_stan_shih",
+    "name": "施振榮",
+    "courtesyName": "Stan Shih",
+    "lifeSpan": "1944 - 活耀",
+    "faction": "tech",
+    "role": "宏碁集團創辦人 / 臺灣個人電腦PC教父",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_stan_shih.svg",
+    "importance": 5,
+    "hometown": "彰化縣鹿港鎮",
+    "shortBio": "交通大學電子工程研究所畢業。1976年創立宏碁（Acer），提出著名的「微笑曲線（Smile Curve）」理論。帶領臺灣自勞力密集代工轉型為自有品牌微處理機王國，名列全球PC五大品牌。",
+    "historicalSignificance": "臺灣自有高科技國際品牌先驅，微笑曲線理論啟發全球科技產業價值鏈分工。",
+    "abilities": {
+      "strategy": 96,
+      "commanding": 86,
+      "politics": 85,
+      "intellect": 98,
+      "courage": 94,
+      "charisma": 96
+    }
+  },
+  {
+    "id": "fig_tw_terry_gou",
+    "name": "郭台銘",
+    "courtesyName": "Terry Gou",
+    "lifeSpan": "1950 - 活耀",
+    "faction": "tech",
+    "role": "鴻海科技集團創辦人 / 全球電子製造龍頭",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_terry_gou.svg",
+    "importance": 5,
+    "hometown": "新北市板橋區",
+    "shortBio": "中國海專畢業。1974年以三十萬元創立鴻海塑膠，以極致供應鏈整合、高精度模具與自動化量產打造富士康（Foxconn）帝國，成為全球最大電子代工製造服務（EMS）巨擘。",
+    "historicalSignificance": "締造全球規模最龐大之精密電子量產供應鏈網絡，臺灣製造實力全球化之代表人物。",
+    "abilities": {
+      "strategy": 95,
+      "commanding": 98,
+      "politics": 86,
+      "intellect": 92,
+      "courage": 99,
+      "charisma": 95
+    }
+  },
+  {
+    "id": "fig_tw_jensen_huang",
+    "name": "黃仁勳",
+    "courtesyName": "Jensen Huang",
+    "lifeSpan": "1963 - 活耀",
+    "faction": "tech",
+    "role": "輝達 NVIDIA 創辦人兼執行長 / 全球AI教父",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_jensen_huang.svg",
+    "importance": 5,
+    "hometown": "臺南市",
+    "shortBio": "史丹佛大學電機碩士。1993年創辦輝達（NVIDIA），發明GPU圖形處理器與CUDA並行運算架構。進入AI大模型時代市值突破三兆美元，多次公開盛讚「臺灣是全球科技與AI革命之中心無名英雄」。",
+    "historicalSignificance": "掀起全球生成式人工智慧與深度學習工業革命之世界級科技領袖，全球臺灣科技鏈核心靈魂。",
+    "abilities": {
+      "strategy": 100,
+      "commanding": 98,
+      "politics": 90,
+      "intellect": 100,
+      "courage": 100,
+      "charisma": 100
+    }
+  },
+  {
+    "id": "fig_tw_lisa_su",
+    "name": "蘇姿丰",
+    "courtesyName": "Lisa Su",
+    "lifeSpan": "1969 - 活耀",
+    "faction": "tech",
+    "role": "超微半導體 AMD 董事長兼執行長 / 晶片半導體女王",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_lisa_su.svg",
+    "importance": 5,
+    "hometown": "臺南市",
+    "shortBio": "麻省理工學院（MIT）電機工程博士。接掌瀕臨破產之AMD，主導Zen架構高效能處理器革命，與台積電緊密合作反超英特爾，獲選美國總統科技顧問委員會委員與全球頂尖女性領袖。",
+    "historicalSignificance": "全球半導體史上最傑出之女性架構師與執行長，與臺灣半導體製造結為牢固戰略同盟。",
+    "abilities": {
+      "strategy": 99,
+      "commanding": 96,
+      "politics": 92,
+      "intellect": 100,
+      "courage": 98,
+      "charisma": 97
+    }
+  },
+  {
+    "id": "fig_tw_chen_shu_chu",
+    "name": "陳樹菊",
+    "courtesyName": "愛心菜販 / 時代百大人物",
+    "lifeSpan": "1950 - 活耀",
+    "faction": "taiwan",
+    "role": "臺東中央市場菜販 / 慈善家",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_chen_shu_chu.svg",
+    "importance": 5,
+    "hometown": "雲林縣西螺鎮 (立足臺東半世紀)",
+    "shortBio": "每日在臺東中央市場賣菜數十年，生活極度節儉，將一分一毫積攢之近兩千萬所得全數捐贈蓋圖書館、孤兒院與助學基金。獲選時代雜誌全球百大影響力人物與麥格塞塞獎。",
+    "historicalSignificance": "臺灣最純粹樸實之平民慈善楷模，展現臺灣民間互助溫暖之最高道德典範。",
+    "abilities": {
+      "strategy": 70,
+      "commanding": 65,
+      "politics": 70,
+      "intellect": 85,
+      "courage": 100,
+      "charisma": 100
+    }
+  },
+  {
+    "id": "fig_tw_ang_lee",
+    "name": "李安",
+    "courtesyName": "Ang Lee",
+    "lifeSpan": "1954 - 活耀",
+    "faction": "culture",
+    "role": "奧斯卡最佳導演 / 國際電影巨擘",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_ang_lee.svg",
+    "importance": 5,
+    "hometown": "屏東縣潮州鎮 (成長於臺南)",
+    "shortBio": "紐約大學電影研究所畢業。以《臥虎藏龍》獲奧斯卡最佳外語片，以《斷背山》《少年PI的奇幻漂流》兩度榮獲奧斯卡最佳導演獎，並奪威尼斯金獅獎與柏林金熊獎，融會中西人性格局深沈。",
+    "historicalSignificance": "華人世界首屈一指之國際電影巨匠，將臺灣人文深度與東方哲學推向全球藝術殿堂。",
+    "abilities": {
+      "strategy": 90,
+      "commanding": 94,
+      "politics": 84,
+      "intellect": 100,
+      "courage": 96,
+      "charisma": 99
+    }
+  },
+  {
+    "id": "fig_tw_tai_tzu_ying",
+    "name": "戴資穎",
+    "courtesyName": "小戴 / 羽球球后",
+    "lifeSpan": "1994 - 活耀",
+    "faction": "sports",
+    "role": "羽球女子單打世界第一紀錄保持者 / 奧運銀牌",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_tai_tzu_ying.svg",
+    "importance": 5,
+    "hometown": "高雄市三民區",
+    "shortBio": "以靈巧多變之假動作與魔術球風風靡世界羽壇。生涯位居BWF世界球后寶座累計達214週，為女子單打史上最長紀錄，榮獲奧運銀牌、亞運金牌與世界羽聯年終總決賽四冠王。",
+    "historicalSignificance": "臺灣體育史上最具統治力之世界球后，以「相信自己」之頑強鬥志激勵數代年輕人。",
+    "abilities": {
+      "strategy": 95,
+      "commanding": 80,
+      "politics": 75,
+      "intellect": 94,
+      "courage": 100,
+      "charisma": 100
+    }
   }
 ];
 
-// Helper to extract all Taiwan-related figures across all 10 periods
+// Complete list of figures relevant to Taiwan lens
 export const TAIWAN_RELATED_FIGURE_IDS = [
-  // Indigenous & Pioneer
+  // Indigenous & Pioneer Leaders
   "fig_tw_kamachat", "fig_tw_coyett", "fig_tw_shen_guangwen",
   // Yuan-Ming
   "fig_yan_siqi", "fig_zheng_zhilong", "fig_guo_huaiyi",
   // Tungning & Qing Early
   "fig_zheng_chenggong", "fig_chen_yonghua", "fig_zheng_jing", "fig_liu_guoxuan",
-  "fig_shi_lang", "fig_tw_shi_shibang", "fig_zhu_yigui", "fig_lin_shuangwen",
-  "fig_tw_wu_sha", "fig_tw_cao_jin", "fig_tw_yang_tingli", "fig_fu_kangan",
+  "fig_shi_lang", "fig_tw_shi_shibang", "fig_tw_guoxi_liu", "fig_zhu_yigui",
+  "fig_tw_lan_dingyuan", "fig_tw_yu_tengfeng", "fig_lin_shuangwen", "fig_tw_wu_sha",
+  "fig_tw_cao_jin", "fig_tw_yang_tingli", "fig_tw_wang_delu", "fig_fu_kangan",
   // Qing Late & Construction
-  "fig_shen_baozhen", "fig_liu_mingchuan", "fig_tw_lin_chaodong", "fig_tw_mackay",
-  "fig_tw_barclay", "fig_tang_jingsong", "fig_qiu_fengjia", "fig_liu_yongfu",
+  "fig_shen_baozhen", "fig_liu_mingchuan", "fig_tw_lin_chaodong", "fig_tw_lin_weiyuan",
+  "fig_tw_wu_guangliang", "fig_tw_mackay", "fig_tw_james_maxwell", "fig_tw_barclay",
+  "fig_tang_jingsong", "fig_qiu_fengjia", "fig_liu_yongfu",
   // Japanese Era & Cultural Enlightenment
-  "fig_tw_wu_tangxing", "fig_tw_xu_xiang", "fig_lin_xiantang", "fig_chiang_weishui",
-  "fig_lai_he", "fig_cai_peihuo", "fig_mona_rudao", "fig_luo_fuxing", "fig_yu_qingfang",
-  "fig_tang_de_zhang", "fig_yang_kui", "fig_tw_hatta_yoichi", "fig_tw_deng_yuxian",
-  "fig_tw_huang_tushui", "fig_tw_chen_chengpo",
+  "fig_tw_wu_tangxing", "fig_tw_xu_xiang", "fig_tw_xiao_guangming", "fig_tw_wu_pengnian",
+  "fig_lin_xiantang", "fig_chiang_weishui", "fig_lai_he", "fig_cai_peihuo", "fig_mona_rudao",
+  "fig_luo_fuxing", "fig_yu_qingfang", "fig_tang_de_zhang", "fig_yang_kui",
+  "fig_tw_hatta_yoichi", "fig_tw_tu_tsung_ming", "fig_tw_hsieh_hsueh_hung",
+  "fig_tw_kondo_hyoe", "fig_tw_deng_yuxian", "fig_tw_huang_tushui", "fig_tw_chen_chengpo",
   // Post-War Defense & Modern Miracle
   "fig_hu_lian", "fig_tw_gao_kuiyuan", "fig_tw_shi_hengfeng", "fig_tw_wang_shengming",
   "fig_ji_xingwen", "fig_yu_dawei", "fig_chen_cheng", "fig_yan_jiagan",
   "fig_sun_yunsuan", "fig_li_guoding", "fig_yin_zhongrong", "fig_fu_sinian",
   "fig_wang_yongqing", "fig_zhang_zhongmou", "fig_chiang_chingkuo", "fig_li_denghui",
-  "fig_tw_chi_cheng"
+  "fig_tw_li_yuan_tseh", "fig_tw_stan_shih", "fig_tw_terry_gou", "fig_tw_jensen_huang",
+  "fig_tw_lisa_su", "fig_tw_lin_huaimin", "fig_tw_ang_lee", "fig_tw_chen_shu_chu",
+  "fig_tw_chi_cheng", "fig_tw_tai_tzu_ying"
 ];
 
 // Mapping between Taiwan Era IDs and their active battles
 export const ERA_BATTLE_IDS = {
   tw_prehistoric: ["bat_tw_dadu_war_1644"],
-  tw_dutch_spanish: ["bat_tw_keelung_1642", "bat_tw_zeelandia_1661"],
+  tw_dutch_spanish: ["bat_tw_liaoluo_bay_1633", "bat_tw_keelung_1642", "bat_tw_zeelandia_1661"],
   tw_tungning: ["bat_tw_zeelandia_1661", "bat_tw_penghu_1683"],
-  tw_qing_early: ["bat_tw_penghu_1683", "bat_tw_zhuyigui_1721", "bat_tw_jiayi_defense_1787"],
-  tw_qing_late: ["bat_tw_keelung_1884", "bat_tw_tamsui_1884"],
-  tw_japanese: ["bat_tw_daxi_1895", "bat_tw_baguashan_1895", "bat_tw_buyuelou_1895", "bat_tw_tapani_1915"],
-  tw_postwar: ["bat_tw_guningtou_1949", "bat_tw_daerdan_1950", "bat_tw_yijiangshan_1955", "bat_tw_823_1958"],
+  tw_qing_early: ["bat_tw_penghu_1683", "bat_tw_zhuyigui_1721", "bat_tw_jiayi_defense_1787", "bat_tw_caiqian_1805"],
+  tw_qing_late: ["bat_tw_mudanshe_1874", "bat_tw_keelung_1884", "bat_tw_tamsui_1884"],
+  tw_japanese: ["bat_tw_aodi_landing_1895", "bat_tw_daxi_1895", "bat_tw_baguashan_1895", "bat_tw_buyuelou_1895", "bat_tw_zengwenxi_1895", "bat_tw_tapani_1915", "bat_tw_wushe_1930"],
+  tw_postwar: ["bat_tw_guningtou_1949", "bat_tw_daerdan_1950", "bat_tw_nanri_1952", "bat_tw_yijiangshan_1955", "bat_tw_823_1958", "bat_tw_wuchiu_1965"],
   tw_modern: []
 };
 
-// 16 Authoritative Taiwan-Related Battles Across Four Centuries
+// 25 Authoritative Taiwan-Related Historic Battles Across Four Centuries
 export const TAIWAN_RELATED_BATTLES = [
   {
     id: "bat_tw_dadu_war_1644",
@@ -1177,6 +2027,32 @@ export const TAIWAN_RELATED_BATTLES = [
       "依託中臺灣大甲溪密林竹塹設伏阻擊火槍隊",
       "以毒箭弓矢配合熟稔地形發動夜間逆襲",
       "堅壁清野迫使荷蘭遠征軍補給匱乏撤軍"
+    ]
+  },
+  {
+    id: "bat_tw_liaoluo_bay_1633",
+    eraId: "tw_dutch_spanish",
+    name: "料羅灣海戰 (鄭芝龍大破荷蘭東印度艦隊)",
+    year: 1633,
+    period: "taiwanLens",
+    locationAncient: "福建金門料羅灣海面",
+    locationModern: "金門縣金湖鎮料羅灣",
+    coordinates: [118.42, 24.41],
+    parties: {
+      invader: "荷蘭東印度公司艦隊與海盜聯軍 (普特曼斯長官)",
+      defender: "大明福建水師精銳 (鄭芝龍副總兵統率百餘戰船)"
+    },
+    victor: "大明福建水師輝煌全勝",
+    victorStatement: "火攻奇襲焚毀荷蘭旗艦與戰艦多艘，荷蘭長官普特曼斯狼狽敗退大員",
+    commanders: {
+      invader: ["普特曼斯 (Hans Putmans)", "劉香"],
+      defender: ["鄭芝龍", "鄒維璉"]
+    },
+    summary: "荷蘭東印度公司為逼迫明朝通商封鎖海峽。鄭芝龍統帥百餘艘火攻戰船於料羅灣順風發起火攻奇襲，焚毀荷蘭多艘主力大艦，普特曼斯敗退大員，奠定鄭氏掌握東亞航運制海權基礎。",
+    keyStrategies: [
+      "精確掌握風向施放滿載硫磺油料之火攻快船",
+      "百艘艨艟戰船密集成群包圍敵大型夾板巨艦",
+      "重砲火繩槍立體壓制全殲敵登陸海盜部隊"
     ]
   },
   {
@@ -1310,6 +2186,58 @@ export const TAIWAN_RELATED_BATTLES = [
     ]
   },
   {
+    id: "bat_tw_caiqian_1805",
+    eraId: "tw_qing_early",
+    name: "王得祿平定蔡牽海盜之役 (鹿耳門海戰大捷)",
+    year: 1805,
+    period: "taiwanLens",
+    locationAncient: "臺灣府鹿耳門外洋與滬尾外海",
+    locationModern: "臺南市安南區鹿耳門溪口",
+    coordinates: [120.12, 23.03],
+    parties: {
+      invader: "大清福建水師艦隊 (王得祿副將、李長庚提督)",
+      defender: "東南海盜大首領蔡牽艦隊 (自號鎮海威武王，戰船百餘艘)"
+    },
+    victor: "大清福建水師取得決定性勝利",
+    victorStatement: "擊沉巨型旗艦「大將艇」，蔡牽投海自盡，肅清東南沿海二十年海患",
+    commanders: {
+      invader: ["王得祿", "李長庚"],
+      defender: ["蔡牽", "朱濆"]
+    },
+    summary: "東南海盜蔡牽縱橫閩臺自封海王，率百艘戰船進攻鹿耳門企圖奪取臺灣府城。王得祿將軍身先士卒突入敵陣血戰，以火球神機箭焚毀敵旗艦，蔡牽落海亡。王得祿因功晉封太子太保、水師提督。",
+    keyStrategies: [
+      "深入鹿耳門複雜淺灘沙洲設伏，誘敵深入分段截擊",
+      "以快船火箭火球集中射擊敵旗艦帆檣阻其機動",
+      "南北兩路水師鉗形合圍徹底切斷外洋退路"
+    ]
+  },
+  {
+    id: "bat_tw_mudanshe_1874",
+    eraId: "tw_qing_late",
+    name: "牡丹社石門要塞保衛戰 (排灣族抵禦日軍之役)",
+    year: 1874,
+    period: "taiwanLens",
+    locationAncient: "臺灣府恆春石門天險要塞",
+    locationModern: "屏東縣牡丹鄉石門古戰場",
+    coordinates: [120.78, 22.12],
+    parties: {
+      invader: "大日本帝國侵臺遠征軍 (佐久間左馬太少佐指揮)",
+      defender: "排灣族牡丹社與高士佛社勇士 (阿祿古父子率族人死守)"
+    },
+    victor: "排灣族勇士憑險狙擊重創日軍先頭部隊",
+    victorStatement: "依託石門天險殊死抵抗，促使清廷正視臺灣全島主權派遣沈葆楨開山撫番",
+    commanders: {
+      invader: ["西鄉從道", "佐久間左馬太"],
+      defender: ["阿祿古 (牡丹社頭目)", "阿利路"]
+    },
+    summary: "日軍藉琉球宮古島船難為由發兵登陸車城進犯牡丹社。頭目阿祿古父子率排灣族勇士扼守石門天險峽谷，以巨石土銃奮勇阻擊，佐久間少佐險遭擊斃。此役促成清廷派遣沈葆楨興築恆春古城與開拓後山。",
+    keyStrategies: [
+      "利用石門兩峰夾峙之險隘峽谷以巨石封鎖要道",
+      "排灣族獵勇隱蔽於峭壁灌木叢精準狙殺敵軍先鋒",
+      "以微弱兵力誓死捍衛部落尊嚴震撼日本軍部"
+    ]
+  },
+  {
     id: "bat_tw_keelung_1884",
     eraId: "tw_qing_late",
     name: "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
@@ -1359,6 +2287,32 @@ export const TAIWAN_RELATED_BATTLES = [
       "劉銘傳斷然沉船塞港並布設水雷阻敵深入淡水河",
       "孫開華利用海岸防風林掩蔽伏兵，待敵半渡而擊",
       "湘淮精銳步兵短兵相接白刃衝殺擊潰法軍"
+    ]
+  },
+  {
+    id: "bat_tw_aodi_landing_1895",
+    eraId: "tw_japanese",
+    name: "澳底登陸三貂角阻擊戰 (乙未保臺第一戰)",
+    year: 1895,
+    period: "taiwanLens",
+    locationAncient: "基隆廳三貂堡澳底海灘",
+    locationModern: "新北市貢寮區澳底海灘鹽寮公園",
+    coordinates: [121.92, 25.05],
+    parties: {
+      invader: "大日本帝國近衛師團登陸大軍 (北白川宮能久親王統帥)",
+      defender: "臺灣民主國守軍與地方鄉勇 (簡大獅、在地民防隊)"
+    },
+    victor: "日軍強行登陸，義軍浴血阻擊",
+    victorStatement: "義軍憑藉三貂角險隘懸崖頑抗數日，揭開全臺長達五個月悲壯抗日序幕",
+    commanders: {
+      invader: ["北白川宮能久親王", "樺山資紀"],
+      defender: ["簡大獅", "在地客閩鄉勇"]
+    },
+    summary: "1895年5月29日日軍避開基隆砲台，自三貂角澳底灘頭強行登陸。地方義勇軍與守軍扼守鹽寮海岸頑強阻擊，展開游擊肉搏。此役打響乙未抗日戰爭第一槍。",
+    keyStrategies: [
+      "依託海岸林木與沿海岩礁伏擊敵登陸駁船",
+      "切斷澳底通往瑞芳山道阻滯日軍先頭搜索隊",
+      "廣泛動員地方保甲展開敵後游擊牽制作戰"
     ]
   },
   {
@@ -1414,6 +2368,32 @@ export const TAIWAN_RELATED_BATTLES = [
     ]
   },
   {
+    id: "bat_tw_dapu_lin_1895",
+    eraId: "tw_japanese",
+    name: "大莆林之役 (雲林大林黑旗軍義民伏擊戰)",
+    year: 1895,
+    period: "taiwanLens",
+    locationAncient: "嘉義縣大莆林庄 (今大林)",
+    locationModern: "嘉義縣大林鎮與雲林斗南交界",
+    coordinates: [120.47, 23.60],
+    parties: {
+      invader: "大日本帝國第二師團先鋒大隊",
+      defender: "黑旗軍營官楊泗洪、黑旗軍勇士與地方抗日義軍"
+    },
+    victor: "臺灣守軍伏擊大捷重創日軍",
+    victorStatement: "設伏於竹塹蔗田白刃斬獲甚眾，楊泗洪營官不幸中流彈殉國",
+    commanders: {
+      invader: ["山口素臣少將"],
+      defender: ["楊泗洪 (營官)", "林義成"]
+    },
+    summary: "八卦山失陷後，黑旗軍楊泗洪退守大莆林（嘉義大林）。日軍沿鐵路南下，楊泗洪設伏於茂密甘蔗田中發起衝殺，日軍死傷累累潰退數里。楊泗洪追擊中彈成仁，為乙未南臺灣抗擊日軍最輝煌之伏擊戰。",
+    keyStrategies: [
+      "利用嘉南平原茂密甘蔗林海完美隱蔽伏兵",
+      "誘敵深入狹長土道實施四面包圍白刃白刃肉搏",
+      "夜戰火攻敵輜重車隊徹底瓦解日軍追擊節奏"
+    ]
+  },
+  {
     id: "bat_tw_buyuelou_1895",
     eraId: "tw_japanese",
     name: "步月樓六堆抗日之役 (屏東客家保鄉血戰)",
@@ -1440,6 +2420,32 @@ export const TAIWAN_RELATED_BATTLES = [
     ]
   },
   {
+    id: "bat_tw_zengwenxi_1895",
+    eraId: "tw_japanese",
+    name: "曾文溪終極決戰 (抗日第一烈士徐驤成仁)",
+    year: 1895,
+    period: "taiwanLens",
+    locationAncient: "臺南府曾文溪兩岸渡口",
+    locationModern: "臺南市麻豆區與善化區曾文溪畔",
+    coordinates: [120.28, 23.16],
+    parties: {
+      invader: "大日本帝國近衛師團主力部隊",
+      defender: "徐驤田賦軍與黑旗軍殘部 (抗日第一烈士徐驤)"
+    },
+    victor: "日軍憑火砲重兵突破防線",
+    victorStatement: "徐驤轉戰全臺十二戰身受數十創，臨終大呼不負祖宗，壯烈成仁",
+    commanders: {
+      invader: ["北白川宮能久親王"],
+      defender: ["徐驤 (客家秀才)", "林義成"]
+    },
+    summary: "徐驤自苗栗、彰化一路轉戰南下。1895年10月在曾文溪扼守臺南府城北門戶，與日軍爆發殊死肉搏。徐驤身先士卒衝入敵陣，連斬數敵後身中數十彈壯烈殉國，被後世史家尊為「臺灣抗日第一烈士」。",
+    keyStrategies: [
+      "依託曾文溪泥沼天險築土壘頑抗敵優勢兵力",
+      "抱定必死報國之志連環衝殺牽制敵軍主力渡溪",
+      "以個人生命實踐民族氣節，激勵全臺百年不屈意志"
+    ]
+  },
+  {
     id: "bat_tw_tapani_1915",
     eraId: "tw_japanese",
     name: "噍吧哖西來庵決戰 (玉井虎頭山最後抗暴)",
@@ -1463,6 +2469,32 @@ export const TAIWAN_RELATED_BATTLES = [
       "依託玉井虎頭山陡峭山勢構築秘密營壘抗擊敵圍",
       "利用夜間暴雨奇襲日本支廳繳獲現代槍械彈藥",
       "堅貞不屈從容就義喚醒臺灣全島民族自主意識"
+    ]
+  },
+  {
+    id: "bat_tw_wushe_1930",
+    eraId: "tw_japanese",
+    name: "霧社馬赫坡社要塞保衛戰 (莫那魯道抗暴之役)",
+    year: 1930,
+    period: "taiwanLens",
+    locationAncient: "臺中州能高郡馬赫坡岩窟",
+    locationModern: "南投縣仁愛鄉廬山溫泉馬赫坡古戰場",
+    coordinates: [121.18, 24.03],
+    parties: {
+      invader: "大日本帝國臺灣軍司令部 (出動步兵聯隊、飛機與毒氣)",
+      defender: "賽德克族馬赫坡等六社原住民族勇士 (莫那·魯道頭目)"
+    },
+    victor: "原住民族勇士死守數月全數壯烈成仁",
+    victorStatement: "以原始獵槍對抗現代毒氣飛機堅守不屈，震撼國際聯盟關注原住民族生存權",
+    commanders: {
+      invader: ["鎌田彌彥少將"],
+      defender: ["莫那·魯道", "達多·莫那"]
+    },
+    summary: "霧社事件爆發後，日軍出動三千正規軍、大砲、飛機與國際公約禁用的糜爛性毒氣瓦斯圍攻馬赫坡岩窟。莫那·魯道率族人退入天然險阻溶洞頑強抗擊五十餘日，最後彈盡糧絕於深山巨木下自戕成仁，震驚國際社會。",
+    keyStrategies: [
+      "依託馬赫坡懸崖峭壁與天然岩洞構築易守難攻死守陣地",
+      "熟悉中央山脈原始叢林實施高山狙擊與陷阱戰術",
+      "以寧死不屈之祖靈信仰戰鬥至最後一兵一卒"
     ]
   },
   {
@@ -1518,6 +2550,32 @@ export const TAIWAN_RELATED_BATTLES = [
     ]
   },
   {
+    id: "bat_tw_nanri_1952",
+    eraId: "tw_postwar",
+    name: "南日島突擊大捷 (國軍跨海突擊殲敵之戰)",
+    year: 1952,
+    period: "taiwanLens",
+    locationAncient: "福建莆田南日島海域",
+    locationModern: "金門防區北側南日島海域",
+    coordinates: [119.50, 25.20],
+    parties: {
+      invader: "中華民國國軍突擊支隊 (胡璉司令官指揮陸空協同)",
+      defender: "中國人民解放軍南日島守備營與援軍"
+    },
+    victor: "中華民國國軍突擊全勝",
+    victorStatement: "全殲島上守軍與增援部隊俘獲八百餘人，安全撤回金門，震動東南沿海",
+    commanders: {
+      invader: ["胡璉", "吉星文"],
+      defender: ["解放軍守備營長"]
+    },
+    summary: "1952年10月胡璉將軍調集精銳渡海發動南日島突擊戰。陸海空協同以閃電戰奪取灘頭，徹底包圍擊潰島上守軍與跨海增援部隊，俘獲敵軍八百餘人、物資無數後主動安全撤退，展現國軍強大海空機動打擊能力。",
+    keyStrategies: [
+      "高度保密發動夜間兩棲跨海閃電登陸",
+      "佔領島上制高點以強大火力圍殲增援部隊",
+      "達成戰略目標後迅速撤出防範敵大軍反撲"
+    ]
+  },
+  {
     id: "bat_tw_yijiangshan_1955",
     eraId: "tw_postwar",
     name: "一江山島保衛戰 (王生明將軍全島成仁促美防禦協定)",
@@ -1567,6 +2625,32 @@ export const TAIWAN_RELATED_BATTLES = [
       "金門地下花崗岩坑道堡壘發揮百分之百避彈生存效能",
       "國軍空軍F-86首創響尾蛇空對空飛彈全勝紀錄牢控制空權",
       "引進八吋美製自走重砲實施高精度毀滅性反擊"
+    ]
+  },
+  {
+    id: "bat_tw_wuchiu_1965",
+    eraId: "tw_postwar",
+    name: "烏坵海戰 (海軍將士浴血守衛臺海海疆之役)",
+    year: 1965,
+    period: "taiwanLens",
+    locationAncient: "烏坵嶼南方外海海域",
+    locationModern: "金門縣烏坵鄉外海",
+    coordinates: [119.45, 24.98],
+    parties: {
+      invader: "中國人民解放軍海軍快艇突擊群",
+      defender: "中華民國海軍巡邏艦隊 (臨淮艦、山海艦)"
+    },
+    victor: "雙方互有傷亡，國軍戰略轉向守勢固守",
+    victorStatement: "海軍官兵殊死抵抗擊沉敵快艇多艘，確立臺澎防衛固守作戰指導方針",
+    commanders: {
+      invader: ["魏垣武 (東海艦隊副司令)"],
+      defender: ["陳利民 (臨淮艦長)", "何季澎"]
+    },
+    summary: "1965年11月解放軍魚雷快艇突襲護航烏坵物資之國軍臨淮艦。艦長陳利民率官兵奮勇開砲擊沉敵快艇四艘，臨淮艦不幸中雷沉沒，多名官兵壯烈犧牲。此戰後國軍正式確立以「防衛固守、有效嚇阻」為核心之現代臺海防禦戰略。",
+    keyStrategies: [
+      "以艦砲密集火力壓制近身魚雷快艇夜間狼群戰術",
+      "臨危不亂組織損管抗沉誓死堅守戰鬥崗位",
+      "促進國軍海空聯合作戰與反艦飛彈現代化換裝"
     ]
   }
 ];

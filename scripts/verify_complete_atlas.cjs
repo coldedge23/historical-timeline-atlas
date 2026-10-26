@@ -77,6 +77,37 @@ async function verify() {
   console.log(`TOTAL MISSING AVATARS ON DISK: ${totalMissingAvatars}`);
   console.log('----------------------------------------------------\n');
 
+  // Taiwan Lens dataset verification
+  console.log('=== Checking Taiwan Chronological Lens Dataset ===');
+  let twDedicatedMissing = 0;
+  try {
+    const taiwanLens = await import('../src/data/taiwanLensData.js');
+    const twEras = taiwanLens.TAIWAN_LENS_ERAS || [];
+    const twBattles = taiwanLens.TAIWAN_RELATED_BATTLES || [];
+    const twDedicatedFigures = taiwanLens.TAIWAN_DEDICATED_FIGURES || [];
+    const twRelatedIds = taiwanLens.TAIWAN_RELATED_FIGURE_IDS || [];
+    const twTotalEvents = twEras.reduce((acc, era) => acc + (era.keyEvents ? era.keyEvents.length : 0), 0);
+
+    for (const fig of twDedicatedFigures) {
+      if (!fig.avatar) {
+        twDedicatedMissing++;
+        continue;
+      }
+      const diskPath = path.resolve(__dirname, '..', fig.avatar);
+      if (!fs.existsSync(diskPath) || fs.statSync(diskPath).size === 0) {
+        twDedicatedMissing++;
+      }
+    }
+    console.log(`[taiwanLens] 臺灣歷史專題視角 | Eras: ${twEras.length} | Events: ${twTotalEvents} | Battles: ${twBattles.length} | Dedicated Figures: ${twDedicatedFigures.length} | Total Taiwan Figures Pool: ${twRelatedIds.length} | Broken Avatars: ${twDedicatedMissing}`);
+    totalFigures += twDedicatedFigures.length;
+    totalBattles += twBattles.length;
+    totalEvents += twTotalEvents;
+    totalMissingAvatars += twDedicatedMissing;
+    allFigures.push(...twDedicatedFigures);
+  } catch (err) {
+    console.error('Failed to load taiwanLensData.js:', err);
+  }
+
   // Three Kingdoms specific copyright check
   console.log('=== Checking Three Kingdoms Plan A Copyright Compliance ===');
   const tkMod = require('../src/data/threeKingdoms/index.js');
