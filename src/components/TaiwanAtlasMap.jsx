@@ -1,231 +1,383 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   RotateCcw,
   ZoomIn,
   ZoomOut,
-  Swords,
   Clock,
-  MapPin,
-  Sparkles
+  MapPin
 } from './Icons.js';
 import { TAIWAN_LENS_ERAS } from '../data/taiwanLensData.js';
+import { TAIWAN_COUNTY_PATHS, projectLngLatToTaiwanMap } from '../data/taiwanMapGeoData.js';
 
-// Realistic Taiwan Geographical Path Datasets (Dedicated Taiwan ViewBox: 0 0 760 670)
-// High precision representation of Taiwan Main Island, Penghu, Kinmen & Matsu
-export const TAIWAN_DETAILED_PATHS = {
-  // 1. 北部區域 (基隆、臺北府城、大稻埕、滬尾淡水、宜蘭平原)
-  north: "M 578,128 C 588,125 604,136 620,150 C 632,160 635,178 625,195 C 618,206 605,218 588,222 C 570,226 550,215 542,202 C 536,192 542,176 552,160 C 560,146 568,132 578,128 Z",
-  
-  // 2. 桃竹苗區域 (竹塹、苗栗銅鑼)
-  hsinchu_miaoli: "M 542,202 C 550,215 570,226 588,222 C 576,238 565,255 548,266 C 532,276 512,275 496,268 C 478,258 472,238 488,218 C 504,198 528,190 542,202 Z",
-  
-  // 3. 中部區域 (大肚社、臺中大里杙、彰化八卦山、鹿港、南投霧社)
-  central: "M 496,268 C 512,275 532,276 548,266 C 558,285 562,310 550,332 C 538,352 516,362 486,365 C 452,368 422,352 418,335 C 412,312 432,286 465,274 C 478,269 488,267 496,268 Z",
-  
-  // 4. 雲嘉區域 (笨港北港、諸羅嘉義、阿里山)
-  yunjia: "M 486,365 C 516,362 538,352 550,332 C 556,350 554,375 540,396 C 525,418 495,432 458,435 C 420,438 390,422 388,405 C 385,385 410,366 450,364 C 468,363 478,364 486,365 Z",
-  
-  // 5. 南部區域 (承天府赤崁安平、打狗高雄、鳳山、恆春瑯嶠牡丹社)
-  south: "M 458,435 C 495,432 525,418 540,396 C 550,420 548,460 535,502 C 520,545 498,585 470,622 C 458,618 446,585 435,550 C 418,495 385,465 375,455 C 368,448 392,442 425,438 C 445,436 452,435 458,435 Z",
-  
-  // 6. 東部區域 (花蓮秀姑巒、臺東卑南、後山奇萊)
-  east: "M 625,195 C 638,225 642,270 635,320 C 628,370 605,430 575,488 C 555,528 535,568 470,622 C 498,585 520,545 535,502 C 548,460 550,420 540,396 C 554,375 556,350 550,332 C 562,310 558,285 548,266 C 565,255 576,238 588,222 C 605,218 618,206 625,195 Z",
-
-  // 7. 澎湖群島 (媽宮、八罩島、白沙、西嶼)
-  penghu: "M 252,370 C 262,364 274,372 268,385 C 262,396 248,394 246,380 Z M 274,360 C 280,356 286,362 282,368 C 278,374 272,370 274,360 Z M 256,400 C 264,396 270,404 265,412 C 258,418 250,412 256,400 Z",
-
-  // 8. 金門群島 (大金門、小金門、古寧頭、太武山)
-  kinmen: "M 52,246 C 65,238 82,242 88,252 C 92,260 84,272 70,270 C 58,268 48,258 52,246 Z M 38,256 C 44,252 48,258 45,264 C 42,268 36,266 38,256 Z",
-
-  // 9. 馬祖列島 (南竿、北竿、東莒)
-  matsu: "M 285,42 C 292,38 298,44 294,50 C 288,54 282,48 285,42 Z M 304,32 C 310,28 316,34 312,40 C 306,44 300,38 304,32 Z",
-
-  // 10. 綠島與蘭嶼
-  offshore_islands: "M 586,515 C 592,512 596,518 593,524 C 588,528 584,522 586,515 Z M 598,602 C 606,596 612,604 608,612 C 602,618 594,612 598,602 Z"
-};
-
-// Colors and Warlord labels for the 8 Taiwan Eras
-export const TAIWAN_ERA_PALETTES = {
+// Historical Era Color Schemes for Taiwan 22 Counties
+export const TAIWAN_ERA_COUNTY_SCHEMES = {
   tw_prehistoric: {
-    name: "南島大肚王國時期",
-    fillColor: "#10b981",
-    subFills: {
-      north: "#34d399",
-      hsinchu_miaoli: "#10b981",
-      central: "#059669", // 大肚王國拍瀑拉核心
-      yunjia: "#10b981",
-      south: "#34d399",
-      east: "#059669", // 南島原住民族阿美卑南
-      penghu: "#fbbf24", // 澎湖巡檢司
+    name: "南島原鄉與早期記錄 (史前 - 1624)",
+    themeBadge: "大肚王國·澎湖設治",
+    themeColor: "#059669",
+    countyColors: {
+      taichung: "#047857", // 大肚王國拍瀑拉核心
+      changhua: "#059669", // 大肚王國南境
+      nantou: "#047857", // 埔里諸社
+      taipei: "#10b981", // 凱達格蘭族
+      new_taipei: "#10b981",
+      keelung: "#10b981",
+      yilan: "#059669", // 噶瑪蘭三十六社
+      taoyuan: "#34d399",
+      hsinchu_city: "#34d399",
+      hsinchu_county: "#34d399", // 道卡斯族/賽夏族
+      miaoli: "#34d399",
+      yunlin: "#10b981",
+      chiayi_city: "#10b981",
+      chiayi_county: "#10b981",
+      tainan: "#10b981", // 西拉雅族四大社
+      kaohsiung: "#059669", // 馬卡道族
+      pingtung: "#047857", // 排灣族/魯凱族
+      hualien: "#065f46", // 阿美族/撒奇萊雅
+      taitung: "#065f46", // 卑南族八社/排灣
+      penghu: "#d97706", // 1281年元世祖設澎湖巡檢司
       kinmen: "#94a3b8",
-      matsu: "#94a3b8",
+      lienchiang: "#94a3b8"
     },
-    labels: [
-      { name: "大肚王國 (巴布拉十七社邦聯)", pos: [450, 310], color: "#064e3b", size: 13 },
-      { name: "平埔凱達格蘭各社", pos: [580, 160], color: "#065f46", size: 11 },
-      { name: "西拉雅族三大社", pos: [430, 480], color: "#065f46", size: 11 },
-      { name: "阿美/卑南/排灣祖居地", pos: [610, 420], color: "#064e3b", size: 12 },
-      { name: "澎湖巡檢司 (1281年大元設治)", pos: [260, 345], color: "#854d0e", size: 11 },
-      { name: "夷州 (三國東吳衛溫訪察)", pos: [500, 140], color: "#1e3a8a", size: 11 },
+    historicalNames: {
+      taichung: "大肚王國 (巴布拉十七社邦聯)",
+      changhua: "半線社 (大肚王國南界)",
+      nantou: "埔里水沙連各社",
+      taipei: "凱達格蘭大加蚋社",
+      new_taipei: "八里坌社 / 滬尾社",
+      keelung: "雞籠社 (大雞籠島)",
+      yilan: "噶瑪蘭三十六社",
+      tainan: "西拉雅四大社 (新港/麻豆/蕭壠/目加溜灣)",
+      kaohsiung: "打狗社 (馬卡道族)",
+      pingtung: "瑯嶠十八社 (排灣斯卡羅)",
+      penghu: "澎湖巡檢司 (1281年元代設治)",
+      kinmen: "同安縣浯洲嶼",
+      lienchiang: "閩江口馬祖諸島"
+    },
+    tacticalLabels: [
+      { name: "大肚王國核心 (拍瀑拉白晝王邦聯)", lng: 120.58, lat: 24.16, color: "#064e3b", size: 13 },
+      { name: "平埔凱達格蘭各社", lng: 121.52, lat: 25.05, color: "#065f46", size: 11 },
+      { name: "西拉雅四大社", lng: 120.30, lat: 23.10, color: "#065f46", size: 11 },
+      { name: "阿美/卑南祖居聖地", lng: 121.20, lat: 22.80, color: "#064e3b", size: 12 },
+      { name: "澎湖巡檢司 (1281年大元置官)", lng: 119.57, lat: 23.57, color: "#78350f", size: 11 },
+      { name: "夷州 (三國東吳衛溫將軍遠航抵達)", lng: 121.40, lat: 25.25, color: "#1e3a8a", size: 11 }
     ]
   },
   tw_dutch_spanish: {
-    name: "大航海荷西與笨港拓墾時期",
-    fillColor: "#f59e0b",
-    subFills: {
-      north: "#fde047", // 西班牙聖多明哥城
-      hsinchu_miaoli: "#fbbf24",
-      central: "#10b981", // 大肚王國抗荷
-      yunjia: "#60a5fa", // 顏思齊鄭芝龍笨港開拓
-      south: "#f97316", // 荷蘭東印度公司熱蘭遮城
-      east: "#34d399",
-      penghu: "#f97316", // 荷蘭轉口貿易站
-      kinmen: "#3b82f6", // 鄭芝龍明朝水師
-      matsu: "#94a3b8",
+    name: "大航海時代荷西與笨港拓墾 (1624 - 1662)",
+    themeBadge: "熱蘭遮城·笨港拓墾",
+    themeColor: "#ea580c",
+    countyColors: {
+      keelung: "#eab308", // 西班牙聖救主城 (Fort San Salvador)
+      new_taipei: "#eab308", // 西班牙聖多明哥城 (紅毛城前身)
+      taipei: "#fef08a",
+      yilan: "#fde047",
+      taoyuan: "#fde047",
+      hsinchu_city: "#fbbf24",
+      hsinchu_county: "#fbbf24",
+      miaoli: "#fbbf24",
+      taichung: "#059669", // 大肚王國抗荷
+      changhua: "#059669",
+      nantou: "#059669",
+      yunlin: "#2563eb", // 顏思齊/鄭芝龍笨港十寨
+      chiayi_city: "#2563eb",
+      chiayi_county: "#2563eb",
+      tainan: "#ea580c", // 荷蘭熱蘭遮城/普羅民遮城
+      kaohsiung: "#c2410c", // 荷蘭長官打狗管轄
+      pingtung: "#c2410c",
+      hualien: "#6ee7b7",
+      taitung: "#6ee7b7",
+      penghu: "#ea580c", // 荷蘭東印度公司澎湖要塞
+      kinmen: "#dc2626", // 鄭芝龍大明水師料羅灣
+      lienchiang: "#94a3b8"
     },
-    labels: [
-      { name: "西班牙聖多明哥城 (基隆淡水)", pos: [595, 145], color: "#854d0e", size: 12 },
-      { name: "荷蘭東印度公司 (熱蘭遮城/赤崁樓)", pos: [380, 480], color: "#7c2d12", size: 13 },
-      { name: "笨港拓墾 (顏思齊/鄭芝龍開闢)", pos: [405, 385], color: "#1e40af", size: 12 },
-      { name: "大肚王國堅壁清野", pos: [490, 310], color: "#065f46", size: 11 },
-      { name: "金門料羅灣水師大捷 (鄭芝龍)", pos: [70, 280], color: "#1e3a8a", size: 11 },
+    historicalNames: {
+      keelung: "西班牙雞籠聖救主城",
+      new_taipei: "西班牙滬尾聖多明哥城",
+      tainan: "荷蘭大員熱蘭遮城 (安平古堡)",
+      yunlin: "笨港拓墾十寨 (顏思齊開闢)",
+      chiayi_county: "諸羅笨港 (鄭芝龍部眾)",
+      taichung: "大肚王國堅壁清野",
+      penghu: "風櫃尾荷蘭城堡遺址",
+      kinmen: "料羅灣海戰 (鄭芝龍大破荷艦)"
+    },
+    tacticalLabels: [
+      { name: "荷蘭東印度公司 (熱蘭遮城/普羅民遮城)", lng: 120.16, lat: 23.00, color: "#7c2d12", size: 13 },
+      { name: "西班牙聖多明哥城 (淡水雞籠)", lng: 121.50, lat: 25.18, color: "#854d0e", size: 12 },
+      { name: "顏思齊·鄭芝龍笨港拓墾營寨", lng: 120.30, lat: 23.57, color: "#1e40af", size: 12 },
+      { name: "郭懷一抗荷起義 (油車行血戰)", lng: 120.25, lat: 23.03, color: "#991b1b", size: 11 },
+      { name: "大肚王國抗擊荷軍進犯", lng: 120.55, lat: 24.15, color: "#065f46", size: 11 },
+      { name: "料羅灣大捷 (鄭芝龍擊沉荷蘭戰艦)", lng: 118.42, lat: 24.41, color: "#7f1d1d", size: 11 }
     ]
   },
   tw_tungning: {
-    name: "明鄭東寧王國時期",
-    fillColor: "#ef4444",
-    subFills: {
-      north: "#f87171", // 天興縣北路
-      hsinchu_miaoli: "#ef4444",
-      central: "#ef4444", // 軍屯開荒
-      yunjia: "#dc2626",
-      south: "#b91c1c", // 承天府王城核心
-      east: "#fca5a5",
-      penghu: "#dc2626", // 劉國軒水師要塞
-      kinmen: "#dc2626", // 鄭成功出征出發地
-      matsu: "#94a3b8",
+    name: "明鄭東寧王國時期 (1662 - 1683)",
+    themeBadge: "開臺聖王·東寧國都",
+    themeColor: "#dc2626",
+    countyColors: {
+      tainan: "#b91c1c", // 承天府東都王城核心
+      kaohsiung: "#dc2626", // 萬年縣 (鳳山左營屯田)
+      pingtung: "#dc2626", // 萬年縣南境
+      chiayi_county: "#dc2626", // 天興縣 (諸羅屯墾)
+      chiayi_city: "#dc2626",
+      yunlin: "#dc2626",
+      changhua: "#ef4444", // 天興縣屯田
+      taichung: "#ef4444",
+      nantou: "#ef4444",
+      miaoli: "#f87171",
+      hsinchu_city: "#f87171", // 天興縣北路巡緝
+      hsinchu_county: "#f87171",
+      taoyuan: "#f87171",
+      new_taipei: "#f87171",
+      taipei: "#f87171",
+      keelung: "#f87171",
+      yilan: "#fca5a5",
+      hualien: "#6ee7b7",
+      taitung: "#6ee7b7",
+      penghu: "#991b1b", // 劉國軒水師軍港天險
+      kinmen: "#b91c1c", // 延平王出師起點
+      lienchiang: "#94a3b8"
     },
-    labels: [
-      { name: "明鄭承天府 (安平王都·鄭成功)", pos: [380, 475], color: "#7f1d1d", size: 14 },
-      { name: "天興縣 (陳永華軍屯拓墾)", pos: [450, 330], color: "#991b1b", size: 12 },
-      { name: "萬年縣 (鳳山左營屯田)", pos: [420, 530], color: "#991b1b", size: 12 },
-      { name: "全臺首學 (臺南孔廟國子監)", pos: [390, 495], color: "#7f1d1d", size: 11 },
-      { name: "澎湖水師大寨 (劉國軒防線)", pos: [260, 345], color: "#991b1b", size: 11 },
-      { name: "金門料羅灣出征起點", pos: [70, 280], color: "#991b1b", size: 11 },
+    historicalNames: {
+      tainan: "明鄭東都承天府 (安平王宮/孔廟)",
+      kaohsiung: "萬年縣鳳山治所 (軍屯)",
+      chiayi_county: "天興縣治所 (諸羅軍屯)",
+      penghu: "澎湖安撫司 (劉國軒水師大寨)",
+      kinmen: "金門料羅灣 (延平王出師地)"
+    },
+    tacticalLabels: [
+      { name: "明鄭王都承天府 (鄭成功受降立國)", lng: 120.16, lat: 23.00, color: "#7f1d1d", size: 14 },
+      { name: "全臺首學 (陳永華建孔廟開科舉)", lng: 120.20, lat: 22.99, color: "#7f1d1d", size: 12 },
+      { name: "天興縣軍屯 (陳永華開荒拓土)", lng: 120.35, lat: 23.40, color: "#991b1b", size: 12 },
+      { name: "萬年縣左營軍屯 (鳳山糧倉)", lng: 120.30, lat: 22.68, color: "#991b1b", size: 12 },
+      { name: "澎湖海戰 (施琅破劉國軒水師)", lng: 119.56, lat: 23.56, color: "#7f1d1d", size: 12 },
+      { name: "金門料羅灣 (大軍集結出發點)", lng: 118.42, lat: 24.41, color: "#991b1b", size: 11 }
     ]
   },
   tw_qing_early: {
-    name: "清領前期渡臺拓墾時期",
-    fillColor: "#eab308",
-    subFills: {
-      north: "#fef08a", // 淡水廳
-      hsinchu_miaoli: "#fde047",
-      central: "#eab308", // 彰化縣八卦山
-      yunjia: "#ca8a04", // 諸羅縣嘉義
-      south: "#a16207", // 臺灣府城
-      east: "#86efac",
-      penghu: "#ca8a04", // 澎湖廳
+    name: "清領前期渡臺拓墾時期 (1683 - 1874)",
+    themeBadge: "一府三縣·鹿港艋舺",
+    themeColor: "#d97706",
+    countyColors: {
+      tainan: "#a16207", // 臺灣府城
+      kaohsiung: "#ca8a04", // 鳳山縣
+      pingtung: "#ca8a04", // 鳳山縣南境
+      chiayi_county: "#d97706", // 諸羅縣 (林爽文起義賜名嘉義)
+      chiayi_city: "#d97706",
+      yunlin: "#d97706",
+      changhua: "#eab308", // 彰化縣 (八堡圳開闢)
+      taichung: "#eab308", // 貓霧捒圳
+      nantou: "#eab308",
+      miaoli: "#fde047", // 淡水廳南界
+      hsinchu_city: "#fde047", // 淡水廳竹塹城
+      hsinchu_county: "#fde047",
+      taoyuan: "#fde047",
+      new_taipei: "#fef08a", // 瑠公圳灌溉
+      taipei: "#fef08a", // 艋舺/大稻埕興起
+      keelung: "#fef08a",
+      yilan: "#84cc16", // 噶瑪蘭廳設治
+      hualien: "#86efac",
+      taitung: "#86efac",
+      penghu: "#b45309", // 澎湖廳通判
       kinmen: "#3b82f6",
-      matsu: "#94a3b8",
+      lienchiang: "#94a3b8"
     },
-    labels: [
-      { name: "大清臺灣府 (施琅平台設治)", pos: [380, 475], color: "#713f12", size: 13 },
-      { name: "諸羅縣 (林爽文起義/賜名嘉義)", pos: [420, 395], color: "#854d0e", size: 12 },
-      { name: "鴨母王朱一貴起義 (內門鴨母寮)", pos: [440, 500], color: "#991b1b", size: 11 },
-      { name: "一府二鹿三艋舺繁榮", pos: [415, 305], color: "#713f12", size: 12 },
-      { name: "艋舺開墾與水利八堡圳", pos: [570, 175], color: "#713f12", size: 11 },
+    historicalNames: {
+      tainan: "大清臺灣府 (施琅平台設治)",
+      chiayi_city: "諸羅縣 (乾隆賜名嘉義)",
+      kaohsiung: "鳳山縣左營舊城",
+      changhua: "彰化縣城 (八堡圳/鹿港)",
+      hsinchu_city: "淡水廳竹塹石城",
+      taipei: "艋舺三邑/同安祖師廟",
+      yilan: "噶瑪蘭廳 (楊廷理開蘭)",
+      penghu: "臺灣府澎湖廳通判"
+    },
+    tacticalLabels: [
+      { name: "大清臺灣府城 (巡道總兵駐紮首府)", lng: 120.20, lat: 23.00, color: "#713f12", size: 13 },
+      { name: "嘉義縣城 (林爽文天地會包圍血戰)", lng: 120.45, lat: 23.48, color: "#78350f", size: 12 },
+      { name: "鴨母王朱一貴起義 (內門鴨母寮)", lng: 120.46, lat: 22.94, color: "#991b1b", size: 11 },
+      { name: "一府二鹿三艋舺全盛興起", lng: 120.43, lat: 24.06, color: "#713f12", size: 12 },
+      { name: "淡水廳竹塹石城 (北臺行政樞紐)", lng: 120.97, lat: 24.81, color: "#713f12", size: 11 },
+      { name: "施琅平台設臺灣府 (康熙棄留疏)", lng: 119.57, lat: 23.57, color: "#1e3a8a", size: 11 }
     ]
   },
   tw_qing_late: {
-    name: "自強建省開山撫番時期",
-    fillColor: "#8b5cf6",
-    subFills: {
-      north: "#a78bfa", // 臺北府/巡撫衙門
-      hsinchu_miaoli: "#8b5cf6", // 第一客運鐵路
-      central: "#7c3aed", // 臺灣府 (臺中)
-      yunjia: "#6d28d9",
-      south: "#5b21b6", // 臺南府
-      east: "#c084fc", // 臺東直隸州/開山撫番
-      penghu: "#7c3aed",
+    name: "自強建省與開山撫番時期 (1874 - 1895)",
+    themeBadge: "銘傳建省·滬尾大捷",
+    themeColor: "#7c3aed",
+    countyColors: {
+      taipei: "#5b21b6", // 臺灣省巡撫衙門 (臺北府城)
+      new_taipei: "#6d28d9", // 滬尾淡水大捷
+      keelung: "#6d28d9", // 現代基隆港口/煤礦
+      taoyuan: "#7c3aed",
+      hsinchu_city: "#7c3aed", // 中國第一客運鐵路起訖
+      hsinchu_county: "#7c3aed",
+      miaoli: "#8b5cf6",
+      taichung: "#6d28d9", // 臺灣府 (原定省城橋仔頭)
+      changhua: "#7c3aed",
+      nantou: "#8b5cf6", // 八通關古道起點
+      yunlin: "#8b5cf6", // 雲林縣新設
+      chiayi_city: "#8b5cf6",
+      chiayi_county: "#8b5cf6",
+      tainan: "#5b21b6", // 臺南府 (南路總兵)
+      kaohsiung: "#6d28d9", // 旗後砲台
+      pingtung: "#7c3aed", // 恆春縣城/鵝鑾鼻燈塔
+      yilan: "#8b5cf6",
+      hualien: "#a855f7", // 臺東直隸州花蓮港
+      taitung: "#a855f7", // 臺東直隸州卑南
+      penghu: "#6d28d9", // 澎湖鎮總兵
       kinmen: "#3b82f6",
-      matsu: "#94a3b8",
+      lienchiang: "#94a3b8"
     },
-    labels: [
-      { name: "臺灣省巡撫衙門 (劉銘傳建省)", pos: [575, 165], color: "#3b0764", size: 13 },
-      { name: "滬尾淡水大捷 (中法保臺)", pos: [565, 125], color: "#1e3a8a", size: 12 },
-      { name: "中國第一客運鐵路 (基隆—新竹)", pos: [530, 185], color: "#4c1d95", size: 11 },
-      { name: "牡丹社事件 (沈葆楨建億載金城)", pos: [460, 610], color: "#7f1d1d", size: 11 },
-      { name: "八通關古道/開山撫番", pos: [530, 360], color: "#4c1d95", size: 11 },
+    historicalNames: {
+      taipei: "臺灣省巡撫衙門 (臺北府城)",
+      new_taipei: "滬尾砲台 (法軍敗退處)",
+      keelung: "基隆二沙灣砲台 (海東要塞)",
+      taichung: "臺灣府城 (橋仔頭新省城)",
+      tainan: "臺南府城 (億載金城/安平砲台)",
+      pingtung: "恆春古城 (沈葆楨建城)",
+      taitung: "臺東直隸州衙門 (卑南)",
+      hsinchu_city: "新竹火車站 (鐵路新竹終點)"
+    },
+    tacticalLabels: [
+      { name: "臺灣巡撫衙門 (劉銘傳建省定都)", lng: 121.51, lat: 25.04, color: "#3b0764", size: 14 },
+      { name: "滬尾淡水大捷 (孫開華擊潰法軍登陸)", lng: 121.43, lat: 25.17, color: "#1e3a8a", size: 12 },
+      { name: "中國第一條客運鐵路 (基隆—新竹)", lng: 121.30, lat: 24.95, color: "#4c1d95", size: 11 },
+      { name: "牡丹社事件 (沈葆楨開山撫番修城)", lng: 120.74, lat: 22.00, color: "#7f1d1d", size: 11 },
+      { name: "八通關古道 (沈葆楨開拓後山中路)", lng: 121.00, lat: 23.60, color: "#4c1d95", size: 11 }
     ]
   },
   tw_japanese: {
-    name: "乙未抗日與文化啟蒙時期",
-    fillColor: "#ec4899",
-    subFills: {
-      north: "#f472b6", // 臺北州
-      hsinchu_miaoli: "#ec4899", // 新竹州/羅福星苗栗
-      central: "#db2777", // 臺中州/八卦山/霧社
-      yunjia: "#be185d", // 臺南州/余清芳噍吧哖
-      south: "#9d174d", // 高雄州
-      east: "#f9a8d4", // 花蓮港廳/臺東廳
+    name: "乙未抗日與文化啟蒙時期 (1895 - 1945)",
+    themeBadge: "八卦血戰·文協啟蒙",
+    themeColor: "#db2777",
+    countyColors: {
+      taipei: "#9d174d", // 臺北州 (總督府/大稻埕文協)
+      new_taipei: "#be185d",
+      keelung: "#be185d",
+      yilan: "#be185d",
+      taoyuan: "#db2777", // 新竹州
+      hsinchu_city: "#db2777",
+      hsinchu_county: "#db2777",
+      miaoli: "#be185d", // 羅福星苗栗起義
+      taichung: "#9d174d", // 臺中州 (林獻堂霧峰/民眾黨)
+      changhua: "#be185d", // 八卦山之役/賴和仁醫
+      nantou: "#881337", // 莫那魯道霧社起義
+      yunlin: "#db2777", // 臺南州 (余清芳噍吧哖)
+      chiayi_city: "#db2777",
+      chiayi_county: "#db2777",
+      tainan: "#9d174d",
+      kaohsiung: "#be185d", // 高雄州
+      pingtung: "#db2777",
+      hualien: "#f472b6", // 花蓮港廳
+      taitung: "#f472b6", // 臺東廳
       penghu: "#db2777", // 澎湖廳
       kinmen: "#3b82f6",
-      matsu: "#94a3b8",
+      lienchiang: "#94a3b8"
     },
-    labels: [
-      { name: "八卦山抗日大血戰 (吳湯興/徐驤)", pos: [420, 315], color: "#831843", size: 13 },
-      { name: "臺灣文化協會·臺灣民眾黨 (蔣渭水/林獻堂)", pos: [575, 165], color: "#701a75", size: 13 },
-      { name: "莫那·魯道霧社起義 (賽德克族)", pos: [530, 305], color: "#881337", size: 12 },
-      { name: "臺灣新文學之父 (賴和彰化仁醫)", pos: [415, 335], color: "#701a75", size: 11 },
-      { name: "西來庵噍吧哖事件 (余清芳起義)", pos: [430, 460], color: "#831843", size: 11 },
-      { name: "苗栗抗日事件 (羅福星烈士)", pos: [480, 245], color: "#831843", size: 11 },
+    historicalNames: {
+      taipei: "臺北州大稻埕 (臺灣文化協會)",
+      changhua: "八卦山乙未烈士祠 / 賴和醫館",
+      taichung: "霧峰林家 (林獻堂議會請願)",
+      nantou: "霧社馬赫坡社 (莫那魯道紀念碑)",
+      tainan: "噍吧哖玉井 (余清芳西來庵事件)",
+      miaoli: "苗栗起義紀念碑 (羅福星烈士)"
+    },
+    tacticalLabels: [
+      { name: "八卦山抗日大血戰 (吳湯興/徐驤成仁)", lng: 120.55, lat: 24.08, color: "#881337", size: 13 },
+      { name: "臺灣文化協會·臺灣民眾黨 (蔣渭水/林獻堂)", lng: 121.51, lat: 25.05, color: "#701a75", size: 13 },
+      { name: "莫那·魯道霧社起義 (賽德克族尊嚴抗暴)", lng: 121.13, lat: 24.02, color: "#881337", size: 12 },
+      { name: "臺灣新文學之父 (賴和彰化仁心醫世)", lng: 120.54, lat: 24.07, color: "#701a75", size: 11 },
+      { name: "噍吧哖西來庵事件 (余清芳武裝起義)", lng: 120.46, lat: 23.12, color: "#881337", size: 11 },
+      { name: "羅福星苗栗起義 (辛亥革命光照臺灣)", lng: 120.82, lat: 24.56, color: "#881337", size: 11 }
     ]
   },
   tw_postwar: {
-    id: "tw_postwar",
-    name: "戰後復原與臺海防衛時期",
-    fillColor: "#3b82f6",
-    subFills: {
-      north: "#60a5fa",
-      hsinchu_miaoli: "#3b82f6",
-      central: "#2563eb",
-      yunjia: "#1d4ed8",
-      south: "#1e40af",
-      east: "#93c5fd",
-      penghu: "#2563eb",
-      kinmen: "#b91c1c", // 古寧頭/八二三金門戰地
-      matsu: "#b91c1c", // 馬祖前線
+    name: "戰後復原與臺海防衛時期 (1945 - 1970)",
+    themeBadge: "光復回歸·古寧八二三",
+    themeColor: "#2563eb",
+    countyColors: {
+      taipei: "#1e40af", // 中華民國中央政府 (總統府/中山堂)
+      new_taipei: "#1d4ed8",
+      keelung: "#1d4ed8",
+      yilan: "#2563eb",
+      taoyuan: "#2563eb",
+      hsinchu_city: "#2563eb",
+      hsinchu_county: "#2563eb",
+      miaoli: "#2563eb",
+      taichung: "#1d4ed8",
+      changhua: "#2563eb",
+      nantou: "#3b82f6",
+      yunlin: "#3b82f6",
+      chiayi_city: "#2563eb",
+      chiayi_county: "#2563eb",
+      tainan: "#1d4ed8",
+      kaohsiung: "#1e40af", // 左營軍港海軍基地
+      pingtung: "#2563eb",
+      hualien: "#60a5fa",
+      taitung: "#60a5fa",
+      penghu: "#1d4ed8", // 馬公海軍基地
+      kinmen: "#b91c1c", // 古寧頭大捷 / 八二三戰地
+      lienchiang: "#b91c1c" // 馬祖列島前線防衛
     },
-    labels: [
-      { name: "臺灣光復受降典禮 (臺北中山堂)", pos: [575, 165], color: "#1e3a8a", size: 13 },
-      { name: "古寧頭戰役大捷 (全殲登陸敵軍)", pos: [70, 245], color: "#991b1b", size: 13 },
-      { name: "八二三臺海砲戰 (確立海峽中線)", pos: [70, 275], color: "#7f1d1d", size: 13 },
-      { name: "三七五減租與耕者有其田 (陳誠)", pos: [420, 420], color: "#1e40af", size: 12 },
-      { name: "九年國民義務教育推行", pos: [460, 270], color: "#1e40af", size: 11 },
-      { name: "新臺幣發行穩定經濟 (嚴家淦)", pos: [540, 195], color: "#1e40af", size: 11 },
+    historicalNames: {
+      taipei: "臺北中山堂 (臺灣光復受降典禮)",
+      kinmen: "金門古寧頭戰史館 / 太武山擎天廳",
+      kaohsiung: "左營海軍艦隊軍港基地",
+      penghu: "澎湖馬公防衛指揮部",
+      lienchiang: "馬祖南竿北竿前線要塞"
+    },
+    tacticalLabels: [
+      { name: "臺灣光復受降典禮 (臺北公會堂中山堂)", lng: 121.51, lat: 25.04, color: "#1e3a8a", size: 13 },
+      { name: "金門古寧頭大捷 (全殲登陸敵軍保衛臺灣)", lng: 118.31, lat: 24.48, color: "#991b1b", size: 13 },
+      { name: "八二三臺海砲戰 (巨砲還擊奠定海峽中線)", lng: 118.33, lat: 24.45, color: "#7f1d1d", size: 13 },
+      { name: "三七五減租與耕者有其田 (陳誠推動土地改革)", lng: 120.30, lat: 23.50, color: "#1e40af", size: 12 },
+      { name: "九年國民義務教育推行 (培育工程師基石)", lng: 120.68, lat: 24.15, color: "#1e40af", size: 11 },
+      { name: "發行新臺幣穩定經濟物價 (嚴家淦幣改)", lng: 121.51, lat: 25.03, color: "#1e40af", size: 11 }
     ]
   },
   tw_modern: {
-    id: "tw_modern",
-    name: "科技矽島與民主轉型時期",
-    fillColor: "#06b6d4",
-    subFills: {
-      north: "#22d3ee",
-      hsinchu_miaoli: "#0891b2", // 新竹科學園區/台積電
-      central: "#0e7490", // 中部科學園區
-      yunjia: "#155e75",
-      south: "#164e63", // 南部科學園區
-      east: "#67e8f9",
+    name: "科技矽島與民主轉型時期 (1970 - 現代)",
+    themeBadge: "十大建設·護國神山",
+    themeColor: "#0891b2",
+    countyColors: {
+      taipei: "#0e7490", // 首都政經民主中心
+      new_taipei: "#0891b2",
+      keelung: "#0891b2",
+      yilan: "#06b6d4",
+      taoyuan: "#0891b2", // 桃園國際機場 (十大建設)
+      hsinchu_city: "#164e63", // 新竹科學園區/台積電總部
+      hsinchu_county: "#164e63", // 工研院/竹北生醫
+      miaoli: "#0891b2", // 竹科竹南園區
+      taichung: "#0e7490", // 中部科學園區/臺中港
+      changhua: "#0891b2",
+      nantou: "#06b6d4",
+      yunlin: "#0891b2", // 六輕石化重鎮 (王永慶)
+      chiayi_city: "#0891b2",
+      chiayi_county: "#0891b2", // 嘉義科學園區
+      tainan: "#164e63", // 南部科學園區 (台積電先進製程)
+      kaohsiung: "#0e7490", // 中鋼/中船大造船廠
+      pingtung: "#0891b2",
+      hualien: "#22d3ee", // 北迴鐵路現代化
+      taitung: "#22d3ee",
       penghu: "#0891b2",
       kinmen: "#0e7490",
-      matsu: "#0e7490",
+      lienchiang: "#0e7490"
     },
-    labels: [
-      { name: "新竹科學園區·台積電 (張忠謀/李國鼎)", pos: [495, 205], color: "#164e63", size: 13 },
-      { name: "十大建設·中山高速公路 (蔣經國/孫運璿)", pos: [430, 360], color: "#0e7490", size: 13 },
-      { name: "解除戒嚴令與開放探親 (1987)", pos: [575, 155], color: "#155e75", size: 12 },
-      { name: "公民直選總統·民主先生 (李登輝)", pos: [575, 180], color: "#164e63", size: 12 },
-      { name: "臺灣護國神山矽盾 (全球半導體樞紐)", pos: [380, 520], color: "#155e75", size: 12 },
+    historicalNames: {
+      hsinchu_city: "新竹科學園區 (台積電全球研發中心)",
+      taipei: "總統府 (李登輝解嚴直選民主中心)",
+      taoyuan: "桃園國際機場 (十大建設門戶)",
+      kaohsiung: "中國鋼鐵 / 高雄港貨櫃樞紐",
+      tainan: "南部科學園區 (3奈米晶圓旗艦廠)",
+      yunlin: "麥寮六輕工業區 (台塑集團王永慶)"
+    },
+    tacticalLabels: [
+      { name: "新竹科學工業園區 (李國鼎/孫運璿奠基)", lng: 120.99, lat: 24.78, color: "#164e63", size: 13 },
+      { name: "台積電 TSMC (張忠謀創立晶圓代工矽盾)", lng: 121.01, lat: 24.77, color: "#0891b2", size: 13 },
+      { name: "十大建設 (蔣經國推動突破能源危機)", lng: 121.23, lat: 25.07, color: "#0e7490", size: 12 },
+      { name: "解除戒嚴與開放探親 (1987年民主啟航)", lng: 121.51, lat: 25.03, color: "#155e75", size: 12 },
+      { name: "公民直選總統 (李登輝先生寧靜革命)", lng: 121.51, lat: 25.04, color: "#164e63", size: 12 }
     ]
   }
 };
@@ -240,14 +392,14 @@ export const TaiwanAtlasMap = ({
   onSelectBattle,
   ancientNamesOnly,
 }) => {
-  const currentPalette = TAIWAN_ERA_PALETTES[activeTaiwanEraId] || TAIWAN_ERA_PALETTES.tw_tungning;
-  const [hoveredRegion, setHoveredRegion] = useState(null);
+  const currentScheme = TAIWAN_ERA_COUNTY_SCHEMES[activeTaiwanEraId] || TAIWAN_ERA_COUNTY_SCHEMES.tw_tungning;
+  const [hoveredCounty, setHoveredCounty] = useState(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
-  const mapScrollRef = useRef(null);
+  const mapContainerRef = useRef(null);
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.25, 3));
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.25, 0.75));
@@ -272,24 +424,21 @@ export const TaiwanAtlasMap = ({
 
   const handleMouseUp = () => setIsDragging(false);
 
-  // Markers coordinate fallback
-  const getEventCoords = (evt) => {
-    if (evt.svgPos) return evt.svgPos;
-    if (evt.coordinates) {
-      const x = Math.round((evt.coordinates[0] - 118.0) * 165);
-      const y = Math.round((26.2 - evt.coordinates[1]) * 145);
-      return [x, y];
+  // Position calculation via GIS Mercator
+  const getMarkerCoords = (item) => {
+    if (item.coordinates && Array.isArray(item.coordinates)) {
+      return projectLngLatToTaiwanMap(item.coordinates[0], item.coordinates[1]);
     }
-    return [500, 320];
+    return [550, 360];
   };
 
   return (
-    <div className="relative w-full h-full max-h-full min-h-0 rounded-xl overflow-hidden border-2 border-emerald-700/60 shadow-2xl bg-[#f4ecd8] select-none flex flex-col font-serif">
-      {/* 1. Taiwan Eras Quick Tab Selector */}
-      <div className="px-3 py-2 bg-gradient-to-r from-emerald-950 via-[#0f2419] to-emerald-950 border-b-2 border-emerald-700/50 flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-100 shrink-0">
+    <div className="relative w-full h-full max-h-full min-h-0 rounded-xl overflow-hidden border-2 border-[#8c7355] shadow-2xl bg-[#f5eedb] select-none flex flex-col font-serif">
+      {/* 1. Header Toolbar with Chronological Taiwan Era Tabs */}
+      <div className="px-3 py-2 bg-[#2b2117] border-b-2 border-[#8c7355] flex flex-wrap items-center justify-between gap-2 text-xs text-[#f5ebd9] shrink-0">
         <div className="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar">
-          <span className="text-emerald-300 font-bold text-xs flex items-center gap-1 mr-1 shrink-0">
-            <span className="text-sm">🏝️</span>
+          <span className="text-[#e8c89b] font-bold text-xs flex items-center gap-1 mr-1 shrink-0">
+            <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
             臺灣紀元：
           </span>
           {TAIWAN_LENS_ERAS.map((era) => {
@@ -300,10 +449,10 @@ export const TaiwanAtlasMap = ({
                 onClick={() => {
                   if (onSelectTaiwanEraId) onSelectTaiwanEraId(era.id);
                 }}
-                className={`px-2.5 py-1 rounded-lg text-xs whitespace-nowrap transition-all duration-200 font-medium ${
+                className={`px-2.5 py-1 rounded text-[11px] whitespace-nowrap transition-all duration-200 font-medium ${
                   isActive
-                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md ring-1 ring-emerald-300 scale-[1.02]'
-                    : 'bg-emerald-900/40 text-emerald-200 hover:bg-emerald-800/60 hover:text-white border border-emerald-700/30'
+                    ? 'bg-[#d97706] text-white font-bold shadow-md ring-1 ring-[#fef08a]'
+                    : 'bg-[#3d3022] text-[#d6c5af] hover:bg-[#53412d] hover:text-white'
                 }`}
               >
                 {era.name}
@@ -313,31 +462,31 @@ export const TaiwanAtlasMap = ({
         </div>
       </div>
 
-      {/* 2. Main Map Graphic (Dedicated Taiwan Atlas Canvas) */}
+      {/* 2. Main Map Graphic (Authentic GIS Coastlines & Boundaries of Taiwan) */}
       <div
-        ref={mapScrollRef}
-        className="relative flex-1 min-h-0 overflow-y-auto bg-[#f2e9d2] p-3 sm:p-4 flex flex-col items-center"
+        ref={mapContainerRef}
+        className="relative flex-1 min-h-0 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center"
       >
-        {/* Top-Left Historic Title Plaque */}
-        <div className="w-full max-w-[760px] mb-2 flex items-center justify-between px-2 text-xs text-[#2b2117]">
+        {/* Top-Left Classical Seal Title Stamp */}
+        <div className="w-full max-w-[820px] mb-2 flex items-center justify-between px-2 text-xs text-[#2b2117]">
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-emerald-800 text-emerald-100 font-bold text-[11px] shadow">
-              {currentPalette.name}
+            <span className="px-2.5 py-0.5 rounded bg-[#8c2d19] text-[#fef08a] font-bold font-serif text-xs border border-[#d97706]/50 shadow-md">
+              {currentScheme.themeBadge}
             </span>
-            <span className="text-[11px] text-zinc-600 font-sans hidden sm:inline">
-              臺灣海峽 • 澎湖群島 • 金門前線 • 本島全域
+            <span className="text-xs font-bold font-serif text-[#44382c]">
+              {currentScheme.name}
             </span>
           </div>
-          {hoveredRegion && (
-            <span className="text-[11px] font-bold text-emerald-900 bg-emerald-200/60 px-2 py-0.5 rounded">
-              {hoveredRegion}
+          {hoveredCounty && (
+            <span className="text-xs font-bold text-[#8c2d19] bg-[#ebd8b7] px-2.5 py-0.5 rounded border border-[#8c7355]/40 shadow-sm">
+              {hoveredCounty}
             </span>
           )}
         </div>
 
-        {/* Floating Map Container */}
+        {/* Map Canvas with Authentic GIS Boundaries (820 x 720) */}
         <div
-          className="relative w-full max-w-[760px] aspect-[760/670] shrink-0 rounded-xl overflow-hidden shadow-xl border-2 border-[#8c7355] bg-[#e8debe] cursor-grab active:cursor-grabbing"
+          className="relative w-full max-w-[820px] aspect-[820/720] shrink-0 rounded-xl overflow-hidden shadow-2xl border-2 border-[#8c7355] bg-[#efe5cc] cursor-grab active:cursor-grabbing"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -348,147 +497,132 @@ export const TaiwanAtlasMap = ({
             <button
               onClick={handleZoomIn}
               title="放大地圖"
-              className="p-1.5 rounded text-emerald-200 hover:bg-[#53412d] hover:text-emerald-100"
+              className="p-1.5 rounded text-[#f5ebd9] hover:bg-[#53412d] hover:text-amber-300 transition-colors"
             >
               <ZoomIn className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={handleZoomOut}
               title="縮小地圖"
-              className="p-1.5 rounded text-emerald-200 hover:bg-[#53412d] hover:text-emerald-100"
+              className="p-1.5 rounded text-[#f5ebd9] hover:bg-[#53412d] hover:text-amber-300 transition-colors"
             >
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={handleResetView}
               title="重置視角"
-              className="p-1.5 rounded text-emerald-200 hover:bg-[#53412d] hover:text-emerald-100"
+              className="p-1.5 rounded text-[#f5ebd9] hover:bg-[#53412d] hover:text-amber-300 transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
             </button>
           </div>
 
           <svg
-            viewBox="0 0 760 670"
+            viewBox="0 0 820 720"
             className="w-full h-full transition-transform duration-150 ease-out"
             style={{
               transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
               transformOrigin: 'center center',
             }}
           >
-            {/* Ocean Waves Pattern & Background */}
-            <rect x="0" y="0" width="760" height="670" fill="#e8dfc7" />
+            {/* Antique Rice Paper Ocean Sea Floor */}
+            <rect x="0" y="0" width="820" height="720" fill="#eedfc5" />
 
-            {/* Sea Typography Annotations */}
-            <g fill="#9c8c72" fontSize="12" fontWeight="bold" letterSpacing="6" className="pointer-events-none select-none">
-              <text x="180" y="220">臺 灣 海 峽</text>
-              <text x="655" y="380">太 平 洋</text>
-              <text x="560" y="80">東 海</text>
-              <text x="380" y="650">巴 士 海 峽</text>
-              <text x="55" y="200" fontSize="10">九龍江口·廈門灣</text>
+            {/* Classical Sea Typography */}
+            <g fill="#9c8a6f" fontSize="13" fontWeight="bold" letterSpacing="6" className="pointer-events-none select-none">
+              <text x="210" y="240">臺 灣 海 峽</text>
+              <text x="735" y="420" transform="rotate(90 735,420)">太 平 洋</text>
+              <text x="610" y="90">東 海</text>
+              <text x="430" y="700">巴 士 海 峽</text>
+              <text x="60" y="210" fontSize="10" letterSpacing="2">九龍江口·廈門海灣</text>
             </g>
 
-            {/* Mainland Coast Silhouette Hint (Fujian Coastline at Left Edge) */}
+            {/* Subtle Continental Coastline Hint at Left Edge */}
             <path
-              d="M 10,10 L 20,120 L 12,230 L 25,320 L 15,480 L 10,660 L 0,670 L 0,0 Z"
-              fill="#dfd3b5"
-              stroke="#b5a589"
-              strokeWidth="1"
+              d="M 15,0 L 25,120 L 18,240 L 32,350 L 20,490 L 15,720 L 0,720 L 0,0 Z"
+              fill="#e3d6b8"
+              stroke="#baa98b"
+              strokeWidth="1.2"
+              className="pointer-events-none"
             />
-            <text x="25" y="100" fill="#a89a80" fontSize="10" fontWeight="bold">福建海疆沿岸</text>
+            <text x="32" y="110" fill="#a89a80" fontSize="10" fontWeight="bold" className="pointer-events-none">
+              福建海疆沿岸
+            </text>
 
-            {/* 1. TAIWAN MAIN ISLAND REGIONS & OFFSHORE ISLANDS */}
-            <g stroke="#261c14" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round">
-              {Object.entries(TAIWAN_DETAILED_PATHS).map(([regKey, pathStr]) => {
-                const fillCol = (currentPalette.subFills && currentPalette.subFills[regKey]) || currentPalette.fillColor;
-                const regTitle =
-                  regKey === 'north'
-                    ? '北部 (基隆/臺北府城/滬尾淡水/大稻埕)'
-                    : regKey === 'hsinchu_miaoli'
-                    ? '桃竹苗 (竹塹/新竹科學園區/苗栗銅鑼)'
-                    : regKey === 'central'
-                    ? '中部 (大肚社/彰化八卦山/鹿港/霧社)'
-                    : regKey === 'yunjia'
-                    ? '雲嘉 (笨港拓墾/諸羅嘉義/北港朝天宮)'
-                    : regKey === 'south'
-                    ? '南部 (承天府赤崁安平/打狗高雄/恆春瑯嶠)'
-                    : regKey === 'east'
-                    ? '東部 (後山奇萊/花蓮港廳/臺東直隸州)'
-                    : regKey === 'penghu'
-                    ? '澎湖群島 (澎湖巡檢司/媽宮砲台/澎湖海戰)'
-                    : regKey === 'kinmen'
-                    ? '金門列島 (料羅灣/古寧頭大捷/太武山八二三)'
-                    : regKey === 'matsu'
-                    ? '馬祖列島 (閩江口防衛要衝)'
-                    : '綠島與蘭嶼 (達悟族原鄉)';
-
-                const isHovered = hoveredRegion === regTitle;
+            {/* 1. AUTHENTIC 22 COUNTIES OF TAIWAN (Official GIS Geometries) */}
+            <g stroke="#261c14" strokeWidth="1.2" strokeLinejoin="round" strokeLinecap="round">
+              {Object.entries(TAIWAN_COUNTY_PATHS).map(([countyKey, countyItem]) => {
+                const fillCol = currentScheme.countyColors[countyKey] || "#eab308";
+                const histName = currentScheme.historicalNames[countyKey] || countyItem.name;
+                const isHovered = hoveredCounty === histName;
 
                 return (
                   <path
-                    key={regKey}
-                    d={pathStr}
+                    key={countyKey}
+                    d={countyItem.d}
                     fill={fillCol}
-                    className="cursor-pointer transition-colors duration-200"
+                    className="cursor-pointer transition-colors duration-150"
                     style={{
                       filter: isHovered ? 'brightness(1.15) drop-shadow(0 0 6px rgba(16, 185, 129, 0.6))' : 'none',
                     }}
-                    onMouseEnter={() => setHoveredRegion(regTitle)}
-                    onMouseLeave={() => setHoveredRegion(null)}
+                    onMouseEnter={() => setHoveredCounty(`${countyItem.name} — ${histName}`)}
+                    onMouseLeave={() => setHoveredCounty(null)}
                   />
                 );
               })}
             </g>
 
-            {/* 2. CENTRAL MOUNTAIN RANGE EMBOSSING (中央山脈脊梁) */}
-            <g fill="none" stroke="#2c5b36" strokeWidth="3" strokeLinecap="round" opacity="0.45" className="pointer-events-none">
-              <path d="M 570,195 Q 545,245 528,300 Q 515,360 500,430 Q 480,500 458,565" />
-              <path d="M 545,220 Q 515,260 495,310 Q 475,370 455,440" strokeWidth="2.2" stroke="#4a7c59" />
-              <path d="M 585,250 Q 570,330 550,420 Q 535,490 505,550" strokeWidth="2" stroke="#4a7c59" />
+            {/* 2. REAL RIVERS OF TAIWAN (濁水溪、淡水河、高屏溪、曾文溪) */}
+            <g fill="none" stroke="#0284c7" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" className="pointer-events-none">
+              {/* 淡水河流域 */}
+              <path d="M 640,165 Q 625,175 605,178 Q 585,170 575,152" />
+              {/* 濁水溪流域 (長流貫穿) */}
+              <path d="M 590,345 Q 540,350 490,356 Q 440,362 388,368" strokeWidth="3" />
+              {/* 曾文溪 */}
+              <path d="M 570,430 Q 520,440 460,455 Q 405,468 375,475" strokeWidth="2.2" />
+              {/* 高屏溪 */}
+              <path d="M 560,490 Q 520,520 480,545 Q 445,570 410,580" strokeWidth="2.6" />
             </g>
-            <text x="515" y="380" fill="#14532d" fontSize="9" fontWeight="bold" opacity="0.8" transform="rotate(68 515,380)">
+
+            {/* 3. CENTRAL MOUNTAIN RANGE EMBOSSING (中央山脈脊梁) */}
+            <g fill="none" stroke="#2c5b36" strokeWidth="3.2" strokeLinecap="round" opacity="0.45" className="pointer-events-none">
+              <path d="M 630,220 Q 600,270 580,330 Q 565,400 545,470 Q 525,540 495,610" />
+              <path d="M 605,245 Q 570,290 545,345 Q 525,410 500,480" strokeWidth="2.4" stroke="#4a7c59" />
+              <path d="M 645,280 Q 630,360 610,440 Q 585,520 545,585" strokeWidth="2.2" stroke="#4a7c59" />
+            </g>
+            <text x="580" y="410" fill="#14532d" fontSize="10" fontWeight="bold" opacity="0.75" transform="rotate(72 580,410)" className="pointer-events-none select-none">
               中 央 山 脈
             </text>
-            <text x="495" y="340" fill="#1e3a8a" fontSize="8" fontWeight="bold" opacity="0.8">
+            <text x="560" y="375" fill="#1e3a8a" fontSize="8.5" fontWeight="bold" opacity="0.8" className="pointer-events-none select-none">
               ▲ 玉山 (3952m)
             </text>
 
-            {/* 3. MAJOR RIVERS (濁水溪、淡水河、高屏溪、曾文溪) */}
-            <g fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" opacity="0.75" className="pointer-events-none">
-              <path d="M 570,150 Q 560,140 555,135" /> {/* 淡水河 */}
-              <path d="M 520,330 Q 460,340 405,348" strokeWidth="2.5" /> {/* 濁水溪 */}
-              <path d="M 500,410 Q 440,430 380,445" /> {/* 曾文溪 */}
-              <path d="M 480,480 Q 440,510 395,540" strokeWidth="2.2" /> {/* 高屏溪 */}
-            </g>
-
-            {/* 4. HISTORICAL CALLIGRAPHY LABELS FOR THIS ERA */}
+            {/* 4. HISTORICAL CALLIGRAPHY LABELS (Era-Specific Positions) */}
             <g fontWeight="bold" className="pointer-events-none select-none font-serif">
-              {(currentPalette.labels || []).map((lbl, idx) => (
-                <text
-                  key={idx}
-                  x={lbl.pos[0]}
-                  y={lbl.pos[1]}
-                  fill={lbl.color}
-                  fontSize={lbl.size}
-                  textAnchor="middle"
-                  stroke="#ffffff"
-                  strokeWidth="2.8"
-                  paintOrder="stroke"
-                >
-                  {lbl.name}
-                </text>
-              ))}
+              {(currentScheme.tacticalLabels || []).map((lbl, idx) => {
+                const [lx, ly] = projectLngLatToTaiwanMap(lbl.lng, lbl.lat);
+                return (
+                  <text
+                    key={idx}
+                    x={lx}
+                    y={ly}
+                    fill={lbl.color}
+                    fontSize={lbl.size}
+                    textAnchor="middle"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    paintOrder="stroke"
+                    letterSpacing="1.5"
+                  >
+                    {lbl.name}
+                  </text>
+                );
+              })}
             </g>
 
             {/* 5. TAIWAN HISTORICAL BATTLES MARKERS */}
             {battles.map((bat) => {
-              const coords = bat.coordinates
-                ? [
-                    Math.round((bat.coordinates[0] - 118.0) * 165),
-                    Math.round((26.2 - bat.coordinates[1]) * 145),
-                  ]
-                : [500, 320];
-
+              const [bx, by] = getMarkerCoords(bat);
               const isSelected = selectedEvent?.battleId === bat.id;
 
               return (
@@ -500,27 +634,26 @@ export const TaiwanAtlasMap = ({
                     if (onSelectBattle) onSelectBattle(bat);
                   }}
                 >
-                  {/* Outer pulse circle */}
                   <circle
-                    cx={coords[0]}
-                    cy={coords[1]}
-                    r="12"
+                    cx={bx}
+                    cy={by}
+                    r="13"
                     fill="#e11d48"
                     opacity="0.3"
                     className="animate-ping"
                   />
                   <circle
-                    cx={coords[0]}
-                    cy={coords[1]}
-                    r="8.5"
+                    cx={bx}
+                    cy={by}
+                    r="9"
                     fill="#be123c"
                     stroke="#ffffff"
                     strokeWidth="2"
                     className="group-hover:scale-125 transition-transform"
                   />
                   <text
-                    x={coords[0]}
-                    y={coords[1] + 3.5}
+                    x={bx}
+                    y={by + 3.5}
                     textAnchor="middle"
                     fill="#ffffff"
                     fontSize="9"
@@ -529,14 +662,14 @@ export const TaiwanAtlasMap = ({
                     ⚔
                   </text>
                   <text
-                    x={coords[0]}
-                    y={coords[1] - 12}
+                    x={bx}
+                    y={by - 13}
                     textAnchor="middle"
                     fill="#881337"
-                    fontSize="10"
+                    fontSize="10.5"
                     fontWeight="bold"
                     stroke="#ffffff"
-                    strokeWidth="2.5"
+                    strokeWidth="2.8"
                     paintOrder="stroke"
                   >
                     {bat.name.split(' ')[0]}
@@ -547,7 +680,7 @@ export const TaiwanAtlasMap = ({
 
             {/* 6. TAIWAN HISTORIC EVENTS MARKERS */}
             {events.map((evt) => {
-              const coords = getEventCoords(evt);
+              const [ex, ey] = getMarkerCoords(evt);
               const isSelected = selectedEvent?.id === evt.id;
 
               return (
@@ -561,32 +694,32 @@ export const TaiwanAtlasMap = ({
                 >
                   {isSelected && (
                     <circle
-                      cx={coords[0]}
-                      cy={coords[1]}
-                      r="10"
+                      cx={ex}
+                      cy={ey}
+                      r="11"
                       fill="#f59e0b"
                       opacity="0.4"
                       className="animate-pulse"
                     />
                   )}
                   <circle
-                    cx={coords[0]}
-                    cy={coords[1]}
-                    r={isSelected ? 6 : 4.5}
+                    cx={ex}
+                    cy={ey}
+                    r={isSelected ? 6.5 : 4.5}
                     fill={isSelected ? '#d97706' : '#047857'}
                     stroke="#ffffff"
                     strokeWidth="1.5"
                   />
                   {isSelected && (
                     <text
-                      x={coords[0]}
-                      y={coords[1] + 16}
+                      x={ex}
+                      y={ey + 17}
                       textAnchor="middle"
                       fill="#78350f"
-                      fontSize="10"
+                      fontSize="10.5"
                       fontWeight="bold"
                       stroke="#ffffff"
-                      strokeWidth="2.5"
+                      strokeWidth="2.8"
                       paintOrder="stroke"
                     >
                       ★ {evt.title.split(' ')[0]}
@@ -598,12 +731,12 @@ export const TaiwanAtlasMap = ({
           </svg>
         </div>
 
-        {/* 3. Event Detail & Tactical Intelligence (Below Map) */}
+        {/* 3. Event Detail & Tactical Intelligence Panel (Below Map) */}
         {selectedEvent && (
-          <div className="w-full max-w-[760px] mt-3 p-3.5 bg-[#fdfbf7] border-2 border-[#8c7355] rounded-xl shadow-md text-[#2b2117] flex flex-col gap-2">
+          <div className="w-full max-w-[820px] mt-3 p-3.5 bg-[#fdfbf7] border-2 border-[#8c7355] rounded-xl shadow-md text-[#2b2117] flex flex-col gap-2">
             <div className="flex items-center justify-between border-b border-[#8c7355]/30 pb-2">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-emerald-800 text-emerald-100 font-bold text-xs">
+                <span className="px-2.5 py-0.5 rounded bg-[#8c2d19] text-[#fef08a] font-bold font-serif text-xs shadow-sm">
                   {selectedEvent.yearDisplay || `${selectedEvent.year}年`}
                 </span>
                 <h3 className="font-bold text-sm text-[#78350f]">
