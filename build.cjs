@@ -2,7 +2,7 @@ const esbuild = require('C:/Users/colde/history-build/node_modules/esbuild');
 const path = require('path');
 const fs = require('fs');
 
-const CURRENT_VERSION = 'bundle_v61.js';
+const CURRENT_VERSION = 'bundle_v62.js';
 const distDir = path.join(__dirname, 'dist');
 
 try {
