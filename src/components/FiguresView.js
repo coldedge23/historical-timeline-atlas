@@ -20,6 +20,14 @@ export const FiguresView = ({
 
   // Automatically detect period if not explicitly supplied
   const effectivePeriodId = useMemo(() => {
+    if (activePeriodId === 'japanAtlas' || activePeriodId === 'japan') return 'japanAtlas';
+    if (activePeriodId === 'taiwanLens' || activePeriodId === 'taiwan') return 'taiwanLens';
+    if (figures.some((f) => f.id?.startsWith('fig_jp_') || f.faction === 'ancient' || f.faction === 'kamakura' || f.faction === 'sengoku' || f.faction === 'azuchi_momoyama' || f.faction === 'edo' || f.faction === 'bakumatsu' || f.faction === 'meiji_modern')) {
+      return 'japanAtlas';
+    }
+    if (figures.some((f) => f.id?.startsWith('fig_tw_') || f.faction === 'taiwan' || f.faction === 'ming_zheng')) {
+      return 'taiwanLens';
+    }
     if (activePeriodId) return activePeriodId;
     if (figures.some((f) => f.faction === 'xia' || f.faction === 'shang')) {
       return 'xiaShangZhou';
@@ -309,6 +317,11 @@ export const FiguresView = ({
                         </h3>
                         {fig.courtesyName && (
                           <span className="text-xs text-zinc-400">字{fig.courtesyName}</span>
+                        )}
+                        {fig.clanTag && (
+                          <span className="text-[10px] px-1.5 py-0.2 rounded bg-zinc-800/80 text-amber-300/90 border border-amber-500/30 font-medium">
+                            {fig.clanTag}
+                          </span>
                         )}
                       </div>
                       <span className={`text-[10px] px-2 py-0.5 rounded-full border font-bold shrink-0 ${style.badge}`}>

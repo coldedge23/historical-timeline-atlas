@@ -29,24 +29,32 @@ export const FigureModal = ({
 
   // Automatically detect period if not passed
   const effectivePeriodId =
-    activePeriodId ||
-    (allFigures.some((f) => f.faction === 'xia' || f.faction === 'shang')
-      ? 'xiaShangZhou'
-      : allFigures.some((f) => f.faction === 'northern' || f.faction === 'southern' || f.faction === 'sixteen')
-      ? 'weiJin'
-      : allFigures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')
-      ? 'suiTang'
-      : allFigures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')
-      ? 'songLiao'
-      : allFigures.some((f) => f.faction === 'taiping' || f.faction === 'republic' || f.faction === 'reform')
-      ? 'qingDynasty'
-      : allFigures.some((f) => f.faction === 'yuan' || f.faction === 'maritime' || f.faction === 'peasant')
-      ? 'yuanMing'
-      : allFigures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')
-      ? 'warringStates'
-      : allFigures.some((f) => f.faction === 'shu' || f.faction === 'wu')
-      ? 'threeKingdoms'
-      : 'qinHan');
+    (activePeriodId === 'japanAtlas' || activePeriodId === 'japan')
+      ? 'japanAtlas'
+      : (activePeriodId === 'taiwanLens' || activePeriodId === 'taiwan')
+      ? 'taiwanLens'
+      : activePeriodId ||
+        (figure.id?.startsWith('fig_jp_') || allFigures.some((f) => f.id?.startsWith('fig_jp_') || f.faction === 'ancient' || f.faction === 'kamakura' || f.faction === 'sengoku' || f.faction === 'azuchi_momoyama' || f.faction === 'edo' || f.faction === 'bakumatsu' || f.faction === 'meiji_modern')
+          ? 'japanAtlas'
+          : figure.id?.startsWith('fig_tw_') || allFigures.some((f) => f.id?.startsWith('fig_tw_') || f.faction === 'taiwan' || f.faction === 'ming_zheng')
+          ? 'taiwanLens'
+          : allFigures.some((f) => f.faction === 'xia' || f.faction === 'shang')
+          ? 'xiaShangZhou'
+          : allFigures.some((f) => f.faction === 'northern' || f.faction === 'southern' || f.faction === 'sixteen')
+          ? 'weiJin'
+          : allFigures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')
+          ? 'suiTang'
+          : allFigures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')
+          ? 'songLiao'
+          : allFigures.some((f) => f.faction === 'taiping' || f.faction === 'republic' || f.faction === 'reform')
+          ? 'qingDynasty'
+          : allFigures.some((f) => f.faction === 'yuan' || f.faction === 'maritime' || f.faction === 'peasant')
+          ? 'yuanMing'
+          : allFigures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')
+          ? 'warringStates'
+          : allFigures.some((f) => f.faction === 'shu' || f.faction === 'wu')
+          ? 'threeKingdoms'
+          : 'qinHan');
 
   const getFactionBadge = (faction) => {
     const meta = getFactionMeta(faction, effectivePeriodId);

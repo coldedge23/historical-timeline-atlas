@@ -469,35 +469,246 @@ export const FACTION_CONFIGS = {
         stroke: '#71717a',
       },
     }
+  },
+  taiwanLens: {
+    order: ['taiwan', 'ming_zheng', 'qing', 'culture', 'tech', 'military', 'foreign', 'sports', 'ming', 'other'],
+    labels: {
+      taiwan: '臺灣本土',
+      ming_zheng: '明鄭東寧',
+      qing: '清領臺灣',
+      culture: '文化文藝',
+      tech: '科技實業',
+      military: '軍事防務',
+      foreign: '國際開拓',
+      sports: '體壇榮光',
+      ming: '明代東番',
+      other: '臺灣先驅',
+    },
+    styles: {
+      taiwan: {
+        card: 'border-emerald-600/50 hover:border-emerald-400',
+        badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
+        stroke: '#10b981',
+      },
+      ming_zheng: {
+        card: 'border-rose-600/50 hover:border-rose-400',
+        badge: 'bg-rose-950/70 text-rose-200 border-rose-500/50',
+        stroke: '#f43f5e',
+      },
+      qing: {
+        card: 'border-blue-600/50 hover:border-blue-400',
+        badge: 'bg-blue-950/70 text-blue-200 border-blue-500/50',
+        stroke: '#3b82f6',
+      },
+      culture: {
+        card: 'border-amber-600/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-200 border-amber-500/50',
+        stroke: '#f59e0b',
+      },
+      tech: {
+        card: 'border-cyan-600/50 hover:border-cyan-400',
+        badge: 'bg-cyan-950/70 text-cyan-200 border-cyan-500/50',
+        stroke: '#06b6d4',
+      },
+      military: {
+        card: 'border-orange-600/50 hover:border-orange-400',
+        badge: 'bg-orange-950/70 text-orange-200 border-orange-500/50',
+        stroke: '#f97316',
+      },
+      foreign: {
+        card: 'border-indigo-600/50 hover:border-indigo-400',
+        badge: 'bg-indigo-950/70 text-indigo-200 border-indigo-500/50',
+        stroke: '#6366f1',
+      },
+      sports: {
+        card: 'border-purple-600/50 hover:border-purple-400',
+        badge: 'bg-purple-950/70 text-purple-200 border-purple-500/50',
+        stroke: '#a855f7',
+      },
+      ming: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
+  },
+  japanAtlas: {
+    order: [
+      'ancient',
+      'kamakura',
+      'muromachi',
+      'sengoku',
+      'azuchi_momoyama',
+      'edo',
+      'bakumatsu',
+      'meiji_modern',
+      'oda',
+      'toyotomi',
+      'tokugawa',
+      'takeda',
+      'uesugi',
+      'sengoku_warlords',
+      'shinsengumi',
+      'meiji',
+      'other',
+    ],
+    labels: {
+      ancient: '古代大和',
+      kamakura: '鎌倉幕府',
+      muromachi: '室町幕府',
+      sengoku: '戰國群雄',
+      azuchi_momoyama: '安土桃山',
+      edo: '江戶幕府',
+      bakumatsu: '幕末風雲',
+      meiji_modern: '明治維新',
+      oda: '織田家',
+      toyotomi: '豐臣家',
+      tokugawa: '德川家',
+      takeda: '武田家',
+      uesugi: '上杉家',
+      sengoku_warlords: '戰國大名',
+      shinsengumi: '新選組',
+      meiji: '明治維新',
+      other: '東瀛名士',
+    },
+    styles: {
+      ancient: {
+        card: 'border-amber-600/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-200 border-amber-500/50',
+        stroke: '#fbbf24',
+      },
+      kamakura: {
+        card: 'border-indigo-600/50 hover:border-indigo-400',
+        badge: 'bg-indigo-950/70 text-indigo-200 border-indigo-500/50',
+        stroke: '#6366f1',
+      },
+      muromachi: {
+        card: 'border-yellow-600/50 hover:border-yellow-400',
+        badge: 'bg-yellow-950/70 text-yellow-200 border-yellow-500/50',
+        stroke: '#eab308',
+      },
+      sengoku: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      azuchi_momoyama: {
+        card: 'border-amber-500/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-300 border-amber-500/50',
+        stroke: '#f59e0b',
+      },
+      edo: {
+        card: 'border-emerald-600/50 hover:border-emerald-400',
+        badge: 'bg-emerald-950/70 text-emerald-200 border-emerald-500/50',
+        stroke: '#10b981',
+      },
+      bakumatsu: {
+        card: 'border-orange-600/50 hover:border-orange-400',
+        badge: 'bg-orange-950/70 text-orange-200 border-orange-500/50',
+        stroke: '#ea580c',
+      },
+      meiji_modern: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      oda: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      toyotomi: {
+        card: 'border-amber-500/50 hover:border-amber-400',
+        badge: 'bg-amber-950/70 text-amber-300 border-amber-500/50',
+        stroke: '#f59e0b',
+      },
+      tokugawa: {
+        card: 'border-yellow-600/50 hover:border-yellow-400',
+        badge: 'bg-yellow-950/70 text-yellow-200 border-yellow-500/50',
+        stroke: '#ca8a04',
+      },
+      takeda: {
+        card: 'border-rose-600/50 hover:border-rose-400',
+        badge: 'bg-rose-950/70 text-rose-200 border-rose-500/50',
+        stroke: '#e11d48',
+      },
+      uesugi: {
+        card: 'border-cyan-600/50 hover:border-cyan-400',
+        badge: 'bg-cyan-950/70 text-cyan-200 border-cyan-500/50',
+        stroke: '#06b6d4',
+      },
+      sengoku_warlords: {
+        card: 'border-red-600/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-500/50',
+        stroke: '#ef4444',
+      },
+      shinsengumi: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      meiji: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#0284c7',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
   }
 };
 
 export function getFactionMeta(factionId, periodId = 'threeKingdoms') {
-  const periodConfig = FACTION_CONFIGS[periodId] || FACTION_CONFIGS.threeKingdoms;
-  const label = periodConfig.labels[factionId] || (
-    factionId === 'qin' ? '秦國' :
-    factionId === 'qi' ? '齊國' :
-    factionId === 'chu' ? '楚國' :
-    factionId === 'zhao' ? '趙國' :
-    factionId === 'yan' ? '燕國' :
-    factionId === 'wei' ? (periodId === 'warringStates' ? '魏國' : '曹魏') :
-    factionId === 'han' ? (periodId === 'warringStates' ? '韓國' : '大漢') :
-    factionId === 'jin' ? (periodId === 'warringStates' ? '晉國' : '西晉') :
-    factionId === 'zhou' ? '周王室' :
-    factionId === 'wu' ? (periodId === 'warringStates' ? '吳國' : '東吳') :
-    factionId === 'yue' ? '越國' :
-    factionId === 'song' ? '宋國' :
-    factionId === 'lu' ? '魯國' :
-    factionId === 'zheng' ? '鄭國' :
-    factionId === 'other' ? (periodId === 'warringStates' ? '諸侯/百家' : '群雄/外邦') :
-    factionId
-  );
+  let periodConfig = FACTION_CONFIGS[periodId];
+  if (!periodConfig) {
+    if (FACTION_CONFIGS.japanAtlas?.labels[factionId]) {
+      periodConfig = FACTION_CONFIGS.japanAtlas;
+    } else if (FACTION_CONFIGS.taiwanLens?.labels[factionId]) {
+      periodConfig = FACTION_CONFIGS.taiwanLens;
+    } else {
+      periodConfig = FACTION_CONFIGS.threeKingdoms;
+    }
+  }
 
-  const style = periodConfig.styles[factionId] || periodConfig.styles.other || {
-    card: 'border-amber-500/40 hover:border-amber-400',
-    badge: 'bg-zinc-800 text-zinc-300 border-zinc-600',
-    stroke: '#f59e0b',
-  };
+  const label =
+    (periodConfig.labels && periodConfig.labels[factionId]) ||
+    FACTION_CONFIGS.japanAtlas?.labels[factionId] ||
+    FACTION_CONFIGS.taiwanLens?.labels[factionId] || (
+      factionId === 'qin' ? '秦國' :
+      factionId === 'qi' ? '齊國' :
+      factionId === 'chu' ? '楚國' :
+      factionId === 'zhao' ? '趙國' :
+      factionId === 'yan' ? '燕國' :
+      factionId === 'wei' ? (periodId === 'warringStates' ? '魏國' : '曹魏') :
+      factionId === 'han' ? (periodId === 'warringStates' ? '韓國' : '大漢') :
+      factionId === 'jin' ? (periodId === 'warringStates' ? '晉國' : '西晉') :
+      factionId === 'zhou' ? '周王室' :
+      factionId === 'wu' ? (periodId === 'warringStates' ? '吳國' : '東吳') :
+      factionId === 'yue' ? '越國' :
+      factionId === 'song' ? '宋國' :
+      factionId === 'lu' ? '魯國' :
+      factionId === 'zheng' ? '鄭國' :
+      factionId === 'other' ? (periodId === 'warringStates' ? '諸侯/百家' : '群雄/外邦') :
+      factionId
+    );
+
+  const style =
+    (periodConfig.styles && periodConfig.styles[factionId]) ||
+    FACTION_CONFIGS.japanAtlas?.styles[factionId] ||
+    FACTION_CONFIGS.taiwanLens?.styles[factionId] ||
+    periodConfig.styles?.other || {
+      card: 'border-amber-500/40 hover:border-amber-400',
+      badge: 'bg-zinc-800 text-zinc-300 border-zinc-600',
+      stroke: '#f59e0b',
+    };
 
   return {
     label,

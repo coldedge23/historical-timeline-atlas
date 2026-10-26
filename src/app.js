@@ -581,7 +581,7 @@ export function App() {
               onSelectFigure={setSelectedFigure}
               ancientNamesOnly={ancientNamesOnly}
               globalSearchTerm={searchTerm}
-              activePeriodId={activePeriodId}
+              activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
             />
           )}
 
@@ -593,7 +593,7 @@ export function App() {
               onSelectFigure={setSelectedFigure}
               ancientNamesOnly={ancientNamesOnly}
               globalSearchTerm={searchTerm}
-              activePeriodId={activePeriodId}
+              activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
             />
           )}
         </main>
@@ -615,7 +615,7 @@ export function App() {
               handleSelectBattle(bat);
             }}
             ancientNamesOnly={ancientNamesOnly}
-            activePeriodId={activePeriodId}
+            activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
           />
         )}
 
