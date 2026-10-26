@@ -360,10 +360,23 @@ export const TAIWAN_RELATED_FIGURE_IDS = [
   "fig_wang_yongqing", "fig_zhang_zhongmou", "fig_chiang_chingkuo", "fig_li_denghui"
 ];
 
+// Mapping between Taiwan Era IDs and their active battles
+export const ERA_BATTLE_IDS = {
+  tw_prehistoric: [],
+  tw_dutch_spanish: ["bat_tw_zeelandia_1661"],
+  tw_tungning: ["bat_tw_zeelandia_1661", "bat_tw_penghu_1683"],
+  tw_qing_early: ["bat_tw_penghu_1683"],
+  tw_qing_late: ["bat_tw_tamsui_1884"],
+  tw_japanese: ["bat_tw_baguashan_1895"],
+  tw_postwar: ["bat_tw_guningtou_1949", "bat_tw_823_1958"],
+  tw_modern: []
+};
+
 // Helper to extract all Taiwan-related battles across all 10 periods
 export const TAIWAN_RELATED_BATTLES = [
   {
     id: "bat_tw_zeelandia_1661",
+    eraId: "tw_tungning",
     name: "熱蘭遮城戰役 (鄭成功攻臺驅荷之戰)",
     year: 1661,
     period: "taiwanLens",
@@ -389,6 +402,7 @@ export const TAIWAN_RELATED_BATTLES = [
   },
   {
     id: "bat_tw_penghu_1683",
+    eraId: "tw_tungning",
     name: "澎湖海戰 (施琅大破劉國軒)",
     year: 1683,
     period: "taiwanLens",
@@ -414,6 +428,7 @@ export const TAIWAN_RELATED_BATTLES = [
   },
   {
     id: "bat_tw_tamsui_1884",
+    eraId: "tw_qing_late",
     name: "滬尾淡水之役 (中法保臺大捷)",
     year: 1884,
     period: "taiwanLens",
@@ -439,6 +454,7 @@ export const TAIWAN_RELATED_BATTLES = [
   },
   {
     id: "bat_tw_baguashan_1895",
+    eraId: "tw_japanese",
     name: "八卦山抗日戰役 (乙未保臺最烈血戰)",
     year: 1895,
     period: "taiwanLens",
@@ -464,6 +480,7 @@ export const TAIWAN_RELATED_BATTLES = [
   },
   {
     id: "bat_tw_guningtou_1949",
+    eraId: "tw_postwar",
     name: "金門古寧頭戰役 (保衛臺灣穩定海峽第一仗)",
     year: 1949,
     period: "taiwanLens",
@@ -489,6 +506,7 @@ export const TAIWAN_RELATED_BATTLES = [
   },
   {
     id: "bat_tw_823_1958",
+    eraId: "tw_postwar",
     name: "八二三臺海砲戰 (確立海峽防衛分治分水嶺)",
     year: 1958,
     period: "taiwanLens",

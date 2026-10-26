@@ -6,7 +6,7 @@ import {
   Clock,
   MapPin
 } from './Icons.js';
-import { TAIWAN_LENS_ERAS } from '../data/taiwanLensData.js';
+import { TAIWAN_LENS_ERAS, ERA_BATTLE_IDS } from '../data/taiwanLensData.js';
 import { TAIWAN_COUNTY_PATHS, projectLngLatToTaiwanMap } from '../data/taiwanMapGeoData.js';
 
 // Historical Era Color Schemes for Taiwan 22 Counties
@@ -388,6 +388,7 @@ export const TaiwanAtlasMap = ({
   events = [],
   battles = [],
   selectedEvent,
+  selectedBattle,
   onSelectEvent,
   onSelectBattle,
   ancientNamesOnly,
@@ -400,6 +401,17 @@ export const TaiwanAtlasMap = ({
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   const mapContainerRef = useRef(null);
+
+  // Filter battles strictly for this era
+  const currentEraBattles = battles.filter((b) => {
+    const allowed = ERA_BATTLE_IDS[activeTaiwanEraId] || [];
+    return allowed.includes(b.id) || selectedEvent?.battleId === b.id || selectedBattle?.id === b.id;
+  });
+
+  // Filter events strictly for this era
+  const currentEraEvents = events.filter((e) => {
+    return e.eraId === activeTaiwanEraId || selectedEvent?.id === e.id;
+  });
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.25, 3));
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.25, 0.75));
@@ -621,9 +633,9 @@ export const TaiwanAtlasMap = ({
             </g>
 
             {/* 5. TAIWAN HISTORICAL BATTLES MARKERS */}
-            {battles.map((bat) => {
+            {currentEraBattles.map((bat) => {
               const [bx, by] = getMarkerCoords(bat);
-              const isSelected = selectedEvent?.battleId === bat.id;
+              const isSelected = selectedBattle?.id === bat.id || selectedEvent?.battleId === bat.id;
 
               return (
                 <g
@@ -637,18 +649,18 @@ export const TaiwanAtlasMap = ({
                   <circle
                     cx={bx}
                     cy={by}
-                    r="13"
+                    r={isSelected ? "16" : "13"}
                     fill="#e11d48"
-                    opacity="0.3"
+                    opacity={isSelected ? "0.45" : "0.3"}
                     className="animate-ping"
                   />
                   <circle
                     cx={bx}
                     cy={by}
-                    r="9"
-                    fill="#be123c"
+                    r={isSelected ? "11" : "9"}
+                    fill={isSelected ? "#9f1239" : "#be123c"}
                     stroke="#ffffff"
-                    strokeWidth="2"
+                    strokeWidth={isSelected ? "2.5" : "2"}
                     className="group-hover:scale-125 transition-transform"
                   />
                   <text
@@ -656,7 +668,7 @@ export const TaiwanAtlasMap = ({
                     y={by + 3.5}
                     textAnchor="middle"
                     fill="#ffffff"
-                    fontSize="9"
+                    fontSize={isSelected ? "10" : "9"}
                     fontWeight="bold"
                   >
                     ⚔
@@ -679,7 +691,7 @@ export const TaiwanAtlasMap = ({
             })}
 
             {/* 6. TAIWAN HISTORIC EVENTS MARKERS */}
-            {events.map((evt) => {
+            {currentEraEvents.map((evt) => {
               const [ex, ey] = getMarkerCoords(evt);
               const isSelected = selectedEvent?.id === evt.id;
 

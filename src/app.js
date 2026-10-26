@@ -14,6 +14,7 @@ import {
   TAIWAN_LENS_ERAS,
   TAIWAN_RELATED_FIGURE_IDS,
   TAIWAN_RELATED_BATTLES,
+  ERA_BATTLE_IDS,
 } from './data/taiwanLensData.js';
 
 function parseUrlHash() {
@@ -330,6 +331,23 @@ export function App() {
   // Ensure Timeline never looks empty if user searched a figure/battle from another period
   const eventsForTimeline = filteredEvents.length > 0 ? filteredEvents : currentEvents;
 
+  const handleSelectEvent = (evt) => {
+    setSelectedEvent(evt);
+    if (isTaiwanLensMode && evt?.eraId && evt.eraId !== activeTaiwanEraId) {
+      setActiveTaiwanEraId(evt.eraId);
+    }
+  };
+
+  const handleSelectBattle = (bat) => {
+    setSelectedBattle(bat);
+    if (isTaiwanLensMode && bat?.id) {
+      const eraEntry = Object.entries(ERA_BATTLE_IDS).find(([_, bIds]) => bIds.includes(bat.id));
+      if (eraEntry && eraEntry[0] !== activeTaiwanEraId) {
+        setActiveTaiwanEraId(eraEntry[0]);
+      }
+    }
+  };
+
   const handleSelectFigureById = (figId) => {
     const fig = currentFigures.find((f) => f.id === figId);
     if (fig) setSelectedFigure(fig);
@@ -337,7 +355,7 @@ export function App() {
 
   const handleSelectBattleById = (battleId) => {
     const bat = currentBattles.find((b) => b.id === battleId);
-    if (bat) setSelectedBattle(bat);
+    if (bat) handleSelectBattle(bat);
   };
 
   const handleSelectTab = (tab) => {
@@ -387,8 +405,9 @@ export function App() {
                     events={eventsForTimeline}
                     battles={currentBattles}
                     selectedEvent={selectedEvent}
-                    onSelectEvent={setSelectedEvent}
-                    onSelectBattle={setSelectedBattle}
+                    selectedBattle={selectedBattle}
+                    onSelectEvent={handleSelectEvent}
+                    onSelectBattle={handleSelectBattle}
                     ancientNamesOnly={ancientNamesOnly}
                   />
                 ) : (
@@ -411,7 +430,7 @@ export function App() {
                   events={eventsForTimeline}
                   figures={currentFigures}
                   selectedEvent={selectedEvent}
-                  onSelectEvent={setSelectedEvent}
+                  onSelectEvent={handleSelectEvent}
                   onSelectFigureById={handleSelectFigureById}
                   onSelectBattleById={handleSelectBattleById}
                   ancientNamesOnly={ancientNamesOnly}
@@ -454,11 +473,11 @@ export function App() {
             onClose={() => setSelectedFigure(null)}
             onSelectFigure={setSelectedFigure}
             onSelectEvent={(evt) => {
-              setSelectedEvent(evt);
+              handleSelectEvent(evt);
               setActiveTab('map-timeline');
             }}
             onSelectBattle={(bat) => {
-              setSelectedBattle(bat);
+              handleSelectBattle(bat);
             }}
             ancientNamesOnly={ancientNamesOnly}
             activePeriodId={activePeriodId}
@@ -474,7 +493,7 @@ export function App() {
             onClose={() => setSelectedBattle(null)}
             onSelectFigure={setSelectedFigure}
             onSelectEvent={(evt) => {
-              setSelectedEvent(evt);
+              handleSelectEvent(evt);
               setActiveTab('map-timeline');
             }}
             ancientNamesOnly={ancientNamesOnly}
