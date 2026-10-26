@@ -309,12 +309,11 @@ export const JapanAtlasMap = ({
 
             {/* Classical Sea Typography */}
             <g fill="#9c8a6f" fontSize="13" fontWeight="bold" letterSpacing="6" className="pointer-events-none select-none font-serif">
-              <text x="320" y="240">日 本 海</text>
-              <text x="560" y="580">太 平 洋</text>
-              <text x="240" y="510" fontSize="11" letterSpacing="3">瀨戶內海</text>
-              <text x="145" y="470" fontSize="11" letterSpacing="2">對馬海峽</text>
-              <text x="500" y="240" fontSize="9.5" letterSpacing="2">津輕海峽</text>
-              <text x="650" y="60" fontSize="10" letterSpacing="3">鄂霍次克海</text>
+              <text x="360" y="360">日 本 海</text>
+              <text x="540" y="640">太 平 洋</text>
+              <text x="310" y="525" fontSize="11" letterSpacing="3">瀨戶內海</text>
+              <text x="145" y="475" fontSize="11" letterSpacing="2">對馬海峽</text>
+              <text x="810" y="200" fontSize="9.5" letterSpacing="2">津輕海峽</text>
               <text x="65" y="660" fontSize="10">東海 (琉球航路)</text>
             </g>
 
@@ -327,11 +326,68 @@ export const JapanAtlasMap = ({
               {/* Sakhalin / Karafuto Tip */}
               <path d="M 500,0 L 515,30 L 535,28 L 550,0 Z" />
               <text x="510" y="20" fill="#a89a80" fontSize="8.5" fontWeight="bold">庫頁島 (樺太)</text>
-
-              {/* Kuril Islands */}
-              <path d="M 690,110 L 715,95 L 745,80 L 780,60 L 795,70 L 720,120 Z" />
-              <text x="735" y="90" fill="#a89a80" fontSize="9" fontWeight="bold">千島列島</text>
             </g>
+
+            {/* Inset Box for Hokkaido (Top-Left 35 to 290, 30 to 245) */}
+            <g className="pointer-events-none select-none font-serif">
+              {/* Box background with antique double border */}
+              <rect x="35" y="30" width="255" height="215" rx="4" fill="#f8f1de" stroke="#8c7355" strokeWidth="2" />
+              <rect x="38" y="33" width="249" height="209" rx="3" fill="none" stroke="#baa98b" strokeWidth="1" strokeDasharray="4 2" />
+              
+              {/* Inset Header Banner */}
+              <rect x="35" y="30" width="255" height="26" rx="4" fill="#2b2016" />
+              <text x="162" y="47" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle" letterSpacing="3">
+                蝦 夷 (松前藩 · アイヌ地)
+              </text>
+              <text x="45" y="70" fill="#8c7355" fontSize="8.5" fontStyle="italic">附圖 · 縮尺 1:2</text>
+            </g>
+
+            {/* Historical Clash & Warlord Battle Card (Top-Center 315 to 685, 30 to 175) */}
+            {activePreset.clashCard && (
+              <g className="pointer-events-none select-none font-serif">
+                {/* Card background */}
+                <rect
+                  x="315"
+                  y="30"
+                  width="370"
+                  height="145"
+                  rx="4"
+                  fill="#f8f2e2"
+                  stroke="#8c7355"
+                  strokeWidth="2"
+                  style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.15))' }}
+                />
+                <rect x="318" y="33" width="364" height="139" rx="3" fill="none" stroke="#d5c7b0" strokeWidth="1" />
+
+                {/* Era Header Banner */}
+                <rect x="315" y="30" width="370" height="28" rx="4" fill="#2b2016" />
+                <text x="500" y="48" fill="#fef08a" fontSize="12" fontWeight="extrabold" textAnchor="middle" letterSpacing="2">
+                  ⚔️ {activePreset.clashCard.eraTitle}
+                </text>
+
+                {/* Clashes List */}
+                {activePreset.clashCard.conflicts.map((c, i) => (
+                  <g key={i} transform={`translate(325, ${72 + i * 25})`}>
+                    {/* Attacker */}
+                    <text x="0" y="0" fill="#991b1b" fontSize="11" fontWeight="bold">
+                      {c.attacker}
+                    </text>
+                    {/* Direction Arrow */}
+                    <text x="80" y="0" fill="#d97706" fontSize="11" fontWeight="bold">
+                      {c.arrow}
+                    </text>
+                    {/* Defender */}
+                    <text x="100" y="0" fill="#1e3a8a" fontSize="11" fontWeight="bold">
+                      {c.defender}
+                    </text>
+                    {/* Description / Battle note */}
+                    <text x="185" y="0" fill="#4b3e2f" fontSize="10" fontWeight="medium">
+                      ({c.note})
+                    </text>
+                  </g>
+                ))}
+              </g>
+            )}
 
             {/* 1. AUTHENTIC 47 PREFECTURES OF JAPAN (Official GIS Geometry) */}
             <g stroke="#261c14" strokeWidth="1.1" strokeLinejoin="round" strokeLinecap="round">
@@ -360,40 +416,31 @@ export const JapanAtlasMap = ({
             {/* 2. LAKE BIWA (琵琶湖 - 近江名勝水體) */}
             <g className="pointer-events-none select-none font-serif">
               <path
-                d="M 368,446 C 367,440 370,434 374,432 C 378,432 381,436 380,443 C 379,449 375,455 372,456 C 369,457 368,452 368,446 Z"
-                fill="#8bb8cc"
-                stroke="#3b82f6"
+                d="M 488,495 C 493,490 499,492 498,500 C 497,508 493,514 490,513 C 486,512 485,502 488,495 Z"
+                fill="#7dd3fc"
+                stroke="#0284c7"
                 strokeWidth="1.2"
                 opacity="0.95"
               />
-              <text x="375" y="445" fill="#1e3a8a" fontSize="7.5" fontWeight="bold" textAnchor="middle" opacity="0.9">
+              <text x="492" y="504" fill="#0369a1" fontSize="7.5" fontWeight="bold" textAnchor="middle">
                 琵琶湖
               </text>
             </g>
 
-            {/* 3. MAJOR RIVERS OF JAPAN (信濃川、利根川) */}
-            <g fill="none" stroke="#0284c7" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" className="pointer-events-none select-none font-serif">
-              <path d="M 430,418 Q 442,390 458,360" strokeWidth="2.2" />
-              <text x="448" y="388" fill="#0369a1" fontSize="7.5" fontWeight="bold" stroke="none">信濃川</text>
-
-              <path d="M 475,415 Q 492,422 510,432" strokeWidth="2.2" />
-              <text x="495" y="420" fill="#0369a1" fontSize="7.5" fontWeight="bold" stroke="none">利根川</text>
-            </g>
-
-            {/* 4. JAPAN MOUNTAIN TOPOGRAPHY & MOUNT FUJI */}
+            {/* 3. JAPAN MOUNTAIN TOPOGRAPHY & MOUNT FUJI */}
             <g className="pointer-events-none select-none font-serif">
               {/* MOUNT FUJI (🗻 富士山 3776m) */}
-              <polygon points="440,452 446,440 452,452" fill="#5a6b5c" stroke="#2b3b2c" strokeWidth="1.2" />
-              <polygon points="443.5,445 446,440 448.5,445" fill="#ffffff" />
-              <text x="446" y="435" textAnchor="middle" fill="#78350f" fontSize="8.5" fontWeight="bold">
+              <polygon points="618,524 624,512 630,524" fill="#5a6b5c" stroke="#2b3b2c" strokeWidth="1.2" />
+              <polygon points="621.5,517 624,512 626.5,517" fill="#ffffff" />
+              <text x="624" y="508" textAnchor="middle" fill="#78350f" fontSize="8.5" fontWeight="bold">
                 ▲ 富士山 (3776m)
               </text>
-              <text x="210" y="555" fill="#991b1b" fontSize="8" fontWeight="bold" opacity="0.85">
+              <text x="175" y="580" fill="#991b1b" fontSize="8" fontWeight="bold" opacity="0.85">
                 ▲ 阿蘇山
               </text>
             </g>
 
-            {/* 5. WARLORD CALLIGRAPHY LABELS (Matching China Three Kingdoms Style - Collision Free) */}
+            {/* 4. WARLORD CALLIGRAPHY LABELS (Matching China Three Kingdoms Style - Collision Free) */}
             <g fontWeight="bold" className="pointer-events-none select-none font-serif">
               {(activePreset.labels || []).map((lbl, idx) => (
                 <text
@@ -524,14 +571,14 @@ export const JapanAtlasMap = ({
               </g>
             )}
 
-            {/* 9. ANTIQUE CARTOGRAPHY: COMPASS ROSE & SCALE BAR */}
-            <g transform="translate(85, 95)" opacity="0.45" className="pointer-events-none select-none font-serif">
-              <circle r="22" fill="none" stroke="#8c7355" strokeWidth="1" strokeDasharray="2 2" />
+            {/* 9. ANTIQUE CARTOGRAPHY: ROTATED COMPASS ROSE & SCALE BAR */}
+            <g transform="translate(760, 610) rotate(17)" opacity="0.65" className="pointer-events-none select-none font-serif">
+              <circle r="22" fill="#faf5eb" stroke="#8c7355" strokeWidth="1.2" strokeDasharray="2 2" />
               <path d="M 0,-26 L 4,-6 L 0,0 L -4,-6 Z" fill="#991b1b" />
               <path d="M 0,26 L 4,6 L 0,0 L -4,6 Z" fill="#44382c" />
               <path d="M 26,0 L 6,4 L 0,0 L 6,-4 Z" fill="#44382c" />
               <path d="M -26,0 L -6,4 L 0,0 L -6,-4 Z" fill="#44382c" />
-              <text y="-29" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#78350f">北</text>
+              <text y="-29" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#78350f">真北</text>
             </g>
 
             <g transform="translate(45, 685)" opacity="0.7" className="pointer-events-none select-none font-serif">

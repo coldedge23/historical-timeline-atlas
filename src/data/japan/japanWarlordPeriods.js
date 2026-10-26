@@ -1,5 +1,5 @@
 // Japan Feudal Warlord Periods & Tactical Campaigns GeoData
-// Mapped to 47 Real Official GIS Prefectures (820 x 720 Viewport)
+// Mapped to 47 Real Official GIS Prefectures (Rotated Horizontal Atlas Viewport)
 
 export const JAPAN_WARLORD_PERIOD_CONFIGS = [
   {
@@ -9,6 +9,15 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '桶狹間之戰',
     headline: '桶狹間奇襲，織田信長天下布武之發端',
     subTitle: '今川義元兩萬五千西上上洛 · 信長三千精兵清洲疾馳 · 田樂窪雨夜大逆轉',
+    clashCard: {
+      eraTitle: '公元 1560 年 (永祿三年)',
+      conflicts: [
+        { attacker: '織田氏', arrow: '→', defender: '今川氏', note: '桶狹間之戰 · 斬殺義元' },
+        { attacker: '武田氏', arrow: '↔', defender: '上杉氏', note: '川中島合戰 · 龍虎相搏' },
+        { attacker: '毛利氏', arrow: '→', defender: '尼子氏', note: '嚴島合戰後西國爭雄' },
+        { attacker: '大友氏', arrow: '↔', defender: '龍造寺氏', note: '北九州霸權逐鹿' }
+      ]
+    },
     prefectureWarlords: {
       aichi: { warlord: '織田信長', color: '#fca5a5' },
       shizuoka: { warlord: '今川義元', color: '#fbcfe8' },
@@ -59,45 +68,46 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       ishikawa: { warlord: '一向一揆', color: '#fed7aa' }
     },
     labels: [
-      { name: '織 田', pos: [398, 460], color: '#991b1b', size: 19 },
-      { name: '今 川', pos: [445, 465], color: '#be123c', size: 19 },
-      { name: '武 田', pos: [435, 430], color: '#7f1d1d', size: 20 },
-      { name: '上 杉', pos: [448, 368], color: '#0369a1', size: 20 },
-      { name: '北 條', pos: [475, 435], color: '#6d28d9', size: 20 },
-      { name: '齋 藤', pos: [396, 435], color: '#b45309', size: 17 },
-      { name: '毛 利', pos: [255, 485], color: '#166534', size: 20 },
-      { name: '島 津', pos: [205, 575], color: '#78350f', size: 19 },
-      { name: '大 友', pos: [236, 530], color: '#9a3412', size: 18 },
-      { name: '長宗我部', pos: [285, 525], color: '#0e7490', size: 17 },
-      { name: '伊 達', pos: [515, 335], color: '#854d0e', size: 19 },
-      { name: '足利朝廷', pos: [350, 452], color: '#334155', size: 16 }
+      { name: '織 田', pos: [530, 518], color: '#991b1b', size: 19 },
+      { name: '今 川', pos: [595, 550], color: '#be123c', size: 19 },
+      { name: '武 田', pos: [623, 495], color: '#7f1d1d', size: 20 },
+      { name: '上 杉', pos: [665, 400], color: '#0369a1', size: 20 },
+      { name: '北 條', pos: [675, 525], color: '#6d28d9', size: 20 },
+      { name: '齋 藤', pos: [535, 480], color: '#b45309', size: 17 },
+      { name: '毛 利', pos: [275, 485], color: '#166534', size: 20 },
+      { name: '島 津', pos: [140, 635], color: '#78350f', size: 19 },
+      { name: '大 友', pos: [220, 555], color: '#9a3412', size: 18 },
+      { name: '長宗我部', pos: [325, 570], color: '#0e7490', size: 17 },
+      { name: '伊 達', pos: [800, 375], color: '#854d0e', size: 19 },
+      { name: '朝 倉', pos: [495, 465], color: '#334155', size: 17 },
+      { name: '松前·蠣崎', pos: [120, 195], color: '#475569', size: 14 }
     ],
     cities: [
-      { name: '京都(帝都)', pos: [358, 458], isCap: true },
-      { name: '清洲城', pos: [390, 455] },
-      { name: '駿府城', pos: [445, 465] },
-      { name: '岡崎城', pos: [402, 468] },
-      { name: '躑躅崎館', pos: [442, 435] },
-      { name: '春日山城', pos: [431, 385] },
-      { name: '小田原城', pos: [459, 450] },
-      { name: '稻葉山城', pos: [388, 444] },
-      { name: '廣島城', pos: [260, 480] },
-      { name: '鹿兒島', pos: [203, 574] }
+      { name: '京都(帝都)', pos: [468, 509], isCap: true },
+      { name: '清洲城', pos: [527, 513] },
+      { name: '駿府城', pos: [600, 552] },
+      { name: '岡崎城', pos: [545, 535] },
+      { name: '躑躅崎館', pos: [623, 510] },
+      { name: '春日山城', pos: [633, 413] },
+      { name: '小田原城', pos: [645, 546] },
+      { name: '稻葉山城', pos: [527, 499] },
+      { name: '廣島城', pos: [289, 496] },
+      { name: '鹿兒島', pos: [140, 641] }
     ],
     battles: [
-      { name: '⚔️ 桶狹間之戰', pos: [396, 460], battleId: 'bat_jp_okehazama_1560' },
-      { name: '⚔️ 川中島決戰', pos: [427, 412], battleId: 'bat_jp_kawanakajima_1561' }
+      { name: '⚔️ 桶狹間之戰', pos: [530, 525], battleId: 'bat_jp_okehazama_1560' },
+      { name: '⚔️ 川中島決戰', pos: [622, 447], battleId: 'bat_jp_kawanakajima_1561' }
     ],
     routes: [
       {
         label: '今川義元兩萬五千西上進軍線',
         color: '#dc2626',
-        path: 'M 445,465 Q 418,466 402,468 Q 398,464 396,460'
+        path: 'M 600,552 Q 565,558 545,535 Q 538,530 530,525'
       },
       {
         label: '織田信長雨夜奇襲疾馳線 (清洲出擊)',
         color: '#2563eb',
-        path: 'M 390,455 Q 393,458 396,460'
+        path: 'M 527,513 Q 528,519 530,525'
       }
     ],
     chronicleLeft: [
@@ -118,6 +128,15 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '長篠之戰',
     headline: '長篠設樂原合戰，三段擊火繩槍陣大破赤備',
     subTitle: '織田信長德川家康聯軍 · 武田勝賴騎兵衝鋒 · 戰國軍事科技劃時代轉折',
+    clashCard: {
+      eraTitle: '公元 1575 年 (天正三年)',
+      conflicts: [
+        { attacker: '織田·德川聯軍', arrow: '→', defender: '武田勝賴', note: '設樂原三段擊 · 大破赤備' },
+        { attacker: '織田信長', arrow: '↔', defender: '石山本願寺', note: '石山合戰 · 信長包圍網' },
+        { attacker: '長宗我部', arrow: '→', defender: '四國諸豪', note: '土佐統一 · 經略四國' },
+        { attacker: '毛利輝元', arrow: '↔', defender: '織田水軍', note: '支援本願寺兵糧' }
+      ]
+    },
     prefectureWarlords: {
       aichi: { warlord: '織田·德川聯軍', color: '#fca5a5' },
       gifu: { warlord: '織田信長', color: '#fca5a5' },
@@ -138,36 +157,36 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       kagoshima: { warlord: '島津義久', color: '#fed7aa' }
     },
     labels: [
-      { name: '織 田', pos: [375, 452], color: '#991b1b', size: 22 },
-      { name: '德 川', pos: [435, 465], color: '#c2410c', size: 19 },
-      { name: '武 田', pos: [435, 430], color: '#7f1d1d', size: 20 },
-      { name: '上 杉', pos: [448, 368], color: '#0369a1', size: 20 },
-      { name: '北 條', pos: [475, 435], color: '#6d28d9', size: 20 },
-      { name: '毛 利', pos: [255, 485], color: '#166534', size: 20 },
-      { name: '長宗我部', pos: [285, 525], color: '#0e7490', size: 17 },
-      { name: '島 津', pos: [205, 575], color: '#78350f', size: 19 }
+      { name: '織 田', pos: [515, 485], color: '#991b1b', size: 22 },
+      { name: '德 川', pos: [565, 545], color: '#c2410c', size: 19 },
+      { name: '武 田', pos: [620, 490], color: '#7f1d1d', size: 20 },
+      { name: '上 杉', pos: [655, 400], color: '#0369a1', size: 20 },
+      { name: '北 條', pos: [675, 525], color: '#6d28d9', size: 20 },
+      { name: '毛 利', pos: [275, 485], color: '#166534', size: 20 },
+      { name: '長宗我部', pos: [325, 570], color: '#0e7490', size: 17 },
+      { name: '島 津', pos: [140, 635], color: '#78350f', size: 19 }
     ],
     cities: [
-      { name: '京都(帝都)', pos: [358, 458], isCap: true },
-      { name: '岐阜城', pos: [388, 444] },
-      { name: '濱松城', pos: [435, 468] },
-      { name: '春日山城', pos: [431, 385] },
-      { name: '小田原城', pos: [459, 450] }
+      { name: '京都(帝都)', pos: [468, 509], isCap: true },
+      { name: '岐阜城', pos: [527, 499] },
+      { name: '濱松城', pos: [562, 558] },
+      { name: '春日山城', pos: [633, 413] },
+      { name: '小田原城', pos: [645, 546] }
     ],
     battles: [
-      { name: '⚔️ 長篠之戰', pos: [412, 460], battleId: 'bat_jp_nagashino_1575' },
-      { name: '⚔️ 三方原之戰', pos: [435, 468], battleId: 'bat_jp_mikata_1573' }
+      { name: '⚔️ 長篠之戰', pos: [555, 535], battleId: 'bat_jp_nagashino_1575' },
+      { name: '⚔️ 三方原之戰', pos: [565, 555], battleId: 'bat_jp_mikata_1573' }
     ],
     routes: [
       {
         label: '織田·德川三萬八千聯軍設樂原設防線 (三段擊火繩槍)',
         color: '#2563eb',
-        path: 'M 388,444 Q 402,455 412,460'
+        path: 'M 527,499 Q 535,520 555,535'
       },
       {
         label: '武田勝賴一萬五千赤備騎兵突擊線',
         color: '#dc2626',
-        path: 'M 435,430 Q 425,448 412,460'
+        path: 'M 623,510 Q 585,525 555,535'
       }
     ],
     chronicleLeft: [
@@ -188,6 +207,15 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '山崎之戰',
     headline: '本能寺之變與山崎之戰，秀吉中國大返還',
     subTitle: '明智光秀叛變敵在本能寺 · 羽柴秀吉七日奔馳兩百里 · 天王山合戰奠定太閤霸業',
+    clashCard: {
+      eraTitle: '公元 1582 年 (天正十年)',
+      conflicts: [
+        { attacker: '明智光秀', arrow: '→', defender: '織田信長', note: '京都本能寺之變 · 信長殞命' },
+        { attacker: '羽柴秀吉', arrow: '→', defender: '明智光秀', note: '中國大返還 · 山崎天王山大捷' },
+        { attacker: '德川家康', arrow: '→', defender: '三河返還', note: '伊賀險道穿越 · 脫險歸國' },
+        { attacker: '北條氏', arrow: '↔', defender: '上杉景勝', note: '天正壬午之亂 · 爭奪信濃' }
+      ]
+    },
     prefectureWarlords: {
       kyoto: { warlord: '羽柴秀吉 (山崎勝者)', color: '#fef08a' },
       osaka: { warlord: '羽柴秀吉', color: '#fef08a' },
@@ -204,36 +232,36 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       kagoshima: { warlord: '島津義久', color: '#fed7aa' }
     },
     labels: [
-      { name: '秀 吉', pos: [348, 465], color: '#ca8a04', size: 21 },
-      { name: '光 秀', pos: [362, 448], color: '#dc2626', size: 17 },
-      { name: '德 川', pos: [435, 465], color: '#c2410c', size: 19 },
-      { name: '北 條', pos: [475, 435], color: '#6d28d9', size: 20 },
-      { name: '上 杉', pos: [448, 368], color: '#0369a1', size: 20 },
-      { name: '毛 利', pos: [255, 485], color: '#166534', size: 20 },
-      { name: '長宗我部', pos: [285, 525], color: '#0e7490', size: 17 },
-      { name: '島 津', pos: [205, 575], color: '#78350f', size: 19 }
+      { name: '秀 吉', pos: [445, 510], color: '#ca8a04', size: 21 },
+      { name: '光 秀', pos: [465, 475], color: '#dc2626', size: 17 },
+      { name: '德 川', pos: [585, 545], color: '#c2410c', size: 19 },
+      { name: '北 條', pos: [675, 525], color: '#6d28d9', size: 20 },
+      { name: '上 杉', pos: [655, 400], color: '#0369a1', size: 20 },
+      { name: '毛 利', pos: [275, 485], color: '#166534', size: 20 },
+      { name: '長宗我部', pos: [325, 570], color: '#0e7490', size: 17 },
+      { name: '島 津', pos: [140, 635], color: '#78350f', size: 19 }
     ],
     cities: [
-      { name: '京都(本能寺)', pos: [358, 458], isCap: true },
-      { name: '安土城', pos: [368, 450] },
-      { name: '姬路城', pos: [330, 465] },
-      { name: '備中高松城', pos: [300, 472] },
-      { name: '小田原城', pos: [459, 450] }
+      { name: '京都(本能寺)', pos: [468, 509], isCap: true },
+      { name: '安土城', pos: [490, 506] },
+      { name: '姬路城', pos: [420, 498] },
+      { name: '備中高松城', pos: [365, 495] },
+      { name: '小田原城', pos: [645, 546] }
     ],
     battles: [
-      { name: '⚔️ 本能寺之變', pos: [358, 458], battleId: 'bat_jp_yamazaki_1582' },
-      { name: '⚔️ 山崎之戰', pos: [354, 462], battleId: 'bat_jp_yamazaki_1582' }
+      { name: '⚔️ 本能寺之變', pos: [468, 509], battleId: 'bat_jp_yamazaki_1582' },
+      { name: '⚔️ 山崎之戰', pos: [458, 515], battleId: 'bat_jp_yamazaki_1582' }
     ],
     routes: [
       {
         label: '羽柴秀吉「中國大返還」神速進軍線 (七日奔馳兩百里)',
         color: '#2563eb',
-        path: 'M 300,472 Q 315,468 330,465 Q 345,462 354,462'
+        path: 'M 365,495 Q 400,498 420,498 Q 440,510 458,515'
       },
       {
         label: '明智光秀本能寺叛變與天王山佈陣線',
         color: '#dc2626',
-        path: 'M 358,458 Q 356,460 354,462'
+        path: 'M 450,485 L 468,509 L 458,515'
       }
     ],
     chronicleLeft: [
@@ -254,6 +282,15 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '關原大決戰',
     headline: '關原之戰，十六萬將士天下分水嶺',
     subTitle: '東軍德川家康東海道進軍 · 西軍石田三成大垣布陣 · 小早川秀秋問鐵砲背叛',
+    clashCard: {
+      eraTitle: '公元 1600 年 (慶長五年)',
+      conflicts: [
+        { attacker: '東軍 (德川家康)', arrow: '↔', defender: '西軍 (石田三成)', note: '關原大決戰 · 十六萬將士爭天下' },
+        { attacker: '西軍 (上杉景勝)', arrow: '↔', defender: '東軍 (最上·伊達)', note: '奧羽合戰 · 長谷堂城退卻' },
+        { attacker: '島津義弘', arrow: '→', defender: '東軍本陣', note: '敵中突破 · 正面穿透突圍' },
+        { attacker: '東軍 (加藤·黑田)', arrow: '→', defender: '西軍諸城', note: '九州掃討戰' }
+      ]
+    },
     prefectureWarlords: {
       tokyo: { warlord: '東軍·德川家康天領', color: '#bfdbfe' },
       kanagawa: { warlord: '東軍·德川家康', color: '#bfdbfe' },
@@ -280,41 +317,41 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       kagoshima: { warlord: '西軍·島津義弘 (敵中突破)', color: '#fecaca' }
     },
     labels: [
-      { name: '德 川', pos: [485, 430], color: '#1e3a8a', size: 21 },
-      { name: '石 田', pos: [368, 440], color: '#991b1b', size: 19 },
-      { name: '豐 臣', pos: [340, 475], color: '#c2410c', size: 17 },
-      { name: '毛 利', pos: [255, 480], color: '#166534', size: 20 },
-      { name: '前 田', pos: [390, 395], color: '#d97706', size: 18 },
-      { name: '上 杉', pos: [485, 365], color: '#0284c7', size: 18 },
-      { name: '伊 達', pos: [515, 335], color: '#b45309', size: 20 },
-      { name: '島 津', pos: [200, 580], color: '#78350f', size: 18 },
-      { name: '長宗我部', pos: [285, 520], color: '#0284c7', size: 16 }
+      { name: '德 川', pos: [680, 515], color: '#1e3a8a', size: 21 },
+      { name: '石 田', pos: [495, 485], color: '#991b1b', size: 19 },
+      { name: '豐 臣', pos: [440, 525], color: '#c2410c', size: 18 },
+      { name: '毛 利', pos: [275, 485], color: '#166534', size: 20 },
+      { name: '前 田', pos: [560, 410], color: '#d97706', size: 18 },
+      { name: '上 杉', pos: [730, 420], color: '#0284c7', size: 18 },
+      { name: '伊 達', pos: [800, 375], color: '#b45309', size: 20 },
+      { name: '島 津', pos: [140, 635], color: '#78350f', size: 18 },
+      { name: '長宗我部', pos: [325, 570], color: '#0284c7', size: 16 }
     ],
     cities: [
-      { name: '大坂城(天下中心)', pos: [348, 472], isCap: true },
-      { name: '京都(帝都)', pos: [358, 458] },
-      { name: '江戶城(德川本營)', pos: [477, 435] },
-      { name: '佐和山城', pos: [369, 454] },
-      { name: '大垣城', pos: [388, 446] }
+      { name: '大坂城(天下中心)', pos: [449, 525], isCap: true },
+      { name: '京都(帝都)', pos: [468, 509] },
+      { name: '江戶城(德川本營)', pos: [680, 528] },
+      { name: '佐和山城', pos: [495, 498] },
+      { name: '大垣城', pos: [525, 499] }
     ],
     battles: [
-      { name: '⚔️ 關原大決戰', pos: [379, 446], battleId: 'bat_jp_sekigahara_1600' }
+      { name: '⚔️ 關原大決戰', pos: [510, 498], battleId: 'bat_jp_sekigahara_1600' }
     ],
     routes: [
       {
         label: '東軍德川家康東海道進軍線 (七萬五千主力)',
         color: '#1e3a8a',
-        path: 'M 477,435 Q 440,460 390,451 Q 382,448 379,446'
+        path: 'M 680,528 Q 600,552 550,530 Q 525,510 510,498'
       },
       {
         label: '西軍石田三成大垣城轉進關原佈陣線',
         color: '#dc2626',
-        path: 'M 388,446 Q 383,446 379,446'
+        path: 'M 525,499 L 510,498'
       },
       {
         label: '島津義弘「敵中突破」正面突圍死鬥撤退線',
         color: '#16a34a',
-        path: 'M 379,446 Q 360,470 330,480 Q 250,510 203,574'
+        path: 'M 510,498 Q 475,540 430,570 Q 280,550 140,641'
       }
     ],
     chronicleLeft: [
@@ -335,6 +372,14 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '大坂之陣',
     headline: '大坂夏之陣，真田幸村最後突擊與元和偃武',
     subTitle: '方廣寺鐘銘起釁 · 德川二十萬大軍包圍大坂城 · 日本第一兵孤軍衝鋒 · 豐臣滅亡',
+    clashCard: {
+      eraTitle: '公元 1615 年 (慶長二十年 / 元和元年)',
+      conflicts: [
+        { attacker: '德川幕府 (二十萬)', arrow: '→', defender: '豐臣秀賴 (大坂城)', note: '大坂夏之陣 · 天守閣陷落' },
+        { attacker: '真田幸村', arrow: '→', defender: '德川家康本陣', note: '日本第一兵 · 赤備決死突擊' },
+        { attacker: '德川幕府', arrow: '→', defender: '元和偃武', note: '戰國大亂平定 · 二百五十年承平' }
+      ]
+    },
     prefectureWarlords: {
       tokyo: { warlord: '德川幕府天領 (江戶)', color: '#fef08a' },
       kanagawa: { warlord: '德川幕府天領', color: '#fef08a' },
@@ -349,33 +394,33 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       miyagi: { warlord: '仙台伊達藩', color: '#fef08a' }
     },
     labels: [
-      { name: '德 川 幕 府', pos: [480, 430], color: '#854d0e', size: 24 },
-      { name: '真田幸村·豐臣', pos: [338, 475], color: '#dc2626', size: 17 },
-      { name: '前 田 藩', pos: [390, 395], color: '#d97706', size: 19 },
-      { name: '島 津 藩', pos: [200, 580], color: '#c2410c', size: 19 },
-      { name: '毛 利 藩', pos: [237, 494], color: '#15803d', size: 19 },
-      { name: '伊 達 藩', pos: [515, 335], color: '#b45309', size: 19 }
+      { name: '德 川 幕 府', pos: [675, 515], color: '#854d0e', size: 24 },
+      { name: '豐臣·真田', pos: [440, 525], color: '#dc2626', size: 19 },
+      { name: '前 田 藩', pos: [560, 410], color: '#d97706', size: 19 },
+      { name: '島 津 藩', pos: [140, 635], color: '#c2410c', size: 19 },
+      { name: '毛 利 藩', pos: [240, 495], color: '#15803d', size: 19 },
+      { name: '伊 達 藩', pos: [800, 375], color: '#b45309', size: 19 }
     ],
     cities: [
-      { name: '江戶(將軍府)', pos: [477, 435], isCap: true },
-      { name: '京都(帝都)', pos: [358, 458] },
-      { name: '大坂城(五層天守)', pos: [348, 472] },
-      { name: '駿府城(大御所)', pos: [445, 465] },
-      { name: '日光東照宮', pos: [478, 402] }
+      { name: '江戶(將軍府)', pos: [680, 528], isCap: true },
+      { name: '京都(帝都)', pos: [468, 509] },
+      { name: '大坂城(五層天守)', pos: [449, 525] },
+      { name: '駿府城(大御所)', pos: [600, 552] },
+      { name: '日光東照宮', pos: [704, 468] }
     ],
     battles: [
-      { name: '⚔️ 大坂夏之陣', pos: [348, 472], battleId: 'bat_jp_osaka_natsu_1615' }
+      { name: '⚔️ 大坂夏之陣', pos: [449, 525], battleId: 'bat_jp_osaka_natsu_1615' }
     ],
     routes: [
       {
         label: '德川幕府二十萬大軍包圍進攻線 (家康·秀忠)',
         color: '#1e3a8a',
-        path: 'M 477,435 Q 430,460 390,451 Q 365,465 348,472'
+        path: 'M 680,528 Q 580,545 490,506 Q 465,515 449,525'
       },
       {
         label: '真田幸村赤備敢死隊天王寺正面突擊線 (直取家康本陣)',
         color: '#dc2626',
-        path: 'M 348,472 Q 352,475 356,473'
+        path: 'M 449,525 Q 456,530 460,526'
       }
     ],
     chronicleLeft: [
@@ -396,6 +441,15 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '鳥羽伏見倒幕',
     headline: '鳥羽伏見與戊辰戰爭，薩長倒幕菊花錦旗',
     subTitle: '大政奉還德川慶喜退守 · 薩長官軍迎奉錦旗 · 江戶無血開城 · 蝦夷五稜郭終戰',
+    clashCard: {
+      eraTitle: '公元 1868 年 (慶應四年 / 明治元年)',
+      conflicts: [
+        { attacker: '官軍 (薩長土)', arrow: '→', defender: '舊幕府軍', note: '鳥羽伏見之戰 · 迎奉菊花錦旗' },
+        { attacker: '官軍 (西鄉隆盛)', arrow: '↔', defender: '勝海舟 (幕府)', note: '江戶無血開城 · 救百萬平民' },
+        { attacker: '新政府軍', arrow: '→', defender: '會津若松城', note: '奧羽越列藩同盟 · 白虎隊殉國' },
+        { attacker: '榎本武揚·土方歲三', arrow: '→', defender: '蝦夷共和國', note: '北撤五稜郭 · 戊辰終戰' }
+      ]
+    },
     prefectureWarlords: {
       kagoshima: { warlord: '倒幕雄藩·薩摩藩 (西鄉隆盛)', color: '#fed7aa' },
       yamaguchi: { warlord: '倒幕雄藩·長州藩 (木戶孝允)', color: '#bbf7d0' },
@@ -408,34 +462,34 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       hokkaido: { warlord: '蝦夷共和國 (榎本武揚·土方歲三)', color: '#ddd6fe' }
     },
     labels: [
-      { name: '官 軍·薩長', pos: [350, 460], color: '#ea580c', size: 21 },
-      { name: '德川幕府', pos: [480, 430], color: '#1e3a8a', size: 22 },
-      { name: '會津藩·新選組', pos: [485, 370], color: '#b91c1c', size: 18 },
-      { name: '土佐·海援隊', pos: [285, 525], color: '#0284c7', size: 17 },
-      { name: '五稜郭·土方', pos: [506, 219], color: '#6d28d9', size: 17 }
+      { name: '官 軍·薩長', pos: [460, 495], color: '#ea580c', size: 21 },
+      { name: '德川幕府', pos: [675, 515], color: '#1e3a8a', size: 22 },
+      { name: '會津藩·新選組', pos: [730, 420], color: '#b91c1c', size: 18 },
+      { name: '土佐·海援隊', pos: [325, 570], color: '#0284c7', size: 17 },
+      { name: '五稜郭·土方', pos: [115, 195], color: '#6d28d9', size: 15 }
     ],
     cities: [
-      { name: '京都(御所)', pos: [358, 458], isCap: true },
-      { name: '江戶(無血開城)', pos: [477, 435] },
-      { name: '會津若松城', pos: [482, 371] },
-      { name: '箱館五稜郭', pos: [506, 219] },
-      { name: '鹿兒島', pos: [203, 574] },
-      { name: '萩(松下村塾)', pos: [229, 479] }
+      { name: '京都(御所)', pos: [468, 509], isCap: true },
+      { name: '江戶(無血開城)', pos: [680, 528] },
+      { name: '會津若松城', pos: [727, 419] },
+      { name: '箱館五稜郭', pos: [106, 198] },
+      { name: '鹿兒島', pos: [140, 641] },
+      { name: '萩(松下村塾)', pos: [236, 478] }
     ],
     battles: [
-      { name: '⚔️ 鳥羽伏見之戰', pos: [358, 460], battleId: 'bat_jp_toba_fushimi_1868' },
-      { name: '⚔️ 箱館五稜郭之戰', pos: [506, 219], battleId: 'bat_jp_goryokaku_1869' }
+      { name: '⚔️ 鳥羽伏見之戰', pos: [465, 512], battleId: 'bat_jp_toba_fushimi_1868' },
+      { name: '⚔️ 箱館五稜郭之戰', pos: [106, 198], battleId: 'bat_jp_goryokaku_1869' }
     ],
     routes: [
       {
         label: '薩長官軍奉「菊花錦旗」東征進軍線 (進軍江戶)',
         color: '#16a34a',
-        path: 'M 358,460 Q 420,455 477,435'
+        path: 'M 468,509 Q 560,545 680,528'
       },
       {
         label: '舊幕府海軍北撤蝦夷建立五稜郭線 (榎本·土方)',
         color: '#dc2626',
-        path: 'M 477,435 Q 520,320 506,219'
+        path: 'M 680,528 Q 780,450 780,350 Q 750,220 106,198'
       }
     ],
     chronicleLeft: [
@@ -456,6 +510,14 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
     shortLabel: '西南戰爭',
     headline: '西南戰爭田原坂，最後武士與明治維新確立',
     subTitle: '西鄉隆盛薩摩士族起義 · 熊本城圍攻 · 田原坂血戰 · 近代徵兵制勝武士道',
+    clashCard: {
+      eraTitle: '公元 1877 年 (明治十年)',
+      conflicts: [
+        { attacker: '薩摩士族軍 (西鄉)', arrow: '→', defender: '熊本鎮台 (谷干城)', note: '熊本城包圍 · 死守加藤清正巨城' },
+        { attacker: '明治政府軍', arrow: '↔', defender: '薩摩拔刀隊', note: '田原坂十七晝夜雨中肉搏' },
+        { attacker: '大日本帝國政府', arrow: '→', defender: '富國強兵', note: '最後武士終結 · 近代徵兵制確立' }
+      ]
+    },
     prefectureWarlords: {
       kagoshima: { warlord: '西鄉隆盛·薩摩私學校軍', color: '#fecaca' },
       kumamoto: { warlord: '田原坂·熊本城激戰區', color: '#fef08a' },
@@ -466,30 +528,29 @@ export const JAPAN_WARLORD_PERIOD_CONFIGS = [
       hokkaido: { warlord: '北海道開拓使 (屯田兵)', color: '#bae6fd' }
     },
     labels: [
-      { name: '大日本帝國政府', pos: [480, 430], color: '#1d4ed8', size: 22 },
-      { name: '薩摩義軍·西鄉', pos: [200, 580], color: '#dc2626', size: 19 },
-      { name: '北海道開拓使', pos: [599, 131], color: '#0284c7', size: 18 }
+      { name: '大日本帝國政府', pos: [675, 515], color: '#1d4ed8', size: 22 },
+      { name: '薩摩義軍·西鄉', pos: [140, 625], color: '#dc2626', size: 19 },
+      { name: '北海道開拓使', pos: [185, 130], color: '#0284c7', size: 16 }
     ],
     cities: [
-      { name: '東京(帝都皇居)', pos: [477, 435], isCap: true },
-      { name: '熊本城(鎮台)', pos: [208, 534] },
-      { name: '鹿兒島(城山)', pos: [203, 574] },
-      { name: '橫濱開港', pos: [469, 449] }
+      { name: '東京(帝都皇居)', pos: [680, 528], isCap: true },
+      { name: '熊本城(鎮台)', pos: [170, 568] },
+      { name: '鹿兒島(城山)', pos: [140, 641] },
+      { name: '橫濱開港', pos: [670, 540] }
     ],
     battles: [
-      { name: '⚔️ 田原坂血戰', pos: [206, 530], battleId: 'bat_jp_tabaruzaka_1877' },
-      { name: '⚔️ 對馬海峽海戰', pos: [187, 480], battleId: 'bat_jp_tsushima_1905' }
+      { name: '⚔️ 田原坂血戰', pos: [171, 561], battleId: 'bat_jp_tabaruzaka_1877' }
     ],
     routes: [
       {
         label: '薩摩西鄉軍北上包圍熊本城路線',
         color: '#dc2626',
-        path: 'M 203,574 Q 206,550 208,534'
+        path: 'M 140,641 Q 155,600 170,568 L 171,561'
       },
       {
         label: '政府徵兵新軍自博多南下增援田原坂路線',
         color: '#2563eb',
-        path: 'M 205,513 Q 206,522 206,530'
+        path: 'M 181,516 Q 178,540 171,561'
       }
     ],
     chronicleLeft: [
