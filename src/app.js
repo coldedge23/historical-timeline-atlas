@@ -12,10 +12,12 @@ import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import { HISTORICAL_PERIODS, PERIOD_OPTIONS } from './data/periodsRegistry.js';
 import {
   TAIWAN_LENS_ERAS,
+  TAIWAN_DEDICATED_FIGURES,
   TAIWAN_RELATED_FIGURE_IDS,
   TAIWAN_RELATED_BATTLES,
   ERA_BATTLE_IDS,
 } from './data/taiwanLensData.js';
+import { normalizePeriodDataset } from './data/schemaNormalizer.js';
 
 function parseUrlHash() {
   try {
@@ -59,16 +61,38 @@ export function App() {
       : 'tw_tungning'
   );
 
-  // Pool of all figures across all 10 periods for cross-period selection
+  // Normalize dedicated Taiwan figures using unified schema
+  const normalizedTaiwanDedicatedFigures = useMemo(() => {
+    const norm = normalizePeriodDataset({
+      id: 'taiwanLens',
+      name: '臺灣歷史縱貫專題',
+      figures: TAIWAN_DEDICATED_FIGURES || [],
+      events: [],
+      battles: [],
+    });
+    return norm.figures || [];
+  }, []);
+
+  // Pool of all figures across all 10 periods + Dedicated Taiwan Figures
   const allFiguresPool = useMemo(() => {
     const list = [];
+    const seen = new Set();
     for (const p of Object.values(HISTORICAL_PERIODS)) {
       for (const fig of p.figures || []) {
+        if (!seen.has(fig.id)) {
+          seen.add(fig.id);
+          list.push(fig);
+        }
+      }
+    }
+    for (const fig of normalizedTaiwanDedicatedFigures) {
+      if (!seen.has(fig.id)) {
+        seen.add(fig.id);
         list.push(fig);
       }
     }
     return list;
-  }, []);
+  }, [normalizedTaiwanDedicatedFigures]);
 
   // Taiwan Lens Datasets
   const taiwanLensEvents = useMemo(() => {
@@ -92,12 +116,14 @@ export function App() {
   }, []);
 
   const taiwanLensFigures = useMemo(() => {
-    return allFiguresPool.filter(
-      (f) =>
-        TAIWAN_RELATED_FIGURE_IDS.includes(f.id) ||
-        f.faction === 'taiwan' ||
-        (f.hometown && (f.hometown.includes('臺') || f.hometown.includes('台')))
-    );
+    return allFiguresPool
+      .filter(
+        (f) =>
+          TAIWAN_RELATED_FIGURE_IDS.includes(f.id) ||
+          f.faction === 'taiwan' ||
+          (f.hometown && (f.hometown.includes('臺') || f.hometown.includes('台')))
+      )
+      .sort((a, b) => (b.importance || 3) - (a.importance || 3));
   }, [allFiguresPool]);
 
   const currentEraConfig = useMemo(() => {

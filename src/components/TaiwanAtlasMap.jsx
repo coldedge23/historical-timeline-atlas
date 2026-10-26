@@ -644,14 +644,25 @@ export const TaiwanAtlasMap = ({
                 // Place labels cleanly to the right of the battle marker icons
                 labelX = bx + 16;
                 textAnchor = 'start';
-                // Stagger Guningtou and 823 Artillery so they never overlap
                 if (bat.id === 'bat_tw_guningtou_1949') {
-                  labelY = by - 5;
+                  labelY = by - 7;
                 } else if (bat.id === 'bat_tw_823_1958') {
-                  labelY = by + 16;
+                  labelY = by + 18;
+                } else if (bat.id === 'bat_tw_daerdan_1950') {
+                  labelY = by + 5;
                 } else {
-                  labelY = by + (batIdx % 2 === 0 ? -5 : 16);
+                  labelY = by + (batIdx % 2 === 0 ? -7 : 17);
                 }
+              } else if (bat.id === 'bat_tw_tamsui_1884') {
+                // Offset Tamsui to the west
+                labelX = bx - 14;
+                textAnchor = 'end';
+                labelY = by - 4;
+              } else if (bat.id === 'bat_tw_keelung_1884' || bat.id === 'bat_tw_keelung_1642') {
+                // Offset Keelung to the east
+                labelX = bx + 14;
+                textAnchor = 'start';
+                labelY = by - 4;
               }
 
               const battleShortName = bat.name.split(' ')[0];
