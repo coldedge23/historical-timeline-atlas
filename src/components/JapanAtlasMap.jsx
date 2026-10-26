@@ -17,12 +17,14 @@ export const JapanAtlasMap = ({
   activeJapanEraId = 'jp_sengoku',
   onSelectJapanEraId,
   events = [],
+  allEvents = [],
   battles = [],
   selectedEvent,
   selectedBattle,
   onSelectEvent,
   onSelectBattle,
   ancientNamesOnly,
+  onClearSearch,
 }) => {
   const configsToUse = JAPAN_WARLORD_PERIOD_CONFIGS;
 
@@ -151,6 +153,7 @@ export const JapanAtlasMap = ({
                 ref={(el) => (tabRefs.current[p.id] = el)}
                 onClick={() => {
                   setActivePreset(p);
+                  if (onClearSearch) onClearSearch();
                   if (onSelectJapanEraId) {
                     if (p.yearNumber <= 1575) onSelectJapanEraId('jp_sengoku');
                     else if (p.yearNumber <= 1600) onSelectJapanEraId('jp_azuchi_momoyama');
@@ -158,10 +161,11 @@ export const JapanAtlasMap = ({
                     else if (p.yearNumber <= 1869) onSelectJapanEraId('jp_bakumatsu');
                     else onSelectJapanEraId('jp_meiji_modern');
                   }
-                  if (events && events.length > 0) {
-                    const closestEvt = events.reduce((best, e) => {
+                  const pool = allEvents && allEvents.length > 0 ? allEvents : events;
+                  if (pool && pool.length > 0) {
+                    const closestEvt = pool.reduce((best, e) => {
                       return Math.abs(e.year - p.yearNumber) < Math.abs(best.year - p.yearNumber) ? e : best;
-                    }, events[0]);
+                    }, pool[0]);
                     if (closestEvt && onSelectEvent) {
                       onSelectEvent({ ...closestEvt, _scrollTs: Date.now() });
                     }

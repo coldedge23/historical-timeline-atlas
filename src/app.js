@@ -312,6 +312,7 @@ export function App() {
   const handleSelectTaiwanEraId = (eraId) => {
     setCivilizationMode('taiwan');
     setActiveTaiwanEraId(eraId);
+    setSearchTerm('');
     const targetEra = TAIWAN_LENS_ERAS.find((e) => e.id === eraId);
     if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
       const found = taiwanLensEvents.find((e) => e.id === targetEra.keyEvents[0].id);
@@ -327,6 +328,7 @@ export function App() {
   const handleSelectJapanEraId = (eraId) => {
     setCivilizationMode('japan');
     setActiveJapanEraId(eraId);
+    setSearchTerm('');
     const targetEra = JAPAN_ERAS.find((e) => e.id === eraId);
     if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
       const found = japanEvents.find((e) => e.eraId === targetEra.id) || japanEvents[0];
@@ -455,6 +457,9 @@ export function App() {
     if (isTaiwanLensMode && evt?.eraId && evt.eraId !== activeTaiwanEraId) {
       setActiveTaiwanEraId(evt.eraId);
     }
+    if (civilizationMode === 'japan' && evt?.eraId && evt.eraId !== activeJapanEraId) {
+      setActiveJapanEraId(evt.eraId);
+    }
   };
 
   const handleSelectBattle = (bat) => {
@@ -526,35 +531,41 @@ export function App() {
                     activeJapanEraId={activeJapanEraId}
                     onSelectJapanEraId={handleSelectJapanEraId}
                     events={eventsForTimeline}
+                    allEvents={currentEvents}
                     battles={currentBattles}
                     selectedEvent={selectedEvent}
                     selectedBattle={selectedBattle}
                     onSelectEvent={handleSelectEvent}
                     onSelectBattle={handleSelectBattle}
                     ancientNamesOnly={ancientNamesOnly}
+                    onClearSearch={() => setSearchTerm('')}
                   />
                 ) : isTaiwanLensMode ? (
                   <TaiwanAtlasMap
                     activeTaiwanEraId={activeTaiwanEraId}
                     onSelectTaiwanEraId={handleSelectTaiwanEraId}
                     events={eventsForTimeline}
+                    allEvents={currentEvents}
                     battles={currentBattles}
                     selectedEvent={selectedEvent}
                     selectedBattle={selectedBattle}
                     onSelectEvent={handleSelectEvent}
                     onSelectBattle={handleSelectBattle}
                     ancientNamesOnly={ancientNamesOnly}
+                    onClearSearch={() => setSearchTerm('')}
                   />
                 ) : (
                   <HistoricalAtlasMap
                     warlordPeriodConfigs={currentWarlordPeriods}
                     territories={currentTerritories}
                     events={eventsForTimeline}
+                    allEvents={currentEvents}
                     battles={currentBattles}
                     selectedEvent={selectedEvent}
                     onSelectEvent={setSelectedEvent}
                     onSelectBattle={setSelectedBattle}
                     ancientNamesOnly={ancientNamesOnly}
+                    onClearSearch={() => setSearchTerm('')}
                   />
                 )}
               </div>
@@ -569,7 +580,9 @@ export function App() {
                   onSelectFigureById={handleSelectFigureById}
                   onSelectBattleById={handleSelectBattleById}
                   ancientNamesOnly={ancientNamesOnly}
-                  activePeriodId={activePeriodId}
+                  activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
+                  searchTerm={searchTerm}
+                  onClearSearch={() => setSearchTerm('')}
                 />
               </div>
             </div>

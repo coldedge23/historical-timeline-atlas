@@ -19,6 +19,8 @@ export const Timeline = ({
   onSelectBattleById,
   ancientNamesOnly,
   activePeriodId,
+  searchTerm = '',
+  onClearSearch,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedFiguresEventId, setExpandedFiguresEventId] = useState(null);
@@ -197,6 +199,23 @@ export const Timeline = ({
             )}
           </div>
         </div>
+
+        {/* Active Search Filter Alert */}
+        {searchTerm && onClearSearch && (
+          <div className="flex items-center justify-between bg-amber-950/50 border border-amber-500/50 px-2.5 py-1.5 rounded-lg text-xs text-amber-200 shadow-sm">
+            <span className="flex items-center gap-1.5 truncate">
+              <span className="text-amber-400">🔍</span>
+              <span>目前篩選：<b className="text-amber-300">「{searchTerm}」</b></span>
+              <span className="text-zinc-400 text-[10px]">({events.length} 筆)</span>
+            </span>
+            <button
+              onClick={onClearSearch}
+              className="text-[11px] text-amber-400 hover:text-white bg-amber-900/60 hover:bg-amber-800 px-2 py-0.5 rounded border border-amber-500/40 transition-colors ml-2 shrink-0 cursor-pointer font-medium"
+            >
+              清除篩選
+            </button>
+          </div>
+        )}
 
         {/* Category Filters & Progress Bar */}
         <div className="flex items-center justify-between gap-2">

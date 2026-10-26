@@ -15,11 +15,13 @@ export { WARLORD_PERIOD_CONFIGS };
 export const HistoricalAtlasMap = ({
   warlordPeriodConfigs,
   events,
+  allEvents = [],
   battles,
   selectedEvent,
   onSelectEvent,
   onSelectBattle,
   ancientNamesOnly,
+  onClearSearch,
 }) => {
   const configsToUse = warlordPeriodConfigs && warlordPeriodConfigs.length > 0 ? warlordPeriodConfigs : WARLORD_PERIOD_CONFIGS;
   const initialYear = selectedEvent?.year || configsToUse[0]?.yearNumber || 184;
@@ -153,10 +155,12 @@ export const HistoricalAtlasMap = ({
                 ref={(el) => (tabRefs.current[p.id] = el)}
                 onClick={() => {
                   setActivePreset(p);
-                  if (events && events.length > 0) {
-                    const closestEvt = events.reduce((best, e) => {
+                  if (onClearSearch) onClearSearch();
+                  const pool = allEvents && allEvents.length > 0 ? allEvents : events;
+                  if (pool && pool.length > 0) {
+                    const closestEvt = pool.reduce((best, e) => {
                       return Math.abs(e.year - p.yearNumber) < Math.abs(best.year - p.yearNumber) ? e : best;
-                    }, events[0]);
+                    }, pool[0]);
                     if (closestEvt && onSelectEvent) {
                       onSelectEvent({ ...closestEvt, _scrollTs: Date.now() });
                     }

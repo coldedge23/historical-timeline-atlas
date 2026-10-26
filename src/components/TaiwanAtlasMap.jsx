@@ -382,12 +382,14 @@ export const TaiwanAtlasMap = ({
   activeTaiwanEraId = 'tw_tungning',
   onSelectTaiwanEraId,
   events = [],
+  allEvents = [],
   battles = [],
   selectedEvent,
   selectedBattle,
   onSelectEvent,
   onSelectBattle,
   ancientNamesOnly,
+  onClearSearch,
 }) => {
   const currentScheme = TAIWAN_ERA_COUNTY_SCHEMES[activeTaiwanEraId] || TAIWAN_ERA_COUNTY_SCHEMES.tw_tungning;
   const [hoveredCounty, setHoveredCounty] = useState(null);
@@ -455,6 +457,7 @@ export const TaiwanAtlasMap = ({
               <button
                 key={era.id}
                 onClick={() => {
+                  if (onClearSearch) onClearSearch();
                   if (onSelectTaiwanEraId) onSelectTaiwanEraId(era.id);
                 }}
                 className={`px-2.5 py-1 rounded text-[11px] whitespace-nowrap transition-all duration-200 font-medium ${
