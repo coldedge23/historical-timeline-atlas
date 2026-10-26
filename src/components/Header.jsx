@@ -28,9 +28,13 @@ export const Header = ({
   eventCount,
   figureCount,
   battleCount,
+  civilizationMode = 'china',
+  onSelectCivilizationMode,
   isTaiwanLensMode = false,
   activeTaiwanEraId = 'tw_tungning',
   onSelectTaiwanEraId,
+  activeJapanEraId = 'jp_sengoku',
+  onSelectJapanEraId,
 }) => {
   const [isSpotlightOpen, setIsSpotlightOpen] = useState(false);
   const searchInputRef = useRef(null);
@@ -96,12 +100,32 @@ export const Header = ({
                   歷史星圖
                 </h1>
 
-                {/* 1. Epoch Switcher Dropdown (歷史朝代切換) */}
-                {onSelectPeriodId ? (
+                {/* 1. Global Civilization Switcher Dropdown (文明大系切換) */}
+                {onSelectCivilizationMode ? (
+                  <select
+                    value={civilizationMode}
+                    onChange={(e) => onSelectCivilizationMode(e.target.value)}
+                    title="選擇歷史文明體系"
+                    className={`text-xs px-2.5 py-1 rounded-lg border font-bold focus:outline-none focus:ring-1 cursor-pointer shadow-sm transition-all ${
+                      civilizationMode === 'japan'
+                        ? 'bg-gradient-to-r from-red-950 via-[#260e0e] to-rose-950 border-red-500/70 text-red-200 ring-1 ring-red-400/50'
+                        : civilizationMode === 'taiwan'
+                        ? 'bg-gradient-to-r from-emerald-950 via-[#0f2419] to-teal-950 border-emerald-400 text-emerald-200 ring-1 ring-emerald-400/50'
+                        : 'bg-[#1f1a14] border-amber-500/60 text-amber-300 ring-1 ring-amber-400/30'
+                    }`}
+                  >
+                    <option value="china">🇨🇳 華夏四千年通史</option>
+                    <option value="taiwan">🏝️ 臺灣歷史縱貫視角</option>
+                    <option value="japan">🗾 日本歷史星圖</option>
+                  </select>
+                ) : null}
+
+                {/* 2. Corresponding Era Dropdown for Current Civilization */}
+                {civilizationMode === 'china' && onSelectPeriodId && (
                   <select
                     value={activePeriodId}
                     onChange={(e) => onSelectPeriodId(e.target.value)}
-                    title="選擇歷史朝代時期"
+                    title="選擇華夏朝代時期"
                     className="text-xs px-2.5 py-1 rounded-lg bg-[#1f1a14] border border-amber-500/50 text-amber-300 font-bold focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer shadow-sm"
                   >
                     {periodOptions.map((opt) => (
@@ -111,43 +135,65 @@ export const Header = ({
                       </option>
                     ))}
                   </select>
-                ) : (
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-medium">
-                    {currentPeriod}
-                  </span>
                 )}
 
-                {/* 2. Independent Taiwan Lens Dropdown (臺灣歷史縱貫專題獨立下拉選單) */}
-                {onSelectTaiwanEraId && (
+                {civilizationMode === 'taiwan' && onSelectTaiwanEraId && (
                   <select
-                    value={isTaiwanLensMode ? activeTaiwanEraId : 'off'}
+                    value={activeTaiwanEraId}
                     onChange={(e) => onSelectTaiwanEraId(e.target.value)}
-                    title="切換臺灣四千年歷史縱貫專題各紀元"
-                    className={`text-xs px-2.5 py-1 rounded-lg border font-bold focus:outline-none focus:ring-1 cursor-pointer shadow-sm transition-all ${
-                      isTaiwanLensMode
-                        ? 'bg-gradient-to-r from-emerald-950 via-[#0f2419] to-teal-950 border-emerald-400 text-emerald-200 ring-1 ring-emerald-400/50'
-                        : 'bg-[#141b18] border-emerald-700/60 text-emerald-300/80 hover:text-emerald-100 hover:border-emerald-400'
-                    }`}
+                    title="選擇臺灣歷史紀元"
+                    className="text-xs px-2.5 py-1 rounded-lg bg-[#0f2419] border border-emerald-400 text-emerald-200 font-bold focus:outline-none focus:ring-1 focus:ring-emerald-400 cursor-pointer shadow-sm"
                   >
-                    <option value="off">📜 華夏全通史模式</option>
-                    <optgroup label="🏝️ 臺灣四千年歷史縱貫專題">
-                      <option value="tw_prehistoric">01 🌅 南島原鄉 (史前-1624)</option>
-                      <option value="tw_dutch_spanish">02 ⚓ 荷西大航海 (1624-1662)</option>
-                      <option value="tw_tungning">03 👑 明鄭東寧 (1662-1683)</option>
-                      <option value="tw_qing_early">04 🏛️ 清領拓墾 (1683-1874)</option>
-                      <option value="tw_qing_late">05 🛡️ 開山建省 (1874-1895)</option>
-                      <option value="tw_japanese">06 📖 乙未啟蒙 (1895-1945)</option>
-                      <option value="tw_postwar">07 🌊 戰後防衛 (1945-1970)</option>
-                      <option value="tw_modern">08 🚀 科技矽島 (1970-現代)</option>
-                    </optgroup>
+                    <option value="tw_prehistoric">01 🌅 南島原鄉 (史前-1624)</option>
+                    <option value="tw_dutch_spanish">02 ⚓ 荷西大航海 (1624-1662)</option>
+                    <option value="tw_tungning">03 👑 明鄭東寧 (1662-1683)</option>
+                    <option value="tw_qing_early">04 🏛️ 清領拓墾 (1683-1874)</option>
+                    <option value="tw_qing_late">05 🛡️ 開山建省 (1874-1895)</option>
+                    <option value="tw_japanese">06 📖 乙未啟蒙 (1895-1945)</option>
+                    <option value="tw_postwar">07 🌊 戰後防衛 (1945-1970)</option>
+                    <option value="tw_modern">08 🚀 科技矽島 (1970-現代)</option>
+                  </select>
+                )}
+
+                {civilizationMode === 'japan' && onSelectJapanEraId && (
+                  <select
+                    value={activeJapanEraId}
+                    onChange={(e) => onSelectJapanEraId(e.target.value)}
+                    title="選擇日本歷史紀元"
+                    className="text-xs px-2.5 py-1 rounded-lg bg-[#2b1810] border border-red-500/70 text-red-200 font-bold focus:outline-none focus:ring-1 focus:ring-red-400 cursor-pointer shadow-sm"
+                  >
+                    <option value="jp_ancient_medieval">01 ⛩️ 古代中世發端 (538-1467)</option>
+                    <option value="jp_sengoku">02 ⚔️ 戰國亂世·群雄逐鹿 (1467-1582)</option>
+                    <option value="jp_azuchi_momoyama">03 🏯 安土桃山·天下統一 (1582-1603)</option>
+                    <option value="jp_edo">04 📜 江戶幕府·鎖國治世 (1603-1853)</option>
+                    <option value="jp_bakumatsu">05 ⚓ 幕末風雲·尊王倒幕 (1853-1868)</option>
+                    <option value="jp_meiji_modern">06 🚀 明治維新·近代崛起 (1868-1945+)</option>
                   </select>
                 )}
               </div>
               <p className="text-[11px] text-zinc-400 flex items-center gap-1 mt-0.5">
-                <span>{isTaiwanLensMode ? '🏝️ 臺灣四千年歷史縱貫專題' : '華夏與臺灣時空總覽'}</span>
+                <span>
+                  {civilizationMode === 'japan'
+                    ? '🗾 日本歷史星圖'
+                    : civilizationMode === 'taiwan'
+                    ? '🏝️ 臺灣四千年歷史縱貫'
+                    : '🇨🇳 華夏四千年通史'}
+                </span>
                 <span>•</span>
-                <span className={isTaiwanLensMode ? 'text-emerald-400/90 font-mono font-medium' : 'text-amber-400/90 font-mono font-medium'}>
-                  {isTaiwanLensMode ? '八大歷史紀元專題' : currentPeriodShortEra}
+                <span
+                  className={
+                    civilizationMode === 'japan'
+                      ? 'text-red-400/90 font-mono font-medium'
+                      : civilizationMode === 'taiwan'
+                      ? 'text-emerald-400/90 font-mono font-medium'
+                      : 'text-amber-400/90 font-mono font-medium'
+                  }
+                >
+                  {civilizationMode === 'japan'
+                    ? '戰國·江戶·幕末維新六大時代'
+                    : civilizationMode === 'taiwan'
+                    ? '八大歷史紀元專題'
+                    : currentPeriodShortEra}
                 </span>
               </p>
             </div>

@@ -108,6 +108,36 @@ async function verify() {
     console.error('Failed to load taiwanLensData.js:', err);
   }
 
+  // Japan Historical Atlas dataset verification
+  console.log('=== Checking Japan Historical Atlas Dataset ===');
+  let jpMissingAvatars = 0;
+  try {
+    const japanData = await import('../src/data/japan/index.js');
+    const jpEras = japanData.JAPAN_ERAS || [];
+    const jpBattles = japanData.JAPAN_BATTLES || [];
+    const jpFigures = japanData.JAPAN_FIGURES || [];
+    const jpTotalEvents = japanData.JAPAN_ALL_EVENTS ? japanData.JAPAN_ALL_EVENTS.length : 0;
+
+    for (const fig of jpFigures) {
+      if (!fig.avatar) {
+        jpMissingAvatars++;
+        continue;
+      }
+      const diskPath = path.resolve(__dirname, '..', fig.avatar);
+      if (!fs.existsSync(diskPath) || fs.statSync(diskPath).size === 0) {
+        jpMissingAvatars++;
+      }
+    }
+    console.log(`[japanAtlas] 日本歷史星圖 | Eras: ${jpEras.length} | Events: ${jpTotalEvents} | Battles: ${jpBattles.length} | Figures: ${jpFigures.length} | Broken Avatars: ${jpMissingAvatars}`);
+    totalFigures += jpFigures.length;
+    totalBattles += jpBattles.length;
+    totalEvents += jpTotalEvents;
+    totalMissingAvatars += jpMissingAvatars;
+    allFigures.push(...jpFigures);
+  } catch (err) {
+    console.error('Failed to load japan data:', err);
+  }
+
   // Three Kingdoms specific copyright check
   console.log('=== Checking Three Kingdoms Plan A Copyright Compliance ===');
   const tkMod = require('../src/data/threeKingdoms/index.js');
