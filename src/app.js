@@ -575,6 +575,7 @@ export function App() {
                 <Timeline
                   events={eventsForTimeline}
                   figures={currentFigures}
+                  battles={currentBattles}
                   selectedEvent={selectedEvent}
                   onSelectEvent={handleSelectEvent}
                   onSelectFigureById={handleSelectFigureById}
@@ -583,6 +584,7 @@ export function App() {
                   activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
                   searchTerm={searchTerm}
                   onClearSearch={() => setSearchTerm('')}
+                  onSearchChange={setSearchTerm}
                 />
               </div>
             </div>

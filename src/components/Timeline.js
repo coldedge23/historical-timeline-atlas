@@ -5,6 +5,8 @@ import {
   Users, 
   Swords, 
   ChevronRight,
+  ChevronUp,
+  ChevronDown,
   Sparkles,
   BookOpen
 } from './Icons.js';
@@ -13,6 +15,7 @@ import { getFactionMeta } from '../data/factionConfig.js';
 export const Timeline = ({
   events = [],
   figures = [],
+  battles = [],
   selectedEvent,
   onSelectEvent,
   onSelectFigureById,
@@ -21,6 +24,7 @@ export const Timeline = ({
   activePeriodId,
   searchTerm = '',
   onClearSearch,
+  onSearchChange,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedFiguresEventId, setExpandedFiguresEventId] = useState(null);
@@ -53,6 +57,35 @@ export const Timeline = ({
     if (selectedCategory === 'all') return true;
     return evt.category === selectedCategory;
   });
+
+  // Handle click on tags: Jump to figure, battle, or apply as search filter
+  const handleTagClick = (tag, e) => {
+    e.stopPropagation();
+    setIsAutoPlaying(false);
+
+    // 1. Check if tag matches a figure name or courtesyName
+    const matchingFig = figures.find(
+      (f) => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))
+    );
+    if (matchingFig && onSelectFigureById) {
+      onSelectFigureById(matchingFig.id);
+      return;
+    }
+
+    // 2. Check if tag matches a battle name
+    const matchingBat = battles.find(
+      (b) => b.name === tag || b.name.includes(tag) || tag.includes(b.name)
+    );
+    if (matchingBat && onSelectBattleById) {
+      onSelectBattleById(matchingBat.id);
+      return;
+    }
+
+    // 3. Otherwise, set as search filter term
+    if (onSearchChange) {
+      onSearchChange(tag);
+    }
+  };
 
   // Smoothly and reliably scroll target event card inside the Timeline container, level with the map
   const scrollToSelectedCard = (eventId) => {
@@ -298,9 +331,29 @@ export const Timeline = ({
               </div>
 
               {/* Event Title */}
-              <h3 className="font-serif font-bold text-sm text-zinc-100 group-hover:text-amber-200 transition-colors mb-1.5 flex items-center justify-between">
+              <h3 className="font-serif font-bold text-sm text-zinc-100 group-hover:text-amber-200 transition-colors mb-1.5 flex items-center justify-between gap-2">
                 <span>{evt.title}</span>
-                {isSelected && <ChevronRight className="w-4 h-4 text-amber-400 animate-pulse shrink-0" />}
+                <div className="flex items-center gap-1 shrink-0">
+                  {isSelected ? (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectEvent(null);
+                      }}
+                      title="點擊收起歷史始末"
+                      className="flex items-center gap-1 text-[10px] text-amber-300 hover:text-amber-100 bg-amber-950/70 hover:bg-amber-900 px-2 py-0.5 rounded border border-amber-500/50 transition-all shrink-0 cursor-pointer shadow-sm group/btn"
+                    >
+                      <span>收起詳情</span>
+                      <ChevronUp className="w-3 h-3 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </button>
+                  ) : (
+                    <span className="text-[10px] text-zinc-500 group-hover:text-amber-300 transition-colors flex items-center gap-0.5">
+                      <span>展開</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  )}
+                </div>
               </h3>
 
               {/* Event Summary */}
@@ -332,15 +385,39 @@ export const Timeline = ({
                   )}
 
                   {evt.tags && evt.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5">
-                      {evt.tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {evt.tags.map((tag, idx) => {
+                        const matchingFig = figures.find(
+                          (f) => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))
+                        );
+                        const matchingBat = battles.find(
+                          (b) => b.name === tag || b.name.includes(tag) || tag.includes(b.name)
+                        );
+                        const tip = matchingFig
+                          ? `點擊開啟人物列傳：${matchingFig.name}`
+                          : matchingBat
+                          ? `點擊開啟戰役詳情：${matchingBat.name}`
+                          : `點擊以「${tag}」篩選年表`;
+
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={(e) => handleTagClick(tag, e)}
+                            title={tip}
+                            className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:bg-amber-500/25 hover:border-amber-400 hover:text-amber-100 transition-all cursor-pointer inline-flex items-center gap-1 shadow-sm active:scale-95"
+                          >
+                            {matchingFig ? (
+                              <Users className="w-2.5 h-2.5 text-blue-400 shrink-0" />
+                            ) : matchingBat ? (
+                              <Swords className="w-2.5 h-2.5 text-rose-400 shrink-0" />
+                            ) : (
+                              <span className="text-amber-400/80">#</span>
+                            )}
+                            <span>{tag}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
