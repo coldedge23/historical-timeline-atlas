@@ -146,11 +146,11 @@ export const TAIWAN_ERA_COUNTY_SCHEMES = {
       kinmen: "金門料羅灣 (延平王出師地)"
     },
     tacticalLabels: [
-      { name: "明鄭王都承天府 (鄭成功受降立國)", lng: 120.16, lat: 23.00, color: "#7f1d1d", size: 14 },
+      { name: "明鄭王都承天府 (鄭成功受降立國)", lng: 120.16, lat: 23.00, color: "#7f1d1d", size: 13 },
       { name: "全臺首學 (陳永華建孔廟開科舉)", lng: 120.20, lat: 22.99, color: "#7f1d1d", size: 12 },
       { name: "天興縣軍屯 (陳永華開荒拓土)", lng: 120.35, lat: 23.40, color: "#991b1b", size: 12 },
       { name: "萬年縣左營軍屯 (鳳山糧倉)", lng: 120.30, lat: 22.68, color: "#991b1b", size: 12 },
-      { name: "澎湖海戰 (施琅破劉國軒水師)", lng: 119.56, lat: 23.56, color: "#7f1d1d", size: 12 },
+      { name: "澎湖水師營 (東寧海疆鎖鑰)", lng: 119.56, lat: 23.35, color: "#7f1d1d", size: 11 },
       { name: "金門料羅灣 (大軍集結出發點)", lng: 118.42, lat: 24.41, color: "#991b1b", size: 11 }
     ]
   },
@@ -240,8 +240,7 @@ export const TAIWAN_ERA_COUNTY_SCHEMES = {
       hsinchu_city: "新竹火車站 (鐵路新竹終點)"
     },
     tacticalLabels: [
-      { name: "臺灣巡撫衙門 (劉銘傳建省定都)", lng: 121.51, lat: 25.04, color: "#3b0764", size: 14 },
-      { name: "滬尾淡水大捷 (孫開華擊潰法軍登陸)", lng: 121.43, lat: 25.17, color: "#1e3a8a", size: 12 },
+      { name: "臺灣巡撫衙門 (劉銘傳建省定都)", lng: 121.51, lat: 25.04, color: "#3b0764", size: 13 },
       { name: "中國第一條客運鐵路 (基隆—新竹)", lng: 121.30, lat: 24.95, color: "#4c1d95", size: 11 },
       { name: "牡丹社事件 (沈葆楨開山撫番修城)", lng: 120.74, lat: 22.00, color: "#7f1d1d", size: 11 },
       { name: "八通關古道 (沈葆楨開拓後山中路)", lng: 121.00, lat: 23.60, color: "#4c1d95", size: 11 }
@@ -284,9 +283,8 @@ export const TAIWAN_ERA_COUNTY_SCHEMES = {
       miaoli: "苗栗起義紀念碑 (羅福星烈士)"
     },
     tacticalLabels: [
-      { name: "八卦山抗日大血戰 (吳湯興/徐驤成仁)", lng: 120.55, lat: 24.08, color: "#881337", size: 13 },
-      { name: "臺灣文化協會·臺灣民眾黨 (蔣渭水/林獻堂)", lng: 121.51, lat: 25.05, color: "#701a75", size: 13 },
-      { name: "莫那·魯道霧社起義 (賽德克族尊嚴抗暴)", lng: 121.13, lat: 24.02, color: "#881337", size: 12 },
+      { name: "臺灣文化協會·臺灣民眾黨 (蔣渭水/林獻堂)", lng: 121.51, lat: 25.05, color: "#701a75", size: 12 },
+      { name: "莫那·魯道霧社起義 (賽德克族尊嚴抗暴)", lng: 121.13, lat: 24.02, color: "#881337", size: 11 },
       { name: "臺灣新文學之父 (賴和彰化仁心醫世)", lng: 120.54, lat: 24.07, color: "#701a75", size: 11 },
       { name: "噍吧哖西來庵事件 (余清芳武裝起義)", lng: 120.46, lat: 23.12, color: "#881337", size: 11 },
       { name: "羅福星苗栗起義 (辛亥革命光照臺灣)", lng: 120.82, lat: 24.56, color: "#881337", size: 11 }
@@ -322,16 +320,14 @@ export const TAIWAN_ERA_COUNTY_SCHEMES = {
     },
     historicalNames: {
       taipei: "臺北中山堂 (臺灣光復受降典禮)",
-      kinmen: "金門古寧頭戰史館 / 太武山擎天廳",
+      kinmen: "金門防衛司令部 (太武山擎天廳)",
       kaohsiung: "左營海軍艦隊軍港基地",
       penghu: "澎湖馬公防衛指揮部",
       lienchiang: "馬祖南竿北竿前線要塞"
     },
     tacticalLabels: [
-      { name: "臺灣光復受降典禮 (臺北公會堂中山堂)", lng: 121.51, lat: 25.04, color: "#1e3a8a", size: 13 },
-      { name: "金門古寧頭大捷 (全殲登陸敵軍保衛臺灣)", lng: 118.31, lat: 24.48, color: "#991b1b", size: 13 },
-      { name: "八二三臺海砲戰 (巨砲還擊奠定海峽中線)", lng: 118.33, lat: 24.45, color: "#7f1d1d", size: 13 },
-      { name: "三七五減租與耕者有其田 (陳誠推動土地改革)", lng: 120.30, lat: 23.50, color: "#1e40af", size: 12 },
+      { name: "臺灣光復受降典禮 (臺北公會堂中山堂)", lng: 121.51, lat: 25.04, color: "#1e3a8a", size: 12 },
+      { name: "三七五減租與耕者有其田 (陳誠推動土地改革)", lng: 120.30, lat: 23.50, color: "#1e40af", size: 11 },
       { name: "九年國民義務教育推行 (培育工程師基石)", lng: 120.68, lat: 24.15, color: "#1e40af", size: 11 },
       { name: "發行新臺幣穩定經濟物價 (嚴家淦幣改)", lng: 121.51, lat: 25.03, color: "#1e40af", size: 11 }
     ]
@@ -633,9 +629,32 @@ export const TaiwanAtlasMap = ({
             </g>
 
             {/* 5. TAIWAN HISTORICAL BATTLES MARKERS */}
-            {currentEraBattles.map((bat) => {
+            {currentEraBattles.map((bat, batIdx) => {
               const [bx, by] = getMarkerCoords(bat);
               const isSelected = selectedBattle?.id === bat.id || selectedEvent?.battleId === bat.id;
+
+              // Collision-free coordinate calculation:
+              // For Kinmen & offshore islands on the western edge (bx < 180):
+              const isOffshoreWest = bx < 180;
+              let labelX = bx;
+              let labelY = by - 14;
+              let textAnchor = 'middle';
+
+              if (isOffshoreWest) {
+                // Place labels cleanly to the right of the battle marker icons
+                labelX = bx + 16;
+                textAnchor = 'start';
+                // Stagger Guningtou and 823 Artillery so they never overlap
+                if (bat.id === 'bat_tw_guningtou_1949') {
+                  labelY = by - 5;
+                } else if (bat.id === 'bat_tw_823_1958') {
+                  labelY = by + 16;
+                } else {
+                  labelY = by + (batIdx % 2 === 0 ? -5 : 16);
+                }
+              }
+
+              const battleShortName = bat.name.split(' ')[0];
 
               return (
                 <g
@@ -646,45 +665,58 @@ export const TaiwanAtlasMap = ({
                     if (onSelectBattle) onSelectBattle(bat);
                   }}
                 >
+                  {/* Selection Ring (Static, Crisp, No Ping Halo) */}
+                  {isSelected && (
+                    <circle
+                      cx={bx}
+                      cy={by}
+                      r="15"
+                      fill="none"
+                      stroke="#d97706"
+                      strokeWidth="2.5"
+                      strokeDasharray="4 2"
+                    />
+                  )}
+
+                  {/* Battle Emblem Badge (Solid Antique Red) */}
                   <circle
                     cx={bx}
                     cy={by}
-                    r={isSelected ? "16" : "13"}
-                    fill="#e11d48"
-                    opacity={isSelected ? "0.45" : "0.3"}
-                    className="animate-ping"
-                  />
-                  <circle
-                    cx={bx}
-                    cy={by}
-                    r={isSelected ? "11" : "9"}
-                    fill={isSelected ? "#9f1239" : "#be123c"}
+                    r={isSelected ? 11 : 9}
+                    fill={isSelected ? '#991b1b' : '#be123c'}
                     stroke="#ffffff"
-                    strokeWidth={isSelected ? "2.5" : "2"}
+                    strokeWidth={isSelected ? 2.5 : 2}
                     className="group-hover:scale-125 transition-transform"
                   />
+
+                  {/* Crossed Swords Symbol */}
                   <text
                     x={bx}
                     y={by + 3.5}
                     textAnchor="middle"
                     fill="#ffffff"
-                    fontSize={isSelected ? "10" : "9"}
+                    fontSize={isSelected ? '10' : '8.5'}
                     fontWeight="bold"
+                    className="pointer-events-none select-none"
                   >
                     ⚔
                   </text>
+
+                  {/* Battle Name Text Label (Crisp stroke halo, perfectly positioned) */}
                   <text
-                    x={bx}
-                    y={by - 13}
-                    textAnchor="middle"
-                    fill="#881337"
-                    fontSize="10.5"
+                    x={labelX}
+                    y={labelY}
+                    textAnchor={textAnchor}
+                    fill="#7f1d1d"
+                    fontSize="11"
                     fontWeight="bold"
                     stroke="#ffffff"
-                    strokeWidth="2.8"
+                    strokeWidth="3.2"
                     paintOrder="stroke"
+                    letterSpacing="0.5"
+                    className="pointer-events-none select-none"
                   >
-                    {bat.name.split(' ')[0]}
+                    {battleShortName}
                   </text>
                 </g>
               );
@@ -694,26 +726,30 @@ export const TaiwanAtlasMap = ({
             {currentEraEvents.map((evt) => {
               const [ex, ey] = getMarkerCoords(evt);
               const isSelected = selectedEvent?.id === evt.id;
+              const isOffshoreWest = ex < 180;
 
               return (
                 <g
                   key={evt.id}
-                  className="cursor-pointer"
+                  className="cursor-pointer group"
                   onClick={(e) => {
                     e.stopPropagation();
                     if (onSelectEvent) onSelectEvent(evt);
                   }}
                 >
+                  {/* Selected Event Ring (Stationary, Crisp, No Pulse Halo) */}
                   {isSelected && (
                     <circle
                       cx={ex}
                       cy={ey}
-                      r="11"
-                      fill="#f59e0b"
-                      opacity="0.4"
-                      className="animate-pulse"
+                      r="10"
+                      fill="none"
+                      stroke="#b45309"
+                      strokeWidth="2"
                     />
                   )}
+
+                  {/* Event Marker Dot */}
                   <circle
                     cx={ex}
                     cy={ey}
@@ -721,18 +757,22 @@ export const TaiwanAtlasMap = ({
                     fill={isSelected ? '#d97706' : '#047857'}
                     stroke="#ffffff"
                     strokeWidth="1.5"
+                    className="group-hover:scale-125 transition-transform"
                   />
+
+                  {/* Event Title Label */}
                   {isSelected && (
                     <text
-                      x={ex}
-                      y={ey + 17}
-                      textAnchor="middle"
+                      x={isOffshoreWest ? ex + 16 : ex}
+                      y={isOffshoreWest ? ey + 34 : ey + 17}
+                      textAnchor={isOffshoreWest ? 'start' : 'middle'}
                       fill="#78350f"
                       fontSize="10.5"
                       fontWeight="bold"
                       stroke="#ffffff"
                       strokeWidth="2.8"
                       paintOrder="stroke"
+                      className="pointer-events-none select-none"
                     >
                       ★ {evt.title.split(' ')[0]}
                     </text>
