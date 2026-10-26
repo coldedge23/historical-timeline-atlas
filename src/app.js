@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Header } from './components/Header.jsx';
 import { HistoricalAtlasMap } from './components/HistoricalAtlasMap.jsx';
+import { TaiwanAtlasMap } from './components/TaiwanAtlasMap.jsx';
 import { Timeline } from './components/Timeline.js';
 import { FigureModal } from './components/FigureModal.js';
 import { BattleModal } from './components/BattleModal.js';
@@ -8,7 +9,6 @@ import { DemographicsModal } from './components/DemographicsModal.js';
 import { FiguresView } from './components/FiguresView.js';
 import { BattlesView } from './components/BattlesView.js';
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
-import { TaiwanLensBanner } from './components/TaiwanLensBanner.jsx';
 import { HISTORICAL_PERIODS, PERIOD_OPTIONS } from './data/periodsRegistry.js';
 import {
   TAIWAN_LENS_ERAS,
@@ -175,10 +175,10 @@ export function App() {
     activeTaiwanEraId,
   ]);
 
-  // Handle Epoch / Period Switching
+  // Handle Epoch / Period Switching (左上角朝代選單切換)
   const handleSelectPeriodId = (periodId) => {
     if (!HISTORICAL_PERIODS[periodId]) return;
-    setIsTaiwanLensMode(false);
+    setIsTaiwanLensMode(false); // 切換朝代時回歸全史該朝代
     setActivePeriodId(periodId);
     const newConfig = HISTORICAL_PERIODS[periodId];
     if (newConfig.events && newConfig.events.length > 0) {
@@ -191,19 +191,9 @@ export function App() {
     setSearchTerm('');
   };
 
-  // Handle Taiwan Lens Toggle
-  const handleToggleTaiwanLens = () => {
-    if (!isTaiwanLensMode) {
-      setIsTaiwanLensMode(true);
-      const targetEra =
-        TAIWAN_LENS_ERAS.find((e) => e.id === activeTaiwanEraId) || TAIWAN_LENS_ERAS[2];
-      if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
-        const found = taiwanLensEvents.find((e) => e.id === targetEra.keyEvents[0].id);
-        if (found) setSelectedEvent(found);
-      }
-      setSelectedFigure(null);
-      setSelectedBattle(null);
-    } else {
+  // Handle Taiwan Era Select (左上角臺灣專題獨立選單切換)
+  const handleSelectTaiwanEraId = (eraId) => {
+    if (eraId === 'off') {
       setIsTaiwanLensMode(false);
       const curEvts =
         (HISTORICAL_PERIODS[activePeriodId] || HISTORICAL_PERIODS.yuanMing).events || [];
@@ -212,10 +202,10 @@ export function App() {
       }
       setSelectedFigure(null);
       setSelectedBattle(null);
+      return;
     }
-  };
 
-  const handleSelectTaiwanEraId = (eraId) => {
+    setIsTaiwanLensMode(true);
     setActiveTaiwanEraId(eraId);
     const targetEra = TAIWAN_LENS_ERAS.find((e) => e.id === eraId);
     if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
@@ -224,6 +214,8 @@ export function App() {
         setSelectedEvent({ ...found, _scrollTs: Date.now() });
       }
     }
+    setSelectedFigure(null);
+    setSelectedBattle(null);
   };
 
   // Cross-Era Global Search across all 9 historical periods (980 figures, 161 battles, 260 events)
@@ -377,38 +369,40 @@ export function App() {
         figureCount={currentFigures.length}
         battleCount={currentBattles.length}
         isTaiwanLensMode={isTaiwanLensMode}
-        onToggleTaiwanLens={handleToggleTaiwanLens}
+        activeTaiwanEraId={activeTaiwanEraId}
+        onSelectTaiwanEraId={handleSelectTaiwanEraId}
       />
 
       {/* Main Content Area */}
       <ErrorBoundary>
         <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0">
-          {/* Taiwan Lens Dedicated Banner */}
-          {isTaiwanLensMode && (
-            <TaiwanLensBanner
-              activeTaiwanEraId={activeTaiwanEraId}
-              onSelectTaiwanEraId={handleSelectTaiwanEraId}
-              onExitTaiwanLens={() => setIsTaiwanLensMode(false)}
-              currentEraConfig={currentEraConfig}
-              eventCount={taiwanLensEvents.length}
-              figureCount={taiwanLensFigures.length}
-              battleCount={currentBattles.length}
-            />
-          )}
           {activeTab === 'map-timeline' && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:h-[calc(100vh-104px)] md:max-h-[calc(100vh-104px)] min-h-0 overflow-hidden">
-              {/* Authentic Historical Atlas Scroll Map */}
+              {/* Map Canvas: Switches dynamically between China Atlas & Dedicated Taiwan Atlas */}
               <div className="md:col-span-7 h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col">
-                <HistoricalAtlasMap
-                  warlordPeriodConfigs={currentWarlordPeriods}
-                  territories={currentTerritories}
-                  events={eventsForTimeline}
-                  battles={currentBattles}
-                  selectedEvent={selectedEvent}
-                  onSelectEvent={setSelectedEvent}
-                  onSelectBattle={setSelectedBattle}
-                  ancientNamesOnly={ancientNamesOnly}
-                />
+                {isTaiwanLensMode ? (
+                  <TaiwanAtlasMap
+                    activeTaiwanEraId={activeTaiwanEraId}
+                    onSelectTaiwanEraId={handleSelectTaiwanEraId}
+                    events={eventsForTimeline}
+                    battles={currentBattles}
+                    selectedEvent={selectedEvent}
+                    onSelectEvent={setSelectedEvent}
+                    onSelectBattle={setSelectedBattle}
+                    ancientNamesOnly={ancientNamesOnly}
+                  />
+                ) : (
+                  <HistoricalAtlasMap
+                    warlordPeriodConfigs={currentWarlordPeriods}
+                    territories={currentTerritories}
+                    events={eventsForTimeline}
+                    battles={currentBattles}
+                    selectedEvent={selectedEvent}
+                    onSelectEvent={setSelectedEvent}
+                    onSelectBattle={setSelectedBattle}
+                    ancientNamesOnly={ancientNamesOnly}
+                  />
+                )}
               </div>
 
               {/* Dual-Axis Timeline (5 cols on Desktop) */}

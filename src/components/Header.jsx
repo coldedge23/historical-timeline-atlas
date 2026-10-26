@@ -29,7 +29,8 @@ export const Header = ({
   figureCount,
   battleCount,
   isTaiwanLensMode = false,
-  onToggleTaiwanLens,
+  activeTaiwanEraId = 'tw_tungning',
+  onSelectTaiwanEraId,
 }) => {
   const [isSpotlightOpen, setIsSpotlightOpen] = useState(false);
   const searchInputRef = useRef(null);
@@ -90,16 +91,17 @@ export const Header = ({
               <Compass className="w-6 h-6 animate-pulse" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <h1 className="text-lg md:text-xl font-bold font-serif tracking-wider text-amber-200 group-hover:text-amber-100 transition-colors">
                   歷史星圖
                 </h1>
 
-                {/* Epoch Switcher Dropdown */}
+                {/* 1. Epoch Switcher Dropdown (歷史朝代切換) */}
                 {onSelectPeriodId ? (
                   <select
                     value={activePeriodId}
                     onChange={(e) => onSelectPeriodId(e.target.value)}
+                    title="選擇歷史朝代時期"
                     className="text-xs px-2.5 py-1 rounded-lg bg-[#1f1a14] border border-amber-500/50 text-amber-300 font-bold focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer shadow-sm"
                   >
                     {periodOptions.map((opt) => (
@@ -114,11 +116,39 @@ export const Header = ({
                     {currentPeriod}
                   </span>
                 )}
+
+                {/* 2. Independent Taiwan Lens Dropdown (臺灣歷史縱貫專題獨立下拉選單) */}
+                {onSelectTaiwanEraId && (
+                  <select
+                    value={isTaiwanLensMode ? activeTaiwanEraId : 'off'}
+                    onChange={(e) => onSelectTaiwanEraId(e.target.value)}
+                    title="切換臺灣四千年歷史縱貫專題各紀元"
+                    className={`text-xs px-2.5 py-1 rounded-lg border font-bold focus:outline-none focus:ring-1 cursor-pointer shadow-sm transition-all ${
+                      isTaiwanLensMode
+                        ? 'bg-gradient-to-r from-emerald-950 via-[#0f2419] to-teal-950 border-emerald-400 text-emerald-200 ring-1 ring-emerald-400/50'
+                        : 'bg-[#141b18] border-emerald-700/60 text-emerald-300/80 hover:text-emerald-100 hover:border-emerald-400'
+                    }`}
+                  >
+                    <option value="off">📜 華夏全通史模式</option>
+                    <optgroup label="🏝️ 臺灣四千年歷史縱貫專題">
+                      <option value="tw_prehistoric">01 🌅 南島原鄉 (史前-1624)</option>
+                      <option value="tw_dutch_spanish">02 ⚓ 荷西大航海 (1624-1662)</option>
+                      <option value="tw_tungning">03 👑 明鄭東寧 (1662-1683)</option>
+                      <option value="tw_qing_early">04 🏛️ 清領拓墾 (1683-1874)</option>
+                      <option value="tw_qing_late">05 🛡️ 開山建省 (1874-1895)</option>
+                      <option value="tw_japanese">06 📖 乙未啟蒙 (1895-1945)</option>
+                      <option value="tw_postwar">07 🌊 戰後防衛 (1945-1970)</option>
+                      <option value="tw_modern">08 🚀 科技矽島 (1970-現代)</option>
+                    </optgroup>
+                  </select>
+                )}
               </div>
               <p className="text-[11px] text-zinc-400 flex items-center gap-1 mt-0.5">
-                <span>華夏與臺灣時空總覽</span>
+                <span>{isTaiwanLensMode ? '🏝️ 臺灣四千年歷史縱貫專題' : '華夏與臺灣時空總覽'}</span>
                 <span>•</span>
-                <span className="text-amber-400/90 font-mono font-medium">{currentPeriodShortEra}</span>
+                <span className={isTaiwanLensMode ? 'text-emerald-400/90 font-mono font-medium' : 'text-amber-400/90 font-mono font-medium'}>
+                  {isTaiwanLensMode ? '八大歷史紀元專題' : currentPeriodShortEra}
+                </span>
               </p>
             </div>
           </div>
@@ -202,24 +232,8 @@ export const Header = ({
           </button>
         </div>
 
-        {/* Right Tools: Taiwan Lens, Ancient Names Toggle & Cross-Era Global Search */}
+        {/* Right Tools: Ancient Names Toggle & Cross-Era Global Search */}
         <div className="flex items-center gap-2.5 w-full md:w-auto justify-end">
-          {/* Taiwan Lens Dedicated Toggle Button */}
-          {onToggleTaiwanLens && (
-            <button
-              onClick={onToggleTaiwanLens}
-              title="切換至臺灣四千年歷史縱貫專題視角（Taiwan Chronological Lens）"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold border transition-all shrink-0 ${
-                isTaiwanLensMode
-                  ? 'bg-gradient-to-r from-emerald-600 to-teal-700 border-emerald-400 text-white shadow-lg shadow-emerald-950/60 ring-2 ring-emerald-400/40'
-                  : 'bg-emerald-950/40 border-emerald-600/40 text-emerald-300 hover:bg-emerald-900/50 hover:border-emerald-400 hover:text-emerald-100'
-              }`}
-            >
-              <span className="text-sm">🏝️</span>
-              <span>{isTaiwanLensMode ? '臺灣專題中' : '臺灣專題視角'}</span>
-            </button>
-          )}
-
           {/* Ancient / Modern Toggle Button */}
           <button
             onClick={onToggleAncientNames}
