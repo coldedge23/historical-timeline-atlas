@@ -9,6 +9,7 @@ import * as SuiTang from './periods/suiTang/index.js';
 import * as SongLiao from './periods/songLiao/index.js';
 import * as YuanMing from './periods/yuanMing/index.js';
 import * as QingDynasty from './periods/qingDynasty/index.js';
+import * as RepublicModern from './periods/republicModern/index.js';
 import { normalizePeriodDataset } from './schemaNormalizer.js';
 
 const RAW_HISTORICAL_PERIODS = {
@@ -146,6 +147,21 @@ const RAW_HISTORICAL_PERIODS = {
     territories: QingDynasty.QING_DYNASTY_TERRITORIES,
     warlordPeriods: QingDynasty.QING_DYNASTY_WARLORD_PERIODS,
     demographics: QingDynasty.QING_DYNASTY_DEMOGRAPHICS,
+  },
+  republicModern: {
+    id: 'republicModern',
+    name: '民國與近現代',
+    dateRangeDisplay: '1912 CE - 現代',
+    shortEra: '西元 1912 年 — 現代',
+    fullTitle: '民國與近現代華夏臺灣（1912 CE - 現代）',
+    badge: '民主共和·矽島奇蹟',
+    description: '辛亥武昌首義推翻帝制、南京臨時政府建立民國、五四新文化運動、臺灣文化協會與民眾黨啟蒙抗爭、黃埔建軍北伐統一、黃金十年、十四年全面抗戰、滇緬遠征軍揚威、臺灣光復、行憲、兩岸海峽分治、古寧頭與八二三保衛臺灣、土地改革、九年國教、十大建設、新竹科學園區與民主轉型',
+    events: RepublicModern.REPUBLIC_MODERN_EVENTS,
+    figures: RepublicModern.REPUBLIC_MODERN_FIGURES,
+    battles: RepublicModern.REPUBLIC_MODERN_BATTLES,
+    territories: RepublicModern.REPUBLIC_MODERN_TERRITORIES,
+    warlordPeriods: RepublicModern.REPUBLIC_MODERN_WARLORD_PERIODS,
+    demographics: RepublicModern.REPUBLIC_MODERN_DEMOGRAPHICS,
   },
 };
 

@@ -27,7 +27,8 @@ async function verify() {
     { id: 'suiTang', name: '隋唐五代', dir: 'periods/suiTang' },
     { id: 'songLiao', name: '宋遼金夏', dir: 'periods/songLiao' },
     { id: 'yuanMing', name: '元明帝國', dir: 'periods/yuanMing' },
-    { id: 'qingDynasty', name: '大清帝國', dir: 'periods/qingDynasty' }
+    { id: 'qingDynasty', name: '大清帝國', dir: 'periods/qingDynasty' },
+    { id: 'republicModern', name: '民國近現代', dir: 'periods/republicModern' }
   ];
 
   let totalFigures = 0;
@@ -40,10 +41,10 @@ async function verify() {
 
   for (const p of periodsConfig) {
     const mod = require(path.resolve(__dirname, '..', 'src', 'data', p.dir, 'index.js'));
-    const figures = mod[`${p.id.toUpperCase()}_FIGURES`] || mod.THREE_KINGDOMS_FIGURES || mod.XIA_SHANG_ZHOU_FIGURES || mod.WARRING_STATES_FIGURES || mod.QIN_HAN_FIGURES || mod.WEI_JIN_FIGURES || mod.SUI_TANG_FIGURES || mod.SONG_LIAO_FIGURES || mod.YUAN_MING_FIGURES || mod.QING_DYNASTY_FIGURES || [];
-    const battles = mod[`${p.id.toUpperCase()}_BATTLES`] || mod.THREE_KINGDOMS_BATTLES || mod.XIA_SHANG_ZHOU_BATTLES || mod.WARRING_STATES_BATTLES || mod.QIN_HAN_BATTLES || mod.WEI_JIN_BATTLES || mod.SUI_TANG_BATTLES || mod.SONG_LIAO_BATTLES || mod.YUAN_MING_BATTLES || mod.QING_DYNASTY_BATTLES || [];
-    const events = mod[`${p.id.toUpperCase()}_EVENTS`] || mod.THREE_KINGDOMS_EVENTS || mod.XIA_SHANG_ZHOU_EVENTS || mod.WARRING_STATES_EVENTS || mod.QIN_HAN_EVENTS || mod.WEI_JIN_EVENTS || mod.SUI_TANG_EVENTS || mod.SONG_LIAO_EVENTS || mod.YUAN_MING_EVENTS || mod.QING_DYNASTY_EVENTS || [];
-    const warlords = mod[`${p.id.toUpperCase()}_WARLORD_PERIODS`] || mod.THREE_KINGDOMS_WARLORD_PERIODS || mod.XIA_SHANG_ZHOU_WARLORD_PERIODS || mod.WARRING_STATES_WARLORD_PERIODS || mod.QIN_HAN_WARLORD_PERIODS || mod.WEI_JIN_WARLORD_PERIODS || mod.SUI_TANG_WARLORD_PERIODS || mod.SONG_LIAO_WARLORD_PERIODS || mod.YUAN_MING_WARLORD_PERIODS || mod.QING_DYNASTY_WARLORD_PERIODS || [];
+    const figures = mod[`${p.id.toUpperCase()}_FIGURES`] || mod.THREE_KINGDOMS_FIGURES || mod.XIA_SHANG_ZHOU_FIGURES || mod.WARRING_STATES_FIGURES || mod.QIN_HAN_FIGURES || mod.WEI_JIN_FIGURES || mod.SUI_TANG_FIGURES || mod.SONG_LIAO_FIGURES || mod.YUAN_MING_FIGURES || mod.QING_DYNASTY_FIGURES || mod.REPUBLIC_MODERN_FIGURES || [];
+    const battles = mod[`${p.id.toUpperCase()}_BATTLES`] || mod.THREE_KINGDOMS_BATTLES || mod.XIA_SHANG_ZHOU_BATTLES || mod.WARRING_STATES_BATTLES || mod.QIN_HAN_BATTLES || mod.WEI_JIN_BATTLES || mod.SUI_TANG_BATTLES || mod.SONG_LIAO_BATTLES || mod.YUAN_MING_BATTLES || mod.QING_DYNASTY_BATTLES || mod.REPUBLIC_MODERN_BATTLES || [];
+    const events = mod[`${p.id.toUpperCase()}_EVENTS`] || mod.THREE_KINGDOMS_EVENTS || mod.XIA_SHANG_ZHOU_EVENTS || mod.WARRING_STATES_EVENTS || mod.QIN_HAN_EVENTS || mod.WEI_JIN_EVENTS || mod.SUI_TANG_EVENTS || mod.SONG_LIAO_EVENTS || mod.YUAN_MING_EVENTS || mod.QING_DYNASTY_EVENTS || mod.REPUBLIC_MODERN_EVENTS || [];
+    const warlords = mod[`${p.id.toUpperCase()}_WARLORD_PERIODS`] || mod.THREE_KINGDOMS_WARLORD_PERIODS || mod.XIA_SHANG_ZHOU_WARLORD_PERIODS || mod.WARRING_STATES_WARLORD_PERIODS || mod.QIN_HAN_WARLORD_PERIODS || mod.WEI_JIN_WARLORD_PERIODS || mod.SUI_TANG_WARLORD_PERIODS || mod.SONG_LIAO_WARLORD_PERIODS || mod.YUAN_MING_WARLORD_PERIODS || mod.QING_DYNASTY_WARLORD_PERIODS || mod.REPUBLIC_MODERN_WARLORD_PERIODS || [];
 
     const fCount = figures.length;
     const bCount = battles.length;
