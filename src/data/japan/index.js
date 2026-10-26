@@ -7,6 +7,7 @@ export * from './japanEras.js';
 export * from './japanFigures.js';
 export * from './japanBattles.js';
 export * from './japanMapGeoData.js';
+export * from './japanPrefecturesGeoData.js';
 export * from './japanWarlordPeriods.js';
 
 // Mapping of Active Battles per Japan Historical Era

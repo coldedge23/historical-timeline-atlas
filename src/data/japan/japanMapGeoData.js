@@ -1,12 +1,5 @@
 // Japan Historical GIS GeoData: Provinces, Regions, Castles & Map Projections
-// Calibrated for 820 x 720 Japanese Antique Ink-Wash Scroll Viewport (Mercator-Arc Projection)
-
-export function projectLngLatToJapanMap(lng, lat) {
-  // Diagonal arc projection covering Kyushu (128.5°E, 30.2°N) through Tohoku & Hokkaido (145.8°E, 45.2°N)
-  const x = ((lng - 128.5) / (145.8 - 128.5)) * 680 + 70;
-  const y = 720 - (((lat - 30.2) / (45.2 - 30.2)) * 620 + 50);
-  return [Math.round(x), Math.round(y)];
-}
+import { projectLngLatToJapanMap } from './japanPrefecturesGeoData.js';
 
 // Famous Japanese Historical Castles & Strongholds
 export const JAPAN_HISTORICAL_CASTLES = [

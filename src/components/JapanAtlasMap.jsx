@@ -8,7 +8,7 @@ import {
   Swords
 } from './Icons.js';
 import {
-  JAPAN_PROVINCE_PATHS,
+  JAPAN_PREFECTURE_PATHS,
   JAPAN_WARLORD_PERIOD_CONFIGS,
   projectLngLatToJapanMap
 } from '../data/japan/index.js';
@@ -34,9 +34,8 @@ export const JapanAtlasMap = ({
         configsToUse[0]
       );
     }
-    if (activeJapanEraId === 'jp_ancient_medieval') return configsToUse[0];
     if (activeJapanEraId === 'jp_sengoku') return configsToUse[0]; // 1560
-    if (activeJapanEraId === 'jp_azuchi_momoyama') return configsToUse[2]; // 1582
+    if (activeJapanEraId === 'jp_azuchi_momoyama') return configsToUse[3]; // 1600
     if (activeJapanEraId === 'jp_edo') return configsToUse[4]; // 1615
     if (activeJapanEraId === 'jp_bakumatsu') return configsToUse[5]; // 1868
     if (activeJapanEraId === 'jp_meiji_modern') return configsToUse[6]; // 1877
@@ -137,7 +136,7 @@ export const JapanAtlasMap = ({
 
   return (
     <div className="relative w-full h-full max-h-full min-h-0 rounded-xl overflow-hidden border-2 border-[#8c7355] shadow-2xl bg-[#f5eedb] select-none flex flex-col font-serif">
-      {/* 1. Header Toolbar with Chronological Period Tabs (Like China Three Kingdoms Map) */}
+      {/* 1. Header Toolbar with Chronological Period Tabs (Matching China Map) */}
       <div className="px-3 py-2 bg-[#2b2117] border-b-2 border-[#8c7355] flex flex-wrap items-center justify-between gap-2 text-xs text-[#f5ebd9] shrink-0">
         <div ref={tabsScrollRef} className="flex items-center gap-1 overflow-x-auto py-0.5 no-scrollbar">
           <span className="text-[#e8c89b] font-bold text-xs flex items-center gap-1 mr-1 shrink-0">
@@ -152,7 +151,6 @@ export const JapanAtlasMap = ({
                 ref={(el) => (tabRefs.current[p.id] = el)}
                 onClick={() => {
                   setActivePreset(p);
-                  // Map to era ID if applicable
                   if (onSelectJapanEraId) {
                     if (p.yearNumber <= 1575) onSelectJapanEraId('jp_sengoku');
                     else if (p.yearNumber <= 1600) onSelectJapanEraId('jp_azuchi_momoyama');
@@ -182,7 +180,7 @@ export const JapanAtlasMap = ({
         </div>
       </div>
 
-      {/* 2. Main Map Graphic (100% Real Geographical Boundary Integration) */}
+      {/* 2. Main Map Graphic (100% Real Geographical 47 Prefectures Integration) */}
       <div ref={mapScrollContainerRef} className="relative flex-1 min-h-0 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center">
         {/* Top-Left Big Headline Stamp */}
         <div className="w-full shrink-0 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2 max-w-[960px]">
@@ -310,43 +308,43 @@ export const JapanAtlasMap = ({
             <rect x="0" y="0" width="820" height="720" fill="#eedfc5" />
 
             {/* Classical Sea Typography */}
-            <g fill="#9c8a6f" fontSize="13" fontWeight="bold" letterSpacing="6" className="pointer-events-none select-none">
+            <g fill="#9c8a6f" fontSize="13" fontWeight="bold" letterSpacing="6" className="pointer-events-none select-none font-serif">
               <text x="320" y="240">日 本 海</text>
               <text x="560" y="580">太 平 洋</text>
-              <text x="220" y="510" fontSize="11" letterSpacing="3">瀨戶內海</text>
-              <text x="75" y="460" fontSize="11" letterSpacing="2">對馬海峽</text>
-              <text x="540" y="204" fontSize="9.5" letterSpacing="2">津輕海峽</text>
-              <text x="660" y="45" fontSize="10" letterSpacing="3">鄂霍次克海</text>
-              <text x="55" y="660" fontSize="10">東海 (琉球航路)</text>
+              <text x="240" y="510" fontSize="11" letterSpacing="3">瀨戶內海</text>
+              <text x="145" y="470" fontSize="11" letterSpacing="2">對馬海峽</text>
+              <text x="500" y="240" fontSize="9.5" letterSpacing="2">津輕海峽</text>
+              <text x="650" y="60" fontSize="10" letterSpacing="3">鄂霍次克海</text>
+              <text x="65" y="660" fontSize="10">東海 (琉球航路)</text>
             </g>
 
-            {/* Subtle Continental & Island Hints at Canvas Edges */}
+            {/* Subtle Continental & Neighboring Land Hints */}
             <g fill="#e3d6b8" stroke="#baa98b" strokeWidth="1.2" className="pointer-events-none select-none font-serif">
-              <path d="M 0,380 L 40,400 L 50,440 L 42,475 L 20,510 L 0,520 Z" />
-              <text x="18" y="445" fill="#a89a80" fontSize="10" fontWeight="bold">朝鮮半島 (釜山)</text>
+              {/* Korean Peninsula hint */}
+              <path d="M 0,420 L 70,440 L 95,475 L 85,505 L 40,530 L 0,540 Z" />
+              <text x="25" y="480" fill="#a89a80" fontSize="10" fontWeight="bold">朝鮮半島 (釜山)</text>
 
-              <path d="M 565,0 L 575,22 L 595,20 L 608,0 Z" />
-              <text x="575" y="14" fill="#a89a80" fontSize="8.5" fontWeight="bold">庫頁島 (樺太)</text>
+              {/* Sakhalin / Karafuto Tip */}
+              <path d="M 500,0 L 515,30 L 535,28 L 550,0 Z" />
+              <text x="510" y="20" fill="#a89a80" fontSize="8.5" fontWeight="bold">庫頁島 (樺太)</text>
 
-              <path d="M 725,65 L 750,45 L 778,28 L 810,12 L 820,20 L 755,75 Z" />
-              <text x="745" y="42" fill="#a89a80" fontSize="9" fontWeight="bold">千島列島</text>
-
-              <path d="M 40,685 L 65,680 L 80,695 L 60,705 Z" />
-              <text x="45" y="700" fill="#a89a80" fontSize="9" fontWeight="bold">琉球諸島</text>
+              {/* Kuril Islands */}
+              <path d="M 690,110 L 715,95 L 745,80 L 780,60 L 795,70 L 720,120 Z" />
+              <text x="735" y="90" fill="#a89a80" fontSize="9" fontWeight="bold">千島列島</text>
             </g>
 
-            {/* 1. SEAMLESS CONTIGUOUS PROVINCES FILLED BY WARLORD DOMAIN */}
-            <g stroke="#261c14" strokeWidth="1.2" strokeLinejoin="round" strokeLinecap="round">
-              {Object.entries(JAPAN_PROVINCE_PATHS).map(([provKey, provItem]) => {
-                const conf = (activePreset.provinceWarlordMap || {})[provKey];
+            {/* 1. AUTHENTIC 47 PREFECTURES OF JAPAN (Official GIS Geometry) */}
+            <g stroke="#261c14" strokeWidth="1.1" strokeLinejoin="round" strokeLinecap="round">
+              {Object.entries(JAPAN_PREFECTURE_PATHS).map(([prefKey, prefItem]) => {
+                const conf = (activePreset.prefectureWarlords || {})[prefKey];
                 const fillCol = conf ? conf.color : '#e2e8f0';
-                const warlordName = conf ? conf.warlord : provItem.name;
+                const warlordName = conf ? conf.warlord : prefItem.name;
                 const isHovered = hoveredWarlord === warlordName;
 
                 return (
                   <path
-                    key={provKey}
-                    d={provItem.d}
+                    key={prefKey}
+                    d={prefItem.d}
                     fill={fillCol}
                     className="cursor-pointer transition-colors duration-150"
                     style={{
@@ -359,60 +357,43 @@ export const JapanAtlasMap = ({
               })}
             </g>
 
-            {/* 2. LAKE BIWA (琵琶湖) */}
-            <g className="pointer-events-none select-none">
+            {/* 2. LAKE BIWA (琵琶湖 - 近江名勝水體) */}
+            <g className="pointer-events-none select-none font-serif">
               <path
-                d="M 368,452 C 367,445 370,438 375,436 C 380,435 383,440 382,448 C 381,455 376,462 372,464 C 369,465 368,460 368,452 Z"
+                d="M 368,446 C 367,440 370,434 374,432 C 378,432 381,436 380,443 C 379,449 375,455 372,456 C 369,457 368,452 368,446 Z"
                 fill="#8bb8cc"
                 stroke="#3b82f6"
                 strokeWidth="1.2"
                 opacity="0.95"
               />
-              <text x="375" y="449" fill="#1e3a8a" fontSize="8" fontWeight="bold" textAnchor="middle" opacity="0.9">
+              <text x="375" y="445" fill="#1e3a8a" fontSize="7.5" fontWeight="bold" textAnchor="middle" opacity="0.9">
                 琵琶湖
               </text>
             </g>
 
-            {/* 3. MAJOR RIVERS OF JAPAN (信濃川、利根川、木曾川、淀川) */}
-            <g fill="none" stroke="#0284c7" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" className="pointer-events-none select-none">
-              <path d="M 454,410 Q 468,382 484,352" strokeWidth="2.2" />
-              <text x="472" y="380" fill="#0369a1" fontSize="7.5" fontWeight="bold" stroke="none">信濃川</text>
+            {/* 3. MAJOR RIVERS OF JAPAN (信濃川、利根川) */}
+            <g fill="none" stroke="#0284c7" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" className="pointer-events-none select-none font-serif">
+              <path d="M 430,418 Q 442,390 458,360" strokeWidth="2.2" />
+              <text x="448" y="388" fill="#0369a1" fontSize="7.5" fontWeight="bold" stroke="none">信濃川</text>
 
-              <path d="M 502,408 Q 525,418 554,422" strokeWidth="2.2" />
-              <text x="532" y="415" fill="#0369a1" fontSize="7.5" fontWeight="bold" stroke="none">利根川</text>
-
-              <path d="M 424,420 Q 412,442 404,464" strokeWidth="2" />
-              <path d="M 368,464 Q 358,472 344,484" strokeWidth="2.4" />
+              <path d="M 475,415 Q 492,422 510,432" strokeWidth="2.2" />
+              <text x="495" y="420" fill="#0369a1" fontSize="7.5" fontWeight="bold" stroke="none">利根川</text>
             </g>
 
             {/* 4. JAPAN MOUNTAIN TOPOGRAPHY & MOUNT FUJI */}
-            <g fill="none" stroke="#2c5b36" strokeLinecap="round" opacity="0.45" className="pointer-events-none select-none">
-              <path d="M 412,410 Q 430,425 448,435 Q 465,445 470,455" strokeWidth="3" />
-              <path d="M 425,405 Q 440,420 455,438" strokeWidth="2.2" stroke="#4a7c59" />
-              <path d="M 536,365 Q 548,310 562,250" strokeWidth="2.5" />
-              <path d="M 180,490 Q 225,475 270,460" strokeWidth="2.5" />
-            </g>
-
             <g className="pointer-events-none select-none font-serif">
-              <text x="435" y="420" fill="#14532d" fontSize="8.5" fontWeight="bold" opacity="0.75" transform="rotate(35 435,420)">
-                日本阿爾卑斯
-              </text>
-              <text x="556" y="295" fill="#14532d" fontSize="8" fontWeight="bold" opacity="0.65" transform="rotate(78 556,295)">
-                奧羽山脈
-              </text>
-              <text x="165" y="565" fill="#991b1b" fontSize="8" fontWeight="bold" opacity="0.8">
-                ▲ 阿蘇山
-              </text>
-
               {/* MOUNT FUJI (🗻 富士山 3776m) */}
-              <polygon points="466,463 472,450 478,463" fill="#5a6b5c" stroke="#2b3b2c" strokeWidth="1.2" />
-              <polygon points="469.5,455 472,450 474.5,455" fill="#ffffff" />
-              <text x="472" y="445" textAnchor="middle" fill="#78350f" fontSize="9" fontWeight="bold">
+              <polygon points="440,452 446,440 452,452" fill="#5a6b5c" stroke="#2b3b2c" strokeWidth="1.2" />
+              <polygon points="443.5,445 446,440 448.5,445" fill="#ffffff" />
+              <text x="446" y="435" textAnchor="middle" fill="#78350f" fontSize="8.5" fontWeight="bold">
                 ▲ 富士山 (3776m)
               </text>
+              <text x="210" y="555" fill="#991b1b" fontSize="8" fontWeight="bold" opacity="0.85">
+                ▲ 阿蘇山
+              </text>
             </g>
 
-            {/* 5. GIANT WARLORD CALLIGRAPHY LABELS (Matching China Three Kingdoms Style) */}
+            {/* 5. WARLORD CALLIGRAPHY LABELS (Matching China Three Kingdoms Style - Collision Free) */}
             <g fontWeight="bold" className="pointer-events-none select-none font-serif">
               {(activePreset.labels || []).map((lbl, idx) => (
                 <text
@@ -422,11 +403,11 @@ export const JapanAtlasMap = ({
                   fill={lbl.color}
                   fontSize={lbl.size}
                   textAnchor="middle"
-                  letterSpacing="4"
+                  letterSpacing="3"
                   stroke="#ffffff"
                   strokeWidth="3.2"
                   paintOrder="stroke"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))' }}
+                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.22))' }}
                 >
                   {lbl.name}
                 </text>
@@ -453,7 +434,7 @@ export const JapanAtlasMap = ({
                     x={c.isCap ? '9' : '6'}
                     y="3.5"
                     fill={c.isCap ? '#991b1b' : '#18181b'}
-                    fontSize={c.isCap ? '10.5' : '9'}
+                    fontSize={c.isCap ? '10' : '8.5'}
                     fontWeight="bold"
                     stroke="#f5eedb"
                     strokeWidth="2.5"
@@ -594,7 +575,7 @@ export const JapanAtlasMap = ({
 
         {/* 4. Selected Battle Detail Card (Drawer at Bottom if clicked) */}
         {selectedBattle && (
-          <div className="w-full max-w-[960px] mt-3 p-3.5 rounded-xl bg-[#261c14] border-2 border-[#8c7355] text-[#f5ebd9] shadow-2xl flex flex-col gap-2">
+          <div className="w-full max-w-[960px] mt-3 p-3.5 rounded-xl bg-[#261c14] border-2 border-[#8c7355] text-[#f5ebd9] shadow-2xl flex flex-col gap-2 font-serif">
             <div className="flex items-center justify-between border-b border-[#8c7355]/40 pb-2">
               <div className="flex items-center gap-2">
                 <span className="p-1.5 rounded-md bg-[#991b1b] text-[#fef08a] font-bold text-xs">
@@ -647,7 +628,7 @@ export const JapanAtlasMap = ({
       </div>
 
       {/* 5. Bottom Active Info Bar */}
-      <div className="px-4 py-2 shrink-0 bg-[#2b2117] border-t-2 border-[#8c7355] flex flex-wrap items-center justify-between text-xs text-[#f5ebd9]">
+      <div className="px-4 py-2 shrink-0 bg-[#2b2117] border-t-2 border-[#8c7355] flex flex-wrap items-center justify-between text-xs text-[#f5ebd9] font-serif">
         <div className="flex items-center gap-2">
           <span className="text-[#e8c89b] font-bold">當前沙盤年代：</span>
           <span className="font-bold text-white bg-[#78350f] px-2 py-0.5 rounded border border-[#b45309]">
