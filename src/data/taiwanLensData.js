@@ -2004,650 +2004,1674 @@ export const ERA_BATTLE_IDS = {
 // 25 Authoritative Taiwan-Related Historic Battles Across Four Centuries
 export const TAIWAN_RELATED_BATTLES = [
   {
-    id: "bat_tw_dadu_war_1644",
-    eraId: "tw_prehistoric",
-    name: "大肚王國抗荷戰役 (大甲溪伏擊之戰)",
-    year: 1644,
-    period: "taiwanLens",
-    locationAncient: "中臺灣大甲溪大肚社林邑",
-    locationModern: "臺中市大甲區與清水區大甲溪流域",
-    coordinates: [120.54, 24.28],
-    parties: {
-      invader: "荷蘭東印度公司遠征軍 (彼得·布恩中尉率兩百火繩槍隊)",
-      defender: "大肚王國跨部落原住民勇士聯軍 (白晝之王甘馬轄·阿達夫統御)"
+    "id": "bat_tw_dadu_war_1644",
+    "eraId": "tw_prehistoric",
+    "name": "大肚王國抗荷戰役 (大甲溪伏擊之戰)",
+    "year": 1644,
+    "period": "taiwanLens",
+    "locationAncient": "中臺灣大甲溪大肚社林邑",
+    "locationModern": "臺中市大甲區與清水區大甲溪流域",
+    "coordinates": [
+      120.54,
+      24.28
+    ],
+    "parties": {
+      "invader": "荷蘭東印度公司遠征軍 (彼得·布恩中尉率兩百火繩槍隊)",
+      "defender": "大肚王國跨部落原住民勇士聯軍 (白晝之王甘馬轄·阿達夫統御)"
     },
-    victor: "大肚王國取得防衛阻擊勝利",
-    victorStatement: "拍瀑拉與巴布薩聯軍依託密林弓矢重挫荷軍，迫使荷蘭東印度公司簽訂和平互不侵犯協議",
-    commanders: {
-      invader: ["彼得·布恩 (Pieter Boon)"],
-      defender: ["甘馬轄·阿達夫 (Kamachat Aslammie)"]
+    "victor": "大肚王國取得防衛阻擊勝利",
+    "victorStatement": "拍瀑拉與巴布薩聯軍依託密林弓矢重挫荷軍，迫使荷蘭東印度公司簽訂和平互不侵犯協議",
+    "commanders": {
+      "invader": [
+        "彼得·布恩 (Pieter Boon)"
+      ],
+      "defender": [
+        "甘馬轄·阿達夫 (Kamachat Aslammie)"
+      ]
     },
-    summary: "1644年荷蘭東印度公司為打通大員至雞籠陸路通道，派遣布恩中尉進攻大肚王國。甘馬轄·阿達夫率各社勇士於大甲溪河谷設伏，荷軍受阻傷亡慘重撤退。荷蘭被迫承認大肚王國自治地位，為臺灣原住民族捍衛家園之光輝戰史。",
-    keyStrategies: [
+    "summary": "1644年荷蘭東印度公司為打通大員至雞籠陸路通道，派遣布恩中尉進攻大肚王國。甘馬轄·阿達夫率各社勇士於大甲溪河谷設伏，荷軍受阻傷亡慘重撤退。荷蘭被迫承認大肚王國自治地位，為臺灣原住民族捍衛家園之光輝戰史。",
+    "keyStrategies": [
       "依託中臺灣大甲溪密林竹塹設伏阻擊火槍隊",
       "以毒箭弓矢配合熟稔地形發動夜間逆襲",
       "堅壁清野迫使荷蘭遠征軍補給匱乏撤軍"
+    ],
+    "attacker": {
+      "factionName": "荷蘭東印度公司遠征軍",
+      "forcesEstimate": "布恩中尉率兩百名歐洲火繩槍隊及數百名新港社原住民協同部隊",
+      "casualtiesEstimate": "密林陣地戰遭毒箭伏擊死傷數十人，補給匱乏被迫撤軍",
+      "commanders": [
+        {
+          "name": "彼得·布恩 (Pieter Boon)",
+          "title": "遠征軍上尉指揮官"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "大肚王國跨部落原住民聯軍",
+      "forcesEstimate": "大肚社、水裡社、貓霧拺等十八社勇士千餘人",
+      "casualtiesEstimate": "傷亡百餘人，成功禦敵守護部落自治獨立",
+      "commanders": [
+        {
+          "name": "甘馬轄·阿達夫 (Kamachat Aslammie)",
+          "title": "白晝之王 / 大肚跨部落大頭目"
+        }
+      ]
+    },
+    "tactics": [
+      "大甲溪河谷密林設伏：利用高大竹塹與熱帶林莽遮蔽荷蘭火繩槍視線",
+      "夜間毒箭神速奔襲：熟稔地形於暗夜渡溪突擊荷軍營帳，打亂其彈藥補給",
+      "堅壁清野切斷糧道：撤離大路兩側水源與食物，迫使遠征軍陷入飢餒"
     ]
   },
   {
-    id: "bat_tw_liaoluo_bay_1633",
-    eraId: "tw_dutch_spanish",
-    name: "料羅灣海戰 (鄭芝龍大破荷蘭東印度艦隊)",
-    year: 1633,
-    period: "taiwanLens",
-    locationAncient: "福建金門料羅灣海面",
-    locationModern: "金門縣金湖鎮料羅灣",
-    coordinates: [118.42, 24.41],
-    parties: {
-      invader: "荷蘭東印度公司艦隊與海盜聯軍 (普特曼斯長官)",
-      defender: "大明福建水師精銳 (鄭芝龍副總兵統率百餘戰船)"
+    "id": "bat_tw_liaoluo_bay_1633",
+    "eraId": "tw_dutch_spanish",
+    "name": "料羅灣海戰 (鄭芝龍大破荷蘭東印度艦隊)",
+    "year": 1633,
+    "period": "taiwanLens",
+    "locationAncient": "福建金門料羅灣海面",
+    "locationModern": "金門縣金湖鎮料羅灣",
+    "coordinates": [
+      118.42,
+      24.41
+    ],
+    "parties": {
+      "invader": "荷蘭東印度公司艦隊與海盜聯軍 (普特曼斯長官)",
+      "defender": "大明福建水師精銳 (鄭芝龍副總兵統率百餘戰船)"
     },
-    victor: "大明福建水師輝煌全勝",
-    victorStatement: "火攻奇襲焚毀荷蘭旗艦與戰艦多艘，荷蘭長官普特曼斯狼狽敗退大員",
-    commanders: {
-      invader: ["普特曼斯 (Hans Putmans)", "劉香"],
-      defender: ["鄭芝龍", "鄒維璉"]
+    "victor": "大明福建水師輝煌全勝",
+    "victorStatement": "火攻奇襲焚毀荷蘭旗艦與戰艦多艘，荷蘭長官普特曼斯狼狽敗退大員",
+    "commanders": {
+      "invader": [
+        "普特曼斯 (Hans Putmans)",
+        "劉香"
+      ],
+      "defender": [
+        "鄭芝龍",
+        "鄒維璉"
+      ]
     },
-    summary: "荷蘭東印度公司為逼迫明朝通商封鎖海峽。鄭芝龍統帥百餘艘火攻戰船於料羅灣順風發起火攻奇襲，焚毀荷蘭多艘主力大艦，普特曼斯敗退大員，奠定鄭氏掌握東亞航運制海權基礎。",
-    keyStrategies: [
+    "summary": "荷蘭東印度公司為逼迫明朝通商封鎖海峽。鄭芝龍統帥百餘艘火攻戰船於料羅灣順風發起火攻奇襲，焚毀荷蘭多艘主力大艦，普特曼斯敗退大員，奠定鄭氏掌握東亞航運制海權基礎。",
+    "keyStrategies": [
       "精確掌握風向施放滿載硫磺油料之火攻快船",
       "百艘艨艟戰船密集成群包圍敵大型夾板巨艦",
       "重砲火繩槍立體壓制全殲敵登陸海盜部隊"
+    ],
+    "attacker": {
+      "factionName": "荷蘭東印度艦隊與海盜聯軍",
+      "forcesEstimate": "荷蘭蓋倫帆船 8 艘、海盜劉香福船與快艇約 50 艘",
+      "casualtiesEstimate": "旗艦等數艘被火攻焚毀擊沉，被俘與陣亡數百人，普特曼斯大敗撤回熱蘭遮",
+      "commanders": [
+        {
+          "name": "漢斯·普特曼斯 (Hans Putmans)",
+          "title": "荷蘭臺灣第四任長官"
+        },
+        {
+          "name": "劉香",
+          "title": "閩南海盜頭領"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "大明福建水師精銳",
+      "faction": "ming",
+      "commanders": [
+        {
+          "name": "鄭芝龍",
+          "title": "福建水師副總兵 / 一官",
+          "figureId": "fig_zheng_chenggong"
+        },
+        {
+          "name": "鄒維璉",
+          "title": "福建巡撫"
+        }
+      ],
+      "forcesEstimate": "福建水師戰船 150 艘 (含百艘特製火攻快船)",
+      "casualtiesEstimate": "陣亡與負傷數百人，焚毀大量火攻船"
+    },
+    "tactics": [
+      "火船連環順風齊攻：以百艘滿載引火油料之火攻快船藉東北季風順流死扣荷艦",
+      "水師狼群近距跳幫：以大明水師多層福船包圍荷蘭巨艦，實施近距拋擲火球炸藥",
+      "誘敵深入封鎖海灣：將荷蘭艦隊誘入料羅灣開闊度受限海面，削弱其大砲機動性"
     ]
   },
   {
-    id: "bat_tw_keelung_1642",
-    eraId: "tw_dutch_spanish",
-    name: "基隆雞籠之戰 (荷蘭驅退西班牙之役)",
-    year: 1642,
-    period: "taiwanLens",
-    locationAncient: "雞籠社寮島聖薩爾瓦多城",
-    locationModern: "基隆市中正區和平島台船造船廠遺址",
-    coordinates: [121.76, 25.15],
-    parties: {
-      invader: "荷蘭東印度公司進攻艦隊 (哈勞塞中校四艘主力戰艦)",
-      defender: "西班牙駐雞籠防衛守軍 (波提羅長官率西班牙火槍隊)"
+    "id": "bat_tw_keelung_1642",
+    "eraId": "tw_dutch_spanish",
+    "name": "基隆雞籠之戰 (荷蘭驅退西班牙之役)",
+    "year": 1642,
+    "period": "taiwanLens",
+    "locationAncient": "雞籠社寮島聖薩爾瓦多城",
+    "locationModern": "基隆市中正區和平島台船造船廠遺址",
+    "coordinates": [
+      121.76,
+      25.15
+    ],
+    "parties": {
+      "invader": "荷蘭東印度公司進攻艦隊 (哈勞塞中校四艘主力戰艦)",
+      "defender": "西班牙駐雞籠防衛守軍 (波提羅長官率西班牙火槍隊)"
     },
-    victor: "荷蘭軍隊攻克要塞取得全勝",
-    victorStatement: "西班牙守軍開城投降全數撤退，荷蘭東印度公司自此完全壟斷全臺對外海運航路",
-    commanders: {
-      invader: ["哈勞塞 (Hendrik Harouse)"],
-      defender: ["波提羅 (Gonzalo Portillo)"]
+    "victor": "荷蘭軍隊攻克要塞取得全勝",
+    "victorStatement": "西班牙守軍開城投降全數撤退，荷蘭東印度公司自此完全壟斷全臺對外海運航路",
+    "commanders": {
+      "invader": [
+        "哈勞塞 (Hendrik Harouse)"
+      ],
+      "defender": [
+        "波提羅 (Gonzalo Portillo)"
+      ]
     },
-    summary: "1642年8月荷蘭自大員派大艦隊北上攻佔基隆。荷軍佔領和平島制高點山丘架設重砲猛轟聖救主城，西班牙守軍彈盡援絕簽降。西班牙人結束十六年在臺統治返回馬尼拉，荷蘭完全掌控臺灣南北要塞。",
-    keyStrategies: [
+    "summary": "1642年8月荷蘭自大員派大艦隊北上攻佔基隆。荷軍佔領和平島制高點山丘架設重砲猛轟聖救主城，西班牙守軍彈盡援絕簽降。西班牙人結束十六年在臺統治返回馬尼拉，荷蘭完全掌控臺灣南北要塞。",
+    "keyStrategies": [
       "荷軍搶先佔領島上制高點山丘構築砲兵陣地",
       "巨型艦砲封鎖雞籠港阻絕西班牙外援船隻",
       "日夜猛轟堡壘城垣迫使守軍體面簽署降約"
+    ],
+    "attacker": {
+      "factionName": "荷蘭東印度公司北征艦隊",
+      "forcesEstimate": "主力蓋倫戰艦 4 艘、各型巡邏船 5 艘，登陸兵力約 690 人",
+      "casualtiesEstimate": "傷亡數十人，成功破城驅逐西班牙勢力",
+      "commanders": [
+        {
+          "name": "亨德里克·哈勞塞 (Hendrik Harouse)",
+          "title": "北征大隊遠征長官"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "西班牙駐雞籠聖薩爾瓦多城守軍",
+      "forcesEstimate": "西班牙火槍兵約 200 人、菲律賓土著弓兵約 400 人",
+      "casualtiesEstimate": "陣亡近百人，彈盡糧絕於開城後被遣送返馬尼拉",
+      "commanders": [
+        {
+          "name": "貢薩洛·波提羅 (Gonzalo Portillo)",
+          "title": "西班牙駐臺灣總督長官"
+        }
+      ]
+    },
+    "tactics": [
+      "奪取後山制高點：荷軍登陸後率先攻佔聖薩爾瓦多城後方山丘砲台",
+      "居高臨下長程重砲：架設攻城巨砲直擊城內火藥庫，瓦解西班牙城防",
+      "海陸合圍嚴密封鎖：戰艦封鎖和平島基隆港灣海面，斷絕馬尼拉援軍"
     ]
   },
   {
-    id: "bat_tw_zeelandia_1661",
-    eraId: "tw_tungning",
-    name: "熱蘭遮城戰役 (鄭成功攻臺驅荷之戰)",
-    year: 1661,
-    period: "taiwanLens",
-    locationAncient: "臺灣大員熱蘭遮城 (安平)",
-    locationModern: "臺南市安平區安平古堡",
-    coordinates: [120.16, 23.00],
-    parties: {
-      invader: "明鄭延平王部隊 (鄭成功統帥兩萬五千水師)",
-      defender: "荷蘭東印度公司駐臺灣守軍 (揆一長官)"
+    "id": "bat_tw_zeelandia_1661",
+    "eraId": "tw_tungning",
+    "name": "熱蘭遮城戰役 (鄭成功攻臺驅荷之戰)",
+    "year": 1661,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣大員熱蘭遮城 (安平)",
+    "locationModern": "臺南市安平區安平古堡",
+    "coordinates": [
+      120.16,
+      23
+    ],
+    "parties": {
+      "invader": "明鄭延平王部隊 (鄭成功統帥兩萬五千水師)",
+      "defender": "荷蘭東印度公司駐臺灣守軍 (揆一長官)"
     },
-    victor: "明鄭大軍輝煌全勝",
-    victorStatement: "圍城九個月迫使荷蘭東印度公司簽字投降，收復臺灣設立承天府",
-    commanders: {
-      invader: ["鄭成功", "陳永華", "黃昭"],
-      defender: ["揆一 (Frederick Coyett)", "阿爾多夫"]
+    "victor": "明鄭大軍輝煌全勝",
+    "victorStatement": "圍城九個月迫使荷蘭東印度公司簽字投降，收復臺灣設立承天府",
+    "commanders": {
+      "invader": [
+        "鄭成功",
+        "陳永華",
+        "黃昭"
+      ],
+      "defender": [
+        "揆一 (Frederick Coyett)",
+        "阿爾多夫"
+      ]
     },
-    summary: "鄭成功率四百餘艘戰船自料羅灣出海登陸鹿耳門，合圍熱蘭遮城九個月，烏特勒支堡決戰大獲全勝，荷督揆一簽約投降，結束荷蘭三十八年殖民統治。",
-    keyStrategies: [
+    "summary": "鄭成功率四百餘艘戰船自料羅灣出海登陸鹿耳門，合圍熱蘭遮城九個月，烏特勒支堡決戰大獲全勝，荷督揆一簽約投降，結束荷蘭三十八年殖民統治。",
+    "keyStrategies": [
       "趁大潮突破鹿耳門天險奇襲禾寮港登陸",
       "修築長圍封鎖熱蘭遮城水源與外援艦隊",
       "砲轟烏特勒支堡制高點迫使荷軍開城投降"
+    ],
+    "attacker": {
+      "factionName": "明鄭東寧延平王水陸大軍",
+      "faction": "ming_zheng",
+      "commanders": [
+        {
+          "name": "鄭成功",
+          "title": "延平王 / 招討大將軍",
+          "figureId": "fig_zheng_chenggong"
+        },
+        {
+          "name": "陳永華",
+          "title": "軍師參軍",
+          "figureId": "fig_zheng_chenggong"
+        },
+        {
+          "name": "黃昭",
+          "title": "先鋒水軍總領"
+        }
+      ],
+      "forcesEstimate": "大小戰船數百艘，水陸精銳約 25,000 人",
+      "casualtiesEstimate": "長達九個月圍城與海戰陣亡被傷約 2,000 人"
+    },
+    "defender": {
+      "factionName": "荷蘭東印度公司駐臺灣守軍",
+      "forcesEstimate": "熱蘭遮城及普羅民遮城守軍約 1,200 - 1,700 人，戰艦 4 艘",
+      "casualtiesEstimate": "陣亡、戰死及病疫約 800 餘人，開城簽降交還臺灣",
+      "commanders": [
+        {
+          "name": "弗雷德里克·揆一 (Frederick Coyett)",
+          "title": "荷蘭臺灣末代長官"
+        },
+        {
+          "name": "阿爾多夫",
+          "title": "熱蘭遮城堡壘防守司令"
+        }
+      ]
+    },
+    "tactics": [
+      "乘鹿耳門大潮登陸：利用大潮深水避開熱蘭遮城重砲射程，奇襲禾寮港登陸",
+      "先取普羅民遮孤立：迅速攻佔赤崁普羅民遮城切斷水源，使熱蘭遮淪為海角孤城",
+      "構築二十八門壕塹圍困：採納投誠荷蘭日耳曼土地測量師建議，修築砲壘轟毀烏特勒支堡"
     ]
   },
   {
-    id: "bat_tw_penghu_1683",
-    eraId: "tw_tungning",
-    name: "澎湖海戰 (施琅大破劉國軒水師)",
-    year: 1683,
-    period: "taiwanLens",
-    locationAncient: "澎湖群島娘媽宮、八罩島海域",
-    locationModern: "澎湖縣馬公市娘媽宮海面",
-    coordinates: [119.56, 23.56],
-    parties: {
-      invader: "大清水師提督部隊 (施琅水師主力三百艘)",
-      defender: "明鄭東寧水師精銳 (劉國軒水師兩百艘)"
+    "id": "bat_tw_penghu_1683",
+    "eraId": "tw_tungning",
+    "name": "澎湖海戰 (施琅大破劉國軒水師)",
+    "year": 1683,
+    "period": "taiwanLens",
+    "locationAncient": "澎湖群島娘媽宮、八罩島海域",
+    "locationModern": "澎湖縣馬公市娘媽宮海面",
+    "coordinates": [
+      119.56,
+      23.56
+    ],
+    "parties": {
+      "invader": "大清水師提督部隊 (施琅水師主力三百艘)",
+      "defender": "明鄭東寧水師精銳 (劉國軒水師兩百艘)"
     },
-    victor: "大清水師決定性空前大捷",
-    victorStatement: "全殲東寧海軍主力，鄭克塽見大勢已去奉表納降，臺灣納入大清版圖",
-    commanders: {
-      invader: ["施琅", "董騰"],
-      defender: ["劉國軒", "林陞", "邱輝"]
+    "victor": "大清水師決定性空前大捷",
+    "victorStatement": "全殲東寧海軍主力，鄭克塽見大勢已去奉表納降，臺灣納入大清版圖",
+    "commanders": {
+      "invader": [
+        "施琅",
+        "董騰"
+      ],
+      "defender": [
+        "劉國軒",
+        "林陞",
+        "邱輝"
+      ]
     },
-    summary: "施琅率戰船三百艘進攻澎湖，劉國軒依託砲台死守。施琅利用信風實施五方合圍砲擊，激戰七晝夜焚燬明鄭戰船百餘艘。劉國軒敗回臺灣，促成鄭克塽降清。",
-    keyStrategies: [
+    "summary": "施琅率戰船三百艘進攻澎湖，劉國軒依託砲台死守。施琅利用信風實施五方合圍砲擊，激戰七晝夜焚燬明鄭戰船百餘艘。劉國軒敗回臺灣，促成鄭克塽降清。",
+    "keyStrategies": [
       "施琅精準掌握夏季西南季風風向發動順風奇襲",
       "五方合擊戰術，集中主力圍殲敵中央旗艦",
       "戰後善待俘虜撫慰將士，瓦解東寧抵抗意志"
+    ],
+    "attacker": {
+      "factionName": "大清福建水師遠征艦隊",
+      "faction": "qing",
+      "commanders": [
+        {
+          "name": "施琅",
+          "title": "水師提督 / 靖海將軍 (封靖海侯)",
+          "figureId": "fig_shi_lang"
+        },
+        {
+          "name": "董騰",
+          "title": "前鋒右翼副將"
+        }
+      ],
+      "forcesEstimate": "大中型鳥船、趕繒船約 300 艘，水師官兵約 21,000 人",
+      "casualtiesEstimate": "陣亡 329 人，負傷 1,800 餘人，施琅右目中流彈負傷"
+    },
+    "defender": {
+      "factionName": "明鄭東寧水師主力",
+      "faction": "ming_zheng",
+      "commanders": [
+        {
+          "name": "劉國軒",
+          "title": "延平水師總督 / 武平侯 (戰敗撤回臺灣)",
+          "figureId": "fig_zheng_chenggong"
+        },
+        {
+          "name": "林陞",
+          "title": "右武衛左都督 (中砲成仁)"
+        },
+        {
+          "name": "邱輝",
+          "title": "水軍勇將 (焚船自焚不屈)"
+        }
+      ],
+      "forcesEstimate": "戰船約 200 艘，守軍約 20,000 人",
+      "casualtiesEstimate": "沉沒被焚戰船 190 餘艘，陣亡逾 12,000 人，東寧水師全軍覆滅"
+    },
+    "tactics": [
+      "梅花五花八門陣：施琅以七至八艘戰船為一組圍攻鄭軍一船，發揮數量絕對優勢",
+      "利用東南季風直插：掌握夏季南風逆轉順流時機強攻娘媽宮海口",
+      "嚴令戰時救護俘虜：施琅下令優撫被俘鄭軍將士發給銀米，動搖劉國軒軍心"
     ]
   },
   {
-    id: "bat_tw_zhuyigui_1721",
-    eraId: "tw_qing_early",
-    name: "朱一貴府城之役 (鴨母王破城稱中興王)",
-    year: 1721,
-    period: "taiwanLens",
-    locationAncient: "臺灣府城南門與赤崁大營",
-    locationModern: "臺南市中西區大南門城樓",
-    coordinates: [120.21, 22.98],
-    parties: {
-      invader: "鴨母王朱一貴起義軍 (養鴨農民與天地會三萬義軍)",
-      defender: "大清臺灣府守軍 (臺灣知府王珍、南路參將苗敬龍)"
+    "id": "bat_tw_zhuyigui_1721",
+    "eraId": "tw_qing_early",
+    "name": "朱一貴府城之役 (鴨母王破城稱中興王)",
+    "year": 1721,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣府城南門與赤崁大營",
+    "locationModern": "臺南市中西區大南門城樓",
+    "coordinates": [
+      120.21,
+      22.98
+    ],
+    "parties": {
+      "invader": "鴨母王朱一貴起義軍 (養鴨農民與天地會三萬義軍)",
+      "defender": "大清臺灣府守軍 (臺灣知府王珍、南路參將苗敬龍)"
     },
-    victor: "起義軍攻克臺灣府城",
-    victorStatement: "七日內席捲全臺攻佔府城，朱一貴登基稱中興王，改元永和復明衣冠",
-    commanders: {
-      invader: ["朱一貴", "杜君英", "翁飛國"],
-      defender: ["王珍", "施世驃", "藍廷珍"]
+    "victor": "起義軍攻克臺灣府城",
+    "victorStatement": "七日內席捲全臺攻佔府城，朱一貴登基稱中興王，改元永和復明衣冠",
+    "commanders": {
+      "invader": [
+        "朱一貴",
+        "杜君英",
+        "翁飛國"
+      ],
+      "defender": [
+        "王珍",
+        "施世驃",
+        "藍廷珍"
+      ]
     },
-    summary: "因官吏橫徵暴斂，朱一貴率義軍於內門起事。義軍連克岡山、鳳山，進逼臺灣府城。清廷守軍潰敗，朱一貴入城登基建立政權。雖旋遭水師提督施世驃渡海鎮壓，但震動清廷徹查吏治。",
-    keyStrategies: [
+    "summary": "因官吏橫徵暴斂，朱一貴率義軍於內門起事。義軍連克岡山、鳳山，進逼臺灣府城。清廷守軍潰敗，朱一貴入城登基建立政權。雖旋遭水師提督施世驃渡海鎮壓，但震動清廷徹查吏治。",
+    "keyStrategies": [
       "閩客軍民攜手合擊，以閃電戰突破清軍外圍防線",
       "善用民間香火神會凝聚數萬農民同仇敵愾",
       "開倉賑濟安撫府城市民贏得民心支持"
+    ],
+    "attacker": {
+      "factionName": "朱一貴鴨母王天地會起義大軍",
+      "forcesEstimate": "鳳山、諸羅、府城響應農民與天地會約 30,000 人",
+      "casualtiesEstimate": "初期攻克府城，後清廷大軍反攻陣亡逾 3,000 人，首領被俘"
+    },
+    "defender": {
+      "factionName": "大清臺灣府綠營守軍與南澳援軍",
+      "faction": "qing",
+      "commanders": [
+        {
+          "name": "施世驃",
+          "title": "福建水師提督 (施琅之子)"
+        },
+        {
+          "name": "藍廷珍",
+          "title": "南澳總兵"
+        },
+        {
+          "name": "王珍",
+          "title": "臺灣知府 (貪暴激起民變)"
+        }
+      ],
+      "forcesEstimate": "臺灣守備綠營 5,000 人，後續福建調集援軍 12,000 人",
+      "casualtiesEstimate": "前期府城失陷參將苗敬龍等陣亡，後續收復臺灣全勝"
+    },
+    "tactics": [
+      "鴨群號令偽託明裔：朱一貴以明朝皇室宗親為號召，訓練鴨群聽哨整齊行伍凝聚萬眾",
+      "分兵兩路突擊岡山：杜君英部攻下岡山，朱一貴部直搗臺灣府城安平要隘",
+      "南北內訌誘破之局：藍廷珍利用朱一貴與杜君英閩客首領內鬨矛盾，各個擊破"
     ]
   },
   {
-    id: "bat_tw_jiayi_defense_1787",
-    eraId: "tw_qing_early",
-    name: "嘉義諸羅城保衛戰 (全臺死守乾隆賜名嘉義)",
-    year: 1787,
-    period: "taiwanLens",
-    locationAncient: "臺灣府諸羅縣城 (今嘉義東門)",
-    locationModern: "嘉義市東區東門圓環與忠烈祠",
-    coordinates: [120.45, 23.48],
-    parties: {
-      invader: "林爽文天地會起義大軍 (號稱十萬義軍三路圍城)",
-      defender: "諸羅軍民堅守部隊 (知縣李調元、柴大紀將軍、鄉勇義民)"
+    "id": "bat_tw_jiayi_defense_1787",
+    "eraId": "tw_qing_early",
+    "name": "嘉義諸羅城保衛戰 (全臺死守乾隆賜名嘉義)",
+    "year": 1787,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣府諸羅縣城 (今嘉義東門)",
+    "locationModern": "嘉義市東區東門圓環與忠烈祠",
+    "coordinates": [
+      120.45,
+      23.48
+    ],
+    "parties": {
+      "invader": "林爽文天地會起義大軍 (號稱十萬義軍三路圍城)",
+      "defender": "諸羅軍民堅守部隊 (知縣李調元、柴大紀將軍、鄉勇義民)"
     },
-    victor: "清軍與諸羅軍民堅守成功",
-    victorStatement: "殺馬煮革掘草根死守半年解圍，乾隆感其忠義降旨賜名諸羅縣為「嘉義縣」",
-    commanders: {
-      invader: ["林爽文", "莊大田"],
-      defender: ["柴大紀", "福康安", "李調元"]
+    "victor": "清軍與諸羅軍民堅守成功",
+    "victorStatement": "殺馬煮革掘草根死守半年解圍，乾隆感其忠義降旨賜名諸羅縣為「嘉義縣」",
+    "commanders": {
+      "invader": [
+        "林爽文",
+        "莊大田"
+      ],
+      "defender": [
+        "柴大紀",
+        "福康安",
+        "李調元"
+      ]
     },
-    summary: "天地會林爽文起義橫掃中臺灣，重兵合圍諸羅城長達半年。城內斷糧，軍民殺馬嚼草根殊死抗擊數十次坑道火攻，堅守待援。大學士福康安渡海登陸直插諸羅解圍，乾隆皇帝大喜親賜「嘉義」縣名。",
-    keyStrategies: [
+    "summary": "天地會林爽文起義橫掃中臺灣，重兵合圍諸羅城長達半年。城內斷糧，軍民殺馬嚼草根殊死抗擊數十次坑道火攻，堅守待援。大學士福康安渡海登陸直插諸羅解圍，乾隆皇帝大喜親賜「嘉義」縣名。",
+    "keyStrategies": [
       "依託土石城垣構築堅固壕溝抵禦火攻長圍",
       "軍民同舟共濟，官民同糧死守城池六個月",
       "福康安大軍自鹿港登陸閃擊敵背腹背夾擊"
+    ],
+    "attacker": {
+      "factionName": "林爽文天地會起義大軍",
+      "forcesEstimate": "號稱十萬天地會義民軍 (林爽文北路、莊大田南路合圍)",
+      "casualtiesEstimate": "圍攻諸羅六個月受挫，福康安援軍抵達後大敗潰散數千人"
+    },
+    "defender": {
+      "factionName": "諸羅城守軍與義民軍",
+      "faction": "qing",
+      "commanders": [
+        {
+          "name": "柴大紀",
+          "title": "臺灣水陸總兵 / 諸羅守將 (力戰守城)"
+        },
+        {
+          "name": "李調元",
+          "title": "諸羅知縣"
+        },
+        {
+          "name": "福康安",
+          "title": "陝甘總督 / 協辦大學士 (率萬名精銳解圍)"
+        }
+      ],
+      "forcesEstimate": "諸羅守軍與鄉勇千餘人，後續福康安大軍萬餘人",
+      "casualtiesEstimate": "圍城六個月食草根馬肉，死守不降，傷亡數百人"
+    },
+    "tactics": [
+      "掘壕築壘死守孤城：柴大紀引井水灌壕，以土壘木樁多次擊退天地會雲梯強攻",
+      "生蕃熟番協防巡哨：聯絡阿里山鄒族與平埔族勇士擔任外圍哨探與信使",
+      "鹿港神速大軍穿插：福康安率滿洲八旗巴圖魯於鹿港登陸，直撲八卦山解除諸羅之圍"
     ]
   },
   {
-    id: "bat_tw_caiqian_1805",
-    eraId: "tw_qing_early",
-    name: "王得祿平定蔡牽海盜之役 (鹿耳門海戰大捷)",
-    year: 1805,
-    period: "taiwanLens",
-    locationAncient: "臺灣府鹿耳門外洋與滬尾外海",
-    locationModern: "臺南市安南區鹿耳門溪口",
-    coordinates: [120.12, 23.03],
-    parties: {
-      invader: "大清福建水師艦隊 (王得祿副將、李長庚提督)",
-      defender: "東南海盜大首領蔡牽艦隊 (自號鎮海威武王，戰船百餘艘)"
+    "id": "bat_tw_caiqian_1805",
+    "eraId": "tw_qing_early",
+    "name": "王得祿平定蔡牽海盜之役 (鹿耳門海戰大捷)",
+    "year": 1805,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣府鹿耳門外洋與滬尾外海",
+    "locationModern": "臺南市安南區鹿耳門溪口",
+    "coordinates": [
+      120.12,
+      23.03
+    ],
+    "parties": {
+      "invader": "大清福建水師艦隊 (王得祿副將、李長庚提督)",
+      "defender": "東南海盜大首領蔡牽艦隊 (自號鎮海威武王，戰船百餘艘)"
     },
-    victor: "大清福建水師取得決定性勝利",
-    victorStatement: "擊沉巨型旗艦「大將艇」，蔡牽投海自盡，肅清東南沿海二十年海患",
-    commanders: {
-      invader: ["王得祿", "李長庚"],
-      defender: ["蔡牽", "朱濆"]
+    "victor": "大清福建水師取得決定性勝利",
+    "victorStatement": "擊沉巨型旗艦「大將艇」，蔡牽投海自盡，肅清東南沿海二十年海患",
+    "commanders": {
+      "invader": [
+        "王得祿",
+        "李長庚"
+      ],
+      "defender": [
+        "蔡牽",
+        "朱濆"
+      ]
     },
-    summary: "東南海盜蔡牽縱橫閩臺自封海王，率百艘戰船進攻鹿耳門企圖奪取臺灣府城。王得祿將軍身先士卒突入敵陣血戰，以火球神機箭焚毀敵旗艦，蔡牽落海亡。王得祿因功晉封太子太保、水師提督。",
-    keyStrategies: [
+    "summary": "東南海盜蔡牽縱橫閩臺自封海王，率百艘戰船進攻鹿耳門企圖奪取臺灣府城。王得祿將軍身先士卒突入敵陣血戰，以火球神機箭焚毀敵旗艦，蔡牽落海亡。王得祿因功晉封太子太保、水師提督。",
+    "keyStrategies": [
+      "深入鹿耳門複雜淺灘沙洲設伏，誘敵深入分段截擊",
+      "以快船火箭火球集中射擊敵旗艦帆檣阻其機動",
+      "南北兩路水師鉗形合圍徹底切斷外洋退路"
+    ],
+    "attacker": {
+      "factionName": "大清福建水師艦隊",
+      "commanders": [
+        {
+          "name": "王得祿"
+        },
+        {
+          "name": "李長庚"
+        }
+      ],
+      "forcesEstimate": "大清福建水師各型戰船百餘艘，兵力約 8,000 人",
+      "casualtiesEstimate": "陣亡提督李長庚，數百官兵死傷，王得祿受傷依然追擊"
+    },
+    "defender": {
+      "factionName": "東南海盜大首領蔡牽艦隊",
+      "commanders": [
+        {
+          "name": "蔡牽"
+        },
+        {
+          "name": "朱濆"
+        }
+      ],
+      "forcesEstimate": "蔡牽艦隊巨型大船及改裝砲船百餘艘，海盜萬餘人",
+      "casualtiesEstimate": "蔡牽旗艦被王得祿火砲擊穿沉沒，蔡牽攜妻帶子開砲沉海自盡，餘黨潰散"
+    },
+    "tactics": [
       "深入鹿耳門複雜淺灘沙洲設伏，誘敵深入分段截擊",
       "以快船火箭火球集中射擊敵旗艦帆檣阻其機動",
       "南北兩路水師鉗形合圍徹底切斷外洋退路"
     ]
   },
   {
-    id: "bat_tw_mudanshe_1874",
-    eraId: "tw_qing_late",
-    name: "牡丹社石門要塞保衛戰 (排灣族抵禦日軍之役)",
-    year: 1874,
-    period: "taiwanLens",
-    locationAncient: "臺灣府恆春石門天險要塞",
-    locationModern: "屏東縣牡丹鄉石門古戰場",
-    coordinates: [120.78, 22.12],
-    parties: {
-      invader: "大日本帝國侵臺遠征軍 (佐久間左馬太少佐指揮)",
-      defender: "排灣族牡丹社與高士佛社勇士 (阿祿古父子率族人死守)"
+    "id": "bat_tw_mudanshe_1874",
+    "eraId": "tw_qing_late",
+    "name": "牡丹社石門要塞保衛戰 (排灣族抵禦日軍之役)",
+    "year": 1874,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣府恆春石門天險要塞",
+    "locationModern": "屏東縣牡丹鄉石門古戰場",
+    "coordinates": [
+      120.78,
+      22.12
+    ],
+    "parties": {
+      "invader": "大日本帝國侵臺遠征軍 (佐久間左馬太少佐指揮)",
+      "defender": "排灣族牡丹社與高士佛社勇士 (阿祿古父子率族人死守)"
     },
-    victor: "排灣族勇士憑險狙擊重創日軍先頭部隊",
-    victorStatement: "依託石門天險殊死抵抗，促使清廷正視臺灣全島主權派遣沈葆楨開山撫番",
-    commanders: {
-      invader: ["西鄉從道", "佐久間左馬太"],
-      defender: ["阿祿古 (牡丹社頭目)", "阿利路"]
+    "victor": "排灣族勇士憑險狙擊重創日軍先頭部隊",
+    "victorStatement": "依託石門天險殊死抵抗，促使清廷正視臺灣全島主權派遣沈葆楨開山撫番",
+    "commanders": {
+      "invader": [
+        "西鄉從道",
+        "佐久間左馬太"
+      ],
+      "defender": [
+        "阿祿古 (牡丹社頭目)",
+        "阿利路"
+      ]
     },
-    summary: "日軍藉琉球宮古島船難為由發兵登陸車城進犯牡丹社。頭目阿祿古父子率排灣族勇士扼守石門天險峽谷，以巨石土銃奮勇阻擊，佐久間少佐險遭擊斃。此役促成清廷派遣沈葆楨興築恆春古城與開拓後山。",
-    keyStrategies: [
+    "summary": "日軍藉琉球宮古島船難為由發兵登陸車城進犯牡丹社。頭目阿祿古父子率排灣族勇士扼守石門天險峽谷，以巨石土銃奮勇阻擊，佐久間少佐險遭擊斃。此役促成清廷派遣沈葆楨興築恆春古城與開拓後山。",
+    "keyStrategies": [
+      "利用石門兩峰夾峙之險隘峽谷以巨石封鎖要道",
+      "排灣族獵勇隱蔽於峭壁灌木叢精準狙殺敵軍先鋒",
+      "以微弱兵力誓死捍衛部落尊嚴震撼日本軍部"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國侵臺遠征軍",
+      "commanders": [
+        {
+          "name": "西鄉從道"
+        },
+        {
+          "name": "佐久間左馬太"
+        }
+      ],
+      "forcesEstimate": "大日本帝國陸軍中佐佐久間左馬太率部 3,658 人 (運輸艦與砲艦 4 艘支援)",
+      "casualtiesEstimate": "石門之戰戰死 12 人，但因熱帶風土瘧疾死者達 561 人"
+    },
+    "defender": {
+      "factionName": "排灣族牡丹社與高士佛社勇士",
+      "commanders": [
+        {
+          "name": "阿祿古 (牡丹社頭目)"
+        },
+        {
+          "name": "阿利路"
+        }
+      ],
+      "forcesEstimate": "排灣族牡丹社、高士佛社部落勇士約 300 - 500 人",
+      "casualtiesEstimate": "戰死約 30 餘人，頭目阿祿古父子壯烈陣亡，其餘部落隱入深山"
+    },
+    "tactics": [
       "利用石門兩峰夾峙之險隘峽谷以巨石封鎖要道",
       "排灣族獵勇隱蔽於峭壁灌木叢精準狙殺敵軍先鋒",
       "以微弱兵力誓死捍衛部落尊嚴震撼日本軍部"
     ]
   },
   {
-    id: "bat_tw_keelung_1884",
-    eraId: "tw_qing_late",
-    name: "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
-    year: 1884,
-    period: "taiwanLens",
-    locationAncient: "臺灣省基隆廳獅球嶺要塞",
-    locationModern: "基隆市仁愛區獅球嶺砲台",
-    coordinates: [121.73, 25.12],
-    parties: {
-      invader: "法蘭西遠東艦隊海軍陸戰隊 (孤拔中將、李士卑少將)",
-      defender: "淮軍與霧峰林家棟軍 (劉銘傳巡撫、林朝棟督統、曹志忠)"
+    "id": "bat_tw_keelung_1884",
+    "eraId": "tw_qing_late",
+    "name": "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
+    "year": 1884,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣省基隆廳獅球嶺要塞",
+    "locationModern": "基隆市仁愛區獅球嶺砲台",
+    "coordinates": [
+      121.73,
+      25.12
+    ],
+    "parties": {
+      "invader": "法蘭西遠東艦隊海軍陸戰隊 (孤拔中將、李士卑少將)",
+      "defender": "淮軍與霧峰林家棟軍 (劉銘傳巡撫、林朝棟督統、曹志忠)"
     },
-    victor: "大清守軍堅守獅球嶺挫敗法軍進逼",
-    victorStatement: "死守八個月遏止法軍跨越獅球嶺奪取臺北府城，孤拔中將飲恨澎湖病逝",
-    commanders: {
-      invader: ["孤拔 (Amédée Courbet)"],
-      defender: ["劉銘傳", "林朝棟", "曹志忠"]
+    "victor": "大清守軍堅守獅球嶺挫敗法軍進逼",
+    "victorStatement": "死守八個月遏止法軍跨越獅球嶺奪取臺北府城，孤拔中將飲恨澎湖病逝",
+    "commanders": {
+      "invader": [
+        "孤拔 (Amédée Courbet)"
+      ],
+      "defender": [
+        "劉銘傳",
+        "林朝棟",
+        "曹志忠"
+      ]
     },
-    summary: "中法戰爭法國艦隊奪取基隆外港，企圖翻越獅球嶺長驅直入臺北府城。劉銘傳命霧峰林家林朝棟率鄉勇「棟軍」與淮軍精銳憑險扼守。雙方在濃霧泥濘中肉搏數月，法軍傷亡慘重無法前進一步。",
-    keyStrategies: [
+    "summary": "中法戰爭法國艦隊奪取基隆外港，企圖翻越獅球嶺長驅直入臺北府城。劉銘傳命霧峰林家林朝棟率鄉勇「棟軍」與淮軍精銳憑險扼守。雙方在濃霧泥濘中肉搏數月，法軍傷亡慘重無法前進一步。",
+    "keyStrategies": [
+      "扼守獅球嶺咽喉天險構築品字形堅固地堡",
+      "霧峰林朝棟棟軍熟悉山林善用林地狙擊伏殺",
+      "焦土沉船塞港阻敵利用基隆河深航艦砲"
+    ],
+    "attacker": {
+      "factionName": "法蘭西遠東艦隊海軍陸戰隊",
+      "commanders": [
+        {
+          "name": "孤拔 (Amédée Courbet)"
+        }
+      ],
+      "forcesEstimate": "法國遠東艦隊海軍陸戰隊及艦隊水兵約 2,000 人 (裝甲艦 5 艘砲火支援)",
+      "casualtiesEstimate": "獅球嶺攻防戰陣亡與負傷數百人，法軍無法越過基隆山脊一步"
+    },
+    "defender": {
+      "factionName": "淮軍與霧峰林家棟軍",
+      "commanders": [
+        {
+          "name": "劉銘傳"
+        },
+        {
+          "name": "林朝棟"
+        },
+        {
+          "name": "曹志忠"
+        }
+      ],
+      "forcesEstimate": "淮軍守備部隊與霧峰林家林朝棟「棟軍」鄉勇約 4,000 人",
+      "casualtiesEstimate": "傷亡約 300 - 400 人，成功扼守獅球嶺咽喉要塞確保臺北府城安全"
+    },
+    "tactics": [
       "扼守獅球嶺咽喉天險構築品字形堅固地堡",
       "霧峰林朝棟棟軍熟悉山林善用林地狙擊伏殺",
       "焦土沉船塞港阻敵利用基隆河深航艦砲"
     ]
   },
   {
-    id: "bat_tw_tamsui_1884",
-    eraId: "tw_qing_late",
-    name: "滬尾淡水之役 (中法保臺大捷)",
-    year: 1884,
-    period: "taiwanLens",
-    locationAncient: "臺灣府淡水廳滬尾沙崙海岸",
-    locationModern: "新北市淡水區滬尾砲台與沙崙海水浴場",
-    coordinates: [121.43, 25.17],
-    parties: {
-      invader: "法蘭西遠東艦隊海軍陸戰隊 (孤拔中將、利士比少將)",
-      defender: "大清臺灣防衛守軍 (劉銘傳巡撫督師、孫開華提督)"
+    "id": "bat_tw_tamsui_1884",
+    "eraId": "tw_qing_late",
+    "name": "滬尾淡水之役 (中法保臺大捷)",
+    "year": 1884,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣府淡水廳滬尾沙崙海岸",
+    "locationModern": "新北市淡水區滬尾砲台與沙崙海水浴場",
+    "coordinates": [
+      121.43,
+      25.17
+    ],
+    "parties": {
+      "invader": "法蘭西遠東艦隊海軍陸戰隊 (孤拔中將、利士比少將)",
+      "defender": "大清臺灣防衛守軍 (劉銘傳巡撫督師、孫開華提督)"
     },
-    victor: "大清淮軍湘軍臺灣守軍輝煌大捷",
-    victorStatement: "將法軍登陸精銳全數逐入海中斬獲甚眾，成功守住臺北府城門戶",
-    commanders: {
-      invader: ["利士比 (Sébastien Lespès)"],
-      defender: ["劉銘傳", "孫開華", "章高元", "張李成"]
+    "victor": "大清淮軍湘軍臺灣守軍輝煌大捷",
+    "victorStatement": "將法軍登陸精銳全數逐入海中斬獲甚眾，成功守住臺北府城門戶",
+    "commanders": {
+      "invader": [
+        "利士比 (Sébastien Lespès)"
+      ],
+      "defender": [
+        "劉銘傳",
+        "孫開華",
+        "章高元",
+        "張李成"
+      ]
     },
-    summary: "中法戰爭法國艦隊猛烈砲轟淡水港企圖奪取臺北府城。劉銘傳放棄基隆集中兵力保衛淡水。孫開華將軍設伏於沙崙黃槿防風林，待法軍深入以白刃肉搏殊死衝殺，法軍潰退登艦，打破法軍不敗神話。",
-    keyStrategies: [
+    "summary": "中法戰爭法國艦隊猛烈砲轟淡水港企圖奪取臺北府城。劉銘傳放棄基隆集中兵力保衛淡水。孫開華將軍設伏於沙崙黃槿防風林，待法軍深入以白刃肉搏殊死衝殺，法軍潰退登艦，打破法軍不敗神話。",
+    "keyStrategies": [
+      "劉銘傳斷然沉船塞港並布設水雷阻敵深入淡水河",
+      "孫開華利用海岸防風林掩蔽伏兵，待敵半渡而擊",
+      "湘淮精銳步兵短兵相接白刃衝殺擊潰法軍"
+    ],
+    "attacker": {
+      "factionName": "法蘭西遠東艦隊海軍陸戰隊",
+      "commanders": [
+        {
+          "name": "利士比 (Sébastien Lespès)"
+        }
+      ],
+      "forcesEstimate": "法國遠東艦隊海軍陸戰隊 800 - 1,000 人 (戰艦 5 艘狂轟砲火掩護登陸)",
+      "casualtiesEstimate": "陣亡 17 人，負傷 49 人，法軍狼狽逃回登陸艇撤退"
+    },
+    "defender": {
+      "factionName": "大清臺灣防衛守軍",
+      "commanders": [
+        {
+          "name": "劉銘傳"
+        },
+        {
+          "name": "孫開華"
+        },
+        {
+          "name": "章高元"
+        },
+        {
+          "name": "張李成"
+        }
+      ],
+      "forcesEstimate": "提督孫開華恪靖軍、章高元淮軍與張李成義民軍約 3,000 人",
+      "casualtiesEstimate": "陣亡 80 餘人，負傷 200 餘人，取得中法戰爭難得之陸戰大捷"
+    },
+    "tactics": [
       "劉銘傳斷然沉船塞港並布設水雷阻敵深入淡水河",
       "孫開華利用海岸防風林掩蔽伏兵，待敵半渡而擊",
       "湘淮精銳步兵短兵相接白刃衝殺擊潰法軍"
     ]
   },
   {
-    id: "bat_tw_aodi_landing_1895",
-    eraId: "tw_japanese",
-    name: "澳底登陸三貂角阻擊戰 (乙未保臺第一戰)",
-    year: 1895,
-    period: "taiwanLens",
-    locationAncient: "基隆廳三貂堡澳底海灘",
-    locationModern: "新北市貢寮區澳底海灘鹽寮公園",
-    coordinates: [121.92, 25.05],
-    parties: {
-      invader: "大日本帝國近衛師團登陸大軍 (北白川宮能久親王統帥)",
-      defender: "臺灣民主國守軍與地方鄉勇 (簡大獅、在地民防隊)"
+    "id": "bat_tw_aodi_landing_1895",
+    "eraId": "tw_japanese",
+    "name": "澳底登陸三貂角阻擊戰 (乙未保臺第一戰)",
+    "year": 1895,
+    "period": "taiwanLens",
+    "locationAncient": "基隆廳三貂堡澳底海灘",
+    "locationModern": "新北市貢寮區澳底海灘鹽寮公園",
+    "coordinates": [
+      121.92,
+      25.05
+    ],
+    "parties": {
+      "invader": "大日本帝國近衛師團登陸大軍 (北白川宮能久親王統帥)",
+      "defender": "臺灣民主國守軍與地方鄉勇 (簡大獅、在地民防隊)"
     },
-    victor: "日軍強行登陸，義軍浴血阻擊",
-    victorStatement: "義軍憑藉三貂角險隘懸崖頑抗數日，揭開全臺長達五個月悲壯抗日序幕",
-    commanders: {
-      invader: ["北白川宮能久親王", "樺山資紀"],
-      defender: ["簡大獅", "在地客閩鄉勇"]
+    "victor": "日軍強行登陸，義軍浴血阻擊",
+    "victorStatement": "義軍憑藉三貂角險隘懸崖頑抗數日，揭開全臺長達五個月悲壯抗日序幕",
+    "commanders": {
+      "invader": [
+        "北白川宮能久親王",
+        "樺山資紀"
+      ],
+      "defender": [
+        "簡大獅",
+        "在地客閩鄉勇"
+      ]
     },
-    summary: "1895年5月29日日軍避開基隆砲台，自三貂角澳底灘頭強行登陸。地方義勇軍與守軍扼守鹽寮海岸頑強阻擊，展開游擊肉搏。此役打響乙未抗日戰爭第一槍。",
-    keyStrategies: [
+    "summary": "1895年5月29日日軍避開基隆砲台，自三貂角澳底灘頭強行登陸。地方義勇軍與守軍扼守鹽寮海岸頑強阻擊，展開游擊肉搏。此役打響乙未抗日戰爭第一槍。",
+    "keyStrategies": [
+      "依託海岸林木與沿海岩礁伏擊敵登陸駁船",
+      "切斷澳底通往瑞芳山道阻滯日軍先頭搜索隊",
+      "廣泛動員地方保甲展開敵後游擊牽制作戰"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國近衛師團登陸大軍",
+      "commanders": [
+        {
+          "name": "北白川宮能久親王"
+        },
+        {
+          "name": "樺山資紀"
+        }
+      ],
+      "forcesEstimate": "近衛師團步兵聯隊及海軍艦隊約 7,000 人",
+      "casualtiesEstimate": "三貂角伏擊戰死傷數十人"
+    },
+    "defender": {
+      "factionName": "臺灣民主國守軍與地方鄉勇",
+      "commanders": [
+        {
+          "name": "簡大獅"
+        },
+        {
+          "name": "在地客閩鄉勇"
+        }
+      ],
+      "forcesEstimate": "簡大獅義軍、在地客閩民防鄉勇千餘人",
+      "casualtiesEstimate": "傷亡百餘人，邊戰邊撤退入三貂嶺山區開展游擊戰"
+    },
+    "tactics": [
       "依託海岸林木與沿海岩礁伏擊敵登陸駁船",
       "切斷澳底通往瑞芳山道阻滯日軍先頭搜索隊",
       "廣泛動員地方保甲展開敵後游擊牽制作戰"
     ]
   },
   {
-    id: "bat_tw_daxi_1895",
-    eraId: "tw_japanese",
-    name: "大嵙崁峽谷抗日血戰 (桃園客家義軍伏擊之戰)",
-    year: 1895,
-    period: "taiwanLens",
-    locationAncient: "新竹州大嵙崁溪谷 (大溪)",
-    locationModern: "桃園市大溪區大漢溪兩岸",
-    coordinates: [121.28, 24.88],
-    parties: {
-      invader: "大日本帝國近衛師團步兵聯隊 (坊城後章少佐)",
-      defender: "臺灣義勇軍 (江國榮、徐驤客家義民軍五千餘人)"
+    "id": "bat_tw_daxi_1895",
+    "eraId": "tw_japanese",
+    "name": "大嵙崁峽谷抗日血戰 (桃園客家義軍伏擊之戰)",
+    "year": 1895,
+    "period": "taiwanLens",
+    "locationAncient": "新竹州大嵙崁溪谷 (大溪)",
+    "locationModern": "桃園市大溪區大漢溪兩岸",
+    "coordinates": [
+      121.28,
+      24.88
+    ],
+    "parties": {
+      "invader": "大日本帝國近衛師團步兵聯隊 (坊城後章少佐)",
+      "defender": "臺灣義勇軍 (江國榮、徐驤客家義民軍五千餘人)"
     },
-    victor: "臺灣客家義軍重創日軍先鋒部隊",
-    victorStatement: "伏擊日軍於大漢溪峽谷斬敵百餘人，粉碎近衛師團快速南下侵略企圖",
-    commanders: {
-      invader: ["坊城後章少佐"],
-      defender: ["徐驤", "江國榮", "黃娘盛"]
+    "victor": "臺灣客家義軍重創日軍先鋒部隊",
+    "victorStatement": "伏擊日軍於大漢溪峽谷斬敵百餘人，粉碎近衛師團快速南下侵略企圖",
+    "commanders": {
+      "invader": [
+        "坊城後章少佐"
+      ],
+      "defender": [
+        "徐驤",
+        "江國榮",
+        "黃娘盛"
+      ]
     },
-    summary: "1895年7月日軍自臺北南進進攻大姑崁（大溪）。徐驤與地方義士江國榮設伏於大漢溪峽谷十三份，待敵半渡發起白刃突擊。日軍死傷慘重，坊城少佐險遭陣斬，被迫退回三峽求援。",
-    keyStrategies: [
+    "summary": "1895年7月日軍自臺北南進進攻大姑崁（大溪）。徐驤與地方義士江國榮設伏於大漢溪峽谷十三份，待敵半渡發起白刃突擊。日軍死傷慘重，坊城少佐險遭陣斬，被迫退回三峽求援。",
+    "keyStrategies": [
+      "利用大漢溪峽谷險峻地形實施半渡擊之伏擊戰",
+      "閩客軍民協同以土銃砍刀白刃衝鋒夜襲日軍大營",
+      "設伏阻擊爭取南臺灣軍民集結布防寶貴時間"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國近衛師團步兵聯隊",
+      "commanders": [
+        {
+          "name": "坊城後章少佐"
+        }
+      ],
+      "forcesEstimate": "近衛師團步兵聯隊坊城少佐大隊約 1,200 人",
+      "casualtiesEstimate": "安平鎮與大嵙崁峽谷遭伏擊死傷百餘人，坊城少佐狼狽求援"
+    },
+    "defender": {
+      "factionName": "臺灣義勇軍",
+      "commanders": [
+        {
+          "name": "徐驤"
+        },
+        {
+          "name": "江國榮"
+        },
+        {
+          "name": "黃娘盛"
+        }
+      ],
+      "forcesEstimate": "徐驤客家義軍、江國榮民軍約 5,000 人",
+      "casualtiesEstimate": "陣亡約 200 餘人，成功阻滯日軍南進步伐近半月"
+    },
+    "tactics": [
       "利用大漢溪峽谷險峻地形實施半渡擊之伏擊戰",
       "閩客軍民協同以土銃砍刀白刃衝鋒夜襲日軍大營",
       "設伏阻擊爭取南臺灣軍民集結布防寶貴時間"
     ]
   },
   {
-    id: "bat_tw_baguashan_1895",
-    eraId: "tw_japanese",
-    name: "八卦山抗日戰役 (乙未保臺最烈血戰)",
-    year: 1895,
-    period: "taiwanLens",
-    locationAncient: "臺灣省彰化八卦山制高點",
-    locationModern: "彰化縣彰化市八卦山大佛風景區",
-    coordinates: [120.55, 24.08],
-    parties: {
-      invader: "大日本帝國近衛師團 (北白川宮能久親王)",
-      defender: "臺灣民主國抗日義勇軍 (吳湯興、徐驤、吳彭年黑旗軍)"
+    "id": "bat_tw_baguashan_1895",
+    "eraId": "tw_japanese",
+    "name": "八卦山抗日戰役 (乙未保臺最烈血戰)",
+    "year": 1895,
+    "period": "taiwanLens",
+    "locationAncient": "臺灣省彰化八卦山制高點",
+    "locationModern": "彰化縣彰化市八卦山大佛風景區",
+    "coordinates": [
+      120.55,
+      24.08
+    ],
+    "parties": {
+      "invader": "大日本帝國近衛師團 (北白川宮能久親王)",
+      "defender": "臺灣民主國抗日義勇軍 (吳湯興、徐驤、吳彭年黑旗軍)"
     },
-    victor: "日軍慘勝攻佔彰化 (臺灣義軍英名永垂史冊)",
-    victorStatement: "吳湯興、吳彭年壯烈殉國，日軍遭受侵臺以來最慘重傷亡代價",
-    commanders: {
-      invader: ["北白川宮能久親王", "山根信成"],
-      defender: ["吳湯興", "徐驤", "吳彭年", "李士炳"]
+    "victor": "日軍慘勝攻佔彰化 (臺灣義軍英名永垂史冊)",
+    "victorStatement": "吳湯興、吳彭年壯烈殉國，日軍遭受侵臺以來最慘重傷亡代價",
+    "commanders": {
+      "invader": [
+        "北白川宮能久親王",
+        "山根信成"
+      ],
+      "defender": [
+        "吳湯興",
+        "徐驤",
+        "吳彭年",
+        "李士炳"
+      ]
     },
-    summary: "日軍近衛師團渡過大肚溪進攻彰化八卦山要塞。客家義民領袖吳湯興、徐驤率義勇軍與吳彭年黑旗軍七營憑險死守，雙方展開長達數晝夜肉搏血戰。吳湯興、吳彭年壯烈成仁，為乙未抗日戰爭最悲壯之戰。",
-    keyStrategies: [
+    "summary": "日軍近衛師團渡過大肚溪進攻彰化八卦山要塞。客家義民領袖吳湯興、徐驤率義勇軍與吳彭年黑旗軍七營憑險死守，雙方展開長達數晝夜肉搏血戰。吳湯興、吳彭年壯烈成仁，為乙未抗日戰爭最悲壯之戰。",
+    "keyStrategies": [
+      "依託八卦山制高點砲火俯射遏阻日軍渡大肚溪",
+      "閩客軍民攜手並肩、黑旗軍與地方義民同袍死戰",
+      "夜間逆襲深入日軍中軍大營重創侵略敵寇"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國近衛師團",
+      "commanders": [
+        {
+          "name": "北白川宮能久親王"
+        },
+        {
+          "name": "山根信成"
+        }
+      ],
+      "forcesEstimate": "近衛師團第一旅團與第二旅團主力約 15,000 人 (大砲 30 門)",
+      "casualtiesEstimate": "陣亡逾千人，第二旅團長山根信成少將負傷後染疾殞命"
+    },
+    "defender": {
+      "factionName": "臺灣民主國抗日義勇軍",
+      "commanders": [
+        {
+          "name": "吳湯興"
+        },
+        {
+          "name": "徐驤"
+        },
+        {
+          "name": "吳彭年"
+        },
+        {
+          "name": "李士炳"
+        }
+      ],
+      "forcesEstimate": "吳湯興客家義民軍、徐驤秀才軍、吳彭年黑旗軍七星隊約 3,600 - 5,000 人",
+      "casualtiesEstimate": "陣亡約 4,000 - 5,000 人，吳湯興、吳彭年壯烈殉國，八卦山血染草木"
+    },
+    "tactics": [
       "依託八卦山制高點砲火俯射遏阻日軍渡大肚溪",
       "閩客軍民攜手並肩、黑旗軍與地方義民同袍死戰",
       "夜間逆襲深入日軍中軍大營重創侵略敵寇"
     ]
   },
   {
-    id: "bat_tw_dapu_lin_1895",
-    eraId: "tw_japanese",
-    name: "大莆林之役 (雲林大林黑旗軍義民伏擊戰)",
-    year: 1895,
-    period: "taiwanLens",
-    locationAncient: "嘉義縣大莆林庄 (今大林)",
-    locationModern: "嘉義縣大林鎮與雲林斗南交界",
-    coordinates: [120.47, 23.60],
-    parties: {
-      invader: "大日本帝國第二師團先鋒大隊",
-      defender: "黑旗軍營官楊泗洪、黑旗軍勇士與地方抗日義軍"
+    "id": "bat_tw_dapu_lin_1895",
+    "eraId": "tw_japanese",
+    "name": "大莆林之役 (雲林大林黑旗軍義民伏擊戰)",
+    "year": 1895,
+    "period": "taiwanLens",
+    "locationAncient": "嘉義縣大莆林庄 (今大林)",
+    "locationModern": "嘉義縣大林鎮與雲林斗南交界",
+    "coordinates": [
+      120.47,
+      23.6
+    ],
+    "parties": {
+      "invader": "大日本帝國第二師團先鋒大隊",
+      "defender": "黑旗軍營官楊泗洪、黑旗軍勇士與地方抗日義軍"
     },
-    victor: "臺灣守軍伏擊大捷重創日軍",
-    victorStatement: "設伏於竹塹蔗田白刃斬獲甚眾，楊泗洪營官不幸中流彈殉國",
-    commanders: {
-      invader: ["山口素臣少將"],
-      defender: ["楊泗洪 (營官)", "林義成"]
+    "victor": "臺灣守軍伏擊大捷重創日軍",
+    "victorStatement": "設伏於竹塹蔗田白刃斬獲甚眾，楊泗洪營官不幸中流彈殉國",
+    "commanders": {
+      "invader": [
+        "山口素臣少將"
+      ],
+      "defender": [
+        "楊泗洪 (營官)",
+        "林義成"
+      ]
     },
-    summary: "八卦山失陷後，黑旗軍楊泗洪退守大莆林（嘉義大林）。日軍沿鐵路南下，楊泗洪設伏於茂密甘蔗田中發起衝殺，日軍死傷累累潰退數里。楊泗洪追擊中彈成仁，為乙未南臺灣抗擊日軍最輝煌之伏擊戰。",
-    keyStrategies: [
+    "summary": "八卦山失陷後，黑旗軍楊泗洪退守大莆林（嘉義大林）。日軍沿鐵路南下，楊泗洪設伏於茂密甘蔗田中發起衝殺，日軍死傷累累潰退數里。楊泗洪追擊中彈成仁，為乙未南臺灣抗擊日軍最輝煌之伏擊戰。",
+    "keyStrategies": [
+      "利用嘉南平原茂密甘蔗林海完美隱蔽伏兵",
+      "誘敵深入狹長土道實施四面包圍白刃白刃肉搏",
+      "夜戰火攻敵輜重車隊徹底瓦解日軍追擊節奏"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國第二師團先鋒大隊",
+      "commanders": [
+        {
+          "name": "山口素臣少將"
+        }
+      ],
+      "forcesEstimate": "第二師團第四聯隊先鋒步兵大隊千餘人",
+      "casualtiesEstimate": "遭竹林地雷伏擊死傷近百人"
+    },
+    "defender": {
+      "factionName": "黑旗軍營官楊泗洪、黑旗軍勇士與地方抗日義軍",
+      "commanders": [
+        {
+          "name": "楊泗洪 (營官)"
+        },
+        {
+          "name": "林義成"
+        }
+      ],
+      "forcesEstimate": "黑旗軍營官楊泗洪率部及雲林抗日義民三千餘人",
+      "casualtiesEstimate": "營官楊泗洪英勇中彈殉國，義軍傷亡百餘人後退守他里霧"
+    },
+    "tactics": [
       "利用嘉南平原茂密甘蔗林海完美隱蔽伏兵",
       "誘敵深入狹長土道實施四面包圍白刃白刃肉搏",
       "夜戰火攻敵輜重車隊徹底瓦解日軍追擊節奏"
     ]
   },
   {
-    id: "bat_tw_buyuelou_1895",
-    eraId: "tw_japanese",
-    name: "步月樓六堆抗日之役 (屏東客家保鄉血戰)",
-    year: 1895,
-    period: "taiwanLens",
-    locationAncient: "臺南府鳳山縣港東中里佳冬步月樓",
-    locationModern: "屏東縣佳冬鄉蕭家古厝步月樓遺址",
-    coordinates: [120.55, 22.42],
-    parties: {
-      invader: "大日本帝國第二師團登陸部隊 (乃木希典中將)",
-      defender: "六堆客家抗日義軍 (左堆總理蕭光明、鍾發春)"
+    "id": "bat_tw_buyuelou_1895",
+    "eraId": "tw_japanese",
+    "name": "步月樓六堆抗日之役 (屏東客家保鄉血戰)",
+    "year": 1895,
+    "period": "taiwanLens",
+    "locationAncient": "臺南府鳳山縣港東中里佳冬步月樓",
+    "locationModern": "屏東縣佳冬鄉蕭家古厝步月樓遺址",
+    "coordinates": [
+      120.55,
+      22.42
+    ],
+    "parties": {
+      "invader": "大日本帝國第二師團登陸部隊 (乃木希典中將)",
+      "defender": "六堆客家抗日義軍 (左堆總理蕭光明、鍾發春)"
     },
-    victor: "日軍付出沈重代價攻佔步月樓",
-    victorStatement: "蕭光明率六堆子弟巷戰至最後一人，展現保鄉衛土之浩然壯烈氣節",
-    commanders: {
-      invader: ["乃木希典", "山口素臣"],
-      defender: ["蕭光明", "鍾發春", "蕭昇祥"]
+    "victor": "日軍付出沈重代價攻佔步月樓",
+    "victorStatement": "蕭光明率六堆子弟巷戰至最後一人，展現保鄉衛土之浩然壯烈氣節",
+    "commanders": {
+      "invader": [
+        "乃木希典",
+        "山口素臣"
+      ],
+      "defender": [
+        "蕭光明",
+        "鍾發春",
+        "蕭昇祥"
+      ]
     },
-    summary: "1895年10月乃木希典率日軍登陸枋寮進犯六堆客家庄。左堆總理蕭光明率義軍以佳冬步月樓堅固紅磚外牆為堡壘死守，以鳥銃土砲肉搏阻擊。蕭光明兩子壯烈犧牲，寫下南臺灣抗日最可歌可泣之一頁。",
-    keyStrategies: [
+    "summary": "1895年10月乃木希典率日軍登陸枋寮進犯六堆客家庄。左堆總理蕭光明率義軍以佳冬步月樓堅固紅磚外牆為堡壘死守，以鳥銃土砲肉搏阻擊。蕭光明兩子壯烈犧牲，寫下南臺灣抗日最可歌可泣之一頁。",
+    "keyStrategies": [
+      "利用傳統客家圍龍屋宅院與高聳步月樓為堅固防禦掩體",
+      "六堆鄉親戶戶動員婦孺運送彈藥糧草浴血死守",
+      "巷戰肉搏逐屋爭奪重創日軍先頭搜索大隊"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國第二師團登陸部隊",
+      "commanders": [
+        {
+          "name": "乃木希典"
+        },
+        {
+          "name": "山口素臣"
+        }
+      ],
+      "forcesEstimate": "第二師團乃木希典中將率登陸步兵聯隊約 6,000 人",
+      "casualtiesEstimate": "遭步月樓堅固客家圍堡狙擊死傷百餘人"
+    },
+    "defender": {
+      "factionName": "六堆客家抗日義軍",
+      "commanders": [
+        {
+          "name": "蕭光明"
+        },
+        {
+          "name": "鍾發春"
+        },
+        {
+          "name": "蕭昇祥"
+        }
+      ],
+      "forcesEstimate": "六堆客家抗日義軍 (左堆總理蕭光明率鄉勇約 2,000 人)",
+      "casualtiesEstimate": "蕭光明次子蕭昇祥等壯烈戰死，陣亡數百人，步月樓化為焦土"
+    },
+    "tactics": [
       "利用傳統客家圍龍屋宅院與高聳步月樓為堅固防禦掩體",
       "六堆鄉親戶戶動員婦孺運送彈藥糧草浴血死守",
       "巷戰肉搏逐屋爭奪重創日軍先頭搜索大隊"
     ]
   },
   {
-    id: "bat_tw_zengwenxi_1895",
-    eraId: "tw_japanese",
-    name: "曾文溪終極決戰 (抗日第一烈士徐驤成仁)",
-    year: 1895,
-    period: "taiwanLens",
-    locationAncient: "臺南府曾文溪兩岸渡口",
-    locationModern: "臺南市麻豆區與善化區曾文溪畔",
-    coordinates: [120.28, 23.16],
-    parties: {
-      invader: "大日本帝國近衛師團主力部隊",
-      defender: "徐驤田賦軍與黑旗軍殘部 (抗日第一烈士徐驤)"
+    "id": "bat_tw_zengwenxi_1895",
+    "eraId": "tw_japanese",
+    "name": "曾文溪終極決戰 (抗日第一烈士徐驤成仁)",
+    "year": 1895,
+    "period": "taiwanLens",
+    "locationAncient": "臺南府曾文溪兩岸渡口",
+    "locationModern": "臺南市麻豆區與善化區曾文溪畔",
+    "coordinates": [
+      120.28,
+      23.16
+    ],
+    "parties": {
+      "invader": "大日本帝國近衛師團主力部隊",
+      "defender": "徐驤田賦軍與黑旗軍殘部 (抗日第一烈士徐驤)"
     },
-    victor: "日軍憑火砲重兵突破防線",
-    victorStatement: "徐驤轉戰全臺十二戰身受數十創，臨終大呼不負祖宗，壯烈成仁",
-    commanders: {
-      invader: ["北白川宮能久親王"],
-      defender: ["徐驤 (客家秀才)", "林義成"]
+    "victor": "日軍憑火砲重兵突破防線",
+    "victorStatement": "徐驤轉戰全臺十二戰身受數十創，臨終大呼不負祖宗，壯烈成仁",
+    "commanders": {
+      "invader": [
+        "北白川宮能久親王"
+      ],
+      "defender": [
+        "徐驤 (客家秀才)",
+        "林義成"
+      ]
     },
-    summary: "徐驤自苗栗、彰化一路轉戰南下。1895年10月在曾文溪扼守臺南府城北門戶，與日軍爆發殊死肉搏。徐驤身先士卒衝入敵陣，連斬數敵後身中數十彈壯烈殉國，被後世史家尊為「臺灣抗日第一烈士」。",
-    keyStrategies: [
+    "summary": "徐驤自苗栗、彰化一路轉戰南下。1895年10月在曾文溪扼守臺南府城北門戶，與日軍爆發殊死肉搏。徐驤身先士卒衝入敵陣，連斬數敵後身中數十彈壯烈殉國，被後世史家尊為「臺灣抗日第一烈士」。",
+    "keyStrategies": [
+      "依託曾文溪泥沼天險築土壘頑抗敵優勢兵力",
+      "抱定必死報國之志連環衝殺牽制敵軍主力渡溪",
+      "以個人生命實踐民族氣節，激勵全臺百年不屈意志"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國近衛師團主力部隊",
+      "commanders": [
+        {
+          "name": "北白川宮能久親王"
+        }
+      ],
+      "forcesEstimate": "近衛師團本隊及第二師團合圍主力約 20,000 人",
+      "casualtiesEstimate": "遭河道泥沼伏擊死傷數百人"
+    },
+    "defender": {
+      "factionName": "徐驤田賦軍與黑旗軍殘部",
+      "commanders": [
+        {
+          "name": "徐驤 (客家秀才)"
+        },
+        {
+          "name": "林義成"
+        }
+      ],
+      "forcesEstimate": "徐驤田賦軍與黑旗軍殘部約千餘人",
+      "casualtiesEstimate": "抗日第一烈士徐驤身中數彈壯烈成仁，義軍彈盡全線覆滅"
+    },
+    "tactics": [
       "依託曾文溪泥沼天險築土壘頑抗敵優勢兵力",
       "抱定必死報國之志連環衝殺牽制敵軍主力渡溪",
       "以個人生命實踐民族氣節，激勵全臺百年不屈意志"
     ]
   },
   {
-    id: "bat_tw_tapani_1915",
-    eraId: "tw_japanese",
-    name: "噍吧哖西來庵決戰 (玉井虎頭山最後抗暴)",
-    year: 1915,
-    period: "taiwanLens",
-    locationAncient: "臺南廳噍吧哖虎頭山高地",
-    locationModern: "臺南市玉井區虎頭山要塞",
-    coordinates: [120.46, 23.12],
-    parties: {
-      invader: "大日本帝國臺灣總督府警察與憲兵聯隊",
-      defender: "余清芳抗日起義軍 (農民信仰義軍兩千餘人)"
+    "id": "bat_tw_tapani_1915",
+    "eraId": "tw_japanese",
+    "name": "噍吧哖西來庵決戰 (玉井虎頭山最後抗暴)",
+    "year": 1915,
+    "period": "taiwanLens",
+    "locationAncient": "臺南廳噍吧哖虎頭山高地",
+    "locationModern": "臺南市玉井區虎頭山要塞",
+    "coordinates": [
+      120.46,
+      23.12
+    ],
+    "parties": {
+      "invader": "大日本帝國臺灣總督府警察與憲兵聯隊",
+      "defender": "余清芳抗日起義軍 (農民信仰義軍兩千餘人)"
     },
-    victor: "日軍憑現代火器優勢攻陷陣地",
-    victorStatement: "余清芳壯烈就義，促使總督府徹底放棄軍事高壓改採文官內地延長統治",
-    commanders: {
-      invader: ["安東貞美總督", "福森警視"],
-      defender: ["余清芳", "江定", "羅俊"]
+    "victor": "日軍憑現代火器優勢攻陷陣地",
+    "victorStatement": "余清芳壯烈就義，促使總督府徹底放棄軍事高壓改採文官內地延長統治",
+    "commanders": {
+      "invader": [
+        "安東貞美總督",
+        "福森警視"
+      ],
+      "defender": [
+        "余清芳",
+        "江定",
+        "羅俊"
+      ]
     },
-    summary: "余清芳、江定在玉井虎頭山聚眾誓師抗日。義民以大刀長矛對抗日軍火砲機槍，血戰數晝夜後陣地失守。余清芳被捕從容就義，此戰為日治時期漢人最後一次大型武裝抗暴，開啟隨後文協非暴力啟蒙運動。",
-    keyStrategies: [
+    "summary": "余清芳、江定在玉井虎頭山聚眾誓師抗日。義民以大刀長矛對抗日軍火砲機槍，血戰數晝夜後陣地失守。余清芳被捕從容就義，此戰為日治時期漢人最後一次大型武裝抗暴，開啟隨後文協非暴力啟蒙運動。",
+    "keyStrategies": [
+      "依託玉井虎頭山陡峭山勢構築秘密營壘抗擊敵圍",
+      "利用夜間暴雨奇襲日本支廳繳獲現代槍械彈藥",
+      "堅貞不屈從容就義喚醒臺灣全島民族自主意識"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國臺灣總督府警察與憲兵聯隊",
+      "commanders": [
+        {
+          "name": "安東貞美總督"
+        },
+        {
+          "name": "福森警視"
+        }
+      ],
+      "forcesEstimate": "臺灣總督府警察隊、憲兵隊及步兵第二聯隊約 2,500 人",
+      "casualtiesEstimate": "虎頭山前哨戰警察隊死傷數十人"
+    },
+    "defender": {
+      "factionName": "余清芳抗日起義軍",
+      "commanders": [
+        {
+          "name": "余清芳"
+        },
+        {
+          "name": "江定"
+        },
+        {
+          "name": "羅俊"
+        }
+      ],
+      "forcesEstimate": "余清芳、江定率南臺灣農民信仰起義軍約 2,000 - 3,000 人",
+      "casualtiesEstimate": "遭日軍近代野戰重砲掃射戰死千餘人，事後八百餘人被判死刑"
+    },
+    "tactics": [
       "依託玉井虎頭山陡峭山勢構築秘密營壘抗擊敵圍",
       "利用夜間暴雨奇襲日本支廳繳獲現代槍械彈藥",
       "堅貞不屈從容就義喚醒臺灣全島民族自主意識"
     ]
   },
   {
-    id: "bat_tw_wushe_1930",
-    eraId: "tw_japanese",
-    name: "霧社馬赫坡社要塞保衛戰 (莫那魯道抗暴之役)",
-    year: 1930,
-    period: "taiwanLens",
-    locationAncient: "臺中州能高郡馬赫坡岩窟",
-    locationModern: "南投縣仁愛鄉廬山溫泉馬赫坡古戰場",
-    coordinates: [121.18, 24.03],
-    parties: {
-      invader: "大日本帝國臺灣軍司令部 (出動步兵聯隊、飛機與毒氣)",
-      defender: "賽德克族馬赫坡等六社原住民族勇士 (莫那·魯道頭目)"
+    "id": "bat_tw_wushe_1930",
+    "eraId": "tw_japanese",
+    "name": "霧社馬赫坡社要塞保衛戰 (莫那魯道抗暴之役)",
+    "year": 1930,
+    "period": "taiwanLens",
+    "locationAncient": "臺中州能高郡馬赫坡岩窟",
+    "locationModern": "南投縣仁愛鄉廬山溫泉馬赫坡古戰場",
+    "coordinates": [
+      121.18,
+      24.03
+    ],
+    "parties": {
+      "invader": "大日本帝國臺灣軍司令部 (出動步兵聯隊、飛機與毒氣)",
+      "defender": "賽德克族馬赫坡等六社原住民族勇士 (莫那·魯道頭目)"
     },
-    victor: "原住民族勇士死守數月全數壯烈成仁",
-    victorStatement: "以原始獵槍對抗現代毒氣飛機堅守不屈，震撼國際聯盟關注原住民族生存權",
-    commanders: {
-      invader: ["鎌田彌彥少將"],
-      defender: ["莫那·魯道", "達多·莫那"]
+    "victor": "原住民族勇士死守數月全數壯烈成仁",
+    "victorStatement": "以原始獵槍對抗現代毒氣飛機堅守不屈，震撼國際聯盟關注原住民族生存權",
+    "commanders": {
+      "invader": [
+        "鎌田彌彥少將"
+      ],
+      "defender": [
+        "莫那·魯道",
+        "達多·莫那"
+      ]
     },
-    summary: "霧社事件爆發後，日軍出動三千正規軍、大砲、飛機與國際公約禁用的糜爛性毒氣瓦斯圍攻馬赫坡岩窟。莫那·魯道率族人退入天然險阻溶洞頑強抗擊五十餘日，最後彈盡糧絕於深山巨木下自戕成仁，震驚國際社會。",
-    keyStrategies: [
+    "summary": "霧社事件爆發後，日軍出動三千正規軍、大砲、飛機與國際公約禁用的糜爛性毒氣瓦斯圍攻馬赫坡岩窟。莫那·魯道率族人退入天然險阻溶洞頑強抗擊五十餘日，最後彈盡糧絕於深山巨木下自戕成仁，震驚國際社會。",
+    "keyStrategies": [
+      "依託馬赫坡懸崖峭壁與天然岩洞構築易守難攻死守陣地",
+      "熟悉中央山脈原始叢林實施高山狙擊與陷阱戰術",
+      "以寧死不屈之祖靈信仰戰鬥至最後一兵一卒"
+    ],
+    "attacker": {
+      "factionName": "大日本帝國臺灣軍司令部",
+      "commanders": [
+        {
+          "name": "鎌田彌彥少將"
+        }
+      ],
+      "forcesEstimate": "臺灣軍司令部步兵聯隊、警察隊 1,300 人 (出動大砲、飛機與毒氣彈)",
+      "casualtiesEstimate": "霧社公學校事件及山地圍剿戰死 28 人，負傷 26 人"
+    },
+    "defender": {
+      "factionName": "賽德克族馬赫坡等六社原住民族勇士",
+      "commanders": [
+        {
+          "name": "莫那·魯道"
+        },
+        {
+          "name": "達多·莫那"
+        }
+      ],
+      "forcesEstimate": "賽德克族馬赫坡等六社原住民族勇士約 1,200 人 (全族男女老幼 1,236 人)",
+      "casualtiesEstimate": "戰死及斷崖自縊殉難 644 人，頭目莫那·魯道於斷崖深處飲彈自盡"
+    },
+    "tactics": [
       "依託馬赫坡懸崖峭壁與天然岩洞構築易守難攻死守陣地",
       "熟悉中央山脈原始叢林實施高山狙擊與陷阱戰術",
       "以寧死不屈之祖靈信仰戰鬥至最後一兵一卒"
     ]
   },
   {
-    id: "bat_tw_guningtou_1949",
-    eraId: "tw_postwar",
-    name: "金門古寧頭戰役 (保衛臺灣穩定海峽第一仗)",
-    year: 1949,
-    period: "taiwanLens",
-    locationAncient: "金門縣金寧鄉古寧頭海灘",
-    locationModern: "金門縣金寧鄉古寧頭戰史館",
-    coordinates: [118.31, 24.48],
-    parties: {
-      invader: "中國人民解放軍第二十八軍登陸突擊梯隊三個團",
-      defender: "中華民國國軍第十二兵團、金防部 (胡璉司令官、高魁元軍長)"
+    "id": "bat_tw_guningtou_1949",
+    "eraId": "tw_postwar",
+    "name": "金門古寧頭戰役 (保衛臺灣穩定海峽第一仗)",
+    "year": 1949,
+    "period": "taiwanLens",
+    "locationAncient": "金門縣金寧鄉古寧頭海灘",
+    "locationModern": "金門縣金寧鄉古寧頭戰史館",
+    "coordinates": [
+      118.31,
+      24.48
+    ],
+    "parties": {
+      "invader": "中國人民解放軍第二十八軍登陸突擊梯隊三個團",
+      "defender": "中華民國國軍第十二兵團、金防部 (胡璉司令官、高魁元軍長)"
     },
-    victor: "中華民國國軍決定性全殲大捷",
-    victorStatement: "殲滅登陸部隊五千餘人、俘獲三千餘人，粉碎跨海奪臺戰略企圖",
-    commanders: {
-      invader: ["蕭鋒", "孫雲秀"],
-      defender: ["胡璉", "高魁元", "湯恩伯"]
+    "victor": "中華民國國軍決定性全殲大捷",
+    "victorStatement": "殲滅登陸部隊五千餘人、俘獲三千餘人，粉碎跨海奪臺戰略企圖",
+    "commanders": {
+      "invader": [
+        "蕭鋒",
+        "孫雲秀"
+      ],
+      "defender": [
+        "胡璉",
+        "高魁元",
+        "湯恩伯"
+      ]
     },
-    summary: "1949年10月解放軍突襲金門古寧頭海灘，國軍「金門之熊」戰車部隊機動衝擊，海空聯手摧毀敵登陸船隻斷其退路，第十二兵團生力軍大舉反包圍，血戰三晝夜全殲登陸敵軍，奠定兩岸分治海峽安全第一基石。",
-    keyStrategies: [
+    "summary": "1949年10月解放軍突襲金門古寧頭海灘，國軍「金門之熊」戰車部隊機動衝擊，海空聯手摧毀敵登陸船隻斷其退路，第十二兵團生力軍大舉反包圍，血戰三晝夜全殲登陸敵軍，奠定兩岸分治海峽安全第一基石。",
+    "keyStrategies": [
+      "海軍空軍協同全數摧毀敵渡海木船斷其後援",
+      "M5A1輕戰車「金門之熊」灘頭橫掃火力壓制",
+      "胡璉將軍及時投入生力軍形成鐵壁反包圍聚殲"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍第二十八軍登陸突擊梯隊三個團",
+      "commanders": [
+        {
+          "name": "蕭鋒"
+        },
+        {
+          "name": "孫雲秀"
+        }
+      ],
+      "forcesEstimate": "中國人民解放軍第二十八軍登陸部隊三個團約 9,086 人",
+      "casualtiesEstimate": "全軍覆滅，陣亡 3,873 人，被俘 5,175 人 (登陸船隻全數被焚)"
+    },
+    "defender": {
+      "factionName": "中華民國國軍第十二兵團、金防部",
+      "commanders": [
+        {
+          "name": "胡璉"
+        },
+        {
+          "name": "高魁元"
+        },
+        {
+          "name": "湯恩伯"
+        }
+      ],
+      "forcesEstimate": "中華民國國軍第十二兵團、金防部守軍約 40,000 人 (M5A1 金門之熊戰車隊)",
+      "casualtiesEstimate": "陣亡 1,267 人，負傷 1,982 人"
+    },
+    "tactics": [
       "海軍空軍協同全數摧毀敵渡海木船斷其後援",
       "M5A1輕戰車「金門之熊」灘頭橫掃火力壓制",
       "胡璉將軍及時投入生力軍形成鐵壁反包圍聚殲"
     ]
   },
   {
-    id: "bat_tw_daerdan_1950",
-    eraId: "tw_postwar",
-    name: "大二膽島戰役 (史恆豐營長以寡敵眾立奇功)",
-    year: 1950,
-    period: "taiwanLens",
-    locationAncient: "金門縣大膽島、二膽島灘頭",
-    locationModern: "金門縣烈嶼鄉大膽島生明廳",
-    coordinates: [118.20, 24.38],
-    parties: {
-      invader: "中國人民解放軍登陸加強營 (七百餘精銳渡海突擊)",
-      defender: "中華民國陸軍第七十五師第二二五團第一營 (史恆豐少校營長不到三百守軍)"
+    "id": "bat_tw_daerdan_1950",
+    "eraId": "tw_postwar",
+    "name": "大二膽島戰役 (史恆豐營長以寡敵眾立奇功)",
+    "year": 1950,
+    "period": "taiwanLens",
+    "locationAncient": "金門縣大膽島、二膽島灘頭",
+    "locationModern": "金門縣烈嶼鄉大膽島生明廳",
+    "coordinates": [
+      118.2,
+      24.38
+    ],
+    "parties": {
+      "invader": "中國人民解放軍登陸加強營 (七百餘精銳渡海突擊)",
+      "defender": "中華民國陸軍第七十五師第二二五團第一營 (史恆豐少校營長不到三百守軍)"
     },
-    victor: "中華民國守軍輝煌全勝",
-    victorStatement: "以寡敵眾生擒敵營長鮑成以下兩百餘人、擊斃三百餘人，蔣經國讚為「英雄骨氣」",
-    commanders: {
-      invader: ["鮑成 (營長)"],
-      defender: ["史恆豐 (營長)", "賴生明 (傳令兵)"]
+    "victor": "中華民國守軍輝煌全勝",
+    "victorStatement": "以寡敵眾生擒敵營長鮑成以下兩百餘人、擊斃三百餘人，蔣經國讚為「英雄骨氣」",
+    "commanders": {
+      "invader": [
+        "鮑成 (營長)"
+      ],
+      "defender": [
+        "史恆豐 (營長)",
+        "賴生明 (傳令兵)"
+      ]
     },
-    summary: "1950年7月解放軍趁大霧夜襲金門門戶大膽島與二膽島。史恆豐營長沈著冷靜，指揮不到三百兵力依託花崗岩碉堡殊死迎敵。傳令兵賴生明冒死穿過火網傳遞軍令，全營將士發動刺刀反撲全殲敵軍，立下「島孤人不孤」之傳奇功勳。",
-    keyStrategies: [
+    "summary": "1950年7月解放軍趁大霧夜襲金門門戶大膽島與二膽島。史恆豐營長沈著冷靜，指揮不到三百兵力依託花崗岩碉堡殊死迎敵。傳令兵賴生明冒死穿過火網傳遞軍令，全營將士發動刺刀反撲全殲敵軍，立下「島孤人不孤」之傳奇功勳。",
+    "keyStrategies": [
+      "扼守大膽島中央制高點碉堡分割包圍登陸敵軍",
+      "傳令兵冒死穿透封鎖線達成南北夾擊全面反攻",
+      "白刃肉搏殊死衝鋒粉碎敵軍奪取外島要塞企圖"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍登陸加強營",
+      "commanders": [
+        {
+          "name": "鮑成 (營長)"
+        }
+      ],
+      "forcesEstimate": "中國人民解放軍第八十六師二五八團加強營 700 餘人",
+      "casualtiesEstimate": "陣亡 300 餘人，被俘 252 人，大二膽登陸突擊全線受挫"
+    },
+    "defender": {
+      "factionName": "中華民國陸軍第七十五師第二二五團第一營",
+      "commanders": [
+        {
+          "name": "史恆豐 (營長)"
+        },
+        {
+          "name": "賴生明 (傳令兵)"
+        }
+      ],
+      "forcesEstimate": "中華民國陸軍第七十五師第二二五團第一營 (史恆豐少校營長率不到 300 守軍)",
+      "casualtiesEstimate": "陣亡 18 人，負傷 41 人，創立以寡擊眾完全防衛戰蹟"
+    },
+    "tactics": [
       "扼守大膽島中央制高點碉堡分割包圍登陸敵軍",
       "傳令兵冒死穿透封鎖線達成南北夾擊全面反攻",
       "白刃肉搏殊死衝鋒粉碎敵軍奪取外島要塞企圖"
     ]
   },
   {
-    id: "bat_tw_nanri_1952",
-    eraId: "tw_postwar",
-    name: "南日島突擊大捷 (國軍跨海突擊殲敵之戰)",
-    year: 1952,
-    period: "taiwanLens",
-    locationAncient: "福建莆田南日島海域",
-    locationModern: "金門防區北側南日島海域",
-    coordinates: [119.50, 25.20],
-    parties: {
-      invader: "中華民國國軍突擊支隊 (胡璉司令官指揮陸空協同)",
-      defender: "中國人民解放軍南日島守備營與援軍"
+    "id": "bat_tw_nanri_1952",
+    "eraId": "tw_postwar",
+    "name": "南日島突擊大捷 (國軍跨海突擊殲敵之戰)",
+    "year": 1952,
+    "period": "taiwanLens",
+    "locationAncient": "福建莆田南日島海域",
+    "locationModern": "金門防區北側南日島海域",
+    "coordinates": [
+      119.5,
+      25.2
+    ],
+    "parties": {
+      "invader": "中華民國國軍突擊支隊 (胡璉司令官指揮陸空協同)",
+      "defender": "中國人民解放軍南日島守備營與援軍"
     },
-    victor: "中華民國國軍突擊全勝",
-    victorStatement: "全殲島上守軍與增援部隊俘獲八百餘人，安全撤回金門，震動東南沿海",
-    commanders: {
-      invader: ["胡璉", "吉星文"],
-      defender: ["解放軍守備營長"]
+    "victor": "中華民國國軍突擊全勝",
+    "victorStatement": "全殲島上守軍與增援部隊俘獲八百餘人，安全撤回金門，震動東南沿海",
+    "commanders": {
+      "invader": [
+        "胡璉",
+        "吉星文"
+      ],
+      "defender": [
+        "解放軍守備營長"
+      ]
     },
-    summary: "1952年10月胡璉將軍調集精銳渡海發動南日島突擊戰。陸海空協同以閃電戰奪取灘頭，徹底包圍擊潰島上守軍與跨海增援部隊，俘獲敵軍八百餘人、物資無數後主動安全撤退，展現國軍強大海空機動打擊能力。",
-    keyStrategies: [
+    "summary": "1952年10月胡璉將軍調集精銳渡海發動南日島突擊戰。陸海空協同以閃電戰奪取灘頭，徹底包圍擊潰島上守軍與跨海增援部隊，俘獲敵軍八百餘人、物資無數後主動安全撤退，展現國軍強大海空機動打擊能力。",
+    "keyStrategies": [
+      "高度保密發動夜間兩棲跨海閃電登陸",
+      "佔領島上制高點以強大火力圍殲增援部隊",
+      "達成戰略目標後迅速撤出防範敵大軍反撲"
+    ],
+    "attacker": {
+      "factionName": "中華民國國軍突擊支隊",
+      "commanders": [
+        {
+          "name": "胡璉"
+        },
+        {
+          "name": "吉星文"
+        }
+      ],
+      "forcesEstimate": "中華民國金門防衛司令部突擊支隊 (胡璉司令官指揮陸空協同約 9,000 人)",
+      "casualtiesEstimate": "陣亡 150 餘人，負傷 200 餘人"
+    },
+    "defender": {
+      "factionName": "中國人民解放軍南日島守備營與援軍",
+      "commanders": [
+        {
+          "name": "解放軍守備營長"
+        }
+      ],
+      "forcesEstimate": "中國人民解放軍南日島守備營及後續增援部隊約 2,000 人",
+      "casualtiesEstimate": "陣亡 800 餘人，被俘 700 餘人，南日島守備全損"
+    },
+    "tactics": [
       "高度保密發動夜間兩棲跨海閃電登陸",
       "佔領島上制高點以強大火力圍殲增援部隊",
       "達成戰略目標後迅速撤出防範敵大軍反撲"
     ]
   },
   {
-    id: "bat_tw_yijiangshan_1955",
-    eraId: "tw_postwar",
-    name: "一江山島保衛戰 (王生明將軍全島成仁促美防禦協定)",
-    year: 1955,
-    period: "taiwanLens",
-    locationAncient: "浙江沿海一江山島防衛陣地",
-    locationModern: "外海一江山島要塞 (促成臺北一江街紀念)",
-    coordinates: [121.40, 25.80],
-    parties: {
-      invader: "中國人民解放軍海陸空三軍登陸大軍",
-      defender: "中華民國一江山地區守備司令部 (王生明司令官率千餘將士)"
+    "id": "bat_tw_yijiangshan_1955",
+    "eraId": "tw_postwar",
+    "name": "一江山島保衛戰 (王生明將軍全島成仁促美防禦協定)",
+    "year": 1955,
+    "period": "taiwanLens",
+    "locationAncient": "浙江沿海一江山島防衛陣地",
+    "locationModern": "外海一江山島要塞 (促成臺北一江街紀念)",
+    "coordinates": [
+      121.4,
+      25.8
+    ],
+    "parties": {
+      "invader": "中國人民解放軍海陸空三軍登陸大軍",
+      "defender": "中華民國一江山地區守備司令部 (王生明司令官率千餘將士)"
     },
-    victor: "共軍攻佔一江山，守軍壯烈殉國",
-    victorStatement: "苦戰三晝夜引爆最後手榴彈全員成仁，震撼美國國會火速批准《中美共同防禦條約》",
-    commanders: {
-      invader: ["張愛萍", "彭德清"],
-      defender: ["王生明 (追晉陸軍少將)"]
+    "victor": "共軍攻佔一江山，守軍壯烈殉國",
+    "victorStatement": "苦戰三晝夜引爆最後手榴彈全員成仁，震撼美國國會火速批准《中美共同防禦條約》",
+    "commanders": {
+      "invader": [
+        "張愛萍",
+        "彭德清"
+      ],
+      "defender": [
+        "王生明 (追晉陸軍少將)"
+      ]
     },
-    summary: "1955年1月解放軍首度動用陸海空立體火力狂轟一江山島。王生明司令官指揮千餘守軍堅壁抗擊數萬發砲彈，擊沉敵登陸艦多艘，血戰三晝夜陣地全毀。王生明引爆最後一枚手榴彈成仁。此役促使大陳島萬餘軍民安全撤退臺灣，美方火速簽署《中美共同防禦條約》確立臺灣安全中線。",
-    keyStrategies: [
+    "summary": "1955年1月解放軍首度動用陸海空立體火力狂轟一江山島。王生明司令官指揮千餘守軍堅壁抗擊數萬發砲彈，擊沉敵登陸艦多艘，血戰三晝夜陣地全毀。王生明引爆最後一枚手榴彈成仁。此役促使大陳島萬餘軍民安全撤退臺灣，美方火速簽署《中美共同防禦條約》確立臺灣安全中線。",
+    "keyStrategies": [
+      "依託坑道工事抵禦敵海空數萬發砲彈飽和轟炸",
+      "以平射砲重重封鎖登陸灘頭給敵登陸梯隊慘重傷亡",
+      "以死守到底誓死不降之軍人氣節換取臺海防禦條約保障"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍海陸空三軍登陸大軍",
+      "commanders": [
+        {
+          "name": "張愛萍"
+        },
+        {
+          "name": "彭德清"
+        }
+      ],
+      "forcesEstimate": "中國人民解放軍海陸空三軍突擊部隊約 10,000 人 (飛機 184 架次, 艦艇 137 艘)",
+      "casualtiesEstimate": "陣亡 393 人，負傷 1,027 人"
+    },
+    "defender": {
+      "factionName": "中華民國一江山地區守備司令部",
+      "commanders": [
+        {
+          "name": "王生明 (追晉陸軍少將)"
+        }
+      ],
+      "forcesEstimate": "中華民國一江山守備司令部 (王生明司令官率浙江反共救國軍 1,030 人)",
+      "casualtiesEstimate": "全島守軍戰至最後一人，陣亡 720 人，負傷被俘 310 人，王生明引爆手榴彈殉國"
+    },
+    "tactics": [
       "依託坑道工事抵禦敵海空數萬發砲彈飽和轟炸",
       "以平射砲重重封鎖登陸灘頭給敵登陸梯隊慘重傷亡",
       "以死守到底誓死不降之軍人氣節換取臺海防禦條約保障"
     ]
   },
   {
-    id: "bat_tw_823_1958",
-    eraId: "tw_postwar",
-    name: "八二三臺海砲戰 (確立海峽防衛分治分水嶺)",
-    year: 1958,
-    period: "taiwanLens",
-    locationAncient: "金門列島防區海空周邊",
-    locationModern: "金門縣大金門太武山翠谷",
-    coordinates: [118.33, 24.45],
-    parties: {
-      invader: "中國人民解放軍福建前線砲兵基地群",
-      defender: "中華民國金門防衛司令部 (俞大維部長、胡璉司令官)"
+    "id": "bat_tw_823_1958",
+    "eraId": "tw_postwar",
+    "name": "八二三臺海砲戰 (確立海峽防衛分治分水嶺)",
+    "year": 1958,
+    "period": "taiwanLens",
+    "locationAncient": "金門列島防區海空周邊",
+    "locationModern": "金門縣大金門太武山翠谷",
+    "coordinates": [
+      118.33,
+      24.45
+    ],
+    "parties": {
+      "invader": "中國人民解放軍福建前線砲兵基地群",
+      "defender": "中華民國金門防衛司令部 (俞大維部長、胡璉司令官)"
     },
-    victor: "中華民國國軍堅守成功 (確立兩岸海峽分治現狀)",
-    victorStatement: "承受47萬發砲彈狂轟誓死守護，八吋巨砲精準還擊促成停火",
-    commanders: {
-      invader: ["葉飛", "張翼翔"],
-      defender: ["胡璉", "俞大維", "吉星文 (殉國)", "郝柏村"]
+    "victor": "中華民國國軍堅守成功 (確立兩岸海峽分治現狀)",
+    "victorStatement": "承受47萬發砲彈狂轟誓死守護，八吋巨砲精準還擊促成停火",
+    "commanders": {
+      "invader": [
+        "葉飛",
+        "張翼翔"
+      ],
+      "defender": [
+        "胡璉",
+        "俞大維",
+        "吉星文 (殉國)",
+        "郝柏村"
+      ]
     },
-    summary: "1958年8月23日解放軍突向金門狂轟六萬發砲彈。俞大維部長在太武山親臨前線受創，國軍將士依託地下花崗岩坑道英勇頑抗。空軍以響尾蛇飛彈首奪空戰大捷，國軍以美製八吋自走重砲重擊廈門車站指揮所，確立臺海冷戰防衛中線至今。",
-    keyStrategies: [
+    "summary": "1958年8月23日解放軍突向金門狂轟六萬發砲彈。俞大維部長在太武山親臨前線受創，國軍將士依託地下花崗岩坑道英勇頑抗。空軍以響尾蛇飛彈首奪空戰大捷，國軍以美製八吋自走重砲重擊廈門車站指揮所，確立臺海冷戰防衛中線至今。",
+    "keyStrategies": [
+      "金門地下花崗岩坑道堡壘發揮百分之百避彈生存效能",
+      "國軍空軍F-86首創響尾蛇空對空飛彈全勝紀錄牢控制空權",
+      "引進八吋美製自走重砲實施高精度毀滅性反擊"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍福建前線砲兵基地群",
+      "commanders": [
+        {
+          "name": "葉飛"
+        },
+        {
+          "name": "張翼翔"
+        }
+      ],
+      "forcesEstimate": "中國人民解放軍福建前線砲兵部隊 30 個營，各型巨砲 568 門 (發射砲彈 47 萬發)",
+      "casualtiesEstimate": "遭金門守軍八吋巨砲等反擊火網壓制，砲兵陣地受創數百人死傷"
+    },
+    "defender": {
+      "factionName": "中華民國金門防衛司令部",
+      "commanders": [
+        {
+          "name": "胡璉"
+        },
+        {
+          "name": "俞大維"
+        },
+        {
+          "name": "吉星文 (殉國)"
+        },
+        {
+          "name": "郝柏村"
+        }
+      ],
+      "forcesEstimate": "中華民國金門防衛司令部約 85,000 人，砲兵各營及美援 240 巨砲、八吋榴彈砲",
+      "casualtiesEstimate": "陣亡 440 人，負傷 1,911 人 (副司令官吉星文、趙家驤、章傑殉國)"
+    },
+    "tactics": [
       "金門地下花崗岩坑道堡壘發揮百分之百避彈生存效能",
       "國軍空軍F-86首創響尾蛇空對空飛彈全勝紀錄牢控制空權",
       "引進八吋美製自走重砲實施高精度毀滅性反擊"
     ]
   },
   {
-    id: "bat_tw_wuchiu_1965",
-    eraId: "tw_postwar",
-    name: "烏坵海戰 (海軍將士浴血守衛臺海海疆之役)",
-    year: 1965,
-    period: "taiwanLens",
-    locationAncient: "烏坵嶼南方外海海域",
-    locationModern: "金門縣烏坵鄉外海",
-    coordinates: [119.45, 24.98],
-    parties: {
-      invader: "中國人民解放軍海軍快艇突擊群",
-      defender: "中華民國海軍巡邏艦隊 (臨淮艦、山海艦)"
+    "id": "bat_tw_wuchiu_1965",
+    "eraId": "tw_postwar",
+    "name": "烏坵海戰 (海軍將士浴血守衛臺海海疆之役)",
+    "year": 1965,
+    "period": "taiwanLens",
+    "locationAncient": "烏坵嶼南方外海海域",
+    "locationModern": "金門縣烏坵鄉外海",
+    "coordinates": [
+      119.45,
+      24.98
+    ],
+    "parties": {
+      "invader": "中國人民解放軍海軍快艇突擊群",
+      "defender": "中華民國海軍巡邏艦隊 (臨淮艦、山海艦)"
     },
-    victor: "雙方互有傷亡，國軍戰略轉向守勢固守",
-    victorStatement: "海軍官兵殊死抵抗擊沉敵快艇多艘，確立臺澎防衛固守作戰指導方針",
-    commanders: {
-      invader: ["魏垣武 (東海艦隊副司令)"],
-      defender: ["陳利民 (臨淮艦長)", "何季澎"]
+    "victor": "雙方互有傷亡，國軍戰略轉向守勢固守",
+    "victorStatement": "海軍官兵殊死抵抗擊沉敵快艇多艘，確立臺澎防衛固守作戰指導方針",
+    "commanders": {
+      "invader": [
+        "魏垣武 (東海艦隊副司令)"
+      ],
+      "defender": [
+        "陳利民 (臨淮艦長)",
+        "何季澎"
+      ]
     },
-    summary: "1965年11月解放軍魚雷快艇突襲護航烏坵物資之國軍臨淮艦。艦長陳利民率官兵奮勇開砲擊沉敵快艇四艘，臨淮艦不幸中雷沉沒，多名官兵壯烈犧牲。此戰後國軍正式確立以「防衛固守、有效嚇阻」為核心之現代臺海防禦戰略。",
-    keyStrategies: [
+    "summary": "1965年11月解放軍魚雷快艇突襲護航烏坵物資之國軍臨淮艦。艦長陳利民率官兵奮勇開砲擊沉敵快艇四艘，臨淮艦不幸中雷沉沒，多名官兵壯烈犧牲。此戰後國軍正式確立以「防衛固守、有效嚇阻」為核心之現代臺海防禦戰略。",
+    "keyStrategies": [
+      "以艦砲密集火力壓制近身魚雷快艇夜間狼群戰術",
+      "臨危不亂組織損管抗沉誓死堅守戰鬥崗位",
+      "促進國軍海空聯合作戰與反艦飛彈現代化換裝"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍海軍快艇突擊群",
+      "commanders": [
+        {
+          "name": "魏垣武 (東海艦隊副司令)"
+        }
+      ],
+      "forcesEstimate": "中國人民解放軍海軍快艇第 6 大隊高速護衛艇及魚雷艇 16 艘",
+      "casualtiesEstimate": "快艇被擊沉 2 艘，負傷受創 2 艘，數十人死傷"
+    },
+    "defender": {
+      "factionName": "中華民國海軍巡邏艦隊",
+      "commanders": [
+        {
+          "name": "陳利民 (臨淮艦長)"
+        },
+        {
+          "name": "何季澎"
+        }
+      ],
+      "forcesEstimate": "中華民國海軍巡邏編隊 (臨淮艦、山海艦)",
+      "casualtiesEstimate": "臨淮艦遭四枚魚雷命中沉沒，陣亡 19 人，失蹤 72 人，14 人獲美軍救起"
+    },
+    "tactics": [
       "以艦砲密集火力壓制近身魚雷快艇夜間狼群戰術",
       "臨危不亂組織損管抗沉誓死堅守戰鬥崗位",
       "促進國軍海空聯合作戰與反艦飛彈現代化換裝"

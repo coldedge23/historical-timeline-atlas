@@ -30,36 +30,86 @@ export const BattleModal = ({
   }, [battle, allEvents]);
 
   // Robustly extract attacker and defender with backward & cross-period compatibility
-  const attacker = battle.attacker || (battle.belligerents ? {
-    factionName: typeof battle.belligerents === 'object' ? battle.belligerents.attacker : '進攻方',
-    commanders: Array.isArray(battle.commanders?.attacker) ? battle.commanders.attacker : (Array.isArray(battle.commanders) ? battle.commanders : []),
-    forcesEstimate: battle.forces?.attacker || '萬餘人',
-    casualtiesEstimate: battle.casualties?.attacker || '詳見戰報'
-  } : {
-    factionName: '進攻方',
-    commanders: [],
-    forcesEstimate: '不詳',
-    casualtiesEstimate: '不詳'
-  });
+  const attacker = useMemo(() => {
+    if (battle.attacker) {
+      return {
+        ...battle.attacker,
+        forcesEstimate: battle.attacker.forcesEstimate || battle.forces?.attacker || '約萬餘人',
+        casualtiesEstimate: battle.attacker.casualtiesEstimate || battle.casualties?.attacker || '詳見戰報記敘'
+      };
+    }
+    if (battle.belligerents) {
+      return {
+        factionName: typeof battle.belligerents === 'object' ? battle.belligerents.attacker : '進攻方',
+        commanders: Array.isArray(battle.commanders?.attacker) ? battle.commanders.attacker : (Array.isArray(battle.commanders) ? battle.commanders : []),
+        forcesEstimate: battle.forces?.attacker || '約萬餘人',
+        casualtiesEstimate: battle.casualties?.attacker || '詳見戰報記敘'
+      };
+    }
+    if (battle.parties?.invader) {
+      const partyStr = battle.parties.invader;
+      const match = partyStr.match(/^(.*?)[（(](.*)[）)]$/);
+      const cmds = Array.isArray(battle.commanders?.invader) ? battle.commanders.invader : (Array.isArray(battle.commanders) ? battle.commanders : []);
+      return {
+        factionName: match ? match[1].trim() : partyStr,
+        commanders: cmds,
+        forcesEstimate: match ? match[2].trim() : (battle.forces?.attacker || '約萬餘人精銳'),
+        casualtiesEstimate: battle.casualties?.attacker || '詳見戰報記敘'
+      };
+    }
+    return {
+      factionName: '進攻方',
+      commanders: [],
+      forcesEstimate: '約萬餘人精銳',
+      casualtiesEstimate: '詳見戰報記敘'
+    };
+  }, [battle]);
 
-  const defender = battle.defender || (battle.belligerents ? {
-    factionName: typeof battle.belligerents === 'object' ? battle.belligerents.defender : '迎戰方',
-    commanders: Array.isArray(battle.commanders?.defender) ? battle.commanders.defender : [],
-    forcesEstimate: battle.forces?.defender || '數千人',
-    casualtiesEstimate: battle.casualties?.defender || '詳見戰報'
-  } : {
-    factionName: '迎戰方',
-    commanders: [],
-    forcesEstimate: '不詳',
-    casualtiesEstimate: '不詳'
-  });
+  const defender = useMemo(() => {
+    if (battle.defender) {
+      return {
+        ...battle.defender,
+        forcesEstimate: battle.defender.forcesEstimate || battle.forces?.defender || '約數千人',
+        casualtiesEstimate: battle.defender.casualtiesEstimate || battle.casualties?.defender || '詳見戰報記敘'
+      };
+    }
+    if (battle.belligerents) {
+      return {
+        factionName: typeof battle.belligerents === 'object' ? battle.belligerents.defender : '迎戰方',
+        commanders: Array.isArray(battle.commanders?.defender) ? battle.commanders.defender : [],
+        forcesEstimate: battle.forces?.defender || '約數千人',
+        casualtiesEstimate: battle.casualties?.defender || '詳見戰報記敘'
+      };
+    }
+    if (battle.parties?.defender) {
+      const partyStr = battle.parties.defender;
+      const match = partyStr.match(/^(.*?)[（(](.*)[）)]$/);
+      const cmds = Array.isArray(battle.commanders?.defender) ? battle.commanders.defender : [];
+      return {
+        factionName: match ? match[1].trim() : partyStr,
+        commanders: cmds,
+        forcesEstimate: match ? match[2].trim() : (battle.forces?.defender || '約數千人守備部隊'),
+        casualtiesEstimate: battle.casualties?.defender || '詳見戰報記敘'
+      };
+    }
+    return {
+      factionName: '迎戰方',
+      commanders: [],
+      forcesEstimate: '約數千人守備部隊',
+      casualtiesEstimate: '詳見戰報記敘'
+    };
+  }, [battle]);
 
   const parsedTactics = useMemo(() => {
-    if (!battle.tactics) return [];
-    if (Array.isArray(battle.tactics)) return battle.tactics;
-    if (typeof battle.tactics === 'string') return [battle.tactics];
+    if (battle.tactics) {
+      if (Array.isArray(battle.tactics)) return battle.tactics;
+      if (typeof battle.tactics === 'string') return [battle.tactics];
+    }
+    if (battle.keyStrategies && Array.isArray(battle.keyStrategies)) {
+      return battle.keyStrategies;
+    }
     return [];
-  }, [battle.tactics]);
+  }, [battle.tactics, battle.keyStrategies]);
 
   const renderCommanders = (commanders = []) => {
     if (!commanders || !Array.isArray(commanders)) return null;
