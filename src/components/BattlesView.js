@@ -47,7 +47,59 @@ const ERA_BATTLE_PHASES = {
     { id: 'mid', label: '🔥 鴉片戰爭、太平天國與收復新疆 (1839–1882年)', min: 1839, max: 1882 },
     { id: 'late', label: '🌊 中法保台、甲午乙未與辛亥首義 (1883–1912年)', min: 1883, max: 1920 },
   ],
+  taiwanLens: [
+    { id: 'early', label: '⛵ 荷西明鄭與清領拓墾 (1624–1873年)', min: 1500, max: 1873 },
+    { id: 'mid', label: '🛡️ 清法保台與乙未抗日 (1874–1945年)', min: 1874, max: 1945 },
+    { id: 'late', label: '🔥 臺海防衛與金馬戰役 (1946–1980年)', min: 1946, max: 2000 },
+  ],
+  japanAtlas: [
+    { id: 'early', label: '⛩️ 源平合戰與室町動亂 (600–1559年)', min: 500, max: 1559 },
+    { id: 'mid', label: '⚔️ 戰國群雄與關原大坂 (1560–1638年)', min: 1560, max: 1638 },
+    { id: 'late', label: '🌸 幕末戊辰與西南戰爭 (1850–1912年)', min: 1850, max: 1925 },
+  ],
 };
+
+function parseTroopCount(raw) {
+  if (!raw || typeof raw !== 'string') return null;
+  const s = raw.replace(/,/g, '');
+  const wanMatch = s.match(/(\d+(?:\.\d+)?)\s*萬/);
+  if (wanMatch) return Math.round(parseFloat(wanMatch[1]) * 10000);
+  const qianMatch = s.match(/(\d+(?:\.\d+)?)\s*千/);
+  if (qianMatch) return Math.round(parseFloat(qianMatch[1]) * 1000);
+  const numMatch = s.match(/(\d{3,7})/);
+  if (numMatch) return parseInt(numMatch[1], 10);
+  if (s.includes('數十萬')) return 250000;
+  if (s.includes('十餘萬') || s.includes('十萬')) return 110000;
+  if (s.includes('數萬')) return 35000;
+  if (s.includes('萬餘')) return 13000;
+  if (s.includes('數千')) return 4500;
+  if (s.includes('千餘')) return 1500;
+  if (s.includes('數百')) return 500;
+  return null;
+}
+
+function computeForcesTugOfWar(atkStr, defStr) {
+  const atk = parseTroopCount(atkStr);
+  const def = parseTroopCount(defStr);
+  if (!atk || !def) {
+    return { atkPct: 50, defPct: 50, ratioText: '兵力相當', isDisparity: false };
+  }
+  const total = atk + def;
+  const rawAtkPct = Math.round((atk / total) * 100);
+  const atkPct = Math.min(86, Math.max(14, rawAtkPct));
+  const defPct = 100 - atkPct;
+
+  let ratioText = '1 : 1';
+  if (atk >= def) {
+    const r = atk / def;
+    ratioText = `${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')} : 1`;
+  } else {
+    const r = def / atk;
+    ratioText = `1 : ${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')}`;
+  }
+  const isDisparity = atk >= def * 2.2 || def >= atk * 2.2;
+  return { atkPct, defPct, ratioText, isDisparity };
+}
 
 export const BattlesView = ({
   battles = [],
@@ -250,10 +302,51 @@ export const BattlesView = ({
                 </div>
 
                 {/* Victor Banner */}
-                <div className="p-2.5 rounded-lg bg-amber-950/20 border border-amber-500/30 flex items-center gap-2 text-xs text-amber-200 mb-3">
+                <div className="p-2.5 rounded-lg bg-amber-950/20 border border-amber-500/30 flex items-center gap-2 text-xs text-amber-200 mb-2.5">
                   <Trophy className="w-4 h-4 text-amber-400 shrink-0" />
                   <span className="font-bold">{battle.victorStatement}</span>
                 </div>
+
+                {/* Tug-of-War Battle Forces Bar */}
+                {(() => {
+                  const atkStr = battle.attacker?.forcesEstimate || battle.attacker?.troops || '精銳主力';
+                  const defStr = battle.defender?.forcesEstimate || battle.defender?.troops || '守備主力';
+                  const tug = computeForcesTugOfWar(atkStr, defStr);
+                  return (
+                    <div className="mb-2.5 px-2.5 py-2 rounded-lg bg-black/35 border border-white/5 space-y-1.5">
+                      <div className="flex items-center justify-between text-[10px]">
+                        <span className="text-blue-300 font-bold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block" />
+                          <span>攻方兵力 ({tug.atkPct}%)</span>
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          {tug.isDisparity && (
+                            <span className="px-1.5 py-0.2 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-[9.5px]">
+                              ⚡ 兵力懸殊
+                            </span>
+                          )}
+                          <span className="font-mono text-zinc-300 bg-zinc-800/90 px-1.5 py-0.2 rounded border border-white/10">
+                            兵力比 {tug.ratioText}
+                          </span>
+                        </div>
+                        <span className="text-emerald-300 font-bold flex items-center gap-1">
+                          <span>守方兵力 ({tug.defPct}%)</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                        </span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-zinc-800 overflow-hidden flex p-0.5 gap-0.5 border border-white/10">
+                        <div
+                          className="h-full rounded-l-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 transition-all duration-300"
+                          style={{ width: `${tug.atkPct}%` }}
+                        />
+                        <div
+                          className="h-full rounded-r-full bg-gradient-to-r from-teal-400 via-emerald-500 to-emerald-600 transition-all duration-300"
+                          style={{ width: `${tug.defPct}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Belligerents Preview with Commander Avatars */}
                 <div className="grid grid-cols-2 gap-2.5 text-xs mb-3">

@@ -5,7 +5,9 @@ import {
   ZoomOut, 
   Swords, 
   Clock,
-  MapPin
+  MapPin,
+  Maximize2,
+  Minimize2
 } from './Icons.js';
 import { CHINA_PROVINCE_PATHS } from '../data/threeKingdoms/chinaMapData.js';
 import { WARLORD_PERIOD_CONFIGS } from '../data/threeKingdoms/warlordPeriods.js';
@@ -22,6 +24,8 @@ export const HistoricalAtlasMap = ({
   onSelectBattle,
   ancientNamesOnly,
   onClearSearch,
+  isCinemaMode = false,
+  onToggleCinemaMode,
 }) => {
   const configsToUse = warlordPeriodConfigs && warlordPeriodConfigs.length > 0 ? warlordPeriodConfigs : WARLORD_PERIOD_CONFIGS;
   const initialYear = selectedEvent?.year || configsToUse[0]?.yearNumber || 184;
@@ -182,7 +186,7 @@ export const HistoricalAtlasMap = ({
       {/* 2. Main Map Graphic (100% Real Geographical Boundary Integration) */}
       <div ref={mapScrollContainerRef} className="relative flex-1 min-h-0 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center">
         {/* Top-Left Big Headline Stamp */}
-        <div className="w-full shrink-0 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2">
+        <div className={`w-full shrink-0 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2 ${isCinemaMode ? 'max-w-[1320px]' : 'max-w-[960px]'}`}>
           <div>
             <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#262018] font-serif">
               <span className="text-2xl sm:text-3xl text-[#991b1b] mr-2">{activePreset.yearDisplay}</span>
@@ -208,7 +212,7 @@ export const HistoricalAtlasMap = ({
 
         {/* The SVG Real Geographic Jigsaw Atlas Map Canvas */}
         <div
-          className={`w-full max-w-[960px] aspect-[1000/740] shrink-0 bg-[#efe5cd] rounded-lg border-2 border-[#786047] shadow-xl overflow-hidden relative ${
+          className={`w-full ${isCinemaMode ? 'max-w-[1320px]' : 'max-w-[960px]'} aspect-[1000/740] shrink-0 bg-[#efe5cd] rounded-lg border-2 border-[#786047] shadow-xl overflow-hidden relative ${
             zoom > 1 ? (isDragging ? 'cursor-grabbing' : 'cursor-grab') : ''
           }`}
           onMouseDown={handleMouseDown}
@@ -218,6 +222,32 @@ export const HistoricalAtlasMap = ({
         >
           {/* Floating Map Zoom, Route Toggle & Reset Toolbar */}
           <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 bg-[#2b2117]/90 backdrop-blur-sm p-1 rounded-lg border border-[#8c7355] shadow-lg">
+            {onToggleCinemaMode && (
+              <>
+                <button
+                  onClick={onToggleCinemaMode}
+                  title={isCinemaMode ? '返回雙欄對照模式 (顯示右側年表)' : '開啟劇院滿版地圖模式 (隱藏右側年表)'}
+                  className={`flex items-center gap-1 px-2 py-1 rounded text-[11px] font-bold transition-colors ${
+                    isCinemaMode
+                      ? 'bg-emerald-600 text-white shadow'
+                      : 'text-[#fef08a] hover:bg-[#53412d] hover:text-white'
+                  }`}
+                >
+                  {isCinemaMode ? (
+                    <>
+                      <Minimize2 className="w-3 h-3" />
+                      <span>雙欄模式</span>
+                    </>
+                  ) : (
+                    <>
+                      <Maximize2 className="w-3 h-3" />
+                      <span>劇院滿版</span>
+                    </>
+                  )}
+                </button>
+                <div className="w-px h-4 bg-[#8c7355]/50 mx-0.5" />
+              </>
+            )}
             <button
               onClick={() => setShowRoutes((v) => !v)}
               title="切換顯示動態戰術行軍路線"
@@ -571,7 +601,7 @@ export const HistoricalAtlasMap = ({
         </div>
 
         {/* 3. Bottom Historical Chronicles Strip */}
-        <div className="w-full max-w-[960px] shrink-0 mt-3 p-3 bg-[#eae0c6] rounded-lg border border-[#786047] grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-[#3a2e20] leading-relaxed">
+        <div className={`w-full ${isCinemaMode ? 'max-w-[1320px]' : 'max-w-[960px]'} shrink-0 mt-3 p-3 bg-[#eae0c6] rounded-lg border border-[#786047] grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-[#3a2e20] leading-relaxed`}>
           <div className="space-y-1">
             <div className="font-bold text-[#7f1d1d] flex items-center gap-1 mb-1 border-b border-[#c4a676] pb-1">
               <span>📜 {activePreset.yearDisplay} 軍事重大決策與戰況：</span>

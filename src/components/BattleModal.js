@@ -1,6 +1,48 @@
 import React, { useMemo } from 'react';
 import { X, Swords, Trophy, MapPin, ShieldAlert, Crosshair, Layers } from './Icons.js';
 
+function parseTroopCount(raw) {
+  if (!raw || typeof raw !== 'string') return null;
+  const s = raw.replace(/,/g, '');
+  const wanMatch = s.match(/(\d+(?:\.\d+)?)\s*萬/);
+  if (wanMatch) return Math.round(parseFloat(wanMatch[1]) * 10000);
+  const qianMatch = s.match(/(\d+(?:\.\d+)?)\s*千/);
+  if (qianMatch) return Math.round(parseFloat(qianMatch[1]) * 1000);
+  const numMatch = s.match(/(\d{3,7})/);
+  if (numMatch) return parseInt(numMatch[1], 10);
+  if (s.includes('數十萬')) return 250000;
+  if (s.includes('十餘萬') || s.includes('十萬')) return 110000;
+  if (s.includes('數萬')) return 35000;
+  if (s.includes('萬餘')) return 13000;
+  if (s.includes('數千')) return 4500;
+  if (s.includes('千餘')) return 1500;
+  if (s.includes('數百')) return 500;
+  return null;
+}
+
+function computeForcesTugOfWar(atkStr, defStr) {
+  const atk = parseTroopCount(atkStr);
+  const def = parseTroopCount(defStr);
+  if (!atk || !def) {
+    return { atkPct: 50, defPct: 50, ratioText: '兵力相當', isDisparity: false };
+  }
+  const total = atk + def;
+  const rawAtkPct = Math.round((atk / total) * 100);
+  const atkPct = Math.min(86, Math.max(14, rawAtkPct));
+  const defPct = 100 - atkPct;
+
+  let ratioText = '1 : 1';
+  if (atk >= def) {
+    const r = atk / def;
+    ratioText = `${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')} : 1`;
+  } else {
+    const r = def / atk;
+    ratioText = `1 : ${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')}`;
+  }
+  const isDisparity = atk >= def * 2.2 || def >= atk * 2.2;
+  return { atkPct, defPct, ratioText, isDisparity };
+}
+
 export const BattleModal = ({
   battle,
   allFigures = [],
@@ -255,6 +297,58 @@ export const BattleModal = ({
                 💡 點擊將領名牌可直接開啟人物列傳
               </span>
             </div>
+
+            {/* Tug-of-War Visual Forces Bar */}
+            {(() => {
+              const tug = computeForcesTugOfWar(attacker.forcesEstimate, defender.forcesEstimate);
+              return (
+                <div className="mb-3.5 p-3 rounded-xl bg-zinc-900/90 border border-white/10 space-y-2 shadow-inner">
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-blue-400 inline-block shadow" />
+                      <span className="font-bold text-blue-300">
+                        {attacker.factionName || '進攻方'}
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-mono">
+                        ({tug.atkPct}%)
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      {tug.isDisparity && (
+                        <span className="px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-[10px]">
+                          ⚡ 兵力懸殊對決
+                        </span>
+                      )}
+                      <span className="px-2 py-0.5 rounded bg-black/50 border border-white/10 text-zinc-200 font-mono text-[11px]">
+                        兵力比 {tug.ratioText}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[11px] text-zinc-400 font-mono">
+                        ({tug.defPct}%)
+                      </span>
+                      <span className="font-bold text-emerald-300">
+                        {defender.factionName || '迎戰方'}
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block shadow" />
+                    </div>
+                  </div>
+
+                  <div className="w-full h-2.5 rounded-full bg-black/60 overflow-hidden flex p-0.5 gap-1 border border-white/10">
+                    <div
+                      className="h-full rounded-l-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 transition-all duration-300"
+                      style={{ width: `${tug.atkPct}%` }}
+                    />
+                    <div
+                      className="h-full rounded-r-full bg-gradient-to-r from-teal-400 via-emerald-500 to-emerald-600 transition-all duration-300"
+                      style={{ width: `${tug.defPct}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })()}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Attacker Box */}

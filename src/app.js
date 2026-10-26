@@ -61,6 +61,7 @@ export function App() {
   );
   const [ancientNamesOnly, setAncientNamesOnly] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isCinemaMode, setIsCinemaMode] = useState(false);
 
   // Multi-Civilization Mode States ('china' | 'taiwan' | 'japan')
   const initialCiv = initialHash.civ || (initialHash.lens === 'taiwan' ? 'taiwan' : initialHash.lens === 'japan' ? 'japan' : 'china');
@@ -161,6 +162,49 @@ export function App() {
         : [400, 360],
     }));
   }, []);
+
+  // All China Events across all periods for cross-civilization contemporary reference
+  const allChinaEvents = useMemo(() => {
+    const list = [];
+    for (const [periodId, p] of Object.entries(HISTORICAL_PERIODS)) {
+      for (const evt of p.events || []) {
+        list.push({ ...evt, periodId, periodName: p.name });
+      }
+    }
+    return list.sort((a, b) => a.year - b.year);
+  }, []);
+
+  const crossCivPools = useMemo(
+    () => ({
+      china: allChinaEvents,
+      taiwan: taiwanLensEvents,
+      japan: japanEvents,
+    }),
+    [allChinaEvents, taiwanLensEvents, japanEvents]
+  );
+
+  const handleJumpToCrossCivEvent = (targetCiv, targetEvt) => {
+    if (!targetEvt) return;
+    setSearchTerm('');
+    setSelectedFigure(null);
+    setSelectedBattle(null);
+
+    if (targetCiv === 'japan') {
+      setCivilizationMode('japan');
+      if (targetEvt.eraId) setActiveJapanEraId(targetEvt.eraId);
+      setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
+    } else if (targetCiv === 'taiwan') {
+      setCivilizationMode('taiwan');
+      if (targetEvt.eraId) setActiveTaiwanEraId(targetEvt.eraId);
+      setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
+    } else if (targetCiv === 'china') {
+      setCivilizationMode('china');
+      if (targetEvt.periodId && HISTORICAL_PERIODS[targetEvt.periodId]) {
+        setActivePeriodId(targetEvt.periodId);
+      }
+      setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
+    }
+  };
 
   const taiwanLensFigures = useMemo(() => {
     return allFiguresPool
@@ -521,11 +565,11 @@ export function App() {
 
       {/* Main Content Area */}
       <ErrorBoundary>
-        <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0">
+        <main className={`flex-1 ${isCinemaMode && activeTab === 'map-timeline' ? 'max-w-[1440px]' : 'max-w-7xl'} w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0 transition-all duration-300`}>
           {activeTab === 'map-timeline' && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:h-[calc(100vh-104px)] md:max-h-[calc(100vh-104px)] min-h-0 overflow-hidden">
               {/* Map Canvas: Switches dynamically between China Atlas, Taiwan Atlas & Japan Atlas */}
-              <div className="md:col-span-7 h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col">
+              <div className={`${isCinemaMode ? 'md:col-span-12' : 'md:col-span-7'} h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col transition-all duration-300`}>
                 {civilizationMode === 'japan' ? (
                   <JapanAtlasMap
                     activeJapanEraId={activeJapanEraId}
@@ -539,6 +583,8 @@ export function App() {
                     onSelectBattle={handleSelectBattle}
                     ancientNamesOnly={ancientNamesOnly}
                     onClearSearch={() => setSearchTerm('')}
+                    isCinemaMode={isCinemaMode}
+                    onToggleCinemaMode={() => setIsCinemaMode((v) => !v)}
                   />
                 ) : isTaiwanLensMode ? (
                   <TaiwanAtlasMap
@@ -553,6 +599,8 @@ export function App() {
                     onSelectBattle={handleSelectBattle}
                     ancientNamesOnly={ancientNamesOnly}
                     onClearSearch={() => setSearchTerm('')}
+                    isCinemaMode={isCinemaMode}
+                    onToggleCinemaMode={() => setIsCinemaMode((v) => !v)}
                   />
                 ) : (
                   <HistoricalAtlasMap
@@ -566,27 +614,34 @@ export function App() {
                     onSelectBattle={setSelectedBattle}
                     ancientNamesOnly={ancientNamesOnly}
                     onClearSearch={() => setSearchTerm('')}
+                    isCinemaMode={isCinemaMode}
+                    onToggleCinemaMode={() => setIsCinemaMode((v) => !v)}
                   />
                 )}
               </div>
 
-              {/* Dual-Axis Timeline (5 cols on Desktop) */}
-              <div className="md:col-span-5 h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col">
-                <Timeline
-                  events={eventsForTimeline}
-                  figures={currentFigures}
-                  battles={currentBattles}
-                  selectedEvent={selectedEvent}
-                  onSelectEvent={handleSelectEvent}
-                  onSelectFigureById={handleSelectFigureById}
-                  onSelectBattleById={handleSelectBattleById}
-                  ancientNamesOnly={ancientNamesOnly}
-                  activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
-                  searchTerm={searchTerm}
-                  onClearSearch={() => setSearchTerm('')}
-                  onSearchChange={setSearchTerm}
-                />
-              </div>
+              {/* Dual-Axis Timeline (5 cols on Desktop, hidden in Cinema Mode) */}
+              {!isCinemaMode && (
+                <div className="md:col-span-5 h-[560px] md:h-full min-h-0 overflow-hidden flex flex-col">
+                  <Timeline
+                    events={eventsForTimeline}
+                    figures={currentFigures}
+                    battles={currentBattles}
+                    selectedEvent={selectedEvent}
+                    onSelectEvent={handleSelectEvent}
+                    onSelectFigureById={handleSelectFigureById}
+                    onSelectBattleById={handleSelectBattleById}
+                    ancientNamesOnly={ancientNamesOnly}
+                    activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
+                    searchTerm={searchTerm}
+                    onClearSearch={() => setSearchTerm('')}
+                    onSearchChange={setSearchTerm}
+                    civilizationMode={civilizationMode}
+                    crossCivPools={crossCivPools}
+                    onJumpToCrossCivEvent={handleJumpToCrossCivEvent}
+                  />
+                </div>
+              )}
             </div>
           )}
 

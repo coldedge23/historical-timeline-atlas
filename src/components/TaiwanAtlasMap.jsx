@@ -4,7 +4,9 @@ import {
   ZoomIn,
   ZoomOut,
   Clock,
-  MapPin
+  MapPin,
+  Maximize2,
+  Minimize2
 } from './Icons.js';
 import { TAIWAN_LENS_ERAS, ERA_BATTLE_IDS } from '../data/taiwanLensData.js';
 import { TAIWAN_COUNTY_PATHS, projectLngLatToTaiwanMap } from '../data/taiwanMapGeoData.js';
@@ -390,6 +392,8 @@ export const TaiwanAtlasMap = ({
   onSelectBattle,
   ancientNamesOnly,
   onClearSearch,
+  isCinemaMode = false,
+  onToggleCinemaMode,
 }) => {
   const currentScheme = TAIWAN_ERA_COUNTY_SCHEMES[activeTaiwanEraId] || TAIWAN_ERA_COUNTY_SCHEMES.tw_tungning;
   const [hoveredCounty, setHoveredCounty] = useState(null);
@@ -479,7 +483,7 @@ export const TaiwanAtlasMap = ({
         className="relative flex-1 min-h-0 overflow-y-auto bg-[#f4ecd8] p-3 sm:p-4 flex flex-col items-center"
       >
         {/* Top-Left Classical Seal Title Stamp */}
-        <div className="w-full max-w-[820px] mb-2 flex items-center justify-between px-2 text-xs text-[#2b2117]">
+        <div className={`w-full ${isCinemaMode ? 'max-w-[1280px]' : 'max-w-[820px]'} mb-2 flex items-center justify-between px-2 text-xs text-[#2b2117]`}>
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded bg-[#8c2d19] text-[#fef08a] font-bold font-serif text-xs border border-[#d97706]/50 shadow-md">
               {currentScheme.themeBadge}
@@ -497,7 +501,7 @@ export const TaiwanAtlasMap = ({
 
         {/* Map Canvas with Authentic GIS Boundaries (820 x 720) */}
         <div
-          className="relative w-full max-w-[820px] aspect-[820/720] shrink-0 rounded-xl overflow-hidden shadow-2xl border-2 border-[#8c7355] bg-[#efe5cc] cursor-grab active:cursor-grabbing"
+          className={`relative w-full ${isCinemaMode ? 'max-w-[1280px]' : 'max-w-[820px]'} aspect-[820/720] shrink-0 rounded-xl overflow-hidden shadow-2xl border-2 border-[#8c7355] bg-[#efe5cc] cursor-grab active:cursor-grabbing`}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -505,6 +509,32 @@ export const TaiwanAtlasMap = ({
         >
           {/* Zoom / Pan Controls (Top-Right) */}
           <div className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1 bg-[#1a140e]/85 backdrop-blur-md p-1 rounded-lg border border-[#8c7355] shadow-lg">
+            {onToggleCinemaMode && (
+              <>
+                <button
+                  onClick={onToggleCinemaMode}
+                  title={isCinemaMode ? '返回雙欄對照模式 (顯示右側年表)' : '開啟劇院滿版地圖模式 (隱藏右側年表)'}
+                  className={`flex items-center gap-1 px-2 py-1 rounded text-[11px] font-bold transition-colors ${
+                    isCinemaMode
+                      ? 'bg-emerald-600 text-white shadow'
+                      : 'text-[#fef08a] hover:bg-[#53412d] hover:text-white'
+                  }`}
+                >
+                  {isCinemaMode ? (
+                    <>
+                      <Minimize2 className="w-3 h-3" />
+                      <span>雙欄模式</span>
+                    </>
+                  ) : (
+                    <>
+                      <Maximize2 className="w-3 h-3" />
+                      <span>劇院滿版</span>
+                    </>
+                  )}
+                </button>
+                <div className="w-px h-4 bg-[#8c7355]/50 mx-0.5" />
+              </>
+            )}
             <button
               onClick={handleZoomIn}
               title="放大地圖"
@@ -799,7 +829,7 @@ export const TaiwanAtlasMap = ({
 
         {/* 3. Event Detail & Tactical Intelligence Panel (Below Map) */}
         {selectedEvent && (
-          <div className="w-full max-w-[820px] mt-3 p-3.5 bg-[#fdfbf7] border-2 border-[#8c7355] rounded-xl shadow-md text-[#2b2117] flex flex-col gap-2">
+          <div className={`w-full ${isCinemaMode ? 'max-w-[1280px]' : 'max-w-[820px]'} mt-3 p-3.5 bg-[#fdfbf7] border-2 border-[#8c7355] rounded-xl shadow-md text-[#2b2117] flex flex-col gap-2`}>
             <div className="flex items-center justify-between border-b border-[#8c7355]/30 pb-2">
               <div className="flex items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded bg-[#8c2d19] text-[#fef08a] font-bold font-serif text-xs shadow-sm">
