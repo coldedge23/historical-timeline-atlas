@@ -8,7 +8,13 @@ import { DemographicsModal } from './components/DemographicsModal.js';
 import { FiguresView } from './components/FiguresView.js';
 import { BattlesView } from './components/BattlesView.js';
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
+import { TaiwanLensBanner } from './components/TaiwanLensBanner.jsx';
 import { HISTORICAL_PERIODS, PERIOD_OPTIONS } from './data/periodsRegistry.js';
+import {
+  TAIWAN_LENS_ERAS,
+  TAIWAN_RELATED_FIGURE_IDS,
+  TAIWAN_RELATED_BATTLES,
+} from './data/taiwanLensData.js';
 
 function parseUrlHash() {
   try {
@@ -20,9 +26,11 @@ function parseUrlHash() {
       event: params.get('event') || '',
       figure: params.get('figure') || '',
       battle: params.get('battle') || '',
+      lens: params.get('lens') || '',
+      era: params.get('era') || '',
     };
   } catch {
-    return { period: '', tab: '', event: '', figure: '', battle: '' };
+    return { period: '', tab: '', event: '', figure: '', battle: '', lens: '', era: '' };
   }
 }
 
@@ -42,11 +50,67 @@ export function App() {
   const [ancientNamesOnly, setAncientNamesOnly] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Active Period Datasets
+  // Taiwan Lens Mode States
+  const [isTaiwanLensMode, setIsTaiwanLensMode] = useState(initialHash.lens === 'taiwan');
+  const [activeTaiwanEraId, setActiveTaiwanEraId] = useState(
+    initialHash.era && TAIWAN_LENS_ERAS.some((e) => e.id === initialHash.era)
+      ? initialHash.era
+      : 'tw_tungning'
+  );
+
+  // Pool of all figures across all 10 periods for cross-period selection
+  const allFiguresPool = useMemo(() => {
+    const list = [];
+    for (const p of Object.values(HISTORICAL_PERIODS)) {
+      for (const fig of p.figures || []) {
+        list.push(fig);
+      }
+    }
+    return list;
+  }, []);
+
+  // Taiwan Lens Datasets
+  const taiwanLensEvents = useMemo(() => {
+    const evts = [];
+    TAIWAN_LENS_ERAS.forEach((era) => {
+      (era.keyEvents || []).forEach((ke) => {
+        evts.push({
+          ...ke,
+          eraId: era.id,
+          eraName: era.name,
+          svgPos: ke.coordinates
+            ? [
+                580 + (ke.coordinates[0] - 118) * 7.5,
+                495 - (ke.coordinates[1] - 22) * 9.5,
+              ]
+            : [602, 478],
+        });
+      });
+    });
+    return evts.sort((a, b) => a.year - b.year);
+  }, []);
+
+  const taiwanLensFigures = useMemo(() => {
+    return allFiguresPool.filter(
+      (f) =>
+        TAIWAN_RELATED_FIGURE_IDS.includes(f.id) ||
+        f.faction === 'taiwan' ||
+        (f.hometown && (f.hometown.includes('臺') || f.hometown.includes('台')))
+    );
+  }, [allFiguresPool]);
+
+  const currentEraConfig = useMemo(() => {
+    return (
+      TAIWAN_LENS_ERAS.find((e) => e.id === activeTaiwanEraId) ||
+      TAIWAN_LENS_ERAS[2]
+    );
+  }, [activeTaiwanEraId]);
+
+  // Active Datasets (dynamically swapped between Epoch Dynasty & Taiwan Lens Mode)
   const currentPeriodConfig = HISTORICAL_PERIODS[activePeriodId] || HISTORICAL_PERIODS.qinHan;
-  const currentEvents = currentPeriodConfig.events || [];
-  const currentFigures = currentPeriodConfig.figures || [];
-  const currentBattles = currentPeriodConfig.battles || [];
+  const currentEvents = isTaiwanLensMode ? taiwanLensEvents : currentPeriodConfig.events || [];
+  const currentFigures = isTaiwanLensMode ? taiwanLensFigures : currentPeriodConfig.figures || [];
+  const currentBattles = isTaiwanLensMode ? TAIWAN_RELATED_BATTLES : currentPeriodConfig.battles || [];
   const currentTerritories = currentPeriodConfig.territories;
   const currentWarlordPeriods = currentPeriodConfig.warlordPeriods || [];
   const currentDemographics = currentPeriodConfig.demographics;
@@ -78,7 +142,12 @@ export function App() {
   useEffect(() => {
     try {
       const params = new URLSearchParams();
-      params.set('period', activePeriodId);
+      if (isTaiwanLensMode) {
+        params.set('lens', 'taiwan');
+        params.set('era', activeTaiwanEraId);
+      } else {
+        params.set('period', activePeriodId);
+      }
       if (activeTab && activeTab !== 'map-timeline') {
         params.set('tab', activeTab);
       }
@@ -96,11 +165,20 @@ export function App() {
         window.history.replaceState(null, '', newHash);
       }
     } catch {}
-  }, [activePeriodId, activeTab, selectedEvent?.id, selectedFigure?.id, selectedBattle?.id]);
+  }, [
+    activePeriodId,
+    activeTab,
+    selectedEvent?.id,
+    selectedFigure?.id,
+    selectedBattle?.id,
+    isTaiwanLensMode,
+    activeTaiwanEraId,
+  ]);
 
   // Handle Epoch / Period Switching
   const handleSelectPeriodId = (periodId) => {
     if (!HISTORICAL_PERIODS[periodId]) return;
+    setIsTaiwanLensMode(false);
     setActivePeriodId(periodId);
     const newConfig = HISTORICAL_PERIODS[periodId];
     if (newConfig.events && newConfig.events.length > 0) {
@@ -111,6 +189,41 @@ export function App() {
     setSelectedFigure(null);
     setSelectedBattle(null);
     setSearchTerm('');
+  };
+
+  // Handle Taiwan Lens Toggle
+  const handleToggleTaiwanLens = () => {
+    if (!isTaiwanLensMode) {
+      setIsTaiwanLensMode(true);
+      const targetEra =
+        TAIWAN_LENS_ERAS.find((e) => e.id === activeTaiwanEraId) || TAIWAN_LENS_ERAS[2];
+      if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
+        const found = taiwanLensEvents.find((e) => e.id === targetEra.keyEvents[0].id);
+        if (found) setSelectedEvent(found);
+      }
+      setSelectedFigure(null);
+      setSelectedBattle(null);
+    } else {
+      setIsTaiwanLensMode(false);
+      const curEvts =
+        (HISTORICAL_PERIODS[activePeriodId] || HISTORICAL_PERIODS.yuanMing).events || [];
+      if (curEvts.length > 0) {
+        setSelectedEvent(curEvts[0]);
+      }
+      setSelectedFigure(null);
+      setSelectedBattle(null);
+    }
+  };
+
+  const handleSelectTaiwanEraId = (eraId) => {
+    setActiveTaiwanEraId(eraId);
+    const targetEra = TAIWAN_LENS_ERAS.find((e) => e.id === eraId);
+    if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
+      const found = taiwanLensEvents.find((e) => e.id === targetEra.keyEvents[0].id);
+      if (found) {
+        setSelectedEvent({ ...found, _scrollTs: Date.now() });
+      }
+    }
   };
 
   // Cross-Era Global Search across all 9 historical periods (980 figures, 161 battles, 260 events)
@@ -263,11 +376,25 @@ export function App() {
         eventCount={currentEvents.length}
         figureCount={currentFigures.length}
         battleCount={currentBattles.length}
+        isTaiwanLensMode={isTaiwanLensMode}
+        onToggleTaiwanLens={handleToggleTaiwanLens}
       />
 
       {/* Main Content Area */}
       <ErrorBoundary>
         <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0">
+          {/* Taiwan Lens Dedicated Banner */}
+          {isTaiwanLensMode && (
+            <TaiwanLensBanner
+              activeTaiwanEraId={activeTaiwanEraId}
+              onSelectTaiwanEraId={handleSelectTaiwanEraId}
+              onExitTaiwanLens={() => setIsTaiwanLensMode(false)}
+              currentEraConfig={currentEraConfig}
+              eventCount={taiwanLensEvents.length}
+              figureCount={taiwanLensFigures.length}
+              battleCount={currentBattles.length}
+            />
+          )}
           {activeTab === 'map-timeline' && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:h-[calc(100vh-104px)] md:max-h-[calc(100vh-104px)] min-h-0 overflow-hidden">
               {/* Authentic Historical Atlas Scroll Map */}
@@ -327,8 +454,8 @@ export function App() {
         {selectedFigure && (
           <FigureModal
             figure={selectedFigure}
-            allFigures={currentFigures}
-            allEvents={currentEvents}
+            allFigures={allFiguresPool.length > 0 ? allFiguresPool : currentFigures}
+            allEvents={isTaiwanLensMode ? taiwanLensEvents : currentEvents}
             allBattles={currentBattles}
             onClose={() => setSelectedFigure(null)}
             onSelectFigure={setSelectedFigure}
@@ -348,8 +475,8 @@ export function App() {
         {selectedBattle && (
           <BattleModal
             battle={selectedBattle}
-            allFigures={currentFigures}
-            allEvents={currentEvents}
+            allFigures={allFiguresPool.length > 0 ? allFiguresPool : currentFigures}
+            allEvents={isTaiwanLensMode ? taiwanLensEvents : currentEvents}
             onClose={() => setSelectedBattle(null)}
             onSelectFigure={setSelectedFigure}
             onSelectEvent={(evt) => {

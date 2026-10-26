@@ -357,19 +357,53 @@ export const HistoricalAtlasMap = ({
                 );
               })}
 
-              {/* Taiwan Island (夷洲) Realistic Geography */}
-              <g>
-                <path
-                  d="M 602,462 Q 609,475 607,492 Q 600,495 596,480 Q 595,468 602,462 Z"
-                  fill="#fde047"
-                  stroke="#261c14"
-                  strokeWidth="1.2"
-                  className="cursor-pointer"
-                  onMouseEnter={() => setHoveredWarlord('夷洲（今臺灣，230年東吳衛溫、諸葛直航海抵達）')}
-                  onMouseLeave={() => setHoveredWarlord(null)}
-                />
-                <circle cx="592" cy="477" r="1.5" fill="#a16207" />
-              </g>
+              {/* Taiwan Island & Penghu & Kinmen Realistic Geography */}
+              {(() => {
+                const twConf = (activePreset.provinceWarlordMap || {}).taiwan;
+                const twColor = twConf ? twConf.color : '#10b981';
+                const twLabel = twConf ? twConf.warlord : '臺灣（寶島）';
+                return (
+                  <g className="transition-all duration-300">
+                    {/* Taiwan Main Island */}
+                    <path
+                      d="M 602,462 Q 609,475 607,492 Q 600,495 596,480 Q 595,468 602,462 Z"
+                      fill={twColor}
+                      stroke="#261c14"
+                      strokeWidth="1.3"
+                      className="cursor-pointer transition-colors duration-150"
+                      style={{
+                        filter: hoveredWarlord === twLabel ? 'brightness(1.15) drop-shadow(0 0 6px rgba(16, 185, 129, 0.6))' : 'none',
+                      }}
+                      onMouseEnter={() => setHoveredWarlord(twLabel)}
+                      onMouseLeave={() => setHoveredWarlord(null)}
+                    />
+                    {/* Penghu Islands (澎湖巡檢司/澎湖海戰) */}
+                    <circle
+                      cx="592"
+                      cy="477"
+                      r="2"
+                      fill={twColor}
+                      stroke="#261c14"
+                      strokeWidth="0.8"
+                      className="cursor-pointer"
+                      onMouseEnter={() => setHoveredWarlord(`澎湖群島 (${twLabel})`)}
+                      onMouseLeave={() => setHoveredWarlord(null)}
+                    />
+                    {/* Kinmen (金門料羅灣/古寧頭/八二三) */}
+                    <circle
+                      cx="582"
+                      cy="484"
+                      r="1.8"
+                      fill={twColor}
+                      stroke="#261c14"
+                      strokeWidth="0.8"
+                      className="cursor-pointer"
+                      onMouseEnter={() => setHoveredWarlord(`金門 (${twLabel})`)}
+                      onMouseLeave={() => setHoveredWarlord(null)}
+                    />
+                  </g>
+                );
+              })()}
             </g>
 
             {/* 2. REAL RIVERS (Yellow River & Yangtze River) */}

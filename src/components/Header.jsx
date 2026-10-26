@@ -28,6 +28,8 @@ export const Header = ({
   eventCount,
   figureCount,
   battleCount,
+  isTaiwanLensMode = false,
+  onToggleTaiwanLens,
 }) => {
   const [isSpotlightOpen, setIsSpotlightOpen] = useState(false);
   const searchInputRef = useRef(null);
@@ -70,6 +72,7 @@ export const Header = ({
       case 'songLiao': return '🏮 ';
       case 'yuanMing': return '⛵ ';
       case 'qingDynasty': return '🐉 ';
+      case 'republicModern': return '🏙️ ';
       default: return '📜 ';
     }
   };
@@ -199,8 +202,24 @@ export const Header = ({
           </button>
         </div>
 
-        {/* Right Tools: Ancient Names Toggle & Cross-Era Global Search */}
+        {/* Right Tools: Taiwan Lens, Ancient Names Toggle & Cross-Era Global Search */}
         <div className="flex items-center gap-2.5 w-full md:w-auto justify-end">
+          {/* Taiwan Lens Dedicated Toggle Button */}
+          {onToggleTaiwanLens && (
+            <button
+              onClick={onToggleTaiwanLens}
+              title="切換至臺灣四千年歷史縱貫專題視角（Taiwan Chronological Lens）"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold border transition-all shrink-0 ${
+                isTaiwanLensMode
+                  ? 'bg-gradient-to-r from-emerald-600 to-teal-700 border-emerald-400 text-white shadow-lg shadow-emerald-950/60 ring-2 ring-emerald-400/40'
+                  : 'bg-emerald-950/40 border-emerald-600/40 text-emerald-300 hover:bg-emerald-900/50 hover:border-emerald-400 hover:text-emerald-100'
+              }`}
+            >
+              <span className="text-sm">🏝️</span>
+              <span>{isTaiwanLensMode ? '臺灣專題中' : '臺灣專題視角'}</span>
+            </button>
+          )}
+
           {/* Ancient / Modern Toggle Button */}
           <button
             onClick={onToggleAncientNames}
