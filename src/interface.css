@@ -54,6 +54,10 @@ input { caret-color:var(--atlas-accent); }
 .atlas-dialog[open] { display:flex; justify-content:center; align-items:center; }
 .atlas-dialog::backdrop { background:#000b; }
 .atlas-dialog>div { max-height:calc(100dvh - 32px); }
+.route-notice { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 12px; padding:8px 8px 8px 14px; border:1px solid #e2b77759; border-radius:10px; background:#2a2218; color:#efd9b4; font-size:14px; }
+.route-notice p { margin:0; }
+.route-notice button { display:grid; place-items:center; min-width:36px; min-height:36px; border-radius:8px; color:#e2b777; }
+.route-notice button:hover { background:#3c3327; }
 /* Raise the reading floor without changing SVG label geometry. */
 #main-content .text-xs,.atlas-dialog .text-xs { font-size:14px; line-height:1.65; }
 #main-content [class*="text-[9"],#main-content [class*="text-[10"],#main-content [class*="text-[11"],.atlas-dialog [class*="text-[9"],.atlas-dialog [class*="text-[10"],.atlas-dialog [class*="text-[11"] { font-size:12px; line-height:1.55; }

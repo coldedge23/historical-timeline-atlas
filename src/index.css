@@ -25,37 +25,6 @@
   background: #c99a58;
 }
 
-/* Leaflet map custom dark styling */
-.leaflet-container {
-  background: #121316 !important;
-  font-family: inherit;
-}
-
-.custom-battle-marker {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pulse-ring {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.9;
-  }
-  80%, 100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-}
-
 /* Glassmorphism panel */
 .glass-panel {
   background: rgba(22, 23, 27, 0.85);
@@ -66,9 +35,6 @@
 
 /* Keep the established parchment map / charcoal reading surface. */
 body { font-family: 'Microsoft JhengHei', 'Noto Sans TC', system-ui, sans-serif; }
-.dark-tiles .leaflet-tile { filter: brightness(.65) invert(1) contrast(3.2) hue-rotate(205deg) saturate(.35); }
-.leaflet-popup-content-wrapper { background: #18191e !important; color: #e4e4e7 !important; border: 1px solid rgba(201,154,88,.3) !important; border-radius: 8px !important; }
-.leaflet-popup-tip { background: #18191e !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }

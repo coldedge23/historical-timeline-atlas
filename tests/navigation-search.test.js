@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {parseNavigationHash, serializeNavigation, resolveNavigation} from '../src/utils/navigation.js';
+import {parseNavigationHash, serializeNavigation, resolveNavigation, unknownRouteParts} from '../src/utils/navigation.js';
 import {createSearchIndex, searchIndex} from '../src/utils/search.js';
 const catalogs = {
  yuanMing:{id:'yuanMing',name:'元明',events:[{id:'cn',title:'朱元璋建國'}],figures:[],battles:[]},
@@ -33,4 +33,11 @@ test('cross-civilization search returns dedicated figures and battles with navig
  }
  assert.deepEqual(searchIndex(index,'不存在','yuanMing'),[]);
  assert.deepEqual(searchIndex(index,'  ','yuanMing'),[]);
+});
+test('unknown period or civilization in a link is reported, valid ones are not',()=>{
+ const known=id=>['yuanMing','threeKingdoms'].includes(id);
+ assert.deepEqual(unknownRouteParts('#period=sanguo',known),{civ:'',period:'sanguo'});
+ assert.deepEqual(unknownRouteParts('#civ=korea',known),{civ:'korea',period:''});
+ assert.deepEqual(unknownRouteParts('#period=threeKingdoms&event=x',known),{civ:'',period:''});
+ assert.deepEqual(unknownRouteParts('',known),{civ:'',period:''});
 });

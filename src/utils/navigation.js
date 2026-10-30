@@ -15,8 +15,16 @@ export function serializeNavigation(state) {
   for (const key of ['event', 'figure', 'battle']) if (state[key]) p.set(key, state[key]);
   return '#' + p.toString();
 }
+// Unknown period/civ values in a shared link fall back to the defaults; report what was dropped.
+export function unknownRouteParts(hash, isKnownPeriod) {
+  const params = new URLSearchParams(hash.replace(/^#/, ''));
+  const civ = params.get('civ') || params.get('lens');
+  const period = params.get('period');
+  return { civ: civ && !VALID_CIVILIZATIONS.includes(civ) ? civ : '', period: period && !isKnownPeriod(period) ? period : '' };
+}
 export function resolveNavigation(hash, catalogs, eras) {
   const route = parseNavigationHash(hash);
+  route.unknown = unknownRouteParts(hash, id => !!catalogs[id]);
   if (!catalogs[route.period]) route.period = 'yuanMing';
   const key = route.civ === 'china' ? route.period : route.civ;
   const dataset = catalogs[key];

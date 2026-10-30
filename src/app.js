@@ -10,6 +10,7 @@ import { DemographicsModal } from './components/DemographicsModal.js';
 const FiguresView = lazy(() => import('./components/FiguresView.js').then(m => ({default: m.FiguresView})));
 const BattlesView = lazy(() => import('./components/BattlesView.js').then(m => ({default: m.BattlesView})));
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
+import { X } from './components/Icons.js';
 import { PERIOD_OPTIONS } from './data/periodsRegistry.js';
 import { LINKED_PERIODS as HISTORICAL_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES } from './data/linkedHistoryCatalog.js';
 import {
@@ -24,7 +25,7 @@ import {
   JAPAN_ERA_BATTLE_IDS,
 } from './data/japan/index.js';
 
-import { parseNavigationHash, serializeNavigation, resolveNavigation } from './utils/navigation.js';
+import { parseNavigationHash, serializeNavigation, resolveNavigation, unknownRouteParts } from './utils/navigation.js';
 import { useGlobalSearch } from './hooks/useGlobalSearch.js';
 
 export function App() {
@@ -35,6 +36,8 @@ export function App() {
       : 'yuanMing';
 
   const [activePeriodId, setActivePeriodId] = useState(initialPeriodId);
+  // The notice belongs to the view it fell back to; navigating elsewhere hides it.
+  const [routeNotice, setRouteNotice] = useState(() => ({ ...unknownRouteParts(window.location.hash, id => !!HISTORICAL_PERIODS[id]), at: `${initialHash.civ}:${initialPeriodId}` }));
   const [activeTab, setActiveTab] = useState(
     ['map-timeline', 'figures', 'battles'].includes(initialHash.tab)
       ? initialHash.tab
@@ -183,6 +186,7 @@ export function App() {
     const restore = () => {
       const route = resolveNavigation(window.location.hash, catalogs, {taiwan:TAIWAN_LENS_ERAS, japan:JAPAN_ERAS});
       lastNavigation.current = serializeNavigation(route);
+      setRouteNotice({ ...route.unknown, at: `${route.civ}:${route.period}` });
       setCivilizationMode(route.civ);
       setActivePeriodId(route.period);
       setActiveTab(route.tab);
@@ -418,6 +422,13 @@ export function App() {
       <ErrorBoundary>
         <Suspense fallback={<div className="loading-surface" role="status">正在載入歷史內容…</div>}>
         <main id="main-content" tabIndex={-1} className={`flex-1 ${isCinemaMode && activeTab === 'map-timeline' ? 'max-w-[1440px]' : 'max-w-7xl'} w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0 transition-all duration-300`}>
+          <h1 className="sr-only">歷史星圖：{civilizationMode === 'china' ? `華夏通史・${currentPeriodConfig.name}` : civilizationMode === 'taiwan' ? '臺灣歷史' : '日本歷史'}</h1>
+          {(routeNotice.period || routeNotice.civ) && routeNotice.at === `${civilizationMode}:${activePeriodId}` && (
+            <div className="route-notice" role="status">
+              <p>網址中的{routeNotice.period ? `時期「${routeNotice.period}」` : `歷史體系「${routeNotice.civ}」`}不存在，已改為顯示{civilizationMode === 'china' ? `「${currentPeriodConfig.name}」` : '預設內容'}。</p>
+              <button type="button" onClick={() => setRouteNotice({ civ: '', period: '', at: '' })} aria-label="關閉提示"><X aria-hidden="true" className="w-4 h-4" /></button>
+            </div>
+          )}
           {activeTab === 'map-timeline' && (
             <div className={`atlas-layout ${isCinemaMode ? 'is-cinema' : ''}`} data-mobile-surface={mobileSurface}>
               <div className="mobile-surface-switch" role="group" aria-label="歷史探索視圖">
