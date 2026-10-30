@@ -19,6 +19,20 @@ assert(css.includes('prefers-reduced-motion'), '缺少減少動態樣式');
 assert(fs.existsSync(path.join(dist, 'images')), '發布目錄缺少圖片');
 console.log(`程式資產驗證通過：${manifest.assets.length} 個資產，JS ${(manifest.jsBytes / 1024).toFixed(1)} KB，CSS ${(manifest.cssBytes / 1024).toFixed(1)} KB。`);
 
+// Size budget, measured gzip-compressed as GitHub Pages serves it.
+// 2026-10-30 baseline: largest JS 782 KB, all JS+CSS 1,136 KB.
+// Exceeding a limit means it is time to split data by period, not to raise the limit.
+const BUDGET_KB = { largestJs: 1000, total: 1500 };
+const zlib = require('node:zlib');
+const gzipKb = (asset) => zlib.gzipSync(fs.readFileSync(path.join(dist, asset))).length / 1024;
+const sizes = manifest.assets.filter((asset) => /\.(js|css)$/.test(asset)).map((asset) => ({ asset, kb: gzipKb(asset) }));
+const largest = sizes.filter(({ asset }) => asset.endsWith('.js')).sort((a, b) => b.kb - a.kb)[0];
+const totalKb = sizes.reduce((sum, { kb }) => sum + kb, 0);
+const usage = (kb, limit) => `${kb.toFixed(0)} / ${limit} KB（${((kb / limit) * 100).toFixed(1)}%）`;
+assert(largest.kb <= BUDGET_KB.largestJs, `最大 JS 檔超過體積上限：${largest.asset} ${usage(largest.kb, BUDGET_KB.largestJs)}。請考慮按時期拆分資料。`);
+assert(totalKb <= BUDGET_KB.total, `JS+CSS 總量超過體積上限：${usage(totalKb, BUDGET_KB.total)}。請考慮按時期拆分資料。`);
+console.log(`體積上限檢查通過（壓縮後）：最大 JS ${usage(largest.kb, BUDGET_KB.largestJs)}；總量 ${usage(totalKb, BUDGET_KB.total)}。`);
+
 require('./image_asset_policy.cjs').verifyImageAssets(root).then(result=>console.log("圖像程式資產驗證通過：" + result.images + "張實際引用圖；排除已知備份SHA256。來源及授權仍須逐圖核對。")).catch(error=>{console.error(error.message);process.exitCode=1;});
 
 

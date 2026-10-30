@@ -30,6 +30,7 @@
 - 根目錄 `index.html` 是建置模板，不能直接開啟；可瀏覽的頁面在 `dist/`。
 - 部署：push 到 `master` 由 GitHub Actions 自動建置並發布到 GitHub Pages。`dist/` 已列入 `.gitignore`，不要 commit。
 - push 前在本機跑過 `npm run build`、`npm test`、`npm run verify`；Actions 任一步失敗就不會發布。
+- `npm run verify` 含體積上限（壓縮後最大 JS 1,000 KB、總量 1,500 KB）。超標時不要調高上限，先回報並提出按時期拆分資料的方案。
 
 ## 程式與資料
 
