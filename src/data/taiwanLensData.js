@@ -1,5 +1,5 @@
 // Taiwan Chronological Lens (臺灣四千年歷史縱貫專題視角資料集)
-// Super-Expanded Dataset: 80 Iconic Events, 25 Historic Battles, and 85 Figures
+// Super-Expanded Dataset: 103 Iconic Events, 30 Historic Battles, and 59 Dedicated Figures
 
 export const TAIWAN_LENS_ERAS = [
   {
@@ -476,6 +476,19 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["藍鼎元", "東征集", "淡水廳", "彰化縣設治"]
       },
       {
+        id: "evt_tw_dajia_xishe_1731",
+        year: 1731,
+        yearDisplay: "西元 1731 年 (雍正九年)",
+        title: "大甲西社事件",
+        summary: "大甲西社等平埔族群不堪官府勞役而起事，次年被清軍平定。",
+        detail: "雍正九年冬，大甲西社因不堪官府徵派勞役，在林武力領導下起事，鄰近牛罵、沙轆等社相繼響應，中部一度騷動。雍正十年清廷調兵渡臺，與北路營合力鎮壓，同年平定。事後大甲西社改名「德化社」，牛罵社、沙轆社亦被改名。",
+        locationNameAncient: "彰化縣大甲西社",
+        locationNameModern: "臺中市大甲區",
+        coordinates: [120.62, 24.35],
+        tags: ["大甲西社", "平埔族", "林武力"],
+        sources: [{ title: "《臺灣通史》卷3（經營紀）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷3" }]
+      },
+      {
         id: "evt_tw_guoxi_liu_canal_1760",
         year: 1760,
         yearDisplay: "西元 1760 年 (乾隆二十五年)",
@@ -512,6 +525,32 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["吳沙", "開蘭始祖", "蘭陽平原", "頭城"]
       },
       {
+        id: "evt_tw_kavalan_1812",
+        year: 1812,
+        yearDisplay: "西元 1812 年 (嘉慶十七年)",
+        title: "設噶瑪蘭廳",
+        summary: "清廷將蘭陽平原收入版圖，設噶瑪蘭廳。",
+        detail: "吳沙等人入墾蘭陽平原後，漢人聚落日增。楊廷理等官員力主設治，清廷於 1810 年同意收入版圖，1812 年正式設立噶瑪蘭廳，以五圍（今宜蘭市）為治所（《臺灣通史》記為嘉慶十五年設廳）。1875 年改設宜蘭縣。",
+        locationNameAncient: "噶瑪蘭廳五圍",
+        locationNameModern: "宜蘭縣宜蘭市",
+        coordinates: [121.75, 24.75],
+        tags: ["噶瑪蘭廳", "蘭陽平原", "楊廷理"],
+        sources: [{ title: "《臺灣通史》卷5（疆域志）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷5" }]
+      },
+      {
+        id: "evt_tw_zhang_bing_1832",
+        year: 1832,
+        yearDisplay: "西元 1832 年 (道光十二年)",
+        title: "張丙事件",
+        summary: "嘉義張丙起事攻打縣城，南路響應並引發分類械鬥。",
+        detail: "道光十二年閏九月，嘉義人張丙因糧米問題與官府衝突而起事，攻打嘉義縣城，鳳山等地亦有響應，期間並引發閩粵分類械鬥。清廷調福建陸路提督馬濟勝率軍渡臺平定，張丙被捕處死。",
+        locationNameAncient: "嘉義縣",
+        locationNameModern: "嘉義市與嘉義縣一帶",
+        coordinates: [120.45, 23.48],
+        tags: ["張丙", "民變", "分類械鬥"],
+        sources: [{ title: "《臺灣通史》卷32（張丙列傳）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷32" }, { title: "《臺灣通史》卷3（經營紀）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷3" }]
+      },
+      {
         id: "evt_tw_cao_jin_canal_1837",
         year: 1837,
         yearDisplay: "西元 1837 年 (道光十七年)",
@@ -522,6 +561,45 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "高雄市大樹區九曲堂與鳳山區曹公廟",
         coordinates: [120.42, 22.66],
         tags: ["曹公圳", "曹謹", "鳳山知縣", "南臺灣水利"]
+      },
+      {
+        id: "evt_tw_dai_chaochun_1862",
+        year: 1862,
+        yearDisplay: "西元 1862 年 (同治元年)",
+        title: "戴潮春事件",
+        summary: "八卦會首戴潮春攻陷彰化縣城，亂事延續三年。",
+        detail: "同治元年三月，臺灣兵備道孔昭慈至彰化查辦八卦會，戴潮春率眾起事，攻陷彰化縣城，孔昭慈自盡。亂事波及中部各地，清廷調林文察等率軍回臺，1864 年初戴潮春兵敗被捕處死，餘部至 1865 年才平定，為清代臺灣歷時最久的民變之一。",
+        locationNameAncient: "彰化縣城",
+        locationNameModern: "彰化縣彰化市",
+        coordinates: [120.54, 24.08],
+        tags: ["戴潮春", "八卦會", "林文察"],
+        sources: [{ title: "《臺灣通史》卷33（戴潮春列傳）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷33" }]
+      },
+      {
+        id: "evt_tw_south_cape_pact_1867",
+        year: 1867,
+        yearDisplay: "西元 1867 年 (同治六年)",
+        title: "南岬之盟",
+        summary: "美國領事李仙得與瑯嶠十八社總頭目卓杞篤約定救助遇難船員。",
+        detail: "同治六年三月，美國商船羅妹號（《臺灣通史》作那威號）在恆春半島觸礁，船員登岸後遭龜仔甪社殺害。美軍出兵報復受挫後，美國駐廈門領事李仙得隨清軍南下，同年與瑯嶠十八社總頭目卓杞篤會談，約定日後遇難船員應予救助，史稱「南岬之盟」，1869 年雙方再立書面備忘錄。",
+        locationNameAncient: "瑯嶠（恆春半島）",
+        locationNameModern: "屏東縣恆春鎮",
+        coordinates: [120.75, 21.95],
+        tags: ["南岬之盟", "李仙得", "卓杞篤", "羅妹號"],
+        sources: [{ title: "《臺灣通史》卷14（外交志）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷14" }]
+      },
+      {
+        id: "evt_tw_bayao_bay_1871",
+        year: 1871,
+        yearDisplay: "西元 1871 年 (同治十年)",
+        title: "八瑤灣事件",
+        summary: "琉球船民漂流至臺灣東南部遇害，成為日本出兵臺灣的藉口。",
+        detail: "同治十年，琉球宮古島船民遇颶風漂流至臺灣東南部八瑤灣，上岸後多人遭牡丹社等排灣族人殺害，倖存者經地方漢人救助送回。日本以此為由，於 1874 年出兵恆春半島，即牡丹社事件。",
+        locationNameAncient: "八瑤灣",
+        locationNameModern: "屏東縣滿州鄉九棚一帶",
+        coordinates: [120.86, 22.10],
+        tags: ["八瑤灣事件", "琉球", "牡丹社事件"],
+        sources: [{ title: "《臺灣通史》卷14（外交志）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷14" }]
       }
     ],
     highlightFigures: ["fig_shi_lang", "fig_tw_shi_shibang", "fig_tw_guoxi_liu", "fig_zhu_yigui", "fig_tw_lan_dingyuan", "fig_tw_yu_tengfeng", "fig_lin_shuangwen", "fig_tw_wu_sha", "fig_tw_cao_jin", "fig_tw_yang_tingli", "fig_tw_wang_delu", "fig_fu_kangan"]
@@ -619,6 +697,19 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["臺灣建省", "劉銘傳", "現代化之父", "模範省"]
       },
       {
+        id: "evt_tw_liu_land_survey_1886",
+        year: 1886,
+        yearDisplay: "西元 1886 年 (光緒十二年)",
+        title: "劉銘傳清賦",
+        summary: "巡撫劉銘傳清丈全臺田畝，整理賦稅。",
+        detail: "臺灣建省後，劉銘傳於光緒十二年奏請清賦，先編查保甲戶口，再丈量田畝，查出大量隱田，並推行「減四留六」整理大租權。田賦收入大幅增加，但丈量過程的弊端也引發民怨，1888 年彰化發生施九緞事件。",
+        locationNameAncient: "臺灣省城（臺北）",
+        locationNameModern: "臺北市",
+        coordinates: [121.51, 25.04],
+        tags: ["劉銘傳", "清賦", "減四留六"],
+        sources: [{ title: "《臺灣通史》卷3（經營紀）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷3" }]
+      },
+      {
         id: "evt_tw_telegraph_cable_1887",
         year: 1887,
         yearDisplay: "西元 1887 年 (光緒十三年)",
@@ -629,6 +720,19 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺北市中正區忠孝西路郵政博物館原址",
         coordinates: [121.51, 25.04],
         tags: ["海底電纜", "臺灣郵政", "劉銘傳", "現代通訊"]
+      },
+      {
+        id: "evt_tw_shi_jiuduan_1888",
+        year: 1888,
+        yearDisplay: "西元 1888 年 (光緒十四年)",
+        title: "施九緞事件",
+        summary: "彰化民眾不滿清丈弊端，由施九緞率眾圍城。",
+        detail: "光緒十四年，彰化知縣李嘉棠辦理清丈時弊端叢生，民眾不滿，施九緞率眾包圍彰化縣城，要求焚毀丈單。清廷調兵解圍，事後李嘉棠被革職。",
+        locationNameAncient: "彰化縣城",
+        locationNameModern: "彰化縣彰化市",
+        coordinates: [120.54, 24.08],
+        tags: ["施九緞", "清賦", "彰化"],
+        sources: [{ title: "《臺灣通史》卷32（郭光侯、施九緞列傳）", url: "https://zh.wikisource.org/zh-hant/臺灣通史/卷32" }]
       },
       {
         id: "evt_tw_first_railway_1891",
@@ -702,6 +806,18 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["後藤新平", "土地調查", "公衛現代化", "專賣制度"]
       },
       {
+        id: "evt_tw_beipu_1907",
+        year: 1907,
+        yearDisplay: "西元 1907 年 (明治四十年)",
+        title: "北埔事件",
+        summary: "蔡清琳號召隘勇與賽夏族人在新竹北埔起事抗日。",
+        detail: "1907 年 11 月，蔡清琳以「聯合復中興總裁」名義，號召隘勇及賽夏族人襲擊北埔一帶的日本警察與官吏，殺死數十名日人。日本軍警隨即鎮壓，參與者多人被處死，蔡清琳亦死於事中。",
+        locationNameAncient: "新竹廳北埔支廳",
+        locationNameModern: "新竹縣北埔鄉",
+        coordinates: [121.06, 24.70],
+        tags: ["北埔事件", "蔡清琳", "賽夏族"]
+      },
+      {
         id: "evt_tw_cross_island_railway_1908",
         year: 1908,
         yearDisplay: "西元 1908 年 (明治四十一年)",
@@ -762,6 +878,31 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["臺灣文化協會", "蔣渭水", "臨床講義", "新文學"]
       },
       {
+        id: "evt_tw_jikei_incident_1923",
+        year: 1923,
+        yearDisplay: "西元 1923 年 (大正十二年)",
+        title: "治警事件",
+        summary: "臺灣議會期成同盟會成員遭以違反《治安警察法》逮捕起訴。",
+        detail: "1923 年臺灣議會設置請願運動人士在東京成立「臺灣議會期成同盟會」。同年 12 月，臺灣總督府以違反《治安警察法》為由在全島搜捕相關人士，蔣渭水、蔡培火等人被起訴並判刑。法庭答辯經報刊報導，反而擴大了請願運動的社會影響。",
+        locationNameAncient: "臺北",
+        locationNameModern: "臺北市",
+        coordinates: [121.51, 25.05],
+        tags: ["治警事件", "臺灣議會期成同盟會", "蔣渭水", "蔡培火"],
+        sources: [{ title: "〈違反治安警察法事件的答辯〉（蔣渭水，1923）", url: "https://zh.wikisource.org/zh-hant/違反治安警察法事件的答辯(蔣渭水)" }]
+      },
+      {
+        id: "evt_tw_tpp_1927",
+        year: 1927,
+        yearDisplay: "西元 1927 年 (昭和二年)",
+        title: "臺灣民眾黨成立",
+        summary: "蔣渭水等人成立臺灣第一個合法政黨。",
+        detail: "臺灣文化協會分裂後，蔣渭水、蔡培火等人於 1927 年 7 月在臺中成立臺灣民眾黨，為臺灣第一個合法政黨，主張地方自治並支持勞工、農民運動。1931 年被總督府下令解散，同年蔣渭水病逝。",
+        locationNameAncient: "臺中",
+        locationNameModern: "臺中市",
+        coordinates: [120.68, 24.14],
+        tags: ["臺灣民眾黨", "蔣渭水", "政治運動"]
+      },
+      {
         id: "evt_tw_wushe_uprising",
         year: 1930,
         yearDisplay: "西元 1930 年 (昭和五年)",
@@ -784,6 +925,42 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺南市官田區烏山頭水庫風景區",
         coordinates: [120.36, 23.20],
         tags: ["八田與一", "烏山頭水庫", "嘉南大圳", "綠色奇蹟"]
+      },
+      {
+        id: "evt_tw_expo_1935",
+        year: 1935,
+        yearDisplay: "西元 1935 年 (昭和十年)",
+        title: "始政四十週年臺灣博覽會",
+        summary: "總督府在臺北舉辦大型博覽會，展示統治四十年的建設。",
+        detail: "1935 年 10 月至 11 月，臺灣總督府為紀念始政四十週年，在臺北公會堂、新公園等地舉辦臺灣博覽會，展示產業與建設成果。同年 4 月，新竹、臺中一帶發生大地震，造成三千餘人死亡。",
+        locationNameAncient: "臺北公會堂與新公園",
+        locationNameModern: "臺北市中正區",
+        coordinates: [121.51, 25.04],
+        tags: ["臺灣博覽會", "始政四十週年", "新竹臺中地震"]
+      },
+      {
+        id: "evt_tw_kominka_1937",
+        year: 1937,
+        yearDisplay: "西元 1937 年 (昭和十二年)",
+        title: "皇民化運動",
+        summary: "中日戰爭爆發前後，總督府推行同化政策。",
+        detail: "1936 年底小林躋造出任臺灣總督，提出「皇民化、工業化、南進基地化」方針。1937 年中日戰爭爆發後，總督府廢止報紙漢文欄，推行國語（日語）家庭、改姓名與宗教改革，並動員臺灣人投入戰爭。",
+        locationNameAncient: "臺灣總督府",
+        locationNameModern: "臺北市中正區",
+        coordinates: [121.51, 25.04],
+        tags: ["皇民化運動", "小林躋造", "戰時體制"]
+      },
+      {
+        id: "evt_tw_taihoku_raid_1945",
+        year: 1945,
+        yearDisplay: "西元 1945 年 (昭和二十年)",
+        title: "臺北大空襲",
+        summary: "美軍大規模轟炸臺北，總督府廳舍被炸起火。",
+        detail: "第二次世界大戰末期，美軍對臺灣各地展開轟炸。1945 年 5 月 31 日美軍對臺北市區進行大規模轟炸，臺灣總督府廳舍被炸起火，平民傷亡慘重。",
+        locationNameAncient: "臺北市",
+        locationNameModern: "臺北市",
+        coordinates: [121.51, 25.04],
+        tags: ["臺北大空襲", "第二次世界大戰", "臺灣總督府"]
       }
     ],
     highlightFigures: ["fig_tw_wu_tangxing", "fig_tw_xu_xiang", "fig_tw_xiao_guangming", "fig_tw_wu_pengnian", "fig_tw_barclay", "fig_lin_xiantang", "fig_chiang_weishui", "fig_lai_he", "fig_tw_hatta_yoichi", "fig_tw_tu_tsung_ming", "fig_mona_rudao", "fig_luo_fuxing", "fig_yu_qingfang", "fig_tw_deng_yuxian", "fig_tw_huang_tushui", "fig_tw_chen_chengpo", "fig_tw_kondo_hyoe"]
@@ -845,6 +1022,18 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["故宮國寶", "文博傳承", "毛公鼎", "外雙溪"]
       },
       {
+        id: "evt_tw_martial_law_1949",
+        year: 1949,
+        yearDisplay: "西元 1949 年 (民國三十八年)",
+        title: "臺灣省戒嚴令",
+        summary: "臺灣省警備總司令部宣布全省戒嚴，持續至 1987 年。",
+        detail: "1949 年 5 月 19 日，臺灣省政府主席兼警備總司令陳誠頒布戒嚴令，自 5 月 20 日起實施。戒嚴期間限制集會、結社、出版與出入境，部分案件由軍事審判處理，直到 1987 年 7 月 15 日解除，歷時三十八年。",
+        locationNameAncient: "臺北",
+        locationNameModern: "臺北市",
+        coordinates: [121.52, 25.04],
+        tags: ["戒嚴令", "陳誠", "警備總司令部"]
+      },
+      {
         id: "evt_tw_daerdan_victory_1950",
         year: 1950,
         yearDisplay: "西元 1950 年 (民國三十九年)",
@@ -867,6 +1056,18 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "臺北市中正區行政院原址",
         coordinates: [121.52, 25.04],
         tags: ["美援", "尹仲容", "外匯改革", "經濟起飛"]
+      },
+      {
+        id: "evt_tw_seventh_fleet_1950",
+        year: 1950,
+        yearDisplay: "西元 1950 年 (民國三十九年)",
+        title: "韓戰爆發與第七艦隊協防臺海",
+        summary: "韓戰爆發後，美國派第七艦隊巡防臺灣海峽。",
+        detail: "1950 年 6 月 25 日韓戰爆發，美國總統杜魯門於 6 月 27 日宣布派遣第七艦隊進入臺灣海峽，防止兩岸相互攻擊。美國其後恢復對中華民國的軍事與經濟援助，1951 年起美援大量進入臺灣。",
+        locationNameAncient: "臺灣海峽",
+        locationNameModern: "臺灣海峽",
+        coordinates: [119.80, 24.30],
+        tags: ["韓戰", "第七艦隊", "美援"]
       },
       {
         id: "evt_tw_land_reform_1953",
@@ -905,6 +1106,42 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["八二三砲戰", "吉星文", "俞大維", "海峽防線"]
       },
       {
+        id: "evt_tw_lei_chen_case_1960",
+        year: 1960,
+        yearDisplay: "西元 1960 年 (民國四十九年)",
+        title: "雷震案",
+        summary: "《自由中國》發行人雷震籌組新黨期間被捕。",
+        detail: "《自由中國》半月刊長期批評時政並主張成立反對黨。1960 年雷震與臺籍地方人士籌組「中國民主黨」，同年 9 月 4 日被警備總部逮捕，以「知匪不報」與「為匪宣傳」罪名判刑十年，《自由中國》隨之停刊。",
+        locationNameAncient: "臺北",
+        locationNameModern: "臺北市",
+        coordinates: [121.52, 25.03],
+        tags: ["雷震", "自由中國", "中國民主黨"]
+      },
+      {
+        id: "evt_tw_shihmen_dam_1964",
+        year: 1964,
+        yearDisplay: "西元 1964 年 (民國五十三年)",
+        title: "石門水庫完工",
+        summary: "臺灣第一座多目標水庫完工啟用。",
+        detail: "石門水庫位於桃園大漢溪，1956 年開工，1964 年 6 月完工，兼具灌溉、發電、給水與防洪功能，是臺灣第一座多目標水庫。",
+        locationNameAncient: "桃園大漢溪石門",
+        locationNameModern: "桃園市龍潭區與大溪區",
+        coordinates: [121.24, 24.81],
+        tags: ["石門水庫", "水利建設", "美援"]
+      },
+      {
+        id: "evt_tw_kaohsiung_epz_1966",
+        year: 1966,
+        yearDisplay: "西元 1966 年 (民國五十五年)",
+        title: "高雄加工出口區成立",
+        summary: "臺灣設立第一個加工出口區，帶動出口導向工業。",
+        detail: "1966 年 12 月，高雄加工出口區正式成立，以保稅與簡化行政手續吸引外資設廠，產品加工後全數外銷。其後又設立楠梓、臺中加工出口區，成為 1960、1970 年代出口擴張與就業增加的重要推力。",
+        locationNameAncient: "高雄前鎮",
+        locationNameModern: "高雄市前鎮區",
+        coordinates: [120.30, 22.60],
+        tags: ["加工出口區", "出口導向", "經濟發展"]
+      },
+      {
         id: "evt_tw_nine_year_education_1968",
         year: 1968,
         yearDisplay: "西元 1968 年 (民國五十七年)",
@@ -928,6 +1165,19 @@ export const TAIWAN_LENS_ERAS = [
     description: "蔣經國、孫運璿推動國家「十大建設」突破能源危機躍居亞洲四小龍之首；李國鼎引進半導體科技，張忠謀創立台積電（TSMC）打造全球最頂尖晶片代工「矽盾」；解除戒嚴開放探親；李登輝主導和平憲政改革、1996年全民直選總統與政黨輪替，被譽為華人世界的民主燈塔。",
     keyEvents: [
       {
+        id: "evt_tw_un_2758_1971",
+        year: 1971,
+        yearDisplay: "西元 1971 年 (民國六十年)",
+        title: "退出聯合國",
+        summary: "聯合國大會通過第 2758 號決議，中華民國代表團宣布退出聯合國。",
+        detail: "1971 年 10 月 25 日，聯合國大會表決通過第 2758 號決議，由中華人民共和國取得中國代表權。表決前，中華民國代表團宣布退出聯合國。此後與中華民國維持邦交的國家逐年減少。",
+        locationNameAncient: "美國紐約聯合國總部",
+        locationNameModern: "美國紐約（地圖光點標於臺北）",
+        coordinates: [121.52, 25.04],
+        tags: ["聯合國", "2758號決議", "外交"],
+        sources: [{ title: "聯合國大會決議二七五八（二十六）", url: "https://zh.wikisource.org/zh-hant/聯合國大會決議二七五八（二十六）" }]
+      },
+      {
         id: "evt_tw_ten_projects_1973",
         year: 1973,
         yearDisplay: "西元 1973 年 (民國六十二年)",
@@ -950,6 +1200,31 @@ export const TAIWAN_LENS_ERAS = [
         locationNameModern: "新竹縣竹東鎮工研院中興院區",
         coordinates: [121.04, 24.77],
         tags: ["工研院", "李國鼎", "孫運璿", "RCA計畫", "半導體起步"]
+      },
+      {
+        id: "evt_tw_us_derecognition_1979",
+        year: 1979,
+        yearDisplay: "西元 1979 年 (民國六十八年)",
+        title: "中美斷交與臺灣關係法",
+        summary: "美國與中華民國斷交，國會通過《臺灣關係法》維持非官方關係。",
+        detail: "1978 年 12 月美國宣布將於 1979 年 1 月 1 日與中華人民共和國建交，並與中華民國斷交，《中美共同防禦條約》依約於一年後終止。1979 年 4 月美國國會通過《臺灣關係法》，以非官方方式延續雙方關係，並表明將提供防禦性武器。",
+        locationNameAncient: "臺北",
+        locationNameModern: "臺北市",
+        coordinates: [121.52, 25.04],
+        tags: ["中美斷交", "臺灣關係法", "中美共同防禦條約"],
+        sources: [{ title: "《臺灣關係法》", url: "https://zh.wikisource.org/zh-hant/臺灣關係法" }, { title: "《中美共同防禦條約》", url: "https://zh.wikisource.org/zh-hant/中美共同防禦條約" }]
+      },
+      {
+        id: "evt_tw_formosa_incident_1979",
+        year: 1979,
+        yearDisplay: "西元 1979 年 (民國六十八年)",
+        title: "美麗島事件",
+        summary: "《美麗島》雜誌社人士在高雄舉行人權日集會，與軍警發生衝突。",
+        detail: "1979 年 12 月 10 日，《美麗島》雜誌社人士在高雄舉行國際人權日集會遊行，與軍警發生衝突。事後黃信介、施明德等多人被捕，其中八人遭軍法審判。審判過程經媒體報導，辯護律師群中多人日後投入政治，對臺灣政治發展影響深遠。",
+        locationNameAncient: "高雄",
+        locationNameModern: "高雄市新興區",
+        coordinates: [120.30, 22.63],
+        tags: ["美麗島事件", "黃信介", "黨外運動"]
       },
       {
         id: "evt_tw_hsinchu_tsmc_1980",
@@ -1012,6 +1287,18 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["總統直選", "李登輝", "寧靜革命", "民主燈塔"]
       },
       {
+        id: "evt_tw_921_quake_1999",
+        year: 1999,
+        yearDisplay: "西元 1999 年 (民國八十八年)",
+        title: "九二一大地震",
+        summary: "規模 7.3 的強烈地震重創中臺灣。",
+        detail: "1999 年 9 月 21 日凌晨 1 時 47 分，南投集集附近發生芮氏規模 7.3 地震，車籠埔斷層錯動，造成 2,400 餘人死亡、大量房屋倒塌。災後政府成立重建委員會，並修訂建築耐震規範。",
+        locationNameAncient: "南投集集",
+        locationNameModern: "南投縣集集鎮",
+        coordinates: [120.78, 23.83],
+        tags: ["九二一大地震", "車籠埔斷層", "災後重建"]
+      },
+      {
         id: "evt_tw_thsr_bullet_train_2007",
         year: 2007,
         yearDisplay: "西元 2007 年 (民國九十六年)",
@@ -1052,7 +1339,7 @@ export const TAIWAN_LENS_ERAS = [
   }
 ];
 
-// 41 Dedicated Taiwan Figures (merged dynamically with all 10 periods in app.js)
+// 59 Dedicated Taiwan Figures (merged dynamically with all 10 periods in app.js)
 export const TAIWAN_DEDICATED_FIGURES = [
   {
     "id": "fig_tw_kamachat",
@@ -1955,6 +2242,320 @@ export const TAIWAN_DEDICATED_FIGURES = [
       "courage": 100,
       "charisma": 100
     }
+  },
+  {
+    "id": "fig_zheng_jing",
+    "name": "鄭經",
+    "courtesyName": "賢之 / 式天",
+    "lifeSpan": "1642 - 1681",
+    "faction": "taiwan",
+    "role": "東寧第二代統治者 / 延平郡王",
+    "roleType": "monarch",
+    "avatar": "./images/figures/fig_zheng_jing.svg",
+    "importance": 5,
+    "hometown": "福建泉州府南安縣 (今福建省南安市)",
+    "shortBio": "鄭成功長子。1662 年鄭成功去世後，擊敗擁立叔父鄭襲的一派而繼位，改東都為東寧。委政陳永華推動屯田、興學與對外貿易，並與英國東印度公司通商。1674 年趁三藩之亂西征閩粵，1680 年兵敗退回臺灣，翌年去世。",
+    "historicalSignificance": "延續明鄭在臺統治近二十年，東寧時期的制度多出於其任內。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷2（建國紀）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷2"
+      }
+    ]
+  },
+  {
+    "id": "fig_chen_yonghua",
+    "name": "陳永華",
+    "courtesyName": "復甫",
+    "lifeSpan": "1634 - 1680",
+    "faction": "taiwan",
+    "role": "東寧諮議參軍 / 明鄭治臺首要文臣",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_chen_yonghua.svg",
+    "importance": 5,
+    "hometown": "福建泉州府同安縣 (今福建省廈門市同安區)",
+    "shortBio": "鄭成功時任諮議參軍。鄭經繼位後受託主持臺灣政務，推行屯田、改良曬鹽、興建孔廟與學校，建立取士制度。1680 年辭去兵權，同年去世。",
+    "historicalSignificance": "明鄭時期臺灣文教與制度建設的主要推動者。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷29（陳永華列傳）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷29"
+      }
+    ]
+  },
+  {
+    "id": "fig_liu_guoxuan",
+    "name": "劉國軒",
+    "courtesyName": "觀光",
+    "lifeSpan": "1629 - 1693",
+    "faction": "military",
+    "role": "明鄭武將 / 澎湖海戰主帥",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_liu_guoxuan.svg",
+    "importance": 4,
+    "hometown": "福建汀州府長汀縣 (今福建省長汀縣)",
+    "shortBio": "原為清軍守將，1654 年獻漳州城降鄭成功。鄭經西征時屢立戰功，後總督東寧水陸軍。1683 年於澎湖海戰敗於施琅，返臺後主張歸降。降清後授天津衛總兵，1693 年去世。",
+    "historicalSignificance": "明鄭後期最重要的將領，其歸降主張促成東寧和平投降。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷29（劉國軒列傳）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷29"
+      }
+    ]
+  },
+  {
+    "id": "fig_fu_kangan",
+    "name": "福康安",
+    "courtesyName": "瑤林",
+    "lifeSpan": "1754 - 1796",
+    "faction": "military",
+    "role": "清朝大將 / 平定林爽文事件",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_fu_kangan.svg",
+    "importance": 4,
+    "hometown": "北京 (滿洲鑲黃旗)",
+    "shortBio": "大學士傅恆之子，富察氏。1787 年以欽差大臣率軍渡臺，解諸羅之圍並平定林爽文事件，乾隆帝因諸羅義民死守，改諸羅為嘉義。其後歷任各地總督，1796 年於征討湘黔苗民途中病逝。",
+    "historicalSignificance": "清代平定臺灣最大規模民變的主帥。",
+    "sources": [
+      {
+        "title": "《清史稿》卷三百三十（福康安）",
+        "url": "https://zh.wikisource.org/zh-hant/清史稿/卷330"
+      },
+      {
+        "title": "《臺灣通史》卷3（經營紀）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷3"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_yao_ying",
+    "name": "姚瑩",
+    "courtesyName": "石甫",
+    "lifeSpan": "1785 - 1853",
+    "faction": "taiwan",
+    "role": "臺灣兵備道 / 鴉片戰爭臺灣防務主持者",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_yao_ying.svg",
+    "importance": 4,
+    "hometown": "安徽桐城 (今安徽省桐城市)",
+    "shortBio": "嘉慶十三年進士，曾任臺灣縣知縣、噶瑪蘭通判。1838 年任臺灣兵備道，鴉片戰爭期間與總兵達洪阿籌劃防務，1841、1842 年英船在雞籠、大安港受挫。戰後因處置英俘遭英方抗議，被革職查辦，後獲起用。1853 年去世。",
+    "historicalSignificance": "鴉片戰爭期間臺灣防務的主持者。",
+    "sources": [
+      {
+        "title": "《清史稿》卷三百八十四（姚瑩）",
+        "url": "https://zh.wikisource.org/zh-hant/清史稿/卷384"
+      },
+      {
+        "title": "《臺灣通史》卷32（姚、徐列傳）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷32"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_dai_chaochun",
+    "name": "戴潮春",
+    "courtesyName": "萬生",
+    "lifeSpan": "未知 - 1864",
+    "faction": "taiwan",
+    "role": "戴潮春事件領袖 / 八卦會首",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_tw_dai_chaochun.svg",
+    "importance": 3,
+    "hometown": "彰化縣四張犁 (今臺中市北屯區)",
+    "shortBio": "彰化四張犁人，以八卦會聚眾。1862 年起事攻陷彰化縣城，與官軍及地方團練對峙兩年餘，1864 年初兵敗被捕處死，餘眾至 1865 年才平息。",
+    "historicalSignificance": "清代臺灣歷時最久的民變之一的領導者。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷33（戴潮春列傳）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷33"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_le_gendre",
+    "name": "李仙得",
+    "courtesyName": "Charles W. Le Gendre",
+    "lifeSpan": "1830 - 1899",
+    "faction": "foreign",
+    "role": "美國駐廈門領事 / 南岬之盟締約者",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_le_gendre.svg",
+    "importance": 3,
+    "hometown": "法國",
+    "shortBio": "法裔美國人，南北戰爭後任美國駐廈門領事。1867 年羅妹號事件後來臺交涉，與瑯嶠十八社總頭目卓杞篤訂約，約定救助遇難船員。後擔任日本政府顧問，參與策劃 1874 年出兵臺灣。1899 年於朝鮮漢城去世。",
+    "historicalSignificance": "十九世紀列強介入臺灣南部事務的關鍵人物。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷14（外交志）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷14"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_tokitok",
+    "name": "卓杞篤",
+    "courtesyName": "Tokitok",
+    "lifeSpan": "未知 - 未知",
+    "faction": "taiwan",
+    "role": "瑯嶠十八社總頭目",
+    "roleType": "monarch",
+    "avatar": "./images/figures/fig_tw_tokitok.svg",
+    "importance": 3,
+    "hometown": "瑯嶠豬朥束社 (今屏東縣滿州鄉)",
+    "shortBio": "恆春半島瑯嶠十八社總頭目。1867 年美國商船羅妹號船員遇害後，美軍出兵受挫；同年與美國領事李仙得會談，約定日後善待遇難船員，史稱南岬之盟。生卒年無確切記載。",
+    "historicalSignificance": "以部落聯盟領袖身分與外國締約的原住民族領袖。"
+  },
+  {
+    "id": "fig_liu_yongfu",
+    "name": "劉永福",
+    "courtesyName": "淵亭",
+    "lifeSpan": "1837 - 1917",
+    "faction": "military",
+    "role": "黑旗軍統領 / 臺灣民主國抗日主帥",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_liu_yongfu.svg",
+    "importance": 4,
+    "hometown": "廣東欽州 (今廣西壯族自治區欽州市)",
+    "shortBio": "黑旗軍首領，在越南抗擊法軍成名。1894 年奉命渡臺協防，1895 年臺灣民主國成立後駐守臺南，唐景崧離臺後成為抗日主帥。同年 10 月日軍逼近臺南，劉永福內渡廈門。1917 年去世。",
+    "historicalSignificance": "乙未之役後期臺灣南部抗日的主帥。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷36（唐、劉列傳）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷36"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_kabayama",
+    "name": "樺山資紀",
+    "lifeSpan": "1837 - 1922",
+    "faction": "foreign",
+    "role": "首任臺灣總督",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_kabayama.svg",
+    "importance": 4,
+    "hometown": "薩摩國鹿兒島 (今日本鹿兒島縣)",
+    "shortBio": "薩摩藩士出身，1874 年曾參與牡丹社事件出兵。甲午戰後於 1895 年出任首任臺灣總督，率軍接收臺灣，同年 6 月於臺北舉行始政式。1896 年卸任，1922 年去世。",
+    "historicalSignificance": "日本統治臺灣的首任總督。",
+    "sources": [
+      {
+        "title": "《臺灣通史》卷4（獨立紀）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷4"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_kodama",
+    "name": "兒玉源太郎",
+    "lifeSpan": "1852 - 1906",
+    "faction": "foreign",
+    "role": "第四任臺灣總督",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_kodama.svg",
+    "importance": 4,
+    "hometown": "周防國德山 (今日本山口縣周南市)",
+    "shortBio": "1898 年出任第四任臺灣總督，任命後藤新平為民政長官主持民政，推動土地調查、專賣與基礎建設。任內兼任陸軍大臣等職，日俄戰爭時任滿洲軍總參謀長。1906 年去世。",
+    "historicalSignificance": "奠定日治時期臺灣殖民統治體制的總督。"
+  },
+  {
+    "id": "fig_tw_goto_shinpei",
+    "name": "後藤新平",
+    "lifeSpan": "1857 - 1929",
+    "faction": "foreign",
+    "role": "臺灣總督府民政長官",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_goto_shinpei.svg",
+    "importance": 4,
+    "hometown": "陸奧國膽澤郡 (今日本岩手縣奧州市)",
+    "shortBio": "醫師出身。1898 年至 1906 年任臺灣總督府民政長官，以「生物學原則」施政，推動土地與戶口調查、鴉片與樟腦專賣、縱貫鐵路與港灣建設。後任南滿洲鐵道首任總裁、東京市長等職。1929 年去世。",
+    "historicalSignificance": "日治初期臺灣各項調查與基礎建設的主要規劃者。"
+  },
+  {
+    "id": "fig_tw_sakuma",
+    "name": "佐久間左馬太",
+    "lifeSpan": "1844 - 1915",
+    "faction": "foreign",
+    "role": "第五任臺灣總督",
+    "roleType": "minister",
+    "avatar": "./images/figures/fig_tw_sakuma.svg",
+    "importance": 3,
+    "hometown": "長門國萩 (今日本山口縣萩市)",
+    "shortBio": "1906 年出任第五任臺灣總督，任期長達九年，推動「五年理蕃計畫」，以軍警進攻山區原住民部落，1914 年親自指揮太魯閣戰役。1915 年卸任，同年去世。",
+    "historicalSignificance": "日治時期任期最長的臺灣總督，理蕃政策的主導者。"
+  },
+  {
+    "id": "fig_luo_fuxing",
+    "name": "羅福星",
+    "courtesyName": "東亞",
+    "lifeSpan": "1886 - 1914",
+    "faction": "taiwan",
+    "role": "苗栗事件領導人",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_luo_fuxing.svg",
+    "importance": 4,
+    "hometown": "荷屬東印度巴達維亞 (原籍廣東鎮平)",
+    "shortBio": "生於荷屬東印度巴達維亞，曾隨祖父來臺居苗栗。加入中國同盟會，1912 年再度來臺秘密吸收成員，籌劃抗日。1913 年事洩被捕，1914 年於臺北遭處死，相關案件合稱苗栗事件。",
+    "historicalSignificance": "日治前期武裝抗日的代表人物。"
+  },
+  {
+    "id": "fig_tw_lian_heng",
+    "name": "連橫",
+    "courtesyName": "雅堂",
+    "lifeSpan": "1878 - 1936",
+    "faction": "culture",
+    "role": "《臺灣通史》作者",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_lian_heng.svg",
+    "importance": 4,
+    "hometown": "臺南府寧南坊馬兵營 (今臺南市)",
+    "shortBio": "臺南人，號雅堂。曾任報社主筆，1920 至 1921 年出版《臺灣通史》，記述自隋代至 1895 年的臺灣歷史。另著有《臺灣語典》《臺灣詩乘》。1936 年於上海去世。",
+    "historicalSignificance": "第一部臺灣通史的作者。",
+    "sources": [
+      {
+        "title": "《臺灣通史》自序",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史自序"
+      }
+    ]
+  },
+  {
+    "id": "fig_tw_koo_hsien_jung",
+    "name": "辜顯榮",
+    "lifeSpan": "1866 - 1937",
+    "faction": "taiwan",
+    "role": "日治時期實業家 / 貴族院議員",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_koo_hsien_jung.svg",
+    "importance": 3,
+    "hometown": "彰化鹿港 (今彰化縣鹿港鎮)",
+    "shortBio": "鹿港人。1895 年日軍進入臺北前，赴基隆引導日軍入城。日治時期經營鹽、糖、樟腦等事業，1934 年獲敕選為日本貴族院議員，為首位臺籍貴族院議員。1937 年去世。",
+    "historicalSignificance": "日治時期具代表性的臺籍實業家。"
+  },
+  {
+    "id": "fig_tw_lei_chen",
+    "name": "雷震",
+    "courtesyName": "儆寰",
+    "lifeSpan": "1897 - 1979",
+    "faction": "taiwan",
+    "role": "《自由中國》發行人",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_lei_chen.svg",
+    "importance": 4,
+    "hometown": "浙江長興 (今浙江省湖州市長興縣)",
+    "shortBio": "曾任國民政府要職。1949 年在臺創辦《自由中國》半月刊，主張民主憲政與言論自由。1960 年籌組中國民主黨期間被捕，以「知匪不報」等罪名判刑十年，1970 年出獄。1979 年去世。",
+    "historicalSignificance": "戰後臺灣組黨運動與言論自由的先行者。"
+  },
+  {
+    "id": "fig_tw_huang_hsin_chieh",
+    "name": "黃信介",
+    "lifeSpan": "1928 - 1999",
+    "faction": "taiwan",
+    "role": "黨外運動人士 / 《美麗島》雜誌發行人",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_tw_huang_hsin_chieh.svg",
+    "importance": 3,
+    "hometown": "臺北市大龍峒 (今臺北市大同區)",
+    "shortBio": "1961 年當選臺北市議員，1969 年當選立法委員。1979 年創辦《美麗島》雜誌並任發行人，同年美麗島事件後被捕判刑，1987 年假釋出獄。後任民主進步黨主席。1999 年去世。",
+    "historicalSignificance": "黨外運動與美麗島事件的代表人物。"
   }
 ];
 
@@ -1986,7 +2587,9 @@ export const TAIWAN_RELATED_FIGURE_IDS = [
   "fig_wang_yongqing", "fig_zhang_zhongmou", "fig_chiang_chingkuo", "fig_li_denghui",
   "fig_tw_li_yuan_tseh", "fig_tw_stan_shih", "fig_tw_terry_gou", "fig_tw_jensen_huang",
   "fig_tw_lisa_su", "fig_tw_lin_huaimin", "fig_tw_ang_lee", "fig_tw_chen_shu_chu",
-  "fig_tw_chi_cheng", "fig_tw_tai_tzu_ying"
+  "fig_tw_chi_cheng", "fig_tw_tai_tzu_ying",
+  // 2026-10-31 additions
+  "fig_tw_yao_ying", "fig_tw_dai_chaochun", "fig_tw_le_gendre", "fig_tw_tokitok", "fig_tw_kabayama", "fig_tw_kodama", "fig_tw_goto_shinpei", "fig_tw_sakuma", "fig_tw_lian_heng", "fig_tw_koo_hsien_jung", "fig_tw_lei_chen", "fig_tw_huang_hsin_chieh", "fig_chiang_kaishek", "fig_sun_liren"
 ];
 
 // Mapping between Taiwan Era IDs and their active battles
@@ -1994,14 +2597,14 @@ export const ERA_BATTLE_IDS = {
   tw_prehistoric: ["bat_tw_dadu_war_1644"],
   tw_dutch_spanish: ["bat_tw_liaoluo_bay_1633", "bat_tw_keelung_1642", "bat_tw_zeelandia_1661"],
   tw_tungning: ["bat_tw_zeelandia_1661", "bat_tw_penghu_1683"],
-  tw_qing_early: ["bat_tw_penghu_1683", "bat_tw_zhuyigui_1721", "bat_tw_jiayi_defense_1787", "bat_tw_caiqian_1805"],
+  tw_qing_early: ["bat_tw_penghu_1683", "bat_tw_zhuyigui_1721", "bat_tw_jiayi_defense_1787", "bat_tw_caiqian_1805", "bat_tw_keelung_1841", "bat_tw_formosa_expedition_1867"],
   tw_qing_late: ["bat_tw_mudanshe_1874", "bat_tw_keelung_1884", "bat_tw_tamsui_1884"],
-  tw_japanese: ["bat_tw_aodi_landing_1895", "bat_tw_daxi_1895", "bat_tw_baguashan_1895", "bat_tw_buyuelou_1895", "bat_tw_zengwenxi_1895", "bat_tw_tapani_1915", "bat_tw_wushe_1930"],
-  tw_postwar: ["bat_tw_guningtou_1949", "bat_tw_daerdan_1950", "bat_tw_nanri_1952", "bat_tw_yijiangshan_1955", "bat_tw_823_1958", "bat_tw_wuchiu_1965"],
+  tw_japanese: ["bat_tw_aodi_landing_1895", "bat_tw_daxi_1895", "bat_tw_baguashan_1895", "bat_tw_buyuelou_1895", "bat_tw_zengwenxi_1895", "bat_tw_truku_1914", "bat_tw_tapani_1915", "bat_tw_wushe_1930"],
+  tw_postwar: ["bat_tw_guningtou_1949", "bat_tw_daerdan_1950", "bat_tw_nanri_1952", "bat_tw_93_shelling_1954", "bat_tw_yijiangshan_1955", "bat_tw_823_1958", "bat_tw_wuchiu_1965", "bat_tw_86_naval_1965"],
   tw_modern: []
 };
 
-// 25 Authoritative Taiwan-Related Historic Battles Across Four Centuries
+// 30 Authoritative Taiwan-Related Historic Battles Across Four Centuries
 export const TAIWAN_RELATED_BATTLES = [
   {
     "id": "bat_tw_dadu_war_1644",
@@ -3675,6 +4278,328 @@ export const TAIWAN_RELATED_BATTLES = [
       "以艦砲密集火力壓制近身魚雷快艇夜間狼群戰術",
       "臨危不亂組織損管抗沉誓死堅守戰鬥崗位",
       "促進國軍海空聯合作戰與反艦飛彈現代化換裝"
+    ]
+  },
+  {
+    "id": "bat_tw_keelung_1841",
+    "eraId": "tw_qing_early",
+    "name": "雞籠之役 (鴉片戰爭臺灣海防)",
+    "year": 1841,
+    "period": "taiwanLens",
+    "locationAncient": "雞籠港與大安港",
+    "locationModern": "基隆市、臺中市大安區",
+    "coordinates": [
+      121.74,
+      25.15
+    ],
+    "parties": {
+      "invader": "英國船隊",
+      "defender": "臺灣清軍"
+    },
+    "victor": "清軍（英船觸礁、擱淺後遭俘）",
+    "victorStatement": "英船觸礁擱淺，清軍俘獲船員並奏報戰功",
+    "commanders": {
+      "invader": [
+        "納爾不達號船員"
+      ],
+      "defender": [
+        "姚瑩",
+        "達洪阿"
+      ]
+    },
+    "summary": "鴉片戰爭期間英艦多次窺伺臺灣。1841 年英國運輸船納爾不達號在雞籠外海觸礁，船上人員被清軍擊殺或俘虜；1842 年英船阿恩號又在大安港擱淺被俘。戰後英方指被俘者多為遇難船員，臺灣兵備道姚瑩與總兵達洪阿因而被革職查辦。",
+    "keyStrategies": [
+      "增築砲臺、沿海戒備：《臺灣通史》記姚瑩與達洪阿「共籌戰守」",
+      "大安港之役中英船擱淺後遭圍捕"
+    ],
+    "attacker": {
+      "factionName": "英國船隊",
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "兩船人員多遭擊殺或俘虜（確切人數各方記載不一）",
+      "commanders": [
+        {
+          "name": "納爾不達號船員",
+          "title": "英國運輸船"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "臺灣清軍",
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "姚瑩",
+          "title": "臺灣兵備道"
+        },
+        {
+          "name": "達洪阿",
+          "title": "臺灣鎮總兵"
+        }
+      ]
+    },
+    "tactics": [
+      "增築砲臺、沿海戒備：《臺灣通史》記姚瑩與達洪阿「共籌戰守」",
+      "大安港之役中英船擱淺後遭圍捕"
+    ],
+    "sources": [
+      {
+        "title": "《臺灣通史》卷14（外交志）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷14"
+      },
+      {
+        "title": "《清史稿》卷三百八十四（姚瑩）",
+        "url": "https://zh.wikisource.org/zh-hant/清史稿/卷384"
+      }
+    ]
+  },
+  {
+    "id": "bat_tw_formosa_expedition_1867",
+    "eraId": "tw_qing_early",
+    "name": "羅妹號事件美軍征討 (龜仔甪社之役)",
+    "year": 1867,
+    "period": "taiwanLens",
+    "locationAncient": "瑯嶠龜仔甪社",
+    "locationModern": "屏東縣恆春鎮社頂一帶",
+    "coordinates": [
+      120.83,
+      21.95
+    ],
+    "parties": {
+      "invader": "美國海軍亞洲艦隊",
+      "defender": "排灣族龜仔甪社"
+    },
+    "victor": "龜仔甪社（美軍撤退）",
+    "victorStatement": "部落戰士依託叢林伏擊，美軍登陸受挫撤退",
+    "commanders": {
+      "invader": [
+        "柏爾 (Henry H. Bell)",
+        "麥肯基 (Alexander S. Mackenzie)"
+      ],
+      "defender": [
+        "龜仔甪社勇士（頭目姓名史料未詳）"
+      ]
+    },
+    "summary": "1867 年 3 月美國商船羅妹號在恆春半島外海觸礁，登岸船員遭龜仔甪社殺害。同年 6 月美國海軍派軍艦登陸討伐，在叢林中遭伏擊，副艦長麥肯基中彈身亡，美軍撤退。其後美國領事李仙得與卓杞篤訂立南岬之盟。",
+    "keyStrategies": [
+      "龜仔甪社：熟悉地形，於叢林中伏擊登陸部隊",
+      "美軍：分隊深入山林搜索，因酷暑與伏擊受挫"
+    ],
+    "attacker": {
+      "factionName": "美國海軍亞洲艦隊",
+      "forcesEstimate": "軍艦 2 艘，登陸官兵約 180 人",
+      "casualtiesEstimate": "麥肯基少校陣亡，多人中暑",
+      "commanders": [
+        {
+          "name": "柏爾 (Henry H. Bell)",
+          "title": "亞洲艦隊司令"
+        },
+        {
+          "name": "麥肯基 (Alexander S. Mackenzie)",
+          "title": "登陸部隊軍官（陣亡）"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "排灣族龜仔甪社",
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "龜仔甪社勇士（頭目姓名史料未詳）",
+          "title": "部落戰士"
+        }
+      ]
+    },
+    "tactics": [
+      "龜仔甪社：熟悉地形，於叢林中伏擊登陸部隊",
+      "美軍：分隊深入山林搜索，因酷暑與伏擊受挫"
+    ],
+    "sources": [
+      {
+        "title": "《臺灣通史》卷14（外交志）",
+        "url": "https://zh.wikisource.org/zh-hant/臺灣通史/卷14"
+      }
+    ]
+  },
+  {
+    "id": "bat_tw_truku_1914",
+    "eraId": "tw_japanese",
+    "name": "太魯閣戰役 (理蕃五年計畫最後一役)",
+    "year": 1914,
+    "period": "taiwanLens",
+    "locationAncient": "花蓮港廳太魯閣",
+    "locationModern": "花蓮縣秀林鄉",
+    "coordinates": [
+      121.55,
+      24.17
+    ],
+    "parties": {
+      "invader": "臺灣總督府軍警",
+      "defender": "太魯閣族各社"
+    },
+    "victor": "臺灣總督府",
+    "victorStatement": "各社被迫歸順並繳交槍械",
+    "commanders": {
+      "invader": [
+        "佐久間左馬太"
+      ],
+      "defender": [
+        "太魯閣族各社頭目"
+      ]
+    },
+    "summary": "臺灣總督佐久間左馬太推動五年理蕃計畫，1914 年 5 月至 8 月親自指揮軍警分東西兩路進攻太魯閣族部落。太魯閣族人憑藉山區地形抵抗，最終各社被迫歸順、繳交槍械。",
+    "keyStrategies": [
+      "總督府：軍隊與警察分東西兩路包夾山區部落",
+      "太魯閣族：依託峽谷與山林地形抵抗"
+    ],
+    "attacker": {
+      "factionName": "臺灣總督府軍警",
+      "forcesEstimate": "日方記錄軍警合計約六千餘人",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "佐久間左馬太",
+          "title": "臺灣總督"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "太魯閣族各社",
+      "forcesEstimate": "未知（各說不一）",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "太魯閣族各社頭目",
+          "title": "部落領袖"
+        }
+      ]
+    },
+    "tactics": [
+      "總督府：軍隊與警察分東西兩路包夾山區部落",
+      "太魯閣族：依託峽谷與山林地形抵抗"
+    ]
+  },
+  {
+    "id": "bat_tw_93_shelling_1954",
+    "eraId": "tw_postwar",
+    "name": "九三砲戰 (第一次臺海危機)",
+    "year": 1954,
+    "period": "taiwanLens",
+    "locationAncient": "金門",
+    "locationModern": "金門縣",
+    "coordinates": [
+      118.32,
+      24.44
+    ],
+    "parties": {
+      "invader": "中國人民解放軍",
+      "defender": "國軍金門防衛部隊"
+    },
+    "victor": "未分勝負（危機以簽約與大陳撤退告一段落）",
+    "victorStatement": "金門守住，危機促成《中美共同防禦條約》",
+    "commanders": {
+      "invader": [
+        "解放軍福建前線砲兵"
+      ],
+      "defender": [
+        "國軍金門防衛部"
+      ]
+    },
+    "summary": "1954 年 9 月 3 日解放軍砲擊金門，第一次臺灣海峽危機爆發。國軍以砲火還擊並出動空軍轟炸對岸砲兵陣地。危機期間，中華民國與美國於同年 12 月簽訂《中美共同防禦條約》；1955 年初一江山島失守後，國軍自大陳列島撤退。",
+    "keyStrategies": [
+      "解放軍：以砲兵對金門實施密集砲擊",
+      "國軍：砲兵還擊並出動空軍轟炸對岸陣地"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍",
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "解放軍福建前線砲兵",
+          "title": "砲擊部隊"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "國軍金門防衛部隊",
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "國軍金門防衛部",
+          "title": "守備部隊"
+        }
+      ]
+    },
+    "tactics": [
+      "解放軍：以砲兵對金門實施密集砲擊",
+      "國軍：砲兵還擊並出動空軍轟炸對岸陣地"
+    ],
+    "sources": [
+      {
+        "title": "《中美共同防禦條約》",
+        "url": "https://zh.wikisource.org/zh-hant/中美共同防禦條約"
+      }
+    ]
+  },
+  {
+    "id": "bat_tw_86_naval_1965",
+    "eraId": "tw_postwar",
+    "name": "八六海戰 (東山島海戰)",
+    "year": 1965,
+    "period": "taiwanLens",
+    "locationAncient": "福建東山島外海",
+    "locationModern": "臺灣海峽西南部",
+    "coordinates": [
+      117.6,
+      23.6
+    ],
+    "parties": {
+      "invader": "中國人民解放軍海軍",
+      "defender": "中華民國海軍"
+    },
+    "victor": "解放軍海軍",
+    "victorStatement": "國軍兩艦沉沒",
+    "commanders": {
+      "invader": [
+        "解放軍南海艦隊快艇部隊"
+      ],
+      "defender": [
+        "胡嘉恆"
+      ]
+    },
+    "summary": "1965 年 8 月 6 日，中華民國海軍劍門艦、章江艦執行任務途中，在福建東山島附近海域遭解放軍魚雷快艇與護衛艇攻擊，兩艦先後沉沒，官兵大量傷亡。此役後國軍大幅減少對大陸沿海的突擊行動。",
+    "keyStrategies": [
+      "解放軍：以魚雷快艇與護衛艇夜間近距攻擊",
+      "國軍：兩艦編隊航行，遭近距圍攻"
+    ],
+    "attacker": {
+      "factionName": "中國人民解放軍海軍",
+      "forcesEstimate": "魚雷快艇與護衛艇（艘數各方記載不一）",
+      "casualtiesEstimate": "未知（史料無可靠數字）",
+      "commanders": [
+        {
+          "name": "解放軍南海艦隊快艇部隊",
+          "title": "攻擊部隊"
+        }
+      ]
+    },
+    "defender": {
+      "factionName": "中華民國海軍",
+      "forcesEstimate": "劍門艦、章江艦",
+      "casualtiesEstimate": "兩艦沉沒，官兵死傷與被俘者眾（確切人數各方記載不一）",
+      "commanders": [
+        {
+          "name": "胡嘉恆",
+          "title": "編隊指揮官（被俘）"
+        }
+      ]
+    },
+    "tactics": [
+      "解放軍：以魚雷快艇與護衛艇夜間近距攻擊",
+      "國軍：兩艦編隊航行，遭近距圍攻"
     ]
   }
 ];
