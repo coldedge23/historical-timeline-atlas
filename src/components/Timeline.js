@@ -74,6 +74,7 @@ export const Timeline = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedFiguresEventId, setExpandedFiguresEventId] = useState(null);
+  const [expandedTagsEventId, setExpandedTagsEventId] = useState(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [playSpeed, setPlaySpeed] = useState(3200); // ms per event
   const itemRefs = useRef({});
@@ -343,121 +344,98 @@ export const Timeline = ({
           const contextFigures = linkedFigures.filter(figure=>isContextReview(evt.figureLinkReviews?.[figure.id]));
           const allEvtFigures = linkedFigures.filter(figure=>!isContextReview(evt.figureLinkReviews?.[figure.id]));
           const showAllFigs = expandedFiguresEventId === evt.id;
-          const displayLimit = isSelected ? (showAllFigs ? 30 : 8) : 4;
-          const visibleFigures = allEvtFigures.slice(0, displayLimit);
+          const visibleFigures = allEvtFigures.slice(0, showAllFigs ? 30 : 8);
           const remainingCount = allEvtFigures.length - visibleFigures.length;
+          const tags = evt.tags || [];
+          const showAllTags = expandedTagsEventId === evt.id;
+          const visibleTags = showAllTags ? tags : tags.slice(0, 3);
+          const toggleEvent = () => {
+            setIsAutoPlaying(false);
+            isTimelineScrolling.current = false;
+            onSelectEvent(isSelected ? null : evt);
+            if (!isSelected) scrollToSelectedCard(evt.id);
+          };
 
           return (
-            <div
+            <article
               key={evt.id}
               ref={(el) => (itemRefs.current[evt.id] = el)}
-              className={`group relative p-3.5 rounded-xl border transition-all cursor-pointer ${
-                isSelected
-                  ? 'bg-gradient-to-br from-amber-950/40 via-[#1a1b22] to-[#16171d] border-amber-500/80 shadow-lg shadow-amber-950/30 ring-1 ring-amber-500/50'
-                  : 'bg-[#18191e]/80 border-white/5 hover:border-white/20 hover:bg-[#1f2027]'
-              }`}
+              className={`timeline-card ${isSelected ? 'is-selected' : ''}`}
             >
-              {/* Dual Track Year & Reign Title */}
-              <div className="flex items-center justify-between gap-2 mb-1.5">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-mono text-xs font-bold text-amber-400 bg-black/40 px-2 py-0.5 rounded border border-amber-500/30">
-                    {evt.yearDisplay}
-                  </span>
-                  <span className="text-[11px] font-serif text-zinc-300 bg-zinc-800/80 px-2 py-0.5 rounded border border-white/5">
-                    {evt.eraName}
-                  </span>
-                </div>
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${factionBadge.bg}`}>
-                  {factionBadge.text}
-                </span>
+              {/* Year, era and faction on one quiet line */}
+              <div className="timeline-card-meta">
+                <span className="timeline-card-year">{evt.yearDisplay}</span>
+                {evt.eraName && <span className="timeline-card-era">{evt.eraName}</span>}
+                <span className={`timeline-card-faction ${factionBadge.bg}`}>{factionBadge.text}</span>
               </div>
 
-              {/* Event Title */}
-              <h3 className="font-serif text-zinc-100 mb-2">
-                <button type="button" className="timeline-event-title" aria-expanded={isSelected}
-                  onClick={() => {
-                    setIsAutoPlaying(false);
-                    isTimelineScrolling.current = false;
-                    onSelectEvent(isSelected ? null : evt);
-                    if (!isSelected) scrollToSelectedCard(evt.id);
-                  }}>
-                  {evt.title}<span className="ml-2 text-xs text-amber-300">{isSelected ? '收起' : '展開'}</span>
+              <h3 className="font-serif text-zinc-100">
+                <button type="button" className="timeline-event-title" aria-expanded={isSelected} onClick={toggleEvent}>
+                  <span>{evt.title}</span>
+                  <ChevronDown aria-hidden="true" className="timeline-card-chevron" />
+                  <span className="sr-only">{isSelected ? '收起' : '展開'}</span>
                 </button>
               </h3>
 
-              {/* Event Summary */}
-              <p className={`text-xs text-zinc-300 leading-relaxed mb-2 ${isSelected ? '' : 'line-clamp-2 text-zinc-400'}`}>
-                {evt.summary}
-              </p>
+              <p className={`timeline-card-summary ${isSelected ? '' : 'line-clamp-2'}`}>{evt.summary}</p>
 
-              {/* Expanded Detail & Impact when Selected */}
+              {!isSelected && (
+                <p className="timeline-card-facts">
+                  {evt.locationNameAncient && (
+                    <span><MapPin aria-hidden="true" className="w-3.5 h-3.5" />{evt.locationNameAncient}</span>
+                  )}
+                  {allEvtFigures.length > 0 && (
+                    <span><Users aria-hidden="true" className="w-3.5 h-3.5" />{allEvtFigures.length} 位人物</span>
+                  )}
+                  {evt.battleId && (
+                    <span><Swords aria-hidden="true" className="w-3.5 h-3.5" />戰役</span>
+                  )}
+                </p>
+              )}
+
               {isSelected && (
-                <div className="mt-2.5 mb-3 space-y-2.5 pt-2.5 border-t border-amber-500/20 text-xs animate-in fade-in duration-150">
-                  <details className="event-narrative"><summary>閱讀歷史始末與影響</summary>
-                  {evt.detail && (
-                    <div className="bg-black/30 p-2.5 rounded-lg border border-white/5 text-zinc-300 leading-relaxed text-justify">
-                      <div className="text-[11px] font-bold text-amber-300 flex items-center gap-1 mb-1 font-serif">
-                        <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-                        <span>歷史始末詳情</span>
-                      </div>
-                      {evt.detail}
-                    </div>
-                  )}
-
-                  {evt.impact && (
-                    <div className="bg-amber-950/25 p-2.5 rounded-lg border border-amber-500/30 text-amber-100/90 leading-relaxed">
-                      <div className="text-[11px] font-bold text-amber-300 flex items-center gap-1 mb-0.5 font-serif">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                        <span>深遠歷史影響</span>
-                      </div>
-                      {evt.impact}
-                    </div>
-                  )}
-
-                  </details>
-                  {evt.tags && evt.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {evt.tags.map((tag, idx) => {
-                        const matchingFig = figures.find(
-                          (f) => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))
-                        );
-                        const matchingBat = battles.find(
-                          (b) => b.name === tag || b.name.includes(tag) || tag.includes(b.name)
-                        );
-                        const tip = matchingFig
-                          ? `點擊開啟人物列傳：${matchingFig.name}`
-                          : matchingBat
-                          ? `點擊開啟戰役詳情：${matchingBat.name}`
-                          : `點擊以「${tag}」篩選年表`;
-
-                        return (
-                          <button
-                            key={idx}
-                            type="button"
-                            onClick={(e) => handleTagClick(tag, e)}
-                            title={tip}
-                            className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:bg-amber-500/25 hover:border-amber-400 hover:text-amber-100 transition-all cursor-pointer inline-flex items-center gap-1 shadow-sm active:scale-95"
-                          >
-                            {matchingFig ? (
-                              <Users className="w-2.5 h-2.5 text-blue-400 shrink-0" />
-                            ) : matchingBat ? (
-                              <Swords className="w-2.5 h-2.5 text-rose-400 shrink-0" />
-                            ) : (
-                              <span className="text-amber-400/80">#</span>
-                            )}
-                            <span>{tag}</span>
+                <div className="timeline-card-body animate-in fade-in duration-150">
+                  {/* People and battle: the most-used next steps */}
+                  <section className="timeline-card-section" aria-label="地點、人物與戰役">
+                    <p className="timeline-card-place">
+                      <MapPin aria-hidden="true" className="w-3.5 h-3.5 text-amber-400/80 shrink-0" />
+                      <span>{evt.locationNameAncient}</span>
+                      {!ancientNamesOnly && evt.locationNameModern && <span className="text-zinc-400">（{evt.locationNameModern}）</span>}
+                    </p>
+                    {(visibleFigures.length > 0 || evt.battleId) && (
+                      <div className="timeline-card-chips">
+                        {evt.battleId && (
+                          <button type="button" className="timeline-chip is-battle"
+                            onClick={(e) => { e.stopPropagation(); setIsAutoPlaying(false); onSelectBattleById(evt.battleId); }}>
+                            <Swords aria-hidden="true" className="w-3.5 h-3.5" />查看戰役詳情
                           </button>
-                        );
-                      })}
-                    </div>
-                  )}
+                        )}
+                        {visibleFigures.map((fig) => (
+                          <button key={fig.id} type="button" className="timeline-chip is-figure"
+                            onClick={(e) => { e.stopPropagation(); setIsAutoPlaying(false); onSelectFigureById(fig.id); }}>
+                            {fig.avatar && (
+                              <img src={fig.avatar} alt="" className="w-4 h-4 rounded-full object-cover"
+                                onError={(e) => { e.target.style.display = 'none'; }} />
+                            )}
+                            {fig.name}
+                          </button>
+                        ))}
+                        {(remainingCount > 0 || showAllFigs) && allEvtFigures.length > 8 && (
+                          <button type="button" className="timeline-chip is-more"
+                            onClick={(e) => { e.stopPropagation(); setExpandedFiguresEventId(showAllFigs ? null : evt.id); }}>
+                            {showAllFigs ? '收合人物' : `+${remainingCount} 位人物`}
+                          </button>
+                        )}
+                      </div>
+                    )}
+                  </section>
 
-                  {/* Cross-Civilization Contemporary Sync Reference (Item 7) */}
+                  {/* Cross-Civilization Contemporary Sync Reference */}
                   {crossCivPools && typeof evt.year === 'number' && (() => {
                     const civMeta = {
-                      china: { flag: '🐉 華夏', badgeBg: 'bg-amber-950/60 border-amber-500/40 text-amber-300' },
-                      taiwan: { flag: '🏝️ 臺灣', badgeBg: 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300' },
-                      japan: { flag: '⛩️ 日本', badgeBg: 'bg-rose-950/60 border-rose-500/40 text-rose-300' },
+                      china: { label: '華夏', badgeBg: 'bg-amber-950/60 border-amber-500/40 text-amber-300' },
+                      taiwan: { label: '臺灣', badgeBg: 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300' },
+                      japan: { label: '日本', badgeBg: 'bg-rose-950/60 border-rose-500/40 text-rose-300' },
                     };
                     const otherCivs = ['china', 'taiwan', 'japan'].filter((c) => c !== civilizationMode);
                     const matches = otherCivs.map((civKey) => {
@@ -478,135 +456,106 @@ export const Timeline = ({
                     });
 
                     return (
-                      <div className="mt-2 p-2.5 rounded-lg bg-[#11131a]/90 border border-indigo-500/30 space-y-1.5">
-                        <div className="flex items-center justify-between text-[10.5px] font-bold text-indigo-300 font-serif">
-                          <span className="flex items-center gap-1">
-                            <Globe className="w-3 h-3 text-indigo-400" />
-                            <span>同期東亞歷史橫向對照 ({evt.year > 0 ? `西元 ${evt.year} 年` : `前 ${Math.abs(evt.year)} 年`})</span>
-                          </span>
-                          <span className="text-[9.5px] text-zinc-500 font-sans font-normal">點擊可跨文明跳轉</span>
-                        </div>
-                        <div className="space-y-1">
+                      <section className="timeline-card-section" aria-label="同期東亞歷史橫向對照">
+                        <h4 className="timeline-card-heading">
+                          <Globe aria-hidden="true" className="w-3.5 h-3.5 text-indigo-300" />
+                          同期東亞歷史橫向對照
+                          <span className="timeline-card-heading-note">{evt.year > 0 ? `西元 ${evt.year} 年` : `前 ${Math.abs(evt.year)} 年`}・點擊可跨文明跳轉</span>
+                        </h4>
+                        <ul className="timeline-sync-list">
                           {matches.map(({ civKey, meta, regimeLabel, closest, minDiff }) => (
-                            <button type="button" disabled={!closest}
-                              key={civKey}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                if (closest && onJumpToCrossCivEvent) {
-                                  setIsAutoPlaying(false);
-                                  onJumpToCrossCivEvent(civKey, closest);
-                                }
-                              }}
-                              title={closest ? `點擊切換至${meta.flag}星圖並定位「${closest.title}」` : ''}
-                              className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded bg-zinc-900/80 hover:bg-indigo-950/40 border border-white/5 hover:border-indigo-500/40 transition-colors cursor-pointer group/sync"
-                            >
-                              <div className="flex items-center gap-1.5 min-w-0">
-                                <span className={`text-[9.5px] font-bold px-1.5 py-0.5 rounded border shrink-0 ${meta.badgeBg}`}>
-                                  {meta.flag}
-                                </span>
-                                <span className="text-[10px] font-bold text-zinc-300 shrink-0">
-                                  【{regimeLabel}】
+                            <li key={civKey}>
+                              <button type="button" disabled={!closest} className="timeline-sync-row group/sync"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  if (closest && onJumpToCrossCivEvent) {
+                                    setIsAutoPlaying(false);
+                                    onJumpToCrossCivEvent(civKey, closest);
+                                  }
+                                }}
+                                title={closest ? `點擊切換至${meta.label}星圖並定位「${closest.title}」` : ''}>
+                                <span className={`timeline-sync-civ ${meta.badgeBg}`}>{meta.label}</span>
+                                <span className="timeline-sync-text">
+                                  <strong>{regimeLabel}</strong>
+                                  {closest && <span>{closest.year > 0 ? `${closest.year}年` : `前${Math.abs(closest.year)}年`}・{(closest.title || '').split('：')[0]}</span>}
                                 </span>
                                 {closest && (
-                                  <span className="text-[10.5px] text-zinc-400 group-hover/sync:text-amber-200 truncate">
-                                    {closest.year > 0 ? `${closest.year}年` : `前${Math.abs(closest.year)}年`} · {(closest.title || '').split('：')[0]}
+                                  <span className="timeline-sync-diff">
+                                    {minDiff === 0 ? '同年' : `±${minDiff}年`}
+                                    <ChevronRight aria-hidden="true" className="w-3 h-3" />
                                   </span>
                                 )}
-                              </div>
-                              {closest && (
-                                <span className="text-[9.5px] font-mono text-indigo-300 group-hover/sync:text-amber-300 shrink-0 flex items-center gap-0.5">
-                                  <span>{minDiff === 0 ? '同年發生' : `±${minDiff}年`}</span>
-                                  <ChevronRight className="w-2.5 h-2.5" />
-                                </span>
-                              )}
-                            </button>
+                              </button>
+                            </li>
                           ))}
-                        </div>
-                      </div>
+                        </ul>
+                      </section>
                     );
                   })()}
+
+                  {(evt.detail || evt.impact) && (
+                    <details className="event-narrative timeline-card-section">
+                      <summary>閱讀歷史始末與影響</summary>
+                      {evt.detail && (
+                        <div className="timeline-narrative-block">
+                          <h4 className="timeline-card-heading"><BookOpen aria-hidden="true" className="w-3.5 h-3.5 text-amber-400" />歷史始末</h4>
+                          <p>{evt.detail}</p>
+                        </div>
+                      )}
+                      {evt.impact && (
+                        <div className="timeline-narrative-block">
+                          <h4 className="timeline-card-heading"><Sparkles aria-hidden="true" className="w-3.5 h-3.5 text-amber-400" />深遠影響</h4>
+                          <p>{evt.impact}</p>
+                        </div>
+                      )}
+                    </details>
+                  )}
+
+                  {tags.length > 0 && (
+                    <div className="timeline-card-chips is-tags">
+                      {visibleTags.map((tag, idx) => {
+                        const matchingFig = figures.find(
+                          (f) => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))
+                        );
+                        const matchingBat = battles.find(
+                          (b) => b.name === tag || b.name.includes(tag) || tag.includes(b.name)
+                        );
+                        const tip = matchingFig
+                          ? `點擊開啟人物列傳：${matchingFig.name}`
+                          : matchingBat
+                          ? `點擊開啟戰役詳情：${matchingBat.name}`
+                          : `點擊以「${tag}」篩選年表`;
+
+                        return (
+                          <button key={idx} type="button" onClick={(e) => handleTagClick(tag, e)} title={tip} className="timeline-chip is-tag">
+                            {matchingFig ? (
+                              <Users aria-hidden="true" className="w-3 h-3 text-blue-300 shrink-0" />
+                            ) : matchingBat ? (
+                              <Swords aria-hidden="true" className="w-3 h-3 text-rose-300 shrink-0" />
+                            ) : (
+                              <span aria-hidden="true" className="text-amber-400/80">#</span>
+                            )}
+                            {tag}
+                          </button>
+                        );
+                      })}
+                      {tags.length > 3 && (
+                        <button type="button" className="timeline-chip is-more"
+                          onClick={(e) => { e.stopPropagation(); setExpandedTagsEventId(showAllTags ? null : evt.id); }}>
+                          {showAllTags ? '收合標籤' : `+${tags.length - 3}`}
+                        </button>
+                      )}
+                    </div>
+                  )}
+
+                  {contextFigures.length > 0 && <details className="text-sm text-zinc-300"><summary className="cursor-pointer py-2">背景與年代待考人物（{contextFigures.length} 位）</summary>
+                    {contextFigures.map(figure=><button key={figure.id} type="button" className="block text-left text-amber-200 py-2" onClick={()=>onSelectFigureById(figure.id)}>{figure.name}・{evt.figureLinkReviews[figure.id].label}</button>)}
+                  </details>}
+                  {pendingLinkCount(evt) > 0 && <p className="text-sm text-amber-200">另有 {pendingLinkCount(evt)} 筆人物連結待確認，暫不列入有效清單。</p>}
+                  <SourceDisclosure record={evt} />
                 </div>
               )}
-
-              {isSelected && <SourceDisclosure record={evt} />}
-              {contextFigures.length > 0 && <details className="text-xs text-zinc-300 my-2"><summary className="cursor-pointer py-2">背景與年代待考人物（{contextFigures.length} 位）</summary>
-                {contextFigures.map(figure=><button key={figure.id} className="block text-left text-amber-200 py-2" onClick={()=>onSelectFigureById(figure.id)}>{figure.name}・{evt.figureLinkReviews[figure.id].label}</button>)}
-              </details>}
-              {pendingLinkCount(evt) > 0 && <p className="text-xs text-amber-200 mb-2">另有 {pendingLinkCount(evt)} 筆人物連結待確認，暫不列入有效清單。</p>}
-              {/* Metadata tags: Location, Figures & Battle Link */}
-              <div className="flex flex-col gap-2 pt-2 border-t border-white/5 text-[11px]">
-                <div className="flex items-center justify-between gap-2 flex-wrap">
-                  {/* Location */}
-                  <span className="flex items-center gap-1 text-zinc-400">
-                    <MapPin className="w-3 h-3 text-amber-400/80 shrink-0" />
-                    <span>{evt.locationNameAncient}</span>
-                    {!ancientNamesOnly && (
-                      <span className="text-zinc-500 text-[10px]">({evt.locationNameModern})</span>
-                    )}
-                  </span>
-
-                  {/* Battle Link Button if attached */}
-                  {evt.battleId && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsAutoPlaying(false);
-                        onSelectBattleById(evt.battleId);
-                      }}
-                      className="flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-rose-950/70 text-rose-200 border border-rose-600/50 text-[10px] font-bold hover:bg-rose-800 hover:text-white transition-colors shadow-sm"
-                    >
-                      <Swords className="w-3 h-3 text-rose-400" />
-                      <span>查看戰役詳情</span>
-                    </button>
-                  )}
-                </div>
-
-                {/* Related Figures Buttons with tiny avatars */}
-                {visibleFigures.length > 0 && (
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <Users className="w-3 h-3 text-blue-400/80 shrink-0" />
-                    {visibleFigures.map((fig) => (
-                      <button
-                        key={fig.id}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setIsAutoPlaying(false);
-                          onSelectFigureById(fig.id);
-                        }}
-                        className="flex items-center gap-1 pl-1 pr-1.5 py-0.5 rounded bg-blue-950/40 text-blue-200 border border-blue-800/40 text-[10px] hover:bg-blue-800/60 hover:text-white transition-colors"
-                      >
-                        {fig.avatar && (
-                          <img
-                            src={fig.avatar}
-                            alt={fig.name}
-                            className="w-3.5 h-3.5 rounded-full object-cover"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                            }}
-                          />
-                        )}
-                        <span>{fig.name}</span>
-                      </button>
-                    ))}
-                    {remainingCount > 0 && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (!isSelected) {
-                            onSelectEvent(evt);
-                          } else {
-                            setExpandedFiguresEventId(showAllFigs ? null : evt.id);
-                          }
-                        }}
-                        className="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 hover:text-amber-300 text-[10px] border border-white/5"
-                      >
-                        +{remainingCount} 位人物
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
+            </article>
           );
         })}
       </div>
