@@ -28,6 +28,8 @@
 
 - 不使用 Vite、Tailwind CDN、手動編號的 bundle（例如 `bundle_v69.js`）。
 - 根目錄 `index.html` 是建置模板，不能直接開啟；可瀏覽的頁面在 `dist/`。
+- 部署：push 到 `master` 由 GitHub Actions 自動建置並發布到 GitHub Pages。`dist/` 已列入 `.gitignore`，不要 commit。
+- push 前在本機跑過 `npm run build`、`npm test`、`npm run verify`；Actions 任一步失敗就不會發布。
 
 ## 程式與資料
 

@@ -66,7 +66,7 @@ git push -u origin main
 | 操作目的 | 執行指令 / 動作 | 說明 |
 | :--- | :--- | :--- |
 | **啟動本地伺服器** | 點擊 `start_server.bat` 或 `node server.cjs` | 服務運行於 `http://localhost:8080/` |
-| **重新編譯程式碼** | 點擊 `build.bat` 或 `node build.cjs` | 打包輸出至 `dist/bundle.js` 與版本化檔案 |
+| **重新編譯程式碼** | 點擊 `build.bat` 或 `node build.cjs` | 打包輸出至 `dist/`（內容雜湊檔名；正式發布由 GitHub Actions 自動建置） |
 | **一鍵全量備份** | 點擊 `backup.bat` 或 `node scripts/backup_project.cjs` | 產生獨立時間戳 ZIP 於 `_backups/` |
 | **查看修改狀態** | `git status` | 隨時檢查有無檔案被外力變動 |
 | **放棄變更並還原** | `git restore .` | 瞬間復原至上一次 commit 狀態 |

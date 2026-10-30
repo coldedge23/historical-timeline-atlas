@@ -23,7 +23,8 @@ Google Drive 等同步磁碟若出現 npm TAR_ENTRY_ERROR，建議將專案複�
 - `index.html` 為建置模板；瀏覽請使用 `npm run preview`，不要直接開模板。
 - `src/main.js` 匯入 `src/index.css` 與 `src/interface.css`；樣式在建置時完整產生，不使用 Tailwind CDN 或遠端字型。
 - `dist/index.html`、`dist/assets/`、`dist/images/` 為可獨立部署的完整輸出。JS 採 ESM 分包，JS/CSS 使用內容雜湊名稱，勿手改版本編號。
-- 發布時上傳 **dist 內的內容**。Vercel 已設定 buildCommand 與 outputDirectory。GitHub Pages 可將 dist 內容作為 Pages artifact 發布；`.nojekyll` 已產生。
+- 正式發布：push 到 `master` 後，GitHub Actions（`.github/workflows/pages.yml`）會執行 `npm ci`、建置、測試、發布檢查，再把 `dist` 發布到 GitHub Pages。`dist/` 不納入版本控制。
+- `vercel.json` 保留 Vercel 設定，但目前未使用 Vercel 部署。
 - HTML 與圖片不長期快取；只有內容雜湊 JS/CSS 採 immutable 快取。
 - 建置不自動刪除舊資產，避免開啟中的頁面失去分包；正式發布建議以全新的 dist artifact 取代整包舊部署。
 
