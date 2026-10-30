@@ -310,7 +310,7 @@ export const XIA_SHANG_ZHOU_FIGURES = [
       { figureId: "jiang_ziya", relationType: "advisor", label: "渭水訪賢 · 拜太公望為軍師太師" },
       { figureId: "shang_zhouwang", relationType: "rival", label: "羑里囚演周易 · 三分天下有其二" }
     ],
-    participatedEventIds: ["evt_muye_1046"]
+    participatedEventIds: []
   },
   {
     id: "jiang_ziya",

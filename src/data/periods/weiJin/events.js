@@ -88,7 +88,7 @@ export const WEI_JIN_EVENTS = [
     locationNameAncient: "洛陽 / 苦縣",
     locationNameModern: "河南省洛陽市 / 河南省鹿邑縣",
     coordinates: [34.62, 112.45],
-    figureIds: ["shi_le", "sima_zhong"],
+    figureIds: ["shi_le"],
     tags: ["永嘉之禍", "洛陽陷落", "西晉覆亡", "二帝蒙塵"],
     battleId: "battle_luoyang_yongjia_311",
     routes: [

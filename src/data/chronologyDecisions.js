@@ -1,4 +1,5 @@
-// Owner-specific semantic decisions from literal local text. No raw IDs are removed.
+// Owner-specific semantic decisions from literal local text. Decisions never remove raw IDs;
+// unsupported links judged on 2026-10-30 were removed from the data itself (docs/20261030_年份矛盾清單_v2.xlsx).
 // Keys: datasetId:figureId:eventId. These annotate background/legacy links, not historical verification.
 export const CHRONOLOGY_LINK_DECISIONS = {
   "threeKingdoms:yang_hu:evt_wu_fall_280": {
@@ -220,6 +221,58 @@ export const CHRONOLOGY_LINK_DECISIONS = {
       "figureID": "fig_kublai_khan",
       "eventID": "evt_ym_08",
       "datasetID": "yuanMing"
+    }
+  },
+  "threeKingdoms:cao_rui:evt_gaopingling_249": {
+    "type": "posthumous-influence",
+    "label": "死後影響",
+    "reason": "人物傳記說臨終託孤司馬懿與曹爽而埋下高平陵之變的隱患；曹叡卒於239年，不是249年政變的親身參與者。",
+    "evidence": {
+      "ownerType": "figure",
+      "field": "bio",
+      "quote": "臨終託孤司馬懿與曹爽，為高平陵之變埋下隱患。",
+      "figureID": "cao_rui",
+      "eventID": "evt_gaopingling_249",
+      "datasetID": "threeKingdoms"
+    }
+  },
+  "weiJin:wang_meng:evt_fujian_wangmeng_376": {
+    "type": "posthumous-influence",
+    "label": "死後影響",
+    "reason": "事件以王猛主政的成果命名，原文並記載其375年病危遺諫；376年統一北方是其改革的延續，不是王猛本人親自參與。",
+    "evidence": {
+      "ownerType": "event",
+      "field": "detail",
+      "quote": "西元 375 年王猛病危，泣諫苻堅：『晉雖僻陋江南，正朔相承，不可圖也。鮮卑、羌虜我之仇讎，宜漸除之。』",
+      "figureID": "wang_meng",
+      "eventID": "evt_fujian_wangmeng_376",
+      "datasetID": "weiJin"
+    }
+  },
+  "xiaShangZhou:zhou_chengwang:evt_chengkang_1000": {
+    "type": "background",
+    "label": "歷史背景",
+    "reason": "成康之治是跨越成王、康王兩代的時期，事件以單一年份標示；成王是此時期的主體人物，與生卒不重疊來自年份標示方式。",
+    "evidence": {
+      "ownerType": "event",
+      "field": "summary",
+      "quote": "成王與其子周康王在位四十餘年，百姓和睦，諸侯順服，天下大治，刑錯四十餘年不用。",
+      "figureID": "zhou_chengwang",
+      "eventID": "evt_chengkang_1000",
+      "datasetID": "xiaShangZhou"
+    }
+  },
+  "xiaShangZhou:zhaogong_shi:evt_chengkang_1000": {
+    "type": "background",
+    "label": "歷史背景",
+    "reason": "原文記載召公輔弼成康時期的天子；事件以單一年份標示跨代時期，故與生卒不重疊。",
+    "evidence": {
+      "ownerType": "event",
+      "field": "detail",
+      "quote": "召公、畢公輔弼天子，天下晏然。",
+      "figureID": "zhaogong_shi",
+      "eventID": "evt_chengkang_1000",
+      "datasetID": "xiaShangZhou"
     }
   }
 };

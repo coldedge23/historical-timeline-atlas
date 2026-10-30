@@ -227,7 +227,6 @@ export const THREE_KINGDOMS_FIGURES = [
       "evt_chibi_208",
       "evt_take_yizhou_214",
       "evt_hanzhong_219",
-      "evt_northern_expedition_228",
       "evt_yellow_turban_184"
     ]
   },
@@ -752,9 +751,7 @@ export const THREE_KINGDOMS_FIGURES = [
       "evt_northern_expedition_228",
       "evt_wuzhang_234",
       "evt_liaodong_238",
-      "evt_gaopingling_249",
-      "evt_shu_fall_263",
-      "evt_wu_fall_280"
+      "evt_gaopingling_249"
     ]
   },
   {
@@ -1531,8 +1528,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_luoyang_burned_189",
-      "evt_xuchang_capital_196"
+      "evt_luoyang_burned_189"
     ]
   },
   {
@@ -2117,7 +2113,6 @@ export const THREE_KINGDOMS_FIGURES = [
       "evt_dongzhuo_killed_192",
       "evt_puyang_194",
       "evt_xiapi_198",
-      "evt_chibi_208",
       "evt_xuchang_capital_196"
     ]
   },
@@ -2169,8 +2164,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_luoyang_burned_189",
-      "evt_dongzhuo_killed_192",
-      "evt_xuchang_capital_196"
+      "evt_dongzhuo_killed_192"
     ]
   },
   {
@@ -2471,7 +2465,6 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_luoyang_burned_189",
       "evt_dongzhuo_killed_192",
-      "evt_chibi_208",
       "evt_xuchang_capital_196"
     ]
   },
@@ -2512,9 +2505,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "醫治頭風難諧致殞"
       }
     ],
-    "participatedEventIds": [
-      "evt_fancheng_219"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "jiang_wan",
@@ -3190,8 +3181,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_chibi_208",
-      "evt_take_yizhou_214",
-      "evt_northern_expedition_228"
+      "evt_take_yizhou_214"
     ]
   },
   {
@@ -4295,7 +4285,6 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_huainan_taoxi_255",
       "evt_shu_fall_263",
-      "evt_wu_fall_280",
       "evt_gaopingling_249"
     ]
   },
@@ -4629,9 +4618,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_guandu_200",
       "evt_hefei_215",
-      "evt_fancheng_219",
-      "evt_huainan_taoxi_255",
-      "evt_gaopingling_249"
+      "evt_fancheng_219"
     ]
   },
   {
@@ -4805,8 +4792,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_longzhong_207",
       "evt_hefei_215",
-      "evt_guandu_200",
-      "evt_fancheng_219"
+      "evt_guandu_200"
     ]
   },
   {
@@ -5352,8 +5338,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_northern_expedition_228",
-      "evt_wuzhang_234"
+      "evt_northern_expedition_228"
     ]
   },
   {
@@ -5751,7 +5736,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_dongxing_252",
-      "evt_wu_fall_280",
       "evt_chibi_208",
       "evt_yiling_222"
     ]
@@ -5968,8 +5952,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_xiling_272",
-      "evt_wu_fall_280"
+      "evt_xiling_272"
     ]
   },
   {
@@ -6513,8 +6496,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_yiling_222",
-      "evt_liubei_death_223",
-      "evt_wu_found_229"
+      "evt_liubei_death_223"
     ]
   },
   {
@@ -6723,8 +6705,7 @@ export const THREE_KINGDOMS_FIGURES = [
       "evt_jieqiao_191",
       "evt_sunce_jiangdong_195",
       "evt_hefei_215",
-      "evt_chibi_208",
-      "evt_fancheng_219"
+      "evt_chibi_208"
     ]
   },
   {
@@ -7322,8 +7303,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_yellow_turban_184",
-      "evt_xuchang_capital_196",
-      "evt_weiking_216"
+      "evt_xuchang_capital_196"
     ]
   },
   {
@@ -7469,7 +7449,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_tongguan_211",
-      "evt_northern_expedition_228",
       "evt_take_yizhou_214"
     ]
   },
@@ -8042,8 +8021,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_hanzhong_219",
       "evt_northern_expedition_228",
-      "evt_gaopingling_249",
-      "evt_shu_fall_263"
+      "evt_gaopingling_249"
     ]
   },
   {
@@ -8338,7 +8316,6 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_wu_fall_280",
       "evt_gaopingling_249"
     ]
   },
@@ -8389,8 +8366,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_northern_expedition_228",
-      "evt_shu_fall_263",
-      "evt_wu_fall_280"
+      "evt_shu_fall_263"
     ]
   },
   {
@@ -8777,9 +8753,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "曹魏陣營統帥"
       }
     ],
-    "participatedEventIds": [
-      "evt_wu_fall_280"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "cui_yan",
@@ -9471,8 +9445,7 @@ export const THREE_KINGDOMS_FIGURES = [
       "evt_wuzhang_234",
       "evt_gaopingling_249",
       "evt_shu_fall_263",
-      "evt_xiling_272",
-      "evt_wu_fall_280"
+      "evt_xiling_272"
     ]
   },
   {
@@ -9897,8 +9870,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_shu_fall_263",
-      "evt_wu_fall_280"
+      "evt_shu_fall_263"
     ]
   },
   {
@@ -9944,8 +9916,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_gaopingling_249",
       "evt_dongxing_252",
-      "evt_huainan_taoxi_255",
-      "evt_wu_fall_280"
+      "evt_huainan_taoxi_255"
     ]
   },
   {
@@ -10138,10 +10109,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "沙場交鋒 / 政敵"
       }
     ],
-    "participatedEventIds": [
-      "evt_hefei_215",
-      "evt_fancheng_219"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "jiang_gan",
@@ -11229,7 +11197,6 @@ export const THREE_KINGDOMS_FIGURES = [
       "evt_dongzhuo_killed_192",
       "evt_taiwan_expedition_230",
       "evt_gaopingling_249",
-      "evt_huainan_taoxi_255",
       "evt_luoyang_burned_189"
     ]
   },
@@ -11275,7 +11242,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_huainan_taoxi_255",
-      "evt_wu_fall_280",
       "evt_gaopingling_249"
     ]
   },
@@ -11349,9 +11315,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "曹魏陣營統帥"
       }
     ],
-    "participatedEventIds": [
-      "evt_wu_fall_280"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "hu_zhi",
@@ -12317,8 +12281,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_shu_fall_263",
-      "evt_xiling_272",
-      "evt_wu_fall_280"
+      "evt_xiling_272"
     ]
   },
   {
@@ -12659,9 +12622,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "同陣營袍澤"
       }
     ],
-    "participatedEventIds": [
-      "evt_wu_fall_280"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "li_yan",
@@ -12915,8 +12876,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_take_yizhou_214",
-      "evt_hanzhong_219",
-      "evt_shiting_228"
+      "evt_hanzhong_219"
     ]
   },
   {
@@ -13000,8 +12960,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_take_yizhou_214",
       "evt_fancheng_219",
-      "evt_yiling_222",
-      "evt_wu_found_229"
+      "evt_yiling_222"
     ]
   },
   {
@@ -13046,8 +13005,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_take_yizhou_214",
       "evt_hanzhong_219",
-      "evt_yiling_222",
-      "evt_wu_found_229"
+      "evt_yiling_222"
     ]
   },
   {
@@ -13451,8 +13409,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_take_yizhou_214",
-      "evt_nanman_225"
+      "evt_take_yizhou_214"
     ]
   },
   {
@@ -13605,8 +13562,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_take_yizhou_214",
-      "evt_taiwan_expedition_230"
+      "evt_take_yizhou_214"
     ]
   },
   {
@@ -13656,8 +13612,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_chibi_208",
-      "evt_yiling_222",
-      "evt_wu_found_229"
+      "evt_yiling_222"
     ]
   },
   {
@@ -13756,8 +13711,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_fancheng_219",
-      "evt_shiting_228"
+      "evt_fancheng_219"
     ]
   },
   {
@@ -13943,8 +13897,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_sunce_jiangdong_195",
-      "evt_guandu_200",
-      "evt_longzhong_207"
+      "evt_guandu_200"
     ]
   },
   {
@@ -14029,10 +13982,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "東吳陣營君主"
       }
     ],
-    "participatedEventIds": [
-      "evt_huainan_taoxi_255",
-      "evt_gaopingling_249"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "sun_xiu",
@@ -14231,7 +14181,6 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_dongxing_252",
       "evt_wuzhang_234",
       "evt_taiwan_expedition_230"
     ]
@@ -14346,8 +14295,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_dongxing_252",
-      "evt_gaopingling_249",
-      "evt_shu_fall_263"
+      "evt_gaopingling_249"
     ]
   },
   {
@@ -14497,8 +14445,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_wancheng_197",
-      "evt_wu_found_229"
+      "evt_wancheng_197"
     ]
   },
   {
@@ -14538,7 +14485,6 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_wu_fall_280",
       "evt_wu_found_229"
     ]
   },
@@ -14630,8 +14576,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_liubei_death_223",
       "evt_wu_found_229",
-      "evt_xiling_272",
-      "evt_wu_fall_280"
+      "evt_xiling_272"
     ]
   },
   {
@@ -14681,8 +14626,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_wu_found_229",
-      "evt_xiling_272",
-      "evt_wu_fall_280"
+      "evt_xiling_272"
     ]
   },
   {
@@ -14807,9 +14751,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "同陣營袍澤"
       }
     ],
-    "participatedEventIds": [
-      "evt_wu_fall_280"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "pan_jun",
@@ -14971,7 +14913,6 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_jieqiao_191",
       "evt_sunce_jiangdong_195",
-      "evt_hefei_215",
       "evt_xuchang_capital_196",
       "evt_luoyang_burned_189"
     ]
@@ -15408,8 +15349,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_dongxing_252",
-      "evt_xiling_272",
-      "evt_wu_fall_280"
+      "evt_xiling_272"
     ]
   },
   {
@@ -15866,8 +15806,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_yellow_turban_184",
-      "evt_luoyang_burned_189",
-      "evt_guandu_200"
+      "evt_luoyang_burned_189"
     ]
   },
   {
@@ -16027,8 +15966,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_luoyang_burned_189",
-      "evt_dongzhuo_killed_192",
-      "evt_xuchang_capital_196"
+      "evt_dongzhuo_killed_192"
     ]
   },
   {
@@ -16073,8 +16011,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_luoyang_burned_189",
-      "evt_xuchang_capital_196"
+      "evt_luoyang_burned_189"
     ]
   },
   {
@@ -16125,8 +16062,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_yellow_turban_184",
       "evt_luoyang_burned_189",
-      "evt_puyang_194",
-      "evt_guandu_200"
+      "evt_puyang_194"
     ]
   },
   {
@@ -16588,8 +16524,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_yellow_turban_184",
       "evt_luoyang_burned_189",
-      "evt_dongzhuo_killed_192",
-      "evt_xuchang_capital_196"
+      "evt_dongzhuo_killed_192"
     ]
   },
   {
@@ -16949,8 +16884,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_jieqiao_191",
-      "evt_guandu_200",
-      "evt_bailangshan_207"
+      "evt_guandu_200"
     ]
   },
   {
@@ -17110,8 +17044,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_xuchang_capital_196",
-      "evt_guandu_200",
-      "evt_tongguan_211"
+      "evt_guandu_200"
     ]
   },
   {
@@ -17310,8 +17243,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_jieqiao_191",
       "evt_guandu_200",
-      "evt_bailangshan_207",
-      "evt_weiking_216"
+      "evt_bailangshan_207"
     ]
   },
   {
@@ -17691,9 +17623,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "同陣營袍澤"
       }
     ],
-    "participatedEventIds": [
-      "evt_fancheng_219"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "yuan_yin",
@@ -17833,8 +17763,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_guandu_200",
-      "evt_bailangshan_207",
-      "evt_wuzhang_234"
+      "evt_bailangshan_207"
     ]
   },
   {
@@ -17990,10 +17919,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_jieqiao_191",
-      "evt_wancheng_197",
-      "evt_guandu_200",
-      "evt_xuchang_capital_196"
+      "evt_jieqiao_191"
     ]
   },
   {
@@ -18151,7 +18077,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_sunce_jiangdong_195",
-      "evt_hefei_215",
       "evt_yellow_turban_184",
       "evt_luoyang_burned_189"
     ]
@@ -18438,8 +18363,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_chibi_208",
-      "evt_hanzhong_219"
+      "evt_chibi_208"
     ]
   },
   {
@@ -18716,8 +18640,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_take_yizhou_214",
-      "evt_hanzhong_219"
+      "evt_take_yizhou_214"
     ]
   },
   {
@@ -18769,8 +18692,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_take_yizhou_214",
-      "evt_hanzhong_219"
+      "evt_take_yizhou_214"
     ]
   },
   {
@@ -18905,9 +18827,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_tongguan_211",
-      "evt_hanzhong_219",
-      "evt_fancheng_219"
+      "evt_tongguan_211"
     ]
   },
   {
@@ -18948,9 +18868,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "同陣營袍澤"
       }
     ],
-    "participatedEventIds": [
-      "evt_hanzhong_219"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "yang_ren",
@@ -19000,9 +18918,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "沙場交鋒 / 政敵"
       }
     ],
-    "participatedEventIds": [
-      "evt_hanzhong_219"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "zhang_bao_alt",
@@ -19084,8 +19000,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_yellow_turban_184",
-      "evt_luoyang_burned_189"
+      "evt_yellow_turban_184"
     ]
   },
   {
@@ -19139,8 +19054,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_yellow_turban_184",
-      "evt_jieqiao_191"
+      "evt_yellow_turban_184"
     ]
   },
   {
@@ -19250,9 +19164,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_yellow_turban_184",
-      "evt_wancheng_197",
-      "evt_xuchang_capital_196"
+      "evt_yellow_turban_184"
     ]
   },
   {
@@ -19665,8 +19577,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_nanman_225",
-      "evt_wuzhang_234"
+      "evt_nanman_225"
     ]
   },
   {
@@ -19713,8 +19624,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_nanman_225",
-      "evt_wuzhang_234"
+      "evt_nanman_225"
     ]
   },
   {
@@ -19943,9 +19853,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_luoyang_burned_189",
-      "evt_wancheng_197",
-      "evt_xuchang_capital_196"
+      "evt_luoyang_burned_189"
     ]
   },
   {
@@ -20253,8 +20161,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_jieqiao_191",
-      "evt_guandu_200"
+      "evt_jieqiao_191"
     ]
   },
   {
@@ -20373,8 +20280,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_yellow_turban_184",
-      "evt_jieqiao_191",
-      "evt_guandu_200"
+      "evt_jieqiao_191"
     ]
   },
   {
@@ -20419,8 +20325,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_luoyang_burned_189",
       "evt_jieqiao_191",
-      "evt_puyang_194",
-      "evt_guandu_200"
+      "evt_puyang_194"
     ]
   },
   {
@@ -20763,8 +20668,7 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_fancheng_219",
-      "evt_yiling_222",
-      "evt_nanman_225"
+      "evt_yiling_222"
     ]
   },
   {
@@ -20802,8 +20706,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_chibi_208",
-      "evt_liubei_death_223"
+      "evt_chibi_208"
     ]
   },
   {
@@ -20976,9 +20879,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_jieqiao_191",
-      "evt_bailangshan_207",
-      "evt_guandu_200"
+      "evt_jieqiao_191"
     ]
   },
   {
@@ -21290,7 +21191,6 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_wancheng_197",
       "evt_xiapi_198",
-      "evt_wuzhang_234",
       "evt_xuchang_capital_196"
     ]
   },
@@ -21559,8 +21459,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_fancheng_219",
-      "evt_northern_expedition_228"
+      "evt_fancheng_219"
     ]
   },
   {
@@ -21729,7 +21628,6 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_jieqiao_191",
       "evt_wancheng_197",
-      "evt_guandu_200",
       "evt_xuchang_capital_196"
     ]
   },
@@ -21817,9 +21715,7 @@ export const THREE_KINGDOMS_FIGURES = [
         "label": "同陣營袍澤"
       }
     ],
-    "participatedEventIds": [
-      "evt_wu_fall_280"
-    ]
+    "participatedEventIds": []
   },
   {
     "id": "yu_quan",
@@ -21928,8 +21824,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_yellow_turban_184",
-      "evt_tongguan_211"
+      "evt_yellow_turban_184"
     ]
   },
   {
@@ -22012,7 +21907,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_tongguan_211",
-      "evt_hanzhong_219",
       "evt_take_yizhou_214"
     ]
   },
@@ -22149,8 +22043,7 @@ export const THREE_KINGDOMS_FIGURES = [
       }
     ],
     "participatedEventIds": [
-      "evt_gaopingling_249",
-      "evt_shu_fall_263"
+      "evt_gaopingling_249"
     ]
   },
   {
@@ -22490,7 +22383,6 @@ export const THREE_KINGDOMS_FIGURES = [
     "participatedEventIds": [
       "evt_luoyang_burned_189",
       "evt_wancheng_197",
-      "evt_guandu_200",
       "evt_xuchang_capital_196"
     ]
   },
@@ -22877,7 +22769,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_tongguan_211",
-      "evt_hanzhong_219",
       "evt_take_yizhou_214"
     ]
   },
@@ -23000,7 +22891,6 @@ export const THREE_KINGDOMS_FIGURES = [
     ],
     "participatedEventIds": [
       "evt_tongguan_211",
-      "evt_northern_expedition_228",
       "evt_take_yizhou_214"
     ]
   },

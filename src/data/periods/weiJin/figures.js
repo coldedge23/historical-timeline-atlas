@@ -37,7 +37,7 @@ export const WEI_JIN_FIGURES = [
       { figureId: "jia_nanfeng", relationType: "family", label: "專權毒后 · 禍亂宮闈" },
       { figureId: "sima_rui", relationType: "family", label: "宗室從弟 · 南渡延續晉祚" }
     ],
-    participatedEventIds: ["evt_bawang_291", "evt_yongjia_311"]
+    participatedEventIds: ["evt_bawang_291"]
   },
   {
     id: "jia_nanfeng",
@@ -435,7 +435,7 @@ export const WEI_JIN_FIGURES = [
     relations: [
       { figureId: "xiao_yan", relationType: "family", label: "同族子姪 · 後建立南梁王朝" }
     ],
-    participatedEventIds: ["evt_liuyu_song_420"]
+    participatedEventIds: []
   },
   {
     id: "xiao_yan",
@@ -520,7 +520,7 @@ export const WEI_JIN_FIGURES = [
     relations: [
       { figureId: "liu_yilong", relationType: "monarch-subject", label: "宋文帝元嘉盛期太學培養之科學英才" }
     ],
-    participatedEventIds: ["evt_liuyu_song_420"]
+    participatedEventIds: []
   },
 
   // --- 北朝帝王、將相與名家 (Northern Dynasties: Northern Wei, Eastern/Western Wei, Northern Qi, Northern Zhou, Sui) ---

@@ -5,16 +5,26 @@ import {isContextReview,applyChronologyReviews} from '../src/data/chronologyRevi
 import {classifyHistorySources} from '../src/utils/historySources.js';
 import {linkedEvents} from '../src/utils/figureLinks.js';
 
-test('deceased figures are kept as contextual review links, never direct event participants in the UI split',()=>{
+test('links still under review stay contextual, never direct event participants in the UI split',()=>{
+ // 袁譚 (約170–205) → 白狼山 207: a 2-year gap kept for research (docs/20261030_年份矛盾清單_v2.xlsx).
  const dataset=HISTORY_LINK_GRAPH.datasets.find(dataset=>dataset.id==='threeKingdoms');
- const figure=dataset.figures.find(figure=>figure.id==='zhang_fei');
- const event=dataset.events.find(event=>event.id==='evt_northern_expedition_228');
+ const figure=dataset.figures.find(figure=>figure.id==='yuan_tan');
+ const event=dataset.events.find(event=>event.id==='evt_bailangshan_207');
  assert.equal(figure.eventLinkReviews[event.id].status,'outside');
  assert.equal(isContextReview(figure.eventLinkReviews[event.id]),true);
  assert.equal(isContextReview(event.figureLinkReviews[figure.id]),true);
- assert.ok(figure.participatedEventIds.includes(event.id)); // preserved, not erased
+ assert.ok(figure.participatedEventIds.includes(event.id)); // kept until researched
  const direct=linkedEvents(figure,dataset.events).filter(event=>!isContextReview(figure.eventLinkReviews[event.id]));
- assert.ok(!direct.some(event=>event.id==='evt_northern_expedition_228'));
+ assert.ok(!direct.some(event=>event.id==='evt_bailangshan_207'));
+});
+
+test('links judged unsupported on 2026-10-30 are removed from both sides',()=>{
+ // 張飛 died 221; the scoped Wikisource review in sourceReviews.js rules out the 228 expedition.
+ const dataset=HISTORY_LINK_GRAPH.datasets.find(dataset=>dataset.id==='threeKingdoms');
+ const figure=dataset.figures.find(figure=>figure.id==='zhang_fei');
+ const event=dataset.events.find(event=>event.id==='evt_northern_expedition_228');
+ assert.ok(!figure.participatedEventIds.includes(event.id));
+ assert.ok(!(event.figureIds||[]).includes(figure.id));
 });
 
 test('posthumous commentary has an owner-specific explanation and narrowly scoped external review',()=>{
