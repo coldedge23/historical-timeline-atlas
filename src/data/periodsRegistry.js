@@ -12,7 +12,7 @@ import * as QingDynasty from './periods/qingDynasty/index.js';
 import * as RepublicModern from './periods/republicModern/index.js';
 import { normalizePeriodDataset } from './schemaNormalizer.js';
 
-const RAW_HISTORICAL_PERIODS = {
+export const RAW_HISTORICAL_PERIODS = {
   xiaShangZhou: {
     id: 'xiaShangZhou',
     name: '夏商西周',
@@ -173,7 +173,7 @@ export const HISTORICAL_PERIODS = Object.fromEntries(
   ])
 );
 
-export const PERIOD_OPTIONS = Object.values(HISTORICAL_PERIODS).map((p) => ({
+export const PERIOD_OPTIONS = Object.values(RAW_HISTORICAL_PERIODS).map((p) => ({
   id: p.id,
   name: p.name,
   range: p.dateRangeDisplay,

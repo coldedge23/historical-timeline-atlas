@@ -1,3 +1,4 @@
+import { computeForcesTugOfWar, formatForcePercent } from '../utils/forces.js';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Swords, Trophy, MapPin, Search } from './Icons.js';
 
@@ -58,48 +59,6 @@ const ERA_BATTLE_PHASES = {
     { id: 'late', label: '🌸 幕末戊辰與西南戰爭 (1850–1912年)', min: 1850, max: 1925 },
   ],
 };
-
-function parseTroopCount(raw) {
-  if (!raw || typeof raw !== 'string') return null;
-  const s = raw.replace(/,/g, '');
-  const wanMatch = s.match(/(\d+(?:\.\d+)?)\s*萬/);
-  if (wanMatch) return Math.round(parseFloat(wanMatch[1]) * 10000);
-  const qianMatch = s.match(/(\d+(?:\.\d+)?)\s*千/);
-  if (qianMatch) return Math.round(parseFloat(qianMatch[1]) * 1000);
-  const numMatch = s.match(/(\d{3,7})/);
-  if (numMatch) return parseInt(numMatch[1], 10);
-  if (s.includes('數十萬')) return 250000;
-  if (s.includes('十餘萬') || s.includes('十萬')) return 110000;
-  if (s.includes('數萬')) return 35000;
-  if (s.includes('萬餘')) return 13000;
-  if (s.includes('數千')) return 4500;
-  if (s.includes('千餘')) return 1500;
-  if (s.includes('數百')) return 500;
-  return null;
-}
-
-function computeForcesTugOfWar(atkStr, defStr) {
-  const atk = parseTroopCount(atkStr);
-  const def = parseTroopCount(defStr);
-  if (!atk || !def) {
-    return { atkPct: 50, defPct: 50, ratioText: '兵力相當', isDisparity: false };
-  }
-  const total = atk + def;
-  const rawAtkPct = Math.round((atk / total) * 100);
-  const atkPct = Math.min(86, Math.max(14, rawAtkPct));
-  const defPct = 100 - atkPct;
-
-  let ratioText = '1 : 1';
-  if (atk >= def) {
-    const r = atk / def;
-    ratioText = `${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')} : 1`;
-  } else {
-    const r = def / atk;
-    ratioText = `1 : ${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')}`;
-  }
-  const isDisparity = atk >= def * 2.2 || def >= atk * 2.2;
-  return { atkPct, defPct, ratioText, isDisparity };
-}
 
 export const BattlesView = ({
   battles = [],
@@ -273,6 +232,10 @@ export const BattlesView = ({
           return (
             <div
               key={battle.id}
+              role="button"
+              tabIndex={0}
+              aria-label={`查看${battle.name}戰役詳情`}
+              onKeyDown={(e) => { if(e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); onSelectBattle(battle); } }}
               onClick={() => onSelectBattle(battle)}
               className="group p-5 rounded-xl bg-[#17181e] border border-rose-500/30 hover:border-rose-500 transition-all hover:-translate-y-1 hover:shadow-2xl cursor-pointer flex flex-col justify-between"
             >
@@ -309,15 +272,16 @@ export const BattlesView = ({
 
                 {/* Tug-of-War Battle Forces Bar */}
                 {(() => {
-                  const atkStr = battle.attacker?.forcesEstimate || battle.attacker?.troops || '精銳主力';
-                  const defStr = battle.defender?.forcesEstimate || battle.defender?.troops || '守備主力';
+                  const atkStr = battle.attacker?.forcesEstimate || battle.attacker?.troops || '待考';
+                  const defStr = battle.defender?.forcesEstimate || battle.defender?.troops || '待考';
                   const tug = computeForcesTugOfWar(atkStr, defStr);
+                  if (!tug.comparable) return <p className="text-sm text-zinc-300 py-2">兵力資料不足或為模糊估計，無法比較比例。</p>;
                   return (
                     <div className="mb-2.5 px-2.5 py-2 rounded-lg bg-black/35 border border-white/5 space-y-1.5">
                       <div className="flex items-center justify-between text-[10px]">
                         <span className="text-blue-300 font-bold flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block" />
-                          <span>攻方兵力 ({tug.atkPct}%)</span>
+                          <span>攻方兵力 ({formatForcePercent(tug.atkPct)}%)</span>
                         </span>
                         <div className="flex items-center gap-1.5">
                           {tug.isDisparity && (
@@ -326,15 +290,15 @@ export const BattlesView = ({
                             </span>
                           )}
                           <span className="font-mono text-zinc-300 bg-zinc-800/90 px-1.5 py-0.2 rounded border border-white/10">
-                            兵力比 {tug.ratioText}
+                            依記載估計兵力比 {tug.ratioText}
                           </span>
                         </div>
                         <span className="text-emerald-300 font-bold flex items-center gap-1">
-                          <span>守方兵力 ({tug.defPct}%)</span>
+                          <span>守方兵力 ({formatForcePercent(tug.defPct)}%)</span>
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
                         </span>
                       </div>
-                      <div className="w-full h-2 rounded-full bg-zinc-800 overflow-hidden flex p-0.5 gap-0.5 border border-white/10">
+                      <div className="w-full h-2 rounded-full bg-zinc-800 overflow-hidden flex border border-white/10">
                         <div
                           className="h-full rounded-l-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 transition-all duration-300"
                           style={{ width: `${tug.atkPct}%` }}
@@ -356,7 +320,7 @@ export const BattlesView = ({
                       {((battle.attacker?.factionName || battle.attacker?.name || '進攻方').split('(')[0] || '').split('（')[0]}
                     </span>
                     <span className="text-[11px] text-zinc-400 mt-0.5 block truncate">
-                      兵力：{(battle.attacker?.forcesEstimate || battle.attacker?.troops || '精銳主力').split('，')[0]}
+                      兵力：{(battle.attacker?.forcesEstimate || battle.attacker?.troops || '待考').split('，')[0]}
                     </span>
                     {renderCommandersPreview(battle.attacker?.commanders)}
                   </div>
@@ -367,7 +331,7 @@ export const BattlesView = ({
                       {((battle.defender?.factionName || battle.defender?.name || '迎戰方').split('(')[0] || '').split('（')[0]}
                     </span>
                     <span className="text-[11px] text-zinc-400 mt-0.5 block truncate">
-                      兵力：{(battle.defender?.forcesEstimate || battle.defender?.troops || '守備主力').split('，')[0]}
+                      兵力：{(battle.defender?.forcesEstimate || battle.defender?.troops || '待考').split('，')[0]}
                     </span>
                     {renderCommandersPreview(battle.defender?.commanders)}
                   </div>

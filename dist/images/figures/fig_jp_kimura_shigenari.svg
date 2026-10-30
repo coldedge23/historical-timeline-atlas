@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="bg_fig_jp_kimura_shigenari" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a2018" />
+      <stop offset="100%" stop-color="#0e0a07" />
+    </radialGradient>
+    <filter id="shadow_fig_jp_kimura_shigenari" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Rim Frame -->
+  <circle cx="60" cy="60" r="56" fill="url(#bg_fig_jp_kimura_shigenari)" stroke="#f59e0b" stroke-width="2.5" />
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+
+  <!-- Japanese Kamon Outer Ring Accent -->
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#f59e0b" stroke-width="1.8" opacity="0.85" />
+
+  <!-- Clan Mon / Traditional Character Seal -->
+  <text x="60" y="65" font-family="'Noto Serif TC', 'Songti TC', 'Kozuka Mincho Pro', 'Yu Mincho', serif" 
+        font-size="28" font-weight="900" fill="#f59e0b" text-anchor="middle" dominant-baseline="middle"
+        filter="url(#shadow_fig_jp_kimura_shigenari)">
+    香
+  </text>
+
+  <!-- Top Clan / Faction Badge -->
+  <rect x="22" y="8" width="76" height="15" rx="3" fill="#1c1611" stroke="#f59e0b" stroke-width="1"/>
+  <text x="60" y="19" font-family="'Noto Sans TC', sans-serif" font-size="8.5" font-weight="bold" fill="#fef08a" text-anchor="middle">
+    豐臣家若武者
+  </text>
+
+  <!-- Bottom Name Banner -->
+  <rect x="18" y="94" width="84" height="17" rx="3" fill="#1c1611" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="60" y="106" font-family="'Noto Serif TC', 'Songti TC', serif" font-size="10" font-weight="bold" fill="#f8fafc" text-anchor="middle" letter-spacing="1">
+    木村重成
+  </text>
+</svg>

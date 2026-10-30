@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dialog } from './Dialog.jsx';
 import { X, Users, TrendingDown, FileText, Globe } from './Icons.js';
 
 export const DemographicsModal = ({
@@ -11,7 +12,7 @@ export const DemographicsModal = ({
   const modalSubtitle =
     data.subtitle ||
     data.sourceNote ||
-    '依據《二十四史·食貨志》、《地理志》與歷代官方戶部版籍考實';
+    '來源尚待逐筆核對，人口數字不代表已完成史料查證';
   const alertTitle =
     data.alertTitle ||
     (data.peakPopulation ? `時代極盛人口規模：${data.peakPopulation}` : '歷代戶口變遷與社會結構總覽');
@@ -20,10 +21,7 @@ export const DemographicsModal = ({
   const ethnicGroups = data.ethnicGroups || [];
 
   return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
-    >
+    <Dialog onClose={onClose} label="人口與民族詳情">
       <div
         className="relative w-full max-w-3xl max-h-[90vh] bg-[#16171c] border border-amber-500/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden text-zinc-200"
         onClick={(e) => e.stopPropagation()}
@@ -32,6 +30,7 @@ export const DemographicsModal = ({
         <div className="relative p-6 border-b border-white/10 bg-gradient-to-r from-amber-950/40 via-zinc-900 to-zinc-900">
           <button
             onClick={onClose}
+            aria-label="關閉人口與民族詳情"
             className="absolute top-4 right-4 p-1.5 rounded-full bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -90,7 +89,7 @@ export const DemographicsModal = ({
                     dp.regimeName || dp.name || dp.yearDisplay || (dp.year ? `西元 ${dp.year} 年` : '官方普查');
                   const popVal = dp.population || dp.total || '待考';
                   const hhVal = dp.households || '待考';
-                  const srcVal = dp.source || dp.note || '正史食貨志記載';
+                  const srcVal = dp.source || dp.note || '來源待核對';
 
                   return (
                     <div
@@ -183,6 +182,6 @@ export const DemographicsModal = ({
           )}
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };

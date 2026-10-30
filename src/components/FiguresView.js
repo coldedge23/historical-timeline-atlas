@@ -1,3 +1,6 @@
+import { isContextReview } from '../data/chronologyReviews.js';
+import { linkedEvents, figureRelations, pendingLinkCount } from '../utils/figureLinks.js';
+import { resolvePeriodId } from '../utils/period.js';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Users, Search, MapPin, Calendar, Filter } from './Icons.js';
 import { FACTION_CONFIGS, getFactionMeta } from '../data/factionConfig.js';
@@ -6,6 +9,8 @@ const PAGE_SIZE = 36;
 
 export const FiguresView = ({
   figures,
+  referenceFigures = figures,
+  referenceEvents = [],
   onSelectFigure,
   ancientNamesOnly,
   globalSearchTerm = '',
@@ -18,43 +23,12 @@ export const FiguresView = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [showAllPages, setShowAllPages] = useState(false);
 
-  // Automatically detect period if not explicitly supplied
-  const effectivePeriodId = useMemo(() => {
-    if (activePeriodId === 'japanAtlas' || activePeriodId === 'japan') return 'japanAtlas';
-    if (activePeriodId === 'taiwanLens' || activePeriodId === 'taiwan') return 'taiwanLens';
-    if (figures.some((f) => f.id?.startsWith('fig_jp_') || f.faction === 'ancient' || f.faction === 'kamakura' || f.faction === 'sengoku' || f.faction === 'azuchi_momoyama' || f.faction === 'edo' || f.faction === 'bakumatsu' || f.faction === 'meiji_modern')) {
-      return 'japanAtlas';
-    }
-    if (figures.some((f) => f.id?.startsWith('fig_tw_') || f.faction === 'taiwan' || f.faction === 'ming_zheng')) {
-      return 'taiwanLens';
-    }
-    if (activePeriodId) return activePeriodId;
-    if (figures.some((f) => f.faction === 'xia' || f.faction === 'shang')) {
-      return 'xiaShangZhou';
-    }
-    if (figures.some((f) => f.faction === 'northern' || f.faction === 'southern' || f.faction === 'sixteen')) {
-      return 'weiJin';
-    }
-    if (figures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')) {
-      return 'suiTang';
-    }
-    if (figures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')) {
-      return 'songLiao';
-    }
-    if (figures.some((f) => f.faction === 'taiping' || f.faction === 'republic' || f.faction === 'reform')) {
-      return 'qingDynasty';
-    }
-    if (figures.some((f) => f.faction === 'yuan' || f.faction === 'maritime' || f.faction === 'peasant')) {
-      return 'yuanMing';
-    }
-    if (figures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')) {
-      return 'warringStates';
-    }
-    if (figures.some((f) => f.faction === 'shu' || f.faction === 'wu')) {
-      return 'threeKingdoms';
-    }
-    return 'qinHan';
-  }, [activePeriodId, figures]);
+  const effectivePeriodId = resolvePeriodId(activePeriodId, figures);
+
+  useEffect(() => {
+    setSelectedFaction('all'); setSelectedRoleType('all'); setSearch('');
+    setCurrentPage(1); setShowAllPages(false);
+  }, [effectivePeriodId]);
 
   // Reset to page 1 when filters change
   useEffect(() => {
@@ -176,14 +150,14 @@ export const FiguresView = ({
     }
     if (sortBy === 'events_desc') {
       return [...list].sort(
-        (a, b) => (b.participatedEventIds?.length || 0) - (a.participatedEventIds?.length || 0)
+        (a, b) => linkedEvents(b, referenceEvents).filter(event=>!isContextReview(b.eventLinkReviews?.[event.id])).length - linkedEvents(a, referenceEvents).filter(event=>!isContextReview(a.eventLinkReviews?.[event.id])).length
       );
     }
     if (sortBy === 'relations_desc') {
-      return [...list].sort((a, b) => (b.relations?.length || 0) - (a.relations?.length || 0));
+      return [...list].sort((a, b) => figureRelations(b, referenceFigures).length - figureRelations(a, referenceFigures).length);
     }
     return list;
-  }, [figures, selectedFaction, selectedRoleType, sortBy, search, globalSearchTerm]);
+  }, [figures, referenceFigures, referenceEvents, selectedFaction, selectedRoleType, sortBy, search, globalSearchTerm]);
 
   const totalPages = Math.max(1, Math.ceil(filteredAndSortedFigures.length / PAGE_SIZE));
   const displayedFigures = showAllPages
@@ -201,83 +175,23 @@ export const FiguresView = ({
 
   return (
     <div className="space-y-4">
-      {/* Search & Multi-Dimension Filter Header */}
-      <div className="glass-panel p-4 rounded-xl border border-white/10 space-y-3">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
-          <div className="flex items-center gap-2 flex-wrap">
-            <Users className="w-5 h-5 text-amber-400" />
-            <h2 className="text-lg font-bold font-serif text-amber-200">歷史人物誌專區</h2>
-            <span className="text-xs text-zinc-400">
-              （符合條件：<b className="text-amber-300">{filteredAndSortedFigures.length}</b> / {figures.length} 位）
-            </span>
-          </div>
-
-          {/* Faction Pills */}
-          <div className="flex items-center gap-1 bg-black/40 p-1 rounded-lg border border-white/5 text-xs overflow-x-auto w-full lg:w-auto">
-            {factions.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setSelectedFaction(f.id)}
-                className={`px-2.5 py-1 rounded-md transition-colors whitespace-nowrap ${
-                  selectedFaction === f.id
-                    ? 'bg-amber-600 text-white font-bold shadow'
-                    : 'text-zinc-400 hover:text-zinc-200'
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
+      <section className="p-4 rounded-xl border border-white/10 bg-[#191a20] space-y-3" aria-label="人物搜尋與篩選">
+        <div className="figure-toolbar">
+          <div><h2>歷史人物誌</h2><p role="status">符合 {filteredAndSortedFigures.length} 位／本時期 {figures.length} 位</p></div>
+          <label className="figure-local-search"><span className="sr-only">篩選本頁人物</span><input type="search" placeholder="篩選本頁人物：姓名、字號、官職" value={search} onChange={(e) => setSearch(e.target.value)} /></label>
         </div>
-
-        {/* Second Row: Role Filter, Sort & Search */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 pt-2 border-t border-white/5">
-          {/* Role Category Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto text-xs">
-            <Filter className="w-3.5 h-3.5 text-amber-400 shrink-0 mr-0.5" />
-            {roleCategories.map((rc) => (
-              <button
-                key={rc.id}
-                onClick={() => setSelectedRoleType(rc.id)}
-                className={`px-2.5 py-1 rounded-md border text-[11px] transition-colors whitespace-nowrap ${
-                  selectedRoleType === rc.id
-                    ? 'bg-amber-500/20 border-amber-500/60 text-amber-200 font-bold'
-                    : 'bg-zinc-900/70 border-white/5 text-zinc-400 hover:text-zinc-200'
-                }`}
-              >
-                {rc.label}
-              </button>
-            ))}
+        <details className="figure-filter">
+          <summary>進階篩選與排序{selectedFaction !== 'all' || selectedRoleType !== 'all' || sortBy !== 'default' ? '（已套用條件）' : ''}</summary>
+          <div className="figure-filter-content">
+            <div><p className="text-sm text-zinc-300 mb-2">陣營</p><div className="filter-options">{factions.map((f) => <button key={f.id} aria-pressed={selectedFaction === f.id} onClick={() => setSelectedFaction(f.id)}>{f.label}</button>)}</div></div>
+            <div><p className="text-sm text-zinc-300 mb-2">身分類別</p><div className="filter-options">{roleCategories.map((r) => <button key={r.id} aria-pressed={selectedRoleType === r.id} onClick={() => setSelectedRoleType(r.id)}>{r.label}</button>)}</div></div>
+            <label>排序<select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+              <option value="default">史冊預設</option><option value="birth_asc">出生年代（早至晚）</option><option value="events_desc">參與事件數</option><option value="relations_desc">關聯數量</option><option value="abilities_desc">娛樂評分（高至低）</option>
+            </select></label>
+            <button className="text-sm text-amber-300 text-left" onClick={() => { setSelectedFaction('all'); setSelectedRoleType('all'); setSortBy('default'); setSearch(''); }}>重設全部篩選</button>
           </div>
-
-          <div className="flex items-center gap-2">
-            {/* Sort Dropdown */}
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-zinc-900 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-amber-500"
-            >
-              <option value="default">排序：史冊預設</option>
-              <option value="abilities_desc">排序：六維綜合能力 (高→低)</option>
-              <option value="birth_asc">排序：出生年代 (早→晚)</option>
-              <option value="events_desc">排序：參與事件數 (多→少)</option>
-              <option value="relations_desc">排序：關係連結數 (多→少)</option>
-            </select>
-
-            {/* Quick Search */}
-            <div className="relative flex-1 sm:w-56">
-              <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
-              <input
-                type="text"
-                placeholder="搜尋姓名/字號/籍貫/官職/事蹟..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-zinc-900 border border-white/10 rounded-lg pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-amber-500"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+        </details>
+      </section>
 
       {/* Figures Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -287,6 +201,10 @@ export const FiguresView = ({
           return (
             <div
               key={fig.id}
+              role="button"
+              tabIndex={0}
+              aria-label={`查看${fig.name}列傳`}
+              onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelectFigure(fig); } }}
               onClick={() => onSelectFigure(fig)}
               className={`group p-4 rounded-xl bg-[#17181e] border ${style.card} transition-all hover:-translate-y-1 hover:shadow-xl cursor-pointer flex flex-col justify-between`}
             >
@@ -369,10 +287,12 @@ export const FiguresView = ({
 
               {/* Card Footer Link */}
               <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-amber-400/90 font-medium">
-                <div className="flex items-center gap-3">
-                  <span>事件 ({(fig.participatedEventIds || []).length})</span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span>事件 ({linkedEvents(fig, referenceEvents).filter(event=>!isContextReview(fig.eventLinkReviews?.[event.id])).length})</span>
+                  {linkedEvents(fig,referenceEvents).some(event=>isContextReview(fig.eventLinkReviews?.[event.id])) && <span>背景／年代待考 {linkedEvents(fig,referenceEvents).filter(event=>isContextReview(fig.eventLinkReviews?.[event.id])).length}</span>}
                   <span className="text-zinc-600">·</span>
-                  <span>關係網 ({(fig.relations || []).length})</span>
+                  <span>關係網 ({figureRelations(fig, referenceFigures).length})</span>
+                  {pendingLinkCount(fig) > 0 && <span className="text-amber-200">待確認 {pendingLinkCount(fig)} 筆</span>}
                 </div>
                 <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform text-amber-300">
                   列傳詳情 &rarr;

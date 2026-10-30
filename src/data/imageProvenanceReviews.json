@@ -1,0 +1,39 @@
+{
+  "images/figures/liu_bei.jpg": {
+    "expectedSha256": "6628ccb0e75c24e23245badf60d489efaf80307a5046bda974986dd7b045850d",
+    "sourceSha1": "27dc4b284f1084269705c18249e23db265d6fb99",
+    "localSha1": "27dc4b284f1084269705c18249e23db265d6fb99",
+    "fileMatch": true,
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Liu_Bei_Portrait.jpg",
+    "title": "Liu Bei Portrait.jpg",
+    "creator": "Unknown author（來源頁記載）",
+    "reviewedAt": "2026-10-30",
+    "provenanceStatus": "external-file-match",
+    "licenseStatus": "source-page-tags-reviewed",
+    "sourcePageLicenseTags": [
+      "PD-Art (PD-old default)",
+      "PD-old-70",
+      "CC-PD-Mark"
+    ],
+    "scope": "本地SHA-1與來源頁校驗碼完全相符；只核對該頁來源與標記，不是跨司法管轄區的法律使用保證。",
+    "limitations": "來源頁含授權模板補註或司法管轄區差異提示，尚須保留完整來源頁及使用條件。未下載新圖。"
+  },
+  "images/figures/cao_cao.jpg": {
+    "expectedSha256": "1f4af475af2e99534ada95f72ad2741f2c6f9d8ea692ce59b75e9e0c40b121f9",
+    "sourceSha1": "1059a64ebdf386d93d4866881f388f75924b8d8d",
+    "localSha1": "1059a64ebdf386d93d4866881f388f75924b8d8d",
+    "fileMatch": true,
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Cao_Cao_Portrait_ROTK.jpg",
+    "title": "Cao Cao Portrait ROTK.jpg",
+    "creator": "Unknown author（來源頁記載）",
+    "reviewedAt": "2026-10-30",
+    "provenanceStatus": "external-file-match",
+    "licenseStatus": "source-page-tags-reviewed",
+    "sourcePageLicenseTags": [
+      "PD-Art",
+      "PD-China"
+    ],
+    "scope": "本地SHA-1與來源頁校驗碼完全相符；只核對該頁來源與標記，不是跨司法管轄區的法律使用保證。",
+    "limitations": "來源頁含授權模板補註或司法管轄區差異提示，尚須保留完整來源頁及使用條件。未下載新圖。"
+  }
+}

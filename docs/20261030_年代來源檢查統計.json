@@ -1,0 +1,46 @@
+{
+  "raw": {
+    "failureCount": 174,
+    "warningCount": 4675,
+    "sourceStatusCounts": {
+      "missing": 1862
+    },
+    "chronologyCounts": {
+      "within": 1198,
+      "outside": 166,
+      "overlap": 22
+    }
+  },
+  "effective": {
+    "failureCount": 0,
+    "warningCount": 4712,
+    "sourceStatusCounts": {
+      "missing": 1859,
+      "verified-web": 3
+    },
+    "chronologyCounts": {
+      "within": 1216,
+      "outside": 162,
+      "overlap": 22,
+      "posthumous-influence": 2,
+      "background": 2
+    }
+  },
+  "runtime": {
+    "failureCount": 0,
+    "warningCount": 6548,
+    "sourceStatusCounts": {
+      "missing": 1859,
+      "verified-web": 3
+    },
+    "chronologyCounts": {
+      "within": 1791,
+      "outside": 194,
+      "posthumous-influence": 4,
+      "background": 8,
+      "later-commentary": 3,
+      "overlap": 30,
+      "commemoration": 2
+    }
+  }
+}

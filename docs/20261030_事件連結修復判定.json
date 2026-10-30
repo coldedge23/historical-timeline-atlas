@@ -1,0 +1,1003 @@
+{
+  "created": "2026-10-30",
+  "sourceReport": "docs/20261030_資料完整性檢查.json",
+  "scope": "33項 dangling-figure-event；以白名單套用事件別名，原始資料不變。",
+  "method": [
+    "核對現有事件標題、年份、摘要、人物欄與人物傳記",
+    "同名或同年代不足以證明參與；先有直接文字對應才列白名單",
+    "舊ID與現有日期不同者保留既有日期、記錄差異，不宣稱已作歷史日期校正",
+    "精確事件缺漏、人物生卒矛盾、只具背景或影響關係者列待確認；不新增事件或補造史實"
+  ],
+  "summary": {
+    "reviewed": 33,
+    "repaired": 16,
+    "pending": 17,
+    "correctionGroups": 7
+  },
+  "items": [
+    {
+      "index": 1,
+      "dataset": "warringStates",
+      "figureID": "qin_shihuang",
+      "figureName": "秦始皇",
+      "oldEventID": "evt_wangjian_mie_liuguo_221",
+      "status": "修復",
+      "to": "evt_qin_unify_221",
+      "reason": "現有 evt_qin_unify_221 年份為前221年，標題為秦始皇席捲六國統一天下；figureIds 明列秦始皇、王翦、李斯、蒙恬，summary 明列王翦、王賁、蒙恬與十年統一戰爭，各人物傳記亦記載相關行動。僅修事件ID別名，不把李牧或韓非自動連到前221年。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_qin_unify_221",
+          "title": "秦始皇席捲六國統一天下：書同文車同軌郡縣天下，千古一帝創大一統",
+          "year": -221,
+          "yearDisplay": "前 221 年",
+          "figureIds": [
+            "qin_shihuang",
+            "li_si",
+            "wang_jian",
+            "wang_ben",
+            "meng_tian"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前259年 - 前210年",
+        "figureBio": "中國歷史上首位大一統皇帝，「始皇帝」稱謂之創立者，被後世譽為「千古一帝」。十三歲即位，二十二歲親政誅嫪毐、黜呂不韋。任用尉繚、李斯、王翦、蒙恬，自前230年至前221年歷經十年兼併韓、趙、魏、楚、燕、齊六國，終結五百年春秋戰國紛爭。廢分封立郡縣，統一度量衡、車同軌、書同文（小篆），築萬里長城拒匈奴，開靈渠通嶺南，奠定兩千年封建帝制骨架。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 2,
+      "dataset": "warringStates",
+      "figureID": "bai_qi",
+      "figureName": "白起",
+      "oldEventID": "evt_leyi_poqi_284",
+      "status": "待確認",
+      "to": null,
+      "reason": "候選 evt_jixi_284 可辨認為同名同年前284年樂毅破齊，但白起傳記及候選事件人物欄沒有明記白起參與；不可把同年秦國參加盟軍直接推成白起參戰。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_jixi_284",
+          "title": "樂毅五國合縱濟西大破齊：下齊七十餘城，燕昭王黃金台雪恥",
+          "year": -284,
+          "yearDisplay": "前 284 年",
+          "figureIds": [
+            "le_yi"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前332年 - 前257年",
+        "figureBio": "戰國四大名將之首，中國軍事史上殲滅戰第一戰神，號稱「人屠」、「殺神」。善於野戰大包抄與心理戰。伊闕之戰斬首韓魏二十四萬；鄢郢之戰水灌楚都焚夷陵夷平楚宗廟；華陽之戰斬首魏趙十三萬；長平之戰佯敗誘敵出奇兵斷糧合圍，全殲趙四十五萬主力並坑殺四十萬降卒。生平大小七十餘戰未嘗一敗，六國聞白起之名膽寒。後遭范雎讒言猜忌，秦昭襄王賜劍自刎於杜郵。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 3,
+      "dataset": "warringStates",
+      "figureID": "wang_jian",
+      "figureName": "王翦",
+      "oldEventID": "evt_wangjian_mie_liuguo_221",
+      "status": "修復",
+      "to": "evt_qin_unify_221",
+      "reason": "現有 evt_qin_unify_221 年份為前221年，標題為秦始皇席捲六國統一天下；figureIds 明列秦始皇、王翦、李斯、蒙恬，summary 明列王翦、王賁、蒙恬與十年統一戰爭，各人物傳記亦記載相關行動。僅修事件ID別名，不把李牧或韓非自動連到前221年。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_qin_unify_221",
+          "title": "秦始皇席捲六國統一天下：書同文車同軌郡縣天下，千古一帝創大一統",
+          "year": -221,
+          "yearDisplay": "前 221 年",
+          "figureIds": [
+            "qin_shihuang",
+            "li_si",
+            "wang_jian",
+            "wang_ben",
+            "meng_tian"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前290年 - 前214年",
+        "figureBio": "秦代傑出軍事統帥，戰國四大名將之一。智謀深沈、沉穩老練。秦王政兼併六國之策，王翦王賁父子獨滅燕、趙、魏、楚、齊五國。長平戰後滅趙拔邯鄲；秦楚決戰李信慘敗後，王翦親統傾國六十萬宿衛兵團，深溝高壘堅壁不出一年，乘項燕東撤之機迅雷破楚斬項燕。出征期間數請美田宅以釋秦王猜忌，功高震主而得善終，封武成侯。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 4,
+      "dataset": "warringStates",
+      "figureID": "wu_zixu",
+      "figureName": "伍子胥",
+      "oldEventID": "evt_goujian_494",
+      "status": "修復",
+      "to": "evt_goujian_woxin_494",
+      "reason": "舊ID與現有 evt_goujian_woxin_494 同為前494年勾踐事件；現有事件標題為夫椒之辱會稽入質與臥薪嚐膽，figureIds 明列伍子胥、勾踐、范蠡、西施，四人傳記均記載相對應情節。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_goujian_woxin_494",
+          "title": "越王勾踐臥薪嚐膽：夫椒之辱會稽入質，十年生聚十年教訓吞吳",
+          "year": -494,
+          "yearDisplay": "前 494 年",
+          "figureIds": [
+            "gou_jian",
+            "fan_li",
+            "wen_zhong",
+            "wu_fuchai",
+            "xi_shi",
+            "wu_zixu"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前559年 - 前484年",
+        "figureBio": "春秋末期傑出軍事謀略家、政治家。父兄為楚平王枉殺，伍子胥過昭關一夜白頭逃至吳國，吹簫乞食。助公子光刺殺吳王僚自立為闔閭，築蘇州古城。力薦孫武，柏舉之戰破楚入郢，掘楚平王墓鞭屍三百「以報父兄之仇」。闔閭崩後輔佐夫差大破越國，力諫夫差徹底誅滅勾踐勿受其降，夫差聽信太宰伯嚭讒言賜屬鏤之劍令其自刎。臨死言「懸吾目於東門，以觀越兵之入滅吳也！」"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 5,
+      "dataset": "warringStates",
+      "figureID": "gou_jian",
+      "figureName": "越王勾踐",
+      "oldEventID": "evt_goujian_494",
+      "status": "修復",
+      "to": "evt_goujian_woxin_494",
+      "reason": "舊ID與現有 evt_goujian_woxin_494 同為前494年勾踐事件；現有事件標題為夫椒之辱會稽入質與臥薪嚐膽，figureIds 明列伍子胥、勾踐、范蠡、西施，四人傳記均記載相對應情節。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_goujian_woxin_494",
+          "title": "越王勾踐臥薪嚐膽：夫椒之辱會稽入質，十年生聚十年教訓吞吳",
+          "year": -494,
+          "yearDisplay": "前 494 年",
+          "figureIds": [
+            "gou_jian",
+            "fan_li",
+            "wen_zhong",
+            "wu_fuchai",
+            "xi_shi",
+            "wu_zixu"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前520年 - 前464年",
+        "figureBio": "越國君主，禹之後裔，大夏少康庶子無餘之後。夫椒之戰慘敗退守會稽山，向吳王夫差稱臣為奴。在吳三年為夫差服役飼馬嘗糞忍垢，歸國後臥薪嘗膽，懸膽於座出入嘗苦。拜范蠡為上將軍、文種治國政，「十年生聚、十年教訓」。趁夫差北上黃池會盟國內空虛，大舉水陸北伐，圍困姑蘇三年滅亡吳國，夫差自刎。大會諸侯於徐州號稱春秋最後大霸主。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 6,
+      "dataset": "warringStates",
+      "figureID": "fan_li",
+      "figureName": "范蠡",
+      "oldEventID": "evt_goujian_494",
+      "status": "修復",
+      "to": "evt_goujian_woxin_494",
+      "reason": "舊ID與現有 evt_goujian_woxin_494 同為前494年勾踐事件；現有事件標題為夫椒之辱會稽入質與臥薪嚐膽，figureIds 明列伍子胥、勾踐、范蠡、西施，四人傳記均記載相對應情節。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_goujian_woxin_494",
+          "title": "越王勾踐臥薪嚐膽：夫椒之辱會稽入質，十年生聚十年教訓吞吳",
+          "year": -494,
+          "yearDisplay": "前 494 年",
+          "figureIds": [
+            "gou_jian",
+            "fan_li",
+            "wen_zhong",
+            "wu_fuchai",
+            "xi_shi",
+            "wu_zixu"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前536年 - 前448年",
+        "figureBio": "春秋末期傑出政治家、軍事家、經濟學大師，被後世奉為「商聖」、「武財神」。楚國宛地人，不見容於楚隨文種入越。輔佐越王勾踐臥薪嘗膽，主持制定「滅吳九術」：進獻美女西施、賄賂伯嚭離間子胥、輸蒸栗耗其糧。越國平滅吳國稱霸之後，范蠡深知勾踐「長頸鳥喙，可與共患難，不可與共樂」，果斷功成身退，泛舟五湖至齊國陶地經商，十九年間「三致千金，三聚三散」，自號陶朱公。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 7,
+      "dataset": "warringStates",
+      "figureID": "sun_bin",
+      "figureName": "孫臏",
+      "oldEventID": "evt_guiling_353",
+      "status": "修復",
+      "to": "evt_guiling_354",
+      "reason": "現有唯一桂陵之戰事件 evt_guiling_354 的標題、summary、figureIds 均明列孫臏與龐涓，兩人傳記均記載桂陵圍魏救趙；舊ID年份353與現有事件年份354不同，本次只消除失效別名，保留現有日期，並不判定哪個年份為史實。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_guiling_354",
+          "title": "桂陵之戰圍魏救趙：孫臏大展神機妙算，直搗大梁巧破龐涓",
+          "year": -354,
+          "yearDisplay": "前 354 年",
+          "figureIds": [
+            "sun_bin",
+            "pang_juan",
+            "qi_weiwang"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前382年 - 前316年",
+        "figureBio": "戰國著名軍事家，孫武後裔。少與龐涓同學兵法，龐涓出仕魏國自知才能不及孫臏，妒忌其能陰謀誘之入魏，誣以重罪處以臏刑（剜去雙膝骨）並鯨面。孫臏裝瘋隱忍，乘齊使至魏暗藏於車底逃歸齊國。田忌賽馬為田忌畫下駟對上駟之策深獲齊威王器重，拜為軍師。桂陵之戰「圍魏救趙」生擒龐涓；馬陵之戰「減灶誘敵」萬弩齊發射死龐涓，徹底摧毀魏武卒霸權，著《孫臏兵法》。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 8,
+      "dataset": "warringStates",
+      "figureID": "pang_juan",
+      "figureName": "龐涓",
+      "oldEventID": "evt_guiling_353",
+      "status": "修復",
+      "to": "evt_guiling_354",
+      "reason": "現有唯一桂陵之戰事件 evt_guiling_354 的標題、summary、figureIds 均明列孫臏與龐涓，兩人傳記均記載桂陵圍魏救趙；舊ID年份353與現有事件年份354不同，本次只消除失效別名，保留現有日期，並不判定哪個年份為史實。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_guiling_354",
+          "title": "桂陵之戰圍魏救趙：孫臏大展神機妙算，直搗大梁巧破龐涓",
+          "year": -354,
+          "yearDisplay": "前 354 年",
+          "figureIds": [
+            "sun_bin",
+            "pang_juan",
+            "qi_weiwang"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前385年 - 前341年",
+        "figureBio": "戰國魏國名將，魏武卒統帥。與孫臏同拜師學習鬼谷兵法，出仕魏惠王拜為大將軍，南攻楚、東伐齊、北逼趙，威震中原諸侯。自知才能不及孫臏，設毒計臏其雙足。後攻邯鄲遭孫臏圍魏救趙於桂陵慘敗；前341年率十萬大軍伐韓，急追孫臏入馬陵峽谷，暮夜點火讀樹白「龐涓死於此樹之下」，萬弩齊發全軍崩潰，自刎身亡。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 9,
+      "dataset": "warringStates",
+      "figureID": "zhao_wulingwang",
+      "figureName": "趙武靈王",
+      "oldEventID": "evt_hufuqishe_307",
+      "status": "修復",
+      "to": "evt_hufu_qishe_307",
+      "reason": "舊ID僅少一底線；現有事件 evt_hufu_qishe_307 為前307年趙武靈王胡服騎射，figureIds 只列 zhao_wulingwang，其傳記亦明記前307年推行胡服騎射。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_hufu_qishe_307",
+          "title": "趙武靈王胡服騎射：變易衣冠打破華夏祖宗成規，開疆闢三郡稱雄北疆",
+          "year": -307,
+          "yearDisplay": "前 307 年",
+          "figureIds": [
+            "zhao_wulingwang"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前340年 - 前295年",
+        "figureBio": "戰國時期最具魄力之政治家與軍事改革家。即位之際趙國受齊、秦、魏、楚、燕五國聯軍壓境，十五歲沈著應對解圍。面對北方林胡、樓煩騎射襲擾，毅然廢除寬袍大袖之華服，於前307年推行「胡服騎射」，開闢中國歷史上首支大規模野戰騎兵大軍。北滅腹心大患中山國、破林胡樓煩拓地千里，築趙南長城。自號「主父」，曾喬裝趙國使者親入咸陽窺視秦昭襄王。後在沙丘之亂中遭公子成、李兌圍困於沙丘宮餓死。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 10,
+      "dataset": "warringStates",
+      "figureID": "le_yi",
+      "figureName": "樂毅",
+      "oldEventID": "evt_leyi_poqi_284",
+      "status": "修復",
+      "to": "evt_jixi_284",
+      "reason": "現有 evt_jixi_284 為前284年樂毅五國合縱濟西大破齊，樂毅傳記明記前284年五國伐齊；田單傳記明記五國破齊、臨淄陷落、突圍保即墨。白起傳記沒有明記此事，故白起不在白名單。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_jixi_284",
+          "title": "樂毅五國合縱濟西大破齊：下齊七十餘城，燕昭王黃金台雪恥",
+          "year": -284,
+          "yearDisplay": "前 284 年",
+          "figureIds": [
+            "le_yi"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前315年 - 前255年",
+        "figureBio": "戰國名將，魏將樂羊後裔。博覽兵書，燕昭王築黃金台拜為亞卿、上將軍。前284年統率燕、秦、趙、魏、韓五國聯軍渡黃河大舉伐齊。濟西大戰擊破齊主力，其後率燕軍深入齊腹地連克齊七十餘城，盡收齊國寶器獻燕祖廟，齊僅存莒與即墨。燕惠王立聽信田單反間計以騎劫代樂毅，樂毅恐誅亡奔趙，趙封為望諸君。撰千古名篇《報燕惠王書》，文武兼備傳誦千古。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 11,
+      "dataset": "warringStates",
+      "figureID": "tian_dan",
+      "figureName": "田單",
+      "oldEventID": "evt_leyi_poqi_284",
+      "status": "修復",
+      "to": "evt_jixi_284",
+      "reason": "現有 evt_jixi_284 為前284年樂毅五國合縱濟西大破齊，樂毅傳記明記前284年五國伐齊；田單傳記明記五國破齊、臨淄陷落、突圍保即墨。白起傳記沒有明記此事，故白起不在白名單。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_jixi_284",
+          "title": "樂毅五國合縱濟西大破齊：下齊七十餘城，燕昭王黃金台雪恥",
+          "year": -284,
+          "yearDisplay": "前 284 年",
+          "figureIds": [
+            "le_yi"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前310年 - 前240年",
+        "figureBio": "戰國齊國傑出軍事家、政治家。初為臨淄市掾小吏。五國破齊齊都陷落之際，田單令族人鋸斷車軸裹以鐵皮，乘混亂鐵車突圍保即墨。即墨大夫戰死推田單為守將。田單善用神道設教聚眾心，施反間計使燕王換下樂毅；收集城中千餘頭耕牛設「火牛陣」，夜出城穴衝陣斬燕將騎劫，大破燕軍乘勝收復齊國七十城，迎齊襄王復國封安平君。後出仕趙國封相。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 12,
+      "dataset": "warringStates",
+      "figureID": "lin_xiangru",
+      "figureName": "藺相如",
+      "oldEventID": "evt_wanbigui_zhao_279",
+      "status": "修復",
+      "to": "evt_linxiangru_bi_283",
+      "reason": "現有唯一完璧歸趙事件 evt_linxiangru_bi_283 標題同時收錄澠池之會與廉頗負荊請罪，figureIds 明列藺相如、廉頗；兩人傳記亦有相同情節。舊ID279與現有事件283不同，本次不改既有日期、不將這個綜合事件當作單一精確年份證據。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_linxiangru_bi_283",
+          "title": "藺相如完璧歸趙與澠池之會：布衣傲秦王，廉頗負荊請罪將相和",
+          "year": -283,
+          "yearDisplay": "前 283 年",
+          "figureIds": [
+            "lin_xiangru",
+            "lian_po"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前315年 - 前260年",
+        "figureBio": "戰國趙國傑出政治家、外交家。繆賢舍人出身。秦昭王求和氏璧，相如奉璧入秦，章台殿持璧倚柱怒斥秦王無信，智保和氏璧「完璧歸趙」。澠池之會秦王欲辱趙王，相如以命相搏五步濺血逼秦王擊缶護國格，拜為上卿位在廉頗右。老將廉頗嫉怨，相如每行引車避匿，坦言「先國家之急而後私讎」，廉頗聞之負荊請罪，結為刎頸之交，趙國文武同心強秦不敢加兵三十載。長平之戰力阻趙王用趙括未果，抱病憂憤而亡。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 13,
+      "dataset": "warringStates",
+      "figureID": "lian_po",
+      "figureName": "廉頗",
+      "oldEventID": "evt_wanbigui_zhao_279",
+      "status": "修復",
+      "to": "evt_linxiangru_bi_283",
+      "reason": "現有唯一完璧歸趙事件 evt_linxiangru_bi_283 標題同時收錄澠池之會與廉頗負荊請罪，figureIds 明列藺相如、廉頗；兩人傳記亦有相同情節。舊ID279與現有事件283不同，本次不改既有日期、不將這個綜合事件當作單一精確年份證據。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_linxiangru_bi_283",
+          "title": "藺相如完璧歸趙與澠池之會：布衣傲秦王，廉頗負荊請罪將相和",
+          "year": -283,
+          "yearDisplay": "前 283 年",
+          "figureIds": [
+            "lin_xiangru",
+            "lian_po"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前327年 - 前243年",
+        "figureBio": "戰國四大名將之一，趙國勇烈老將。伐齊伐魏屢立戰功封上卿。因位居藺相如之下心懷不平，聞相如「先國家之急而後私讎」之語大受震動，親自肉袒負荊至相如門下謝罪，結為刎頸之交。長平之戰面對秦軍狂攻，廉頗築丹河石壘堅壁清野對峙三年，秦軍銳氣喪盡。趙王中反間計以趙括代廉頗致長平慘敗。長平後燕乘危大舉伐趙，七十餘歲廉頗統疲卒於鄗代大破燕軍包圍燕都。晚年見疑奔魏奔楚，老驥伏櫪言「廉頗老矣，尚能飯否？」卒於楚國壽春。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 14,
+      "dataset": "warringStates",
+      "figureID": "li_mu",
+      "figureName": "李牧",
+      "oldEventID": "evt_wangjian_mie_liuguo_221",
+      "status": "待確認",
+      "to": null,
+      "reason": "候選 evt_qin_unify_221 是前221年統一天下綜合事件；人物記載卒於前229年，傳記記其於前229年王翦伐趙時被殺。是否應連到前期秦趙戰事需人工判定，不以此別名推定參加前221年事件。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_qin_unify_221",
+          "title": "秦始皇席捲六國統一天下：書同文車同軌郡縣天下，千古一帝創大一統",
+          "year": -221,
+          "yearDisplay": "前 221 年",
+          "figureIds": [
+            "qin_shihuang",
+            "li_si",
+            "wang_jian",
+            "wang_ben",
+            "meng_tian"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前280年 - 前229年",
+        "figureBio": "戰國四大名將之一，趙國最後之軍事柱石，「李牧死，趙國亡」。長年駐守雁門邊塞抗擊匈奴，日椎牛饗士厚遇士卒，嚴明號令堅壁固守數年示弱。匈奴大舉入寇，李牧選精車千三百乘、選騎萬三千匹、勇士五萬、射手十萬大設奇陣包抄，大破匈奴斬首十餘萬騎，滅襜襤破東胡降林胡，匈奴十餘年不敢近趙塞。肥之戰、番吾之戰兩度完勝大破秦軍斬殺桓齮封武安君。前229年王翦伐趙深懼李牧不能勝，施重金反間郭開誣李牧謀反，趙王遷暗斬李牧。三月後王翦拔邯鄲滅趙。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 15,
+      "dataset": "warringStates",
+      "figureID": "qu_yuan",
+      "figureName": "屈原",
+      "oldEventID": "evt_lantian_312",
+      "status": "待確認",
+      "to": null,
+      "reason": "候選 evt_danyang_312 題名包含藍田且同年前312年，但人物傳記只記聯齊抗秦與張儀欺楚後被放逐等背景，事件人物欄沒有屈原；直接參與關係未獲現有文本確認。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_danyang_312",
+          "title": "丹陽·藍田之戰：秦楚傾國大決戰，斬首八萬楚國盡失漢中六百里",
+          "year": -312,
+          "yearDisplay": "前 312 年",
+          "figureIds": [
+            "chuli_ji",
+            "chu_huaiwang",
+            "qin_huiwenwang",
+            "zhang_yi"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前340年 - 前278年",
+        "figureBio": "中國古代偉大的愛國主義詩人、政治家，浪漫主義文學奠基人。楚武王之子屈瑕後裔。博聞強志熟習政事，初任楚左徒受楚懷王極信任，主張對內章明法度任賢使能、對外聯齊抗秦。遭令尹子蘭、上官大夫靳尚讒言離間被疏遠。懷王受張儀欺騙客死秦國，頃襄王立再次流放屈原江南。白起拔郢都焚楚先王夷陵宗廟，屈原悲痛欲絕作《九章·哀郢》、《懷沙》，投汨羅江殉國。端午龍舟粽子傳承至今。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 16,
+      "dataset": "warringStates",
+      "figureID": "li_si",
+      "figureName": "李斯",
+      "oldEventID": "evt_wangjian_mie_liuguo_221",
+      "status": "修復",
+      "to": "evt_qin_unify_221",
+      "reason": "現有 evt_qin_unify_221 年份為前221年，標題為秦始皇席捲六國統一天下；figureIds 明列秦始皇、王翦、李斯、蒙恬，summary 明列王翦、王賁、蒙恬與十年統一戰爭，各人物傳記亦記載相關行動。僅修事件ID別名，不把李牧或韓非自動連到前221年。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_qin_unify_221",
+          "title": "秦始皇席捲六國統一天下：書同文車同軌郡縣天下，千古一帝創大一統",
+          "year": -221,
+          "yearDisplay": "前 221 年",
+          "figureIds": [
+            "qin_shihuang",
+            "li_si",
+            "wang_jian",
+            "wang_ben",
+            "meng_tian"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前284年 - 前208年",
+        "figureBio": "戰國末期及大秦帝國丞相，法家集大成政治實踐者。楚國上蔡郡小吏，見倉鼠廁鼠感嘆「人之賢不肖譬如鼠矣，在所自處耳」。入齊師從荀子學帝王之術，入秦拜呂不韋舍人獲秦王政重用。秦下逐客令，李斯作千古名篇《諫逐客書》勸秦王「河海不擇細流故能就其深」，秦王遂收回逐客令拜為廷尉。助秦王定滅六國遠交近攻總戰略。統一天下後力主廢分封立郡縣、焚書坑儒統一思想、創制小篆統一漢字。始皇崩沙丘之變受趙高威脅同謀弒長立二世，終遭趙高陷害腰斬咸陽東市誅滅三族。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 17,
+      "dataset": "warringStates",
+      "figureID": "qi_huangong",
+      "figureName": "齊桓公",
+      "oldEventID": "evt_shaoling_656",
+      "status": "待確認",
+      "to": null,
+      "reason": "人物傳記記南征召陵，但現有事件庫無前656年召陵事件；葵丘前651年、管仲拜相前685年是不同事件，不替代。",
+      "candidates": [],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前715年 - 前643年",
+        "figureBio": "春秋時代第一位公認霸主，姜太公第十二世孫。公子小白流亡莒國，兄襄公死返齊爭位，管仲射中小白帶鉤，小白裝死先入臨淄即位。不計一箭之仇拜管仲為相「仲父」。通商煮鹽、尊王攘夷，九合諸侯，北伐山戎解燕國之圍，存邢救衛，南征召陵退楚，葵丘會盟周天子賜胙致賀，成天下共主。晚年好佞易牙、豎刁、開方，病重遭鎖宮室餓死，屍停六十七日蛆流戶外。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 18,
+      "dataset": "warringStates",
+      "figureID": "guan_zhong",
+      "figureName": "管仲",
+      "oldEventID": "evt_shaoling_656",
+      "status": "待確認",
+      "to": null,
+      "reason": "現有事件庫無前656年召陵事件；同人物其他事件不能當同一事件別名。",
+      "candidates": [],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前723年 - 前645年",
+        "figureBio": "春秋時期傑出政治家、法家先驅、經濟學大師，被梁啟超譽為「中國之吉朋，經濟學泰斗」。少與鮑叔牙經商，鮑叔知其賢處處包容「生我者父母，知我者鮑子也」。初事公子糾射中小白帶鉤，小白立為齊桓公，鮑叔牙力薦管仲「欲霸天下必用夷吾」。拜相治齊四十年，推行官山海、鹽鐵專賣、通工商、設女閭、作內政寄軍令，倡「尊王攘夷」輔桓公九合諸侯成霸業。著《管子》。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 19,
+      "dataset": "warringStates",
+      "figureID": "chu_zhuangwang",
+      "figureName": "楚莊王",
+      "oldEventID": "evt_bizhi_597",
+      "status": "修復",
+      "to": "evt_bi_597",
+      "reason": "現有 evt_bi_597 為前597年楚莊王邲之戰，figureIds 明列 chu_zhuangwang；人物傳記也明記邲之戰大破晉國三軍，與舊ID同年同主題。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_bi_597",
+          "title": "楚莊王邲之戰定霸中原：大破晉師，孫叔敖運籌不築京觀顯武德",
+          "year": -597,
+          "yearDisplay": "前 597 年",
+          "figureIds": [
+            "chu_zhuangwang"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前614年 - 前591年",
+        "figureBio": "春秋五霸之一，楚國最強盛時期的君主。初即位三年不理朝政沉湎聲色，申無宇諫言「有鳥止南方之阜，三年不翅，不飛不鳴，不知何鳥也？」莊王笑答「三年不翅，將以長羽翼；三年不飛，一飛沖天；三年不鳴，一鳴驚人」。隨後罷黜奸佞起用孫叔敖，飲馬黃河，觀兵於周王室郊「問九鼎輕重」。邲之戰大破晉國三軍霸業大成。提出「武有七德，止戈為武」。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 20,
+      "dataset": "warringStates",
+      "figureID": "kong_zi",
+      "figureName": "孔子",
+      "oldEventID": "evt_tian_dai_qi_403",
+      "status": "待確認",
+      "to": null,
+      "reason": "舊ID疑指田氏代齊/前403年，但現有田氏代齊事件為前386年，孔子生卒記前551～前479年；有其他孔子事件不代表可以改寫此關聯。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_tianshi_daiqi_386",
+          "title": "田氏代齊：陳完後裔百年移鼎，田和列為諸侯姜齊社稷易位",
+          "year": -386,
+          "yearDisplay": "前 386 年",
+          "figureIds": [
+            "qi_weiwang",
+            "mengchang_jun"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前551年 - 前479年",
+        "figureBio": "中國古代偉大的思想家、政治家、教育家，儒家學派創始人，被聯合國列為「世界十大文化名人」之首。幼年喪父折節苦學「少也賤，故多能鄙事」。仕魯任大司寇，夾谷之會抗齊全勝；行「墮三都」削弱三桓受挫。遂率弟子周遊列國十四載，宣揚「仁」、「禮」、「德治」學說，皆不見用。晚年返魯致力於教育與典籍整理，首創私學「有教無類」，弟子三千、通六藝者七十二人；修《詩》、《書》，定《禮》、《樂》，序《周易》，作《春秋》。其言行思想由弟子錄為《論語》，深遠奠立中華文明兩千五百年主流倫理哲學。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 21,
+      "dataset": "warringStates",
+      "figureID": "lao_zi",
+      "figureName": "老子",
+      "oldEventID": "evt_tian_dai_qi_403",
+      "status": "待確認",
+      "to": null,
+      "reason": "舊ID疑指田氏代齊/前403年，老子生卒記約前571～前471年；事件與人物傳記沒有直接對應，保留待確認。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_tianshi_daiqi_386",
+          "title": "田氏代齊：陳完後裔百年移鼎，田和列為諸侯姜齊社稷易位",
+          "year": -386,
+          "yearDisplay": "前 386 年",
+          "figureIds": [
+            "qi_weiwang",
+            "mengchang_jun"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前571年 - 前471年",
+        "figureBio": "中國古代最偉大的哲學家、思想家，道家學派創始人。曾任東周守藏室之史（國家圖書館長兼史官），博通古今典籍。孔子曾專程赴洛邑向老子「問禮」，歸語弟子曰「鳥，吾知其能飛；魚，吾知其能游；獸，吾知其能走……至於龍，吾不能知其乘風雲而上天，吾今日見老子，其猶龍邪！」見周室衰微遂辭官騎青牛西出函谷關，關令尹喜懇請留書，乃撰五千言《道德經》（分道篇德篇），闡述「道法自然」、「無為而無不為」，飄然西去莫知其所終。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 22,
+      "dataset": "warringStates",
+      "figureID": "mo_zi",
+      "figureName": "墨子",
+      "oldEventID": "evt_tian_dai_qi_403",
+      "status": "待確認",
+      "to": null,
+      "reason": "現有田氏代齊事件為前386年，墨子生卒記約前476～前390年且傳記沒有參與田氏代齊記錄；不能以百家爭鳴背景推定參與。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_tianshi_daiqi_386",
+          "title": "田氏代齊：陳完後裔百年移鼎，田和列為諸侯姜齊社稷易位",
+          "year": -386,
+          "yearDisplay": "前 386 年",
+          "figureIds": [
+            "qi_weiwang",
+            "mengchang_jun"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前476年 - 前390年",
+        "figureBio": "戰國初期偉大的思想家、科學家、軍事工程大師，墨家學派創始人與首任「巨子」。精通木工守城器械，提倡「兼愛」、「非攻」、「尚賢」、「尚同」、「節用」、「節葬」。楚惠王命公輸班（魯班）造雲梯欲滅宋，墨子聞訊日夜疾行十日十夜至楚都郢，在楚王面前解衣帶為城、以木牒為械與公輸班九設攻城機變，墨子九拒之，公輸班械盡而墨子守有餘。公輸班欲殺墨子，墨子曰「臣弟子三百人已持臣守禦之器在宋城上待楚寇矣！」楚王遂取消伐宋。其著述《墨子》包含古代最早的光學針孔成像與幾何力學定義。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 23,
+      "dataset": "warringStates",
+      "figureID": "meng_zi",
+      "figureName": "孟子",
+      "oldEventID": "evt_tian_dai_qi_403",
+      "status": "待確認",
+      "to": null,
+      "reason": "舊ID前403年及候選田氏代齊前386年都早於記載出生前372年；人物另有出遊記載不等同此事件。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_tianshi_daiqi_386",
+          "title": "田氏代齊：陳完後裔百年移鼎，田和列為諸侯姜齊社稷易位",
+          "year": -386,
+          "yearDisplay": "前 386 年",
+          "figureIds": [
+            "qi_weiwang",
+            "mengchang_jun"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "前372年 - 前289年",
+        "figureBio": "戰國著名思想家、教育家，儒家學派重要代表，被後世尊為「亞聖」。孟母三遷、斷機教子傳為美談。師從孔子之孫子思的門人，繼承並發揚孔子儒學。遊歷齊、魏、滕、宋諸國，見齊宣王、梁惠王，宣揚「仁政」、「民貴君輕」、「王道樂土」與「人性本善」學說。退而與弟子萬章等著《孟子》七篇，駁斥楊朱「為我」與墨翟「兼愛」，浩然正氣流芳千古。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 24,
+      "dataset": "warringStates",
+      "figureID": "zhuang_zi",
+      "figureName": "莊子",
+      "oldEventID": "evt_tian_dai_qi_403",
+      "status": "待確認",
+      "to": null,
+      "reason": "舊ID前403年及候選田氏代齊前386年都早於記載出生約前369年；不可套到同時期思想家背景。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_tianshi_daiqi_386",
+          "title": "田氏代齊：陳完後裔百年移鼎，田和列為諸侯姜齊社稷易位",
+          "year": -386,
+          "yearDisplay": "前 386 年",
+          "figureIds": [
+            "qi_weiwang",
+            "mengchang_jun"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前369年 - 前286年",
+        "figureBio": "戰國中期偉大思想家、哲學家、文學大師，道家主要代表人物，與老子並稱「老莊」。嘗為蒙漆園吏，貧居陋巷草履穿結，楚威王厚幣聘為相，莊子笑曰「子獨不見郊祭之犧牛乎？養其數歲，衣以文繡，以入大廟，當是之時，雖欲為孤豚，豈可得乎？子亟去，無污我！」一生追求精神之絕對自由。著《莊子》（《南華經》），想像力汪洋恣肆，包含「北冥有魚其名為鯤」、「莊周夢蝶」、「庖丁解牛」千古名篇。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 25,
+      "dataset": "warringStates",
+      "figureID": "han_feizi",
+      "figureName": "韓非子",
+      "oldEventID": "evt_wangjian_mie_liuguo_221",
+      "status": "待確認",
+      "to": null,
+      "reason": "候選 evt_qin_unify_221 是前221年；人物記載卒於前233年。雖另有 evt_hanfeizi_qin_233，但將統一天下改成韓非入秦屬改寫關聯含義，不能當作同事件別名自動替換。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_qin_unify_221",
+          "title": "秦始皇席捲六國統一天下：書同文車同軌郡縣天下，千古一帝創大一統",
+          "year": -221,
+          "yearDisplay": "前 221 年",
+          "figureIds": [
+            "qin_shihuang",
+            "li_si",
+            "wang_jian",
+            "wang_ben",
+            "meng_tian"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前280年 - 前233年",
+        "figureBio": "戰國末期著名思想家，韓國宗室諸公子，法家思想之集大成者。口吃不善言談而長於著書。見韓國削弱屢次上書韓王不見用，遂發憤著《孤憤》、《五蠹》、《說難》十餘萬言。秦王政讀其書拍案叫絕「寡人得見此人與之游，死不恨矣！」秦發兵攻韓，韓王遣韓非出使秦國。秦相李斯深嫉韓非才華恐其得寵危及己位，向秦王進讒言誣陷韓非，遣獄吏送毒藥令其自盡咸陽獄中。其學融合商鞅之「法」、申不害之「術」、慎到之「勢」，成為秦始皇統一天下後之官僚統治哲學基石。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 26,
+      "dataset": "warringStates",
+      "figureID": "xi_shi",
+      "figureName": "西施",
+      "oldEventID": "evt_goujian_494",
+      "status": "修復",
+      "to": "evt_goujian_woxin_494",
+      "reason": "舊ID與現有 evt_goujian_woxin_494 同為前494年勾踐事件；現有事件標題為夫椒之辱會稽入質與臥薪嚐膽，figureIds 明列伍子胥、勾踐、范蠡、西施，四人傳記均記載相對應情節。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_goujian_woxin_494",
+          "title": "越王勾踐臥薪嚐膽：夫椒之辱會稽入質，十年生聚十年教訓吞吳",
+          "year": -494,
+          "yearDisplay": "前 494 年",
+          "figureIds": [
+            "gou_jian",
+            "fan_li",
+            "wen_zhong",
+            "wu_fuchai",
+            "xi_shi",
+            "wu_zixu"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前506年 - 前473年",
+        "figureBio": "中國古代四大美人之首（「沉魚」）。苧蘿山浣紗女，天生麗質容顏傾城。越王勾踐會稽敗北，范蠡巡求天下絕色美人獻於吳王夫差以驕其志。西施深明大義毅然受命入吳宮，夫差寵極，為修姑蘇台、築館娃宮，終日沉湎歌舞不問朝政，疏遠忠臣伍子胥。勾踐終乘虛滅吳，傳說西施隨范蠡泛舟五湖隱遁而去。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 27,
+      "dataset": "warringStates",
+      "figureID": "meng_tian",
+      "figureName": "蒙恬",
+      "oldEventID": "evt_wangjian_mie_liuguo_221",
+      "status": "修復",
+      "to": "evt_qin_unify_221",
+      "reason": "現有 evt_qin_unify_221 年份為前221年，標題為秦始皇席捲六國統一天下；figureIds 明列秦始皇、王翦、李斯、蒙恬，summary 明列王翦、王賁、蒙恬與十年統一戰爭，各人物傳記亦記載相關行動。僅修事件ID別名，不把李牧或韓非自動連到前221年。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_qin_unify_221",
+          "title": "秦始皇席捲六國統一天下：書同文車同軌郡縣天下，千古一帝創大一統",
+          "year": -221,
+          "yearDisplay": "前 221 年",
+          "figureIds": [
+            "qin_shihuang",
+            "li_si",
+            "wang_jian",
+            "wang_ben",
+            "meng_tian"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前250年 - 前210年",
+        "figureBio": "大秦帝國著名統帥，蒙武之子。秦滅齊之戰立下戰功。天下一統後，秦始皇命蒙恬率三十萬精銳鐵騎北征匈奴「卻匈奴七百餘里，胡人不敢南下而牧馬，士不敢彎弓而報怨」。收復河南地（河套平原）置四十四縣，督造西起臨洮東至遼東萬里長城；開鑿千里國防高速通道「秦直道」貫通南北。改進毛筆稱「蒙恬造筆」。始皇崩沙丘，趙高李斯矯詔賜死公子扶蘇與蒙恬，蒙恬飲鴆自殺於陽周。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 28,
+      "dataset": "warringStates",
+      "figureID": "li_bing",
+      "figureName": "李冰",
+      "oldEventID": "evt_simacuo_shubashu_316",
+      "status": "待確認",
+      "to": null,
+      "reason": "舊ID可辨認為司馬錯前316年伐蜀；但李冰生卒約前302～前235年，事件早於出生。另有都江堰前256年事件，但改成都江堰會改寫連結主題，不能冒充別名修復。",
+      "candidates": [
+        {
+          "dataset": "warringStates",
+          "id": "evt_simacuo_shu_316",
+          "title": "司馬錯論戰拔蜀定巴：開拓天府之土，大秦得糧倉水軍得天下之半",
+          "year": -316,
+          "yearDisplay": "前 316 年",
+          "figureIds": [
+            "sima_cuo",
+            "qin_huiwenwang",
+            "zhang_yi"
+          ],
+          "source": "src/data/periods/warringStates/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/warringStates/figures.js",
+        "figureLifespan": "約前302年 - 前235年",
+        "figureBio": "戰國時期傑出水利工程大師，秦昭襄王時任蜀郡太守。當時岷江江水自山峽奔湧氾濫成災，李冰與其子二郎詳察地形水文，在前256年主持修築無壩引水工程「都江堰」：開鑿魚嘴分水堤、飛沙堰排沙、寶瓶口引水，化害為利「水旱從人，不知饑饉，時無荒年，天下謂之天府也」。工程歷經兩千二百餘年至今仍造福四川平原千萬人民，為世界水利工程史上唯一留存至今仍在運行的不朽神話。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 29,
+      "dataset": "weiJin",
+      "figureID": "huan_wen",
+      "figureName": "桓溫 (元子)",
+      "oldEventID": "evt_fangtou_369",
+      "status": "待確認",
+      "to": null,
+      "reason": "人物傳記明記枋頭遭慕容垂重挫，但現有事件庫無 evt_fangtou_369 或相同事件；另有同名戰役資料不能把事件ID改連成戰役。",
+      "candidates": [],
+      "evidence": {
+        "figureSource": "src/data/periods/weiJin/figures.js",
+        "figureLifespan": [
+          312,
+          373
+        ],
+        "figureBio": "字元子，譙國龍亢人。晉明帝駙馬。雄姿英發，西征長江三峽一舉滅成漢收復巴蜀；隨後發動三次北伐，攻克洛陽長安，拜謁漢室諸陵，慨嘆『木猶如此，人何以堪！』第三次北伐於枋頭遭慕容垂伏擊重挫。晚年廢海西公立簡文帝，覬覦帝位，終被謝安、王坦之智退拖延至死。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 30,
+      "dataset": "weiJin",
+      "figureID": "murong_chui",
+      "figureName": "慕容垂 (道明)",
+      "oldEventID": "evt_fangtou_369",
+      "status": "待確認",
+      "to": null,
+      "reason": "需逐舊ID判定：枋頭有傳記而事件缺漏；參合陂只記戰後反應，現有為拓跋珪386～398年開國綜合事件，不能以其中提及參合陂直接視為同一事件別名。",
+      "candidates": [],
+      "evidence": {
+        "figureSource": "src/data/periods/weiJin/figures.js",
+        "figureLifespan": [
+          326,
+          396
+        ],
+        "figureBio": "原名霸，字道明，昌黎棘城鮮卑人，慕容皝之子。善用兵，十三歲隨父征伐無往不勝。枋頭之役力挽狂瀾伏擊大破東晉桓溫數萬北伐軍。後遭太后太傅猜忌投奔前秦苻堅，苻堅視如國士。淝水之戰前秦潰敗，唯垂部三萬全軍退歸，隨即復立後燕稱帝。參合陂戰後聞士卒死難悲憤嘔血病歿。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 31,
+      "dataset": "weiJin",
+      "figureID": "murong_chui",
+      "figureName": "慕容垂 (道明)",
+      "oldEventID": "evt_canhebei_395",
+      "status": "待確認",
+      "to": null,
+      "reason": "需逐舊ID判定：枋頭有傳記而事件缺漏；參合陂只記戰後反應，現有為拓跋珪386～398年開國綜合事件，不能以其中提及參合陂直接視為同一事件別名。",
+      "candidates": [
+        {
+          "dataset": "weiJin",
+          "id": "evt_tuoba_gui_386",
+          "title": "拓跋珪盛樂復國建北魏：拓跋鮮卑入主中原，參合陂定鼎霸業",
+          "year": 386,
+          "yearDisplay": "西元 386 — 398 年",
+          "figureIds": [
+            "tuoba_gui"
+          ],
+          "source": "src/data/periods/weiJin/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/weiJin/figures.js",
+        "figureLifespan": [
+          326,
+          396
+        ],
+        "figureBio": "原名霸，字道明，昌黎棘城鮮卑人，慕容皝之子。善用兵，十三歲隨父征伐無往不勝。枋頭之役力挽狂瀾伏擊大破東晉桓溫數萬北伐軍。後遭太后太傅猜忌投奔前秦苻堅，苻堅視如國士。淝水之戰前秦潰敗，唯垂部三萬全軍退歸，隨即復立後燕稱帝。參合陂戰後聞士卒死難悲憤嘔血病歿。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 32,
+      "dataset": "weiJin",
+      "figureID": "tuoba_gui",
+      "figureName": "拓跋珪 (北魏道武帝)",
+      "oldEventID": "evt_canhebei_395",
+      "status": "待確認",
+      "to": null,
+      "reason": "傳記明記395年參合陂，現有 evt_tuoba_gui_386 綜合記386～398年且summary提及395年；但其主年份386、主題北魏開國，與獨立395年參合陂並非精確同事件。保留候選供人工選擇，不自動合併。",
+      "candidates": [
+        {
+          "dataset": "weiJin",
+          "id": "evt_tuoba_gui_386",
+          "title": "拓跋珪盛樂復國建北魏：拓跋鮮卑入主中原，參合陂定鼎霸業",
+          "year": 386,
+          "yearDisplay": "西元 386 — 398 年",
+          "figureIds": [
+            "tuoba_gui"
+          ],
+          "source": "src/data/periods/weiJin/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/weiJin/figures.js",
+        "figureLifespan": [
+          371,
+          409
+        ],
+        "figureBio": "拓跋鮮卑代王拓跋什翼犍之孫。前秦崩潰後，於牛川大會諸部復興代國，改國號為魏。西元 395 年參合陂之戰以兩萬精騎雪夜奔襲大破後燕八萬主力，奪取河北中原平原。西元 398 年遷都平城（大同）正式稱帝，制定官爵律令，引進中原漢家農耕制度，為北魏百年基業奠定宏圖。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    },
+    {
+      "index": 33,
+      "dataset": "weiJin",
+      "figureID": "tuoba_dao",
+      "figureName": "拓跋燾 (北魏太武帝)",
+      "oldEventID": "evt_canhebei_395",
+      "status": "待確認",
+      "to": null,
+      "reason": "人物明確記生於408年，395年參合陂早於出生；不能因同屬北魏拓跋氏就連結。",
+      "candidates": [
+        {
+          "dataset": "weiJin",
+          "id": "evt_tuoba_gui_386",
+          "title": "拓跋珪盛樂復國建北魏：拓跋鮮卑入主中原，參合陂定鼎霸業",
+          "year": 386,
+          "yearDisplay": "西元 386 — 398 年",
+          "figureIds": [
+            "tuoba_gui"
+          ],
+          "source": "src/data/periods/weiJin/events.js"
+        }
+      ],
+      "evidence": {
+        "figureSource": "src/data/periods/weiJin/figures.js",
+        "figureLifespan": [
+          408,
+          452
+        ],
+        "figureBio": "字佛貍，道武帝拓跋珪之孫。勇健多謀略，善用騎兵。西征赫連夏克統萬城，北伐柔然大漠千里，西平北燕、滅北涼生擒沮渠牧犍，西元 439 年徹底統一華北北方，結束十六國一百三十餘年混戰割據。西元 450 年南征大破宋文帝北伐，率騎兵直抵長江瓜步山飲馬長江，威震江南。"
+      },
+      "scope": "僅依現有專案文字判斷ID與關聯；未驗證史實、未更改原始人物或事件內容"
+    }
+  ]
+}

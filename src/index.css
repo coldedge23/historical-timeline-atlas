@@ -63,3 +63,12 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* Keep the established parchment map / charcoal reading surface. */
+body { font-family: 'Microsoft JhengHei', 'Noto Sans TC', system-ui, sans-serif; }
+.dark-tiles .leaflet-tile { filter: brightness(.65) invert(1) contrast(3.2) hue-rotate(205deg) saturate(.35); }
+.leaflet-popup-content-wrapper { background: #18191e !important; color: #e4e4e7 !important; border: 1px solid rgba(201,154,88,.3) !important; border-radius: 8px !important; }
+.leaflet-popup-tip { background: #18191e !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

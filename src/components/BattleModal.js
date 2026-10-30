@@ -1,47 +1,8 @@
+import { SourceDisclosure } from './SourceDisclosure.jsx';
+import { computeForcesTugOfWar, formatForcePercent } from '../utils/forces.js';
+import { Dialog } from './Dialog.jsx';
 import React, { useMemo } from 'react';
 import { X, Swords, Trophy, MapPin, ShieldAlert, Crosshair, Layers } from './Icons.js';
-
-function parseTroopCount(raw) {
-  if (!raw || typeof raw !== 'string') return null;
-  const s = raw.replace(/,/g, '');
-  const wanMatch = s.match(/(\d+(?:\.\d+)?)\s*萬/);
-  if (wanMatch) return Math.round(parseFloat(wanMatch[1]) * 10000);
-  const qianMatch = s.match(/(\d+(?:\.\d+)?)\s*千/);
-  if (qianMatch) return Math.round(parseFloat(qianMatch[1]) * 1000);
-  const numMatch = s.match(/(\d{3,7})/);
-  if (numMatch) return parseInt(numMatch[1], 10);
-  if (s.includes('數十萬')) return 250000;
-  if (s.includes('十餘萬') || s.includes('十萬')) return 110000;
-  if (s.includes('數萬')) return 35000;
-  if (s.includes('萬餘')) return 13000;
-  if (s.includes('數千')) return 4500;
-  if (s.includes('千餘')) return 1500;
-  if (s.includes('數百')) return 500;
-  return null;
-}
-
-function computeForcesTugOfWar(atkStr, defStr) {
-  const atk = parseTroopCount(atkStr);
-  const def = parseTroopCount(defStr);
-  if (!atk || !def) {
-    return { atkPct: 50, defPct: 50, ratioText: '兵力相當', isDisparity: false };
-  }
-  const total = atk + def;
-  const rawAtkPct = Math.round((atk / total) * 100);
-  const atkPct = Math.min(86, Math.max(14, rawAtkPct));
-  const defPct = 100 - atkPct;
-
-  let ratioText = '1 : 1';
-  if (atk >= def) {
-    const r = atk / def;
-    ratioText = `${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')} : 1`;
-  } else {
-    const r = def / atk;
-    ratioText = `1 : ${r >= 10 ? Math.round(r) : r.toFixed(1).replace(/\.0$/, '')}`;
-  }
-  const isDisparity = atk >= def * 2.2 || def >= atk * 2.2;
-  return { atkPct, defPct, ratioText, isDisparity };
-}
 
 export const BattleModal = ({
   battle,
@@ -76,7 +37,7 @@ export const BattleModal = ({
     if (battle.attacker) {
       return {
         ...battle.attacker,
-        forcesEstimate: battle.attacker.forcesEstimate || battle.forces?.attacker || '約萬餘人',
+        forcesEstimate: battle.attacker.forcesEstimate || battle.forces?.attacker || '待考',
         casualtiesEstimate: battle.attacker.casualtiesEstimate || battle.casualties?.attacker || '詳見戰報記敘'
       };
     }
@@ -84,7 +45,7 @@ export const BattleModal = ({
       return {
         factionName: typeof battle.belligerents === 'object' ? battle.belligerents.attacker : '進攻方',
         commanders: Array.isArray(battle.commanders?.attacker) ? battle.commanders.attacker : (Array.isArray(battle.commanders) ? battle.commanders : []),
-        forcesEstimate: battle.forces?.attacker || '約萬餘人',
+        forcesEstimate: battle.forces?.attacker || '待考',
         casualtiesEstimate: battle.casualties?.attacker || '詳見戰報記敘'
       };
     }
@@ -95,14 +56,14 @@ export const BattleModal = ({
       return {
         factionName: match ? match[1].trim() : partyStr,
         commanders: cmds,
-        forcesEstimate: match ? match[2].trim() : (battle.forces?.attacker || '約萬餘人精銳'),
+        forcesEstimate: match ? match[2].trim() : (battle.forces?.attacker || '待考'),
         casualtiesEstimate: battle.casualties?.attacker || '詳見戰報記敘'
       };
     }
     return {
       factionName: '進攻方',
       commanders: [],
-      forcesEstimate: '約萬餘人精銳',
+      forcesEstimate: '待考',
       casualtiesEstimate: '詳見戰報記敘'
     };
   }, [battle]);
@@ -111,7 +72,7 @@ export const BattleModal = ({
     if (battle.defender) {
       return {
         ...battle.defender,
-        forcesEstimate: battle.defender.forcesEstimate || battle.forces?.defender || '約數千人',
+        forcesEstimate: battle.defender.forcesEstimate || battle.forces?.defender || '待考',
         casualtiesEstimate: battle.defender.casualtiesEstimate || battle.casualties?.defender || '詳見戰報記敘'
       };
     }
@@ -119,7 +80,7 @@ export const BattleModal = ({
       return {
         factionName: typeof battle.belligerents === 'object' ? battle.belligerents.defender : '迎戰方',
         commanders: Array.isArray(battle.commanders?.defender) ? battle.commanders.defender : [],
-        forcesEstimate: battle.forces?.defender || '約數千人',
+        forcesEstimate: battle.forces?.defender || '待考',
         casualtiesEstimate: battle.casualties?.defender || '詳見戰報記敘'
       };
     }
@@ -130,14 +91,14 @@ export const BattleModal = ({
       return {
         factionName: match ? match[1].trim() : partyStr,
         commanders: cmds,
-        forcesEstimate: match ? match[2].trim() : (battle.forces?.defender || '約數千人守備部隊'),
+        forcesEstimate: match ? match[2].trim() : (battle.forces?.defender || '待考'),
         casualtiesEstimate: battle.casualties?.defender || '詳見戰報記敘'
       };
     }
     return {
       factionName: '迎戰方',
       commanders: [],
-      forcesEstimate: '約數千人守備部隊',
+      forcesEstimate: '待考',
       casualtiesEstimate: '詳見戰報記敘'
     };
   }, [battle]);
@@ -210,10 +171,7 @@ export const BattleModal = ({
   const modernLocText = battle.locationModern ? ` (今${battle.locationModern})` : '';
 
   return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
-    >
+    <Dialog onClose={onClose} label="戰役詳情">
       <div
         className="relative w-full max-w-3xl max-h-[90vh] bg-[#16171c] border border-rose-500/40 rounded-2xl shadow-2xl flex flex-col overflow-hidden text-zinc-200"
         onClick={(e) => e.stopPropagation()}
@@ -221,6 +179,7 @@ export const BattleModal = ({
         {/* Header with Battle Banner */}
         <div className="relative p-6 border-b border-white/10 bg-gradient-to-r from-rose-950/60 via-zinc-900 to-zinc-900">
           <button
+            aria-label="關閉戰役詳情"
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
           >
@@ -301,6 +260,7 @@ export const BattleModal = ({
             {/* Tug-of-War Visual Forces Bar */}
             {(() => {
               const tug = computeForcesTugOfWar(attacker.forcesEstimate, defender.forcesEstimate);
+              if (!tug.comparable) return <p className="text-sm text-zinc-300 py-2">兵力資料不足或為模糊估計，無法比較比例。</p>;
               return (
                 <div className="mb-3.5 p-3 rounded-xl bg-zinc-900/90 border border-white/10 space-y-2 shadow-inner">
                   <div className="flex items-center justify-between text-xs">
@@ -310,7 +270,7 @@ export const BattleModal = ({
                         {attacker.factionName || '進攻方'}
                       </span>
                       <span className="text-[11px] text-zinc-400 font-mono">
-                        ({tug.atkPct}%)
+                        ({formatForcePercent(tug.atkPct)}%)
                       </span>
                     </div>
 
@@ -321,13 +281,13 @@ export const BattleModal = ({
                         </span>
                       )}
                       <span className="px-2 py-0.5 rounded bg-black/50 border border-white/10 text-zinc-200 font-mono text-[11px]">
-                        兵力比 {tug.ratioText}
+                        依記載估計兵力比 {tug.ratioText}
                       </span>
                     </div>
 
                     <div className="flex items-center gap-1.5">
                       <span className="text-[11px] text-zinc-400 font-mono">
-                        ({tug.defPct}%)
+                        ({formatForcePercent(tug.defPct)}%)
                       </span>
                       <span className="font-bold text-emerald-300">
                         {defender.factionName || '迎戰方'}
@@ -336,7 +296,7 @@ export const BattleModal = ({
                     </div>
                   </div>
 
-                  <div className="w-full h-2.5 rounded-full bg-black/60 overflow-hidden flex p-0.5 gap-1 border border-white/10">
+                  <div className="w-full h-2.5 rounded-full bg-black/60 overflow-hidden flex border border-white/10">
                     <div
                       className="h-full rounded-l-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 transition-all duration-300"
                       style={{ width: `${tug.atkPct}%` }}
@@ -444,8 +404,9 @@ export const BattleModal = ({
               </p>
             </div>
           </div>
+          <SourceDisclosure record={battle} />
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };

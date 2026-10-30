@@ -188,8 +188,8 @@ export const HistoricalAtlasMap = ({
         {/* Top-Left Big Headline Stamp */}
         <div className={`w-full shrink-0 flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 px-1 gap-2 ${isCinemaMode ? 'max-w-[1320px]' : 'max-w-[960px]'}`}>
           <div>
-            <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#262018] font-serif">
-              <span className="text-2xl sm:text-3xl text-[#991b1b] mr-2">{activePreset.yearDisplay}</span>
+            <div className="text-lg sm:text-xl font-bold tracking-tight text-[#262018] font-serif">
+              <span className="text-xl sm:text-2xl text-[#991b1b] mr-2">{activePreset.yearDisplay}</span>
               {activePreset.headline}
             </div>
             <div className="text-xs text-[#78634c] mt-0.5 tracking-wide">
@@ -457,11 +457,11 @@ export const HistoricalAtlasMap = ({
                   x={lbl.pos[0]}
                   y={lbl.pos[1]}
                   fill={lbl.color}
-                  fontSize={lbl.size}
+                  fontSize={Math.min(lbl.size || 18, 18)}
                   textAnchor="middle"
-                  letterSpacing="4"
+                  letterSpacing="1.5"
                   stroke="#fefefe"
-                  strokeWidth="2.5"
+                  strokeWidth="1.5"
                   paintOrder="stroke"
                 >
                   {lbl.name}

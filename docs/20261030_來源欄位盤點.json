@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-30",
+  "scope": "12組原始資料的events/figures/battles；不含人口統計巢狀欄位或normalizer生成內容",
+  "unit": "datasetId + kind + id；跨期同ID分別計入",
+  "networkReviewed": false,
+  "total": 1862,
+  "legacyPresence": {
+    "present": 0,
+    "missing": 1862
+  },
+  "statusCounts": {
+    "missing": 1862
+  },
+  "byDataset": {
+    "xiaShangZhou": {
+      "total": 61,
+      "statusCounts": {
+        "missing": 61
+      }
+    },
+    "warringStates": {
+      "total": 178,
+      "statusCounts": {
+        "missing": 178
+      }
+    },
+    "qinHan": {
+      "total": 87,
+      "statusCounts": {
+        "missing": 87
+      }
+    },
+    "threeKingdoms": {
+      "total": 565,
+      "statusCounts": {
+        "missing": 565
+      }
+    },
+    "weiJin": {
+      "total": 69,
+      "statusCounts": {
+        "missing": 69
+      }
+    },
+    "suiTang": {
+      "total": 150,
+      "statusCounts": {
+        "missing": 150
+      }
+    },
+    "songLiao": {
+      "total": 84,
+      "statusCounts": {
+        "missing": 84
+      }
+    },
+    "yuanMing": {
+      "total": 104,
+      "statusCounts": {
+        "missing": 104
+      }
+    },
+    "qingDynasty": {
+      "total": 103,
+      "statusCounts": {
+        "missing": 103
+      }
+    },
+    "republicModern": {
+      "total": 85,
+      "statusCounts": {
+        "missing": 85
+      }
+    },
+    "taiwanLens": {
+      "total": 146,
+      "statusCounts": {
+        "missing": 146
+      }
+    },
+    "japanAtlas": {
+      "total": 230,
+      "statusCounts": {
+        "missing": 230
+      }
+    }
+  },
+  "byKind": {
+    "events": {
+      "total": 434,
+      "statusCounts": {
+        "missing": 434
+      }
+    },
+    "figures": {
+      "total": 1201,
+      "statusCounts": {
+        "missing": 1201
+      }
+    },
+    "battles": {
+      "total": 227,
+      "statusCounts": {
+        "missing": 227
+      }
+    }
+  },
+  "sourceFieldPresence": {},
+  "candidates": {
+    "explicitAlternativeFields": {
+      "records": 0,
+      "byField": {},
+      "examples": []
+    },
+    "narrativeBookMentions": {
+      "records": 442,
+      "byField": {
+        "summary": 33,
+        "detail": 92,
+        "bio": 152,
+        "tactics": 3,
+        "strategicOutcome": 3,
+        "title": 22,
+        "roles": 12,
+        "keyAchievements": 66,
+        "strategicSignificance": 3,
+        "victorStatement": 4,
+        "impact": 4,
+        "significance": 2,
+        "historicalImpact": 2,
+        "historicalEvaluation": 84,
+        "achievements": 25,
+        "shortDescription": 10,
+        "description": 12,
+        "quotes": 1,
+        "titles": 1,
+        "shortBio": 98,
+        "historicalSignificance": 15,
+        "role": 20,
+        "keyStrategies": 1
+      },
+      "examples": [
+        {
+          "datasetId": "xiaShangZhou",
+          "kind": "events",
+          "id": "evt_qigan_2050",
+          "field": "summary",
+          "excerpt": "大禹崩，益讓位於啟，諸侯皆朝拜夏啟。有扈氏不服，認為啟背叛五帝禪讓古制而叛。夏啟誓師作《甘誓》，親率六軍與有扈氏大戰於甘，一舉滅有扈氏，世襲「家天下」自此確立。",
+          "automaticPromotion": false
+        },
+        {
+          "datasetId": "xiaShangZhou",
+          "kind": "events",
+          "id": "evt_qigan_2050",
+          "field": "detail",
+          "excerpt": "《史記·夏本紀》載：啟即天子位，有扈氏不服，啟伐之，大戰於甘。將戰，啟作《甘誓》，訓令六軍將士『威侮五行，怠棄三正，天用剿絕其命』。夏王師大敗有扈氏，將其族眾籍沒為牧奴。從此宗法世襲完全取代禪讓制，成為華夏正統法度。",
+          "automaticPromotion": false
+        },
+        {
+          "datasetId": "xiaShangZhou",
+          "kind": "events",
+          "id": "evt_taikang_2000",
+          "field": "detail",
+          "excerpt": "太康畋獵百日不返，有窮后羿因民弗忍，距於河。太康五位弟姪作《五子之歌》述大禹訓誡，哀怨而泣。后羿立太康弟仲康為傀儡，隨後寒浞殺后羿自立，夏王室顛沛流離近百年。",
+          "automaticPromotion": false
+        },
+        {
+          "datasetId": "xiaShangZhou",
+          "kind": "events",
+          "id": "evt_shaokang_1950",
+          "field": "detail",
+          "excerpt": "《左傳》哀公元年伍子胥論少康中興：少康有田一成（十里平方）、有眾一旅（五百人），能布其德而兆其謀，以收夏眾，撫其官職。靡自鬲收二斟之燼以伐浞滅之，立少康。夏朝自此轉危為安，延續數百年宗脈。",
+          "automaticPromotion": false
+        },
+        {
+          "datasetId": "xiaShangZhou",
+          "kind": "events",
+          "id": "evt_mingtiao_1600",
+          "field": "detail",
+          "excerpt": "商湯出兵前作《湯誓》誓師：『格爾眾庶，悉聽朕言，非台小子敢行稱亂，有夏多罪，天命殛之！』兩軍在鳴條（今山西運城安邑一帶）展開大會戰，夏軍雷雨中潰散，商湯追擒夏桀於南巢，結束夏朝四百餘年統治，史稱『商湯革命』。",
+          "automaticPromotion": false
+        }
+      ]
+    },
+    "nonSourceUrls": {
+      "records": 0,
+      "byField": {},
+      "examples": []
+    }
+  },
+  "interpretation": [
+    "explicitAlternativeFields僅是其他明確來源欄位候選，尚未自動搬移或核實。",
+    "敘事中的書名可能是人物著作、名言或事件內容；不能因出現書名就當作該筆資料來源。",
+    "avatar圖像URL不等於人物或事件內容來源，已排除；其餘非來源URL仍需判斷用途。",
+    "不產生不存在的引用，不把書目或網址標成已查證；verified-web需要明確externalReviewed=true、有效URL及claimScope。"
+  ],
+  "reproduce": "node scripts/inventory_history_sources.mjs"
+}

@@ -1,3 +1,6 @@
+import { SourceDisclosure } from './SourceDisclosure.jsx';
+import { isContextReview } from '../data/chronologyReviews.js';
+import { pendingLinkCount } from '../utils/figureLinks.js';
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Calendar, 
@@ -334,9 +337,11 @@ export const Timeline = ({
         {filteredEvents.map((evt) => {
           const isSelected = selectedEvent?.id === evt.id;
           const factionBadge = getFactionBadge(evt.faction);
-          const allEvtFigures = (evt.figureIds || [])
+          const linkedFigures = (evt.figureIds || [])
             .map((fid) => (figures || []).find((f) => f.id === fid))
             .filter(Boolean);
+          const contextFigures = linkedFigures.filter(figure=>isContextReview(evt.figureLinkReviews?.[figure.id]));
+          const allEvtFigures = linkedFigures.filter(figure=>!isContextReview(evt.figureLinkReviews?.[figure.id]));
           const showAllFigs = expandedFiguresEventId === evt.id;
           const displayLimit = isSelected ? (showAllFigs ? 30 : 8) : 4;
           const visibleFigures = allEvtFigures.slice(0, displayLimit);
@@ -346,12 +351,6 @@ export const Timeline = ({
             <div
               key={evt.id}
               ref={(el) => (itemRefs.current[evt.id] = el)}
-              onClick={() => {
-                setIsAutoPlaying(false);
-                isTimelineScrolling.current = false;
-                onSelectEvent(evt);
-                scrollToSelectedCard(evt.id);
-              }}
               className={`group relative p-3.5 rounded-xl border transition-all cursor-pointer ${
                 isSelected
                   ? 'bg-gradient-to-br from-amber-950/40 via-[#1a1b22] to-[#16171d] border-amber-500/80 shadow-lg shadow-amber-950/30 ring-1 ring-amber-500/50'
@@ -374,29 +373,16 @@ export const Timeline = ({
               </div>
 
               {/* Event Title */}
-              <h3 className="font-serif font-bold text-sm text-zinc-100 group-hover:text-amber-200 transition-colors mb-1.5 flex items-center justify-between gap-2">
-                <span>{evt.title}</span>
-                <div className="flex items-center gap-1 shrink-0">
-                  {isSelected ? (
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectEvent(null);
-                      }}
-                      title="點擊收起歷史始末"
-                      className="flex items-center gap-1 text-[10px] text-amber-300 hover:text-amber-100 bg-amber-950/70 hover:bg-amber-900 px-2 py-0.5 rounded border border-amber-500/50 transition-all shrink-0 cursor-pointer shadow-sm group/btn"
-                    >
-                      <span>收起詳情</span>
-                      <ChevronUp className="w-3 h-3 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </button>
-                  ) : (
-                    <span className="text-[10px] text-zinc-500 group-hover:text-amber-300 transition-colors flex items-center gap-0.5">
-                      <span>展開</span>
-                      <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                    </span>
-                  )}
-                </div>
+              <h3 className="font-serif text-zinc-100 mb-2">
+                <button type="button" className="timeline-event-title" aria-expanded={isSelected}
+                  onClick={() => {
+                    setIsAutoPlaying(false);
+                    isTimelineScrolling.current = false;
+                    onSelectEvent(isSelected ? null : evt);
+                    if (!isSelected) scrollToSelectedCard(evt.id);
+                  }}>
+                  {evt.title}<span className="ml-2 text-xs text-amber-300">{isSelected ? '收起' : '展開'}</span>
+                </button>
               </h3>
 
               {/* Event Summary */}
@@ -407,6 +393,7 @@ export const Timeline = ({
               {/* Expanded Detail & Impact when Selected */}
               {isSelected && (
                 <div className="mt-2.5 mb-3 space-y-2.5 pt-2.5 border-t border-amber-500/20 text-xs animate-in fade-in duration-150">
+                  <details className="event-narrative"><summary>閱讀歷史始末與影響</summary>
                   {evt.detail && (
                     <div className="bg-black/30 p-2.5 rounded-lg border border-white/5 text-zinc-300 leading-relaxed text-justify">
                       <div className="text-[11px] font-bold text-amber-300 flex items-center gap-1 mb-1 font-serif">
@@ -418,7 +405,7 @@ export const Timeline = ({
                   )}
 
                   {evt.impact && (
-                    <div className="bg-amber-950/25 p-2.5 rounded-lg border-l-2 border-amber-500 text-amber-100/90 leading-relaxed">
+                    <div className="bg-amber-950/25 p-2.5 rounded-lg border border-amber-500/30 text-amber-100/90 leading-relaxed">
                       <div className="text-[11px] font-bold text-amber-300 flex items-center gap-1 mb-0.5 font-serif">
                         <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                         <span>深遠歷史影響</span>
@@ -427,6 +414,7 @@ export const Timeline = ({
                     </div>
                   )}
 
+                  </details>
                   {evt.tags && evt.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {evt.tags.map((tag, idx) => {
@@ -500,7 +488,7 @@ export const Timeline = ({
                         </div>
                         <div className="space-y-1">
                           {matches.map(({ civKey, meta, regimeLabel, closest, minDiff }) => (
-                            <div
+                            <button type="button" disabled={!closest}
                               key={civKey}
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -510,7 +498,7 @@ export const Timeline = ({
                                 }
                               }}
                               title={closest ? `點擊切換至${meta.flag}星圖並定位「${closest.title}」` : ''}
-                              className="flex items-center justify-between gap-2 p-1.5 rounded bg-zinc-900/80 hover:bg-indigo-950/40 border border-white/5 hover:border-indigo-500/40 transition-colors cursor-pointer group/sync"
+                              className="w-full text-left flex items-center justify-between gap-2 p-1.5 rounded bg-zinc-900/80 hover:bg-indigo-950/40 border border-white/5 hover:border-indigo-500/40 transition-colors cursor-pointer group/sync"
                             >
                               <div className="flex items-center gap-1.5 min-w-0">
                                 <span className={`text-[9.5px] font-bold px-1.5 py-0.5 rounded border shrink-0 ${meta.badgeBg}`}>
@@ -531,7 +519,7 @@ export const Timeline = ({
                                   <ChevronRight className="w-2.5 h-2.5" />
                                 </span>
                               )}
-                            </div>
+                            </button>
                           ))}
                         </div>
                       </div>
@@ -540,6 +528,11 @@ export const Timeline = ({
                 </div>
               )}
 
+              {isSelected && <SourceDisclosure record={evt} />}
+              {contextFigures.length > 0 && <details className="text-xs text-zinc-300 my-2"><summary className="cursor-pointer py-2">背景與年代待考人物（{contextFigures.length} 位）</summary>
+                {contextFigures.map(figure=><button key={figure.id} className="block text-left text-amber-200 py-2" onClick={()=>onSelectFigureById(figure.id)}>{figure.name}・{evt.figureLinkReviews[figure.id].label}</button>)}
+              </details>}
+              {pendingLinkCount(evt) > 0 && <p className="text-xs text-amber-200 mb-2">另有 {pendingLinkCount(evt)} 筆人物連結待確認，暫不列入有效清單。</p>}
               {/* Metadata tags: Location, Figures & Battle Link */}
               <div className="flex flex-col gap-2 pt-2 border-t border-white/5 text-[11px]">
                 <div className="flex items-center justify-between gap-2 flex-wrap">

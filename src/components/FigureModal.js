@@ -1,3 +1,8 @@
+import { SourceDisclosure } from './SourceDisclosure.jsx';
+import { isContextReview, formatHistoryYear } from '../data/chronologyReviews.js';
+import { linkedEvents, figureRelations, pendingLinkCount } from '../utils/figureLinks.js';
+import { Dialog } from './Dialog.jsx';
+import { resolvePeriodId } from '../utils/period.js';
 import React, { useState, useMemo } from 'react';
 import { X, Award, Quote, MapPin, Calendar, GitFork, BookOpen, Layers, Swords, Sparkles } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
@@ -27,34 +32,7 @@ export const FigureModal = ({
 
   if (!figure) return null;
 
-  // Automatically detect period if not passed
-  const effectivePeriodId =
-    (activePeriodId === 'japanAtlas' || activePeriodId === 'japan')
-      ? 'japanAtlas'
-      : (activePeriodId === 'taiwanLens' || activePeriodId === 'taiwan')
-      ? 'taiwanLens'
-      : activePeriodId ||
-        (figure.id?.startsWith('fig_jp_') || allFigures.some((f) => f.id?.startsWith('fig_jp_') || f.faction === 'ancient' || f.faction === 'kamakura' || f.faction === 'sengoku' || f.faction === 'azuchi_momoyama' || f.faction === 'edo' || f.faction === 'bakumatsu' || f.faction === 'meiji_modern')
-          ? 'japanAtlas'
-          : figure.id?.startsWith('fig_tw_') || allFigures.some((f) => f.id?.startsWith('fig_tw_') || f.faction === 'taiwan' || f.faction === 'ming_zheng')
-          ? 'taiwanLens'
-          : allFigures.some((f) => f.faction === 'xia' || f.faction === 'shang')
-          ? 'xiaShangZhou'
-          : allFigures.some((f) => f.faction === 'northern' || f.faction === 'southern' || f.faction === 'sixteen')
-          ? 'weiJin'
-          : allFigures.some((f) => f.faction === 'tang' || f.faction === 'sui' || f.faction === 'wuZhou')
-          ? 'suiTang'
-          : allFigures.some((f) => f.faction === 'liao' || f.faction === 'jin' || f.faction === 'song')
-          ? 'songLiao'
-          : allFigures.some((f) => f.faction === 'taiping' || f.faction === 'republic' || f.faction === 'reform')
-          ? 'qingDynasty'
-          : allFigures.some((f) => f.faction === 'yuan' || f.faction === 'maritime' || f.faction === 'peasant')
-          ? 'yuanMing'
-          : allFigures.some((f) => f.faction === 'qin' || f.faction === 'zhao' || f.faction === 'qi')
-          ? 'warringStates'
-          : allFigures.some((f) => f.faction === 'shu' || f.faction === 'wu')
-          ? 'threeKingdoms'
-          : 'qinHan');
+  const effectivePeriodId = resolvePeriodId(activePeriodId, allFigures);
 
   const getFactionBadge = (faction) => {
     const meta = getFactionMeta(faction, effectivePeriodId);
@@ -138,36 +116,10 @@ export const FigureModal = ({
   const radarPolygonPoints = radarVertices.map((v) => `${v.x.toFixed(1)},${v.y.toFixed(1)}`).join(' ');
 
   // Combine direct relations + reverse relations (up to 8 nodes for rich star graph)
-  const combinedRelations = useMemo(() => {
-    const map = new Map();
-    (figure.relations || []).forEach((rel) => {
-      const target = allFigures.find((f) => f.id === rel.figureId);
-      if (target && target.id !== figure.id) {
-        map.set(target.id, {
-          targetFigure: target,
-          relationType: rel.relationType || 'colleague',
-          label: rel.label || '歷史交集',
-        });
-      }
-    });
-
-    if (map.size < 6) {
-      for (const other of allFigures) {
-        if (other.id === figure.id || map.has(other.id)) continue;
-        const rev = (other.relations || []).find((r) => r.figureId === figure.id);
-        if (rev) {
-          map.set(other.id, {
-            targetFigure: other,
-            relationType: rev.relationType || 'colleague',
-            label: rev.label || '歷史交集',
-          });
-          if (map.size >= 8) break;
-        }
-      }
-    }
-
-    return Array.from(map.values()).slice(0, 8);
-  }, [figure, allFigures]);
+  const combinedRelations = useMemo(() => figureRelations(figure, allFigures), [figure, allFigures]);
+  const relatedEvents = linkedEvents(figure, allEvents);
+  const participatedEvents = relatedEvents.filter(event=>!isContextReview(figure.eventLinkReviews?.[event.id]));
+  const contextualEvents = relatedEvents.filter(event=>isContextReview(figure.eventLinkReviews?.[event.id]));
 
   // Find battles where this figure was a commander or mentioned in summary
   const participatedBattles = (allBattles || []).filter((bat) => {
@@ -190,6 +142,7 @@ export const FigureModal = ({
 
   const getRelEdgeStyle = (relType) => {
     switch (relType) {
+      case 'recommended': return { color:'#a1a1aa', dashed:true, tag:'系統推薦' };
       case 'monarch-subject':
         return { color: '#f59e0b', dashed: false, tag: '君臣' };
       case 'family':
@@ -207,10 +160,7 @@ export const FigureModal = ({
   const radius = 102;
 
   return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
-    >
+    <Dialog onClose={onClose} label="人物詳情">
       <div
         className="relative w-full max-w-2xl max-h-[90vh] bg-[#16171c] border border-amber-500/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden text-zinc-200"
         onClick={(e) => e.stopPropagation()}
@@ -218,6 +168,7 @@ export const FigureModal = ({
         {/* Header with Background Accent */}
         <div className="relative p-6 border-b border-white/10 bg-gradient-to-r from-amber-950/40 via-zinc-900 to-zinc-900">
           <button
+            aria-label="關閉人物詳情"
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
           >
@@ -303,11 +254,13 @@ export const FigureModal = ({
           </div>
 
           {/* 6-Dimension Ability Radar Chart */}
-          <div>
+          <details>
+            <summary className="cursor-pointer text-sm text-amber-300 font-bold py-2">娛樂性六維評分（點擊展開）</summary>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-3">這是探索用的娛樂評分，並非史料測量。系統依人物識別碼、角色與傳記關鍵字、重要度及事件／戰役連結數加權，限制在 58–99 分；原資料已有分數時沿用原設定。總分為六項相加；最高分至少 96 或總分至少 535 為 SSR，最高分至少 90 或總分至少 500 為 SR，其餘為 R。分數不代表真實能力高低。</p>
             <div className="flex items-center justify-between gap-2 mb-2.5 flex-wrap">
               <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5 font-serif">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>歷史人物六維能力星象圖譜</span>
+                <span>娛樂性能力星象圖譜</span>
               </h3>
               <div className="flex items-center gap-2">
                 <span className={`text-[11px] px-2.5 py-0.5 rounded-full border font-bold ${tierInfo.badge}`}>
@@ -445,7 +398,7 @@ export const FigureModal = ({
                 ))}
               </div>
             </div>
-          </div>
+          </details>
 
           {/* Key Achievements */}
           {achievementsList.length > 0 && (
@@ -488,7 +441,7 @@ export const FigureModal = ({
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5 font-serif">
                   <GitFork className="w-4 h-4 text-amber-400" />
-                  <span>人物歷史關係星網圖譜（點擊節點可穿梭切換）</span>
+                  <span>人物關聯與系統推薦（點擊可切換）</span>
                 </h3>
                 <button
                   onClick={() => setShowStarGraph((v) => !v)}
@@ -703,6 +656,8 @@ export const FigureModal = ({
                   return (
                     <div
                       key={idx}
+                      role="button" tabIndex={0}
+                      onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectFigure(targetFigure); } }}
                       onClick={() => onSelectFigure(targetFigure)}
                       className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/80 border border-white/5 hover:border-amber-500/50 hover:bg-zinc-800 transition-all cursor-pointer group"
                     >
@@ -730,7 +685,7 @@ export const FigureModal = ({
                               </span>
                             )}
                           </div>
-                          <div className="text-[10px] text-zinc-400 truncate">
+                          <div className="text-xs text-zinc-300 leading-relaxed">
                             {item.label}
                           </div>
                         </div>
@@ -773,28 +728,36 @@ export const FigureModal = ({
             </div>
           )}
 
+          {pendingLinkCount(figure) > 0 && <p className="text-sm text-amber-200 bg-amber-950/20 p-3 rounded-lg" role="note">尚有 {pendingLinkCount(figure)} 筆關聯待確認，已保留原始記錄，暫不列入有效清單與計數。</p>}
+          {figure.imageReview?.status === 'quarantined-archive-match' && <p className="text-sm text-zinc-300 p-3 bg-black/20 rounded-lg" role="note">人物圖像來源待核對，目前使用姓名占位，未顯示舊圖庫圖片。</p>}
+          <SourceDisclosure record={figure} />
+          {contextualEvents.length > 0 && <details className="border-t border-white/10 pt-2">
+            <summary className="text-sm text-amber-200 cursor-pointer py-2">背景與年代待考（{contextualEvents.length} 筆，非親身參與清單）</summary>
+            {contextualEvents.map(event=><div key={event.id} className="my-3 text-sm text-zinc-300">
+              <button className="text-left text-amber-200 underline underline-offset-4" onClick={()=>{onClose();onSelectEvent(event);}}>{formatHistoryYear(event.year)}・{event.title}</button>
+              <p>{figure.eventLinkReviews[event.id].label}：{figure.eventLinkReviews[event.id].reviewReason}</p>
+            </div>)}
+          </details>}
           {/* Participated Events */}
-          {figure.participatedEventIds && figure.participatedEventIds.length > 0 && (
+          {participatedEvents.length > 0 && (
             <div>
               <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5 mb-2 font-serif">
                 <Layers className="w-4 h-4 text-amber-400" />
-                <span>參與重大歷史事件（點擊對焦歷史地圖與行軍路線）</span>
+                <span>關聯歷史事件（點擊對焦歷史地圖與行軍路線）</span>
               </h3>
               <div className="flex flex-wrap gap-2">
-                {figure.participatedEventIds.map((evtId) => {
-                  const evt = allEvents.find((e) => e.id === evtId);
-                  if (!evt) return null;
+                {participatedEvents.map((evt) => {
 
                   return (
                     <button
-                      key={evtId}
+                      key={`${evt.datasetId || ''}:${evt.id}`}
                       onClick={() => {
                         onClose();
                         onSelectEvent(evt);
                       }}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800/80 border border-white/10 text-xs text-zinc-300 hover:border-amber-500/60 hover:text-amber-200 hover:bg-zinc-700/80 transition-colors"
                     >
-                      <span className="font-mono text-amber-400 text-[10px]">{evt.year}年</span>
+                      <span className="font-mono text-amber-400 text-[10px]">{formatHistoryYear(evt.year)}</span>
                       <span>{evt.title}</span>
                     </button>
                   );
@@ -804,6 +767,6 @@ export const FigureModal = ({
           )}
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };

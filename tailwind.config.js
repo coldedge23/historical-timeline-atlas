@@ -22,10 +22,10 @@ export default {
           950: '#321d17',
         },
         ancient: {
-          dark: '#141416',
-          card: '#1d1e22',
-          border: '#2e3038',
-          accent: '#c99a58',
+          dark: '#0f1013',
+          card: '#16171c',
+          border: '#27282f',
+          accent: '#c99a58', gold: '#c99a58',
           crimson: '#a33327',
           jade: '#2d6a4f',
           bronze: '#b07d48',
@@ -34,9 +34,10 @@ export default {
       },
       fontFamily: {
         serif: ['"Noto Serif TC"', '"Songti TC"', 'Georgia', 'serif'],
-        sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif'],
+        sans: ['"Microsoft JhengHei"', '"Noto Sans TC"', 'system-ui', 'sans-serif'],
       }
     },
   },
   plugins: [],
 }
+

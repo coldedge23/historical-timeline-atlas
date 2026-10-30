@@ -667,53 +667,13 @@ export const FACTION_CONFIGS = {
 };
 
 export function getFactionMeta(factionId, periodId = 'threeKingdoms') {
-  let periodConfig = FACTION_CONFIGS[periodId];
-  if (!periodConfig) {
-    if (FACTION_CONFIGS.japanAtlas?.labels[factionId]) {
-      periodConfig = FACTION_CONFIGS.japanAtlas;
-    } else if (FACTION_CONFIGS.taiwanLens?.labels[factionId]) {
-      periodConfig = FACTION_CONFIGS.taiwanLens;
-    } else {
-      periodConfig = FACTION_CONFIGS.threeKingdoms;
-    }
-  }
-
-  const label =
-    (periodConfig.labels && periodConfig.labels[factionId]) ||
-    FACTION_CONFIGS.japanAtlas?.labels[factionId] ||
-    FACTION_CONFIGS.taiwanLens?.labels[factionId] || (
-      factionId === 'qin' ? '秦國' :
-      factionId === 'qi' ? '齊國' :
-      factionId === 'chu' ? '楚國' :
-      factionId === 'zhao' ? '趙國' :
-      factionId === 'yan' ? '燕國' :
-      factionId === 'wei' ? (periodId === 'warringStates' ? '魏國' : '曹魏') :
-      factionId === 'han' ? (periodId === 'warringStates' ? '韓國' : '大漢') :
-      factionId === 'jin' ? (periodId === 'warringStates' ? '晉國' : '西晉') :
-      factionId === 'zhou' ? '周王室' :
-      factionId === 'wu' ? (periodId === 'warringStates' ? '吳國' : '東吳') :
-      factionId === 'yue' ? '越國' :
-      factionId === 'song' ? '宋國' :
-      factionId === 'lu' ? '魯國' :
-      factionId === 'zheng' ? '鄭國' :
-      factionId === 'other' ? (periodId === 'warringStates' ? '諸侯/百家' : '群雄/外邦') :
-      factionId
-    );
-
-  const style =
-    (periodConfig.styles && periodConfig.styles[factionId]) ||
-    FACTION_CONFIGS.japanAtlas?.styles[factionId] ||
-    FACTION_CONFIGS.taiwanLens?.styles[factionId] ||
-    periodConfig.styles?.other || {
-      card: 'border-amber-500/40 hover:border-amber-400',
-      badge: 'bg-zinc-800 text-zinc-300 border-zinc-600',
-      stroke: '#f59e0b',
-    };
-
-  return {
-    label,
-    card: style.card,
-    badge: style.badge,
-    stroke: style.stroke,
+  const periodConfig = FACTION_CONFIGS[periodId];
+  // Never reuse another civilization's label for a shared key such as ming/jin.
+  const label = periodConfig?.labels?.[factionId] || '未分類陣營';
+  const style = periodConfig?.styles?.[factionId] || periodConfig?.styles?.other || {
+    card: 'border-zinc-600/50 hover:border-zinc-400',
+    badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+    stroke: '#71717a',
   };
+  return { label, card: style.card, badge: style.badge, stroke: style.stroke };
 }

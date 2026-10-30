@@ -1,3 +1,5 @@
+import { parseBirthDeathYears } from '../utils/historicalDates.js';
+export { parseBirthDeathYears } from '../utils/historicalDates.js';
 // Unified Cross-Epoch Schema Normalizer & Intelligence Enricher
 // Ensures 100% consistent data structure across all 9 historical periods (Xia-Shang-Zhou to Qing Dynasty)
 
@@ -5,37 +7,6 @@ function cleanFigureName(name = '') {
   return name.split('(')[0].split('（')[0].trim();
 }
 
-function parseBirthDeathYears(fig) {
-  if (typeof fig.birthYear === 'number' && typeof fig.deathYear === 'number') {
-    return { birthYear: fig.birthYear, deathYear: fig.deathYear };
-  }
-  if (Array.isArray(fig.birthDeath) && fig.birthDeath.length >= 2) {
-    return {
-      birthYear: Number(fig.birthDeath[0]) || 0,
-      deathYear: Number(fig.birthDeath[1]) || 0,
-    };
-  }
-  const raw = fig.birthDeathDisplay || fig.lifeSpan || '';
-  const isBCE = /前|BCE/i.test(raw);
-  const nums = raw.match(/\d+/g);
-  if (nums && nums.length >= 2) {
-    let b = parseInt(nums[0], 10);
-    let d = parseInt(nums[1], 10);
-    if (isBCE) {
-      b = -b;
-      // If second number is larger than first in BCE string or also BCE
-      if (d > Math.abs(b) || raw.indexOf('前', raw.indexOf(nums[0]) + 1) !== -1 || b < -250) {
-        d = -d;
-      }
-    }
-    return { birthYear: b, deathYear: d };
-  }
-  if (nums && nums.length === 1) {
-    const y = parseInt(nums[0], 10) * (isBCE ? -1 : 1);
-    return { birthYear: y, deathYear: y + 60 };
-  }
-  return { birthYear: fig.birthYear ?? 9999, deathYear: fig.deathYear ?? 9999 };
-}
 
 function hashCode(str = '') {
   let h = 0;
@@ -49,7 +20,7 @@ function clampScore(val, min = 58, max = 99) {
   return Math.max(min, Math.min(max, Math.round(val)));
 }
 
-// Compute authentic 6-dimension ability scores when not explicitly defined
+// Compute entertainment-only 6-dimension ability scores when not explicitly defined
 function computeFigureAbilities(fig, participatedEventCount = 0, participatedBattleCount = 0) {
   if (
     fig.abilities &&
@@ -148,7 +119,7 @@ export function normalizePeriodDataset(periodConfig) {
     const birthDeathDisplay =
       f.birthDeathDisplay ||
       f.lifeSpan ||
-      (Array.isArray(f.birthDeath) ? `西元 ${f.birthDeath[0]} — ${f.birthDeath[1]} 年` : '生卒待考');
+      `${birthYear == null ? '生年待考' : birthYear < 0 ? `前${Math.abs(birthYear)}年` : `${birthYear}年`} — ${deathYear == null ? '卒年待考' : deathYear < 0 ? `前${Math.abs(deathYear)}年` : `${deathYear}年`}`;
 
     let roles = [];
     if (Array.isArray(f.roles) && f.roles.length > 0) {
@@ -337,26 +308,8 @@ export function normalizePeriodDataset(periodConfig) {
     let attackerCommanders = Array.isArray(rawAttacker.commanders) ? [...rawAttacker.commanders] : [];
     let defenderCommanders = Array.isArray(rawDefender.commanders) ? [...rawDefender.commanders] : [];
 
-    // If commanders are missing, infer from factionName and battle text
-    if (attackerCommanders.length === 0 && defenderCommanders.length === 0) {
-      const batText = `${b.name} ${summary} ${b.strategicSignificance || ''}`;
-      const matchedFigs = normalizedFigures.filter(
-        (fig) => fig.cleanName && fig.cleanName.length >= 2 && batText.includes(fig.cleanName)
-      );
-      matchedFigs.forEach((fig, idx) => {
-        const attackerName = rawAttacker.factionName || '';
-        const defenderName = rawDefender.factionName || '';
-        if (attackerName.includes(fig.cleanName)) {
-          attackerCommanders.push({ figureId: fig.id, name: fig.cleanName, title: fig.roles[0] || '統帥' });
-        } else if (defenderName.includes(fig.cleanName)) {
-          defenderCommanders.push({ figureId: fig.id, name: fig.cleanName, title: fig.roles[0] || '統帥' });
-        } else if (idx % 2 === 0) {
-          attackerCommanders.push({ figureId: fig.id, name: fig.cleanName, title: fig.roles[0] || '將領' });
-        } else {
-          defenderCommanders.push({ figureId: fig.id, name: fig.cleanName, title: fig.roles[0] || '將領' });
-        }
-      });
-    }
+    // Missing commander attribution remains unknown; mentioning a person does not
+    // establish command responsibility or which side they fought for.
 
     // Link eventId if missing
     let eventId = b.eventId;
@@ -377,14 +330,14 @@ export function normalizePeriodDataset(periodConfig) {
       attacker: {
         ...rawAttacker,
         factionName: rawAttacker.factionName || rawAttacker.name || '進攻方軍團',
-        forcesEstimate: rawAttacker.forcesEstimate || rawAttacker.troops || '精銳主力',
+        forcesEstimate: rawAttacker.forcesEstimate || rawAttacker.troops || b.forces?.attacker || '待考',
         casualtiesEstimate: rawAttacker.casualtiesEstimate || rawAttacker.casualties || '詳見戰報記述',
         commanders: attackerCommanders,
       },
       defender: {
         ...rawDefender,
         factionName: rawDefender.factionName || rawDefender.name || '迎戰方軍團',
-        forcesEstimate: rawDefender.forcesEstimate || rawDefender.troops || '守備主力',
+        forcesEstimate: rawDefender.forcesEstimate || rawDefender.troops || b.forces?.defender || '待考',
         casualtiesEstimate: rawDefender.casualtiesEstimate || rawDefender.casualties || '詳見戰報記述',
         commanders: defenderCommanders,
       },
@@ -404,10 +357,11 @@ export function normalizePeriodDataset(periodConfig) {
           if (otherId !== fig.id && !existingTargetIds.has(otherId)) {
             const other = figById.get(otherId);
             if (other) {
-              const relType = other.faction === fig.faction ? 'colleague' : 'rival';
               fig.relations.push({
                 figureId: other.id,
-                relationType: relType,
+                relationType: 'recommended',
+                inferred: true,
+                recommendationBasis: 'shared-event',
                 label: `同見於「${evt.title.slice(0, 10)}」`,
               });
               existingTargetIds.add(other.id);
@@ -425,13 +379,16 @@ export function normalizePeriodDataset(periodConfig) {
             other.id !== fig.id &&
             other.faction === fig.faction &&
             !existingTargetIds.has(other.id) &&
-            Math.abs((other.birthYear || 0) - (fig.birthYear || 0)) <= 65
+            Number.isFinite(other.birthYear) && Number.isFinite(fig.birthYear) &&
+            Math.abs(other.birthYear - fig.birthYear) <= 65
         );
         sameFactionPeers.slice(0, 3).forEach((peer) => {
           fig.relations.push({
             figureId: peer.id,
-            relationType: 'colleague',
-            label: '同朝 / 同陣營先賢',
+            relationType: 'recommended',
+            inferred: true,
+            recommendationBasis: 'same-faction-contemporary',
+            label: '同朝 / 同陣營探索推薦',
           });
           existingTargetIds.add(peer.id);
         });
@@ -447,6 +404,7 @@ export function normalizePeriodDataset(periodConfig) {
       );
     }).length;
 
+    fig.abilitiesSource = fig.abilitiesSource || (fig.abilities ? 'provided-entertainment' : 'algorithm-entertainment');
     fig.abilities = computeFigureAbilities(fig, fig.participatedEventIds.length, batCount);
   });
 
@@ -460,7 +418,7 @@ export function normalizePeriodDataset(periodConfig) {
     const subtitle =
       rawDemographics.subtitle ||
       rawDemographics.sourceNote ||
-      `依據《二十四史·食貨志》、《地理志》與歷代官方戶部版籍考實`;
+      '來源尚待逐筆核對，人口數字不代表已完成史料查證';
     const alertTitle =
       rawDemographics.alertTitle ||
       (rawDemographics.peakPopulation
@@ -481,7 +439,7 @@ export function normalizePeriodDataset(periodConfig) {
       households: dp.households || '待考',
       armyCount: dp.armyCount || '',
       officialsCount: dp.officialsCount || '',
-      source: dp.source || dp.note || '正史食貨志記載',
+      source: dp.source || dp.note || '來源待核對',
     }));
 
     const rawGroups =
