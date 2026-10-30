@@ -1,5 +1,215 @@
-// Japanese Historical Atlas Battles Dataset (27 Authoritative Epic Battles with Full Military Intelligence)
+// Japanese Historical Atlas Battles Dataset (33 Authoritative Epic Battles with Full Military Intelligence)
 export const JAPAN_BATTLES = [
+  {
+    "id": "bat_jp_hakusukinoe_663",
+    "name": "白村江之戰 (倭國援百濟對唐新羅聯軍)",
+    "year": 663,
+    "locationAncient": "百濟白村江口（白江口）",
+    "locationModern": "韓國錦江河口一帶（確切位置學界有不同說法）",
+    "coordinates": [
+      126.7,
+      36
+    ],
+    "summary": "百濟為唐、新羅所滅後，遺臣迎回在倭國的王子扶餘豐璋復國，倭國派軍援助。663 年倭國水軍在白村江口與唐水軍交戰，倭軍大敗，百濟復興運動失敗。",
+    "attacker": {
+      "factionName": "倭國・百濟遺民聯軍",
+      "faction": "ancient",
+      "commanders": [
+        {
+          "name": "扶餘豐璋",
+          "title": "百濟王子"
+        },
+        {
+          "name": "上毛野稚子",
+          "title": "倭國將領"
+        },
+        {
+          "name": "廬原君臣",
+          "title": "倭國將領"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "《舊唐書・劉仁軌傳》記唐軍焚其舟四百艘"
+    },
+    "defender": {
+      "factionName": "唐・新羅聯軍",
+      "faction": "tang",
+      "commanders": [
+        {
+          "name": "劉仁軌",
+          "title": "唐軍將領"
+        },
+        {
+          "name": "孫仁師",
+          "title": "唐軍將領"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "victor": "defender",
+    "victorStatement": "唐水軍左右夾擊，倭國水軍大敗",
+    "tactics": [
+      "唐軍：堅陣以待，自左右夾擊倭國船隊（《日本書紀》天智二年條）",
+      "倭軍：未整隊伍即爭先進攻，陣形混亂（同上）"
+    ],
+    "strategicOutcome": "百濟復興失敗。倭國此後在對馬、壹岐、筑紫設置防人與烽火，並於筑紫修築水城，轉向強化本土防衛。",
+    "significance": "倭國退出朝鮮半島事務，加速以唐為範本的中央集權改革。",
+    "sources": [
+      {
+        "title": "《日本書紀》卷第廿七（天智天皇紀）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿七"
+      },
+      {
+        "title": "《舊唐書》卷八十四（劉仁軌傳）",
+        "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷84"
+      }
+    ],
+    "eraId": "jp_ancient_medieval",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "倭國・百濟遺民聯軍 (未知（史料無可靠數字）)",
+      "defender": "唐・新羅聯軍 (未知（史料無可靠數字）)"
+    },
+    "keyStrategies": [
+      "唐軍：堅陣以待，自左右夾擊倭國船隊（《日本書紀》天智二年條）",
+      "倭軍：未整隊伍即爭先進攻，陣形混亂（同上）"
+    ]
+  },
+  {
+    "id": "bat_jp_jinshin_672",
+    "name": "壬申之亂 (大海人皇子對大友皇子)",
+    "year": 672,
+    "locationAncient": "近江國瀨田橋",
+    "locationModern": "滋賀縣大津市瀨田唐橋",
+    "coordinates": [
+      135.91,
+      34.99
+    ],
+    "summary": "天智天皇去世後，其弟大海人皇子自吉野起兵，與天智之子大友皇子爭奪皇位。大海人皇子取得東國兵力，於瀨田橋擊敗近江朝廷軍，大友皇子自盡。翌年大海人皇子即位，即天武天皇。",
+    "attacker": {
+      "factionName": "大海人皇子軍",
+      "faction": "ancient",
+      "commanders": [
+        {
+          "name": "大海人皇子",
+          "title": "天智天皇之弟（後天武天皇）",
+          "figureId": "fig_jp_tenmu"
+        },
+        {
+          "name": "高市皇子",
+          "title": "大海人皇子之子，主力統帥"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "defender": {
+      "factionName": "近江朝廷軍",
+      "faction": "ancient",
+      "commanders": [
+        {
+          "name": "大友皇子",
+          "title": "天智天皇之子"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "大友皇子自盡"
+    },
+    "victor": "attacker",
+    "victorStatement": "瀨田橋決戰勝出，大友皇子自盡",
+    "tactics": [
+      "封鎖不破道（今關原一帶），阻斷近江朝廷向東國徵兵",
+      "高市皇子統率主力自美濃西進，另一路軍在大和方面作戰"
+    ],
+    "strategicOutcome": "天武天皇以飛鳥淨御原宮為中心強化皇權，推進律令與國史編纂。",
+    "significance": "古代日本規模最大的內亂，奠定以天皇為中心的律令國家。",
+    "sources": [
+      {
+        "title": "《日本書紀》卷第廿八（天武天皇紀上）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿八"
+      }
+    ],
+    "eraId": "jp_ancient_medieval",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "大海人皇子軍 (未知（史料無可靠數字）)",
+      "defender": "近江朝廷軍 (未知（史料無可靠數字）)"
+    },
+    "keyStrategies": [
+      "封鎖不破道（今關原一帶），阻斷近江朝廷向東國徵兵",
+      "高市皇子統率主力自美濃西進，另一路軍在大和方面作戰"
+    ]
+  },
+  {
+    "id": "bat_jp_ichinotani_1184",
+    "name": "一之谷之戰 (源氏奇襲平氏城郭)",
+    "year": 1184,
+    "locationAncient": "攝津國一之谷",
+    "locationModern": "兵庫縣神戶市須磨區",
+    "coordinates": [
+      135.12,
+      34.64
+    ],
+    "summary": "平氏退往西國重整後，在攝津與播磨交界的一之谷構築城郭。1184 年源範賴、源義經分兵進攻，義經自背後山地突襲，平氏大敗並退往讚岐屋島。",
+    "attacker": {
+      "factionName": "源氏追討軍",
+      "faction": "kamakura",
+      "commanders": [
+        {
+          "name": "源範賴",
+          "title": "大手軍大將"
+        },
+        {
+          "name": "源義經",
+          "title": "搦手軍大將",
+          "figureId": "fig_jp_minamoto_yoshitsune"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "defender": {
+      "factionName": "平氏軍",
+      "faction": "heike",
+      "commanders": [
+        {
+          "name": "平宗盛",
+          "title": "平氏總帥"
+        },
+        {
+          "name": "平知盛",
+          "title": "平氏將領"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "平忠度、平敦盛等一門多人戰死"
+    },
+    "victor": "attacker",
+    "victorStatement": "源義經自山側突襲，平氏潰退海上",
+    "tactics": [
+      "分兵：源範賴率大手軍自東面生田口進攻，源義經率搦手軍迂迴西側",
+      "奇襲：源義經自後山急坡突入（後世稱「鵯越逆落」，實際路線學界有爭議）"
+    ],
+    "strategicOutcome": "平氏失去京都附近據點，退守讚岐屋島。",
+    "significance": "源平合戰的轉捩點之一。",
+    "sources": [
+      {
+        "title": "《吾妻鏡》卷三（壽永三年）",
+        "url": "https://zh.wikisource.org/zh-hant/吾妻鏡/卷003"
+      }
+    ],
+    "eraId": "jp_ancient_medieval",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "源氏追討軍 (未知（史料無可靠數字）)",
+      "defender": "平氏軍 (未知（史料無可靠數字）)"
+    },
+    "keyStrategies": [
+      "分兵：源範賴率大手軍自東面生田口進攻，源義經率搦手軍迂迴西側",
+      "奇襲：源義經自後山急坡突入（後世稱「鵯越逆落」，實際路線學界有爭議）"
+    ]
+  },
   {
     "id": "bat_jp_dannoura_1185",
     "eraId": "jp_ancient_medieval",
@@ -74,6 +284,147 @@ export const JAPAN_BATTLES = [
     ]
   },
   {
+    "id": "bat_jp_jokyu_1221",
+    "name": "承久之亂 (鎌倉幕府對後鳥羽上皇)",
+    "year": 1221,
+    "locationAncient": "山城國宇治川",
+    "locationModern": "京都府宇治市",
+    "coordinates": [
+      135.8,
+      34.89
+    ],
+    "summary": "後鳥羽上皇下令追討執權北條義時。北條政子召集御家人，以源賴朝恩義號召團結，幕府由北條泰時、北條時房率軍西上，在宇治川等地擊敗上皇方並攻入京都。後鳥羽上皇被流放隱岐。",
+    "attacker": {
+      "factionName": "鎌倉幕府軍",
+      "faction": "kamakura",
+      "commanders": [
+        {
+          "name": "北條泰時",
+          "title": "幕府軍大將",
+          "figureId": "fig_jp_hojo_yasutoki"
+        },
+        {
+          "name": "北條時房",
+          "title": "幕府軍大將"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "defender": {
+      "factionName": "後鳥羽上皇方",
+      "faction": "imperial",
+      "commanders": [
+        {
+          "name": "後鳥羽上皇",
+          "title": "治天之君",
+          "figureId": "fig_jp_go_toba"
+        },
+        {
+          "name": "藤原秀康",
+          "title": "上皇方武將"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "victor": "attacker",
+    "victorStatement": "幕府軍突破宇治川防線攻入京都",
+    "tactics": [
+      "北條政子召集御家人，以源賴朝恩義鞏固幕府陣營",
+      "幕府軍分東海道、東山道、北陸道三路西上",
+      "於宇治川渡河突破上皇方防線"
+    ],
+    "strategicOutcome": "幕府設置六波羅探題監視朝廷，沒收上皇方所領並分配給御家人。",
+    "significance": "武家政權確立對朝廷的優勢。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ],
+    "eraId": "jp_ancient_medieval",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "鎌倉幕府軍 (未知（史料無可靠數字）)",
+      "defender": "後鳥羽上皇方 (未知（史料無可靠數字）)"
+    },
+    "keyStrategies": [
+      "北條政子召集御家人，以源賴朝恩義鞏固幕府陣營",
+      "幕府軍分東海道、東山道、北陸道三路西上",
+      "於宇治川渡河突破上皇方防線"
+    ]
+  },
+  {
+    "id": "bat_jp_bunei_1274",
+    "name": "文永之役 (元・高麗聯軍首次渡海)",
+    "year": 1274,
+    "locationAncient": "筑前國博多灣",
+    "locationModern": "福岡縣福岡市博多灣沿岸",
+    "coordinates": [
+      130.36,
+      33.6
+    ],
+    "summary": "元朝要求日本通好未果，1274 年派遣蒙古、漢、高麗聯軍渡海，先後攻擊對馬、壹岐，再於博多灣一帶登陸，與九州御家人交戰。元軍交戰後撤回船上並退兵；《元史》記此役「官軍不整，又矢盡」。",
+    "attacker": {
+      "factionName": "元・高麗聯軍",
+      "faction": "yuan",
+      "commanders": [
+        {
+          "name": "忻都",
+          "title": "鳳州經略使"
+        },
+        {
+          "name": "洪茶丘",
+          "title": "高麗軍民總管"
+        }
+      ],
+      "forcesEstimate": "《元史・日本傳》記戰船九百艘、士卒一萬五千",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "defender": {
+      "factionName": "鎌倉幕府九州御家人",
+      "faction": "kamakura",
+      "commanders": [
+        {
+          "name": "北條時宗",
+          "title": "鎌倉幕府執權（坐鎮鎌倉）",
+          "figureId": "fig_jp_hojo_tokimune"
+        },
+        {
+          "name": "少貳景資",
+          "title": "九州御家人指揮"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "victor": "defender",
+    "victorStatement": "元軍登陸交戰後撤回船上退兵（撤退原因各方記載不一）",
+    "tactics": [
+      "元軍：以集團戰法、弓箭與火器對抗日本武士",
+      "日本方：九州御家人分頭迎戰登陸部隊"
+    ],
+    "strategicOutcome": "幕府此後在博多灣沿岸修築石築地（元寇防壘），並強化異國警固番役。",
+    "significance": "日本首次遭遇大規模外國渡海入侵，七年後再有弘安之役。",
+    "sources": [
+      {
+        "title": "《元史》卷二百八（外夷一・日本）",
+        "url": "https://zh.wikisource.org/zh-hant/元史/卷208"
+      }
+    ],
+    "eraId": "jp_ancient_medieval",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "元・高麗聯軍 (《元史・日本傳》記戰船九百艘、士卒一萬五千)",
+      "defender": "鎌倉幕府九州御家人 (未知（史料無可靠數字）)"
+    },
+    "keyStrategies": [
+      "元軍：以集團戰法、弓箭與火器對抗日本武士",
+      "日本方：九州御家人分頭迎戰登陸部隊"
+    ]
+  },
+  {
     "id": "bat_jp_koan_1281",
     "eraId": "jp_ancient_medieval",
     "name": "弘安之役博多灣合戰 (神風狂瀾阻擊忽必烈大軍)",
@@ -144,6 +495,77 @@ export const JAPAN_BATTLES = [
       "修築防壘工事：戰前動員數萬軍民修築高兩公尺、長二十公里的防石壘，阻斷騎兵登陸",
       "夜襲游擊接舷：乘小型快船夜襲元軍巨型連環艦隊，縱火白刃肉搏癱瘓其遠程回回砲",
       "持久阻滯待變：堅壁清野拖延戰局達兩個月，迫使元軍在瘟疫與夏季颱風季深陷絕境"
+    ]
+  },
+  {
+    "id": "bat_jp_minatogawa_1336",
+    "name": "湊川之戰 (足利尊氏對楠木正成)",
+    "year": 1336,
+    "locationAncient": "攝津國湊川",
+    "locationModern": "兵庫縣神戶市中央區、兵庫區",
+    "coordinates": [
+      135.17,
+      34.68
+    ],
+    "summary": "足利尊氏自九州東上，水陸並進。楠木正成奉後醍醐天皇之命與新田義貞迎戰於攝津湊川。正成力戰後與弟楠木正季自盡，新田義貞退兵，足利尊氏隨後進入京都。",
+    "attacker": {
+      "factionName": "足利軍",
+      "faction": "muromachi",
+      "commanders": [
+        {
+          "name": "足利尊氏",
+          "title": "水路軍",
+          "figureId": "fig_jp_ashikaga_takauji"
+        },
+        {
+          "name": "足利直義",
+          "title": "陸路軍"
+        }
+      ],
+      "forcesEstimate": "未知（史料無可靠數字）",
+      "casualtiesEstimate": "未知（史料無可靠數字）"
+    },
+    "defender": {
+      "factionName": "後醍醐天皇方",
+      "faction": "kamakura",
+      "commanders": [
+        {
+          "name": "楠木正成",
+          "title": "河內武將",
+          "figureId": "fig_jp_kusunoki_masashige"
+        },
+        {
+          "name": "新田義貞",
+          "title": "朝廷軍總大將",
+          "figureId": "fig_jp_nitta_yoshisada"
+        }
+      ],
+      "forcesEstimate": "《太平記》記楠木軍七百餘騎（軍記物語，數字僅供參考）",
+      "casualtiesEstimate": "楠木正成、楠木正季兄弟自盡"
+    },
+    "victor": "attacker",
+    "victorStatement": "楠木正成戰死，足利尊氏進入京都",
+    "tactics": [
+      "足利軍水陸兩路並進，海上部隊登陸切斷新田軍與楠木軍",
+      "楠木正成於湊川西岸固守力戰"
+    ],
+    "strategicOutcome": "足利尊氏進入京都擁立光明天皇，後醍醐天皇其後移往吉野。",
+    "significance": "建武政權瓦解、南北朝分立的關鍵一戰。",
+    "sources": [
+      {
+        "title": "《太平記》巻第十六（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第十六"
+      }
+    ],
+    "eraId": "jp_ancient_medieval",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "足利軍 (未知（史料無可靠數字）)",
+      "defender": "後醍醐天皇方 (《太平記》記楠木軍七百餘騎（軍記物語，數字僅供參考）)"
+    },
+    "keyStrategies": [
+      "足利軍水陸兩路並進，海上部隊登陸切斷新田軍與楠木軍",
+      "楠木正成於湊川西岸固守力戰"
     ]
   },
   {

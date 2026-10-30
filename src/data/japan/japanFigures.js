@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Figures Dataset (99 Authoritative Figures)
+// Japanese Historical Atlas Figures Dataset (156 Authoritative Figures)
 export const JAPAN_FIGURES = [
   {
     "id": "fig_jp_shotoku",
@@ -25,6 +25,346 @@ export const JAPAN_FIGURES = [
       "courage": 85,
       "charisma": 99
     }
+  },
+  {
+    "id": "fig_jp_fujiwara_kamatari",
+    "name": "藤原鎌足",
+    "courtesyName": "中臣鎌足 / 中臣鎌子",
+    "lifeSpan": "614 - 669",
+    "faction": "ancient",
+    "clanTag": "中臣氏・藤原氏",
+    "emblemChar": "藤",
+    "mainColor": "#a78bfa",
+    "bgColor": "#2e1065",
+    "role": "大化革新功臣 / 藤原氏始祖",
+    "roleType": "advisor",
+    "avatar": "./images/figures/fig_jp_fujiwara_kamatari.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "原為中臣氏。與中大兄皇子共謀，645 年於乙巳之變誅殺蘇我入鹿，之後任內臣輔佐朝政。669 年臨終前獲天智天皇賜「大織冠」與「藤原」姓，其子藤原不比等以下的藤原氏成為此後數百年的朝廷核心家族。",
+    "historicalSignificance": "藤原氏之祖，攝關政治的源頭。",
+    "sources": [
+      {
+        "title": "《日本書紀》卷第廿四（皇極天皇紀）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿四"
+      },
+      {
+        "title": "《日本書紀》卷第廿七（天智天皇紀）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿七"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_tenji",
+    "name": "天智天皇",
+    "courtesyName": "中大兄皇子 / 葛城皇子",
+    "lifeSpan": "626 - 671",
+    "faction": "ancient",
+    "clanTag": "飛鳥皇室",
+    "emblemChar": "智",
+    "mainColor": "#f59e0b",
+    "bgColor": "#451a03",
+    "role": "第 38 代天皇 / 乙巳之變與大化革新主導者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_tenji.svg",
+    "importance": 5,
+    "hometown": "大和國 (今奈良縣)",
+    "shortBio": "舒明天皇之子。645 年與中臣鎌足發動乙巳之變誅殺蘇我入鹿，以皇太子身分主導大化革新。663 年派兵援助百濟，於白村江之戰敗於唐、新羅聯軍，此後強化西國防衛並遷都近江大津宮，668 年正式即位。671 年崩於近江宮。",
+    "historicalSignificance": "推動中央集權改革；其身後皇位之爭引發壬申之亂。",
+    "sources": [
+      {
+        "title": "《日本書紀》卷第廿七（天智天皇紀）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿七"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_tenmu",
+    "name": "天武天皇",
+    "courtesyName": "大海人皇子",
+    "lifeSpan": "未知 - 686",
+    "faction": "ancient",
+    "clanTag": "飛鳥皇室",
+    "emblemChar": "武",
+    "mainColor": "#ef4444",
+    "bgColor": "#450a0a",
+    "role": "第 40 代天皇 / 壬申之亂勝利者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_tenmu.svg",
+    "importance": 5,
+    "hometown": "未知",
+    "shortBio": "天智天皇之弟。天智天皇晚年出家退居吉野，天智崩後於 672 年起兵，在壬申之亂中擊敗大友皇子，翌年於飛鳥淨御原宮即位。在位期間集中皇權，推動律令編纂、制定八色之姓，並下令編修國史。686 年崩。",
+    "historicalSignificance": "確立以天皇為中心的律令國家方向，《古事記》《日本書紀》的編修均始於其時。",
+    "sources": [
+      {
+        "title": "《日本書紀》卷第廿八（天武天皇紀上）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿八"
+      },
+      {
+        "title": "《日本書紀》卷第廿九（天武天皇紀下）",
+        "url": "https://zh.wikisource.org/zh-hant/日本書紀/卷第廿九"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_ganjin",
+    "name": "鑑真",
+    "courtesyName": "過海大師 / 唐大和上",
+    "lifeSpan": "688 - 763",
+    "faction": "ancient",
+    "clanTag": "律宗",
+    "emblemChar": "律",
+    "mainColor": "#14b8a6",
+    "bgColor": "#042f2e",
+    "role": "唐朝律宗高僧 / 唐招提寺創建者",
+    "roleType": "cultural",
+    "avatar": "./images/figures/fig_jp_ganjin.svg",
+    "importance": 4,
+    "hometown": "唐揚州 (今中國江蘇省揚州市)",
+    "shortBio": "揚州大明寺律僧。742 年應日本留學僧榮叡、普照之請決意東渡，此後五次渡海失敗，期間雙目失明。753 年第六次東渡成功，翌年入平城京，在東大寺設戒壇授戒。759 年創建唐招提寺，763 年圓寂。",
+    "historicalSignificance": "將正式授戒制度傳入日本，奈良時代中日交流的代表人物。",
+    "sources": [
+      {
+        "title": "《續日本紀》卷第十九（天平勝寶六年）",
+        "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第十九"
+      },
+      {
+        "title": "《續日本紀》卷第廿四（天平寶字七年）",
+        "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第廿四"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_shomu",
+    "name": "聖武天皇",
+    "courtesyName": "首皇子",
+    "lifeSpan": "701 - 756",
+    "faction": "ancient",
+    "clanTag": "奈良皇室",
+    "emblemChar": "佛",
+    "mainColor": "#eab308",
+    "bgColor": "#422006",
+    "role": "第 45 代天皇 / 東大寺大佛發願者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_shomu.svg",
+    "importance": 4,
+    "hometown": "大和國 (今奈良縣)",
+    "shortBio": "文武天皇之子，724 年即位。在位期間疫病、饑荒與藤原廣嗣之亂相繼發生，曾多次遷都。741 年詔令諸國建立國分寺、國分尼寺，743 年發願造立盧舍那大佛，同年頒布墾田永年私財法。749 年讓位予女兒孝謙天皇。756 年崩。",
+    "historicalSignificance": "以佛教鎮護國家的代表君主，天平文化的核心人物。",
+    "sources": [
+      {
+        "title": "《續日本紀》卷第九（聖武天皇即位）",
+        "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第九"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_kanmu",
+    "name": "桓武天皇",
+    "courtesyName": "山部親王",
+    "lifeSpan": "737 - 806",
+    "faction": "ancient",
+    "clanTag": "平安皇室",
+    "emblemChar": "京",
+    "mainColor": "#f97316",
+    "bgColor": "#431407",
+    "role": "第 50 代天皇 / 平安京遷都者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_kanmu.svg",
+    "importance": 5,
+    "hometown": "未知",
+    "shortBio": "光仁天皇之子，781 年即位。784 年遷都長岡京，794 年再遷平安京。任命坂上田村麻呂為征夷大將軍經略東北，並整頓地方行政。805 年接受藤原緒嗣建議，停止征夷與造都兩項工程。806 年崩。",
+    "historicalSignificance": "平安時代的開創者，京都自此成為千年帝都。",
+    "sources": [
+      {
+        "title": "《續日本紀》卷第卅六（天應元年）",
+        "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第卅六"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_sakanoue_tamuramaro",
+    "name": "坂上田村麻呂",
+    "courtesyName": "坂上田村麿",
+    "lifeSpan": "758 - 811",
+    "faction": "ancient",
+    "clanTag": "坂上氏",
+    "emblemChar": "征",
+    "mainColor": "#22c55e",
+    "bgColor": "#052e16",
+    "role": "征夷大將軍 / 東北經略",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_jp_sakanoue_tamuramaro.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "797 年受桓武天皇任命為征夷大將軍，率軍進入東北。802 年築膽澤城，蝦夷首領阿弖流為投降；翌年築志波城。其後歷任大納言。京都清水寺的創建傳說亦與其相關。811 年去世。",
+    "historicalSignificance": "平安初期最具代表性的武將，朝廷勢力向東北擴展的主導者。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_kukai",
+    "name": "空海",
+    "courtesyName": "弘法大師",
+    "lifeSpan": "774 - 835",
+    "faction": "ancient",
+    "clanTag": "真言宗",
+    "emblemChar": "空",
+    "mainColor": "#8b5cf6",
+    "bgColor": "#2e1065",
+    "role": "真言宗開祖 / 平安初期高僧",
+    "roleType": "cultural",
+    "avatar": "./images/figures/fig_jp_kukai.svg",
+    "importance": 4,
+    "hometown": "讚岐國 (今香川縣)",
+    "shortBio": "804 年隨遣唐使入唐，在長安青龍寺師從惠果受密教灌頂，806 年歸國。816 年獲准開創高野山，823 年受賜京都東寺，弘揚真言宗。亦以書法聞名，與嵯峨天皇、橘逸勢並稱「三筆」。835 年於紀伊國高野山入寂。",
+    "historicalSignificance": "日本密教的奠基者，平安佛教與文化的代表人物。",
+    "sources": [
+      {
+        "title": "《續日本後紀》卷第四（承和二年）",
+        "url": "https://zh.wikisource.org/zh-hant/續日本後紀/卷第四"
+      },
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_sugawara_michizane",
+    "name": "菅原道真",
+    "courtesyName": "菅公 / 天滿天神",
+    "lifeSpan": "845 - 903",
+    "faction": "ancient",
+    "clanTag": "菅原氏",
+    "emblemChar": "梅",
+    "mainColor": "#ec4899",
+    "bgColor": "#500724",
+    "role": "平安中期學者政治家 / 學問之神",
+    "roleType": "scholar",
+    "avatar": "./images/figures/fig_jp_sugawara_michizane.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "出身學問世家，受宇多天皇重用。894 年被任命為遣唐大使，上奏建議重新審議派遣，遣唐使此後停派。899 年任右大臣，901 年遭左大臣藤原時平讒言被貶為大宰權帥，903 年卒於大宰府。",
+    "historicalSignificance": "死後被尊為天滿天神，今日被奉為學問之神。"
+  },
+  {
+    "id": "fig_jp_taira_masakado",
+    "name": "平將門",
+    "courtesyName": "新皇（自稱）",
+    "lifeSpan": "未知 - 940",
+    "faction": "ancient",
+    "clanTag": "桓武平氏",
+    "emblemChar": "將",
+    "mainColor": "#dc2626",
+    "bgColor": "#450a0a",
+    "role": "承平天慶之亂關東首領",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_jp_taira_masakado.svg",
+    "importance": 3,
+    "hometown": "下總國 (今茨城縣、千葉縣一帶)",
+    "shortBio": "桓武天皇後裔平高望之孫。在關東與伯父等一族爭鬥，939 年攻陷常陸國府，進而佔領下野、上野等國府，自稱「新皇」並任命關東諸國國司。940 年被平貞盛、藤原秀鄉擊敗陣亡。",
+    "historicalSignificance": "平安中期地方武士勢力興起的象徵。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_fujiwara_michinaga",
+    "name": "藤原道長",
+    "courtesyName": "御堂關白",
+    "lifeSpan": "966 - 1028",
+    "faction": "ancient",
+    "clanTag": "藤原北家",
+    "emblemChar": "望",
+    "mainColor": "#a855f7",
+    "bgColor": "#3b0764",
+    "role": "攝政 / 攝關政治全盛期代表",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_fujiwara_michinaga.svg",
+    "importance": 5,
+    "hometown": "未知",
+    "shortBio": "藤原兼家之子。995 年獲內覽宣旨掌握朝政，將長女彰子立為一條天皇中宮，其後又有兩位女兒成為皇后、中宮，有「一家立三后」之稱。1016 年任攝政，翌年讓予長子藤原賴通。晚年出家並建法成寺，1028 年去世。",
+    "historicalSignificance": "攝關政治全盛期的代表人物。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_murasaki_shikibu",
+    "name": "紫式部",
+    "courtesyName": "藤式部",
+    "lifeSpan": "未知 - 未知",
+    "faction": "ancient",
+    "clanTag": "藤原北家",
+    "emblemChar": "紫",
+    "mainColor": "#c084fc",
+    "bgColor": "#3b0764",
+    "role": "《源氏物語》作者",
+    "roleType": "cultural",
+    "avatar": "./images/figures/fig_jp_murasaki_shikibu.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "藤原為時之女，與藤原宣孝結婚，丈夫去世後出仕一條天皇中宮彰子（藤原道長之女）。著有長篇物語《源氏物語》及《紫式部日記》。生卒年均無確切記載。",
+    "historicalSignificance": "平安國風文化的代表作家。"
+  },
+  {
+    "id": "fig_jp_shirakawa",
+    "name": "白河天皇",
+    "courtesyName": "貞仁親王",
+    "lifeSpan": "1053 - 1129",
+    "faction": "ancient",
+    "clanTag": "平安皇室",
+    "emblemChar": "院",
+    "mainColor": "#0ea5e9",
+    "bgColor": "#082f49",
+    "role": "第 72 代天皇 / 院政開創者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_shirakawa.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "後三條天皇之子，1072 年即位。1086 年讓位予堀河天皇，以上皇身分主導政務，開啟院政，此後歷堀河、鳥羽、崇德三代天皇掌握實權四十餘年。晚年出家為法皇，1129 年崩。",
+    "historicalSignificance": "院政的開創者，改變攝關家主導朝政的格局。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_taira_kiyomori",
+    "name": "平清盛",
+    "courtesyName": "平相國 / 淨海",
+    "lifeSpan": "1118 - 1181",
+    "faction": "ancient",
+    "clanTag": "伊勢平氏",
+    "emblemChar": "平",
+    "mainColor": "#e11d48",
+    "bgColor": "#4c0519",
+    "role": "太政大臣 / 平氏政權建立者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_taira_kiyomori.svg",
+    "importance": 5,
+    "hometown": "未知",
+    "shortBio": "平忠盛之子。在保元之亂、平治之亂中站在後白河一方取勝，1167 年成為首位任太政大臣的武士。女兒德子入宮，外孫安德天皇即位；並推動日宋貿易、修築大輪田泊。1179 年發動政變幽禁後白河法皇，1180 年短暫遷都福原。1181 年病逝，四年後平氏於壇之浦滅亡。",
+    "historicalSignificance": "首個由武士主導的中央政權建立者。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
   },
   {
     "id": "fig_jp_minamoto_yoritomo",
@@ -129,6 +469,184 @@ export const JAPAN_FIGURES = [
       "courage": 89,
       "charisma": 98
     }
+  },
+  {
+    "id": "fig_jp_hojo_masako",
+    "name": "北條政子",
+    "courtesyName": "尼將軍",
+    "lifeSpan": "1157 - 1225",
+    "faction": "kamakura",
+    "clanTag": "北條氏",
+    "emblemChar": "尼",
+    "mainColor": "#f43f5e",
+    "bgColor": "#4c0519",
+    "role": "源賴朝正室 / 鎌倉幕府實際主導者之一",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_hojo_masako.svg",
+    "importance": 4,
+    "hometown": "伊豆國 (今靜岡縣)",
+    "shortBio": "北條時政之女，源賴朝之妻。賴朝死後出家，在兒子源賴家、源實朝相繼身亡後，與弟北條義時共同主導幕府，被稱為「尼將軍」。1221 年承久之亂時召集御家人，以源賴朝恩義號召團結。1225 年去世。",
+    "historicalSignificance": "鎌倉幕府由源氏將軍過渡到北條執權政治的關鍵人物。"
+  },
+  {
+    "id": "fig_jp_go_toba",
+    "name": "後鳥羽天皇",
+    "courtesyName": "尊成親王",
+    "lifeSpan": "1180 - 1239",
+    "faction": "kamakura",
+    "clanTag": "鎌倉時代皇室",
+    "emblemChar": "羽",
+    "mainColor": "#6366f1",
+    "bgColor": "#1e1b4b",
+    "role": "第 82 代天皇 / 承久之亂發動者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_go_toba.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "高倉天皇之子，1183 年在三種神器隨平氏西去的情況下即位。1198 年讓位後以上皇身分實行院政。1221 年下令追討執權北條義時，發動承久之亂，失敗後被流放隱岐，1239 年崩於隱岐。曾敕命編纂《新古今和歌集》。",
+    "historicalSignificance": "最後一位以武力挑戰鎌倉幕府的上皇，亦為重要歌人。",
+    "sources": [
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_hojo_yasutoki",
+    "name": "北條泰時",
+    "courtesyName": "鎌倉第三代執權",
+    "lifeSpan": "1183 - 1242",
+    "faction": "kamakura",
+    "clanTag": "北條得宗",
+    "emblemChar": "式",
+    "mainColor": "#10b981",
+    "bgColor": "#022c22",
+    "role": "鎌倉幕府第三代執權 / 御成敗式目制定者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_hojo_yasutoki.svg",
+    "importance": 4,
+    "hometown": "未知",
+    "shortBio": "北條義時之子。承久之亂時率幕府軍攻入京都，戰後任六波羅探題。1224 年繼任執權，設置連署與評定眾，以合議方式運作幕府，1232 年制定《御成敗式目》。1242 年去世。",
+    "historicalSignificance": "確立鎌倉幕府合議制與武家成文法。",
+    "sources": [
+      {
+        "title": "《御成敗式目》（貞永元年）",
+        "url": "https://ja.wikisource.org/wiki/御成敗式目"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_go_daigo",
+    "name": "後醍醐天皇",
+    "courtesyName": "尊治親王",
+    "lifeSpan": "1288 - 1339",
+    "faction": "kamakura",
+    "clanTag": "南朝",
+    "emblemChar": "醍",
+    "mainColor": "#f59e0b",
+    "bgColor": "#451a03",
+    "role": "第 96 代天皇 / 建武新政與南朝開創者",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_go_daigo.svg",
+    "importance": 5,
+    "hometown": "未知",
+    "shortBio": "1318 年即位，志在恢復天皇親政。1324 年正中之變、1331 年元弘之變兩度倒幕失敗，被流放隱岐。1333 年脫出隱岐，鎌倉幕府滅亡後推行建武新政。1336 年與足利尊氏決裂，移往吉野另立朝廷，開啟南北朝時代。1339 年崩於吉野。",
+    "historicalSignificance": "終結鎌倉幕府並開啟南北朝分立的君主。",
+    "sources": [
+      {
+        "title": "《太平記》巻第一（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第一"
+      },
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_kusunoki_masashige",
+    "name": "楠木正成",
+    "courtesyName": "大楠公",
+    "lifeSpan": "未知 - 1336",
+    "faction": "kamakura",
+    "clanTag": "南朝",
+    "emblemChar": "楠",
+    "mainColor": "#0d9488",
+    "bgColor": "#042f2e",
+    "role": "南朝武將 / 河內國武士",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_jp_kusunoki_masashige.svg",
+    "importance": 4,
+    "hometown": "河內國 (今大阪府)",
+    "shortBio": "河內國武士，1331 年響應後醍醐天皇舉兵，據赤坂城、千早城抵抗幕府大軍，牽制幕府兵力，促成各地倒幕。建武新政時受重用。1336 年奉命迎擊東上的足利尊氏，於湊川之戰戰敗，與弟楠木正季自盡。",
+    "historicalSignificance": "南朝忠臣的代表人物。",
+    "sources": [
+      {
+        "title": "《太平記》巻第三（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第三"
+      },
+      {
+        "title": "《太平記》巻第十六（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第十六"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_nitta_yoshisada",
+    "name": "新田義貞",
+    "courtesyName": "新田小太郎",
+    "lifeSpan": "未知 - 1338",
+    "faction": "kamakura",
+    "clanTag": "清和源氏新田氏",
+    "emblemChar": "新",
+    "mainColor": "#3b82f6",
+    "bgColor": "#172554",
+    "role": "南朝武將 / 攻陷鎌倉者",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_jp_nitta_yoshisada.svg",
+    "importance": 4,
+    "hometown": "上野國新田莊 (今群馬縣太田市)",
+    "shortBio": "上野國御家人，與足利氏同為清和源氏。1333 年起兵攻入鎌倉，滅亡鎌倉幕府。建武新政時為朝廷方主要武將，與足利尊氏對立。湊川之戰後轉戰北陸，1338 年於越前藤島戰死。",
+    "historicalSignificance": "鎌倉幕府的終結者之一，南朝主要武將。",
+    "sources": [
+      {
+        "title": "《太平記》巻第十（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第十"
+      },
+      {
+        "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+        "url": "https://ja.wikisource.org/wiki/神皇正統記"
+      }
+    ]
+  },
+  {
+    "id": "fig_jp_ashikaga_takauji",
+    "name": "足利尊氏",
+    "courtesyName": "足利高氏",
+    "lifeSpan": "1305 - 1358",
+    "faction": "muromachi",
+    "clanTag": "清和源氏足利氏",
+    "emblemChar": "足",
+    "mainColor": "#eab308",
+    "bgColor": "#422006",
+    "role": "室町幕府初代征夷大將軍",
+    "roleType": "ruler",
+    "avatar": "./images/figures/fig_jp_ashikaga_takauji.svg",
+    "importance": 5,
+    "hometown": "未知",
+    "shortBio": "鎌倉幕府御家人。1333 年奉幕府之命西上，轉而響應後醍醐天皇，攻陷六波羅探題，並受賜天皇名諱改名「尊氏」。1335 年與建武政權決裂，翌年於湊川之戰擊敗楠木正成後進入京都，擁立光明天皇。1338 年任征夷大將軍，開創室町幕府。晚年與弟足利直義對立。1358 年去世。",
+    "historicalSignificance": "室町幕府的開創者。",
+    "sources": [
+      {
+        "title": "《太平記》巻第九（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第九"
+      },
+      {
+        "title": "《太平記》巻第十九（軍記物語，非正史）",
+        "url": "https://ja.wikisource.org/wiki/太平記/巻第十九"
+      }
+    ]
   },
   {
     "id": "fig_jp_oda_nobunaga",

@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Eras Dataset (6 Master Historical Eras with 68 Detailed Events)
+// Japanese Historical Atlas Eras Dataset (6 Master Historical Eras with 87 Detailed Events)
 export const JAPAN_ERAS = [
   {
     "id": "jp_ancient_medieval",
@@ -49,6 +49,108 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_taiho_code_701",
+        "year": 701,
+        "yearDisplay": "西元 701 年 (大寶元年)",
+        "title": "頒行大寶律令",
+        "summary": "刑部親王、藤原不比等等人撰定律令，日本律令國家體制成形。",
+        "detail": "《續日本紀》記此年律令撰定完成，「大略以淨御原朝庭為准正」。律為刑罰規範、令為行政法規，確立二官八省的中央官制與國、郡、里地方制度，此後成為奈良至平安時代國家運作的基本框架。",
+        "locationNameAncient": "大和國藤原京",
+        "locationNameModern": "奈良縣橿原市",
+        "coordinates": [
+          135.81,
+          34.5
+        ],
+        "tags": [
+          "大寶律令",
+          "律令制",
+          "藤原京"
+        ],
+        "sources": [
+          {
+            "title": "《續日本紀》卷第二（大寶元年至二年）",
+            "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第二"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_heijo_kyo_710",
+        "year": 710,
+        "yearDisplay": "西元 710 年 (和銅三年)",
+        "title": "元明天皇遷都平城京",
+        "summary": "都城由藤原京遷至平城京，奈良時代開始。",
+        "detail": "《續日本紀》和銅三年三月條記「始遷都于平城」。平城京仿唐長安城規劃，以朱雀大路分為左京、右京，至 784 年遷都長岡京為止，為奈良時代的政治中心。",
+        "locationNameAncient": "大和國平城京",
+        "locationNameModern": "奈良縣奈良市",
+        "coordinates": [
+          135.79,
+          34.69
+        ],
+        "tags": [
+          "平城京",
+          "奈良時代",
+          "元明天皇"
+        ],
+        "sources": [
+          {
+            "title": "《續日本紀》卷第五（和銅三年）",
+            "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第五"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_todaiji_daibutsu_752",
+        "year": 752,
+        "yearDisplay": "西元 752 年 (天平勝寶四年)",
+        "title": "東大寺盧舍那大佛開眼",
+        "summary": "聖武天皇發願造立的東大寺大佛完成並舉行開眼供養。",
+        "detail": "聖武天皇於 743 年發願造立盧舍那佛。《續日本紀》天平勝寶四年四月條記「盧舍那大佛像成，始開眼」，當日天皇率文武百官行幸東大寺設齋。此事為奈良時代以佛教鎮護國家思想的代表。",
+        "locationNameAncient": "大和國東大寺",
+        "locationNameModern": "奈良縣奈良市雜司町",
+        "coordinates": [
+          135.84,
+          34.69
+        ],
+        "tags": [
+          "東大寺",
+          "大佛開眼",
+          "鎮護國家",
+          "天平文化"
+        ],
+        "sources": [
+          {
+            "title": "《續日本紀》卷第十八（天平勝寶四年）",
+            "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第十八"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_ganjin_arrival_754",
+        "year": 754,
+        "yearDisplay": "西元 754 年 (天平勝寶六年)",
+        "title": "唐僧鑑真抵達平城京傳戒",
+        "summary": "經多次渡海失敗的鑑真抵達平城京，傳入正式授戒制度。",
+        "detail": "鑑真應日本留學僧邀請東渡，歷經多次失敗並雙目失明，753 年底隨遣唐使船抵達九州，翌年入平城京。《續日本紀》記「唐僧鑒眞、法進等八人隨而歸朝」。鑑真於東大寺設戒壇授戒，759 年創建唐招提寺。",
+        "locationNameAncient": "大和國平城京東大寺",
+        "locationNameModern": "奈良縣奈良市",
+        "coordinates": [
+          135.84,
+          34.69
+        ],
+        "tags": [
+          "鑑真",
+          "戒壇",
+          "唐招提寺",
+          "中日交流"
+        ],
+        "sources": [
+          {
+            "title": "《續日本紀》卷第十九（天平勝寶六年）",
+            "url": "https://zh.wikisource.org/zh-hant/續日本紀/卷第十九"
+          }
+        ]
+      },
+      {
         "id": "evt_jp_heian_kyo_794",
         "year": 794,
         "yearDisplay": "西元 794 年 (延曆十三年)",
@@ -66,6 +168,171 @@ export const JAPAN_ERAS = [
           "桓武天皇",
           "國風文化",
           "京都千年底蘊"
+        ]
+      },
+      {
+        "id": "evt_jp_kentoshi_halt_894",
+        "year": 894,
+        "yearDisplay": "西元 894 年 (寬平六年)",
+        "title": "菅原道真建議停派遣唐使",
+        "summary": "遣唐大使菅原道真上奏請求再議派遣，此後遣唐使不再派出。",
+        "detail": "菅原道真被任命為遣唐大使後，以唐朝衰亂、渡海危險為由上奏請求重新審議，此次派遣最終未成行，遣唐使自此停止。此後日本文化逐漸轉向以假名文字為代表的國風文化。",
+        "locationNameAncient": "山城國平安京",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.02
+        ],
+        "tags": [
+          "遣唐使",
+          "菅原道真",
+          "國風文化"
+        ]
+      },
+      {
+        "id": "evt_jp_masakado_rebellion_939",
+        "year": 939,
+        "yearDisplay": "西元 939 年 (天慶二年)",
+        "title": "平將門之亂",
+        "summary": "平將門攻陷關東諸國國府並自稱「新皇」，翌年被討平。",
+        "detail": "平將門在關東與一族爭鬥，939 年攻陷常陸國府，進而佔領下野、上野等國府，自稱「新皇」。940 年遭平貞盛、藤原秀鄉擊敗陣亡。同時期西國有藤原純友之亂，兩者合稱「承平天慶之亂」。",
+        "locationNameAncient": "下總國猿島",
+        "locationNameModern": "茨城縣坂東市",
+        "coordinates": [
+          139.89,
+          36.05
+        ],
+        "tags": [
+          "平將門",
+          "承平天慶之亂",
+          "關東武士"
+        ],
+        "sources": [
+          {
+            "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+            "url": "https://ja.wikisource.org/wiki/神皇正統記"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_michinaga_regent_1016",
+        "year": 1016,
+        "yearDisplay": "西元 1016 年 (長和五年)",
+        "title": "藤原道長任攝政",
+        "summary": "藤原道長以外孫後一條天皇即位而任攝政，攝關政治進入全盛。",
+        "detail": "後一條天皇即位，外祖父藤原道長任攝政，翌年將攝政之位讓予長子藤原賴通。道長的女兒先後成為多位天皇的皇后、中宮，藤原北家透過外戚身分長期主導朝政。",
+        "locationNameAncient": "山城國平安京",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.02
+        ],
+        "tags": [
+          "藤原道長",
+          "攝關政治",
+          "藤原北家"
+        ],
+        "sources": [
+          {
+            "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+            "url": "https://ja.wikisource.org/wiki/神皇正統記"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_insei_1086",
+        "year": 1086,
+        "yearDisplay": "西元 1086 年 (應德三年)",
+        "title": "白河上皇開始院政",
+        "summary": "白河天皇讓位後以上皇身分主導政務，院政開始。",
+        "detail": "白河天皇讓位予年幼的堀河天皇，以上皇身分在院廳繼續主導政務，開啟「院政」，攝關家的影響力因此下降。院政其後由鳥羽上皇、後白河上皇延續。",
+        "locationNameAncient": "山城國平安京",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.02
+        ],
+        "tags": [
+          "白河天皇",
+          "院政",
+          "上皇"
+        ],
+        "sources": [
+          {
+            "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+            "url": "https://ja.wikisource.org/wiki/神皇正統記"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_hogen_1156",
+        "year": 1156,
+        "yearDisplay": "西元 1156 年 (保元元年)",
+        "title": "保元之亂",
+        "summary": "崇德上皇與其弟後白河帝對立，武士首次在中央政爭中起決定作用。",
+        "detail": "鳥羽法皇去世後，崇德上皇與其弟後白河帝對立，攝關家藤原賴長、藤原忠通兄弟亦分屬兩方。後白河方由平清盛、源義朝夜襲白河北殿取勝，崇德上皇被流放讚岐。",
+        "locationNameAncient": "山城國白河北殿",
+        "locationNameModern": "京都府京都市左京區",
+        "coordinates": [
+          135.78,
+          35.02
+        ],
+        "tags": [
+          "保元之亂",
+          "平清盛",
+          "源義朝",
+          "崇德上皇"
+        ],
+        "sources": [
+          {
+            "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+            "url": "https://ja.wikisource.org/wiki/神皇正統記"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_heiji_1159",
+        "year": 1159,
+        "yearDisplay": "西元 1159 年 (平治元年)",
+        "title": "平治之亂",
+        "summary": "平清盛擊敗藤原信賴與源義朝，平氏獨掌武家勢力。",
+        "detail": "藤原信賴與源義朝趁平清盛前往熊野參詣時起兵，幽禁後白河上皇並殺死信西（藤原通憲）。平清盛回京後擊敗信賴、義朝，義朝在逃亡途中被殺，其子源賴朝被流放伊豆。",
+        "locationNameAncient": "山城國平安京三條殿",
+        "locationNameModern": "京都府京都市中京區",
+        "coordinates": [
+          135.76,
+          35.01
+        ],
+        "tags": [
+          "平治之亂",
+          "平清盛",
+          "源義朝",
+          "源賴朝"
+        ],
+        "sources": [
+          {
+            "title": "《神皇正統記》（北畠親房撰史論，輔助來源）",
+            "url": "https://ja.wikisource.org/wiki/神皇正統記"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_kiyomori_daijo_1167",
+        "year": 1167,
+        "yearDisplay": "西元 1167 年 (仁安二年)",
+        "title": "平清盛任太政大臣",
+        "summary": "平清盛成為首位就任太政大臣的武士，平氏權勢達到高峰。",
+        "detail": "平清盛就任太政大臣，數月後辭任，但平氏一門大量出任公卿，並經營日宋貿易、整修大輪田泊。平氏權勢擴張也引起後白河法皇與各地武士不滿，成為其後源平合戰的背景。",
+        "locationNameAncient": "山城國平安京",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.02
+        ],
+        "tags": [
+          "平清盛",
+          "太政大臣",
+          "日宋貿易"
         ]
       },
       {
@@ -109,6 +376,31 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_goseibai_shikimoku_1232",
+        "year": 1232,
+        "yearDisplay": "西元 1232 年 (貞永元年)",
+        "title": "北條泰時制定御成敗式目",
+        "summary": "鎌倉幕府制定第一部武家成文法《御成敗式目》。",
+        "detail": "執權北條泰時主持制定《御成敗式目》（又稱貞永式目）共五十一條，以武家社會的慣例與「道理」為基準，規範御家人的領地、繼承與訴訟。後來的室町幕府法令與戰國大名分國法多以此為參考。",
+        "locationNameAncient": "相模國鎌倉",
+        "locationNameModern": "神奈川縣鎌倉市",
+        "coordinates": [
+          139.55,
+          35.32
+        ],
+        "tags": [
+          "御成敗式目",
+          "北條泰時",
+          "武家法"
+        ],
+        "sources": [
+          {
+            "title": "《御成敗式目》（貞永元年）",
+            "url": "https://ja.wikisource.org/wiki/御成敗式目"
+          }
+        ]
+      },
+      {
         "id": "evt_jp_mongol_invasions_1281",
         "year": 1281,
         "yearDisplay": "西元 1281 年 (弘安四年)",
@@ -126,6 +418,131 @@ export const JAPAN_ERAS = [
           "北條時宗",
           "神風",
           "博多防壘"
+        ]
+      },
+      {
+        "id": "evt_jp_kamakura_fall_1333",
+        "year": 1333,
+        "yearDisplay": "西元 1333 年 (元弘三年／正慶二年)",
+        "title": "鎌倉幕府滅亡",
+        "summary": "足利尊氏攻陷六波羅探題，新田義貞攻入鎌倉，北條氏滅亡。",
+        "detail": "後醍醐天皇號召倒幕，足利尊氏（時名高氏）攻陷京都六波羅探題，新田義貞自上野起兵攻入鎌倉。北條高時與一族在東勝寺自盡，鎌倉幕府滅亡。",
+        "locationNameAncient": "相模國鎌倉東勝寺",
+        "locationNameModern": "神奈川縣鎌倉市",
+        "coordinates": [
+          139.56,
+          35.32
+        ],
+        "tags": [
+          "鎌倉幕府滅亡",
+          "新田義貞",
+          "足利尊氏",
+          "北條高時"
+        ],
+        "sources": [
+          {
+            "title": "《太平記》巻第十（軍記物語，非正史）",
+            "url": "https://ja.wikisource.org/wiki/太平記/巻第十"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_kenmu_restoration_1334",
+        "year": 1334,
+        "yearDisplay": "西元 1334 年 (建武元年)",
+        "title": "後醍醐天皇推行建武新政",
+        "summary": "後醍醐天皇以天皇親政為目標推行新政，不到三年即告瓦解。",
+        "detail": "後醍醐天皇改元建武，以天皇親政為目標，不設攝政、關白與幕府。但恩賞分配不公、政令頻改，武士不滿日增；1335 年中先代之亂後，足利尊氏與朝廷決裂，新政隨之瓦解。",
+        "locationNameAncient": "山城國平安京",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.02
+        ],
+        "tags": [
+          "建武新政",
+          "後醍醐天皇",
+          "天皇親政"
+        ],
+        "sources": [
+          {
+            "title": "《太平記》巻第十二（軍記物語，非正史）",
+            "url": "https://ja.wikisource.org/wiki/太平記/巻第十二"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_nanboku_split_1336",
+        "year": 1336,
+        "yearDisplay": "西元 1336 年 (延元元年／建武三年)",
+        "title": "南北朝分立",
+        "summary": "足利尊氏擁立北朝，後醍醐天皇移往吉野另立南朝。",
+        "detail": "足利尊氏擁立光明天皇（北朝）並制定《建武式目》，後醍醐天皇則潛出京都前往吉野另立朝廷（南朝），形成兩朝並立的局面，至 1392 年才告結束。",
+        "locationNameAncient": "大和國吉野",
+        "locationNameModern": "奈良縣吉野郡吉野町",
+        "coordinates": [
+          135.86,
+          34.37
+        ],
+        "tags": [
+          "南北朝",
+          "後醍醐天皇",
+          "足利尊氏",
+          "吉野"
+        ],
+        "sources": [
+          {
+            "title": "《太平記》巻第十八（軍記物語，非正史）",
+            "url": "https://ja.wikisource.org/wiki/太平記/巻第十八"
+          },
+          {
+            "title": "《建武式目》",
+            "url": "https://ja.wikisource.org/wiki/建武式目"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_takauji_shogun_1338",
+        "year": 1338,
+        "yearDisplay": "西元 1338 年 (曆應元年／延元三年)",
+        "title": "足利尊氏任征夷大將軍",
+        "summary": "北朝任命足利尊氏為征夷大將軍，室町幕府確立。",
+        "detail": "北朝光明天皇任命足利尊氏為征夷大將軍，室町幕府的武家政權正式確立。同年南朝武將新田義貞於越前藤島戰死。",
+        "locationNameAncient": "山城國平安京",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.02
+        ],
+        "tags": [
+          "足利尊氏",
+          "室町幕府",
+          "征夷大將軍"
+        ],
+        "sources": [
+          {
+            "title": "《太平記》巻第十九（軍記物語，非正史）",
+            "url": "https://ja.wikisource.org/wiki/太平記/巻第十九"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_nanboku_unification_1392",
+        "year": 1392,
+        "yearDisplay": "西元 1392 年 (元中九年／明德三年)",
+        "title": "南北朝合一",
+        "summary": "經足利義滿斡旋，南朝後龜山天皇返京，兩朝並立結束。",
+        "detail": "經室町幕府第三代將軍足利義滿斡旋，南朝後龜山天皇返回京都，將三種神器交予北朝後小松天皇，結束五十餘年的兩朝並立。合一條件中兩統輪流即位的約定，後來並未履行。",
+        "locationNameAncient": "山城國嵯峨大覺寺",
+        "locationNameModern": "京都府京都市右京區",
+        "coordinates": [
+          135.68,
+          35.03
+        ],
+        "tags": [
+          "南北朝合一",
+          "足利義滿",
+          "三種神器"
         ]
       },
       {
@@ -147,6 +564,44 @@ export const JAPAN_ERAS = [
           "勘合貿易",
           "北山文化"
         ]
+      },
+      {
+        "id": "evt_jp_shocho_ikki_1428",
+        "year": 1428,
+        "yearDisplay": "西元 1428 年 (正長元年)",
+        "title": "正長土一揆",
+        "summary": "近江馬借率先起事要求德政，風潮擴及畿內各地。",
+        "detail": "近江國的馬借（陸上運輸業者）率先起事，要求頒布德政（免除債務），風潮擴及山城、大和等地，民眾襲擊酒屋、土倉與寺院並毀棄借據，被視為日本最早的大規模土一揆。",
+        "locationNameAncient": "近江、山城、大和一帶",
+        "locationNameModern": "滋賀縣、京都府、奈良縣一帶",
+        "coordinates": [
+          135.8,
+          34.95
+        ],
+        "tags": [
+          "正長土一揆",
+          "德政",
+          "馬借"
+        ]
+      },
+      {
+        "id": "evt_jp_kakitsu_1441",
+        "year": 1441,
+        "yearDisplay": "西元 1441 年 (嘉吉元年)",
+        "title": "嘉吉之亂",
+        "summary": "播磨守護赤松滿祐殺害將軍足利義教，幕府威信大幅下降。",
+        "detail": "播磨守護赤松滿祐在京都宅邸設宴，殺害室町幕府第六代將軍足利義教。滿祐返回播磨後遭幕府討伐自盡。將軍遇弒使室町幕府的威信大幅下降。",
+        "locationNameAncient": "山城國京都赤松邸",
+        "locationNameModern": "京都府京都市",
+        "coordinates": [
+          135.76,
+          35.01
+        ],
+        "tags": [
+          "嘉吉之亂",
+          "赤松滿祐",
+          "足利義教"
+        ]
       }
     ],
     "highlightFigures": [
@@ -154,7 +609,11 @@ export const JAPAN_ERAS = [
       "fig_jp_minamoto_yoritomo",
       "fig_jp_minamoto_yoshitsune",
       "fig_jp_hojo_tokimune",
-      "fig_jp_ashikaga_yoshimitsu"
+      "fig_jp_ashikaga_yoshimitsu",
+      "fig_jp_tenji",
+      "fig_jp_taira_kiyomori",
+      "fig_jp_go_daigo",
+      "fig_jp_ashikaga_takauji"
     ]
   },
   {

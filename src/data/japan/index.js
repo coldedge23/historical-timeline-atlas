@@ -12,7 +12,16 @@ export * from './japanWarlordPeriods.js';
 
 // Mapping of Active Battles per Japan Historical Era
 export const JAPAN_ERA_BATTLE_IDS = {
-  jp_ancient_medieval: ["bat_jp_dannoura_1185", "bat_jp_koan_1281"],
+  jp_ancient_medieval: [
+    "bat_jp_hakusukinoe_663",
+    "bat_jp_jinshin_672",
+    "bat_jp_ichinotani_1184",
+    "bat_jp_dannoura_1185",
+    "bat_jp_jokyu_1221",
+    "bat_jp_bunei_1274",
+    "bat_jp_koan_1281",
+    "bat_jp_minatogawa_1336"
+  ],
   jp_sengoku: [
     "bat_jp_okehazama_1560",
     "bat_jp_kawanakajima_1561",
