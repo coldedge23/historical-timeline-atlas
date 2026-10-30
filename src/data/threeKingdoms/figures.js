@@ -10427,7 +10427,7 @@ export const THREE_KINGDOMS_FIGURES = [
     "birthDeathDisplay": "約180年 - 222年",
     "nativePlaceAncient": "荊州 零陵郡烝陽縣",
     "nativePlaceModern": "湖南省邵東市",
-    "faction": "wei",
+    "faction": "shu",
     "roles": [
       "尚書令",
       "貨幣改革家"
