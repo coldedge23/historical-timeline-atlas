@@ -16,6 +16,52 @@ npm run preview
 
 Google Drive 等同步磁碟若出現 npm TAR_ENTRY_ERROR，建議將專案複製到一般本機磁碟後執行 `npm ci`。進階環境可將相同 package.json/package-lock.json 放在本機暫存目錄執行 `npm ci`，將 `ATLAS_NODE_MODULES` 設為該目錄的 node_modules，再執行 `npm run build`；預設不依賴任何個人電腦絕對路徑。
 
+## 多電腦工作指南
+
+GitHub（`coldedge23/historical-timeline-atlas`）是唯一正本，每台電腦都只是工作副本。同步靠 git，不靠 Google 雲端硬碟。
+
+### 新電腦第一次設定（只做一次）
+
+1. 安裝 Node.js 20 以上與 Git。
+2. 下載專案到本機磁碟（不要放在雲端硬碟）：
+   ```powershell
+   git clone https://github.com/coldedge23/historical-timeline-atlas.git C:\dev\historical-timeline-atlas
+   ```
+3. 安裝套件並確認能建置：
+   ```powershell
+   cd C:\dev\historical-timeline-atlas
+   npm ci
+   npm run build
+   npm test
+   ```
+4. 第一次 push 時 Git 會要求登入 GitHub，請用 **`coldedge23`** 帳號。用其他帳號會沒有權限，GitHub 設定頁也會顯示 404。
+
+### 每次工作的固定流程
+
+| 時機 | 做什麼 | 指令 |
+|---|---|---|
+| 開始前 | 取得另一台電腦的最新修改 | `git pull` |
+| 改完後 | 確認沒壞 | `npm run build`、`npm test`、`npm run validate:data` |
+| 確認後 | 存檔並上傳 | `git add -A`、`git commit -m "說明"`、`git push` |
+| push 之後 | 不用做任何事 | GitHub Actions 自動建置，約 1–2 分鐘後網站更新 |
+
+離開一台電腦前一定要 push；換到另一台開始前一定要 pull。兩台都改了同一個檔案卻沒同步，會產生衝突，需要手動合併。
+
+### 新增歷史資料
+
+- 華夏各時期：`src/data/periods/<時期>/`（三國在 `src/data/threeKingdoms/`），內含 `events.js`、`figures.js`、`battles.js` 等。
+- 臺灣：`src/data/taiwanLensData.js`；日本：`src/data/japan/`。
+- 圖片放 `images/`。
+- 改完必跑 `npm test`。連結、年代、圖片與地圖座標檢查會在上線前擋下格式錯誤的資料；測試沒過時 Actions 不會發布，網站維持上一版。
+- 使用 AI 工具（Claude Code、Codex、Antigravity）時，它們會先讀 `AGENTS.md`，依其中的資料格式與資料誠信規則工作。換工具前先 commit。
+
+### 安全網
+
+- 改壞了：網站不會更新，修正後再 push 即可。
+- 退回某一版：每次 commit 都是還原點，可用 `git log` 查看後還原。
+- 備份：GitHub 即完整備份；`backup.bat` 產生的 zip 可另外放到雲端硬碟。
+- Google 雲端硬碟上的舊專案資料夾不是正式版本，不要在那裡修改或執行 git。
+
 ## 建置與發布
 
 唯一建置入口為 `build.cjs`，使用專案鎖定的 esbuild、Tailwind 3、PostCSS 與 Autoprefixer。`build.js` 是相容轉接入口；舊 Vite 設定不參與建置。
