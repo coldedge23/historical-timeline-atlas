@@ -39,7 +39,7 @@ git restore .
 ### 📦 第二道防線：一鍵離線 ZIP 實體快照
 
 專案根目錄配備了自動化打包工具：
-* **執行方式 1（最直覺）**：在 Windows 檔案總管中，直接對 [`backup.bat`](file:///g:/我的雲端硬碟/ivan_project_Antigravity/歷史事件彙整/backup.bat) 點擊兩下。
+* **執行方式 1（最直覺）**：在 Windows 檔案總管中，直接對 `backup.bat` 點擊兩下。
 * **執行方式 2（命令列）**：執行 `node scripts/backup_project.cjs`。
 
 #### 備份成果：

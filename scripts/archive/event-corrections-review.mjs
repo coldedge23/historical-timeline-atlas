@@ -4,7 +4,7 @@ const findings=report.findings.filter(f=>f.rule==='dangling-figure-event');
 const raw={};
 for(const dataset of [...new Set(findings.map(f=>f.dataset))]){
  raw[dataset]={};
- for(const kind of ['events','figures']) raw[dataset][kind]=Object.values(await import('./src/data/periods/'+dataset+'/'+kind+'.js')).find(Array.isArray);
+ for(const kind of ['events','figures']) raw[dataset][kind]=Object.values(await import('../../src/data/periods/'+dataset+'/'+kind+'.js')).find(Array.isArray);
 }
 const corrections={
  'warringStates:evt_wangjian_mie_liuguo_221':{
