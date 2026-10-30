@@ -11,7 +11,7 @@ import {
 } from './Icons.js';
 import { CHINA_PROVINCE_PATHS } from '../data/threeKingdoms/chinaMapData.js';
 import { WARLORD_PERIOD_CONFIGS } from '../data/threeKingdoms/warlordPeriods.js';
-import { toSvgPoint } from '../utils/svgPoint.js';
+import { resolveChinaEventPoint } from '../utils/svgPoint.js';
 
 export { WARLORD_PERIOD_CONFIGS };
 
@@ -132,7 +132,7 @@ export const HistoricalAtlasMap = ({
     }
   };
 
-  const focalPos = toSvgPoint(selectedEvent?.svgPos, [512, 345]);
+  const focalPos = selectedEvent ? resolveChinaEventPoint(selectedEvent) : null;
   const activeRoutes = selectedEvent?.routes || [];
 
   const getMarkerId = (color) => {
@@ -569,7 +569,7 @@ export const HistoricalAtlasMap = ({
             )}
 
             {/* 7. Dynamic Selected Event Focal Spotlight */}
-            {selectedEvent && (
+            {focalPos && (
               <g transform={`translate(${focalPos[0]}, ${focalPos[1]})`} className="pointer-events-none">
                 <circle cx="0" cy="0" r="6" fill="#d97706" opacity="0.35" />
                 <circle cx="0" cy="0" r="3" fill="#b45309" stroke="#fef08a" strokeWidth="1.2" />
