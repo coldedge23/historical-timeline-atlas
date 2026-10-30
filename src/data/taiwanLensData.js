@@ -1,5 +1,5 @@
 // Taiwan Chronological Lens (臺灣四千年歷史縱貫專題視角資料集)
-// Super-Expanded Dataset: 103 Iconic Events, 30 Historic Battles, and 59 Dedicated Figures
+// Super-Expanded Dataset: 103 Iconic Events, 30 Historic Battles, and 61 Dedicated Figures
 
 export const TAIWAN_LENS_ERAS = [
   {
@@ -131,7 +131,7 @@ export const TAIWAN_LENS_ERAS = [
         tags: ["大肚王國", "南島原鄉", "部落邦聯", "白晝之王"]
       }
     ],
-    highlightFigures: ["fig_tw_kamachat", "fig_sun_quan", "fig_wei_wen", "fig_sui_yangdi", "fig_chen_leng"]
+    highlightFigures: ["fig_tw_kamachat", "sun_quan", "fig_wei_wen", "yang_guang", "fig_chen_leng"]
   },
   {
     id: "tw_dutch_spanish",
@@ -1339,7 +1339,7 @@ export const TAIWAN_LENS_ERAS = [
   }
 ];
 
-// 59 Dedicated Taiwan Figures (merged dynamically with all 10 periods in app.js)
+// 61 Dedicated Taiwan Figures (merged dynamically with all 10 periods in app.js)
 export const TAIWAN_DEDICATED_FIGURES = [
   {
     "id": "fig_tw_kamachat",
@@ -2556,6 +2556,45 @@ export const TAIWAN_DEDICATED_FIGURES = [
     "hometown": "臺北市大龍峒 (今臺北市大同區)",
     "shortBio": "1961 年當選臺北市議員，1969 年當選立法委員。1979 年創辦《美麗島》雜誌並任發行人，同年美麗島事件後被捕判刑，1987 年假釋出獄。後任民主進步黨主席。1999 年去世。",
     "historicalSignificance": "黨外運動與美麗島事件的代表人物。"
+  },
+  {
+    "id": "fig_wei_wen",
+    "name": "衛溫",
+    "lifeSpan": "未知 - 231",
+    "faction": "military",
+    "role": "東吳將軍 / 浮海求夷洲",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_wei_wen.svg",
+    "importance": 3,
+    "hometown": "未知",
+    "shortBio": "三國東吳將軍。230 年（黃龍二年）奉孫權之命，與諸葛直率甲士萬人浮海尋找夷洲及亶洲，僅得夷洲數千人而還。翌年以違詔無功，與諸葛直一同下獄被殺。",
+    "historicalSignificance": "其浮海求夷洲之事，常被視為中國史籍中關於臺灣的早期記載之一（夷洲是否即臺灣，學界仍有不同看法）。",
+    "sources": [
+      {
+        "title": "《三國志》卷四十七・吳書・吳主傳",
+        "url": "https://zh.wikisource.org/zh-hant/三國志/卷47"
+      }
+    ]
+  },
+  {
+    "id": "fig_chen_leng",
+    "name": "陳稜",
+    "courtesyName": "長威",
+    "lifeSpan": "未知 - 未知",
+    "faction": "military",
+    "role": "隋朝將領 / 率軍渡海擊流求",
+    "roleType": "general",
+    "avatar": "./images/figures/fig_chen_leng.svg",
+    "importance": 3,
+    "hometown": "廬江襄安 (今安徽省無為市一帶)",
+    "shortBio": "隋朝將領（《隋書》作陳棱）。610 年與張鎮周率軍自義安渡海攻擊流求國，擊敗其主歡斯渴剌兜，俘虜數千人而還。隋末煬帝遇弒後在江都為其發喪改葬，後投奔杜伏威，不久被殺；《隋書》未載其卒年。",
+    "historicalSignificance": "隋代渡海征流求的主將，流求是否即臺灣，學界仍有不同看法。",
+    "sources": [
+      {
+        "title": "《隋書》卷六十四（陳棱）",
+        "url": "https://zh.wikisource.org/zh-hant/隋書/卷64"
+      }
+    ]
   }
 ];
 
@@ -2589,7 +2628,8 @@ export const TAIWAN_RELATED_FIGURE_IDS = [
   "fig_tw_lisa_su", "fig_tw_lin_huaimin", "fig_tw_ang_lee", "fig_tw_chen_shu_chu",
   "fig_tw_chi_cheng", "fig_tw_tai_tzu_ying",
   // 2026-10-31 additions
-  "fig_tw_yao_ying", "fig_tw_dai_chaochun", "fig_tw_le_gendre", "fig_tw_tokitok", "fig_tw_kabayama", "fig_tw_kodama", "fig_tw_goto_shinpei", "fig_tw_sakuma", "fig_tw_lian_heng", "fig_tw_koo_hsien_jung", "fig_tw_lei_chen", "fig_tw_huang_hsin_chieh", "fig_chiang_kaishek", "fig_sun_liren"
+  "fig_tw_yao_ying", "fig_tw_dai_chaochun", "fig_tw_le_gendre", "fig_tw_tokitok", "fig_tw_kabayama", "fig_tw_kodama", "fig_tw_goto_shinpei", "fig_tw_sakuma", "fig_tw_lian_heng", "fig_tw_koo_hsien_jung", "fig_tw_lei_chen", "fig_tw_huang_hsin_chieh", "fig_chiang_kaishek", "fig_sun_liren",
+  "sun_quan", "fig_wei_wen", "yang_guang", "fig_chen_leng"
 ];
 
 // Mapping between Taiwan Era IDs and their active battles
