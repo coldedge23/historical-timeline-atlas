@@ -11,6 +11,7 @@ import {
 } from './Icons.js';
 import { CHINA_PROVINCE_PATHS } from '../data/threeKingdoms/chinaMapData.js';
 import { WARLORD_PERIOD_CONFIGS } from '../data/threeKingdoms/warlordPeriods.js';
+import { toSvgPoint } from '../utils/svgPoint.js';
 
 export { WARLORD_PERIOD_CONFIGS };
 
@@ -131,7 +132,7 @@ export const HistoricalAtlasMap = ({
     }
   };
 
-  const focalPos = selectedEvent?.svgPos || [512, 345];
+  const focalPos = toSvgPoint(selectedEvent?.svgPos, [512, 345]);
   const activeRoutes = selectedEvent?.routes || [];
 
   const getMarkerId = (color) => {
