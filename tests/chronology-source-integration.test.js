@@ -5,26 +5,28 @@ import {isContextReview,applyChronologyReviews} from '../src/data/chronologyRevi
 import {classifyHistorySources} from '../src/utils/historySources.js';
 import {linkedEvents} from '../src/utils/figureLinks.js';
 
-test('links still under review stay contextual, never direct event participants in the UI split',()=>{
- // 袁譚 (約170–205) → 白狼山 207: a 2-year gap kept for research (docs/20261030_年份矛盾清單_v2.xlsx).
- const dataset=HISTORY_LINK_GRAPH.datasets.find(dataset=>dataset.id==='threeKingdoms');
- const figure=dataset.figures.find(figure=>figure.id==='yuan_tan');
- const event=dataset.events.find(event=>event.id==='evt_bailangshan_207');
- assert.equal(figure.eventLinkReviews[event.id].status,'outside');
- assert.equal(isContextReview(figure.eventLinkReviews[event.id]),true);
- assert.equal(isContextReview(event.figureLinkReviews[figure.id]),true);
- assert.ok(figure.participatedEventIds.includes(event.id)); // kept until researched
- const direct=linkedEvents(figure,dataset.events).filter(event=>!isContextReview(figure.eventLinkReviews[event.id]));
- assert.ok(!direct.some(event=>event.id==='evt_bailangshan_207'));
+test('a link outside the lifespan stays contextual, never a direct event participant in the UI split',()=>{
+ // Synthetic data: the real dataset no longer holds such links after the 2026-10-30 cleanup.
+ const [dataset]=applyChronologyReviews([{id:'t',
+  figures:[{id:'f',datasetId:'t',birthYear:150,deathYear:200,participatedEventIds:['e']}],
+  events:[{id:'e',datasetId:'t',year:210,figureIds:['f']}]}]);
+ const figure=dataset.figures[0],event=dataset.events[0];
+ assert.equal(figure.eventLinkReviews.e.status,'outside');
+ assert.equal(isContextReview(figure.eventLinkReviews.e),true);
+ assert.equal(isContextReview(event.figureLinkReviews.f),true);
+ const direct=linkedEvents(figure,dataset.events).filter(item=>!isContextReview(figure.eventLinkReviews[item.id]));
+ assert.equal(direct.length,0);
 });
 
 test('links judged unsupported on 2026-10-30 are removed from both sides',()=>{
- // 張飛 died 221; the scoped Wikisource review in sourceReviews.js rules out the 228 expedition.
+ // 張飛 died 221 (Wikisource review in sourceReviews.js); 袁譚 died 205 by the record's own exact year.
  const dataset=HISTORY_LINK_GRAPH.datasets.find(dataset=>dataset.id==='threeKingdoms');
- const figure=dataset.figures.find(figure=>figure.id==='zhang_fei');
- const event=dataset.events.find(event=>event.id==='evt_northern_expedition_228');
- assert.ok(!figure.participatedEventIds.includes(event.id));
- assert.ok(!(event.figureIds||[]).includes(figure.id));
+ for(const [figureId,eventId] of [['zhang_fei','evt_northern_expedition_228'],['yuan_tan','evt_bailangshan_207']]){
+  const figure=dataset.figures.find(item=>item.id===figureId);
+  const event=dataset.events.find(item=>item.id===eventId);
+  assert.ok(!figure.participatedEventIds.includes(event.id),figureId);
+  assert.ok(!(event.figureIds||[]).includes(figure.id),figureId);
+ }
 });
 
 test('posthumous commentary has an owner-specific explanation and narrowly scoped external review',()=>{

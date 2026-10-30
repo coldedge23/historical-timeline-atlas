@@ -270,7 +270,7 @@ export const XIA_SHANG_ZHOU_FIGURES = [
       { figureId: "weiziqi", relationType: "family", label: "同列三仁 · 殷末微子比干箕子" },
       { figureId: "zhou_wuwang", relationType: "colleague", label: "克商表墓 · 武王封比干墓崇忠節" }
     ],
-    participatedEventIds: ["evt_dixin_dongyi_1070", "evt_muye_1046"]
+    participatedEventIds: ["evt_dixin_dongyi_1070"]
   },
   {
     id: "weiziqi",

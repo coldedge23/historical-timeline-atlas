@@ -15,7 +15,7 @@ export const WEI_JIN_EVENTS = [
     locationNameAncient: "建業 / 洛陽",
     locationNameModern: "江蘇省南京市 / 河南省洛陽市",
     coordinates: [32.06, 118.79],
-    figureIds: ["sima_yan", "du_yu", "wang_jun_jin", "yang_hu"],
+    figureIds: ["sima_yan", "du_yu", "wang_jun_jin"],
     tags: ["晉滅吳", "三國歸晉", "王濬樓船", "太康之治"],
     battleId: "battle_mie_wu_280",
     routes: [
@@ -398,7 +398,7 @@ export const WEI_JIN_EVENTS = [
     locationNameAncient: "平城（大同） / 洛陽",
     locationNameModern: "山西省大同市 / 河南省洛陽市洛龍區",
     coordinates: [34.62, 112.45],
-    figureIds: ["tuoba_hong", "feng_taihou"],
+    figureIds: ["tuoba_hong"],
     tags: ["孝文帝遷洛", "太和改制", "均田制", "胡漢融合", "斷諸北語"],
     routes: [
       {

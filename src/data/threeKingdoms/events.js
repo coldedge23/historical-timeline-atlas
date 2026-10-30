@@ -187,7 +187,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "xun_chen",
       "yuan_xi",
       "gongsun_yue",
-      "pan_feng",
       "yan_gang",
       "guan_jing"
     ],
@@ -308,10 +307,7 @@ export const THREE_KINGDOMS_EVENTS = [
       "tao_qian",
       "sima_lang",
       "mao_jie",
-      "bao_xin",
-      "han_fu",
       "zhang_miao",
-      "liu_dai_ch",
       "shan_jing"
     ],
     "impact": "曹操保住起家根本之地兗州，鍛造出文武核心班底，呂布淪為喪家之犬。",
@@ -485,7 +481,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "lu_ji",
       "zhu_zhi",
       "zhang_ji",
-      "hao_meng",
       "hu_che_er",
       "ji_ling",
       "yan_xiang",
@@ -543,10 +538,8 @@ export const THREE_KINGDOMS_EVENTS = [
       "hou_cheng",
       "song_xian",
       "wei_xu",
-      "hao_meng",
       "ji_ling",
-      "cao_xing",
-      "zhang_miao"
+      "cao_xing"
     ],
     "impact": "徹底拔除中原東側最大威脅呂布，曹操盡得徐州精兵良將，全力備戰官渡。",
     "tags": [
@@ -605,7 +598,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "cheng_yu",
       "yu_jin",
       "yue_jin",
-      "yuan_shu",
       "sun_qian",
       "xu_chu",
       "cao_ren",
@@ -669,8 +661,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "tian_yu",
       "yan_rou",
       "gao_xiang",
-      "guo_tu",
-      "yuan_tan",
       "yuan_xi"
     ],
     "impact": "徹底剷除袁氏殘餘並收編天下名騎「烏桓突騎」，曹操完全統一整個北方黃河與遼西流域。",
@@ -719,7 +709,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "pang_tong",
       "li_dian",
       "wen_pin",
-      "sun_yi",
       "sima_lang",
       "lv_qian",
       "liang_xi",
@@ -1157,7 +1146,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "sun_quan",
       "cao_cao",
       "zhang_liao",
-      "yue_jin",
       "lv_meng",
       "mi_fang",
       "guan_ping",
@@ -1603,7 +1591,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "zhuge_jin",
       "bu_zhi",
       "chen_zhen",
-      "han_dang",
       "kan_ze",
       "lu_kai",
       "gu_tan",
@@ -1661,7 +1648,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "gu_tan",
       "xue_zong",
       "zhu_ju",
-      "he_qi",
       "quan_duan",
       "quan_yi"
     ],
@@ -1719,7 +1705,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "xin_pi",
       "liu_shan",
       "jiang_wan",
-      "cao_zhen",
       "cao_rui",
       "zhu_rong",
       "cao_yu",
@@ -1829,8 +1814,7 @@ export const THREE_KINGDOMS_EVENTS = [
       "guo_huai",
       "sima_yi",
       "li_feng_wei",
-      "zhang_ji_wei",
-      "xue_zong"
+      "zhang_ji_wei"
     ],
     "impact": "蜀漢後期最輝煌的防衛反擊大勝；曹爽因慘敗喪失軍心與威望，為五年後高平陵政變埋下敗因。",
     "tags": [
@@ -1877,7 +1861,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "jiang_ji",
       "xiahou_ba",
       "fei_yi",
-      "wang_ping",
       "cao_rui",
       "deng_ai",
       "zhong_hui",
@@ -1938,7 +1921,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "hu_zun",
       "huan_jia",
       "shi_bao",
-      "hu_zhi",
       "hu_fen",
       "sun_xiu",
       "sun_he",
@@ -2001,11 +1983,8 @@ export const THREE_KINGDOMS_EVENTS = [
       "xiahou_ba",
       "chen_tai",
       "deng_ai",
-      "zhang_yi_ji",
       "zhong_hui",
-      "zhuge_ke",
       "cao_fang",
-      "xiahou_xuan",
       "xiahou_he",
       "wang_ji"
     ],
@@ -2065,7 +2044,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "wei_guan",
       "zhang_yi_bo",
       "qiao_zhou",
-      "cao_mao",
       "cao_huan",
       "sima_wang",
       "zhong_yu"
@@ -2120,8 +2098,6 @@ export const THREE_KINGDOMS_EVENTS = [
       "sun_hao",
       "wu_yan",
       "du_yu",
-      "xin_xianying",
-      "luo_xian",
       "bu_xie",
       "liu_ping"
     ],

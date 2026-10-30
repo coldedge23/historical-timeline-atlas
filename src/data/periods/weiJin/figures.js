@@ -244,7 +244,7 @@ export const WEI_JIN_FIGURES = [
       { figureId: "sima_yan", relationType: "monarch-subject", label: "武帝心腹之臣 · 密陳平吳策" },
       { figureId: "du_yu", relationType: "colleague", label: "推薦名將接替 · 囑託平吳大任" }
     ],
-    participatedEventIds: ["evt_miewu_280"]
+    participatedEventIds: []
   },
   {
     id: "wang_jun_jin",
@@ -280,7 +280,7 @@ export const WEI_JIN_FIGURES = [
       { figureId: "shi_le", relationType: "monarch-subject", label: "帳下羯胡猛將 · 日後自立建後趙" },
       { figureId: "sima_zhong", relationType: "rival", label: "西晉天子 · 奪其江山社稷" }
     ],
-    participatedEventIds: ["evt_liuyuan_304", "evt_yongjia_311"]
+    participatedEventIds: ["evt_liuyuan_304"]
   },
   {
     id: "shi_le",
@@ -590,7 +590,7 @@ export const WEI_JIN_FIGURES = [
     relations: [
       { figureId: "tuoba_hong", relationType: "family", label: "皇孫天子 · 親自撫育教導成就一代明主" }
     ],
-    participatedEventIds: ["evt_xiaowen_qianluo_493"]
+    participatedEventIds: []
   },
   {
     id: "yuwen_tai",
