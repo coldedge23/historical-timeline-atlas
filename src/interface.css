@@ -146,11 +146,12 @@ input { caret-color:var(--atlas-accent); }
  .header-tools { font-size:12px; }
  .header-context { font-size:12px; padding-bottom:8px; }
  .header-context>span:first-child { max-width:49%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
- .mobile-surface-switch { display:flex; padding:4px; gap:4px; background:#242329; border:1px solid #49423a; border-radius:10px; margin:0 0 12px; }
+ .mobile-surface-switch { display:flex; flex:none; padding:4px; gap:4px; background:#242329; border:1px solid #49423a; border-radius:10px; margin:0 0 12px; }
  .mobile-surface-switch button { flex:1; padding:8px 12px; color:#c8c2b6; min-height:44px; border-radius:7px; font-size:14px; }
  .mobile-surface-switch button[aria-pressed="true"] { background:#e0b77e; color:#261c12; font-weight:700; }
- .atlas-layout { display:block; height:calc(100dvh - 262px); min-height:460px; overflow:visible; }
- .map-pane,.timeline-pane { height:100%; }
+ .atlas-layout { display:flex; flex-direction:column; gap:0; height:calc(100dvh - 224px); min-height:460px; overflow:visible; }
+ .map-pane,.timeline-pane { flex:1 1 0; height:auto; }
+ .timeline-scroll { overscroll-behavior:contain; }
  .map-pane.mobile-hidden,.timeline-pane.mobile-hidden { display:none; }
  .atlas-dialog { padding:8px; }
  .atlas-dialog>div { max-height:calc(100dvh - 16px); }

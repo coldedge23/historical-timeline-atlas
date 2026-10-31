@@ -333,7 +333,7 @@ export const Timeline = ({
       <div
         ref={containerRef}
         onScroll={handleContainerScroll}
-        className="flex-1 min-h-0 overflow-y-auto p-3 space-y-3"
+        className="timeline-scroll flex-1 min-h-0 overflow-y-auto p-3 space-y-3"
       >
         {filteredEvents.map((evt) => {
           const isSelected = selectedEvent?.id === evt.id;
