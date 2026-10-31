@@ -1,7 +1,7 @@
 // First load (plan v2 section 3.9 A) for npm run verify: for every page and tab a link can open cold, the JS, CSS,
 // catalog and pack the browser requests before the page is usable, gzip-compressed like the other limits.
 // Summed from the build's chunk graph (build-manifest.json chunks). The file lists were checked against browser
-// network requests on 2026-10-31 (docs/20261031_資料包體積實測_v3.md); recheck them in a browser after big changes.
+// network requests on 2026-10-31 (docs/20261031_資料包體積實測_v4.md); recheck them in a browser after big changes.
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');

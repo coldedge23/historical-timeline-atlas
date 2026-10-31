@@ -31,7 +31,7 @@
 - 部署：push 到 `master` 由 GitHub Actions 自動建置並發布到 GitHub Pages。`dist/` 已列入 `.gitignore`，不要 commit。
 - push 前在本機跑過 `npm run build`、`npm test`、`npm run verify`；Actions 任一步失敗就不會發布。
 - `npm run verify` 含體積上限（壓縮後最大 JS 1,000 KB、總量 1,500 KB）。超標時不要調高上限，先回報並提出按時期拆分資料的方案。
-- 資料包上限（壓縮後，2026-10-31 Ivan 核准，`npm run verify` 全部檢查）：首次載入 800 KB（各頁各分頁冷啟動取最大，含該頁 JS、CSS、總目錄與資料包，由建置的分包關係計算，`scripts/check_first_load.cjs`）、最大資料包 600 KB、總目錄 60 KB、搜尋索引 650 KB、程式與資料總量 3,200 KB。超標時先瘦身或拆分資料，不調高上限。依據 `docs/20261031_資料包體積實測_v3.md`；新增文明或延後載入的分頁後，依該文件第 2.2 節用瀏覽器重新核對首次載入。
+- 資料包上限（壓縮後，2026-10-31 Ivan 核准，`npm run verify` 全部檢查）：首次載入 800 KB（各頁各分頁冷啟動取最大，含該頁 JS、CSS、總目錄與資料包，由建置的分包關係計算，`scripts/check_first_load.cjs`）、最大資料包 600 KB、總目錄 60 KB、搜尋索引 650 KB、程式與資料總量 3,200 KB。超標時先瘦身或拆分資料，不調高上限。依據 `docs/20261031_資料包體積實測_v4.md`；新增文明或延後載入的分頁後，依該文件第 2.2 節用瀏覽器重新核對首次載入。
 
 ## 程式與資料
 
