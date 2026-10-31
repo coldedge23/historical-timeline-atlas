@@ -3,7 +3,7 @@
   "classes": {
     "content": {
       "name": "歷史內容資料",
-      "allowedIn": "只能由建置專用程式（build.cjs、scripts/）引入，經資料包送到瀏覽器；2b 的回退分包是唯一例外，階段 4 移除",
+      "allowedIn": "只能由建置專用程式（build.cjs、scripts/）引入，經資料包送到瀏覽器；瀏覽器的任何分包都不得含有",
       "files": [
         "chronologyDecisions.js",
         "chronologyReviews.js",

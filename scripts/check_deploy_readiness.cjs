@@ -33,12 +33,12 @@ assert(largest.kb <= BUDGET_KB.largestJs, `最大 JS 檔超過體積上限：${l
 assert(totalKb <= BUDGET_KB.total, `JS+CSS 總量超過體積上限：${usage(totalKb, BUDGET_KB.total)}。請考慮按時期拆分資料。`);
 console.log(`體積上限檢查通過（壓縮後）：最大 JS ${usage(largest.kb, BUDGET_KB.largestJs)}；總量 ${usage(totalKb, BUDGET_KB.total)}。`);
 
-// Data pack limits (plan v2 section 3.9, approved by Ivan 2026-10-31; see docs/20261031_資料包體積實測_v2.md).
-// B largest pack, C catalog, D search index, E all code and structured data. E is the 2b transition value
-// (old inline data still in the bundle) and is reset in stage 4. A first load: the largest of every page and tab
-// opened cold (scripts/check_first_load.cjs).
+// Data pack limits (plan v2 section 3.9, approved by Ivan 2026-10-31).
+// A first load: the largest of every page and tab opened cold (scripts/check_first_load.cjs). B largest pack,
+// C catalog, D search index, E all code and structured data (reset in stage 4 to 3,200 KB, approved by Ivan 2026-10-31;
+// see docs/20261031_資料包體積實測_v3.md).
 // Exceeding a limit means slimming or splitting the data, not raising the limit.
-const DATA_BUDGET_KB = { firstLoad: 800, largestPack: 600, catalog: 60, searchIndex: 650, all: 3600 };
+const DATA_BUDGET_KB = { firstLoad: 800, largestPack: 600, catalog: 60, searchIndex: 650, all: 3200 };
 const data = require('./check_data_packs.cjs').checkDataPacks(dist, manifest);
 const packKb = Object.values(data.sizes.packs);
 const largestPack = Object.entries(data.sizes.packs).sort((a, b) => b[1] - a[1])[0];

@@ -31,15 +31,16 @@
 - 部署：push 到 `master` 由 GitHub Actions 自動建置並發布到 GitHub Pages。`dist/` 已列入 `.gitignore`，不要 commit。
 - push 前在本機跑過 `npm run build`、`npm test`、`npm run verify`；Actions 任一步失敗就不會發布。
 - `npm run verify` 含體積上限（壓縮後最大 JS 1,000 KB、總量 1,500 KB）。超標時不要調高上限，先回報並提出按時期拆分資料的方案。
-- 資料包上限（壓縮後，2026-10-31 Ivan 核准）：最大資料包 600 KB、總目錄 60 KB、搜尋索引 650 KB、程式與資料總量 3,600 KB（2b 過渡期數值，階段 4 重訂）。首次載入（預設首頁與最壞深層連結取大者，含該頁 JS、CSS、總目錄與資料包）800 KB，以瀏覽器實際請求量測，自動檢查待階段 4。超標時先瘦身或拆分資料，不調高上限。依據 `docs/20261031_資料包體積實測_v2.md`。
+- 資料包上限（壓縮後，2026-10-31 Ivan 核准，`npm run verify` 全部檢查）：首次載入 800 KB（各頁各分頁冷啟動取最大，含該頁 JS、CSS、總目錄與資料包，由建置的分包關係計算，`scripts/check_first_load.cjs`）、最大資料包 600 KB、總目錄 60 KB、搜尋索引 650 KB、程式與資料總量 3,200 KB。超標時先瘦身或拆分資料，不調高上限。依據 `docs/20261031_資料包體積實測_v3.md`；新增文明或延後載入的分頁後，依該文件第 2.2 節用瀏覽器重新核對首次載入。
 
 ## 程式與資料
 
 - 資料正本是 `src/data/**/*.js`。不要新增同名 `.ts` 資料檔。
 - `src/types/history.ts` 只作為資料結構說明，不參與建置。
-- 元件取歷史資料一律經 `src/store/historyStore.js`（非同步：總目錄、頁面、搜尋索引、關聯描述），不要在元件裡直接 import `src/data/`。只有 `src/store/legacySource.js` 可引入資料正本；元件允許的設定與地理資料引用列在 `tests/history-store.test.js`，主入口不得含資料正本或地理資料（`tests/bundle-boundary.test.js`）。
-- 文明一律經 `src/civilizations/registry.js` 與各文明的 `config.js` 取用（ID、名稱、時期或紀元、資料包 ID、預設值、地圖載入、同期對照年代、紀元切換規則）。不要在程式裡寫 `'japan'`、`'taiwanLens'` 這類判斷，改用設定的能力（例如 `unit`、`features`）；`tests/civilizations.test.js` 會檢查，例外只有 `src/data/` 與 `src/store/legacySource.js`。設定檔不可引入資料正本，地圖元件只能用動態 `import()` 載入。
-- 瀏覽器預設下載 `dist/data/` 的資料包；網址加 `?data=legacy` 改用 2a 舊做法（獨立分包，2b 過渡期回退開關，階段 4 移除）。
+- 元件取歷史資料一律經 `src/store/historyStore.js`（非同步：總目錄、頁面、搜尋索引、關聯描述），不要在元件裡直接 import `src/data/`。瀏覽器的任何分包都不得含歷史內容；資料正本只由建置程式引入（`scripts/lib/app_views.mjs`、`scripts/build_data_packs.mjs`），經 `dist/data/` 的資料包送到瀏覽器。元件允許的設定與地理資料引用列在 `tests/history-store.test.js`，主入口不得含地理資料（`tests/bundle-boundary.test.js`）。
+- 文明一律經 `src/civilizations/registry.js` 與各文明的 `config.js` 取用（ID、名稱、時期或紀元、資料包 ID、預設值、地圖載入、同期對照年代、紀元切換規則）。不要在程式裡寫 `'japan'`、`'taiwanLens'` 這類判斷，改用設定的能力（例如 `unit`、`features`）；`tests/civilizations.test.js` 會檢查，例外只有 `src/data/`。設定檔不可引入資料正本，地圖元件只能用動態 `import()` 載入。新增文明依 `docs/20261031_如何新增文明_v1.md`。
+- 瀏覽器只下載 `dist/data/` 的資料包（階段 4 已移除 `?data=legacy` 回退開關，網址帶這個參數會被忽略）。
+- `tests/fixtures/baseline/` 是階段 0 的行為基準，不要自行重新產生；資料改變造成合理差異時，先列出差異請 Ivan 確認。
 - 依名稱、摘要文字比對或反推而來的關聯（`derived: true`）在介面上加「程式推導」標示（`DerivedBadge`）。
 - import 一律寫明 `.js`／`.jsx` 副檔名。
 - 一次性腳本放 `scripts/`，用完移到 `scripts/archive/`；不要留在根目錄。
