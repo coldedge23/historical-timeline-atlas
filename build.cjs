@@ -37,6 +37,7 @@ async function build() {
   const html = template.replace('<!-- APP_ASSETS -->', `<link rel="stylesheet" href="./assets/${cssName}">\n    <script type="module" src="./assets/${path.basename(entry.path)}"></script>`);
   await fs.writeFile(path.join(DIST, 'index.html'), html);
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');
+  await fs.copyFile(path.join(ROOT, 'perf.html'), path.join(DIST, 'perf.html')); // data pack timing page (handoff todo 3-6)
   const assets = [...jsFiles.map((file) => `assets/${path.basename(file.path)}`), `assets/${cssName}`];
   // Which chunk each lazily imported module lands in and what every chunk imports statically: npm run verify sums a
   // page's first load (plan v2 section 3.9 A) from this.
