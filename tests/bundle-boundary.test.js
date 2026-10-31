@@ -47,3 +47,11 @@ test('civilization map components stay out of the main entry', () => {
   const maps = inputsOf(mainFiles).filter((input) => /^src\/components\/[A-Za-z]+AtlasMap\.jsx$/.test(input));
   assert.deepEqual(maps, []);
 });
+
+// npm run verify sums first loads (scripts/check_first_load.cjs) assuming these are the tabs app.js loads lazily.
+test('the first-load check knows every lazily loaded tab', () => {
+  const { TAB_MODULES } = require('../scripts/check_first_load.cjs');
+  const app = readFileSync(join(ROOT, 'src', 'app.js'), 'utf8');
+  const lazy = [...app.matchAll(/lazy\(\s*\(\)\s*=>\s*import\(\s*'\.\/([^']+)'\s*\)/g)].map((m) => `src/${m[1]}`);
+  assert.deepEqual(lazy.sort(), Object.values(TAB_MODULES).sort());
+});

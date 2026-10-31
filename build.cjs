@@ -38,7 +38,13 @@ async function build() {
   await fs.writeFile(path.join(DIST, 'index.html'), html);
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');
   const assets = [...jsFiles.map((file) => `assets/${path.basename(file.path)}`), `assets/${cssName}`];
-  await fs.writeFile(path.join(DIST, 'build-manifest.json'), JSON.stringify({ imageCount: imageManifest.images.length, assets, entry: `assets/${path.basename(entry.path)}`, jsBytes: jsFiles.reduce((sum, file) => sum + file.contents.length, 0), cssBytes: Buffer.byteLength(css), data: { catalog: 'data/catalog.json', files: data.files } }, null, 2));
+  // Which chunk each lazily imported module lands in and what every chunk imports statically: npm run verify sums a
+  // page's first load (plan v2 section 3.9 A) from this.
+  const chunks = Object.fromEntries(Object.entries(result.metafile.outputs).filter(([file]) => file.endsWith('.js')).map(([file, out]) => [`assets/${path.basename(file)}`, {
+    entryPoint: out.entryPoint || null,
+    imports: out.imports.filter((imp) => imp.kind === 'import-statement').map((imp) => `assets/${path.basename(imp.path)}`),
+  }]));
+  await fs.writeFile(path.join(DIST, 'build-manifest.json'), JSON.stringify({ imageCount: imageManifest.images.length, assets, entry: `assets/${path.basename(entry.path)}`, chunks, jsBytes: jsFiles.reduce((sum, file) => sum + file.contents.length, 0), cssBytes: Buffer.byteLength(css), data: { catalog: 'data/catalog.json', files: data.files } }, null, 2));
   console.log(`建置完成：${jsFiles.length} 個 JS 分包、CSS ${(Buffer.byteLength(css) / 1024).toFixed(1)} KB、資料包 ${Object.keys(data.catalog.packs).length} 個；發布目錄 dist`);
 }
 build().catch((error) => { console.error('建置失敗：', error.message); process.exitCode = 1; });
