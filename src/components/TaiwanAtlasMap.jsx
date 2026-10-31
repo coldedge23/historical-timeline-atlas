@@ -8,7 +8,6 @@ import {
   Maximize2,
   Minimize2
 } from './Icons.js';
-import { TAIWAN_LENS_ERAS, ERA_BATTLE_IDS } from '../data/taiwanLensData.js';
 import { TAIWAN_COUNTY_PATHS, projectLngLatToTaiwanMap } from '../data/taiwanMapGeoData.js';
 
 // Historical Era Color Schemes for Taiwan 22 Counties
@@ -383,6 +382,8 @@ export const TAIWAN_ERA_COUNTY_SCHEMES = {
 export const TaiwanAtlasMap = ({
   activeTaiwanEraId = 'tw_tungning',
   onSelectTaiwanEraId,
+  eras = [],
+  eraBattleIds = {},
   events = [],
   allEvents = [],
   battles = [],
@@ -406,7 +407,7 @@ export const TaiwanAtlasMap = ({
 
   // Filter battles strictly for this era
   const currentEraBattles = battles.filter((b) => {
-    const allowed = ERA_BATTLE_IDS[activeTaiwanEraId] || [];
+    const allowed = eraBattleIds[activeTaiwanEraId] || [];
     return allowed.includes(b.id) || selectedEvent?.battleId === b.id || selectedBattle?.id === b.id;
   });
 
@@ -466,7 +467,7 @@ export const TaiwanAtlasMap = ({
             <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
             臺灣紀元：
           </span>
-          {TAIWAN_LENS_ERAS.map((era) => {
+          {eras.map((era) => {
             const isActive = era.id === activeTaiwanEraId;
             return (
               <button

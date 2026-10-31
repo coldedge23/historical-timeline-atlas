@@ -373,6 +373,9 @@ export function App() {
                   <JapanAtlasMap
                     activeJapanEraId={activeJapanEraId}
                     onSelectJapanEraId={handleSelectJapanEraId}
+                    eras={currentPage.eras}
+                    eraBattleIds={currentPage.eraBattleIds}
+                    warlordPeriods={currentPage.warlordPeriods}
                     events={eventsForTimeline}
                     allEvents={currentEvents}
                     battles={currentBattles}
@@ -389,6 +392,8 @@ export function App() {
                   <TaiwanAtlasMap
                     activeTaiwanEraId={activeTaiwanEraId}
                     onSelectTaiwanEraId={handleSelectTaiwanEraId}
+                    eras={currentPage.eras}
+                    eraBattleIds={currentPage.eraBattleIds}
                     events={eventsForTimeline}
                     allEvents={currentEvents}
                     battles={currentBattles}
@@ -424,7 +429,6 @@ export function App() {
                 <div className="timeline-pane">
                   <Timeline
                     events={eventsForTimeline}
-                    figures={figuresForLinks}
                     eventLinksFor={(evt) => eventLinksFor(currentPageId, evt)}
                     battles={currentBattles}
                     selectedEvent={selectedEvent}

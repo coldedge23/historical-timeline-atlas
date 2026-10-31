@@ -40,12 +40,17 @@ export function battleLinkSet(battle, pools, figMap = battleFigureIndex(pools.fi
   };
 }
 
+// The figure a timeline tag opens: exact name, or a courtesy name containing the tag (first match in pool order).
+export const tagFigure = (tag, figures) => figures.find(f => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag)));
+
 // pools.battles: the page's own battles (the timeline only links a battle shown on the page).
 export function eventLinkSet(evt, pools) {
   const battle = evt.battleId ? pools.battles.find(b => b.id === evt.battleId) : null;
   return {
     figures: eventFigures(evt, pools.figuresForLinks).map(f => describe('figure', f, pools.id, 'event-figure-id', evt.figureLinkReviews?.[f.id] ?? null)),
     battle: battle ? describe('battle', battle, pools.id, 'event-battle-id') : null,
+    // Only tags that name a figure; other tags filter the timeline or match a page battle.
+    tags: Object.fromEntries((evt.tags || []).flatMap(tag => { const f = tagFigure(tag, pools.figuresForLinks); return f ? [[tag, describe('figure', f, pools.id, 'tag-name')]] : []; })),
   };
 }
 

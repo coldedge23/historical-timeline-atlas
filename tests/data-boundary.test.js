@@ -1,5 +1,5 @@
 // Plan v2 section 3.7: every src/data file belongs to exactly one class, and only content files may import content.
-// The main-entry metafile check is enforced from stage 2b.
+// Which bundle each class may land in is checked by tests/bundle-boundary.test.js.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';

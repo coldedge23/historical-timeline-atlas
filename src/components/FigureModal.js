@@ -1,5 +1,5 @@
 import { SourceDisclosure } from './SourceDisclosure.jsx';
-import { isContextReview, formatHistoryYear } from '../data/chronologyReviews.js';
+import { isContextReview, formatHistoryYear } from '../utils/chronologyLabels.js';
 import { pendingLinkCount } from '../utils/figureLinks.js';
 import { DerivedBadge, DERIVED_NOTE } from './DerivedBadge.jsx';
 import { Dialog } from './Dialog.jsx';

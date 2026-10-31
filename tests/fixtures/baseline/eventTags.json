@@ -1,0 +1,2730 @@
+{
+ "hashed": false,
+ "data": {
+  "xiaShangZhou>evt_yutushan_2070": {
+   "大禹治水": null,
+   "塗山之會": null,
+   "劃定九州": null,
+   "夏朝肇基": null
+  },
+  "xiaShangZhou>evt_qigan_2050": {
+   "甘之戰": null,
+   "甘誓": null,
+   "家天下": null,
+   "世襲制確立": null
+  },
+  "xiaShangZhou>evt_taikang_2000": {
+   "太康失國": null,
+   "后羿代夏": null,
+   "東夷入主": null,
+   "二里頭": null
+  },
+  "xiaShangZhou>evt_shaokang_1950": {
+   "少康中興": null,
+   "復辟夏室": null,
+   "滅寒浞": null,
+   "一成一旅": null
+  },
+  "xiaShangZhou>evt_mingtiao_1600": {
+   "鳴條之戰": null,
+   "商湯革命": null,
+   "伊尹拜相": null,
+   "商朝建立": null
+  },
+  "xiaShangZhou>evt_taijia_1550": {
+   "伊尹放太甲": null,
+   "桐宮悔過": null,
+   "阿衡攝政": null,
+   "修德安民": null
+  },
+  "xiaShangZhou>evt_pangen_1300": {
+   "盤庚遷殷": null,
+   "殷墟": null,
+   "青銅全盛": null,
+   "定都安陽": null
+  },
+  "xiaShangZhou>evt_wuding_fuhao_1250": {
+   "武丁中興": null,
+   "婦好征伐": null,
+   "傅說拜相": null,
+   "殷墟甲骨": null
+  },
+  "xiaShangZhou>evt_dixin_dongyi_1070": {
+   "帝辛伐東夷": null,
+   "朝歌空虛": null,
+   "商周交替": null,
+   "牧野前夕": null
+  },
+  "xiaShangZhou>evt_muye_1046": {
+   "牧野之戰": null,
+   "武王克商": null,
+   "孟津之盟": null,
+   "西周立國": null
+  },
+  "xiaShangZhou>evt_zhougong_dongzheng_1042": {
+   "三監之亂": null,
+   "周公東征": null,
+   "誅武庚": null,
+   "平定奄國": null
+  },
+  "xiaShangZhou>evt_yingjian_luoyi_1038": {
+   "營建洛邑": null,
+   "天下之中": null,
+   "制禮作樂": null,
+   "周禮": null
+  },
+  "xiaShangZhou>evt_chengkang_1000": {
+   "成康之治": null,
+   "刑錯不用": null,
+   "禮樂鼎盛": null,
+   "天下晏然": null
+  },
+  "xiaShangZhou>evt_zhaowang_nanzheng_977": {
+   "昭王南征": null,
+   "殞命漢水": null,
+   "喪六師": null,
+   "西周轉衰": null
+  },
+  "xiaShangZhou>evt_muwang_xizheng_960": {
+   "穆王西巡": null,
+   "西王母": null,
+   "造父御車": null,
+   "平徐偃王": null,
+   "呂刑": null
+  },
+  "xiaShangZhou>evt_guoren_baodong_841": {
+   "國人暴動": null,
+   "防民之口": null,
+   "共和行政": null,
+   "確切紀年開端": null,
+   "前841年": null
+  },
+  "xiaShangZhou>evt_xuanwang_zhongxing_825": {
+   "宣王中興": null,
+   "尹吉甫北伐": null,
+   "平淮夷": null,
+   "詩經六月": null
+  },
+  "xiaShangZhou>evt_youwang_qian_771": {
+   "烽火戲諸侯": null,
+   "犬戎陷鎬京": null,
+   "幽王之死": null,
+   "西周覆滅": null
+  },
+  "warringStates>evt_pingwang_770": {
+   "春秋開端": null,
+   "平王東遷": null,
+   "禮崩樂壞": null,
+   "秦國始封": null
+  },
+  "warringStates>evt_xuge_707": {
+   "鄭莊小霸": null,
+   "魚麗之陣": null,
+   "射中王肩": null,
+   "禮樂崩塌": null
+  },
+  "warringStates>evt_baoshuya_guanzhong_685": {
+   "管鮑之交": null,
+   "齊桓稱霸": null,
+   "知人善任": null,
+   "尊王攘夷": null
+  },
+  "warringStates>evt_changshao_684": {
+   "曹劌論戰": null,
+   "一鼓作氣": null,
+   "後發制人": null,
+   "以弱勝強": null
+  },
+  "warringStates>evt_qihuan_kuikou_651": {
+   "春秋首霸": null,
+   "葵丘之會": null,
+   "九合諸侯": null,
+   "一匡天下": null
+  },
+  "warringStates>evt_qinmu_bailixi_655": {
+   "五羊大夫": null,
+   "秦穆公": "warringStates:qin_mugong",
+   "知人善任": null,
+   "開闢西戎": null
+  },
+  "warringStates>evt_chonger_liuwan_636": {
+   "重耳流亡": null,
+   "割股奉君": null,
+   "退避三舍": null,
+   "晉文公": "warringStates:jin_wengong"
+  },
+  "warringStates>evt_chengpu_632": {
+   "城濮之戰": null,
+   "退避三舍": null,
+   "踐土之盟": null,
+   "春秋第二霸": null
+  },
+  "warringStates>evt_xiao_627": {
+   "殽之戰": null,
+   "弦高犒師": null,
+   "秦晉交惡": null,
+   "霸西戎": null
+  },
+  "warringStates>evt_chuzhuang_ding_606": {
+   "楚莊王": "warringStates:chu_zhuangwang",
+   "問鼎中原": null,
+   "一鳴驚人": null,
+   "春秋五霸": null
+  },
+  "warringStates>evt_bi_597": {
+   "邲之戰": null,
+   "楚莊稱霸": null,
+   "止戈為武": null,
+   "孫叔敖": null
+  },
+  "warringStates>evt_an_589": {
+   "鞍之戰": null,
+   "逢丑父": null,
+   "郤克": null,
+   "齊晉爭雄": null
+  },
+  "warringStates>evt_yanling_575": {
+   "鄢陵之戰": null,
+   "楚共王": null,
+   "晉楚爭霸": null,
+   "晉悼復霸": null
+  },
+  "warringStates>evt_mibing_546": {
+   "弭兵之會": null,
+   "向戌": null,
+   "春秋和平": null,
+   "晉楚共治": null
+  },
+  "warringStates>evt_jizha_jian_544": {
+   "季札掛劍": null,
+   "至德三讓": null,
+   "觀樂知政": null,
+   "信在心中": null
+  },
+  "warringStates>evt_zhuanzhu_515": {
+   "專諸刺王僚": null,
+   "魚腸劍": null,
+   "四大刺客": null,
+   "闔閭即位": null
+  },
+  "warringStates>evt_baiju_506": {
+   "柏舉之戰": null,
+   "兵聖孫武": null,
+   "掘墓鞭屍": null,
+   "千里奇襲": null
+  },
+  "warringStates>evt_zuili_496": {
+   "檇李之戰": null,
+   "敢死隊": null,
+   "闔閭殞命": null,
+   "夫差即位": null
+  },
+  "warringStates>evt_goujian_woxin_494": {
+   "臥薪嚐膽": null,
+   "會稽之恥": null,
+   "十年生聚": null,
+   "西施入吳": null
+  },
+  "warringStates>evt_kongzi_youlie_497": {
+   "萬世師表": null,
+   "周遊列國": null,
+   "刪詩書定禮樂": null,
+   "克己復禮": null
+  },
+  "warringStates>evt_laozi_hangu_516": {
+   "道家始祖": null,
+   "道德經": null,
+   "紫氣東來": null,
+   "無為而治": null
+  },
+  "warringStates>evt_jinyang_453": {
+   "三家分晉": null,
+   "晉陽之戰": null,
+   "戰國開端": null,
+   "資治通鑑開篇": null
+  },
+  "warringStates>evt_yurang_453": {
+   "士為知己者死": null,
+   "豫讓刺趙": null,
+   "刺客列傳": null,
+   "千古義俠": null
+  },
+  "warringStates>evt_tianshi_daiqi_386": {
+   "田氏代齊": null,
+   "姜齊易田": null,
+   "百家爭鳴": null,
+   "稷下學宮": null
+  },
+  "warringStates>evt_wuqi_yinjin_389": {
+   "兵家亞聖": null,
+   "魏武卒": null,
+   "陰晉之戰": null,
+   "戰國首霸": null
+  },
+  "warringStates>evt_wuqi_chubian_381": {
+   "吳起變法": null,
+   "楚悼王": null,
+   "貴族反撲": null,
+   "依法治國": null
+  },
+  "warringStates>evt_shenbuhai_351": {
+   "申不害": "warringStates:shen_buhai",
+   "術治": null,
+   "天下勁弩": null,
+   "法家名流": null
+  },
+  "warringStates>evt_shangyang_356": {
+   "商鞅變法": null,
+   "徙木立信": null,
+   "耕戰體系": null,
+   "帝國之基": null
+  },
+  "warringStates>evt_guiling_354": {
+   "圍魏救趙": null,
+   "桂陵之戰": null,
+   "孫臏破龐涓": null,
+   "齊威稱雄": null
+  },
+  "warringStates>evt_maling_341": {
+   "馬陵之戰": null,
+   "減灶誘敵": null,
+   "龐涓死於此樹": null,
+   "魏霸終結": null
+  },
+  "warringStates>evt_suqin_hezong_334": {
+   "合縱連橫": null,
+   "蘇秦": "warringStates:su_qin",
+   "配六國相印": null,
+   "縱橫名家": null
+  },
+  "warringStates>evt_zhangyi_lianheng_328": {
+   "張儀連橫": null,
+   "欺楚六百里": null,
+   "丹陽藍田": null,
+   "連橫破縱": null
+  },
+  "warringStates>evt_simacuo_shu_316": {
+   "司馬錯伐蜀": null,
+   "天府之國": null,
+   "巴蜀納秦": null,
+   "千秋大戰略": null
+  },
+  "warringStates>evt_hufu_qishe_307": {
+   "胡服騎射": null,
+   "趙武靈王": "warringStates:zhao_wulingwang",
+   "軍事改革": null,
+   "北拓三郡": null
+  },
+  "warringStates>evt_quyuan_lisao_298": {
+   "屈原": "warringStates:qu_yuan",
+   "離騷": null,
+   "汨羅江": null,
+   "端午詩魂": null,
+   "楚辭之祖": null
+  },
+  "warringStates>evt_mengchangjun_299": {
+   "孟嘗君": "warringStates:mengchang_jun",
+   "雞鳴狗盜": null,
+   "戰國四君子": null,
+   "食客三千": null
+  },
+  "warringStates>evt_yique_293": {
+   "伊闕之戰": null,
+   "武安君白起": null,
+   "斬首二十四萬": null,
+   "東出中原": null
+  },
+  "warringStates>evt_jixi_284": {
+   "樂毅破齊": null,
+   "五國合縱": null,
+   "黃金台招賢": null,
+   "下齊七十城": null
+  },
+  "warringStates>evt_tiandan_huoniu_279": {
+   "田單火牛陣": null,
+   "即墨復國": null,
+   "反間計": null,
+   "以奇用兵": null
+  },
+  "warringStates>evt_linxiangru_bi_283": {
+   "完璧歸趙": null,
+   "澠池之會": null,
+   "負荊請罪": null,
+   "將相和": null
+  },
+  "warringStates>evt_eyu_269": {
+   "閼與之戰": null,
+   "狹路相逢勇者勝": null,
+   "趙奢": "warringStates:zhao_she",
+   "馬服君": null
+  },
+  "warringStates>evt_fanjie_yuangiao_266": {
+   "遠交近攻": null,
+   "范雎": "warringStates:fan_ju",
+   "逐四貴": null,
+   "大秦國策": null
+  },
+  "warringStates>evt_changping_260": {
+   "長平之戰": null,
+   "紙上談兵": null,
+   "坑殺四十萬": null,
+   "天下定局": null
+  },
+  "warringStates>evt_xinlingjun_257": {
+   "信陵君": "warringStates:xinling_jun",
+   "竊符救趙": null,
+   "邯鄲之戰": null,
+   "朱亥椎殺晉鄙": null
+  },
+  "warringStates>evt_dujiangyan_256": {
+   "都江堰": null,
+   "李冰父子": null,
+   "天府之國": null,
+   "千秋水利": null
+  },
+  "warringStates>evt_lvbuwei_qianjin_246": {
+   "呂不韋": "warringStates:lv_buwei",
+   "奇貨可居": null,
+   "一字千金": null,
+   "呂氏春秋": null
+  },
+  "warringStates>evt_zhengguoqu_246": {
+   "鄭國渠": null,
+   "疲秦之計": null,
+   "水利工程": null,
+   "關中沃野": null
+  },
+  "warringStates>evt_limu_xiongnu_244": {
+   "李牧大破匈奴": null,
+   "肥之戰": null,
+   "武安君": null,
+   "趙國長城": null
+  },
+  "warringStates>evt_hanfeizi_qin_233": {
+   "韓非子": "warringStates:han_feizi",
+   "法家集大成": null,
+   "孤憤五蠹": null,
+   "法術勢結合": null
+  },
+  "warringStates>evt_jingke_227": {
+   "荊軻刺秦王": null,
+   "易水送別": null,
+   "圖窮匕見": null,
+   "千古悲壯": null
+  },
+  "warringStates>evt_qin_unify_221": {
+   "六世餘烈": null,
+   "統一天下": null,
+   "千古一帝": null,
+   "書同文車同軌": null,
+   "郡縣制": null
+  },
+  "warringStates>evt_zouji_fanjian_350": {
+   "鄒忌諷齊王納諫": null,
+   "門庭若市": null,
+   "除蔽納諫": null,
+   "齊威大治": null
+  },
+  "warringStates>evt_hangu_318": {
+   "函谷關之戰": null,
+   "五國合縱": null,
+   "樗里疾": "warringStates:chuli_ji",
+   "過秦論": null
+  },
+  "warringStates>evt_danyang_312": {
+   "丹陽之戰": null,
+   "藍田之戰": null,
+   "秦楚大決戰": null,
+   "漢中歸秦": null
+  },
+  "warringStates>evt_chuisha_301": {
+   "垂沙之戰": null,
+   "匡章破楚": null,
+   "四國聯軍": null,
+   "沘水之戰": null
+  },
+  "warringStates>evt_chulong_zhaotaihou_265": {
+   "觸龍說趙太后": null,
+   "為之計深遠": null,
+   "長安君為質": null,
+   "戰國策名篇": null
+  },
+  "warringStates>evt_hewai_247": {
+   "河外之戰": null,
+   "信陵君": "warringStates:xinling_jun",
+   "五國大捷": null,
+   "六國最後反擊": null
+  },
+  "warringStates>evt_daliang_water_225": {
+   "水灌大梁": null,
+   "王賁滅魏": null,
+   "大秦滅六國": null,
+   "碭郡": null
+  },
+  "qinHan>evt_julu_207": {
+   "破釜沉舟": null,
+   "以一當十": null,
+   "鉅鹿之戰": null,
+   "秦朝覆亡": null
+  },
+  "qinHan>evt_liubang_guanzhong_206": {
+   "約法三章": null,
+   "鴻門宴": null,
+   "項莊舞劍": null,
+   "火燒咸陽": null
+  },
+  "qinHan>evt_chencang_206": {
+   "明修棧道": null,
+   "暗度陳倉": null,
+   "定三秦": null,
+   "韓信拜將": null
+  },
+  "qinHan>evt_pengcheng_205": {
+   "彭城之戰": null,
+   "三萬破五十六萬": null,
+   "睢水不流": null,
+   "楚霸王神威": null
+  },
+  "qinHan>evt_beishui_204": {
+   "背水一戰": null,
+   "井陘之戰": null,
+   "置之死地而後生": null,
+   "拔旗易幟": null
+  },
+  "qinHan>evt_gaixia_202": {
+   "十面埋伏": null,
+   "四面楚歌": null,
+   "霸王別姬": null,
+   "烏江自刎": null,
+   "垓下之戰": null
+  },
+  "qinHan>evt_baideng_200": {
+   "白登之圍": null,
+   "冒頓單于": "qinHan:modun_chanyu",
+   "陳平秘計": null,
+   "漢匈和親": null
+  },
+  "qinHan>evt_lvhou_180": {
+   "呂后臨朝": null,
+   "周勃左袒": null,
+   "平定諸呂": null,
+   "漢文帝登基": null
+  },
+  "qinHan>evt_qiguo_154": {
+   "七國之亂": null,
+   "晁錯削藩": null,
+   "清君側": null,
+   "周亞夫細柳營": null
+  },
+  "qinHan>evt_zhangqian_139": {
+   "張騫鑿空": null,
+   "絲綢之路": null,
+   "持漢節不失": null,
+   "西域探索": null
+  },
+  "qinHan>evt_hexi_121": {
+   "河西之戰": null,
+   "封狼居胥先聲": null,
+   "河西四郡": null,
+   "祁連山大捷": null
+  },
+  "qinHan>evt_mobei_119": {
+   "漠北決戰": null,
+   "封狼居胥": null,
+   "武剛車陣": null,
+   "飛將軍李廣": null
+  },
+  "qinHan>evt_simagian_104": {
+   "史記": null,
+   "太史公": null,
+   "通古今之變": null,
+   "發憤著書": null
+  },
+  "qinHan>evt_suwu_100": {
+   "蘇武牧羊": null,
+   "持節十九載": null,
+   "北海大節": null,
+   "雁足傳書": null
+  },
+  "qinHan>evt_xiyu_60": {
+   "西域都護府": null,
+   "鄭吉": "qinHan:zheng_ji",
+   "新疆建置之始": null,
+   "昭宣中興": null
+  },
+  "qinHan>evt_chentang_36": {
+   "明犯強漢者雖遠必誅": null,
+   "陳湯滅郅支": null,
+   "西域遠征": null
+  },
+  "qinHan>evt_zhaojun_33": {
+   "昭君出塞": null,
+   "寧胡閼氏": null,
+   "邊城晏閉": null,
+   "民族融合": null
+  },
+  "qinHan>evt_wangmang_9": {
+   "王莽篡漢": null,
+   "托古改制": null,
+   "新朝": null,
+   "王田制": null
+  },
+  "qinHan>evt_kunyang_23": {
+   "昆陽大捷": null,
+   "三千破四十萬": null,
+   "劉秀神蹟": null,
+   "新莽覆亡": null
+  },
+  "qinHan>evt_guangwu_found_25": {
+   "光武稱帝": null,
+   "定都洛陽": null,
+   "建武改元": null,
+   "推心置腹": null
+  },
+  "qinHan>evt_guangwu_unify_36": {
+   "得隴望蜀": null,
+   "聚米成山": null,
+   "平定公孫述": null,
+   "海內一統": null
+  },
+  "qinHan>evt_mayuan_42": {
+   "馬援征交趾": null,
+   "馬革裹屍": null,
+   "老當益壯": null,
+   "伏波銅柱": null
+  },
+  "qinHan>evt_mingzhang_57": {
+   "明章之治": null,
+   "白馬馱經": null,
+   "佛教傳入": null,
+   "白馬寺": null
+  },
+  "qinHan>evt_banchao_73": {
+   "投筆從戎": null,
+   "不入虎穴焉得虎子": null,
+   "定遠侯班超": null,
+   "經營西域": null
+  },
+  "qinHan>evt_yanran_89": {
+   "燕然勒石": null,
+   "封燕然山銘": null,
+   "北匈奴覆亡": null,
+   "永元大捷": null
+  },
+  "qinHan>evt_ganying_97": {
+   "甘英出使大秦": null,
+   "探索羅馬帝國": null,
+   "波斯灣探險": null,
+   "絲路西端": null
+  },
+  "qinHan>evt_danggu_166": {
+   "黨錮之禍": null,
+   "登龍門": null,
+   "天下楷模李膺": null,
+   "東漢衰亡伏筆": null
+  },
+  "threeKingdoms>evt_yellow_turban_184": {
+   "黃巾之亂": null,
+   "太平道": null,
+   "州牧制度": null,
+   "漢末亂世": null
+  },
+  "threeKingdoms>evt_luoyang_burned_189": {
+   "董卓亂政": null,
+   "火燒洛陽": null,
+   "關東聯軍": null,
+   "陽人斬華雄": null
+  },
+  "threeKingdoms>evt_jieqiao_191": {
+   "界橋之戰": null,
+   "先登死士": null,
+   "白馬義從": null,
+   "河北爭霸": null
+  },
+  "threeKingdoms>evt_dongzhuo_killed_192": {
+   "連環計": null,
+   "誅殺董卓": null,
+   "賈詡毒計": null,
+   "李傕郭汜之亂": null
+  },
+  "threeKingdoms>evt_puyang_194": {
+   "死守三城": null,
+   "濮陽火戰": null,
+   "兗州平定": null
+  },
+  "threeKingdoms>evt_sunce_jiangdong_195": {
+   "小霸王": null,
+   "平定江東": null,
+   "神亭嶺": null,
+   "孫周同心": null
+  },
+  "threeKingdoms>evt_xuchang_capital_196": {
+   "奉天子以令不臣": null,
+   "定都許昌": null,
+   "建安屯田": null
+  },
+  "threeKingdoms>evt_wancheng_197": {
+   "宛城之戰": null,
+   "古之惡來典韋": null,
+   "袁術稱帝": null
+  },
+  "threeKingdoms>evt_xiapi_198": {
+   "水淹下邳": null,
+   "白門樓": null,
+   "陳宮赴死": null,
+   "張遼降曹": null
+  },
+  "threeKingdoms>evt_guandu_200": {
+   "官渡之戰": null,
+   "火燒烏巢": null,
+   "白馬斬顏良": null,
+   "以少勝多": null
+  },
+  "threeKingdoms>evt_bailangshan_207": {
+   "白狼山之戰": null,
+   "遺計定遼東": null,
+   "烏桓突騎": null,
+   "東臨碣石": null
+  },
+  "threeKingdoms>evt_longzhong_207": {
+   "三顧茅廬": null,
+   "隆中對": null,
+   "魚水之交": null,
+   "三分藍圖": null
+  },
+  "threeKingdoms>evt_chibi_208": {
+   "赤壁火攻": null,
+   "孫劉聯盟": null,
+   "長坂坡": null,
+   "三足鼎立": null
+  },
+  "threeKingdoms>evt_tongguan_211": {
+   "潼關之戰": null,
+   "抹書離間": null,
+   "虎癡許褚": null,
+   "平定關隴": null
+  },
+  "threeKingdoms>evt_ruxukou_213": {
+   "濡須口": null,
+   "生子當如孫仲謀": null,
+   "百騎劫營": null,
+   "濡須塢": null
+  },
+  "threeKingdoms>evt_take_yizhou_214": {
+   "平定益州": null,
+   "落鳳坡": null,
+   "義釋嚴顏": null,
+   "定鼎成都": null
+  },
+  "threeKingdoms>evt_hefei_215": {
+   "逍遙津之戰": null,
+   "八百破十萬": null,
+   "張遼止啼": null,
+   "孫權躍馬": null
+  },
+  "threeKingdoms>evt_hanzhong_219": {
+   "定軍山": null,
+   "斬夏侯淵": null,
+   "漢水空營": null,
+   "進位漢中王": null
+  },
+  "threeKingdoms>evt_fancheng_219": {
+   "水淹七軍": null,
+   "威震華夏": null,
+   "白衣渡江": null,
+   "敗走麥城": null
+  },
+  "threeKingdoms>evt_weiking_216": {
+   "受禪代漢": null,
+   "九品中正制": null,
+   "曹魏建國": null,
+   "定都洛陽": null
+  },
+  "threeKingdoms>evt_shu_found_221": {
+   "蜀漢開國": null,
+   "章武改元": null,
+   "延續漢統": null
+  },
+  "threeKingdoms>evt_yiling_222": {
+   "夷陵之戰": null,
+   "火燒連營": null,
+   "猇亭之戰": null,
+   "陸遜拜帥": null
+  },
+  "threeKingdoms>evt_liubei_death_223": {
+   "白帝託孤": null,
+   "永安宮": null,
+   "鄧芝使吳": null,
+   "吳蜀復盟": null
+  },
+  "threeKingdoms>evt_nanman_225": {
+   "七擒孟獲": null,
+   "攻心為上": null,
+   "五月渡瀘": null,
+   "無當飛軍": null
+  },
+  "threeKingdoms>evt_northern_expedition_228": {
+   "出師表": null,
+   "一出祁山": null,
+   "收服姜維": null,
+   "揮淚斬馬謖": null
+  },
+  "threeKingdoms>evt_shiting_228": {
+   "石亭之戰": null,
+   "周魴斷髮": null,
+   "陸遜破曹休": null,
+   "夾石之圍": null
+  },
+  "threeKingdoms>evt_wu_found_229": {
+   "孫權稱帝": null,
+   "遷都建業": null,
+   "黃龍改元": null,
+   "吳蜀盟誓": null
+  },
+  "threeKingdoms>evt_taiwan_expedition_230": {
+   "衛溫航夷洲": null,
+   "臺灣歷史淵源": null,
+   "東吳海洋探索": null,
+   "臨海水土志": null
+  },
+  "threeKingdoms>evt_wuzhang_234": {
+   "五丈原": null,
+   "鞠躬盡瘁": null,
+   "死諸葛走生仲達": null,
+   "木牛流馬": null
+  },
+  "threeKingdoms>evt_liaodong_238": {
+   "平定遼東": null,
+   "百日擒公孫淵": null,
+   "襄平之戰": null,
+   "收復樂浪": null
+  },
+  "threeKingdoms>evt_xingshi_244": {
+   "興勢大捷": null,
+   "王平據險": null,
+   "曹爽伐蜀慘敗": null
+  },
+  "threeKingdoms>evt_gaopingling_249": {
+   "高平陵之變": null,
+   "指洛水為誓": null,
+   "智囊桓範": null,
+   "司馬專權": null
+  },
+  "threeKingdoms>evt_dongxing_252": {
+   "東興大捷": null,
+   "雪中奮短兵": null,
+   "丁奉奇兵": null
+  },
+  "threeKingdoms>evt_huainan_taoxi_255": {
+   "淮南三叛": null,
+   "文鴦單騎退雄兵": null,
+   "洮西大捷": null,
+   "姜維北伐": null
+  },
+  "threeKingdoms>evt_shu_fall_263": {
+   "偷渡陰平": null,
+   "劍閣拒敵": null,
+   "綿竹殉國": null,
+   "蜀漢滅亡": null
+  },
+  "threeKingdoms>evt_xiling_272": {
+   "西陵之戰": null,
+   "圍城打援": null,
+   "羊陸之交": null,
+   "最後名將": null
+  },
+  "threeKingdoms>evt_wu_fall_280": {
+   "三國終結": null,
+   "王濬樓船破鐵鎖": null,
+   "勢如破竹": null,
+   "西晉一統": null
+  },
+  "weiJin>evt_miewu_280": {
+   "晉滅吳": null,
+   "三國歸晉": null,
+   "王濬樓船": null,
+   "太康之治": null
+  },
+  "weiJin>evt_bawang_291": {
+   "八王之亂": null,
+   "何不食肉糜": null,
+   "賈后專政": null,
+   "西晉衰亡": null
+  },
+  "weiJin>evt_liuyuan_304": {
+   "漢趙立國": null,
+   "劉淵起兵": null,
+   "五胡十六國": null,
+   "胡漢融合": null
+  },
+  "weiJin>evt_yongjia_311": {
+   "永嘉之禍": null,
+   "洛陽陷落": null,
+   "西晉覆亡": null,
+   "二帝蒙塵": null
+  },
+  "weiJin>evt_simarui_317": {
+   "衣冠南渡": null,
+   "東晉立國": null,
+   "王與馬共天下": null,
+   "門閥政治": null
+  },
+  "weiJin>evt_zuti_beifa_317": {
+   "聞雞起舞": null,
+   "中流擊楫": null,
+   "祖逖北伐": null,
+   "收復河南": null
+  },
+  "weiJin>evt_shile_319": {
+   "後趙立國": null,
+   "石勒稱霸": null,
+   "羯族崛起": null,
+   "北方一統": null
+  },
+  "weiJin>evt_huanwen_ba_347": {
+   "桓溫滅蜀": null,
+   "收復巴蜀": null,
+   "成漢滅亡": null,
+   "長江上游": null
+  },
+  "weiJin>evt_lanting_353": {
+   "蘭亭集序": null,
+   "王羲之": null,
+   "曲水流觴": null,
+   "魏晉風骨": null,
+   "天下第一行書": null
+  },
+  "weiJin>evt_fujian_wangmeng_376": {
+   "王猛相秦": null,
+   "苻堅一統北方": null,
+   "胡漢融合": null,
+   "前秦盛世": null
+  },
+  "weiJin>evt_feishui_383": {
+   "淝水之戰": null,
+   "投鞭斷流": null,
+   "草木皆兵": null,
+   "風聲鶴唳": null,
+   "北府兵神話": null
+  },
+  "weiJin>evt_tuoba_gui_386": {
+   "北魏開國": null,
+   "拓跋珪": null,
+   "平城定都": null,
+   "參合陂大捷": null
+  },
+  "weiJin>evt_kumarajiva_401": {
+   "鳩摩羅什": null,
+   "草堂寺": null,
+   "大乘佛經": null,
+   "金剛經": null,
+   "文化交流": null
+  },
+  "weiJin>evt_queyuezhen_417": {
+   "劉裕北伐": null,
+   "卻月陣": null,
+   "氣吞萬里": null,
+   "收復兩京": null
+  },
+  "weiJin>evt_liuyu_song_420": {
+   "劉裕代晉": null,
+   "劉宋開國": null,
+   "南朝開端": null,
+   "寒人掌機要": null
+  },
+  "weiJin>evt_xiaowen_qianluo_493": {
+   "孝文帝遷洛": null,
+   "太和改制": null,
+   "均田制": null,
+   "胡漢融合": null,
+   "斷諸北語": null
+  },
+  "weiJin>evt_zhongli_507": {
+   "鐘離之戰": null,
+   "韋睿火攻": null,
+   "南梁大捷": null,
+   "天監之治": null
+  },
+  "weiJin>evt_dongxiwei_534": {
+   "東西魏分裂": null,
+   "府兵制創立": null,
+   "八柱國": null,
+   "關隴集團": null,
+   "沙苑大捷": null
+  },
+  "weiJin>evt_houjing_548": {
+   "侯景之亂": null,
+   "台城陷落": null,
+   "梁武帝駕崩": null,
+   "士族衰亡": null,
+   "陳霸先登基": null
+  },
+  "weiJin>evt_suipingchen_589": {
+   "隋滅陳": null,
+   "四百年大一統": null,
+   "韓擒虎破城": null,
+   "隋唐盛世開端": null
+  },
+  "suiTang>evt_sui_found_581": {
+   "politics": null,
+   "大隋": null,
+   "西元 581 年": null
+  },
+  "suiTang>evt_sui_unify_589": {
+   "military": null,
+   "大隋": null,
+   "西元 589 年": null
+  },
+  "suiTang>evt_grand_canal_605": {
+   "economy": null,
+   "大隋": null,
+   "西元 605 年": null
+  },
+  "suiTang>evt_sui_korea_612": {
+   "military": null,
+   "大隋": null,
+   "西元 612 年": null
+  },
+  "suiTang>evt_taiyuan_uprising_617": {
+   "politics": null,
+   "大隋": null,
+   "西元 617 年": null
+  },
+  "suiTang>evt_hulao_triumph_621": {
+   "military": null,
+   "盛唐": null,
+   "西元 621 年": null
+  },
+  "suiTang>evt_xuanwumen_626": {
+   "politics": null,
+   "盛唐": null,
+   "西元 626 年": null
+  },
+  "suiTang>evt_xuanzang_west_629": {
+   "culture": null,
+   "盛唐": null,
+   "西元 629 年": null
+  },
+  "suiTang>evt_conquer_turks_630": {
+   "military": null,
+   "盛唐": null,
+   "西元 630 年": null
+  },
+  "suiTang>evt_wencheng_tibet_641": {
+   "diplomacy": null,
+   "盛唐": null,
+   "西元 641 年": null
+  },
+  "suiTang>evt_baekgang_naval_663": {
+   "military": null,
+   "盛唐": null,
+   "西元 663 年": null
+  },
+  "suiTang>evt_wuzetian_zhou_690": {
+   "politics": null,
+   "武周": null,
+   "西元 690 年": null
+  },
+  "suiTang>evt_shenlong_coup_705": {
+   "politics": null,
+   "武周": null,
+   "西元 705 年": null
+  },
+  "suiTang>evt_kaiyuan_zenith_713": {
+   "politics": null,
+   "盛唐": null,
+   "西元 713 年": null
+  },
+  "suiTang>evt_li_du_poetry_744": {
+   "culture": null,
+   "盛唐": null,
+   "西元 744 年": null
+  },
+  "suiTang>evt_talas_papermaking_751": {
+   "military": null,
+   "盛唐": null,
+   "西元 751 年": null
+  },
+  "suiTang>evt_jianzhen_japan_753": {
+   "culture": null,
+   "盛唐": null,
+   "西元 753 年": null
+  },
+  "suiTang>evt_an_shi_rebellion_755": {
+   "military": null,
+   "盛唐": null,
+   "西元 755 年": null
+  },
+  "suiTang>evt_mawei_mutiny_756": {
+   "politics": null,
+   "盛唐": null,
+   "西元 756 年": null
+  },
+  "suiTang>evt_recover_capitals_757": {
+   "military": null,
+   "盛唐": null,
+   "西元 757 年": null
+  },
+  "suiTang>evt_two_tax_reform_780": {
+   "economy": null,
+   "盛唐": null,
+   "西元 780 年": null
+  },
+  "suiTang>evt_huang_chao_changan_880": {
+   "military": null,
+   "盛唐": null,
+   "西元 880 年": null
+  },
+  "suiTang>evt_fall_of_tang_907": {
+   "politics": null,
+   "盛唐": null,
+   "西元 907 年": null
+  },
+  "suiTang>evt_sixteen_prefectures_936": {
+   "diplomacy": null,
+   "五代十國": null,
+   "西元 936 年": null
+  },
+  "suiTang>evt_chairong_reform_954": {
+   "politics": null,
+   "五代十國": null,
+   "西元 954 年": null
+  },
+  "republicModern>evt_1911_wuchang": {
+   "辛亥革命": null,
+   "推翻帝制": null,
+   "武昌首義": null
+  },
+  "republicModern>evt_1912_republic_founding": {
+   "民國肇建": null,
+   "孫中山": "republicModern:fig_sun_yatsen",
+   "清帝退位": null,
+   "開創共和": null
+  },
+  "republicModern>evt_1913_song_jiaoren_martyr": {
+   "憲政之父": null,
+   "宋教仁": "republicModern:fig_song_jiaoren",
+   "二次革命": null
+  },
+  "republicModern>evt_1915_huguo_movement": {
+   "護國運動": null,
+   "蔡鍔": "republicModern:fig_cai_e",
+   "再造共和": null
+  },
+  "republicModern>evt_1919_may_fourth": {
+   "五四運動": null,
+   "德先生賽先生": null,
+   "新文化運動": null
+  },
+  "republicModern>evt_1921_taiwan_culture_assoc": {
+   "臺灣文化協會": null,
+   "蔣渭水": "republicModern:fig_chiang_weishui",
+   "林獻堂": "republicModern:fig_lin_xiantang",
+   "文化啟蒙": null
+  },
+  "republicModern>evt_1924_whampoa_academy": {
+   "黃埔建軍": null,
+   "蔣中正": "republicModern:fig_chiang_kaishek",
+   "孫中山": "republicModern:fig_sun_yatsen"
+  },
+  "republicModern>evt_1927_taiwan_peoples_party": {
+   "臺灣民眾黨": null,
+   "第一政黨": null,
+   "蔣渭水": "republicModern:fig_chiang_weishui",
+   "自治運動": null
+  },
+  "republicModern>evt_1928_nanjing_unification": {
+   "北伐成功": null,
+   "東北易幟": null,
+   "黃金十年": null,
+   "國家統一": null
+  },
+  "republicModern>evt_1930_wushe_incident": {
+   "霧社事件": null,
+   "莫那魯道": null,
+   "賽德克族": null,
+   "原住民族抗日": null
+  },
+  "republicModern>evt_1931_mukden_incident": {
+   "九一八事變": null,
+   "國恥日": null,
+   "東北抗戰": null
+  },
+  "republicModern>evt_1936_xian_incident": {
+   "西安事變": null,
+   "張學良": "republicModern:fig_zhang_xueliang",
+   "停止內戰": null,
+   "一致抗日": null
+  },
+  "republicModern>evt_1937_lugouqiao_incident": {
+   "七七事變": null,
+   "盧溝橋": null,
+   "廬山宣言": null,
+   "全面抗戰": null
+  },
+  "republicModern>evt_1937_chongqing_capital": {
+   "陪都重慶": null,
+   "戰時首都": null,
+   "持久抗戰": null,
+   "西南聯大": null
+  },
+  "republicModern>evt_1943_cairo_conference": {
+   "開羅會議": null,
+   "開羅宣言": null,
+   "光復臺灣": null,
+   "大國地位": null
+  },
+  "republicModern>evt_1945_ww2_victory": {
+   "抗戰勝利": null,
+   "二戰終結": null,
+   "受降典禮": null,
+   "常任理事國": null
+  },
+  "republicModern>evt_1945_taiwan_retrocession": {
+   "臺灣光復": null,
+   "中山堂受降": null,
+   "重歸中華民國": null,
+   "光復節": null
+  },
+  "republicModern>evt_1947_constitution_enacted": {
+   "中華民國憲法": null,
+   "行憲": null,
+   "民主憲政": null,
+   "行憲紀念日": null
+  },
+  "republicModern>evt_1949_gov_relocated_taiwan": {
+   "中央政府遷臺": null,
+   "兩岸分治": null,
+   "播遷來臺": null,
+   "故宮國寶": null
+  },
+  "republicModern>evt_1949_land_reform": {
+   "土地改革": null,
+   "三七五減租": null,
+   "耕者有其田": null,
+   "經濟奇蹟起步": null
+  },
+  "republicModern>evt_1968_compulsory_education": {
+   "九年國教": null,
+   "教育普及": null,
+   "國民素質": null,
+   "科技島之基": null
+  },
+  "republicModern>evt_1973_ten_major_projects": {
+   "十大建設": null,
+   "蔣經國": "republicModern:fig_chiang_chingkuo",
+   "孫運璿": "republicModern:fig_sun_yunsuan",
+   "亞洲四小龍": null
+  },
+  "republicModern>evt_1980_hsinchu_science_park": {
+   "新竹科學園區": null,
+   "李國鼎": "republicModern:fig_li_guoding",
+   "台積電": null,
+   "矽島": null,
+   "半導體": null
+  },
+  "republicModern>evt_1987_martial_law_lifted": {
+   "解除戒嚴": null,
+   "民主化": null,
+   "開放報禁": null,
+   "開放探親": null,
+   "寧靜革命": null
+  },
+  "republicModern>evt_1996_direct_presidential_election": {
+   "總統直選": null,
+   "主權在民": null,
+   "李登輝": "republicModern:fig_li_denghui",
+   "民主燈塔": null
+  },
+  "republicModern>evt_2000_peaceful_power_transition": {
+   "政黨輪替": null,
+   "軍隊國家化": null,
+   "和平轉移": null,
+   "成熟民主": null
+  },
+  "taiwanLens>evt_tw_changbin_culture": {
+   "長濱文化": null,
+   "舊石器時代": null,
+   "八仙洞": null,
+   "史前文明": null
+  },
+  "taiwanLens>evt_tw_dabenkeng_culture": {
+   "大坌坑文化": null,
+   "南島語系": null,
+   "出臺灣說": null,
+   "新石器時代": null
+  },
+  "taiwanLens>evt_tw_beinan_culture": {
+   "卑南文化": null,
+   "臺灣玉": null,
+   "石板棺": null,
+   "史前巨石": null
+  },
+  "taiwanLens>evt_tw_weiwen_yizhou_230": {
+   "三國東吳": null,
+   "孫權": "threeKingdoms:sun_quan",
+   "衛溫": "taiwanLens:fig_wei_wen",
+   "夷州": null,
+   "海疆探索": null
+  },
+  "taiwanLens>evt_tw_shisanhang_culture": {
+   "十三行文化": null,
+   "金屬器時代": null,
+   "煉鐵技術": null,
+   "跨海貿易": null
+  },
+  "taiwanLens>evt_tw_suidai_liuqiu_610": {
+   "隋代": null,
+   "流求國": null,
+   "陳稜": "taiwanLens:fig_chen_leng",
+   "朱寬": null,
+   "海路勘察": null
+  },
+  "taiwanLens>evt_tw_penghu_1281": {
+   "澎湖巡檢司": null,
+   "大元行省": null,
+   "海疆管理": null
+  },
+  "taiwanLens>evt_tw_daoyi_zhilue_1349": {
+   "島夷志略": null,
+   "汪大淵": null,
+   "澎湖巡檢司": null,
+   "元代海運": null
+  },
+  "taiwanLens>evt_tw_ming_ban_penghu_1384": {
+   "明初海禁": null,
+   "朱元璋": "yuanMing:fig_zhu_yuanzhang",
+   "澎湖遷民": null,
+   "海商興起": null
+  },
+  "taiwanLens>evt_tw_dadu_kingdom": {
+   "大肚王國": null,
+   "南島原鄉": null,
+   "部落邦聯": null,
+   "白晝之王": null
+  },
+  "taiwanLens>evt_tw_yansiqi_bengang_1621": {
+   "顏思齊": "yuanMing:fig_yan_siqi",
+   "鄭芝龍": "yuanMing:fig_zheng_zhilong",
+   "開臺第一庄": null,
+   "笨港": null
+  },
+  "taiwanLens>evt_tw_voc_zeelandia": {
+   "荷治時期": null,
+   "熱蘭遮城": null,
+   "大員": null,
+   "安平": null
+  },
+  "taiwanLens>evt_tw_spanish_keelung_1626": {
+   "西治時期": null,
+   "聖多明哥城": null,
+   "聖救主城": null,
+   "和平島": null
+  },
+  "taiwanLens>evt_tw_hamada_yahei_1628": {
+   "濱田彌兵衛": null,
+   "朱印船": null,
+   "奴易茲": null,
+   "荷日貿易衝突": null
+  },
+  "taiwanLens>evt_tw_liaoluo_bay_1633": {
+   "料羅灣海戰": null,
+   "鄭芝龍": "yuanMing:fig_zheng_zhilong",
+   "火攻": null,
+   "海權角逐": null
+  },
+  "taiwanLens>evt_tw_landdag_1636": {
+   "地方會議": null,
+   "Landdag": null,
+   "長官權杖": null,
+   "平埔族秩序": null
+  },
+  "taiwanLens>evt_tw_sinkang_manuscripts_1636": {
+   "新港文書": null,
+   "西拉雅族": null,
+   "羅馬拼音": null,
+   "平埔族文化": null
+  },
+  "taiwanLens>evt_tw_dutch_spanish_war_1642": {
+   "雞籠之戰": null,
+   "荷西爭霸": null,
+   "大航海時代": null,
+   "和平島": null
+  },
+  "taiwanLens>evt_tw_dadu_resistance_1644": {
+   "大肚王國": null,
+   "甘馬轄": null,
+   "抗荷戰事": null,
+   "大甲溪": null
+  },
+  "taiwanLens>evt_tw_guohuaiyi_1652": {
+   "郭懷一": "qingDynasty:fig_guo_huaiyi",
+   "抗荷起義": null,
+   "農民抗爭": null,
+   "赤崁樓": null
+  },
+  "taiwanLens>evt_tw_koxinga_retrocession": {
+   "開臺聖王": null,
+   "鄭成功": null,
+   "驅荷光復": null,
+   "東寧王國": null
+  },
+  "taiwanLens>evt_tw_shen_guangwen_poetry_1662": {
+   "沈光文": "taiwanLens:fig_tw_shen_guangwen",
+   "東瀛詩社": null,
+   "開臺先師": null,
+   "善化": null
+  },
+  "taiwanLens>evt_tw_chen_yonghua_salt_tax": {
+   "陳永華": "taiwanLens:fig_chen_yonghua",
+   "鹽業改革": null,
+   "七股鹽田": null,
+   "軍屯制度": null
+  },
+  "taiwanLens>evt_tw_chen_yonghua_confucius": {
+   "陳永華": "taiwanLens:fig_chen_yonghua",
+   "全臺首學": null,
+   "臺南孔廟": null,
+   "東寧宰相": null
+  },
+  "taiwanLens>evt_tw_zheng_jing_trade_treaty": {
+   "英鄭條約": null,
+   "鄭經": "taiwanLens:fig_zheng_jing",
+   "國際貿易": null,
+   "安平商館": null
+  },
+  "taiwanLens>evt_tw_zheng_jing_sanfan_1674": {
+   "三藩之役": null,
+   "鄭經": "taiwanLens:fig_zheng_jing",
+   "反清復明": null,
+   "西征": null
+  },
+  "taiwanLens>evt_tw_chen_yonghua_death_1680": {
+   "陳永華": "taiwanLens:fig_chen_yonghua",
+   "東寧政爭": null,
+   "赤山龍湖巖": null,
+   "一代名相": null
+  },
+  "taiwanLens>evt_tw_dongning_coup_1681": {
+   "東寧政變": null,
+   "鄭克𡒉": null,
+   "鄭克塽": null,
+   "開元寺": null
+  },
+  "taiwanLens>evt_tw_shi_lang_penghu_1683": {
+   "澎湖海戰": null,
+   "施琅": null,
+   "劉國軒": "taiwanLens:fig_liu_guoxuan",
+   "鄭克塽納降": null
+  },
+  "taiwanLens>evt_tw_koxinga_spirit_legacy": {
+   "開臺聖王": null,
+   "延平郡王祠": null,
+   "民族精神": null,
+   "沈葆楨追諡": null
+  },
+  "taiwanLens>evt_tw_shi_lang_1684": {
+   "施琅": null,
+   "臺灣府": null,
+   "康熙設治": null,
+   "納入版圖": null
+  },
+  "taiwanLens>evt_tw_dantai_bans_1684": {
+   "渡臺禁令": null,
+   "土牛線": null,
+   "羅漢腳": null,
+   "漢番分界": null
+  },
+  "taiwanLens>evt_tw_yu_yonghe_sulfur_1697": {
+   "郁永河": "taiwanLens:fig_tw_yu_tengfeng",
+   "裨海紀遊": null,
+   "北投採硫": null,
+   "古典散文": null
+  },
+  "taiwanLens>evt_tw_babao_canal_1719": {
+   "八堡圳": null,
+   "施世榜": "taiwanLens:fig_tw_shi_shibang",
+   "林先生": "yuanMing:fig_gu_yanwu",
+   "彰化平原": null,
+   "水利工程": null
+  },
+  "taiwanLens>evt_tw_zhuyigui_1721": {
+   "朱一貴": "qingDynasty:fig_zhu_yigui",
+   "鴨母王": null,
+   "民變": null,
+   "反清": null
+  },
+  "taiwanLens>evt_tw_lan_dingyuan_treatise_1723": {
+   "藍鼎元": "taiwanLens:fig_tw_lan_dingyuan",
+   "東征集": null,
+   "淡水廳": null,
+   "彰化縣設治": null
+  },
+  "taiwanLens>evt_tw_dajia_xishe_1731": {
+   "大甲西社": null,
+   "平埔族": null,
+   "林武力": null
+  },
+  "taiwanLens>evt_tw_guoxi_liu_canal_1760": {
+   "瑠公圳": null,
+   "郭錫瑠": "taiwanLens:fig_tw_guoxi_liu",
+   "臺北水利": null,
+   "新店溪": null
+  },
+  "taiwanLens>evt_tw_linshuangwen_1786": {
+   "林爽文": "qingDynasty:fig_lin_shuangwen",
+   "天地會": null,
+   "嘉義由來": null,
+   "十全武功": null
+  },
+  "taiwanLens>evt_tw_wu_sha_kavalan_1796": {
+   "吳沙": "taiwanLens:fig_tw_wu_sha",
+   "開蘭始祖": null,
+   "蘭陽平原": null,
+   "頭城": null
+  },
+  "taiwanLens>evt_tw_kavalan_1812": {
+   "噶瑪蘭廳": null,
+   "蘭陽平原": null,
+   "楊廷理": "taiwanLens:fig_tw_yang_tingli"
+  },
+  "taiwanLens>evt_tw_zhang_bing_1832": {
+   "張丙": null,
+   "民變": null,
+   "分類械鬥": null
+  },
+  "taiwanLens>evt_tw_cao_jin_canal_1837": {
+   "曹公圳": null,
+   "曹謹": "taiwanLens:fig_tw_cao_jin",
+   "鳳山知縣": null,
+   "南臺灣水利": null
+  },
+  "taiwanLens>evt_tw_tianjin_treaty_ports_1860": {
+   "開港通商": null,
+   "大稻埕": null,
+   "烏龍茶": null,
+   "洋行": null
+  },
+  "taiwanLens>evt_tw_dai_chaochun_1862": {
+   "戴潮春": "taiwanLens:fig_tw_dai_chaochun",
+   "八卦會": null,
+   "林文察": null
+  },
+  "taiwanLens>evt_tw_james_maxwell_1865": {
+   "馬雅各": "taiwanLens:fig_tw_james_maxwell",
+   "新樓醫院": null,
+   "現代西醫": null,
+   "臺南": null
+  },
+  "taiwanLens>evt_tw_south_cape_pact_1867": {
+   "南岬之盟": null,
+   "李仙得": "taiwanLens:fig_tw_le_gendre",
+   "卓杞篤": "taiwanLens:fig_tw_tokitok",
+   "羅妹號": null
+  },
+  "taiwanLens>evt_tw_bayao_bay_1871": {
+   "八瑤灣事件": null,
+   "琉球": null,
+   "牡丹社事件": null
+  },
+  "taiwanLens>evt_tw_mackay_tamsui_hospital_1872": {
+   "馬偕博士": null,
+   "偕醫館": null,
+   "牛津學堂": null,
+   "現代西醫": null
+  },
+  "taiwanLens>evt_tw_mudanshe_1874": {
+   "牡丹社事件": null,
+   "沈葆楨": "qingDynasty:fig_shen_baozhen",
+   "開山撫番": null,
+   "恆春古城": null
+  },
+  "taiwanLens>evt_tw_batongguan_ancient_road_1875": {
+   "八通關古道": null,
+   "吳光亮": "taiwanLens:fig_tw_wu_guangliang",
+   "沈葆楨": "qingDynasty:fig_shen_baozhen",
+   "開山撫番": null
+  },
+  "taiwanLens>evt_tw_sino_french_tamsui_1884": {
+   "中法戰爭": null,
+   "滬尾大捷": null,
+   "孫開華": null,
+   "林朝棟": "taiwanLens:fig_tw_lin_chaodong",
+   "獅球嶺": null
+  },
+  "taiwanLens>evt_tw_liumingchuan_province_1885": {
+   "臺灣建省": null,
+   "劉銘傳": "qingDynasty:fig_liu_mingchuan",
+   "現代化之父": null,
+   "模範省": null
+  },
+  "taiwanLens>evt_tw_liu_land_survey_1886": {
+   "劉銘傳": "qingDynasty:fig_liu_mingchuan",
+   "清賦": null,
+   "減四留六": null
+  },
+  "taiwanLens>evt_tw_telegraph_cable_1887": {
+   "海底電纜": null,
+   "臺灣郵政": null,
+   "劉銘傳": "qingDynasty:fig_liu_mingchuan",
+   "現代通訊": null
+  },
+  "taiwanLens>evt_tw_shi_jiuduan_1888": {
+   "施九緞": null,
+   "清賦": null,
+   "彰化": null
+  },
+  "taiwanLens>evt_tw_first_railway_1891": {
+   "臺灣鐵路": null,
+   "劉銘傳": "qingDynasty:fig_liu_mingchuan",
+   "騰雲號": null,
+   "獅球嶺隧道": null
+  },
+  "taiwanLens>evt_tw_lin_weiyuan_garden_1893": {
+   "板橋林家": null,
+   "林維源": "taiwanLens:fig_tw_lin_weiyuan",
+   "林家花園": null,
+   "臺灣實業": null
+  },
+  "taiwanLens>evt_tw_yiwei_war_1895": {
+   "乙未戰爭": null,
+   "臺灣民主國": null,
+   "八卦山戰役": null,
+   "保臺英烈": null
+  },
+  "taiwanLens>evt_tw_barclay_tainan_peace_1895": {
+   "巴克禮": "taiwanLens:fig_tw_barclay",
+   "和平交涉": null,
+   "臺南開城": null,
+   "仁愛大德": null
+  },
+  "taiwanLens>evt_tw_gotoshinpei_land_survey_1898": {
+   "後藤新平": "taiwanLens:fig_tw_goto_shinpei",
+   "土地調查": null,
+   "公衛現代化": null,
+   "專賣制度": null
+  },
+  "taiwanLens>evt_tw_beipu_1907": {
+   "北埔事件": null,
+   "蔡清琳": null,
+   "賽夏族": null
+  },
+  "taiwanLens>evt_tw_cross_island_railway_1908": {
+   "縱貫鐵路": null,
+   "南北貫通": null,
+   "臺中公園": null,
+   "鐵道工藝": null
+  },
+  "taiwanLens>evt_tw_luofuxing_miaoli_1913": {
+   "羅福星": "taiwanLens:fig_luo_fuxing",
+   "苗栗事件": null,
+   "同盟會": null,
+   "辛亥烈士": null
+  },
+  "taiwanLens>evt_tw_tapani_incident_1915": {
+   "噍吧哖事件": null,
+   "西來庵起義": null,
+   "余清芳": "republicModern:fig_yu_qingfang",
+   "玉井": null
+  },
+  "taiwanLens>evt_tw_parliament_petition_1921": {
+   "議會請願": null,
+   "林獻堂": "republicModern:fig_lin_xiantang",
+   "自治精神": null,
+   "非暴力爭取": null
+  },
+  "taiwanLens>evt_tw_cultural_golden_age": {
+   "臺灣文化協會": null,
+   "蔣渭水": "republicModern:fig_chiang_weishui",
+   "臨床講義": null,
+   "新文學": null
+  },
+  "taiwanLens>evt_tw_jikei_incident_1923": {
+   "治警事件": null,
+   "臺灣議會期成同盟會": null,
+   "蔣渭水": "republicModern:fig_chiang_weishui",
+   "蔡培火": "republicModern:fig_cai_peihuo"
+  },
+  "taiwanLens>evt_tw_tpp_1927": {
+   "臺灣民眾黨": null,
+   "蔣渭水": "republicModern:fig_chiang_weishui",
+   "政治運動": null
+  },
+  "taiwanLens>evt_tw_wushe_uprising": {
+   "莫那魯道": null,
+   "霧社事件": null,
+   "賽德克族": null,
+   "原民英烈": null
+  },
+  "taiwanLens>evt_tw_hata_yoichi_jianan_1930": {
+   "八田與一": "taiwanLens:fig_tw_hatta_yoichi",
+   "烏山頭水庫": null,
+   "嘉南大圳": null,
+   "綠色奇蹟": null
+  },
+  "taiwanLens>evt_tw_expo_1935": {
+   "臺灣博覽會": null,
+   "始政四十週年": null,
+   "新竹臺中地震": null
+  },
+  "taiwanLens>evt_tw_kominka_1937": {
+   "皇民化運動": null,
+   "小林躋造": null,
+   "戰時體制": null
+  },
+  "taiwanLens>evt_tw_taihoku_raid_1945": {
+   "臺北大空襲": null,
+   "第二次世界大戰": null,
+   "臺灣總督府": null
+  },
+  "taiwanLens>evt_tw_retrocession_1945": {
+   "臺灣光復": null,
+   "中山堂": null,
+   "終結殖民": null,
+   "光復節": null
+  },
+  "taiwanLens>evt_tw_228_peace_memorial_1947": {
+   "二二八紀念": null,
+   "人權和平": null,
+   "轉型省思": null,
+   "族群共榮": null
+  },
+  "taiwanLens>evt_tw_guningtou_1949": {
+   "古寧頭大捷": null,
+   "胡璉": "republicModern:fig_hu_lian",
+   "高魁元": "taiwanLens:fig_tw_gao_kuiyuan",
+   "金門之熊": null,
+   "保衛臺灣": null
+  },
+  "taiwanLens>evt_tw_npm_treasures_1949": {
+   "故宮國寶": null,
+   "文博傳承": null,
+   "毛公鼎": null,
+   "外雙溪": null
+  },
+  "taiwanLens>evt_tw_martial_law_1949": {
+   "戒嚴令": null,
+   "陳誠": "republicModern:fig_chen_cheng",
+   "警備總司令部": null
+  },
+  "taiwanLens>evt_tw_daerdan_victory_1950": {
+   "大二膽戰役": null,
+   "史恆豐": "taiwanLens:fig_tw_shi_hengfeng",
+   "島孤人不孤": null,
+   "大膽島": "taiwanLens:fig_tw_shi_hengfeng"
+  },
+  "taiwanLens>evt_tw_us_aid_yin_1950": {
+   "美援": null,
+   "尹仲容": "republicModern:fig_yin_zhongrong",
+   "外匯改革": null,
+   "經濟起飛": null
+  },
+  "taiwanLens>evt_tw_seventh_fleet_1950": {
+   "韓戰": null,
+   "第七艦隊": null,
+   "美援": null
+  },
+  "taiwanLens>evt_tw_land_reform_1953": {
+   "土地改革": null,
+   "耕者有其田": null,
+   "陳誠": "republicModern:fig_chen_cheng",
+   "經濟基礎": null
+  },
+  "taiwanLens>evt_tw_yijiangshan_treaty_1955": {
+   "一江山島": null,
+   "王生明": "taiwanLens:fig_tw_wang_shengming",
+   "中美防禦條約": null,
+   "大陳撤退": null
+  },
+  "taiwanLens>evt_tw_823_1958": {
+   "八二三砲戰": null,
+   "吉星文": "republicModern:fig_ji_xingwen",
+   "俞大維": "republicModern:fig_yu_dawei",
+   "海峽防線": null
+  },
+  "taiwanLens>evt_tw_lei_chen_case_1960": {
+   "雷震": "taiwanLens:fig_tw_lei_chen",
+   "自由中國": null,
+   "中國民主黨": null
+  },
+  "taiwanLens>evt_tw_shihmen_dam_1964": {
+   "石門水庫": null,
+   "水利建設": null,
+   "美援": null
+  },
+  "taiwanLens>evt_tw_kaohsiung_epz_1966": {
+   "加工出口區": null,
+   "出口導向": null,
+   "經濟發展": null
+  },
+  "taiwanLens>evt_tw_nine_year_education_1968": {
+   "九年國教": null,
+   "教育普及": null,
+   "人才培育": null,
+   "現代化基石": null
+  },
+  "taiwanLens>evt_tw_un_2758_1971": {
+   "聯合國": null,
+   "2758號決議": null,
+   "外交": null
+  },
+  "taiwanLens>evt_tw_ten_projects_1973": {
+   "十大建設": null,
+   "蔣經國": "republicModern:fig_chiang_chingkuo",
+   "孫運璿": "republicModern:fig_sun_yunsuan",
+   "亞洲四小龍": null
+  },
+  "taiwanLens>evt_tw_itri_rca_1976": {
+   "工研院": null,
+   "李國鼎": "republicModern:fig_li_guoding",
+   "孫運璿": "republicModern:fig_sun_yunsuan",
+   "RCA計畫": null,
+   "半導體起步": null
+  },
+  "taiwanLens>evt_tw_us_derecognition_1979": {
+   "中美斷交": null,
+   "臺灣關係法": null,
+   "中美共同防禦條約": null
+  },
+  "taiwanLens>evt_tw_formosa_incident_1979": {
+   "美麗島事件": null,
+   "黃信介": "taiwanLens:fig_tw_huang_hsin_chieh",
+   "黨外運動": null
+  },
+  "taiwanLens>evt_tw_hsinchu_tsmc_1980": {
+   "台積電": null,
+   "新竹科學園區": null,
+   "張忠謀": "republicModern:fig_zhang_zhongmou",
+   "李國鼎": "republicModern:fig_li_guoding",
+   "護國神山": null
+  },
+  "taiwanLens>evt_tw_end_martial_law_1987": {
+   "解除戒嚴": null,
+   "蔣經國": "republicModern:fig_chiang_chingkuo",
+   "開放探親": null,
+   "自由民主": null
+  },
+  "taiwanLens>evt_tw_wild_lily_1990": {
+   "野百合學運": null,
+   "李登輝": "republicModern:fig_li_denghui",
+   "廢除動員戡亂": null,
+   "萬年國會改選": null
+  },
+  "taiwanLens>evt_tw_nhi_health_1995": {
+   "全民健保": null,
+   "醫療福祉": null,
+   "全球模範": null,
+   "公共衛生": null
+  },
+  "taiwanLens>evt_tw_presidential_election_1996": {
+   "總統直選": null,
+   "李登輝": "republicModern:fig_li_denghui",
+   "寧靜革命": null,
+   "民主燈塔": null
+  },
+  "taiwanLens>evt_tw_921_quake_1999": {
+   "九二一大地震": null,
+   "車籠埔斷層": null,
+   "災後重建": null
+  },
+  "taiwanLens>evt_tw_taiwan_democracy_turnover": {
+   "政黨輪替": null,
+   "民主深化": null,
+   "和平過渡": null,
+   "憲政主義": null
+  },
+  "taiwanLens>evt_tw_thsr_bullet_train_2007": {
+   "臺灣高鐵": null,
+   "新幹線": null,
+   "一日生活圈": null,
+   "現代工程": null
+  },
+  "taiwanLens>evt_tw_silicon_island_ai_2024": {
+   "矽島巔峰": null,
+   "AI運算": null,
+   "台積電先進製程": null,
+   "全球護國神山": null
+  },
+  "japanAtlas>evt_jp_shotoku_constitution_604": {
+   "聖德太子": "japanAtlas:fig_jp_shotoku",
+   "十七條憲法": null,
+   "冠位十二階": null,
+   "法隆寺": null
+  },
+  "japanAtlas>evt_jp_taika_reforms_645": {
+   "大化革新": null,
+   "乙巳之變": null,
+   "班田收授": null,
+   "律令國家": null
+  },
+  "japanAtlas>evt_jp_taiho_code_701": {
+   "大寶律令": null,
+   "律令制": null,
+   "藤原京": null
+  },
+  "japanAtlas>evt_jp_heijo_kyo_710": {
+   "平城京": null,
+   "奈良時代": null,
+   "元明天皇": null
+  },
+  "japanAtlas>evt_jp_todaiji_daibutsu_752": {
+   "東大寺": null,
+   "大佛開眼": null,
+   "鎮護國家": null,
+   "天平文化": null
+  },
+  "japanAtlas>evt_jp_ganjin_arrival_754": {
+   "鑑真": "japanAtlas:fig_jp_ganjin",
+   "戒壇": null,
+   "唐招提寺": null,
+   "中日交流": null
+  },
+  "japanAtlas>evt_jp_heian_kyo_794": {
+   "平安京": null,
+   "桓武天皇": "japanAtlas:fig_jp_kanmu",
+   "國風文化": null,
+   "京都千年底蘊": null
+  },
+  "japanAtlas>evt_jp_kentoshi_halt_894": {
+   "遣唐使": null,
+   "菅原道真": "japanAtlas:fig_jp_sugawara_michizane",
+   "國風文化": null
+  },
+  "japanAtlas>evt_jp_masakado_rebellion_939": {
+   "平將門": "japanAtlas:fig_jp_taira_masakado",
+   "承平天慶之亂": null,
+   "關東武士": null
+  },
+  "japanAtlas>evt_jp_michinaga_regent_1016": {
+   "藤原道長": "japanAtlas:fig_jp_fujiwara_michinaga",
+   "攝關政治": null,
+   "藤原北家": null
+  },
+  "japanAtlas>evt_jp_insei_1086": {
+   "白河天皇": "japanAtlas:fig_jp_shirakawa",
+   "院政": null,
+   "上皇": null
+  },
+  "japanAtlas>evt_jp_hogen_1156": {
+   "保元之亂": null,
+   "平清盛": "japanAtlas:fig_jp_taira_kiyomori",
+   "源義朝": null,
+   "崇德上皇": null
+  },
+  "japanAtlas>evt_jp_heiji_1159": {
+   "平治之亂": null,
+   "平清盛": "japanAtlas:fig_jp_taira_kiyomori",
+   "源義朝": null,
+   "源賴朝": "japanAtlas:fig_jp_minamoto_yoritomo"
+  },
+  "japanAtlas>evt_jp_kiyomori_daijo_1167": {
+   "平清盛": "japanAtlas:fig_jp_taira_kiyomori",
+   "太政大臣": null,
+   "日宋貿易": null
+  },
+  "japanAtlas>evt_jp_dannoura_gempei_1185": {
+   "壇之浦": null,
+   "源義經": "japanAtlas:fig_jp_minamoto_yoshitsune",
+   "平家物語": null,
+   "武家掌權": null
+  },
+  "japanAtlas>evt_jp_kamakura_shogunate_1192": {
+   "源賴朝": "japanAtlas:fig_jp_minamoto_yoritomo",
+   "鎌倉幕府": null,
+   "征夷大將軍": null,
+   "守護地頭": null
+  },
+  "japanAtlas>evt_jp_goseibai_shikimoku_1232": {
+   "御成敗式目": null,
+   "北條泰時": "japanAtlas:fig_jp_hojo_yasutoki",
+   "武家法": null
+  },
+  "japanAtlas>evt_jp_mongol_invasions_1281": {
+   "元寇襲來": null,
+   "北條時宗": "japanAtlas:fig_jp_hojo_tokimune",
+   "神風": null,
+   "博多防壘": null
+  },
+  "japanAtlas>evt_jp_kamakura_fall_1333": {
+   "鎌倉幕府滅亡": null,
+   "新田義貞": "japanAtlas:fig_jp_nitta_yoshisada",
+   "足利尊氏": "japanAtlas:fig_jp_ashikaga_takauji",
+   "北條高時": null
+  },
+  "japanAtlas>evt_jp_kenmu_restoration_1334": {
+   "建武新政": null,
+   "後醍醐天皇": "japanAtlas:fig_jp_go_daigo",
+   "天皇親政": null
+  },
+  "japanAtlas>evt_jp_nanboku_split_1336": {
+   "南北朝": null,
+   "後醍醐天皇": "japanAtlas:fig_jp_go_daigo",
+   "足利尊氏": "japanAtlas:fig_jp_ashikaga_takauji",
+   "吉野": null
+  },
+  "japanAtlas>evt_jp_takauji_shogun_1338": {
+   "足利尊氏": "japanAtlas:fig_jp_ashikaga_takauji",
+   "室町幕府": null,
+   "征夷大將軍": null
+  },
+  "japanAtlas>evt_jp_nanboku_unification_1392": {
+   "南北朝合一": null,
+   "足利義滿": "japanAtlas:fig_jp_ashikaga_yoshimitsu",
+   "三種神器": null
+  },
+  "japanAtlas>evt_jp_ashikaga_kinkakuji_1397": {
+   "足利義滿": "japanAtlas:fig_jp_ashikaga_yoshimitsu",
+   "金閣寺": null,
+   "勘合貿易": null,
+   "北山文化": null
+  },
+  "japanAtlas>evt_jp_shocho_ikki_1428": {
+   "正長土一揆": null,
+   "德政": null,
+   "馬借": null
+  },
+  "japanAtlas>evt_jp_kakitsu_1441": {
+   "嘉吉之亂": null,
+   "赤松滿祐": null,
+   "足利義教": null
+  },
+  "japanAtlas>evt_jp_onin_war_1467": {
+   "應仁之亂": null,
+   "下剋上": null,
+   "室町衰頹": null,
+   "戰國揭幕": null
+  },
+  "japanAtlas>evt_jp_tanegashima_teppo_1543": {
+   "種子島": null,
+   "鐵砲傳來": null,
+   "軍事革命": null,
+   "火繩槍": null
+  },
+  "japanAtlas>evt_jp_xavier_christianity_1549": {
+   "沙勿略": null,
+   "天主教傳入": null,
+   "南蠻貿易": null,
+   "切支丹大名": "japanAtlas:fig_jp_otomo_sorin"
+  },
+  "japanAtlas>evt_jp_itsukushima_1555": {
+   "毛利元就": "japanAtlas:fig_jp_mori_motonari",
+   "嚴島之戰": null,
+   "三大夜戰": null,
+   "西國霸主": null
+  },
+  "japanAtlas>evt_jp_okehazama_1560": {
+   "桶狹間": null,
+   "織田信長": "japanAtlas:fig_jp_oda_nobunaga",
+   "今川義元": "japanAtlas:fig_jp_imagawa_yoshimoto",
+   "戰國奇蹟": null
+  },
+  "japanAtlas>evt_jp_kawanakajima_1561": {
+   "川中島": null,
+   "武田信玄": "japanAtlas:fig_jp_takeda_shingen",
+   "上杉謙信": "japanAtlas:fig_jp_uesugi_kenshin",
+   "龍虎對決": null
+  },
+  "japanAtlas>evt_jp_nobunaga_joraku_1568": {
+   "信長上洛": null,
+   "足利義昭": null,
+   "天下布武": null,
+   "京畿平定": null
+  },
+  "japanAtlas>evt_jp_ane_river_1570": {
+   "姊川合戰": null,
+   "德川突擊": null,
+   "淺井長政": "japanAtlas:fig_jp_azai_nagamasa",
+   "信長包圍網": null
+  },
+  "japanAtlas>evt_jp_hieizan_fire_1571": {
+   "火燒比叡山": null,
+   "延曆寺": null,
+   "第六天魔王": "japanAtlas:fig_jp_oda_nobunaga",
+   "摧毀僧兵特權": null
+  },
+  "japanAtlas>evt_jp_mikata_1573": {
+   "三方原合戰": null,
+   "武田信玄": "japanAtlas:fig_jp_takeda_shingen",
+   "德川家康": "japanAtlas:fig_jp_tokugawa_ieyasu",
+   "顰像自省": null
+  },
+  "japanAtlas>evt_jp_nagashino_1575": {
+   "長篠之戰": null,
+   "三段射擊": null,
+   "防馬柵": null,
+   "近代火器革命": null
+  },
+  "japanAtlas>evt_jp_tedorigawa_1577": {
+   "手取川之戰": null,
+   "上杉謙信": "japanAtlas:fig_jp_uesugi_kenshin",
+   "柴田勝家": "japanAtlas:fig_jp_shibata_katsuie",
+   "軍神威名": null
+  },
+  "japanAtlas>evt_jp_azuchi_castle_1579": {
+   "安土城": null,
+   "天下布武": null,
+   "樂市樂座": null,
+   "兵農分離": null
+  },
+  "japanAtlas>evt_jp_honnoji_incident_1582": {
+   "本能寺之變": null,
+   "織田信長": "japanAtlas:fig_jp_oda_nobunaga",
+   "明智光秀": "japanAtlas:fig_jp_akechi_mitsuhide",
+   "歷史轉折": null
+  },
+  "japanAtlas>evt_jp_yamazaki_1582": {
+   "山崎合戰": null,
+   "中國大返還": null,
+   "豐臣秀吉": "japanAtlas:fig_jp_toyotomi_hideyoshi",
+   "天王山": null
+  },
+  "japanAtlas>evt_jp_takamatsu_1582": {
+   "備中水攻": null,
+   "清水宗治": null,
+   "中國大返還": null,
+   "黑田官兵衛": "japanAtlas:fig_jp_kuroda_kanbei"
+  },
+  "japanAtlas>evt_jp_osaka_castle_1583": {
+   "大坂城": null,
+   "豐臣秀吉": "japanAtlas:fig_jp_toyotomi_hideyoshi",
+   "天下人": "japanAtlas:fig_jp_miyoshi_nagayoshi",
+   "巨石要塞": null
+  },
+  "japanAtlas>evt_jp_shizugatake_1583": {
+   "賤岳之戰": null,
+   "賤岳七本槍": "japanAtlas:fig_jp_fukushima_masanori",
+   "柴田勝家": "japanAtlas:fig_jp_shibata_katsuie",
+   "豐臣統一樞紐": null
+  },
+  "japanAtlas>evt_jp_komaki_nagakute_1584": {
+   "小牧長久手": null,
+   "秀吉家康對決": null,
+   "本多忠勝游擊": null,
+   "戰略轉化": null
+  },
+  "japanAtlas>evt_jp_so_mubuji_1585": {
+   "豐臣關白": null,
+   "惣無事令": null,
+   "天下和平法": null,
+   "聚樂第": null
+  },
+  "japanAtlas>evt_jp_taiko_kenchi_1588": {
+   "太閤檢地": null,
+   "刀狩令": null,
+   "兵農分離": null,
+   "石高制": null
+  },
+  "japanAtlas>evt_jp_odawara_siege_1590": {
+   "小田原征伐": null,
+   "天下統一": null,
+   "北條滅亡": null,
+   "一夜城": null
+  },
+  "japanAtlas>evt_jp_bunroku_korea_1592": {
+   "文祿慶長之役": null,
+   "萬曆抗倭援朝": null,
+   "李舜臣龜甲船": null,
+   "名護屋城": null
+  },
+  "japanAtlas>evt_jp_sekigahara_1600": {
+   "關原之戰": null,
+   "天下分水嶺": null,
+   "德川家康": "japanAtlas:fig_jp_tokugawa_ieyasu",
+   "石田三成": "japanAtlas:fig_jp_ishida_mitsunari"
+  },
+  "japanAtlas>evt_jp_ueda_castle_1600": {
+   "第二次上田城": null,
+   "真田昌幸": "japanAtlas:fig_jp_sanada_masayuki",
+   "德川秀忠延誤": null,
+   "以弱抗強": null
+  },
+  "japanAtlas>evt_jp_edo_bakufu_1603": {
+   "江戶幕府": null,
+   "德川家康": "japanAtlas:fig_jp_tokugawa_ieyasu",
+   "天下普請": null,
+   "征夷大將軍": null
+  },
+  "japanAtlas>evt_jp_satsuma_ryukyu_1609": {
+   "琉球侵攻": null,
+   "島津氏": null,
+   "尚寧": null,
+   "德川家康": "japanAtlas:fig_jp_tokugawa_ieyasu"
+  },
+  "japanAtlas>evt_jp_kiyu_treaty_1609": {
+   "己酉約條": null,
+   "朝鮮通信使": null,
+   "對馬藩": null
+  },
+  "japanAtlas>evt_jp_keicho_embassy_1613": {
+   "慶長遣歐使節": null,
+   "支倉常長": "japanAtlas:fig_jp_hasekura_tsunenaga",
+   "伊達政宗": "japanAtlas:fig_jp_date_masamune"
+  },
+  "japanAtlas>evt_jp_osaka_fuyu_1614": {
+   "大坂冬之陣": null,
+   "真田丸": null,
+   "方廣寺鐘銘": null,
+   "真田幸村": "japanAtlas:fig_jp_sanada_yukimura"
+  },
+  "japanAtlas>evt_jp_christian_ban_1614": {
+   "禁教令": null,
+   "伴天連追放之文": null,
+   "高山右近": null,
+   "德川秀忠": "japanAtlas:fig_jp_tokugawa_hidetada"
+  },
+  "japanAtlas>evt_jp_osaka_siege_1615": {
+   "大坂夏之陣": null,
+   "真田幸村": "japanAtlas:fig_jp_sanada_yukimura",
+   "元和偃武": null,
+   "豐臣滅亡": null
+  },
+  "japanAtlas>evt_jp_buke_shohatto_1615": {
+   "武家諸法度": null,
+   "參勤交代": null,
+   "幕藩體制": null,
+   "一國一城": null
+  },
+  "japanAtlas>evt_jp_kinchu_kuge_1615": {
+   "禁中並公家諸法度": null,
+   "元和偃武": null,
+   "幕府統治法制": null,
+   "朝廷權限限縮": null
+  },
+  "japanAtlas>evt_jp_sankin_kotai_1635": {
+   "參勤交代": null,
+   "德川家光": "japanAtlas:fig_jp_tokugawa_iemitsu",
+   "幕藩體制": null,
+   "五街道繁榮": null
+  },
+  "japanAtlas>evt_jp_sakoku_orders_1639": {
+   "島原之亂": null,
+   "鎖國令": null,
+   "長崎出島": null,
+   "天草四郎": "japanAtlas:fig_jp_amakusa_shiro"
+  },
+  "japanAtlas>evt_jp_dejima_dutch_1641": {
+   "出島": null,
+   "荷蘭商館": null,
+   "鎖國": null,
+   "荷蘭風說書": null
+  },
+  "japanAtlas>evt_jp_keian_incident_1651": {
+   "慶安事件": null,
+   "由井正雪": "japanAtlas:fig_jp_yui_shosetsu",
+   "保科正之": "japanAtlas:fig_jp_hoshina_masayuki",
+   "文治政治": null
+  },
+  "japanAtlas>evt_jp_meireki_fire_1657": {
+   "明曆大火": null,
+   "振袖火災": null,
+   "江戶都市改造": null,
+   "保科正之": "japanAtlas:fig_jp_hoshina_masayuki"
+  },
+  "japanAtlas>evt_jp_genroku_recoinage_1695": {
+   "元祿改鑄": null,
+   "荻原重秀": null,
+   "德川綱吉": "japanAtlas:fig_jp_tokugawa_tsunayoshi",
+   "元祿文化": null
+  },
+  "japanAtlas>evt_jp_ako_incident_1702": {
+   "忠臣藏": null,
+   "大石內藏助": "japanAtlas:fig_jp_oishi_kuranosuke",
+   "赤穗四十七士": null,
+   "武士道": null
+  },
+  "japanAtlas>evt_jp_hoei_eruption_1707": {
+   "寶永地震": null,
+   "富士山": null,
+   "寶永大噴發": null
+  },
+  "japanAtlas>evt_jp_shotoku_rule_1709": {
+   "正德之治": null,
+   "新井白石": "japanAtlas:fig_jp_arai_hakuseki",
+   "海舶互市新例": null
+  },
+  "japanAtlas>evt_jp_kyoho_reforms_1716": {
+   "德川吉宗": "japanAtlas:fig_jp_tokugawa_yoshimune",
+   "享保改革": null,
+   "開放洋書": null,
+   "小石川養生所": null
+  },
+  "japanAtlas>evt_jp_kyoho_famine_1732": {
+   "享保大飢荒": null,
+   "打毀": null,
+   "德川吉宗": "japanAtlas:fig_jp_tokugawa_yoshimune"
+  },
+  "japanAtlas>evt_jp_kujikata_osadamegaki_1742": {
+   "公事方御定書": null,
+   "德川吉宗": "japanAtlas:fig_jp_tokugawa_yoshimune",
+   "大岡忠相": "japanAtlas:fig_jp_ooka_tadasuke",
+   "享保改革": null
+  },
+  "japanAtlas>evt_jp_tanuma_era_1772": {
+   "田沼意次": "japanAtlas:fig_jp_tanuma_okitsugu",
+   "株仲間": null,
+   "田沼時代": null
+  },
+  "japanAtlas>evt_jp_kaitai_shinsho_1774": {
+   "解體新書": null,
+   "杉田玄白": "japanAtlas:fig_jp_sugita_gempaku",
+   "前野良澤": null,
+   "蘭學誕生": null
+  },
+  "japanAtlas>evt_jp_asama_tenmei_1783": {
+   "淺間山": null,
+   "天明大飢荒": null,
+   "打毀": null
+  },
+  "japanAtlas>evt_jp_kansei_reforms_1787": {
+   "寬政改革": "japanAtlas:fig_jp_matsudaira_sadanobu",
+   "松平定信": "japanAtlas:fig_jp_matsudaira_sadanobu",
+   "寬政異學之禁": null,
+   "棄捐令": null
+  },
+  "japanAtlas>evt_jp_laxman_1792": {
+   "拉克斯曼": null,
+   "大黑屋光太夫": null,
+   "根室": null,
+   "北方防備": null
+  },
+  "japanAtlas>evt_jp_kojikiden_1798": {
+   "古事記傳": null,
+   "本居宣長": "japanAtlas:fig_jp_motoori_norinaga",
+   "國學": "japanAtlas:fig_jp_motoori_norinaga"
+  },
+  "japanAtlas>evt_jp_ino_survey_1800": {
+   "伊能忠敬": "japanAtlas:fig_jp_ino_tadataka",
+   "大日本沿海輿地全圖": null,
+   "測量": null
+  },
+  "japanAtlas>evt_jp_rezanov_1804": {
+   "雷沙諾夫": null,
+   "文化露寇": null,
+   "北方防備": null
+  },
+  "japanAtlas>evt_jp_phaeton_1808": {
+   "費頓號事件": null,
+   "長崎": null,
+   "松平康英": null
+  },
+  "japanAtlas>evt_jp_gaikokusen_uchiharai_1825": {
+   "異國船打拂令": null,
+   "海防": null,
+   "鎖國": null
+  },
+  "japanAtlas>evt_jp_siebold_incident_1828": {
+   "西博爾德": "japanAtlas:fig_jp_siebold",
+   "高橋景保": null,
+   "伊能忠敬": "japanAtlas:fig_jp_ino_tadataka",
+   "鳴瀧塾": null
+  },
+  "japanAtlas>evt_jp_oshio_rebellion_1837": {
+   "大鹽平八郎之亂": null,
+   "大鹽平八郎": "japanAtlas:fig_jp_oshio_heihachiro",
+   "天保大飢荒": null,
+   "陽明學": null
+  },
+  "japanAtlas>evt_jp_bansha_no_goku_1839": {
+   "莫里森號事件": null,
+   "蠻社之獄": null,
+   "渡邊崋山": "japanAtlas:fig_jp_watanabe_kazan",
+   "高野長英": "japanAtlas:fig_jp_takano_choei"
+  },
+  "japanAtlas>evt_jp_tenpo_reforms_1841": {
+   "天保改革": null,
+   "水野忠邦": "japanAtlas:fig_jp_mizuno_tadakuni",
+   "薪水給與令": null,
+   "上知令": null
+  },
+  "japanAtlas>evt_jp_perry_black_ships_1853": {
+   "黑船來航": null,
+   "培里": null,
+   "開國條約": null,
+   "幕末序幕": null
+  },
+  "japanAtlas>evt_jp_ansei_treaties_1858": {
+   "安政五國條約": null,
+   "井伊直弼": "japanAtlas:fig_jp_ii_naosuke",
+   "安政大獄": null,
+   "吉田松陰殉節": null
+  },
+  "japanAtlas>evt_jp_sakuradamon_1860": {
+   "櫻田門外之變": null,
+   "井伊直弼": "japanAtlas:fig_jp_ii_naosuke",
+   "安政大獄": null,
+   "幕府崩解": null
+  },
+  "japanAtlas>evt_jp_namamugi_satsuei_1862": {
+   "生麥事件": null,
+   "薩英戰爭": null,
+   "島津久光": null,
+   "近代化覺醒": null
+  },
+  "japanAtlas>evt_jp_ikeda_ya_1864": {
+   "池田屋事件": null,
+   "新選組": "japanAtlas:fig_jp_saito_hajime",
+   "近藤勇": "japanAtlas:fig_jp_kondo_isami",
+   "土方歲三": "japanAtlas:fig_jp_hijikata_toshizo"
+  },
+  "japanAtlas>evt_jp_kinmon_rebellion_1864": {
+   "禁門之變": null,
+   "蛤御門": null,
+   "久坂玄瑞": null,
+   "第一次長州征伐": null
+  },
+  "japanAtlas>evt_jp_satsuma_choshu_alliance_1866": {
+   "薩長同盟": null,
+   "坂本龍馬": "japanAtlas:fig_jp_sakamoto_ryoma",
+   "西鄉隆盛": "japanAtlas:fig_jp_saigo_takamori",
+   "木戶孝允": "japanAtlas:fig_jp_kido_takayoshi"
+  },
+  "japanAtlas>evt_jp_senchu_hassaku_1866": {
+   "船中八策": "japanAtlas:fig_jp_sakamoto_ryoma",
+   "坂本龍馬": "japanAtlas:fig_jp_sakamoto_ryoma",
+   "海援隊": "japanAtlas:fig_jp_sakamoto_ryoma",
+   "近代國家總藍圖": null
+  },
+  "japanAtlas>evt_jp_taisei_hokan_1867": {
+   "大政奉還": null,
+   "德川慶喜": "japanAtlas:fig_jp_tokugawa_yoshinobu",
+   "二條城": null,
+   "王政復古": null
+  },
+  "japanAtlas>evt_jp_boshin_war_1868": {
+   "戊辰戰爭": null,
+   "無血開城": null,
+   "西鄉隆盛": "japanAtlas:fig_jp_saigo_takamori",
+   "勝海舟": "japanAtlas:fig_jp_katsu_kaishu"
+  },
+  "japanAtlas>evt_jp_toba_fushimi_1868": {
+   "鳥羽伏見之戰": null,
+   "菊花錦旗": null,
+   "戊辰戰爭開端": null,
+   "官軍大捷": null
+  },
+  "japanAtlas>evt_jp_aizu_war_1868": {
+   "會津戰爭": null,
+   "鶴之城": null,
+   "白虎隊": null,
+   "松平容保": "japanAtlas:fig_jp_matsudaira_katamori"
+  },
+  "japanAtlas>evt_jp_charter_oath_1868": {
+   "五條御誓文": null,
+   "明治天皇": "japanAtlas:fig_jp_meiji_emperor",
+   "文明開化": null,
+   "近代改革": null
+  },
+  "japanAtlas>evt_jp_tokyo_capital_1868": {
+   "奠都東京": null,
+   "改元明治": null,
+   "明治天皇": "japanAtlas:fig_jp_meiji_emperor",
+   "近代新首都": null
+  },
+  "japanAtlas>evt_jp_goryokaku_end_1869": {
+   "五稜郭終戰": null,
+   "土方歲三戰歿": null,
+   "榎本武揚": "japanAtlas:fig_jp_enomoto_takeaki",
+   "戊辰戰爭終結": null
+  },
+  "japanAtlas>evt_jp_haihan_chiken_1871": {
+   "廢藩置縣": null,
+   "大久保利通": "japanAtlas:fig_jp_okubo_toshimichi",
+   "中央集權": null,
+   "現代府縣": null
+  },
+  "japanAtlas>evt_jp_iwakura_mission_1871": {
+   "岩倉使節團": null,
+   "歐美考察": null,
+   "條約改定": null,
+   "富國強兵方針": null
+  },
+  "japanAtlas>evt_jp_first_railway_1872": {
+   "日本第一條鐵路": null,
+   "文明開化": null,
+   "學制頒布": null,
+   "國民教育": null
+  },
+  "japanAtlas>evt_jp_conscription_land_tax_1873": {
+   "徵兵令": null,
+   "地租改正": null,
+   "國民皆兵": null,
+   "山縣有朋": "japanAtlas:fig_jp_yamagata_aritomo"
+  },
+  "japanAtlas>evt_jp_jiyu_minken_1874": {
+   "自由民權運動": null,
+   "民選議院建白書": null,
+   "板垣退助": "japanAtlas:fig_jp_itagaki_taisuke",
+   "立志社": null
+  },
+  "japanAtlas>evt_jp_seinan_war_1877": {
+   "西南戰爭": null,
+   "西鄉隆盛": "japanAtlas:fig_jp_saigo_takamori",
+   "最後武士": null,
+   "城山自刃": null
+  },
+  "japanAtlas>evt_jp_ryukyu_disposition_1879": {
+   "琉球處分": null,
+   "沖繩縣": null,
+   "尚泰": null,
+   "廢藩置縣": null
+  },
+  "japanAtlas>evt_jp_meiji_constitution_1889": {
+   "大日本帝國憲法": null,
+   "伊藤博文": "japanAtlas:fig_jp_ito_hirobumi",
+   "亞洲首部憲法": null,
+   "立憲君主": null
+  },
+  "japanAtlas>evt_jp_first_diet_1890": {
+   "帝國議會開院": null,
+   "亞洲首個立憲國會": null,
+   "民黨抗爭": null,
+   "議會民主": null
+  },
+  "japanAtlas>evt_jp_rescript_education_1890": {
+   "教育敕語": null,
+   "明治天皇": "japanAtlas:fig_jp_meiji_emperor",
+   "修身教育": null
+  },
+  "japanAtlas>evt_jp_first_sino_japanese_1894": {
+   "甲午戰爭": null,
+   "馬關條約": null,
+   "黃海海戰": null,
+   "伊藤博文與李鴻章": null
+  },
+  "japanAtlas>evt_jp_anglo_japanese_alliance_1902": {
+   "日英同盟": null,
+   "林董": null,
+   "日俄戰爭": null
+  },
+  "japanAtlas>evt_jp_russo_japanese_war_1904": {
+   "日俄戰爭": null,
+   "旅順攻圍戰": null,
+   "奉天會戰": null,
+   "東鄉平八郎": "japanAtlas:fig_jp_togo_heihachiro"
+  },
+  "japanAtlas>evt_jp_tsushima_naval_1905": {
+   "對馬海峽海戰": null,
+   "東鄉平八郎": "japanAtlas:fig_jp_togo_heihachiro",
+   "三笠號": null,
+   "躋身列強": null
+  },
+  "japanAtlas>evt_jp_portsmouth_hibiya_1905": {
+   "樸資茅斯條約": null,
+   "小村壽太郎": null,
+   "日比谷燒打事件": null,
+   "日俄戰爭": null
+  },
+  "japanAtlas>evt_jp_korea_annexation_1910": {
+   "韓國併合": null,
+   "伊藤博文": "japanAtlas:fig_jp_ito_hirobumi",
+   "寺內正毅": null,
+   "朝鮮總督府": null
+  },
+  "japanAtlas>evt_jp_tariff_autonomy_1911": {
+   "條約改正": "japanAtlas:fig_jp_mutsu_munemitsu",
+   "小村壽太郎": null,
+   "陸奧宗光": "japanAtlas:fig_jp_mutsu_munemitsu",
+   "關稅自主權": null
+  },
+  "japanAtlas>evt_jp_taisho_begins_1912": {
+   "明治天皇": "japanAtlas:fig_jp_meiji_emperor",
+   "大正天皇": "japanAtlas:fig_jp_taisho_emperor",
+   "乃木希典": "japanAtlas:fig_jp_nogi_maresuke",
+   "桂太郎": "japanAtlas:fig_jp_katsura_taro"
+  },
+  "japanAtlas>evt_jp_wwi_entry_1914": {
+   "第一次世界大戰": null,
+   "大隈重信": "japanAtlas:fig_jp_okuma_shigenobu",
+   "日英同盟": null,
+   "青島": null
+  },
+  "japanAtlas>evt_jp_twenty_one_demands_1915": {
+   "二十一條要求": null,
+   "大隈重信": "japanAtlas:fig_jp_okuma_shigenobu",
+   "袁世凱": "qingDynasty:fig_yuan_shikai"
+  },
+  "japanAtlas>evt_jp_rice_riots_hara_1918": {
+   "米騷動": null,
+   "原敬": "japanAtlas:fig_jp_hara_takashi",
+   "政黨內閣": null,
+   "大正民主": null
+  },
+  "japanAtlas>evt_jp_great_kanto_earthquake_1923": {
+   "關東大地震": null,
+   "帝都復興": null,
+   "甘粕事件": null
+  },
+  "japanAtlas>evt_jp_universal_suffrage_1925": {
+   "普通選舉": null,
+   "治安維持法": null,
+   "加藤高明": null,
+   "大正民主": null
+  },
+  "japanAtlas>evt_jp_showa_begins_1926": {
+   "大正天皇": "japanAtlas:fig_jp_taisho_emperor",
+   "昭和天皇": "japanAtlas:fig_jp_showa_emperor",
+   "昭和金融恐慌": null
+  },
+  "japanAtlas>evt_jp_mukden_incident_1931": {
+   "九一八事變": null,
+   "石原莞爾": "japanAtlas:fig_jp_ishiwara_kanji",
+   "關東軍": null,
+   "滿洲國": null
+  },
+  "japanAtlas>evt_jp_manchukuo_515_1932": {
+   "五一五事件": null,
+   "犬養毅": "japanAtlas:fig_jp_inukai_tsuyoshi",
+   "滿洲國": null,
+   "溥儀": null
+  },
+  "japanAtlas>evt_jp_league_withdrawal_1933": {
+   "國際聯盟": null,
+   "松岡洋右": null,
+   "李頓調查團": null,
+   "滿洲國": null
+  },
+  "japanAtlas>evt_jp_february_26_incident_1936": {
+   "二二六事件": null,
+   "高橋是清": "japanAtlas:fig_jp_takahashi_korekiyo",
+   "昭和天皇": "japanAtlas:fig_jp_showa_emperor",
+   "皇道派": null
+  },
+  "japanAtlas>evt_jp_second_sino_japanese_war_1937": {
+   "盧溝橋事變": null,
+   "近衛文麿": "japanAtlas:fig_jp_konoe_fumimaro",
+   "南京大屠殺": null,
+   "中日戰爭": null
+  },
+  "japanAtlas>evt_jp_national_mobilization_1938": {
+   "國家總動員法": null,
+   "近衛文麿": "japanAtlas:fig_jp_konoe_fumimaro",
+   "大政翼贊會": null
+  },
+  "japanAtlas>evt_jp_tripartite_pact_1940": {
+   "三國同盟": null,
+   "近衛文麿": "japanAtlas:fig_jp_konoe_fumimaro",
+   "松岡洋右": null
+  },
+  "japanAtlas>evt_jp_pacific_war_1941": {
+   "太平洋戰爭": null,
+   "珍珠港": null,
+   "東條英機": "japanAtlas:fig_jp_tojo_hideki",
+   "山本五十六": "japanAtlas:fig_jp_yamamoto_isoroku"
+  },
+  "japanAtlas>evt_jp_fall_of_singapore_1942": {
+   "新加坡": null,
+   "山下奉文": null,
+   "太平洋戰爭": null,
+   "中途島": null
+  },
+  "japanAtlas>evt_jp_saipan_tojo_resigns_1944": {
+   "塞班島": null,
+   "東條英機": "japanAtlas:fig_jp_tojo_hideki",
+   "馬里亞納海戰": null
+  },
+  "japanAtlas>evt_jp_first_kamikaze_1944": {
+   "神風特攻": null,
+   "雷伊泰灣海戰": null,
+   "大西瀧治郎": null
+  },
+  "japanAtlas>evt_jp_tokyo_air_raid_1945": {
+   "東京大轟炸": null,
+   "B-29": null,
+   "太平洋戰爭": null
+  },
+  "japanAtlas>evt_jp_hiroshima_1945": {
+   "廣島原子彈": null,
+   "原爆圓頂館": null,
+   "太平洋戰爭": null
+  },
+  "japanAtlas>evt_jp_nagasaki_soviet_1945": {
+   "長崎原子彈": null,
+   "蘇聯對日宣戰": null,
+   "昭和天皇": "japanAtlas:fig_jp_showa_emperor",
+   "波茨坦宣言": null
+  },
+  "japanAtlas>evt_jp_gyokuon_broadcast_1945": {
+   "玉音放送": null,
+   "終戰詔書": null,
+   "昭和天皇": "japanAtlas:fig_jp_showa_emperor",
+   "波茨坦宣言": null
+  },
+  "japanAtlas>evt_jp_surrender_missouri_1945": {
+   "降伏文書": null,
+   "密蘇里號": null,
+   "麥克阿瑟": null,
+   "重光葵": null
+  },
+  "japanAtlas>evt_jp_allied_occupation_1945": {
+   "GHQ": null,
+   "麥克阿瑟": null,
+   "農地改革": null,
+   "財閥解體": null
+  },
+  "japanAtlas>evt_jp_tokyo_trial_1946": {
+   "東京審判": null,
+   "東條英機": "japanAtlas:fig_jp_tojo_hideki",
+   "甲級戰犯": null
+  },
+  "japanAtlas>evt_jp_constitution_1946": {
+   "日本國憲法": null,
+   "第九條": null,
+   "昭和天皇": "japanAtlas:fig_jp_showa_emperor",
+   "吉田茂": "japanAtlas:fig_jp_yoshida_shigeru"
+  },
+  "japanAtlas>evt_jp_san_francisco_1951": {
+   "舊金山和約": null,
+   "日美安保條約": null,
+   "吉田茂": "japanAtlas:fig_jp_yoshida_shigeru"
+  },
+  "japanAtlas>evt_jp_un_membership_1956": {
+   "日蘇共同宣言": null,
+   "鳩山一郎": "japanAtlas:fig_jp_hatoyama_ichiro",
+   "聯合國": null,
+   "五五年體制": null
+  },
+  "japanAtlas>evt_jp_anpo_protests_1960": {
+   "安保鬥爭": null,
+   "岸信介": "japanAtlas:fig_jp_kishi_nobusuke",
+   "池田勇人": "japanAtlas:fig_jp_ikeda_hayato",
+   "所得倍增計畫": null
+  },
+  "japanAtlas>evt_jp_tokyo_olympics_1964": {
+   "東京奧運": null,
+   "新幹線": null,
+   "高度經濟成長": null,
+   "池田勇人": "japanAtlas:fig_jp_ikeda_hayato"
+  },
+  "japanAtlas>evt_jp_expo70_1970": {
+   "大阪萬博": null,
+   "太陽之塔": null,
+   "高度經濟成長": null
+  },
+  "japanAtlas>evt_jp_okinawa_reversion_1972": {
+   "沖繩返還": null,
+   "佐藤榮作": "japanAtlas:fig_jp_sato_eisaku",
+   "田中角榮": "japanAtlas:fig_jp_tanaka_kakuei",
+   "中日聯合聲明": null
+  },
+  "japanAtlas>evt_jp_oil_shock_1973": {
+   "石油危機": null,
+   "田中角榮": "japanAtlas:fig_jp_tanaka_kakuei",
+   "狂亂物價": null
+  },
+  "japanAtlas>evt_jp_china_peace_treaty_1978": {
+   "中日和平友好條約": null,
+   "福田赳夫": null,
+   "鄧小平": null
+  },
+  "japanAtlas>evt_jp_plaza_accord_1985": {
+   "廣場協議": null,
+   "日圓升值": null,
+   "泡沫經濟": null
+  },
+  "japanAtlas>evt_jp_showa_ends_1989": {
+   "昭和天皇": "japanAtlas:fig_jp_showa_emperor",
+   "平成": null,
+   "改元": null
+  }
+ }
+}

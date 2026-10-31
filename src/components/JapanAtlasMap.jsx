@@ -9,20 +9,14 @@ import {
   Maximize2,
   Minimize2
 } from './Icons.js';
-import {
-  JAPAN_ERAS,
-  JAPAN_ERA_BATTLE_IDS,
-  JAPAN_PREFECTURE_PATHS,
-  JAPAN_WARLORD_PERIOD_CONFIGS,
-  projectLngLatToJapanMap
-} from '../data/japan/index.js';
+import { JAPAN_PREFECTURE_PATHS, projectLngLatToJapanMap } from '../data/japan/japanPrefecturesGeoData.js';
 
 // The warlord snapshots cover 1560-1877. The eras before and after them get a
 // plain prefecture map instead of borrowing a snapshot's faction colours.
 const ANCIENT_ERA_ID = 'jp_ancient_medieval';
 const MODERN_PLAIN_ERA_IDS = ['jp_taisho_prewar', 'jp_showa_postwar'];
-const plainPreset = (eraId) => {
-  const era = JAPAN_ERAS.find((e) => e.id === eraId);
+const plainPreset = (eras, eraId) => {
+  const era = eras.find((e) => e.id === eraId);
   return {
     id: `jp_era_${eraId.replace(/^jp_/, '')}`,
     eraId,
@@ -33,22 +27,23 @@ const plainPreset = (eraId) => {
     subTitle: era.tagline,
   };
 };
-const ANCIENT_PRESET = plainPreset(ANCIENT_ERA_ID);
-const MODERN_PLAIN_PRESETS = MODERN_PLAIN_ERA_IDS
-  .filter((id) => JAPAN_ERAS.some((e) => e.id === id))
-  .map(plainPreset);
-const PLAIN_PRESET_BY_ERA = Object.fromEntries(
-  [ANCIENT_PRESET, ...MODERN_PLAIN_PRESETS].map((p) => [p.eraId, p])
-);
+const plainPresets = (eras) => {
+  const ancient = eras.some((e) => e.id === ANCIENT_ERA_ID) ? plainPreset(eras, ANCIENT_ERA_ID) : null;
+  const modern = MODERN_PLAIN_ERA_IDS
+    .filter((id) => eras.some((e) => e.id === id))
+    .map((id) => plainPreset(eras, id));
+  const byEra = Object.fromEntries([ancient, ...modern].filter(Boolean).map((p) => [p.eraId, p]));
+  return { ancient, modern, byEra };
+};
 
 // The Edo era spans 1603-1853 but has only the 1615 snapshot; by year alone,
 // events after 1741 would land on the 1868 bakumatsu factions.
 const ERA_FIXED_SNAPSHOT = { jp_edo: 'jp_year_1615' };
 
-const nearestPreset = (year, eraId) => {
-  const fixed = JAPAN_WARLORD_PERIOD_CONFIGS.find((p) => p.id === ERA_FIXED_SNAPSHOT[eraId]);
+const nearestPreset = (configs, year, eraId) => {
+  const fixed = configs.find((p) => p.id === ERA_FIXED_SNAPSHOT[eraId]);
   if (fixed) return fixed;
-  return JAPAN_WARLORD_PERIOD_CONFIGS.reduce((best, p) =>
+  return configs.reduce((best, p) =>
     Math.abs(p.yearNumber - year) < Math.abs(best.yearNumber - year) ? p : best
   );
 };
@@ -59,6 +54,9 @@ const markerPoint = (item) =>
 export const JapanAtlasMap = ({
   activeJapanEraId = 'jp_sengoku',
   onSelectJapanEraId,
+  eras = [],
+  eraBattleIds: eraBattleIdsByEra = {},
+  warlordPeriods = [],
   events = [],
   allEvents = [],
   battles = [],
@@ -71,12 +69,13 @@ export const JapanAtlasMap = ({
   isCinemaMode = false,
   onToggleCinemaMode,
 }) => {
-  const configsToUse = JAPAN_WARLORD_PERIOD_CONFIGS;
+  const configsToUse = warlordPeriods;
+  const { ancient: ANCIENT_PRESET, modern: MODERN_PLAIN_PRESETS, byEra: PLAIN_PRESET_BY_ERA } = React.useMemo(() => plainPresets(eras), [eras]);
 
   // Derive initial preset from selectedEvent or activeJapanEraId
   const getInitialPreset = () => {
     if (PLAIN_PRESET_BY_ERA[activeJapanEraId]) return PLAIN_PRESET_BY_ERA[activeJapanEraId];
-    if (selectedEvent && selectedEvent.year) return nearestPreset(selectedEvent.year, selectedEvent.eraId);
+    if (selectedEvent && selectedEvent.year) return nearestPreset(configsToUse, selectedEvent.year, selectedEvent.eraId);
     if (activeJapanEraId === 'jp_sengoku') return configsToUse[0]; // 1560
     if (activeJapanEraId === 'jp_azuchi_momoyama') return configsToUse[3]; // 1600
     if (activeJapanEraId === 'jp_edo') return configsToUse[4]; // 1615
@@ -104,7 +103,7 @@ export const JapanAtlasMap = ({
       return;
     }
     if (!selectedEvent || !selectedEvent.year) return;
-    setActivePreset(nearestPreset(selectedEvent.year, selectedEvent.eraId));
+    setActivePreset(nearestPreset(configsToUse, selectedEvent.year, selectedEvent.eraId));
   }, [activeJapanEraId, selectedEvent?.id, selectedEvent?.year]);
 
   // Smooth scroll active period button into center
@@ -185,11 +184,11 @@ export const JapanAtlasMap = ({
   // Timeline events and data battles of the active era, drawn on top of the period snapshot.
   const eraEvents = events.filter((e) => (e.eraId === activeJapanEraId || selectedEvent?.id === e.id) && markerPoint(e));
   const presetBattleIds = new Set((activePreset.battles || []).map((b) => b.battleId).filter(Boolean));
-  const eraBattleIds = JAPAN_ERA_BATTLE_IDS[activeJapanEraId] || [];
+  const eraBattleIds = eraBattleIdsByEra[activeJapanEraId] || [];
   const eraBattles = battles.filter(
     (b) => (eraBattleIds.includes(b.id) || selectedBattle?.id === b.id) && !presetBattleIds.has(b.id) && markerPoint(b)
   );
-  const presetTabs = [ANCIENT_PRESET, ...configsToUse, ...MODERN_PLAIN_PRESETS];
+  const presetTabs = [ANCIENT_PRESET, ...configsToUse, ...MODERN_PLAIN_PRESETS].filter(Boolean);
 
   return (
     <div className="relative w-full h-full max-h-full min-h-0 rounded-xl overflow-hidden border-2 border-[#8c7355] shadow-2xl bg-[#f5eedb] select-none flex flex-col font-serif">

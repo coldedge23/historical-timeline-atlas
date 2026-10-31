@@ -20,6 +20,7 @@ function storeSource() {
     commanderTargets: (page, battle) => { const l = battleLinksFor(page.id, battle);
       return { attacker: l.commanders.attacker.map(bk), defender: l.commanders.defender.map(bk), event: bk(l.event) }; },
     eventLinks: (page, evt) => { const l = eventLinksFor(page.id, evt); return { figures: l.figures.map((d) => [bk(d), d.review]), battle: bk(l.battle) }; },
+    tagTargets: (page, evt) => Object.fromEntries((evt.tags || []).map((tag) => [tag, bk(eventLinksFor(page.id, evt).tags[tag])])),
     taiwanRelationTargets: (page, figure) => figureLinksFor(page.id, figure).relations.map((d) => resolveLink(page.id, d)),
   };
 }
@@ -42,19 +43,13 @@ test('every link descriptor resolves to the record in the page pool', () => {
   }
 });
 
-// Direct data imports left for stage 2b (map geometry and page config). Remove an entry when it moves into the store.
+// Direct data imports that stay: config files and map geography (plan v2 section 3.7; tests/bundle-boundary.test.js checks which bundle they land in).
 const KNOWN_DIRECT_DATA_IMPORTS = [
-  'src/components/FigureModal.js ../data/chronologyReviews.js',
   'src/components/FigureModal.js ../data/factionConfig.js',
-  'src/components/FiguresView.js ../data/chronologyReviews.js',
   'src/components/FiguresView.js ../data/factionConfig.js',
   'src/components/HistoricalAtlasMap.jsx ../data/threeKingdoms/chinaMapData.js',
-  'src/components/HistoricalAtlasMap.jsx ../data/threeKingdoms/warlordPeriods.js',
-  'src/components/JapanAtlasMap.jsx ../data/japan/index.js',
-  'src/components/TaiwanAtlasMap.jsx ../data/taiwanLensData.js',
+  'src/components/JapanAtlasMap.jsx ../data/japan/japanPrefecturesGeoData.js',
   'src/components/TaiwanAtlasMap.jsx ../data/taiwanMapGeoData.js',
-  'src/components/TaiwanLensBanner.jsx ../data/taiwanLensData.js',
-  'src/components/Timeline.js ../data/chronologyReviews.js',
   'src/components/Timeline.js ../data/factionConfig.js',
 ];
 

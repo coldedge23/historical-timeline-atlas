@@ -1,7 +1,6 @@
 import { classifyEventChronology } from '../utils/historicalDates.js';
 import { CHRONOLOGY_LINK_DECISIONS } from './chronologyDecisions.js';
-export const isContextReview = review => review?.status === 'outside' || !!review?.type;
-export function formatHistoryYear(year) { return Number.isFinite(year) ? year < 0 ? `前${Math.abs(year)}年` : `${year}年` : '年代待考'; }
+export { isContextReview, formatHistoryYear } from '../utils/chronologyLabels.js';
 export function applyChronologyReviews(input) {
   const datasets=input.map(dataset=>({...dataset,figures:dataset.figures.map(figure=>({...figure,eventLinkReviews:{}})),events:dataset.events.map(event=>({...event,figureLinkReviews:{}}))}));
   const events=datasets.flatMap(dataset=>dataset.events),figures=datasets.flatMap(dataset=>dataset.figures);

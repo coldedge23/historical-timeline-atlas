@@ -52,6 +52,8 @@ export function memorySource() {
     selectionFigures: ALL_LINKED_FIGURES,
     selectionContext: APP_SELECTION_CONTEXT,
     taiwanRelationTargets: (page, figure) => figureRelations(figure, page.figuresForLinks).map(r => r.targetFigure),
+    // Timeline tag chips: the figure a tag opens (Timeline.js matched the whole link pool before stage 2b).
+    tagTargets: (page, evt) => Object.fromEntries((evt.tags || []).map(tag => [tag, key(page.figuresForLinks.find(f => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))) || null)])),
     validateFailures: collectValidateFailures,
   };
 }
@@ -120,6 +122,12 @@ function collectEventLinks(source) {
   return out;
 }
 
+function collectEventTags(source) {
+  const out = {};
+  for (const page of source.pages) for (const evt of page.events) if ((evt.tags || []).length) out[`${page.id}>${evt.id}`] = source.tagTargets(page, evt);
+  return out;
+}
+
 function collectContemporary(source) {
   const out = {};
   for (const page of source.pages) {
@@ -175,6 +183,7 @@ export function collectBaseline(source = memorySource()) {
     figureLinks: collectFigureLinks(source),
     battleLinks: collectBattleLinks(source),
     eventLinks: collectEventLinks(source),
+    eventTags: collectEventTags(source),
     contemporary: collectContemporary(source),
     figureSelection: collectFigureSelection(source),
     counts: collectCounts(source),

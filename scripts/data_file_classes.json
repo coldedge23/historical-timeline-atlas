@@ -6,6 +6,7 @@
       "allowedIn": "只能由建置專用程式（build.cjs、scripts/）引入，經資料包送到瀏覽器；2b 的回退分包是唯一例外，階段 4 移除",
       "files": [
         "chronologyDecisions.js",
+        "chronologyReviews.js",
         "eventLinkCorrections.js",
         "historyLinkGraph.js",
         "japan/index.js",
@@ -107,24 +108,17 @@
       "allowedIn": "可以在主入口，但不得再引入歷史內容資料",
       "files": [
         "factionConfig.js",
-        "chronologyReviews.js",
         "imagePolicy.js",
         "schemaNormalizer.js"
       ]
     }
   },
-  "knownViolations": [
-    {
-      "file": "chronologyReviews.js",
-      "imports": "chronologyDecisions.js",
-      "note": "年表、人物彈窗用到的判斷函式（isContextReview、formatHistoryYear）與附原文佐證的年代判斷放在同一檔；2b 把函式移到 src/utils/",
-      "fixIn": "2b"
-    }
-  ],
+  "knownViolations": [],
   "mixedFiles": {
     "japan/index.js": "日本內容彙整，同時轉出地理資料；JapanAtlasMap.jsx 從這裡引入會連帶拉進日本事件、人物、戰役。2b 改為只引入地理模組",
     "periodsRegistry.js": "華夏 10 個時期彙整，同時提供時期選單 PERIOD_OPTIONS；app.js 只用選單卻引入全部時期。2b 改由總目錄 periodOptions 提供",
     "historyLinkGraph.js": "關係網建構函式，但引入連結校正表，且只在建置路徑使用，所以歸入歷史內容",
-    "sourceReviews.js": "套用來源核對的函式與已核對清單同檔，且引入 sourceReferences.js，歸入歷史內容"
+    "sourceReviews.js": "套用來源核對的函式與已核對清單同檔，且引入 sourceReferences.js，歸入歷史內容",
+    "chronologyReviews.js": "套用年代審核的函式，引入 chronologyDecisions.js，只在建置路徑使用，所以歸入歷史內容；畫面用的判斷函式在 src/utils/chronologyLabels.js"
   }
 }

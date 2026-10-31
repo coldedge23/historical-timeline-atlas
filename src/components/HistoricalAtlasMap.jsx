@@ -10,10 +10,8 @@ import {
   Minimize2
 } from './Icons.js';
 import { CHINA_PROVINCE_PATHS } from '../data/threeKingdoms/chinaMapData.js';
-import { WARLORD_PERIOD_CONFIGS } from '../data/threeKingdoms/warlordPeriods.js';
 import { resolveChinaEventPoint } from '../utils/svgPoint.js';
 
-export { WARLORD_PERIOD_CONFIGS };
 
 export const HistoricalAtlasMap = ({
   warlordPeriodConfigs,
@@ -28,7 +26,8 @@ export const HistoricalAtlasMap = ({
   isCinemaMode = false,
   onToggleCinemaMode,
 }) => {
-  const configsToUse = warlordPeriodConfigs && warlordPeriodConfigs.length > 0 ? warlordPeriodConfigs : WARLORD_PERIOD_CONFIGS;
+  // Warlord snapshots come from the period's data pack (plan v2 section 3.7).
+  const configsToUse = warlordPeriodConfigs || [];
   const initialYear = selectedEvent?.year || configsToUse[0]?.yearNumber || 184;
   const initialPreset =
     configsToUse.reduce(

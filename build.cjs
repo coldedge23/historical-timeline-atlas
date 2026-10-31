@@ -9,6 +9,7 @@ const fs = require('node:fs/promises');
 const crypto = require('node:crypto');
 const { pathToFileURL } = require('node:url');
 const { prepareImageAssets } = require('./scripts/image_asset_policy.cjs');
+const { bundleOptions } = require('./scripts/esbuild_options.cjs');
 const ROOT = __dirname;
 const DIST = path.join(ROOT, 'dist');
 const digest = (value) => crypto.createHash('sha256').update(value).digest('hex').slice(0, 12);
@@ -16,15 +17,7 @@ const digest = (value) => crypto.createHash('sha256').update(value).digest('hex'
 async function build() {
   const { default: config } = await import(pathToFileURL(path.join(ROOT, 'tailwind.config.js')).href);
   config.content = [path.join(ROOT, 'index.html'), path.join(ROOT, 'src/**/*.{js,ts,jsx,tsx}')];
-  const result = await esbuild.build({
-    nodePaths: dependencyRoot ? [dependencyRoot] : [],
-    absWorkingDir: ROOT, entryPoints: { app: 'src/main.js' },
-    outdir: path.join(DIST, 'assets'), entryNames: '[name].[hash]', chunkNames: 'chunk.[hash]',
-    bundle: true, write: false, splitting: true, format: 'esm',
-    loader: { '.js': 'jsx', '.jsx': 'jsx' },
-    define: { 'process.env.NODE_ENV': '"production"' },
-    charset: 'utf8', minify: true, metafile: true,
-  });
+  const result = await esbuild.build(bundleOptions(path.join(DIST, 'assets')));
   const jsFiles = result.outputFiles.filter((file) => file.path.endsWith('.js'));
   const rawCss = result.outputFiles.filter((file) => file.path.endsWith('.css')).map((file) => file.text).join('\n');
   if (!rawCss.includes('@tailwind')) throw new Error('入口必須 import src/index.css');

@@ -49,6 +49,7 @@ function packSource() {
     commanderTargets: (page, battle) => { const l = linkOf(page).battles[battle.id];
       return { attacker: l.commanders.attacker.map(bk), defender: l.commanders.defender.map(bk), event: bk(l.event) }; },
     eventLinks: (page, evt) => { const l = linkOf(page).events[evt.id]; return { figures: l.figures.map((d) => [bk(d), d.review]), battle: bk(l.battle) }; },
+    tagTargets: (page, evt) => Object.fromEntries((evt.tags || []).map((tag) => [tag, bk(linkOf(page).events[evt.id].tags[tag])])),
     contemporary: (page, evt) => {
       const own = poolEntry[`${evt.datasetId}:event:${evt.id}`];
       return contemporaryMatches(evt, page.civ, pools).map((m) => [m.civKey, own.regimes[m.civKey],

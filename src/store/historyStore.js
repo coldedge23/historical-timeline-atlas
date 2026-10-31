@@ -4,7 +4,7 @@
 import { LINKED_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES } from '../data/linkedHistoryCatalog.js';
 import { PERIOD_OPTIONS } from '../data/periodsRegistry.js';
 import { TAIWAN_LENS_ERAS, TAIWAN_RELATED_BATTLES, ERA_BATTLE_IDS } from '../data/taiwanLensData.js';
-import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ALL_EVENTS, JAPAN_ERA_BATTLE_IDS } from '../data/japan/index.js';
+import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ALL_EVENTS, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_CONFIGS } from '../data/japan/index.js';
 import { figureLinkSet, battleLinkSet, eventLinkSet } from '../utils/linkDerivation.js';
 import { battleFigureIndex } from '../utils/relationRules.js';
 
@@ -24,8 +24,10 @@ const pages = new Map();
 export function getPage(pageId) {
   if (pages.has(pageId)) return pages.get(pageId);
   let page;
-  if (pageId === TAIWAN_PAGE) page = { id: pageId, civ: 'taiwan', events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES };
-  else if (pageId === JAPAN_PAGE) page = { id: pageId, civ: 'japan', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES };
+  if (pageId === TAIWAN_PAGE) page = { id: pageId, civ: 'taiwan', events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES,
+    eras: TAIWAN_LENS_ERAS.map(eraSummary), eraBattleIds: ERA_BATTLE_IDS };
+  else if (pageId === JAPAN_PAGE) page = { id: pageId, civ: 'japan', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES,
+    eras: JAPAN_ERAS.map(eraSummary), eraBattleIds: JAPAN_ERA_BATTLE_IDS, warlordPeriods: JAPAN_WARLORD_PERIOD_CONFIGS };
   else if (LINKED_PERIODS[pageId]) {
     const period = LINKED_PERIODS[pageId];
     page = { ...period, id: pageId, civ: 'china', events: period.events || [], figures: period.figures || [], battles: period.battles || [], warlordPeriods: period.warlordPeriods || [] };

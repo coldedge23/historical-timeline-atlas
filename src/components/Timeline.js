@@ -1,5 +1,5 @@
 import { SourceDisclosure } from './SourceDisclosure.jsx';
-import { isContextReview } from '../data/chronologyReviews.js';
+import { isContextReview } from '../utils/chronologyLabels.js';
 import { pendingLinkCount } from '../utils/figureLinks.js';
 import React, { useState, useEffect, useRef } from 'react';
 import { 
@@ -19,8 +19,7 @@ import { contemporaryMatches } from '../utils/relationRules.js';
 
 export const Timeline = ({
   events = [],
-  figures = [],
-  eventLinksFor = () => ({ figures: [], battle: null }),
+  eventLinksFor = () => ({ figures: [], battle: null, tags: {} }),
   battles = [],
   selectedEvent,
   onSelectEvent,
@@ -69,14 +68,12 @@ export const Timeline = ({
   });
 
   // Handle click on tags: Jump to figure, battle, or apply as search filter
-  const handleTagClick = (tag, e) => {
+  const handleTagClick = (evt, tag, e) => {
     e.stopPropagation();
     setIsAutoPlaying(false);
 
     // 1. Check if tag matches a figure name or courtesyName
-    const matchingFig = figures.find(
-      (f) => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))
-    );
+    const matchingFig = eventLinksFor(evt).tags?.[tag];
     if (matchingFig && onSelectFigureById) {
       onSelectFigureById(matchingFig.id);
       return;
@@ -461,9 +458,7 @@ export const Timeline = ({
                   {tags.length > 0 && (
                     <div className="timeline-card-chips is-tags">
                       {visibleTags.map((tag, idx) => {
-                        const matchingFig = figures.find(
-                          (f) => f.name === tag || (f.courtesyName && f.courtesyName.includes(tag))
-                        );
+                        const matchingFig = eventLinksFor(evt).tags?.[tag];
                         const matchingBat = battles.find(
                           (b) => b.name === tag || b.name.includes(tag) || tag.includes(b.name)
                         );
@@ -474,7 +469,7 @@ export const Timeline = ({
                           : `點擊以「${tag}」篩選年表`;
 
                         return (
-                          <button key={idx} type="button" onClick={(e) => handleTagClick(tag, e)} title={tip} className="timeline-chip is-tag">
+                          <button key={idx} type="button" onClick={(e) => handleTagClick(evt, tag, e)} title={tip} className="timeline-chip is-tag">
                             {matchingFig ? (
                               <Users aria-hidden="true" className="w-3 h-3 text-blue-300 shrink-0" />
                             ) : matchingBat ? (

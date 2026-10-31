@@ -1,4 +1,4 @@
-import { isContextReview } from '../data/chronologyReviews.js';
+import { isContextReview } from '../utils/chronologyLabels.js';
 import { pendingLinkCount } from '../utils/figureLinks.js';
 
 const NO_LINKS = { relations: [], events: [], battles: [] };
