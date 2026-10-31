@@ -10,10 +10,33 @@ import {
   Minimize2
 } from './Icons.js';
 import {
+  JAPAN_ERAS,
+  JAPAN_ERA_BATTLE_IDS,
   JAPAN_PREFECTURE_PATHS,
   JAPAN_WARLORD_PERIOD_CONFIGS,
   projectLngLatToJapanMap
 } from '../data/japan/index.js';
+
+// The warlord snapshots start in 1560. The ancient-medieval era gets a plain
+// province map instead of borrowing the Sengoku faction colours.
+const ANCIENT_ERA_ID = 'jp_ancient_medieval';
+const ANCIENT_ERA = JAPAN_ERAS.find((era) => era.id === ANCIENT_ERA_ID);
+const ANCIENT_PRESET = {
+  id: 'jp_era_ancient_medieval',
+  yearNumber: null,
+  yearDisplay: ANCIENT_ERA.dateRangeDisplay.replace(/^西元\s*/, ''),
+  shortLabel: ANCIENT_ERA.name,
+  headline: ANCIENT_ERA.name,
+  subTitle: ANCIENT_ERA.tagline,
+};
+
+const nearestPreset = (year) =>
+  JAPAN_WARLORD_PERIOD_CONFIGS.reduce((best, p) =>
+    Math.abs(p.yearNumber - year) < Math.abs(best.yearNumber - year) ? p : best
+  );
+
+const markerPoint = (item) =>
+  item.svgPos || (Array.isArray(item.coordinates) ? projectLngLatToJapanMap(...item.coordinates) : null);
 
 export const JapanAtlasMap = ({
   activeJapanEraId = 'jp_sengoku',
@@ -34,12 +57,8 @@ export const JapanAtlasMap = ({
 
   // Derive initial preset from selectedEvent or activeJapanEraId
   const getInitialPreset = () => {
-    if (selectedEvent && selectedEvent.year) {
-      return configsToUse.reduce((best, p) =>
-        Math.abs(p.yearNumber - selectedEvent.year) < Math.abs(best.yearNumber - selectedEvent.year) ? p : best,
-        configsToUse[0]
-      );
-    }
+    if (activeJapanEraId === ANCIENT_ERA_ID) return ANCIENT_PRESET;
+    if (selectedEvent && selectedEvent.year) return nearestPreset(selectedEvent.year);
     if (activeJapanEraId === 'jp_sengoku') return configsToUse[0]; // 1560
     if (activeJapanEraId === 'jp_azuchi_momoyama') return configsToUse[3]; // 1600
     if (activeJapanEraId === 'jp_edo') return configsToUse[4]; // 1615
@@ -60,21 +79,15 @@ export const JapanAtlasMap = ({
   const tabRefs = useRef({});
   const mapScrollContainerRef = useRef(null);
 
-  // Sync preset when selectedEvent changes
+  // Sync preset when the era or selectedEvent changes
   useEffect(() => {
+    if (activeJapanEraId === ANCIENT_ERA_ID) {
+      setActivePreset(ANCIENT_PRESET);
+      return;
+    }
     if (!selectedEvent || !selectedEvent.year) return;
-    const yr = selectedEvent.year;
-    let best = configsToUse[0];
-    let minDiff = 999999;
-    configsToUse.forEach((p) => {
-      const diff = Math.abs(p.yearNumber - yr);
-      if (diff < minDiff) {
-        minDiff = diff;
-        best = p;
-      }
-    });
-    setActivePreset(best);
-  }, [selectedEvent?.id, selectedEvent?.year]);
+    setActivePreset(nearestPreset(selectedEvent.year));
+  }, [activeJapanEraId, selectedEvent?.id, selectedEvent?.year]);
 
   // Smooth scroll active period button into center
   useEffect(() => {
@@ -140,6 +153,15 @@ export const JapanAtlasMap = ({
 
   const activeRoutes = activePreset.routes || [];
 
+  // Timeline events and data battles of the active era, drawn on top of the period snapshot.
+  const eraEvents = events.filter((e) => (e.eraId === activeJapanEraId || selectedEvent?.id === e.id) && markerPoint(e));
+  const presetBattleIds = new Set((activePreset.battles || []).map((b) => b.battleId).filter(Boolean));
+  const eraBattleIds = JAPAN_ERA_BATTLE_IDS[activeJapanEraId] || [];
+  const eraBattles = battles.filter(
+    (b) => (eraBattleIds.includes(b.id) || selectedBattle?.id === b.id) && !presetBattleIds.has(b.id) && markerPoint(b)
+  );
+  const presetTabs = [ANCIENT_PRESET, ...configsToUse];
+
   return (
     <div className="relative w-full h-full max-h-full min-h-0 rounded-xl overflow-hidden border-2 border-[#8c7355] shadow-2xl bg-[#f5eedb] select-none flex flex-col font-serif">
       {/* 1. Header Toolbar with Chronological Period Tabs (Matching China Map) */}
@@ -149,7 +171,7 @@ export const JapanAtlasMap = ({
             <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
             歷史時期：
           </span>
-          {configsToUse.map((p) => {
+          {presetTabs.map((p) => {
             const isActive = p.id === activePreset.id;
             return (
               <button
@@ -158,6 +180,13 @@ export const JapanAtlasMap = ({
                 onClick={() => {
                   setActivePreset(p);
                   if (onClearSearch) onClearSearch();
+                  if (p === ANCIENT_PRESET) {
+                    if (onSelectJapanEraId) onSelectJapanEraId(ANCIENT_ERA_ID);
+                    const pool = allEvents && allEvents.length > 0 ? allEvents : events;
+                    const firstEvt = pool.find((e) => e.eraId === ANCIENT_ERA_ID);
+                    if (firstEvt && onSelectEvent) onSelectEvent({ ...firstEvt, _scrollTs: Date.now() });
+                    return;
+                  }
                   if (onSelectJapanEraId) {
                     if (p.yearNumber <= 1575) onSelectJapanEraId('jp_sengoku');
                     else if (p.yearNumber <= 1600) onSelectJapanEraId('jp_azuchi_momoyama');
@@ -605,6 +634,89 @@ export const JapanAtlasMap = ({
               </g>
             )}
 
+            {/* 8b. ERA BATTLES FROM THE BATTLE RECORDS (those not already drawn by the period snapshot) */}
+            <g className="select-none font-serif">
+              {eraBattles.map((bat) => {
+                const [bx, by] = markerPoint(bat);
+                const isSelected = selectedBattle?.id === bat.id || selectedEvent?.battleId === bat.id;
+                return (
+                  <g
+                    key={bat.id}
+                    transform={`translate(${bx}, ${by})`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (onSelectBattle) onSelectBattle(bat);
+                    }}
+                    className="cursor-pointer group"
+                  >
+                    <title>{`${bat.year} 年 ${bat.name}`}</title>
+                    {isSelected && <circle r="12" fill="none" stroke="#b45309" strokeWidth="2" />}
+                    <circle r="7" fill="#b91c1c" stroke="#ffffff" strokeWidth="1.3" className="group-hover:scale-125 transition-transform" />
+                    <text y="2.8" textAnchor="middle" fill="#ffffff" fontSize="7.5" fontWeight="bold" className="pointer-events-none">⚔</text>
+                    <text
+                      y="-10"
+                      textAnchor="middle"
+                      fill="#7f1d1d"
+                      fontSize="9"
+                      fontWeight="bold"
+                      stroke="#ffffff"
+                      strokeWidth="2.6"
+                      paintOrder="stroke"
+                      className={`pointer-events-none transition-opacity ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                    >
+                      {bat.name.split(' (')[0]}
+                    </text>
+                  </g>
+                );
+              })}
+            </g>
+
+            {/* 8c. TIMELINE EVENTS OF THE ACTIVE ERA */}
+            <g className="select-none font-serif">
+              {eraEvents.map((evt) => {
+                const [ex, ey] = markerPoint(evt);
+                const isSelected = selectedEvent?.id === evt.id;
+                return (
+                  <g
+                    key={evt.id}
+                    className="cursor-pointer group"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (onSelectEvent) onSelectEvent({ ...evt, _scrollTs: Date.now() });
+                    }}
+                  >
+                    <title>{`${evt.year} 年 ${evt.title}`}</title>
+                    {isSelected && <circle cx={ex} cy={ey} r="10" fill="none" stroke="#b45309" strokeWidth="2" />}
+                    <circle
+                      cx={ex}
+                      cy={ey}
+                      r={isSelected ? 6.5 : 4.5}
+                      fill={isSelected ? '#d97706' : '#047857'}
+                      stroke="#ffffff"
+                      strokeWidth="1.5"
+                      className="group-hover:scale-125 transition-transform"
+                    />
+                    {isSelected && (
+                      <text
+                        x={ex}
+                        y={ey + 18}
+                        textAnchor="middle"
+                        fill="#78350f"
+                        fontSize="10.5"
+                        fontWeight="bold"
+                        stroke="#ffffff"
+                        strokeWidth="2.8"
+                        paintOrder="stroke"
+                        className="pointer-events-none"
+                      >
+                        ★ {evt.year} {evt.title.split(' (')[0].slice(0, 12)}
+                      </text>
+                    )}
+                  </g>
+                );
+              })}
+            </g>
+
             {/* 9. ANTIQUE CARTOGRAPHY: ROTATED COMPASS ROSE & SCALE BAR */}
             <g transform="translate(760, 610) rotate(17)" opacity="0.65" className="pointer-events-none select-none font-serif">
               <circle r="22" fill="#faf5eb" stroke="#8c7355" strokeWidth="1.2" strokeDasharray="2 2" />
@@ -628,6 +740,7 @@ export const JapanAtlasMap = ({
         </div>
 
         {/* 3. Bottom Historical Chronicles Strip (Matching China Three Kingdoms Style) */}
+        {(activePreset.chronicleLeft || activePreset.chronicleRight) && (
         <div className={`w-full ${isCinemaMode ? 'max-w-[1320px]' : 'max-w-[960px]'} shrink-0 mt-3 p-3 bg-[#eae0c6] rounded-lg border border-[#786047] grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-[#3a2e20] leading-relaxed font-serif`}>
           <div className="space-y-1">
             <div className="font-bold text-[#7f1d1d] flex items-center gap-1 mb-1 border-b border-[#c4a676] pb-1">
@@ -653,6 +766,7 @@ export const JapanAtlasMap = ({
             ))}
           </div>
         </div>
+        )}
 
         {/* 4. Selected Battle Detail Card (Drawer at Bottom if clicked) */}
         {selectedBattle && (
