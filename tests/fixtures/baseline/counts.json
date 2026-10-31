@@ -1,0 +1,65 @@
+{
+ "hashed": false,
+ "data": {
+  "xiaShangZhou": {
+   "events": 18,
+   "figures": 33,
+   "battles": 10
+  },
+  "warringStates": {
+   "events": 58,
+   "figures": 90,
+   "battles": 30
+  },
+  "qinHan": {
+   "events": 27,
+   "figures": 47,
+   "battles": 13
+  },
+  "threeKingdoms": {
+   "events": 37,
+   "figures": 500,
+   "battles": 28
+  },
+  "weiJin": {
+   "events": 20,
+   "figures": 39,
+   "battles": 10
+  },
+  "suiTang": {
+   "events": 25,
+   "figures": 95,
+   "battles": 30
+  },
+  "songLiao": {
+   "events": 26,
+   "figures": 44,
+   "battles": 14
+  },
+  "yuanMing": {
+   "events": 23,
+   "figures": 68,
+   "battles": 13
+  },
+  "qingDynasty": {
+   "events": 26,
+   "figures": 64,
+   "battles": 13
+  },
+  "republicModern": {
+   "events": 26,
+   "figures": 45,
+   "battles": 14
+  },
+  "taiwanLens": {
+   "events": 103,
+   "figures": 103,
+   "battles": 30
+  },
+  "japanAtlas": {
+   "events": 154,
+   "figures": 208,
+   "battles": 44
+  }
+ }
+}

@@ -25,15 +25,20 @@ import {
   JAPAN_ERA_BATTLE_IDS,
 } from './data/japan/index.js';
 
-import { parseNavigationHash, serializeNavigation, resolveNavigation, unknownRouteParts } from './utils/navigation.js';
+import { parseNavigationHash, serializeNavigation, resolveNavigation, resolveInitialNavigation, unknownRouteParts } from './utils/navigation.js';
 import { useGlobalSearch } from './hooks/useGlobalSearch.js';
+import { resolveFigureSelection } from './utils/relationRules.js';
 
 export function App() {
   const initialHash = useMemo(() => parseNavigationHash(window.location.hash), []);
-  const initialPeriodId =
-    initialHash.period && HISTORICAL_PERIODS[initialHash.period]
-      ? initialHash.period
-      : 'yuanMing';
+  const initialRoute = useMemo(() => resolveInitialNavigation(window.location.hash, {
+    periods: HISTORICAL_PERIODS,
+    taiwanEras: TAIWAN_LENS_ERAS, taiwanEraBattleIds: ERA_BATTLE_IDS,
+    japanEras: JAPAN_ERAS, japanAllEvents: JAPAN_ALL_EVENTS, japanEraBattleIds: JAPAN_ERA_BATTLE_IDS,
+    taiwan: { events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES },
+    japan: { events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES },
+  }), []);
+  const initialPeriodId = initialRoute.period;
 
   const [activePeriodId, setActivePeriodId] = useState(initialPeriodId);
   // The notice belongs to the view it fell back to; navigating elsewhere hides it.
@@ -56,14 +61,10 @@ export function App() {
   const isTaiwanLensMode = civilizationMode === 'taiwan';
   const isJapanMode = civilizationMode === 'japan';
 
-  const [activeTaiwanEraId, setActiveTaiwanEraId] = useState(() => TAIWAN_LENS_ERAS.find(era => (era.keyEvents || []).some(event => event.id === initialHash.event))?.id ||
-    Object.entries(ERA_BATTLE_IDS).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
-    (TAIWAN_LENS_ERAS.some(e => e.id === initialHash.era) ? initialHash.era : 'tw_tungning'));
+  const [activeTaiwanEraId, setActiveTaiwanEraId] = useState(initialRoute.taiwanEra);
 
 
-  const [activeJapanEraId, setActiveJapanEraId] = useState(() => JAPAN_ALL_EVENTS.find(event => event.id === initialHash.event)?.eraId ||
-    Object.entries(JAPAN_ERA_BATTLE_IDS).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
-    (JAPAN_ERAS.some(e => e.id === initialHash.era) ? initialHash.era : 'jp_sengoku'));
+  const [activeJapanEraId, setActiveJapanEraId] = useState(initialRoute.japanEra);
 
 
   const normalizedJapanFigures = LINKED_JAPAN_FIGURES;
@@ -154,26 +155,11 @@ export function App() {
   const currentWarlordPeriods = currentPeriodConfig.warlordPeriods || [];
   const currentDemographics = currentPeriodConfig.demographics;
 
-  const [selectedEvent, setSelectedEvent] = useState(() => {
-    const evts = currentEvents;
-    if (initialHash.event) {
-      const found = evts.find((e) => e.id === initialHash.event);
-      if (found) return found;
-    }
-    return evts.find(e => initialCiv === 'china' || e.eraId === (initialCiv === 'japan' ? activeJapanEraId : activeTaiwanEraId)) || evts[0] || null;
-  });
+  const [selectedEvent, setSelectedEvent] = useState(initialRoute.selectedEvent);
 
-  const [selectedFigure, setSelectedFigure] = useState(() => {
-    if (!initialHash.figure) return null;
-    const figs = currentFigures;
-    return figs.find((f) => f.id === initialHash.figure) || null;
-  });
+  const [selectedFigure, setSelectedFigure] = useState(initialRoute.selectedFigure);
 
-  const [selectedBattle, setSelectedBattle] = useState(() => {
-    if (!initialHash.battle) return null;
-    const bats = currentBattles;
-    return bats.find((b) => b.id === initialHash.battle) || null;
-  });
+  const [selectedBattle, setSelectedBattle] = useState(initialRoute.selectedBattle);
 
   const [showDemographicsModal, setShowDemographicsModal] = useState(false);
 
@@ -353,17 +339,15 @@ export function App() {
   };
 
   const handleSelectFigure = (figure) => {
-    const target = currentFigures.find(item => item.id === figure?.id) || figure;
-    if (!target) return;
-    const scope = target.datasetId;
-    if (scope && !currentFigures.some(item => item.id === target.id)) {
-      const civ = target.civ || (scope === 'taiwanLens' ? 'taiwan' : scope === 'japanAtlas' ? 'japan' : 'china');
-      setCivilizationMode(civ);
-      if (civ === 'china') setActivePeriodId(scope);
-      if (civ === 'japan') setActiveJapanEraId(target.eraId || 'jp_sengoku');
-      if (civ === 'taiwan') setActiveTaiwanEraId(target.eraId || 'tw_tungning');
-      const events = civ === 'china' ? HISTORICAL_PERIODS[scope]?.events : civ === 'japan' ? japanEvents : taiwanLensEvents;
-      setSelectedEvent(events?.find(event => !target.eraId || event.eraId === target.eraId) || events?.[0] || null);
+    const decision = resolveFigureSelection(figure, currentFigures, { periods: HISTORICAL_PERIODS, japanEvents, taiwanEvents: taiwanLensEvents });
+    if (!decision) return;
+    const { target, switchTo } = decision;
+    if (switchTo) {
+      setCivilizationMode(switchTo.civ);
+      if (switchTo.civ === 'china') setActivePeriodId(switchTo.periodId);
+      if (switchTo.civ === 'japan') setActiveJapanEraId(switchTo.japanEraId);
+      if (switchTo.civ === 'taiwan') setActiveTaiwanEraId(switchTo.taiwanEraId);
+      setSelectedEvent(switchTo.selectedEvent);
     }
     setSelectedBattle(null);
     setSelectedFigure(target);

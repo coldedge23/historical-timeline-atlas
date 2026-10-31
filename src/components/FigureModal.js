@@ -1,6 +1,7 @@
 import { SourceDisclosure } from './SourceDisclosure.jsx';
 import { isContextReview, formatHistoryYear } from '../data/chronologyReviews.js';
 import { linkedEvents, figureRelations, pendingLinkCount } from '../utils/figureLinks.js';
+import { figureBattles } from '../utils/relationRules.js';
 import { Dialog } from './Dialog.jsx';
 import { resolvePeriodId } from '../utils/period.js';
 import React, { useState, useMemo } from 'react';
@@ -122,23 +123,7 @@ export const FigureModal = ({
   const contextualEvents = relatedEvents.filter(event=>isContextReview(figure.eventLinkReviews?.[event.id]));
 
   // Find battles where this figure was a commander or mentioned in summary
-  const participatedBattles = (allBattles || []).filter((bat) => {
-    const cmds = [
-      ...(bat.attacker?.commanders || []),
-      ...(bat.defender?.commanders || []),
-    ];
-    const cleanName = (figure.cleanName || figure.name || '').split('(')[0].split('（')[0].trim();
-    if (
-      cmds.some(
-        (c) =>
-          c.figureId === figure.id ||
-          (typeof c === 'string' ? c.includes(cleanName) : (c.name || '').includes(cleanName))
-      )
-    ) {
-      return true;
-    }
-    return cleanName.length >= 2 && (bat.summary || '').includes(cleanName);
-  });
+  const participatedBattles = figureBattles(figure, allBattles);
 
   const getRelEdgeStyle = (relType) => {
     switch (relType) {

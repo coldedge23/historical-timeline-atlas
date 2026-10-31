@@ -1,6 +1,7 @@
 import { SourceDisclosure } from './SourceDisclosure.jsx';
 import { computeForcesTugOfWar, formatForcePercent } from '../utils/forces.js';
 import { Dialog } from './Dialog.jsx';
+import { battleAttacker, battleDefender, battleFigureIndex, battleLinkedEvent, resolveCommander } from '../utils/relationRules.js';
 import React, { useMemo } from 'react';
 import { X, Swords, Trophy, MapPin, ShieldAlert, Crosshair, Layers } from './Icons.js';
 
@@ -15,93 +16,14 @@ export const BattleModal = ({
 }) => {
   if (!battle) return null;
 
-  const figMap = useMemo(() => {
-    const m = new Map();
-    allFigures.forEach((f) => {
-      m.set(f.id, f);
-      m.set(f.name, f);
-    });
-    return m;
-  }, [allFigures]);
+  const figMap = useMemo(() => battleFigureIndex(allFigures), [allFigures]);
 
-  const linkedEvent = useMemo(() => {
-    if (!allEvents || !allEvents.length) return null;
-    if (battle.eventId) {
-      return allEvents.find((e) => e.id === battle.eventId);
-    }
-    return allEvents.find((e) => e.battleId === battle.id);
-  }, [battle, allEvents]);
+  const linkedEvent = useMemo(() => battleLinkedEvent(battle, allEvents), [battle, allEvents]);
 
   // Robustly extract attacker and defender with backward & cross-period compatibility
-  const attacker = useMemo(() => {
-    if (battle.attacker) {
-      return {
-        ...battle.attacker,
-        forcesEstimate: battle.attacker.forcesEstimate || battle.forces?.attacker || '待考',
-        casualtiesEstimate: battle.attacker.casualtiesEstimate || battle.casualties?.attacker || '詳見戰報記敘'
-      };
-    }
-    if (battle.belligerents) {
-      return {
-        factionName: typeof battle.belligerents === 'object' ? battle.belligerents.attacker : '進攻方',
-        commanders: Array.isArray(battle.commanders?.attacker) ? battle.commanders.attacker : (Array.isArray(battle.commanders) ? battle.commanders : []),
-        forcesEstimate: battle.forces?.attacker || '待考',
-        casualtiesEstimate: battle.casualties?.attacker || '詳見戰報記敘'
-      };
-    }
-    if (battle.parties?.invader) {
-      const partyStr = battle.parties.invader;
-      const match = partyStr.match(/^(.*?)[（(](.*)[）)]$/);
-      const cmds = Array.isArray(battle.commanders?.invader) ? battle.commanders.invader : (Array.isArray(battle.commanders) ? battle.commanders : []);
-      return {
-        factionName: match ? match[1].trim() : partyStr,
-        commanders: cmds,
-        forcesEstimate: match ? match[2].trim() : (battle.forces?.attacker || '待考'),
-        casualtiesEstimate: battle.casualties?.attacker || '詳見戰報記敘'
-      };
-    }
-    return {
-      factionName: '進攻方',
-      commanders: [],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '詳見戰報記敘'
-    };
-  }, [battle]);
+  const attacker = useMemo(() => battleAttacker(battle), [battle]);
 
-  const defender = useMemo(() => {
-    if (battle.defender) {
-      return {
-        ...battle.defender,
-        forcesEstimate: battle.defender.forcesEstimate || battle.forces?.defender || '待考',
-        casualtiesEstimate: battle.defender.casualtiesEstimate || battle.casualties?.defender || '詳見戰報記敘'
-      };
-    }
-    if (battle.belligerents) {
-      return {
-        factionName: typeof battle.belligerents === 'object' ? battle.belligerents.defender : '迎戰方',
-        commanders: Array.isArray(battle.commanders?.defender) ? battle.commanders.defender : [],
-        forcesEstimate: battle.forces?.defender || '待考',
-        casualtiesEstimate: battle.casualties?.defender || '詳見戰報記敘'
-      };
-    }
-    if (battle.parties?.defender) {
-      const partyStr = battle.parties.defender;
-      const match = partyStr.match(/^(.*?)[（(](.*)[）)]$/);
-      const cmds = Array.isArray(battle.commanders?.defender) ? battle.commanders.defender : [];
-      return {
-        factionName: match ? match[1].trim() : partyStr,
-        commanders: cmds,
-        forcesEstimate: match ? match[2].trim() : (battle.forces?.defender || '待考'),
-        casualtiesEstimate: battle.casualties?.defender || '詳見戰報記敘'
-      };
-    }
-    return {
-      factionName: '迎戰方',
-      commanders: [],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '詳見戰報記敘'
-    };
-  }, [battle]);
+  const defender = useMemo(() => battleDefender(battle), [battle]);
 
   const parsedTactics = useMemo(() => {
     if (battle.tactics) {
@@ -120,11 +42,7 @@ export const BattleModal = ({
       <div className="flex flex-wrap gap-2">
         {commanders.map((cmd, idx) => {
           if (!cmd) return null;
-          const cmdName = typeof cmd === 'string' ? cmd : (cmd.name || '');
-          const cmdTitle = typeof cmd === 'string' ? '' : (cmd.title || '');
-          const cleanName = cmdName.split('/')[0].split('(')[0].trim();
-          const cmdFigureId = typeof cmd === 'string' ? null : cmd.figureId;
-          const fig = (cmdFigureId && figMap.get(cmdFigureId)) || figMap.get(cleanName) || figMap.get(cmdName);
+          const { cmdName, cmdTitle, fig } = resolveCommander(cmd, figMap);
 
           if (fig && onSelectFigure) {
             return (

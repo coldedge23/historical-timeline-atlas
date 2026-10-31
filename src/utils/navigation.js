@@ -38,3 +38,24 @@ export function resolveNavigation(hash, catalogs, eras) {
   const figure = dataset.figures.find(f => f.id === route.figure) || null;
   return { ...route, event: event?.id || '', figure: figure?.id || '', battle: battle?.id || '', selectedEvent: event, selectedFigure: figure, selectedBattle: battle };
 }
+// Cold-start state as App initialises it; hashchange/popstate use resolveNavigation instead.
+export function resolveInitialNavigation(hash, ctx) {
+  const initialHash = parseNavigationHash(hash);
+  const initialCiv = initialHash.civ;
+  const period = initialHash.period && ctx.periods[initialHash.period] ? initialHash.period : 'yuanMing';
+  const taiwanEra = ctx.taiwanEras.find(era => (era.keyEvents || []).some(event => event.id === initialHash.event))?.id ||
+    Object.entries(ctx.taiwanEraBattleIds).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
+    (ctx.taiwanEras.some(e => e.id === initialHash.era) ? initialHash.era : 'tw_tungning');
+  const japanEra = ctx.japanAllEvents.find(event => event.id === initialHash.event)?.eraId ||
+    Object.entries(ctx.japanEraBattleIds).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
+    (ctx.japanEras.some(e => e.id === initialHash.era) ? initialHash.era : 'jp_sengoku');
+  const periodConfig = ctx.periods[period] || ctx.periods.qinHan;
+  const dataset = initialCiv === 'japan' ? ctx.japan : initialCiv === 'taiwan' ? ctx.taiwan
+    : { events: periodConfig.events || [], figures: periodConfig.figures || [], battles: periodConfig.battles || [] };
+  const evts = dataset.events;
+  const selectedEvent = (initialHash.event && evts.find((e) => e.id === initialHash.event)) ||
+    evts.find(e => initialCiv === 'china' || e.eraId === (initialCiv === 'japan' ? japanEra : taiwanEra)) || evts[0] || null;
+  const selectedFigure = initialHash.figure ? dataset.figures.find((f) => f.id === initialHash.figure) || null : null;
+  const selectedBattle = initialHash.battle ? dataset.battles.find((b) => b.id === initialHash.battle) || null : null;
+  return { civ: initialCiv, period, tab: initialHash.tab, taiwanEra, japanEra, selectedEvent, selectedFigure, selectedBattle };
+}

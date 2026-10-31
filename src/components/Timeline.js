@@ -15,45 +15,7 @@ import {
   Globe
 } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
-
-function getContemporaryRegimeLabel(civ, year) {
-  if (civ === 'china') {
-    if (year < -770) return '商周時代';
-    if (year < -221) return '春秋戰國';
-    if (year < 220) return '秦漢帝國';
-    if (year < 280) return '魏蜀吳三國';
-    if (year < 581) return '魏晉南北朝';
-    if (year < 907) return '隋唐盛世';
-    if (year < 960) return '五代十國';
-    if (year < 1279) return '宋遼金夏';
-    if (year < 1368) return '大元帝國';
-    if (year < 1644) return '大明帝國';
-    if (year < 1912) return '大清帝國';
-    return '近現代中華';
-  }
-  if (civ === 'japan') {
-    if (year < 710) return '飛鳥・古墳時代';
-    if (year < 794) return '奈良時代';
-    if (year < 1185) return '平安時代';
-    if (year < 1336) return '鎌倉幕府';
-    if (year < 1467) return '室町南北朝';
-    if (year < 1573) return '戰國群雄時代';
-    if (year < 1603) return '安土桃山時代';
-    if (year < 1853) return '江戶德川幕府';
-    if (year < 1868) return '幕末尊皇倒幕';
-    return '明治維新・近代日本';
-  }
-  if (civ === 'taiwan') {
-    if (year < 1624) return '南島原住民部落與大肚王國';
-    if (year < 1662) return '荷西殖民與大航海時代';
-    if (year < 1683) return '明鄭東寧王國';
-    if (year < 1874) return '清領拓墾時期';
-    if (year < 1895) return '清季自強建省時期';
-    if (year < 1945) return '日治抗日與啟蒙時期';
-    return '戰後臺灣與現代矽島';
-  }
-  return '';
-}
+import { contemporaryMatches } from '../utils/relationRules.js';
 
 export const Timeline = ({
   events = [],
@@ -437,23 +399,8 @@ export const Timeline = ({
                       taiwan: { label: '臺灣', badgeBg: 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300' },
                       japan: { label: '日本', badgeBg: 'bg-rose-950/60 border-rose-500/40 text-rose-300' },
                     };
-                    const otherCivs = ['china', 'taiwan', 'japan'].filter((c) => c !== civilizationMode);
-                    const matches = otherCivs.map((civKey) => {
-                      const pool = crossCivPools[civKey] || [];
-                      let closest = null;
-                      let minDiff = Infinity;
-                      for (const item of pool) {
-                        if (typeof item.year === 'number') {
-                          const d = Math.abs(item.year - evt.year);
-                          if (d < minDiff) {
-                            minDiff = d;
-                            closest = item;
-                          }
-                        }
-                      }
-                      const regimeLabel = getContemporaryRegimeLabel(civKey, evt.year);
-                      return { civKey, meta: civMeta[civKey], regimeLabel, closest, minDiff };
-                    });
+                    const matches = contemporaryMatches(evt, civilizationMode, crossCivPools)
+                      .map((match) => ({ ...match, meta: civMeta[match.civKey] }));
 
                     return (
                       <section className="timeline-card-section" aria-label="同期東亞歷史橫向對照">
