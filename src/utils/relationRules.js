@@ -2,24 +2,24 @@
 // Inputs are plain records; this module must never import history data.
 
 // Battles where this figure was a commander or is mentioned in the summary (text match, not a confirmed link).
-export function figureBattles(figure, allBattles = []) {
-  return (allBattles || []).filter((bat) => {
+// basis: commander-id (explicit), commander-name or summary-text (both derived from text).
+export function figureBattleLinks(figure, allBattles = []) {
+  const links = [];
+  for (const bat of allBattles || []) {
     const cmds = [
       ...(bat.attacker?.commanders || []),
       ...(bat.defender?.commanders || []),
     ];
     const cleanName = (figure.cleanName || figure.name || '').split('(')[0].split('（')[0].trim();
-    if (
-      cmds.some(
-        (c) =>
-          c.figureId === figure.id ||
-          (typeof c === 'string' ? c.includes(cleanName) : (c.name || '').includes(cleanName))
-      )
-    ) {
-      return true;
-    }
-    return cleanName.length >= 2 && (bat.summary || '').includes(cleanName);
-  });
+    if (cmds.some((c) => c.figureId === figure.id)) links.push({ battle: bat, basis: 'commander-id' });
+    else if (cmds.some((c) => (typeof c === 'string' ? c.includes(cleanName) : (c.name || '').includes(cleanName)))) links.push({ battle: bat, basis: 'commander-name' });
+    else if (cleanName.length >= 2 && (bat.summary || '').includes(cleanName)) links.push({ battle: bat, basis: 'summary-text' });
+  }
+  return links;
+}
+
+export function figureBattles(figure, allBattles = []) {
+  return figureBattleLinks(figure, allBattles).map((link) => link.battle);
 }
 
 // Robustly extract attacker and defender with backward & cross-period compatibility
@@ -107,8 +107,9 @@ export function resolveCommander(cmd, figMap) {
   const cmdTitle = typeof cmd === 'string' ? '' : (cmd.title || '');
   const cleanName = cmdName.split('/')[0].split('(')[0].trim();
   const cmdFigureId = typeof cmd === 'string' ? null : cmd.figureId;
-  const fig = (cmdFigureId && figMap.get(cmdFigureId)) || figMap.get(cleanName) || figMap.get(cmdName);
-  return { cmdName, cmdTitle, fig };
+  const byId = cmdFigureId && figMap.get(cmdFigureId);
+  const fig = byId || figMap.get(cleanName) || figMap.get(cmdName);
+  return { cmdName, cmdTitle, fig, basis: fig ? (byId ? 'commander-id' : 'commander-name') : null };
 }
 
 export function battleLinkedEvent(battle, allEvents) {
@@ -117,6 +118,17 @@ export function battleLinkedEvent(battle, allEvents) {
     return allEvents.find((e) => e.id === battle.eventId);
   }
   return allEvents.find((e) => e.battleId === battle.id);
+}
+
+export function battleLinkedEventBasis(battle) {
+  return battle.eventId ? 'event-id' : 'event-battle-id';
+}
+
+// Figures listed on an event card, in figureIds order; reviews are split by the caller.
+export function eventFigures(evt, figures = []) {
+  return (evt.figureIds || [])
+    .map((fid) => (figures || []).find((f) => f.id === fid))
+    .filter(Boolean);
 }
 
 export function getContemporaryRegimeLabel(civ, year) {

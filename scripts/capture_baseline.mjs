@@ -1,18 +1,17 @@
 // Stage 0 baseline: record current search, navigation, relation and count behaviour as JSON fixtures.
 // Usage: node scripts/capture_baseline.mjs   (writes tests/fixtures/baseline/*.json)
-// tests/baseline.test.js imports collectBaseline() and compares against the written files.
+// tests/baseline.test.js compares the live app logic against the fixtures;
+// tests/data-packs.test.js feeds the built data packs through the same collectors.
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LINKED_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES } from '../src/data/linkedHistoryCatalog.js';
-import { TAIWAN_LENS_ERAS, TAIWAN_RELATED_BATTLES, ERA_BATTLE_IDS } from '../src/data/taiwanLensData.js';
-import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ALL_EVENTS, JAPAN_ERA_BATTLE_IDS } from '../src/data/japan/index.js';
+import { ALL_LINKED_FIGURES, appPages, appCatalogs, appContemporaryPools, APP_ERAS, APP_INITIAL_CONTEXT, APP_SELECTION_CONTEXT } from './lib/app_views.mjs';
 import { resolveNavigation, resolveInitialNavigation } from '../src/utils/navigation.js';
 import { createSearchIndex, searchIndex } from '../src/utils/search.js';
 import { linkedEvents, figureRelations } from '../src/utils/figureLinks.js';
-import { figureBattles, battleAttacker, battleDefender, battleFigureIndex, resolveCommander, battleLinkedEvent, contemporaryMatches, resolveFigureSelection } from '../src/utils/relationRules.js';
+import { figureBattles, battleAttacker, battleDefender, battleFigureIndex, resolveCommander, battleLinkedEvent, eventFigures, contemporaryMatches, resolveFigureSelection } from '../src/utils/relationRules.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const BASELINE_DIR = join(ROOT, 'tests', 'fixtures', 'baseline');
@@ -24,51 +23,56 @@ export const SEARCH_TERMS = ['曹操', '劉備', '諸葛亮', '孔明', '赤壁'
   '戰役', '叛亂', '改革', '王', '李', '唐', '東寧', '霧社', '安史之亂', '不存在的詞xyz'];
 const SEARCH_ACTIVE_IDS = ['yuanMing', 'taiwanLens', 'japanAtlas'];
 
-const key = (record, fallbackDataset = '?') => record ? `${record.datasetId || fallbackDataset}:${record.id}` : null;
+export const baselineKey = (record, fallbackDataset = '?') => record ? `${record.datasetId || fallbackDataset}:${record.id}` : null;
+const key = baselineKey;
 
-// Same page data and link pools as App (app.js currentEvents/currentFigures/currentBattles, figuresForLinks...).
-function pages() {
-  const list = Object.entries(LINKED_PERIODS).map(([id, p]) => ({ id, civ: 'china', events: p.events || [], figures: p.figures || [], battles: p.battles || [] }));
-  list.push({ id: 'taiwanLens', civ: 'taiwan', events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES });
-  list.push({ id: 'japanAtlas', civ: 'japan', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES });
-  for (const page of list) {
-    page.figuresForLinks = [...page.figures, ...ALL_LINKED_FIGURES.filter(f => !page.figures.some(l => l.id === f.id))];
-    page.eventsForLinks = [...page.events, ...ALL_LINKED_EVENTS.filter(e => !page.events.some(l => l.id === e.id))];
-    page.battlesForLinks = [...page.battles, ...ALL_LINKED_BATTLES.filter(b => !page.battles.some(l => l.id === b.id))];
-  }
-  return list;
-}
-
-function catalogs() {
-  return { ...LINKED_PERIODS,
-    taiwan: { id: 'taiwanLens', civ: 'taiwan', name: '臺灣歷史', events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES.map(b => ({ ...b, eraId: Object.entries(ERA_BATTLE_IDS).find(([, ids]) => ids.includes(b.id))?.[0] })) },
-    japan: { id: 'japanAtlas', civ: 'japan', name: '日本歷史', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES.map(b => ({ ...b, eraId: Object.entries(JAPAN_ERA_BATTLE_IDS).find(([, ids]) => ids.includes(b.id))?.[0] })) },
+// The current app logic, evaluated in memory.
+export function memorySource() {
+  const pages = appPages();
+  return {
+    pages,
+    searchEntries: createSearchIndex(Object.values(appCatalogs())),
+    catalogs: appCatalogs(), eras: APP_ERAS, initialContext: APP_INITIAL_CONTEXT,
+    figureLinks: (page, figure) => ({
+      relations: figureRelations(figure, page.figuresForLinks).map(r => [key(r.targetFigure), r.relationType, r.label]),
+      events: linkedEvents(figure, page.eventsForLinks).map(e => key(e)),
+      battles: figureBattles(figure, page.battlesForLinks).map(b => key(b, page.id)),
+    }),
+    commanderTargets: (page, battle) => {
+      const figMap = battleFigureIndex(page.figuresForLinks);
+      const targets = side => (Array.isArray(side.commanders) ? side.commanders : []).filter(Boolean).map(cmd => key(resolveCommander(cmd, figMap).fig));
+      return { attacker: targets(battleAttacker(battle)), defender: targets(battleDefender(battle)), event: key(battleLinkedEvent(battle, page.eventsForLinks) || null) };
+    },
+    eventLinks: (page, evt) => ({
+      figures: eventFigures(evt, page.figuresForLinks).map(f => [key(f), evt.figureLinkReviews?.[f.id] ?? null]),
+      battle: evt.battleId ? key(page.battles.find(b => b.id === evt.battleId) || null, page.id) : null,
+    }),
+    contemporary: (() => { const pools = appContemporaryPools(); return (page, evt) => contemporaryMatches(evt, page.civ, pools)
+      .map(m => [m.civKey, m.regimeLabel, m.closest ? key(m.closest) : null, m.closest?.periodId || m.closest?.eraId || null, Number.isFinite(m.minDiff) ? m.minDiff : null]); })(),
+    selectionFigures: ALL_LINKED_FIGURES,
+    selectionContext: APP_SELECTION_CONTEXT,
+    taiwanRelationTargets: (page, figure) => figureRelations(figure, page.figuresForLinks).map(r => r.targetFigure),
+    validateFailures: collectValidateFailures,
   };
 }
 
-function collectSearch() {
-  const index = createSearchIndex(Object.values(catalogs()));
+function collectSearch(source) {
   const out = {};
   for (const activeId of SEARCH_ACTIVE_IDS) {
     out[activeId] = {};
     for (const term of SEARCH_TERMS) {
-      out[activeId][term] = searchIndex(index, term, activeId).map(r => [r.type, r.periodId, r.item.id, r.title, r.subtitle, r.score]);
+      out[activeId][term] = searchIndex(source.searchEntries, term, activeId).map(r => [r.type, r.periodId, r.item.id, r.title, r.subtitle, r.score]);
     }
   }
   return out;
 }
 
-function collectNavigation() {
-  const cats = catalogs();
-  const eras = { taiwan: TAIWAN_LENS_ERAS, japan: JAPAN_ERAS };
-  const initialCtx = { periods: LINKED_PERIODS,
-    taiwanEras: TAIWAN_LENS_ERAS, taiwanEraBattleIds: ERA_BATTLE_IDS,
-    japanEras: JAPAN_ERAS, japanAllEvents: JAPAN_ALL_EVENTS, japanEraBattleIds: JAPAN_ERA_BATTLE_IDS,
-    taiwan: { events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES },
-    japan: { events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES } };
+function collectNavigation(source) {
+  const cats = source.catalogs;
   const hashes = ['', '#period=sanguo', '#civ=korea', '#lens=taiwan', '#civ=japan&era=jp_edo', '#civ=taiwan&era=missing',
     '#period=yuanMing&event=missing&figure=missing&battle=missing', '#civ=japan&event=missing&era=jp_edo', '#period=threeKingdoms&tab=figures', '#period=threeKingdoms&tab=battles'];
-  for (const [id, p] of Object.entries(LINKED_PERIODS)) {
+  for (const [id, p] of Object.entries(cats)) {
+    if (id === 'taiwan' || id === 'japan') continue;
     for (const [param, list] of [['event', p.events], ['figure', p.figures], ['battle', p.battles]]) for (const r of list || []) hashes.push(`#period=${id}&${param}=${r.id}`);
   }
   for (const civ of ['taiwan', 'japan']) {
@@ -77,8 +81,8 @@ function collectNavigation() {
   }
   const out = {};
   for (const hash of hashes) {
-    const r = resolveNavigation(hash, cats, eras);
-    const i = resolveInitialNavigation(hash, initialCtx);
+    const r = resolveNavigation(hash, cats, source.eras);
+    const i = resolveInitialNavigation(hash, source.initialContext);
     out[hash] = {
       restore: [r.civ, r.period, r.era, r.tab, r.event, r.figure, r.battle, r.unknown.civ, r.unknown.period],
       coldStart: [i.civ, i.period, i.tab, i.taiwanEra, i.japanEra, i.selectedEvent?.id || '', i.selectedFigure?.id || '', i.selectedBattle?.id || ''],
@@ -87,78 +91,70 @@ function collectNavigation() {
   return out;
 }
 
-function collectFigureLinks(pageList) {
+function collectFigureLinks(source) {
   const out = {};
-  for (const page of pageList) {
-    for (const figure of page.figures) {
-      out[`${page.id}>${figure.id}`] = {
-        relations: figureRelations(figure, page.figuresForLinks).map(r => [key(r.targetFigure), r.relationType, r.label]),
-        events: linkedEvents(figure, page.eventsForLinks).map(e => key(e)),
-        battles: figureBattles(figure, page.battlesForLinks).map(b => key(b, page.id)),
-      };
-    }
-  }
+  for (const page of source.pages) for (const figure of page.figures) out[`${page.id}>${figure.id}`] = source.figureLinks(page, figure);
   return out;
 }
 
-function collectBattleLinks(pageList) {
+function collectBattleLinks(source) {
   const out = {};
-  for (const page of pageList) {
-    const figMap = battleFigureIndex(page.figuresForLinks);
+  for (const page of source.pages) {
     for (const battle of page.battles) {
-      const side = s => [s.factionName ?? null, s.forcesEstimate ?? null, s.casualtiesEstimate ?? null,
-        (Array.isArray(s.commanders) ? s.commanders : []).filter(Boolean).map(cmd => { const c = resolveCommander(cmd, figMap); return [c.cmdName, c.cmdTitle, key(c.fig)]; })];
+      const targets = source.commanderTargets(page, battle);
+      const side = (s, sideTargets) => [s.factionName ?? null, s.forcesEstimate ?? null, s.casualtiesEstimate ?? null,
+        (Array.isArray(s.commanders) ? s.commanders : []).filter(Boolean).map((cmd, i) => { const c = resolveCommander(cmd, new Map()); return [c.cmdName, c.cmdTitle, sideTargets[i]]; })];
       out[`${page.id}>${battle.id}`] = {
-        attacker: side(battleAttacker(battle)),
-        defender: side(battleDefender(battle)),
-        event: key(battleLinkedEvent(battle, page.eventsForLinks) || null),
+        attacker: side(battleAttacker(battle), targets.attacker),
+        defender: side(battleDefender(battle), targets.defender),
+        event: targets.event,
       };
     }
   }
   return out;
 }
 
-function collectContemporary(pageList) {
-  const allChinaEvents = [];
-  for (const [periodId, p] of Object.entries(LINKED_PERIODS)) for (const evt of p.events || []) allChinaEvents.push({ ...evt, periodId, periodName: p.name });
-  allChinaEvents.sort((a, b) => a.year - b.year);
-  const pools = { china: allChinaEvents, taiwan: LINKED_TAIWAN_EVENTS, japan: LINKED_JAPAN_EVENTS };
+function collectEventLinks(source) {
   const out = {};
-  for (const page of pageList) {
+  for (const page of source.pages) for (const evt of page.events) out[`${page.id}>${evt.id}`] = source.eventLinks(page, evt);
+  return out;
+}
+
+function collectContemporary(source) {
+  const out = {};
+  for (const page of source.pages) {
     for (const evt of page.events) {
       if (typeof evt.year !== 'number') continue;
-      out[`${page.id}>${evt.id}`] = contemporaryMatches(evt, page.civ, pools)
-        .map(m => [m.civKey, m.regimeLabel, m.closest ? key(m.closest) : null, m.closest?.periodId || m.closest?.eraId || null, Number.isFinite(m.minDiff) ? m.minDiff : null]);
+      out[`${page.id}>${evt.id}`] = source.contemporary(page, evt);
     }
   }
   return out;
 }
 
-function collectFigureSelection(pageList) {
-  const ctx = { periods: LINKED_PERIODS, japanEvents: LINKED_JAPAN_EVENTS, taiwanEvents: LINKED_TAIWAN_EVENTS };
+function collectFigureSelection(source) {
   const decide = (figure, current) => {
-    const d = resolveFigureSelection(figure, current, ctx);
+    const d = resolveFigureSelection(figure, current, source.selectionContext);
     if (!d) return null;
     const s = d.switchTo;
     return [key(d.target), s ? s.civ : 'stay', s ? (s.periodId || s.japanEraId || s.taiwanEraId) : null, s ? key(s.selectedEvent) : null];
   };
   // A figure outside the current page always switches the same way, so record it once per figure.
   const offPage = {};
-  for (const figure of ALL_LINKED_FIGURES) offPage[key(figure)] = decide(figure, []);
+  for (const figure of source.selectionFigures) offPage[key(figure)] = decide(figure, []);
   // Taiwan page: every listed figure (own and referenced) and every relation chip shown in its modal.
-  const taiwan = pageList.find(p => p.id === 'taiwanLens');
+  const taiwan = source.pages.find(p => p.id === 'taiwanLens');
   const taiwanPage = {};
   for (const figure of taiwan.figures) {
     taiwanPage[figure.id] = {
       self: decide(figure, taiwan.figures),
-      relationClicks: figureRelations(figure, taiwan.figuresForLinks).map(r => decide(r.targetFigure, taiwan.figures)),
+      relationClicks: source.taiwanRelationTargets(taiwan, figure).map(target => decide(target, taiwan.figures)),
     };
   }
   return { offPage, taiwanPage };
 }
 
-function collectCounts(pageList) {
-  return Object.fromEntries(pageList.map(p => [p.id, { events: p.events.length, figures: p.figures.length, battles: p.battles.length }]));
+function collectCounts(source) {
+  return Object.fromEntries(source.pages.map(p => [p.id, { events: p.events.length, figures: p.figures.length, battles: p.battles.length }]));
 }
 
 export function collectValidateFailures() {
@@ -172,17 +168,17 @@ export function collectValidateFailures() {
   };
 }
 
-export function collectBaseline() {
-  const pageList = pages();
+export function collectBaseline(source = memorySource()) {
   return {
-    search: collectSearch(),
-    navigation: collectNavigation(),
-    figureLinks: collectFigureLinks(pageList),
-    battleLinks: collectBattleLinks(pageList),
-    contemporary: collectContemporary(pageList),
-    figureSelection: collectFigureSelection(pageList),
-    counts: collectCounts(pageList),
-    validateFailures: collectValidateFailures(),
+    search: collectSearch(source),
+    navigation: collectNavigation(source),
+    figureLinks: collectFigureLinks(source),
+    battleLinks: collectBattleLinks(source),
+    eventLinks: collectEventLinks(source),
+    contemporary: collectContemporary(source),
+    figureSelection: collectFigureSelection(source),
+    counts: collectCounts(source),
+    ...(source.validateFailures ? { validateFailures: source.validateFailures() } : {}),
   };
 }
 

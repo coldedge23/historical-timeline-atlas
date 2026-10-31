@@ -15,7 +15,7 @@ import {
   Globe
 } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
-import { contemporaryMatches } from '../utils/relationRules.js';
+import { contemporaryMatches, eventFigures } from '../utils/relationRules.js';
 
 export const Timeline = ({
   events = [],
@@ -300,9 +300,7 @@ export const Timeline = ({
         {filteredEvents.map((evt) => {
           const isSelected = selectedEvent?.id === evt.id;
           const factionBadge = getFactionBadge(evt.faction);
-          const linkedFigures = (evt.figureIds || [])
-            .map((fid) => (figures || []).find((f) => f.id === fid))
-            .filter(Boolean);
+          const linkedFigures = eventFigures(evt, figures);
           const contextFigures = linkedFigures.filter(figure=>isContextReview(evt.figureLinkReviews?.[figure.id]));
           const allEvtFigures = linkedFigures.filter(figure=>!isContextReview(evt.figureLinkReviews?.[figure.id]));
           const showAllFigs = expandedFiguresEventId === evt.id;

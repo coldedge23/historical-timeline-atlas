@@ -37,3 +37,21 @@ test('預覽伺服器只提供發布根目錄，正確區分快取並拒絕寫�
   assert.equal((await request(port, '/%ZZ')).status, 400);
   assert.equal((await request(port, '/', 'POST')).status, 405);
 });
+test('預覽伺服器：含雜湊的資料包與搜尋索引長期快取，總目錄每次重新驗證', async (t) => {
+  const server = createServer();
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const port = server.address().port;
+  const catalogPath = '/' + manifest().data.catalog;
+  const catalog = JSON.parse((await request(port, catalogPath)).body);
+  const head = async (target) => request(port, target, 'HEAD');
+  const catalogHead = await head(catalogPath);
+  assert.equal(catalogHead.status, 200); assert.equal(catalogHead.headers['cache-control'], 'no-cache');
+  assert.match(catalogHead.headers['content-type'], /^application\/json/); assert.equal(catalogHead.body, '');
+  for (const file of [catalog.searchIndex.file, ...Object.values(catalog.packs).map((pack) => pack.file)]) {
+    const res = await head('/' + file);
+    assert.equal(res.status, 200, file); assert.match(res.headers['cache-control'], /immutable/, file);
+    assert.match(res.headers['content-type'], /^application\/json/, file); assert.equal(res.body, '');
+  }
+  assert.equal((await head('/data/packs/missing.000000000000.json')).status, 404);
+});

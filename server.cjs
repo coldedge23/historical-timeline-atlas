@@ -14,7 +14,9 @@ function createServer(root = ROOT) {
     const target = filePath === resolvedRoot ? path.join(resolvedRoot, 'index.html') : filePath;
     fs.stat(target, (err, stat) => {
       if (err || !stat.isFile()) { res.writeHead(404); res.end('Not Found'); return; }
-      const hashedAsset = /(?:app|chunk)\.[A-Za-z0-9]{8,12}\.(js|css)$/.test(target);
+      // Content-hashed files never change; data/catalog.json and everything else must revalidate.
+      const hashedAsset = /(?:app|chunk)\.[A-Za-z0-9]{8,12}\.(js|css)$/.test(target) ||
+        /[\\/]data[\\/](?:packs[\\/][A-Za-z0-9_-]+|search-index)\.[a-f0-9]{12}\.json$/.test(target);
       res.writeHead(200, { 'Content-Type': MIME_TYPES[path.extname(target)] || 'application/octet-stream', 'Content-Length': stat.size, 'X-Content-Type-Options': 'nosniff', 'Cache-Control': hashedAsset ? 'public, max-age=31536000, immutable' : 'no-cache' });
       if (req.method === 'HEAD') { res.end(); return; }
       const stream = fs.createReadStream(target);

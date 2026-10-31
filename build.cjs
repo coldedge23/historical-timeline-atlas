@@ -37,14 +37,16 @@ async function build() {
   for (const file of jsFiles) await fs.writeFile(file.path, file.contents);
   await fs.writeFile(path.join(DIST, 'assets', cssName), css);
   const imageManifest = await prepareImageAssets(ROOT, { codeOnly: process.argv.includes('--code-only') });
+  const { writeDataPacks } = await import(pathToFileURL(path.join(ROOT, 'scripts/build_data_packs.mjs')).href);
+  const data = await writeDataPacks(DIST);
   const template = await fs.readFile(path.join(ROOT, 'index.html'), 'utf8');
   if (!template.includes('<!-- APP_ASSETS -->')) throw new Error('index.html 缺少 APP_ASSETS 標記');
   const html = template.replace('<!-- APP_ASSETS -->', `<link rel="stylesheet" href="./assets/${cssName}">\n    <script type="module" src="./assets/${path.basename(entry.path)}"></script>`);
   await fs.writeFile(path.join(DIST, 'index.html'), html);
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');
   const assets = [...jsFiles.map((file) => `assets/${path.basename(file.path)}`), `assets/${cssName}`];
-  await fs.writeFile(path.join(DIST, 'build-manifest.json'), JSON.stringify({ imageCount: imageManifest.images.length, assets, entry: `assets/${path.basename(entry.path)}`, jsBytes: jsFiles.reduce((sum, file) => sum + file.contents.length, 0), cssBytes: Buffer.byteLength(css) }, null, 2));
-  console.log(`建置完成：${jsFiles.length} 個 JS 分包、CSS ${(Buffer.byteLength(css) / 1024).toFixed(1)} KB；發布目錄 dist`);
+  await fs.writeFile(path.join(DIST, 'build-manifest.json'), JSON.stringify({ imageCount: imageManifest.images.length, assets, entry: `assets/${path.basename(entry.path)}`, jsBytes: jsFiles.reduce((sum, file) => sum + file.contents.length, 0), cssBytes: Buffer.byteLength(css), data: { catalog: 'data/catalog.json', files: data.files } }, null, 2));
+  console.log(`建置完成：${jsFiles.length} 個 JS 分包、CSS ${(Buffer.byteLength(css) / 1024).toFixed(1)} KB、資料包 ${Object.keys(data.catalog.packs).length} 個；發布目錄 dist`);
 }
 build().catch((error) => { console.error('建置失敗：', error.message); process.exitCode = 1; });
 

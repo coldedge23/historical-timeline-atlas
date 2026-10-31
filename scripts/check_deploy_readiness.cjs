@@ -33,6 +33,15 @@ assert(largest.kb <= BUDGET_KB.largestJs, `最大 JS 檔超過體積上限：${l
 assert(totalKb <= BUDGET_KB.total, `JS+CSS 總量超過體積上限：${usage(totalKb, BUDGET_KB.total)}。請考慮按時期拆分資料。`);
 console.log(`體積上限檢查通過（壓縮後）：最大 JS ${usage(largest.kb, BUDGET_KB.largestJs)}；總量 ${usage(totalKb, BUDGET_KB.total)}。`);
 
+// Data packs are built but not yet read by the browser; sizes are reported, limits wait for plan v2 section 3.9.
+const data = require('./check_data_packs.cjs').checkDataPacks(dist, manifest);
+const packKb = Object.values(data.sizes.packs);
+const largestPack = Object.entries(data.sizes.packs).sort((a, b) => b[1] - a[1])[0];
+const allKb = totalKb + data.sizes.catalog + data.sizes.searchIndex + packKb.reduce((sum, kb) => sum + kb, 0);
+console.log(`資料包驗證通過：${packKb.length} 個資料包、${data.linkCount} 筆關聯目標全部找得到；schemaVersion ${data.catalog.schemaVersion}。`);
+console.log(`資料包體積（壓縮後，尚未設上限）：總目錄 ${data.sizes.catalog.toFixed(0)} KB；最大資料包 ${largestPack[0]} ${largestPack[1].toFixed(0)} KB；搜尋索引 ${data.sizes.searchIndex.toFixed(0)} KB；程式與資料總量 ${allKb.toFixed(0)} KB。`);
+if (data.leftovers.length) console.warn(`警告：dist/data 有 ${data.leftovers.length} 個總目錄未列出的舊檔案（本機建置不自動刪除；CI 全新建置時視為錯誤）。`);
+
 require('./image_asset_policy.cjs').verifyImageAssets(root).then(result=>console.log("圖像程式資產驗證通過：" + result.images + "張實際引用圖；排除已知備份SHA256。來源及授權仍須逐圖核對。")).catch(error=>{console.error(error.message);process.exitCode=1;});
 
 

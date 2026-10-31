@@ -26,6 +26,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm test
+      - run: node scripts/validate_history_data.mjs --effective
       - run: npm run verify
       - uses: actions/upload-pages-artifact@v3
         with:
