@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { DialogDataStatus } from './DataStatus.jsx';
 
 // Native dialog supplies modal focus containment, inert background and Escape.
 export function Dialog({ onClose, label, children }) {
@@ -22,5 +23,6 @@ export function Dialog({ onClose, label, children }) {
     onCancel={(e) => { e.preventDefault(); closeRef.current(); }}
     onClick={(e) => { if (e.target === ref.current) closeRef.current(); }}>
     {children}
+    <DialogDataStatus />
   </dialog>, document.body);
 }

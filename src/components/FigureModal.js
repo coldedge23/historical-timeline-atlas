@@ -20,7 +20,6 @@ const ABILITY_AXES = [
 export const FigureModal = ({
   figure,
   links = { relations: [], events: [], battles: [] },
-  resolveLink = () => null,
   onClose,
   onSelectFigure,
   onSelectEvent,
@@ -116,7 +115,7 @@ export const FigureModal = ({
   const radarPolygonPoints = radarVertices.map((v) => `${v.x.toFixed(1)},${v.y.toFixed(1)}`).join(' ');
 
   // Combine direct relations + reverse relations (up to 8 nodes for rich star graph)
-  // Link descriptors from the store; a click resolves the full record (resolveLink).
+  // Link descriptors from the store; a click hands the descriptor to the app, which opens it on this page or its home pack.
   const combinedRelations = useMemo(() => links.relations.map(link => ({ targetFigure: link, relationType: link.relationType, label: link.label, link })), [links]);
   const participatedEvents = links.events.filter(link => !isContextReview(link.review));
   const contextualEvents = links.events.filter(link => isContextReview(link.review));
@@ -528,7 +527,7 @@ export const FigureModal = ({
                       return (
                         <g
                           key={`node_${item.link.key}`}
-                          onClick={() => onSelectFigure(resolveLink(item.link))}
+                          onClick={() => onSelectFigure(item.link)}
                           className="cursor-pointer group"
                         >
                           <circle
@@ -643,8 +642,8 @@ export const FigureModal = ({
                     <div
                       key={idx}
                       role="button" tabIndex={0}
-                      onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectFigure(resolveLink(item.link)); } }}
-                      onClick={() => onSelectFigure(resolveLink(item.link))}
+                      onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectFigure(item.link); } }}
+                      onClick={() => onSelectFigure(item.link)}
                       className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/80 border border-white/5 hover:border-amber-500/50 hover:bg-zinc-800 transition-all cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
@@ -700,10 +699,8 @@ export const FigureModal = ({
                   <button
                     key={bat.key}
                     onClick={() => {
-                      if (onSelectBattle) {
-                        onClose();
-                        onSelectBattle(resolveLink(bat));
-                      }
+                      // The parent closes this modal once the battle opens (its pack may still be loading).
+                      if (onSelectBattle) onSelectBattle(bat);
                     }}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-950/40 border border-rose-500/30 text-xs text-rose-200 hover:border-rose-400 hover:bg-rose-900/50 transition-colors"
                   >
@@ -724,7 +721,7 @@ export const FigureModal = ({
           {contextualEvents.length > 0 && <details className="border-t border-white/10 pt-2">
             <summary className="text-sm text-amber-200 cursor-pointer py-2">背景與年代待考（{contextualEvents.length} 筆，非親身參與清單）</summary>
             {contextualEvents.map(event=><div key={event.key} className="my-3 text-sm text-zinc-300">
-              <button className="text-left text-amber-200 underline underline-offset-4" onClick={()=>{onClose();onSelectEvent(resolveLink(event));}}>{formatHistoryYear(event.year)}・{event.title}</button>
+              <button className="text-left text-amber-200 underline underline-offset-4" onClick={()=>onSelectEvent(event)}>{formatHistoryYear(event.year)}・{event.title}</button>
               <p>{event.review.label}：{event.review.reviewReason}</p>
             </div>)}
           </details>}
@@ -741,10 +738,7 @@ export const FigureModal = ({
                   return (
                     <button
                       key={evt.key}
-                      onClick={() => {
-                        onClose();
-                        onSelectEvent(resolveLink(evt));
-                      }}
+                      onClick={() => onSelectEvent(evt)}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800/80 border border-white/10 text-xs text-zinc-300 hover:border-amber-500/60 hover:text-amber-200 hover:bg-zinc-700/80 transition-colors"
                     >
                       <span className="font-mono text-amber-400 text-[10px]">{formatHistoryYear(evt.year)}</span>

@@ -15,6 +15,9 @@ export const Header = ({
   searchTerm,
   onSearchChange,
   globalSearchResults = [],
+  // The search index loads on first focus (plan v2 section 3.4): idle | loading | ready | error.
+  searchStatus = 'ready',
+  onRequestSearchIndex,
   onSelectGlobalResult,
   eventCount,
   figureCount,
@@ -64,8 +67,8 @@ export const Header = ({
           <input ref={input} value={searchTerm} placeholder="搜尋全部歷史" aria-label="搜尋華夏、臺灣、日本的人物、戰役與事件"
             role="combobox" aria-expanded={open && !!searchTerm.trim()} aria-controls="history-search-results" aria-autocomplete="list"
             aria-activedescendant={open && globalSearchResults[cursor] ? `search-result-${cursor}` : undefined}
-            onFocus={() => setOpen(true)}
-            onChange={(e) => { onSearchChange(e.target.value); setOpen(true); }}
+            onFocus={() => { setOpen(true); onRequestSearchIndex?.(); }}
+            onChange={(e) => { onSearchChange(e.target.value); setOpen(true); onRequestSearchIndex?.(); }}
             onKeyDown={(e) => {
               if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); setCursor((n) => Math.min(n + 1, globalSearchResults.length - 1)); }
               if (e.key === 'ArrowUp') { e.preventDefault(); setCursor((n) => Math.max(n - 1, 0)); }
@@ -75,7 +78,9 @@ export const Header = ({
           {open && searchTerm.trim() && <div className="search-results">
             <p className="search-caption" role="status">全體系搜尋・最多顯示 24 筆</p>
             <div id="history-search-results" role="listbox" aria-label="歷史搜尋結果">
-              {!globalSearchResults.length && <p className="search-empty">找不到「{searchTerm}」，請試試人物別名或事件名稱。</p>}
+              {searchStatus === 'ready' && !globalSearchResults.length && <p className="search-empty">找不到「{searchTerm}」，請試試人物別名或事件名稱。</p>}
+              {(searchStatus === 'loading' || searchStatus === 'idle') && <p className="search-empty" role="status">搜尋索引載入中…</p>}
+              {searchStatus === 'error' && <p className="search-empty" role="alert">搜尋索引載入失敗。<button type="button" className="data-retry" onMouseDown={(e) => e.preventDefault()} onClick={() => onRequestSearchIndex?.()}>重試</button></p>}
               {globalSearchResults.map((res, i) => <div key={`${res.periodId}-${res.type}-${res.item.id}-${i}`} id={`search-result-${i}`} role="option" aria-selected={cursor === i}
                 onMouseDown={(e) => e.preventDefault()} onClick={() => choose(res)} className={`search-result ${cursor === i ? 'is-active' : ''}`}>
                 <div><strong>{res.title}</strong><small>{res.subtitle}</small></div>

@@ -1,5 +1,5 @@
 // Build-time data packs (plan v2, sections 3.2-3.6): catalog.json, search-index.<hash>.json, packs/<pack>.<hash>.json.
-// Called by build.cjs; the browser does not read these yet (stage 2b switches over).
+// Called by build.cjs; read in the browser by src/store/packSource.js.
 import { createHash } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -75,6 +75,8 @@ export function createDataPacks() {
   const body = {
     civilizations: CIVILIZATIONS.map(c => ({ ...c, packs: Object.keys(packs).filter(id => packs[id].civ === c.id) })),
     periodOptions: PERIOD_OPTIONS, packs,
+    // Era menus for Taiwan and Japan, needed before their packs load (Header, cold-start routing).
+    eras: { taiwan: TAIWAN_LENS_ERAS.map(eraSummary), japan: JAPAN_ERAS.map(eraSummary) },
     searchIndex: { file: searchFile, bytes: Buffer.byteLength(searchText) },
     contemporaryFields: CONTEMPORARY_FIELDS, contemporary: buildContemporary() };
   // buildId changes whenever any pack, the search index or the catalog body changes.

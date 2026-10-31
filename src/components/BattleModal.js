@@ -9,7 +9,6 @@ import { X, Swords, Trophy, MapPin, ShieldAlert, Crosshair, Layers } from './Ico
 export const BattleModal = ({
   battle,
   links = { commanders: { attacker: [], defender: [] }, event: null },
-  resolveLink = () => null,
   onClose,
   onSelectFigure,
   onSelectEvent,
@@ -50,10 +49,7 @@ export const BattleModal = ({
             return (
               <button
                 key={idx}
-                onClick={() => {
-                  onClose();
-                  onSelectFigure(resolveLink(fig));
-                }}
+                onClick={() => onSelectFigure(fig)}
                 title={`點擊查看【${fig.name}】人物列傳`}
                 className="flex items-center gap-1.5 pl-1.5 pr-2.5 py-1 rounded-lg bg-zinc-800/90 hover:bg-amber-950/50 text-zinc-200 hover:text-amber-200 border border-white/10 hover:border-amber-500/50 transition-all text-xs group"
               >
@@ -134,10 +130,8 @@ export const BattleModal = ({
 
             {linkedEvent && onSelectEvent && (
               <button
-                onClick={() => {
-                  onClose();
-                  onSelectEvent(resolveLink(linkedEvent));
-                }}
+                // The parent closes this modal once the event opens (its pack may still be loading).
+                onClick={() => onSelectEvent(linkedEvent)}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600/20 border border-amber-500/40 text-amber-300 hover:bg-amber-600/30 text-xs font-medium transition-colors shrink-0 self-start sm:self-center"
               >
                 <Layers className="w-3.5 h-3.5" />

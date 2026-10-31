@@ -81,10 +81,13 @@ function collectNavigation(source) {
     const c = cats[civ];
     for (const [param, list] of [['event', c.events], ['figure', c.figures], ['battle', c.battles]]) for (const r of list) hashes.push(`#civ=${civ}&${param}=${r.id}`);
   }
+  // A source may resolve each route the way the browser does it: with only the page that route opens loaded.
+  const restore = source.resolveRoute || (hash => resolveNavigation(hash, cats, source.eras));
+  const coldStart = source.resolveColdStart || (hash => resolveInitialNavigation(hash, source.initialContext));
   const out = {};
   for (const hash of hashes) {
-    const r = resolveNavigation(hash, cats, source.eras);
-    const i = resolveInitialNavigation(hash, source.initialContext);
+    const r = restore(hash);
+    const i = coldStart(hash);
     out[hash] = {
       restore: [r.civ, r.period, r.era, r.tab, r.event, r.figure, r.battle, r.unknown.civ, r.unknown.period],
       coldStart: [i.civ, i.period, i.tab, i.taiwanEra, i.japanEra, i.selectedEvent?.id || '', i.selectedFigure?.id || '', i.selectedBattle?.id || ''],
@@ -141,7 +144,7 @@ function collectContemporary(source) {
 
 function collectFigureSelection(source) {
   const decide = (figure, current) => {
-    const d = resolveFigureSelection(figure, current, source.selectionContext);
+    const d = resolveFigureSelection(figure, current, source.selectionContextFor ? source.selectionContextFor(figure) : source.selectionContext);
     if (!d) return null;
     const s = d.switchTo;
     return [key(d.target), s ? s.civ : 'stay', s ? (s.periodId || s.japanEraId || s.taiwanEraId) : null, s ? key(s.selectedEvent) : null];

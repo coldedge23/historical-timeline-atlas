@@ -1,5 +1,5 @@
 // Plan v2 section 3.7: which bundle each class of src/data file may land in, read from the esbuild metafile.
-// - main entry (and its static imports): no geo; no content once the store reads data packs (stage 2b-①)
+// - main entry (and its static imports): no geo, no content
 // - geo: only in chunks that the main entry loads lazily
 // - content: only in the legacy fallback chunk (stage 2b), which stage 4 removes
 import test from 'node:test';
@@ -16,8 +16,6 @@ const { bundleOptions } = require('../scripts/esbuild_options.cjs');
 const classes = JSON.parse(readFileSync(join(ROOT, 'scripts', 'data_file_classes.json'), 'utf8')).classes;
 const classOf = Object.fromEntries(Object.entries(classes).flatMap(([name, { files }]) => files.map((file) => [`src/data/${file}`, name])));
 
-// Stage 2b-0: the store still imports content statically. 2b-① moves it into the fallback chunk and sets this to false.
-const CONTENT_IN_MAIN_ENTRY = true;
 // The legacy data source is the only module that may pull content into a lazy chunk.
 const LEGACY_SOURCE = 'src/store/legacySource.js';
 
@@ -40,14 +38,11 @@ test('every bundled src/data file is classified', () => {
 });
 
 test('the main entry carries no map geography', () => {
-  // linkedHistoryCatalog.js projects Japan event coordinates (svgPos); it leaves the main entry in 2b-①.
-  assert.deepEqual(dataInputs(mainFiles, 'geo'), CONTENT_IN_MAIN_ENTRY ? ['src/data/japan/japanPrefecturesGeoData.js'] : []);
+  assert.deepEqual(dataInputs(mainFiles, 'geo'), []);
 });
 
-test('history content stays out of the main entry, except during stage 2b-0', () => {
-  const content = dataInputs(mainFiles, 'content');
-  if (CONTENT_IN_MAIN_ENTRY) assert.ok(content.includes('src/data/linkedHistoryCatalog.js'), 'flag is stale: set CONTENT_IN_MAIN_ENTRY to false');
-  else assert.deepEqual(content, []);
+test('history content stays out of the main entry', () => {
+  assert.deepEqual(dataInputs(mainFiles, 'content'), []);
 });
 
 test('lazy chunks carry history content only through the legacy data source', () => {

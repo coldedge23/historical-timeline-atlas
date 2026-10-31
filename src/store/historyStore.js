@@ -1,96 +1,110 @@
-// The one place the browser gets history data from (plan v2, stage 2a).
-// Stage 2a: backed by linkedHistoryCatalog.js in memory, links derived on demand with the same
-// pure functions the build uses. Stage 2b swaps the backing for catalog.json + data packs.
-import { LINKED_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES } from '../data/linkedHistoryCatalog.js';
-import { PERIOD_OPTIONS } from '../data/periodsRegistry.js';
-import { TAIWAN_LENS_ERAS, TAIWAN_RELATED_BATTLES, ERA_BATTLE_IDS } from '../data/taiwanLensData.js';
-import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ALL_EVENTS, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_CONFIGS } from '../data/japan/index.js';
-import { figureLinkSet, battleLinkSet, eventLinkSet } from '../utils/linkDerivation.js';
-import { battleFigureIndex } from '../utils/relationRules.js';
+// The one place the browser gets history data from (plan v2, stage 2b).
+// Two sources with the same async interface: data packs (packSource.js) and, during the transition,
+// the stage 2a in-memory catalog (legacySource.js, a separate chunk loaded only through import()).
+import { createPackSource } from './packSource.js';
+import { pageIdFor, withEraIds } from './pageIds.js';
 
-export const TAIWAN_PAGE = 'taiwanLens';
-export const JAPAN_PAGE = 'japanAtlas';
-export const CHINA_PAGE_IDS = Object.keys(LINKED_PERIODS);
-export const PAGE_IDS = [...CHINA_PAGE_IDS, TAIWAN_PAGE, JAPAN_PAGE];
+export { TAIWAN_PAGE, JAPAN_PAGE, pageIdFor } from './pageIds.js';
+export { DataLoadError } from './packSource.js';
 
-export const hasPeriod = (periodId) => !!LINKED_PERIODS[periodId];
-export const pageIdFor = (civ, periodId) => civ === 'japan' ? JAPAN_PAGE : civ === 'taiwan' ? TAIWAN_PAGE : periodId;
+// Stage 2b-①: the legacy source stays the default; ?data=packs switches to the data packs.
+const requested = new URLSearchParams(globalThis.location?.search || '').get('data');
+export const DATA_MODE = requested === 'packs' ? 'packs' : 'legacy';
 
-// Era descriptions as data packs carry them: no keyEvents, firstEventId instead.
-const eraSummary = ({ keyEvents, ...era }) => ({ ...era, firstEventId: keyEvents?.[0]?.id ?? null });
-
-const pages = new Map();
-// A page: what one view shows (a China period, all of Taiwan, all of Japan) plus the pools its links resolve in.
-export function getPage(pageId) {
-  if (pages.has(pageId)) return pages.get(pageId);
-  let page;
-  if (pageId === TAIWAN_PAGE) page = { id: pageId, civ: 'taiwan', events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES,
-    eras: TAIWAN_LENS_ERAS.map(eraSummary), eraBattleIds: ERA_BATTLE_IDS };
-  else if (pageId === JAPAN_PAGE) page = { id: pageId, civ: 'japan', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES,
-    eras: JAPAN_ERAS.map(eraSummary), eraBattleIds: JAPAN_ERA_BATTLE_IDS, warlordPeriods: JAPAN_WARLORD_PERIOD_CONFIGS };
-  else if (LINKED_PERIODS[pageId]) {
-    const period = LINKED_PERIODS[pageId];
-    page = { ...period, id: pageId, civ: 'china', events: period.events || [], figures: period.figures || [], battles: period.battles || [], warlordPeriods: period.warlordPeriods || [] };
-  } else return null;
-  page.figuresForLinks = [...page.figures, ...ALL_LINKED_FIGURES.filter(f => !page.figures.some(l => l.id === f.id))];
-  page.eventsForLinks = [...page.events, ...ALL_LINKED_EVENTS.filter(e => !page.events.some(l => l.id === e.id))];
-  page.battlesForLinks = [...page.battles, ...ALL_LINKED_BATTLES.filter(b => !page.battles.some(l => l.id === b.id))];
-  pages.set(pageId, page);
-  return page;
+let sourcePromise = null;
+let source = null;
+function dataSource() {
+  sourcePromise ||= (DATA_MODE === 'packs' ? Promise.resolve(createPackSource()) : import('./legacySource.js').then(m => m.createLegacySource()))
+    .then(s => (source = s));
+  return sourcePromise;
 }
 
-const withEraIds = (battles, eraBattleIds) => battles.map(b => ({ ...b, eraId: Object.entries(eraBattleIds).find(([, ids]) => ids.includes(b.id))?.[0] }));
+export const loadCatalog = async (options) => (await dataSource()).loadCatalog(options);
+export const loadPage = async (pageId) => (await dataSource()).loadPage(pageId);
+export const loadSearchIndex = async () => (await dataSource()).loadSearchIndex();
+// A page that is already in memory, or null.
+export const peekPage = (pageId) => source?.peekPage(pageId) || null;
 
-function buildCatalog() {
-  const allChinaEvents = [];
-  for (const [periodId, p] of Object.entries(LINKED_PERIODS)) for (const evt of p.events || []) allChinaEvents.push({ ...evt, periodId, periodName: p.name });
-  allChinaEvents.sort((a, b) => a.year - b.year);
-  const navigationCatalogs = { ...LINKED_PERIODS,
-    taiwan: { id: TAIWAN_PAGE, civ: 'taiwan', name: '臺灣歷史', events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: withEraIds(TAIWAN_RELATED_BATTLES, ERA_BATTLE_IDS) },
-    japan: { id: JAPAN_PAGE, civ: 'japan', name: '日本歷史', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: withEraIds(JAPAN_BATTLES, JAPAN_ERA_BATTLE_IDS) },
+// Link descriptors for a record on the page: precomputed in the pack, or derived by the legacy source.
+const NO_FIGURE_LINKS = { relations: [], events: [], battles: [] };
+const NO_BATTLE_LINKS = { commanders: { attacker: [], defender: [] }, event: null };
+const NO_EVENT_LINKS = { figures: [], battle: null, tags: {} };
+export const figureLinksFor = (page, figure) => (page.links ? page.links.figures[figure.id] : page.deriveLinks?.('figure', figure)) || NO_FIGURE_LINKS;
+export const battleLinksFor = (page, battle) => (page.links ? page.links.battles[battle.id] : page.deriveLinks?.('battle', battle)) || NO_BATTLE_LINKS;
+export const eventLinksFor = (page, evt) => (page.links ? page.links.events[evt.id] : page.deriveLinks?.('event', evt)) || NO_EVENT_LINKS;
+
+const poolOf = (page, type) => type === 'figure' ? page.figures : type === 'event' ? page.events : page.battles;
+// Plan v2 section 3.3: a link opens on the current page when the page lists that id, otherwise in its home pack.
+export const findOnPage = (page, link) => poolOf(page, link.type).find(r => r.id === link.id) || null;
+export const homeRecord = (page, link) => {
+  const pool = poolOf(page, link.type);
+  return pool.find(r => r.id === link.id && (r.datasetId || page.id) === link.homePack) || pool.find(r => r.id === link.id) || null;
+};
+
+// Taiwan/Japan pages as navigation and search see them: battles carry their era.
+const navigationPages = new WeakMap();
+export function navigationDataset(page) {
+  if (page.civ === 'china') return page;
+  if (!navigationPages.has(page)) navigationPages.set(page, { ...page, battles: withEraIds(page.battles, page.eraBattleIds || {}) });
+  return navigationPages.get(page);
+}
+
+// Page loads for navigation: only the latest request is applied; an older load that finishes later is dropped
+// (plan v2 section 3.5). A page already in memory applies at once and cancels any load still pending.
+// onStatus receives null, { pageId } while loading, or { pageId, error, retry } on failure.
+export function createPageNavigator({ peek = peekPage, load = loadPage, onStatus = () => {} } = {}) {
+  let seq = 0;
+  return function whenLoaded(pageId, apply) {
+    const mine = ++seq;
+    const ready = peek(pageId);
+    if (ready) { onStatus(null); apply(ready); return; }
+    onStatus({ pageId });
+    load(pageId).then((page) => {
+      if (mine !== seq) return;
+      onStatus(null);
+      apply(page);
+    }, (error) => {
+      if (mine !== seq) return;
+      onStatus({ pageId, error, retry: () => whenLoaded(pageId, apply) });
+    });
   };
+}
+
+// --- Routing with only the page a route opens in memory (plan v2 section 3.5, two-step navigation) ---
+
+// The page a route opens: its China period (unknown -> yuanMing, as resolveNavigation does) or Taiwan/Japan.
+export function routePageId(route, periodIds) {
+  if (route.civ !== 'china') return pageIdFor(route.civ);
+  return periodIds.includes(route.period) ? route.period : 'yuanMing';
+}
+
+const EMPTY_DATASET = { events: [], figures: [], battles: [] };
+const knownPeriods = (catalog) => Object.fromEntries(catalog.periodIds.map(id => [id, { id, ...EMPTY_DATASET }]));
+
+// resolveNavigation reads only the dataset the route opens; other periods only need to be known by id.
+export function navigationCatalogs(catalog, page) {
+  return { ...knownPeriods(catalog), [page.civ === 'china' ? page.id : page.civ]: navigationDataset(page) };
+}
+
+// resolveInitialNavigation's context. Taiwan and Japan event and battle ids never collide with each other or with
+// China's (checked by tests/history-store.test.js), so the pages that are not open can stay empty.
+export function initialContext(catalog, page) {
+  const taiwan = page.civ === 'taiwan' ? page : null;
+  const japan = page.civ === 'japan' ? page : null;
   return {
-    periodOptions: PERIOD_OPTIONS,
-    eras: { taiwan: TAIWAN_LENS_ERAS.map(eraSummary), japan: JAPAN_ERAS.map(eraSummary) },
-    eraBattleIds: { taiwan: ERA_BATTLE_IDS, japan: JAPAN_ERA_BATTLE_IDS },
-    // Same order and copies as the timeline's cross-civilization pools.
-    contemporaryPools: { china: allChinaEvents, taiwan: LINKED_TAIWAN_EVENTS, japan: LINKED_JAPAN_EVENTS },
-    navigationCatalogs,
-    searchDatasets: Object.values(navigationCatalogs),
-    initialContext: { periods: LINKED_PERIODS,
-      taiwanEras: TAIWAN_LENS_ERAS, taiwanEraBattleIds: ERA_BATTLE_IDS,
-      japanEras: JAPAN_ERAS, japanAllEvents: JAPAN_ALL_EVENTS, japanEraBattleIds: JAPAN_ERA_BATTLE_IDS,
-      taiwan: { events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES },
-      japan: { events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES } },
-    selectionContext: { periods: LINKED_PERIODS, japanEvents: LINKED_JAPAN_EVENTS, taiwanEvents: LINKED_TAIWAN_EVENTS },
-    // The pool a figure leaving its page is looked up in (ALL_LINKED_FIGURES).
-    allFigures: ALL_LINKED_FIGURES,
+    periods: { ...knownPeriods(catalog), ...(page.civ === 'china' ? { [page.id]: page } : {}) },
+    taiwanEras: catalog.eras.taiwan.map(era => ({ ...era, keyEvents: taiwan ? taiwan.events.filter(e => e.eraId === era.id) : [] })),
+    taiwanEraBattleIds: taiwan?.eraBattleIds || {},
+    japanEras: catalog.eras.japan, japanAllEvents: japan?.events || [], japanEraBattleIds: japan?.eraBattleIds || {},
+    taiwan: taiwan || EMPTY_DATASET, japan: japan || EMPTY_DATASET,
   };
 }
-let catalog = null;
-export function getCatalog() { return catalog ||= buildCatalog(); }
 
-// Links are cached per page and per record object; a record not on the page is derived in the page's pools,
-// exactly as the modals did before (e.g. a battle opened from a figure modal on another page).
-const linkCache = new Map();
-function cached(pageId, kind, record, derive) {
-  const key = `${pageId}|${kind}`;
-  if (!linkCache.has(key)) linkCache.set(key, new WeakMap());
-  const cache = linkCache.get(key);
-  if (!cache.has(record)) cache.set(record, derive(getPage(pageId)));
-  return cache.get(record);
-}
-const figMaps = new Map();
-const figMapFor = (page) => { if (!figMaps.has(page.id)) figMaps.set(page.id, battleFigureIndex(page.figuresForLinks)); return figMaps.get(page.id); };
-
-export const figureLinksFor = (pageId, figure) => cached(pageId, 'figure', figure, page => figureLinkSet(figure, page));
-export const battleLinksFor = (pageId, battle) => cached(pageId, 'battle', battle, page => battleLinkSet(battle, page, figMapFor(page)));
-export const eventLinksFor = (pageId, evt) => cached(pageId, 'event', evt, page => eventLinkSet(evt, page));
-
-// The full record behind a link descriptor: the same object the page's pool holds.
-export function resolveLink(pageId, link) {
-  if (!link) return null;
-  const page = getPage(pageId);
-  const pool = link.type === 'figure' ? page.figuresForLinks : link.type === 'event' ? page.eventsForLinks : page.battlesForLinks;
-  return pool.find(r => r.id === link.id && (r.datasetId || page.id) === link.homePack) || null;
+// resolveFigureSelection's context when switching to the figure's own page.
+export function selectionContext(page) {
+  return {
+    periods: page.civ === 'china' ? { [page.id]: page } : {},
+    japanEvents: page.civ === 'japan' ? page.events : [],
+    taiwanEvents: page.civ === 'taiwan' ? page.events : [],
+  };
 }

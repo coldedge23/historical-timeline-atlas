@@ -23,7 +23,7 @@ export const Timeline = ({
   battles = [],
   selectedEvent,
   onSelectEvent,
-  onSelectFigureById,
+  onOpenFigureLink,
   onSelectBattleById,
   ancientNamesOnly,
   activePeriodId,
@@ -74,8 +74,8 @@ export const Timeline = ({
 
     // 1. Check if tag matches a figure name or courtesyName
     const matchingFig = eventLinksFor(evt).tags?.[tag];
-    if (matchingFig && onSelectFigureById) {
-      onSelectFigureById(matchingFig.id);
+    if (matchingFig && onOpenFigureLink) {
+      onOpenFigureLink(matchingFig);
       return;
     }
 
@@ -371,7 +371,7 @@ export const Timeline = ({
                         )}
                         {visibleFigures.map((fig) => (
                           <button key={fig.key} type="button" className="timeline-chip is-figure"
-                            onClick={(e) => { e.stopPropagation(); setIsAutoPlaying(false); onSelectFigureById(fig.id); }}>
+                            onClick={(e) => { e.stopPropagation(); setIsAutoPlaying(false); onOpenFigureLink(fig); }}>
                             {fig.avatar && (
                               <img src={fig.avatar} alt="" className="w-4 h-4 rounded-full object-cover"
                                 onError={(e) => { e.target.style.display = 'none'; }} />
@@ -491,7 +491,7 @@ export const Timeline = ({
                   )}
 
                   {contextFigures.length > 0 && <details className="text-sm text-zinc-300"><summary className="cursor-pointer py-2">背景與年代待考人物（{contextFigures.length} 位）</summary>
-                    {contextFigures.map(figure=><button key={figure.key} type="button" className="block text-left text-amber-200 py-2" onClick={()=>onSelectFigureById(figure.id)}>{figure.name}・{figure.review.label}</button>)}
+                    {contextFigures.map(figure=><button key={figure.key} type="button" className="block text-left text-amber-200 py-2" onClick={()=>onOpenFigureLink(figure)}>{figure.name}・{figure.review.label}</button>)}
                   </details>}
                   {pendingLinkCount(evt) > 0 && <p className="text-sm text-amber-200">另有 {pendingLinkCount(evt)} 筆人物連結待確認，暫不列入有效清單。</p>}
                   <SourceDisclosure record={evt} />

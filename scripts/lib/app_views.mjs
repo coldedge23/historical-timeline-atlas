@@ -1,6 +1,6 @@
-// Build-only adapter: the page data and link pools exactly as the browser assembles them (src/store/historyStore.js).
+// Build-only adapter: the page data and link pools exactly as the legacy source assembles them (src/store/legacySource.js).
 // Shared by scripts/capture_baseline.mjs and scripts/build_data_packs.mjs.
-import { PAGE_IDS, getPage, getCatalog } from '../../src/store/historyStore.js';
+import { PAGE_IDS, getPage, getCatalog } from '../../src/store/legacySource.js';
 export { LINKED_PERIODS, ALL_LINKED_FIGURES } from '../../src/data/linkedHistoryCatalog.js';
 export { PERIOD_OPTIONS } from '../../src/data/periodsRegistry.js';
 export { TAIWAN_LENS_ERAS, ERA_BATTLE_IDS } from '../../src/data/taiwanLensData.js';
