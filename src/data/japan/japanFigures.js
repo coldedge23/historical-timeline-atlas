@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Figures Dataset (174 Authoritative Figures)
+// Japanese Historical Atlas Figures Dataset (186 Authoritative Figures)
 export const JAPAN_FIGURES = [
   {
     "id": "fig_jp_shotoku",
@@ -4351,5 +4351,237 @@ export const JAPAN_FIGURES = [
     "hometown": "山形縣鶴岡 (今山形縣鶴岡市)",
     "shortBio": "任關東軍作戰主任參謀時，與板垣征四郎策劃 1931 年九一八事變並佔領中國東北。後任參謀本部作戰部長，盧溝橋事變後主張不擴大戰線，與主戰派對立而被調離，1941 年編入預備役。戰後未被起訴。",
     "historicalSignificance": "九一八事變的主要策劃者。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_yoshida_shigeru.svg",
+    "id": "fig_jp_yoshida_shigeru",
+    "name": "吉田茂",
+    "lifeSpan": "1878 - 1967",
+    "faction": "showa_postwar",
+    "clanTag": "自由黨",
+    "emblemChar": "吉",
+    "mainColor": "#2dd4bf",
+    "bgColor": "#042f2e",
+    "role": "內閣總理大臣（五度組閣）",
+    "roleType": "ruler",
+    "importance": 5,
+    "hometown": "東京府東京 (今東京都)",
+    "shortBio": "外交官出身，曾任駐英大使。戰爭末期因參與尋求和平的活動遭憲兵拘捕。1946 年至 1954 年間五度組閣，在佔領期間施行新憲法，1951 年簽署《舊金山和約》與《日美安保條約》，採取輕軍備、重經濟的路線。",
+    "historicalSignificance": "戰後日本外交與經濟優先路線的奠定者。",
+    "sources": [
+      {
+        "title": "《日本国との平和条約》",
+        "url": "https://ja.wikisource.org/wiki/日本国との平和条約"
+      },
+      {
+        "title": "《日本国とアメリカ合衆国との間の安全保障条約》",
+        "url": "https://ja.wikisource.org/wiki/日本国とアメリカ合衆国との間の安全保障条約"
+      }
+    ]
+  },
+  {
+    "avatar": "./images/figures/fig_jp_hatoyama_ichiro.svg",
+    "id": "fig_jp_hatoyama_ichiro",
+    "name": "鳩山一郎",
+    "lifeSpan": "1883 - 1959",
+    "faction": "showa_postwar",
+    "clanTag": "日本民主黨",
+    "emblemChar": "鳩",
+    "mainColor": "#22d3ee",
+    "bgColor": "#083344",
+    "role": "內閣總理大臣 / 自由民主黨首任總裁",
+    "roleType": "ruler",
+    "importance": 3,
+    "hometown": "東京府東京 (今東京都)",
+    "shortBio": "戰後組織日本自由黨，1946 年即將組閣時遭 GHQ 整肅。解除整肅後於 1954 年組閣，1955 年自由黨與日本民主黨合併成立自由民主黨。1956 年赴莫斯科簽署《日蘇共同宣言》，恢復日蘇邦交，同年日本加入聯合國。",
+    "historicalSignificance": "「五五年體制」成立時的首相。",
+    "sources": [
+      {
+        "title": "《日本国とソヴィエト社会主義共和国連邦との共同宣言》",
+        "url": "https://ja.wikisource.org/wiki/日本国とソヴィエト社会主義共和国連邦との共同宣言"
+      }
+    ]
+  },
+  {
+    "avatar": "./images/figures/fig_jp_kishi_nobusuke.svg",
+    "id": "fig_jp_kishi_nobusuke",
+    "name": "岸信介",
+    "lifeSpan": "1896 - 1987",
+    "faction": "showa_postwar",
+    "clanTag": "自由民主黨",
+    "emblemChar": "岸",
+    "mainColor": "#94a3b8",
+    "bgColor": "#0f172a",
+    "role": "內閣總理大臣 / 新安保條約簽署者",
+    "roleType": "ruler",
+    "importance": 3,
+    "hometown": "山口縣 (今山口縣)",
+    "shortBio": "商工省官僚出身，曾參與滿洲國產業開發，東條內閣時任商工大臣。戰後以甲級戰犯嫌疑被拘禁，未被起訴而獲釋。1957 年組閣，1960 年簽署新《日美安保條約》，在大規模抗議中通過國會批准，條約生效後總辭。其弟佐藤榮作亦曾任首相。",
+    "historicalSignificance": "戰前官僚與戰後保守政治延續的代表人物。",
+    "sources": [
+      {
+        "title": "《日本国とアメリカ合衆国との間の相互協力及び安全保障条約》",
+        "url": "https://ja.wikisource.org/wiki/日本国とアメリカ合衆国との間の相互協力及び安全保障条約"
+      }
+    ]
+  },
+  {
+    "avatar": "./images/figures/fig_jp_ikeda_hayato.svg",
+    "id": "fig_jp_ikeda_hayato",
+    "name": "池田勇人",
+    "lifeSpan": "1899 - 1965",
+    "faction": "showa_postwar",
+    "clanTag": "自由民主黨",
+    "emblemChar": "池",
+    "mainColor": "#4ade80",
+    "bgColor": "#052e16",
+    "role": "內閣總理大臣 / 所得倍增計畫",
+    "roleType": "ruler",
+    "importance": 3,
+    "hometown": "廣島縣吉名村 (今廣島縣竹原市)",
+    "shortBio": "大藏省官僚出身，吉田茂內閣時任大藏大臣。1960 年安保鬥爭後組閣，提出十年內國民所得倍增的「所得倍增計畫」，以經濟成長取代政治對立作為施政重心。1964 年東京奧運閉幕後因病辭職，翌年病逝。",
+    "historicalSignificance": "高度經濟成長時期的代表性首相。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_sato_eisaku.svg",
+    "id": "fig_jp_sato_eisaku",
+    "name": "佐藤榮作",
+    "lifeSpan": "1901 - 1975",
+    "faction": "showa_postwar",
+    "clanTag": "自由民主黨",
+    "emblemChar": "佐",
+    "mainColor": "#60a5fa",
+    "bgColor": "#172554",
+    "role": "內閣總理大臣 / 沖繩返還",
+    "roleType": "ruler",
+    "importance": 3,
+    "hometown": "山口縣田布施 (今山口縣田布施町)",
+    "shortBio": "岸信介胞弟。1964 年至 1972 年連續執政七年八個月，任內簽訂《日韓基本條約》、提出「非核三原則」，並與美國談判，1972 年 5 月實現沖繩返還。1974 年獲諾貝爾和平獎。",
+    "historicalSignificance": "戰後連續在任時間最長的首相之一。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_tanaka_kakuei.svg",
+    "id": "fig_jp_tanaka_kakuei",
+    "name": "田中角榮",
+    "lifeSpan": "1918 - 1993",
+    "faction": "showa_postwar",
+    "clanTag": "自由民主黨",
+    "emblemChar": "田",
+    "mainColor": "#fb923c",
+    "bgColor": "#431407",
+    "role": "內閣總理大臣 / 中日建交",
+    "roleType": "ruler",
+    "importance": 3,
+    "hometown": "新潟縣刈羽郡二田村 (今新潟縣柏崎市)",
+    "shortBio": "高等小學校畢業後經營土木建設公司，1947 年當選眾議員。1972 年組閣，提出「日本列島改造論」，同年 9 月訪問北京簽署《中日聯合聲明》，與中華人民共和國建交。1974 年因政治資金問題下台，1976 年因洛克希德事件被捕，一、二審判決有罪，上訴期間病逝。",
+    "historicalSignificance": "戰後派閥政治與地方建設政治的代表人物。",
+    "sources": [
+      {
+        "title": "《日本国政府と中華人民共和国政府の共同声明》",
+        "url": "https://ja.wikisource.org/wiki/日本国政府と中華人民共和国政府の共同声明"
+      }
+    ]
+  },
+  {
+    "avatar": "./images/figures/fig_jp_yukawa_hideki.svg",
+    "id": "fig_jp_yukawa_hideki",
+    "name": "湯川秀樹",
+    "lifeSpan": "1907 - 1981",
+    "faction": "showa_postwar",
+    "clanTag": "理論物理",
+    "emblemChar": "湯",
+    "mainColor": "#38bdf8",
+    "bgColor": "#082f49",
+    "role": "理論物理學家",
+    "roleType": "scholar",
+    "importance": 3,
+    "hometown": "東京府東京 (今東京都)",
+    "shortBio": "京都帝國大學畢業，1935 年發表介子理論，預言傳遞核力的介子存在。1949 年獲諾貝爾物理學獎，是第一位獲得諾貝爾獎的日本人。晚年參與《羅素—愛因斯坦宣言》，投入廢除核武的和平運動。",
+    "historicalSignificance": "戰後初期鼓舞日本社會的科學家。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_kawabata_yasunari.svg",
+    "id": "fig_jp_kawabata_yasunari",
+    "name": "川端康成",
+    "lifeSpan": "1899 - 1972",
+    "faction": "showa_postwar",
+    "clanTag": "昭和文壇",
+    "emblemChar": "川",
+    "mainColor": "#c084fc",
+    "bgColor": "#2e1065",
+    "role": "小說家",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "大阪府大阪市 (今大阪府大阪市)",
+    "shortBio": "早年與橫光利一等人發起新感覺派，著有《伊豆的舞孃》《雪國》《古都》等。1968 年獲諾貝爾文學獎，是第一位獲得此獎的日本作家。1972 年在逗子的工作室身亡，一般認為是自殺。",
+    "historicalSignificance": "日本文學走向國際的代表作家。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_tezuka_osamu.svg",
+    "id": "fig_jp_tezuka_osamu",
+    "name": "手塚治虫",
+    "lifeSpan": "1928 - 1989",
+    "faction": "showa_postwar",
+    "clanTag": "漫畫動畫",
+    "emblemChar": "漫",
+    "mainColor": "#fb7185",
+    "bgColor": "#4c0519",
+    "role": "漫畫家、動畫製作人",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "大阪府豐能郡 (今大阪府豐中市)",
+    "shortBio": "大阪帝國大學附屬醫學專門部畢業並取得醫師資格。1947 年《新寶島》受到注目，其後創作《原子小金剛》《森林大帝》《火鳥》《怪醫黑傑克》等。1963 年起製作電視動畫《原子小金剛》，開創每週播出的國產電視動畫系列。1989 年 2 月病逝。",
+    "historicalSignificance": "戰後日本漫畫與動畫產業的奠基者。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_kurosawa_akira.svg",
+    "id": "fig_jp_kurosawa_akira",
+    "name": "黑澤明",
+    "lifeSpan": "1910 - 1998",
+    "faction": "showa_postwar",
+    "clanTag": "電影",
+    "emblemChar": "影",
+    "mainColor": "#cbd5e1",
+    "bgColor": "#0f172a",
+    "role": "電影導演",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "東京府荏原郡 (今東京都品川區)",
+    "shortBio": "1943 年以《姿三四郎》首次執導。1951 年《羅生門》獲威尼斯影展金獅獎，使日本電影受到國際注目。代表作有《生之慾》《七武士》《亂》等，1990 年獲奧斯卡終身成就獎。",
+    "historicalSignificance": "對世界電影影響深遠的日本導演。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_matsushita_konosuke.svg",
+    "id": "fig_jp_matsushita_konosuke",
+    "name": "松下幸之助",
+    "lifeSpan": "1894 - 1989",
+    "faction": "showa_postwar",
+    "clanTag": "實業家",
+    "emblemChar": "松",
+    "mainColor": "#fbbf24",
+    "bgColor": "#451a03",
+    "role": "松下電器（今 Panasonic）創辦人",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "和歌山縣海草郡 (今和歌山縣和歌山市)",
+    "shortBio": "九歲到大阪當學徒，1918 年創立松下電氣器具製作所，以電燈插座與自行車燈起家，戰後發展為大型家電企業。1946 年創立 PHP 研究所，1979 年設立松下政經塾。1989 年 4 月病逝。",
+    "historicalSignificance": "戰後日本代表性的企業經營者。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_honda_soichiro.svg",
+    "id": "fig_jp_honda_soichiro",
+    "name": "本田宗一郎",
+    "lifeSpan": "1906 - 1991",
+    "faction": "showa_postwar",
+    "clanTag": "實業家",
+    "emblemChar": "本",
+    "mainColor": "#f87171",
+    "bgColor": "#450a0a",
+    "role": "本田技研工業創辦人",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "靜岡縣磐田郡光明村 (今靜岡縣濱松市)",
+    "shortBio": "汽車修理廠學徒出身。1948 年創立本田技研工業生產機車，1959 年起參加曼島 TT 機車賽並於 1961 年奪冠，1960 年代進入汽車與一級方程式賽車領域。1973 年退休，1991 年病逝。",
+    "historicalSignificance": "戰後日本製造業走向國際的代表人物。"
   }
 ];

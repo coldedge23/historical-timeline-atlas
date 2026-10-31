@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Eras Dataset (7 Master Historical Eras with 117 Detailed Events)
+// Japanese Historical Atlas Eras Dataset (8 Master Historical Eras with 130 Detailed Events)
 export const JAPAN_ERAS = [
   {
     "id": "jp_ancient_medieval",
@@ -2606,6 +2606,321 @@ export const JAPAN_ERAS = [
       "fig_jp_tojo_hideki",
       "fig_jp_yamamoto_isoroku",
       "fig_jp_ishiwara_kanji"
+    ]
+  },
+  {
+    "id": "jp_showa_postwar",
+    "name": "戰後復興·昭和經濟成長",
+    "dateRangeDisplay": "西元 1945 - 1989 年",
+    "shortEra": "盟軍佔領至昭和結束",
+    "tagline": "和平憲法·高度成長·經濟大國",
+    "description": "盟軍總司令部（GHQ）佔領期間推動民主化改革，1947 年施行《日本國憲法》。1952 年《舊金山和約》生效恢復主權，此後歷經安保鬥爭與高度經濟成長，舉辦東京奧運與大阪萬博，1972 年沖繩返還。1989 年昭和天皇駕崩，昭和時代結束。",
+    "keyEvents": [
+      {
+        "id": "evt_jp_allied_occupation_1945",
+        "year": 1945,
+        "yearDisplay": "西元 1945 年 (昭和二十年)",
+        "title": "盟軍佔領與民主化改革",
+        "summary": "聯合國軍最高司令官總司令部（GHQ）進駐東京，透過日本政府實施間接統治，佔領持續到 1952 年。",
+        "detail": "最高司令官麥克阿瑟於 1945 年 8 月 30 日抵達厚木，GHQ 設於東京日比谷的第一生命館。佔領期間推動解散財閥、農地改革、承認勞工權利、女性參政與教育改革，並解散軍隊、整肅戰爭協力者。",
+        "locationNameAncient": "東京都麴町區第一生命館",
+        "locationNameModern": "東京都千代田區有樂町",
+        "coordinates": [
+          139.761,
+          35.676
+        ],
+        "tags": [
+          "GHQ",
+          "麥克阿瑟",
+          "農地改革",
+          "財閥解體"
+        ],
+        "faction": "showa_postwar"
+      },
+      {
+        "id": "evt_jp_tokyo_trial_1946",
+        "year": 1946,
+        "yearDisplay": "西元 1946 年 (昭和二十一年)",
+        "title": "遠東國際軍事法庭（東京審判）",
+        "summary": "同盟國在東京審判戰爭指導者，1948 年宣判東條英機等七人死刑。",
+        "detail": "1946 年 5 月 3 日開庭，設於市谷的原陸軍省廳舍，起訴甲級戰犯嫌疑人 28 名。1948 年 11 月 12 日宣判，25 名被告有罪，其中東條英機、廣田弘毅等 7 人處絞刑，同年 12 月 23 日執行。昭和天皇未被起訴。",
+        "locationNameAncient": "東京都牛込區市谷",
+        "locationNameModern": "東京都新宿區市谷",
+        "coordinates": [
+          139.728,
+          35.692
+        ],
+        "tags": [
+          "東京審判",
+          "東條英機",
+          "甲級戰犯"
+        ],
+        "faction": "showa_postwar"
+      },
+      {
+        "id": "evt_jp_constitution_1946",
+        "year": 1946,
+        "yearDisplay": "西元 1946 年 (昭和二十一年)",
+        "title": "公布《日本國憲法》",
+        "summary": "新憲法以國民主權、尊重基本人權與和平主義為原則，1947 年 5 月 3 日施行。",
+        "detail": "以 GHQ 提出的草案為基礎，經帝國議會修正通過，1946 年 11 月 3 日公布。天皇成為國家與國民統合的象徵，第九條規定放棄戰爭、不保持戰力。同年元旦昭和天皇已發布詔書否定天皇的神格。",
+        "locationNameAncient": "東京都麴町區",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "日本國憲法",
+          "第九條",
+          "昭和天皇",
+          "吉田茂"
+        ],
+        "faction": "showa_postwar",
+        "sources": [
+          {
+            "title": "《日本國憲法》",
+            "url": "https://ja.wikisource.org/wiki/日本國憲法"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_san_francisco_1951",
+        "year": 1951,
+        "yearDisplay": "西元 1951 年 (昭和二十六年)",
+        "title": "簽訂《舊金山和約》與《日美安保條約》",
+        "summary": "吉田茂在舊金山與 48 國簽訂和約，同日簽訂安保條約，美軍在日本繼續駐留。",
+        "detail": "1951 年 9 月 8 日簽署，蘇聯等國未簽字，中華民國與中華人民共和國均未受邀。和約於 1952 年 4 月 28 日生效，日本恢復主權；沖繩、奄美與小笠原群島仍由美國統治。",
+        "locationNameAncient": "美國舊金山",
+        "locationNameModern": "美國加州舊金山（地圖範圍外）",
+        "tags": [
+          "舊金山和約",
+          "日美安保條約",
+          "吉田茂"
+        ],
+        "faction": "showa_postwar",
+        "sources": [
+          {
+            "title": "《日本国との平和条約》",
+            "url": "https://ja.wikisource.org/wiki/日本国との平和条約"
+          },
+          {
+            "title": "《日本国とアメリカ合衆国との間の安全保障条約》",
+            "url": "https://ja.wikisource.org/wiki/日本国とアメリカ合衆国との間の安全保障条約"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_un_membership_1956",
+        "year": 1956,
+        "yearDisplay": "西元 1956 年 (昭和三十一年)",
+        "title": "《日蘇共同宣言》與加入聯合國",
+        "summary": "鳩山一郎赴莫斯科簽署共同宣言恢復日蘇邦交，蘇聯不再反對，日本於同年 12 月加入聯合國。",
+        "detail": "1956 年 10 月 19 日在莫斯科簽署，宣言結束兩國戰爭狀態，並約定締結和約後蘇聯將齒舞群島與色丹島交給日本，和約至今未締結。12 月 18 日聯合國大會通過日本入會。前一年自由黨與日本民主黨合併為自由民主黨，形成長期執政的「五五年體制」。",
+        "locationNameAncient": "蘇聯莫斯科",
+        "locationNameModern": "俄羅斯莫斯科（地圖範圍外）",
+        "tags": [
+          "日蘇共同宣言",
+          "鳩山一郎",
+          "聯合國",
+          "五五年體制"
+        ],
+        "faction": "showa_postwar",
+        "sources": [
+          {
+            "title": "《日本国とソヴィエト社会主義共和国連邦との共同宣言》",
+            "url": "https://ja.wikisource.org/wiki/日本国とソヴィエト社会主義共和国連邦との共同宣言"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_anpo_protests_1960",
+        "year": 1960,
+        "yearDisplay": "西元 1960 年 (昭和三十五年)",
+        "title": "安保鬥爭與所得倍增計畫",
+        "summary": "岸信介內閣強行通過新安保條約引發大規模抗議，岸內閣總辭後池田勇人提出所得倍增計畫。",
+        "detail": "1960 年 1 月簽署新《日美安保條約》，5 月眾議院強行表決後，抗議群眾連日包圍國會，6 月 15 日東京大學學生樺美智子在衝突中死亡。條約於 6 月自然承認並生效，岸內閣隨後總辭。繼任的池田勇人以經濟成長為施政重心，12 月決定「國民所得倍增計畫」。",
+        "locationNameAncient": "東京都千代田區國會議事堂",
+        "locationNameModern": "東京都千代田區永田町",
+        "coordinates": [
+          139.745,
+          35.676
+        ],
+        "tags": [
+          "安保鬥爭",
+          "岸信介",
+          "池田勇人",
+          "所得倍增計畫"
+        ],
+        "faction": "showa_postwar",
+        "sources": [
+          {
+            "title": "《日本国とアメリカ合衆国との間の相互協力及び安全保障条約》",
+            "url": "https://ja.wikisource.org/wiki/日本国とアメリカ合衆国との間の相互協力及び安全保障条約"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_tokyo_olympics_1964",
+        "year": 1964,
+        "yearDisplay": "西元 1964 年 (昭和三十九年)",
+        "title": "東海道新幹線通車與東京奧運",
+        "summary": "10 月 1 日東海道新幹線通車，10 月 10 日東京奧運開幕，是亞洲首次舉辦的奧運。",
+        "detail": "新幹線連接東京與新大阪，為世界最早的高速鐵路。奧運籌備期間東京興建首都高速道路、單軌電車與多座競技場館。這段時期日本經濟年成長率長期維持在高水準，史稱「高度經濟成長」。",
+        "locationNameAncient": "東京都",
+        "locationNameModern": "東京都新宿區（國立競技場）",
+        "coordinates": [
+          139.715,
+          35.678
+        ],
+        "tags": [
+          "東京奧運",
+          "新幹線",
+          "高度經濟成長",
+          "池田勇人"
+        ],
+        "faction": "showa_postwar"
+      },
+      {
+        "id": "evt_jp_expo70_1970",
+        "year": 1970,
+        "yearDisplay": "西元 1970 年 (昭和四十五年)",
+        "title": "大阪萬國博覽會",
+        "summary": "以「人類的進步與和諧」為主題，在大阪府吹田市千里丘陵舉行，是亞洲首次舉辦的世界博覽會。",
+        "detail": "會期自 3 月 15 日至 9 月 13 日，入場人數超過六千萬人次。會場的象徵「太陽之塔」由藝術家岡本太郎設計，保留至今。",
+        "locationNameAncient": "大阪府吹田市千里丘陵",
+        "locationNameModern": "大阪府吹田市萬博紀念公園",
+        "coordinates": [
+          135.53,
+          34.81
+        ],
+        "tags": [
+          "大阪萬博",
+          "太陽之塔",
+          "高度經濟成長"
+        ],
+        "faction": "showa_postwar"
+      },
+      {
+        "id": "evt_jp_okinawa_reversion_1972",
+        "year": 1972,
+        "yearDisplay": "西元 1972 年 (昭和四十七年)",
+        "title": "沖繩返還與中日建交",
+        "summary": "5 月 15 日沖繩施政權由美國返還日本；9 月田中角榮訪問北京，日本與中華人民共和國建交。",
+        "detail": "佐藤榮作內閣與美國談判，沖繩於 5 月 15 日回歸，但大部分美軍基地仍留在沖繩。9 月 29 日田中角榮與周恩來簽署《中日聯合聲明》，兩國建立外交關係，日本同時與中華民國斷交。",
+        "locationNameAncient": "沖繩縣那霸市",
+        "locationNameModern": "沖繩縣那霸市",
+        "coordinates": [
+          127.68,
+          26.21
+        ],
+        "tags": [
+          "沖繩返還",
+          "佐藤榮作",
+          "田中角榮",
+          "中日聯合聲明"
+        ],
+        "faction": "showa_postwar",
+        "sources": [
+          {
+            "title": "《日本国政府と中華人民共和国政府の共同声明》",
+            "url": "https://ja.wikisource.org/wiki/日本国政府と中華人民共和国政府の共同声明"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_oil_shock_1973",
+        "year": 1973,
+        "yearDisplay": "西元 1973 年 (昭和四十八年)",
+        "title": "第一次石油危機",
+        "summary": "第四次中東戰爭爆發後原油價格急漲，日本物價飆升，高度經濟成長期結束。",
+        "detail": "1973 年 10 月阿拉伯產油國實施減產並調漲原油價格。日本能源高度依賴進口石油，國內出現搶購衛生紙等民生用品的風潮，物價急漲被稱為「狂亂物價」。1974 年日本經濟出現戰後首次負成長，此後轉為穩定成長，並推動節約能源。",
+        "locationNameAncient": "東京都",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "石油危機",
+          "田中角榮",
+          "狂亂物價"
+        ],
+        "faction": "showa_postwar"
+      },
+      {
+        "id": "evt_jp_china_peace_treaty_1978",
+        "year": 1978,
+        "yearDisplay": "西元 1978 年 (昭和五十三年)",
+        "title": "簽訂《中日和平友好條約》",
+        "summary": "福田赳夫內閣與中華人民共和國簽訂和平友好條約，同年 10 月鄧小平訪日交換批准書。",
+        "detail": "1978 年 8 月 12 日由外務大臣園田直與中國外交部長黃華在北京簽署。條約確認以和平手段解決爭端，並寫入反對霸權的條款。",
+        "locationNameAncient": "中華人民共和國北京",
+        "locationNameModern": "中國北京市（地圖範圍外）",
+        "tags": [
+          "中日和平友好條約",
+          "福田赳夫",
+          "鄧小平"
+        ],
+        "faction": "showa_postwar",
+        "sources": [
+          {
+            "title": "《日本国と中華人民共和国との間の平和友好条約》",
+            "url": "https://ja.wikisource.org/wiki/日本国と中華人民共和国との間の平和友好条約"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_plaza_accord_1985",
+        "year": 1985,
+        "yearDisplay": "西元 1985 年 (昭和六十年)",
+        "title": "廣場協議與日圓升值",
+        "summary": "五國財長在紐約廣場飯店同意聯手促使美元貶值，日圓快速升值。",
+        "detail": "1985 年 9 月 22 日，美、日、西德、英、法五國財政部長與央行總裁達成協議。此後日圓大幅升值，日本銀行為因應升值造成的景氣衰退而降低利率，資金流入股市與不動產，形成泡沫經濟。",
+        "locationNameAncient": "美國紐約",
+        "locationNameModern": "美國紐約（地圖範圍外）",
+        "tags": [
+          "廣場協議",
+          "日圓升值",
+          "泡沫經濟"
+        ],
+        "faction": "showa_postwar"
+      },
+      {
+        "id": "evt_jp_showa_ends_1989",
+        "year": 1989,
+        "yearDisplay": "西元 1989 年 (昭和六十四年／平成元年)",
+        "title": "昭和天皇駕崩，昭和時代結束",
+        "summary": "1 月 7 日昭和天皇駕崩，皇太子明仁即位，翌日改元平成。",
+        "detail": "昭和天皇在位六十二年餘，為有確切紀錄以來在位最久的天皇。官房長官小渕惠三於 1 月 7 日公布新年號「平成」，1 月 8 日起施行。",
+        "locationNameAncient": "東京都千代田區吹上御所",
+        "locationNameModern": "東京都千代田區皇居",
+        "coordinates": [
+          139.7528,
+          35.6852
+        ],
+        "tags": [
+          "昭和天皇",
+          "平成",
+          "改元"
+        ],
+        "faction": "showa_postwar"
+      }
+    ],
+    "highlightFigures": [
+      "fig_jp_showa_emperor",
+      "fig_jp_yoshida_shigeru",
+      "fig_jp_hatoyama_ichiro",
+      "fig_jp_kishi_nobusuke",
+      "fig_jp_ikeda_hayato",
+      "fig_jp_sato_eisaku",
+      "fig_jp_tanaka_kakuei",
+      "fig_jp_yukawa_hideki",
+      "fig_jp_kawabata_yasunari",
+      "fig_jp_tezuka_osamu",
+      "fig_jp_kurosawa_akira",
+      "fig_jp_matsushita_konosuke",
+      "fig_jp_honda_soichiro"
     ]
   }
 ];
