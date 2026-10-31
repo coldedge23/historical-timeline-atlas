@@ -183,3 +183,6 @@ input { caret-color:var(--atlas-accent); }
 .figure-filter label { font-size:13px; color:#c5bcb0; }
 .figure-filter select { margin-left:12px; background:#25252b; color:#f1eadf; padding:8px; border:1px solid #514b42; border-radius:7px; }
 @media(max-width:767px) { .figure-toolbar { gap:12px; } .figure-local-search { flex:1 1 100%; } }
+/* Derived-link marker (plan v2 3.2): quieter than the chip it sits in, readable on dark and parchment surfaces. */
+.derived-badge { display:inline-flex; align-items:center; padding:0 5px; border-radius:4px; border:1px dashed #a1a1aa80; color:#c4c4cc; font-size:10px; line-height:16px; font-weight:400; white-space:nowrap; cursor:help; }
+.derived-note { font-size:11px; color:#a1a1aa; margin:6px 0 0; }

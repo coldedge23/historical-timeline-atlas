@@ -1,5 +1,9 @@
 import { isContextReview } from '../data/chronologyReviews.js';
-import { linkedEvents, figureRelations, pendingLinkCount } from '../utils/figureLinks.js';
+import { pendingLinkCount } from '../utils/figureLinks.js';
+
+const NO_LINKS = { relations: [], events: [], battles: [] };
+const eventCount = links => links.events.filter(link => !isContextReview(link.review)).length;
+const contextCount = links => links.events.filter(link => isContextReview(link.review)).length;
 import { resolvePeriodId } from '../utils/period.js';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Users, Search, MapPin, Calendar, Filter } from './Icons.js';
@@ -9,8 +13,7 @@ const PAGE_SIZE = 36;
 
 export const FiguresView = ({
   figures,
-  referenceFigures = figures,
-  referenceEvents = [],
+  figureLinksFor = () => NO_LINKS,
   onSelectFigure,
   ancientNamesOnly,
   globalSearchTerm = '',
@@ -150,14 +153,14 @@ export const FiguresView = ({
     }
     if (sortBy === 'events_desc') {
       return [...list].sort(
-        (a, b) => linkedEvents(b, referenceEvents).filter(event=>!isContextReview(b.eventLinkReviews?.[event.id])).length - linkedEvents(a, referenceEvents).filter(event=>!isContextReview(a.eventLinkReviews?.[event.id])).length
+        (a, b) => eventCount(figureLinksFor(b)) - eventCount(figureLinksFor(a))
       );
     }
     if (sortBy === 'relations_desc') {
-      return [...list].sort((a, b) => figureRelations(b, referenceFigures).length - figureRelations(a, referenceFigures).length);
+      return [...list].sort((a, b) => figureLinksFor(b).relations.length - figureLinksFor(a).relations.length);
     }
     return list;
-  }, [figures, referenceFigures, referenceEvents, selectedFaction, selectedRoleType, sortBy, search, globalSearchTerm]);
+  }, [figures, figureLinksFor, selectedFaction, selectedRoleType, sortBy, search, globalSearchTerm]);
 
   const totalPages = Math.max(1, Math.ceil(filteredAndSortedFigures.length / PAGE_SIZE));
   const displayedFigures = showAllPages
@@ -288,10 +291,10 @@ export const FiguresView = ({
               {/* Card Footer Link */}
               <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-amber-400/90 font-medium">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span>事件 ({linkedEvents(fig, referenceEvents).filter(event=>!isContextReview(fig.eventLinkReviews?.[event.id])).length})</span>
-                  {linkedEvents(fig,referenceEvents).some(event=>isContextReview(fig.eventLinkReviews?.[event.id])) && <span>背景／年代待考 {linkedEvents(fig,referenceEvents).filter(event=>isContextReview(fig.eventLinkReviews?.[event.id])).length}</span>}
+                  <span>事件 ({eventCount(figureLinksFor(fig))})</span>
+                  {contextCount(figureLinksFor(fig)) > 0 && <span>背景／年代待考 {contextCount(figureLinksFor(fig))}</span>}
                   <span className="text-zinc-600">·</span>
-                  <span>關係網 ({figureRelations(fig, referenceFigures).length})</span>
+                  <span>關係網 ({figureLinksFor(fig).relations.length})</span>
                   {pendingLinkCount(fig) > 0 && <span className="text-amber-200">待確認 {pendingLinkCount(fig)} 筆</span>}
                 </div>
                 <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform text-amber-300">

@@ -1,14 +1,15 @@
 import { SourceDisclosure } from './SourceDisclosure.jsx';
 import { computeForcesTugOfWar, formatForcePercent } from '../utils/forces.js';
 import { Dialog } from './Dialog.jsx';
-import { battleAttacker, battleDefender, battleFigureIndex, battleLinkedEvent, resolveCommander } from '../utils/relationRules.js';
+import { battleAttacker, battleDefender, resolveCommander } from '../utils/relationRules.js';
+import { DerivedBadge, DERIVED_NOTE } from './DerivedBadge.jsx';
 import React, { useMemo } from 'react';
 import { X, Swords, Trophy, MapPin, ShieldAlert, Crosshair, Layers } from './Icons.js';
 
 export const BattleModal = ({
   battle,
-  allFigures = [],
-  allEvents = [],
+  links = { commanders: { attacker: [], defender: [] }, event: null },
+  resolveLink = () => null,
   onClose,
   onSelectFigure,
   onSelectEvent,
@@ -16,9 +17,10 @@ export const BattleModal = ({
 }) => {
   if (!battle) return null;
 
-  const figMap = useMemo(() => battleFigureIndex(allFigures), [allFigures]);
-
-  const linkedEvent = useMemo(() => battleLinkedEvent(battle, allEvents), [battle, allEvents]);
+  // Store link descriptors: one entry per non-empty commander (null = plain text), and the linked event.
+  const linkedEvent = links.event;
+  const NO_FIGURES = new Map();
+  const hasDerivedCommander = [...links.commanders.attacker, ...links.commanders.defender].some(link => link?.derived);
 
   // Robustly extract attacker and defender with backward & cross-period compatibility
   const attacker = useMemo(() => battleAttacker(battle), [battle]);
@@ -36,13 +38,13 @@ export const BattleModal = ({
     return [];
   }, [battle.tactics, battle.keyStrategies]);
 
-  const renderCommanders = (commanders = []) => {
+  const renderCommanders = (commanders = [], commanderLinks = []) => {
     if (!commanders || !Array.isArray(commanders)) return null;
     return (
       <div className="flex flex-wrap gap-2">
-        {commanders.map((cmd, idx) => {
-          if (!cmd) return null;
-          const { cmdName, cmdTitle, fig } = resolveCommander(cmd, figMap);
+        {commanders.filter(Boolean).map((cmd, idx) => {
+          const { cmdName, cmdTitle } = resolveCommander(cmd, NO_FIGURES);
+          const fig = commanderLinks[idx];
 
           if (fig && onSelectFigure) {
             return (
@@ -50,7 +52,7 @@ export const BattleModal = ({
                 key={idx}
                 onClick={() => {
                   onClose();
-                  onSelectFigure(fig);
+                  onSelectFigure(resolveLink(fig));
                 }}
                 title={`點擊查看【${fig.name}】人物列傳`}
                 className="flex items-center gap-1.5 pl-1.5 pr-2.5 py-1 rounded-lg bg-zinc-800/90 hover:bg-amber-950/50 text-zinc-200 hover:text-amber-200 border border-white/10 hover:border-amber-500/50 transition-all text-xs group"
@@ -67,6 +69,7 @@ export const BattleModal = ({
                 )}
                 <b className="group-hover:text-amber-300">{cmdName}</b>
                 {cmdTitle && <span className="text-zinc-400 text-[10px]">({cmdTitle})</span>}
+                <DerivedBadge basis={fig.basis} />
               </button>
             );
           }
@@ -133,7 +136,7 @@ export const BattleModal = ({
               <button
                 onClick={() => {
                   onClose();
-                  onSelectEvent(linkedEvent);
+                  onSelectEvent(resolveLink(linkedEvent));
                 }}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-600/20 border border-amber-500/40 text-amber-300 hover:bg-amber-600/30 text-xs font-medium transition-colors shrink-0 self-start sm:self-center"
               >
@@ -240,7 +243,7 @@ export const BattleModal = ({
 
                 <div>
                   <span className="text-[11px] text-zinc-500 block mb-1.5">主要統帥 / 指揮官：</span>
-                  {renderCommanders(attacker.commanders)}
+                  {renderCommanders(attacker.commanders, links.commanders.attacker)}
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 text-xs pt-1">
@@ -266,7 +269,7 @@ export const BattleModal = ({
 
                 <div>
                   <span className="text-[11px] text-zinc-500 block mb-1.5">主要統帥 / 指揮官：</span>
-                  {renderCommanders(defender.commanders)}
+                  {renderCommanders(defender.commanders, links.commanders.defender)}
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 text-xs pt-1">
@@ -322,6 +325,7 @@ export const BattleModal = ({
               </p>
             </div>
           </div>
+          {hasDerivedCommander && <p className="derived-note">{DERIVED_NOTE}</p>}
           <SourceDisclosure record={battle} />
         </div>
       </div>

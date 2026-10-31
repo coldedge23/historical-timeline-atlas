@@ -11,38 +11,22 @@ const FiguresView = lazy(() => import('./components/FiguresView.js').then(m => (
 const BattlesView = lazy(() => import('./components/BattlesView.js').then(m => ({default: m.BattlesView})));
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import { X } from './components/Icons.js';
-import { PERIOD_OPTIONS } from './data/periodsRegistry.js';
-import { LINKED_PERIODS as HISTORICAL_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES } from './data/linkedHistoryCatalog.js';
-import {
-  TAIWAN_LENS_ERAS,
-  TAIWAN_RELATED_BATTLES,
-  ERA_BATTLE_IDS,
-} from './data/taiwanLensData.js';
-import {
-  JAPAN_ERAS,
-  JAPAN_BATTLES,
-  JAPAN_ALL_EVENTS,
-  JAPAN_ERA_BATTLE_IDS,
-} from './data/japan/index.js';
+import { TAIWAN_PAGE, JAPAN_PAGE, hasPeriod, pageIdFor, getPage, getCatalog, figureLinksFor, battleLinksFor, eventLinksFor, resolveLink } from './store/historyStore.js';
 
 import { parseNavigationHash, serializeNavigation, resolveNavigation, resolveInitialNavigation, unknownRouteParts } from './utils/navigation.js';
 import { useGlobalSearch } from './hooks/useGlobalSearch.js';
 import { resolveFigureSelection } from './utils/relationRules.js';
 
+const CATALOG = getCatalog();
+
 export function App() {
   const initialHash = useMemo(() => parseNavigationHash(window.location.hash), []);
-  const initialRoute = useMemo(() => resolveInitialNavigation(window.location.hash, {
-    periods: HISTORICAL_PERIODS,
-    taiwanEras: TAIWAN_LENS_ERAS, taiwanEraBattleIds: ERA_BATTLE_IDS,
-    japanEras: JAPAN_ERAS, japanAllEvents: JAPAN_ALL_EVENTS, japanEraBattleIds: JAPAN_ERA_BATTLE_IDS,
-    taiwan: { events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES },
-    japan: { events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES },
-  }), []);
+  const initialRoute = useMemo(() => resolveInitialNavigation(window.location.hash, CATALOG.initialContext), []);
   const initialPeriodId = initialRoute.period;
 
   const [activePeriodId, setActivePeriodId] = useState(initialPeriodId);
   // The notice belongs to the view it fell back to; navigating elsewhere hides it.
-  const [routeNotice, setRouteNotice] = useState(() => ({ ...unknownRouteParts(window.location.hash, id => !!HISTORICAL_PERIODS[id]), at: `${initialHash.civ}:${initialPeriodId}` }));
+  const [routeNotice, setRouteNotice] = useState(() => ({ ...unknownRouteParts(window.location.hash, hasPeriod), at: `${initialHash.civ}:${initialPeriodId}` }));
   const [activeTab, setActiveTab] = useState(
     ['map-timeline', 'figures', 'battles'].includes(initialHash.tab)
       ? initialHash.tab
@@ -67,30 +51,11 @@ export function App() {
   const [activeJapanEraId, setActiveJapanEraId] = useState(initialRoute.japanEra);
 
 
-  const normalizedJapanFigures = LINKED_JAPAN_FIGURES;
-  const allFiguresPool = ALL_LINKED_FIGURES;
-  const taiwanLensEvents = LINKED_TAIWAN_EVENTS;
-  const japanEvents = LINKED_JAPAN_EVENTS;
+  const taiwanLensEvents = getPage(TAIWAN_PAGE).events;
+  const japanEvents = getPage(JAPAN_PAGE).events;
 
   // All China Events across all periods for cross-civilization contemporary reference
-  const allChinaEvents = useMemo(() => {
-    const list = [];
-    for (const [periodId, p] of Object.entries(HISTORICAL_PERIODS)) {
-      for (const evt of p.events || []) {
-        list.push({ ...evt, periodId, periodName: p.name });
-      }
-    }
-    return list.sort((a, b) => a.year - b.year);
-  }, []);
-
-  const crossCivPools = useMemo(
-    () => ({
-      china: allChinaEvents,
-      taiwan: taiwanLensEvents,
-      japan: japanEvents,
-    }),
-    [allChinaEvents, taiwanLensEvents, japanEvents]
-  );
+  const crossCivPools = CATALOG.contemporaryPools;
 
   const handleJumpToCrossCivEvent = (targetCiv, targetEvt) => {
     if (!targetEvt) return;
@@ -112,47 +77,32 @@ export function App() {
       setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
     } else if (targetCiv === 'china') {
       setCivilizationMode('china');
-      if (targetEvt.periodId && HISTORICAL_PERIODS[targetEvt.periodId]) {
+      if (targetEvt.periodId && hasPeriod(targetEvt.periodId)) {
         setActivePeriodId(targetEvt.periodId);
       }
       setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
     }
   };
 
-  const taiwanLensFigures = LINKED_TAIWAN_FIGURES;
-
   const currentEraConfig = useMemo(() => {
     if (civilizationMode === 'japan') {
-      return JAPAN_ERAS.find((e) => e.id === activeJapanEraId) || JAPAN_ERAS[1];
+      return CATALOG.eras.japan.find((e) => e.id === activeJapanEraId) || CATALOG.eras.japan[1];
     }
     if (civilizationMode === 'taiwan') {
-      return TAIWAN_LENS_ERAS.find((e) => e.id === activeTaiwanEraId) || TAIWAN_LENS_ERAS[2];
+      return CATALOG.eras.taiwan.find((e) => e.id === activeTaiwanEraId) || CATALOG.eras.taiwan[2];
     }
     return null;
   }, [civilizationMode, activeTaiwanEraId, activeJapanEraId]);
 
   // Active Datasets (dynamically swapped between China Dynasties, Taiwan Lens & Japan Atlas)
-  const currentPeriodConfig = HISTORICAL_PERIODS[activePeriodId] || HISTORICAL_PERIODS.qinHan;
-  const currentEvents =
-    civilizationMode === 'japan'
-      ? japanEvents
-      : isTaiwanLensMode
-      ? taiwanLensEvents
-      : currentPeriodConfig.events || [];
-  const currentFigures =
-    civilizationMode === 'japan'
-      ? normalizedJapanFigures
-      : isTaiwanLensMode
-      ? taiwanLensFigures
-      : currentPeriodConfig.figures || [];
-  const currentBattles =
-    civilizationMode === 'japan'
-      ? JAPAN_BATTLES
-      : isTaiwanLensMode
-      ? TAIWAN_RELATED_BATTLES
-      : currentPeriodConfig.battles || [];
+  const currentPeriodConfig = getPage(hasPeriod(activePeriodId) ? activePeriodId : 'qinHan');
+  const currentPage = civilizationMode === 'china' ? currentPeriodConfig : getPage(pageIdFor(civilizationMode, activePeriodId));
+  const currentPageId = currentPage.id;
+  const currentEvents = currentPage.events;
+  const currentFigures = currentPage.figures;
+  const currentBattles = currentPage.battles;
   const currentTerritories = currentPeriodConfig.territories;
-  const currentWarlordPeriods = currentPeriodConfig.warlordPeriods || [];
+  const currentWarlordPeriods = currentPeriodConfig.warlordPeriods;
   const currentDemographics = currentPeriodConfig.demographics;
 
   const [selectedEvent, setSelectedEvent] = useState(initialRoute.selectedEvent);
@@ -163,14 +113,11 @@ export function App() {
 
   const [showDemographicsModal, setShowDemographicsModal] = useState(false);
 
-  const catalogs = useMemo(() => ({ ...HISTORICAL_PERIODS,
-    taiwan: {id:'taiwanLens', civ:'taiwan', name:'臺灣歷史', events:taiwanLensEvents, figures:taiwanLensFigures, battles:TAIWAN_RELATED_BATTLES.map(b => ({...b, eraId:Object.entries(ERA_BATTLE_IDS).find(([, ids]) => ids.includes(b.id))?.[0]}))},
-    japan: {id:'japanAtlas', civ:'japan', name:'日本歷史', events:japanEvents, figures:normalizedJapanFigures, battles:JAPAN_BATTLES.map(b => ({...b, eraId:Object.entries(JAPAN_ERA_BATTLE_IDS).find(([, ids]) => ids.includes(b.id))?.[0]}))}
-  }), [taiwanLensEvents, taiwanLensFigures, japanEvents, normalizedJapanFigures]);
+  const catalogs = CATALOG.navigationCatalogs;
 
   useEffect(() => {
     const restore = () => {
-      const route = resolveNavigation(window.location.hash, catalogs, {taiwan:TAIWAN_LENS_ERAS, japan:JAPAN_ERAS});
+      const route = resolveNavigation(window.location.hash, catalogs, CATALOG.eras);
       lastNavigation.current = serializeNavigation(route);
       setRouteNotice({ ...route.unknown, at: `${route.civ}:${route.period}` });
       setCivilizationMode(route.civ);
@@ -206,25 +153,25 @@ export function App() {
     setSelectedFigure(null);
     setSelectedBattle(null);
     if (mode === 'japan') {
-      const targetEra = JAPAN_ERAS.find((e) => e.id === activeJapanEraId) || JAPAN_ERAS[1];
+      const targetEra = CATALOG.eras.japan.find((e) => e.id === activeJapanEraId) || CATALOG.eras.japan[1];
       const found = japanEvents.find((e) => e.eraId === targetEra.id) || japanEvents[0];
       setSelectedEvent(found || null);
     } else if (mode === 'taiwan') {
-      const targetEra = TAIWAN_LENS_ERAS.find((e) => e.id === activeTaiwanEraId) || TAIWAN_LENS_ERAS[2];
+      const targetEra = CATALOG.eras.taiwan.find((e) => e.id === activeTaiwanEraId) || CATALOG.eras.taiwan[2];
       const found = taiwanLensEvents.find((e) => e.eraId === targetEra.id) || taiwanLensEvents[0];
       setSelectedEvent(found || null);
     } else {
-      const curEvts = (HISTORICAL_PERIODS[activePeriodId] || HISTORICAL_PERIODS.yuanMing).events || [];
+      const curEvts = getPage(hasPeriod(activePeriodId) ? activePeriodId : 'yuanMing').events;
       setSelectedEvent(curEvts[0] || null);
     }
   };
 
   // Handle Epoch / Period Switching (華夏朝代選單切換)
   const handleSelectPeriodId = (periodId) => {
-    if (!HISTORICAL_PERIODS[periodId]) return;
+    if (!hasPeriod(periodId)) return;
     setCivilizationMode('china');
     setActivePeriodId(periodId);
-    const newConfig = HISTORICAL_PERIODS[periodId];
+    const newConfig = getPage(periodId);
     if (newConfig.events && newConfig.events.length > 0) {
       setSelectedEvent(newConfig.events[0]);
     } else {
@@ -240,9 +187,9 @@ export function App() {
     setCivilizationMode('taiwan');
     setActiveTaiwanEraId(eraId);
     setSearchTerm('');
-    const targetEra = TAIWAN_LENS_ERAS.find((e) => e.id === eraId);
-    if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
-      const found = taiwanLensEvents.find((e) => e.id === targetEra.keyEvents[0].id);
+    const targetEra = CATALOG.eras.taiwan.find((e) => e.id === eraId);
+    if (targetEra && targetEra.firstEventId) {
+      const found = taiwanLensEvents.find((e) => e.id === targetEra.firstEventId);
       if (found) {
         setSelectedEvent({ ...found, _scrollTs: Date.now() });
       }
@@ -256,8 +203,8 @@ export function App() {
     setCivilizationMode('japan');
     setActiveJapanEraId(eraId);
     setSearchTerm('');
-    const targetEra = JAPAN_ERAS.find((e) => e.id === eraId);
-    if (targetEra && targetEra.keyEvents && targetEra.keyEvents.length > 0) {
+    const targetEra = CATALOG.eras.japan.find((e) => e.id === eraId);
+    if (targetEra && targetEra.firstEventId) {
       const found = japanEvents.find((e) => e.eraId === targetEra.id) || japanEvents[0];
       if (found) {
         setSelectedEvent({ ...found, _scrollTs: Date.now() });
@@ -267,7 +214,7 @@ export function App() {
     setSelectedBattle(null);
   };
 
-  const searchDatasets = useMemo(() => Object.values(catalogs), [catalogs]);
+  const searchDatasets = CATALOG.searchDatasets;
   const globalSearchResults = useGlobalSearch(searchDatasets, searchTerm, civilizationMode === 'china' ? activePeriodId : civilizationMode === 'japan' ? 'japanAtlas' : 'taiwanLens');
   const handleSelectGlobalResult = (res) => {
     if (!res) return;
@@ -323,14 +270,14 @@ export function App() {
     setSelectedFigure(null);
     setSelectedBattle(bat);
     if (civilizationMode === 'japan' && bat?.id) {
-      const era = Object.entries(JAPAN_ERA_BATTLE_IDS).find(([, ids]) => ids.includes(bat.id))?.[0];
+      const era = Object.entries(CATALOG.eraBattleIds.japan).find(([, ids]) => ids.includes(bat.id))?.[0];
       if (era) {
         setActiveJapanEraId(era);
         setSelectedEvent(japanEvents.find(event => event.eraId === era) || null);
       }
     }
     if (isTaiwanLensMode && bat?.id) {
-      const eraEntry = Object.entries(ERA_BATTLE_IDS).find(([_, bIds]) => bIds.includes(bat.id));
+      const eraEntry = Object.entries(CATALOG.eraBattleIds.taiwan).find(([_, bIds]) => bIds.includes(bat.id));
       if (eraEntry && eraEntry[0] !== activeTaiwanEraId) {
         setActiveTaiwanEraId(eraEntry[0]);
         setSelectedEvent(taiwanLensEvents.find(event => event.eraId === eraEntry[0]) || null);
@@ -339,7 +286,7 @@ export function App() {
   };
 
   const handleSelectFigure = (figure) => {
-    const decision = resolveFigureSelection(figure, currentFigures, { periods: HISTORICAL_PERIODS, japanEvents, taiwanEvents: taiwanLensEvents });
+    const decision = resolveFigureSelection(figure, currentFigures, CATALOG.selectionContext);
     if (!decision) return;
     const { target, switchTo } = decision;
     if (switchTo) {
@@ -352,8 +299,8 @@ export function App() {
     setSelectedBattle(null);
     setSelectedFigure(target);
   };
-  const figuresForLinks = [...currentFigures, ...allFiguresPool.filter(figure => !currentFigures.some(local => local.id === figure.id))];
-  const eventsForLinks = [...currentEvents, ...ALL_LINKED_EVENTS.filter(event => !currentEvents.some(local => local.id === event.id))];
+  const figuresForLinks = currentPage.figuresForLinks;
+  const resolveCurrentLink = (link) => resolveLink(currentPageId, link);
 
   const handleSelectFigureById = (figId) => {
     const fig = figuresForLinks.find((f) => f.id === figId);
@@ -379,7 +326,8 @@ export function App() {
       <Header
         activePeriodId={activePeriodId}
         onSelectPeriodId={handleSelectPeriodId}
-        periodOptions={PERIOD_OPTIONS}
+        periodOptions={CATALOG.periodOptions}
+        eraOptionsByCiv={CATALOG.eras}
         currentPeriod={currentPeriodConfig.fullTitle}
         currentPeriodShortEra={currentPeriodConfig.shortEra}
         ancientNamesOnly={ancientNamesOnly}
@@ -477,6 +425,7 @@ export function App() {
                   <Timeline
                     events={eventsForTimeline}
                     figures={figuresForLinks}
+                    eventLinksFor={(evt) => eventLinksFor(currentPageId, evt)}
                     battles={currentBattles}
                     selectedEvent={selectedEvent}
                     onSelectEvent={handleSelectEvent}
@@ -499,8 +448,7 @@ export function App() {
           {activeTab === 'figures' && (
             <FiguresView
               figures={currentFigures}
-              referenceFigures={figuresForLinks}
-              referenceEvents={eventsForLinks}
+              figureLinksFor={(fig) => figureLinksFor(currentPageId, fig)}
               onSelectFigure={handleSelectFigure}
               ancientNamesOnly={ancientNamesOnly}
               globalSearchTerm=""
@@ -525,9 +473,8 @@ export function App() {
         {selectedFigure && (
           <FigureModal
             figure={selectedFigure}
-            allFigures={figuresForLinks}
-            allEvents={eventsForLinks}
-            allBattles={[...currentBattles, ...ALL_LINKED_BATTLES.filter(battle => !currentBattles.some(local => local.id === battle.id))]}
+            links={figureLinksFor(currentPageId, selectedFigure)}
+            resolveLink={resolveCurrentLink}
             onClose={() => setSelectedFigure(null)}
             onSelectFigure={handleSelectFigure}
             onSelectEvent={(evt) => {
@@ -549,8 +496,8 @@ export function App() {
         {selectedBattle && (
           <BattleModal
             battle={selectedBattle}
-            allFigures={figuresForLinks}
-            allEvents={eventsForLinks}
+            links={battleLinksFor(currentPageId, selectedBattle)}
+            resolveLink={resolveCurrentLink}
             onClose={() => setSelectedBattle(null)}
             onSelectFigure={handleSelectFigure}
             onSelectEvent={(evt) => {

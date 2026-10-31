@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Compass, Search, X, Layers, Users, Swords, MapPin, BarChart3 } from './Icons.js';
-import { TAIWAN_LENS_ERAS } from '../data/taiwanLensData.js';
-import { JAPAN_ERAS } from '../data/japan/index.js';
 
 export const Header = ({
   currentPeriod,
   activePeriodId = 'threeKingdoms',
   onSelectPeriodId,
   periodOptions = [],
+  eraOptionsByCiv = { taiwan: [], japan: [] },
   currentPeriodShortEra = '西元 184 — 280 年',
   ancientNamesOnly,
   onToggleAncientNames,
@@ -45,7 +44,7 @@ export const Header = ({
     return () => { window.removeEventListener('keydown', key); document.removeEventListener('pointerdown', outside); };
   }, []);
   useEffect(() => setCursor(0), [searchTerm]);
-  const eraOptions = civilizationMode === 'taiwan' ? TAIWAN_LENS_ERAS : JAPAN_ERAS;
+  const eraOptions = civilizationMode === 'taiwan' ? eraOptionsByCiv.taiwan : eraOptionsByCiv.japan;
   const tabs = [
     ['map-timeline', '地圖與年表', Layers],
     ['figures', '人物誌', Users],

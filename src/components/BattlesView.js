@@ -1,6 +1,7 @@
 import { computeForcesTugOfWar, formatForcePercent } from '../utils/forces.js';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Swords, Trophy, MapPin, Search } from './Icons.js';
+import { DerivedBadge } from './DerivedBadge.jsx';
 
 const ERA_BATTLE_PHASES = {
   xiaShangZhou: [
@@ -136,10 +137,8 @@ export const BattlesView = ({
         {commanders.slice(0, 4).map((cmd, idx) => {
           const cmdName = typeof cmd === 'string' ? cmd : cmd.name || '';
           const clean = cmdName.split('(')[0].split('（')[0].trim();
-          const fig =
-            (cmd.figureId && figMap.get(cmd.figureId)) ||
-            figMap.get(cmdName) ||
-            figMap.get(clean);
+          const byId = cmd.figureId && figMap.get(cmd.figureId);
+          const fig = byId || figMap.get(cmdName) || figMap.get(clean);
 
           if (fig && onSelectFigure) {
             return (
@@ -164,6 +163,7 @@ export const BattlesView = ({
                   />
                 )}
                 <span>{cmdName}</span>
+                {!byId && <DerivedBadge basis="commander-name" />}
               </button>
             );
           }

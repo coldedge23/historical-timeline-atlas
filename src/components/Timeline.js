@@ -15,11 +15,12 @@ import {
   Globe
 } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
-import { contemporaryMatches, eventFigures } from '../utils/relationRules.js';
+import { contemporaryMatches } from '../utils/relationRules.js';
 
 export const Timeline = ({
   events = [],
   figures = [],
+  eventLinksFor = () => ({ figures: [], battle: null }),
   battles = [],
   selectedEvent,
   onSelectEvent,
@@ -300,9 +301,10 @@ export const Timeline = ({
         {filteredEvents.map((evt) => {
           const isSelected = selectedEvent?.id === evt.id;
           const factionBadge = getFactionBadge(evt.faction);
-          const linkedFigures = eventFigures(evt, figures);
-          const contextFigures = linkedFigures.filter(figure=>isContextReview(evt.figureLinkReviews?.[figure.id]));
-          const allEvtFigures = linkedFigures.filter(figure=>!isContextReview(evt.figureLinkReviews?.[figure.id]));
+          // Figure link descriptors from the store; chips open the figure by id.
+          const linkedFigures = eventLinksFor(evt).figures;
+          const contextFigures = linkedFigures.filter(link=>isContextReview(link.review));
+          const allEvtFigures = linkedFigures.filter(link=>!isContextReview(link.review));
           const showAllFigs = expandedFiguresEventId === evt.id;
           const visibleFigures = allEvtFigures.slice(0, showAllFigs ? 30 : 8);
           const remainingCount = allEvtFigures.length - visibleFigures.length;
@@ -371,7 +373,7 @@ export const Timeline = ({
                           </button>
                         )}
                         {visibleFigures.map((fig) => (
-                          <button key={fig.id} type="button" className="timeline-chip is-figure"
+                          <button key={fig.key} type="button" className="timeline-chip is-figure"
                             onClick={(e) => { e.stopPropagation(); setIsAutoPlaying(false); onSelectFigureById(fig.id); }}>
                             {fig.avatar && (
                               <img src={fig.avatar} alt="" className="w-4 h-4 rounded-full object-cover"
@@ -494,7 +496,7 @@ export const Timeline = ({
                   )}
 
                   {contextFigures.length > 0 && <details className="text-sm text-zinc-300"><summary className="cursor-pointer py-2">背景與年代待考人物（{contextFigures.length} 位）</summary>
-                    {contextFigures.map(figure=><button key={figure.id} type="button" className="block text-left text-amber-200 py-2" onClick={()=>onSelectFigureById(figure.id)}>{figure.name}・{evt.figureLinkReviews[figure.id].label}</button>)}
+                    {contextFigures.map(figure=><button key={figure.key} type="button" className="block text-left text-amber-200 py-2" onClick={()=>onSelectFigureById(figure.id)}>{figure.name}・{figure.review.label}</button>)}
                   </details>}
                   {pendingLinkCount(evt) > 0 && <p className="text-sm text-amber-200">另有 {pendingLinkCount(evt)} 筆人物連結待確認，暫不列入有效清單。</p>}
                   <SourceDisclosure record={evt} />

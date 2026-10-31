@@ -1,7 +1,7 @@
 import { SourceDisclosure } from './SourceDisclosure.jsx';
 import { isContextReview, formatHistoryYear } from '../data/chronologyReviews.js';
-import { linkedEvents, figureRelations, pendingLinkCount } from '../utils/figureLinks.js';
-import { figureBattles } from '../utils/relationRules.js';
+import { pendingLinkCount } from '../utils/figureLinks.js';
+import { DerivedBadge, DERIVED_NOTE } from './DerivedBadge.jsx';
 import { Dialog } from './Dialog.jsx';
 import { resolvePeriodId } from '../utils/period.js';
 import React, { useState, useMemo } from 'react';
@@ -19,9 +19,8 @@ const ABILITY_AXES = [
 
 export const FigureModal = ({
   figure,
-  allFigures = [],
-  allEvents = [],
-  allBattles = [],
+  links = { relations: [], events: [], battles: [] },
+  resolveLink = () => null,
   onClose,
   onSelectFigure,
   onSelectEvent,
@@ -33,7 +32,7 @@ export const FigureModal = ({
 
   if (!figure) return null;
 
-  const effectivePeriodId = resolvePeriodId(activePeriodId, allFigures);
+  const effectivePeriodId = resolvePeriodId(activePeriodId);
 
   const getFactionBadge = (faction) => {
     const meta = getFactionMeta(faction, effectivePeriodId);
@@ -117,13 +116,15 @@ export const FigureModal = ({
   const radarPolygonPoints = radarVertices.map((v) => `${v.x.toFixed(1)},${v.y.toFixed(1)}`).join(' ');
 
   // Combine direct relations + reverse relations (up to 8 nodes for rich star graph)
-  const combinedRelations = useMemo(() => figureRelations(figure, allFigures), [figure, allFigures]);
-  const relatedEvents = linkedEvents(figure, allEvents);
-  const participatedEvents = relatedEvents.filter(event=>!isContextReview(figure.eventLinkReviews?.[event.id]));
-  const contextualEvents = relatedEvents.filter(event=>isContextReview(figure.eventLinkReviews?.[event.id]));
+  // Link descriptors from the store; a click resolves the full record (resolveLink).
+  const combinedRelations = useMemo(() => links.relations.map(link => ({ targetFigure: link, relationType: link.relationType, label: link.label, link })), [links]);
+  const participatedEvents = links.events.filter(link => !isContextReview(link.review));
+  const contextualEvents = links.events.filter(link => isContextReview(link.review));
 
-  // Find battles where this figure was a commander or mentioned in summary
-  const participatedBattles = figureBattles(figure, allBattles);
+  // Battles where this figure was a commander or mentioned in summary
+  const participatedBattles = links.battles;
+  const hasDerivedRelation = links.relations.some(link => link.derived);
+  const hasDerivedBattle = participatedBattles.some(link => link.derived);
 
   const getRelEdgeStyle = (relType) => {
     switch (relType) {
@@ -453,7 +454,7 @@ export const FigureModal = ({
                         const nx = cx + Math.cos(angle) * radius;
                         const ny = cy + Math.sin(angle) * radius;
                         return (
-                          <clipPath key={item.targetFigure.id} id={`nodeClip_${idx}`}>
+                          <clipPath key={item.link.key} id={`nodeClip_${idx}`}>
                             <circle cx={nx} cy={ny} r="18" />
                           </clipPath>
                         );
@@ -526,8 +527,8 @@ export const FigureModal = ({
 
                       return (
                         <g
-                          key={`node_${item.targetFigure.id}`}
-                          onClick={() => onSelectFigure(item.targetFigure)}
+                          key={`node_${item.link.key}`}
+                          onClick={() => onSelectFigure(resolveLink(item.link))}
                           className="cursor-pointer group"
                         >
                           <circle
@@ -642,8 +643,8 @@ export const FigureModal = ({
                     <div
                       key={idx}
                       role="button" tabIndex={0}
-                      onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectFigure(targetFigure); } }}
-                      onClick={() => onSelectFigure(targetFigure)}
+                      onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectFigure(resolveLink(item.link)); } }}
+                      onClick={() => onSelectFigure(resolveLink(item.link))}
                       className="flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/80 border border-white/5 hover:border-amber-500/50 hover:bg-zinc-800 transition-all cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
@@ -669,6 +670,7 @@ export const FigureModal = ({
                                 ({targetFigure.courtesyName})
                               </span>
                             )}
+                            <DerivedBadge basis={item.link.basis} />
                           </div>
                           <div className="text-xs text-zinc-300 leading-relaxed">
                             {item.label}
@@ -682,6 +684,7 @@ export const FigureModal = ({
                   );
                 })}
               </div>
+              {hasDerivedRelation && <p className="derived-note">{DERIVED_NOTE}</p>}
             </div>
           )}
 
@@ -695,11 +698,11 @@ export const FigureModal = ({
               <div className="flex flex-wrap gap-2">
                 {participatedBattles.map((bat) => (
                   <button
-                    key={bat.id}
+                    key={bat.key}
                     onClick={() => {
                       if (onSelectBattle) {
                         onClose();
-                        onSelectBattle(bat);
+                        onSelectBattle(resolveLink(bat));
                       }
                     }}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-950/40 border border-rose-500/30 text-xs text-rose-200 hover:border-rose-400 hover:bg-rose-900/50 transition-colors"
@@ -707,9 +710,11 @@ export const FigureModal = ({
                     <Swords className="w-3 h-3 text-rose-400" />
                     <span className="font-mono text-rose-300 text-[10px]">{bat.year}年</span>
                     <span>{bat.name}</span>
+                    <DerivedBadge basis={bat.basis} />
                   </button>
                 ))}
               </div>
+              {hasDerivedBattle && <p className="derived-note">{DERIVED_NOTE}</p>}
             </div>
           )}
 
@@ -718,9 +723,9 @@ export const FigureModal = ({
           <SourceDisclosure record={figure} />
           {contextualEvents.length > 0 && <details className="border-t border-white/10 pt-2">
             <summary className="text-sm text-amber-200 cursor-pointer py-2">背景與年代待考（{contextualEvents.length} 筆，非親身參與清單）</summary>
-            {contextualEvents.map(event=><div key={event.id} className="my-3 text-sm text-zinc-300">
-              <button className="text-left text-amber-200 underline underline-offset-4" onClick={()=>{onClose();onSelectEvent(event);}}>{formatHistoryYear(event.year)}・{event.title}</button>
-              <p>{figure.eventLinkReviews[event.id].label}：{figure.eventLinkReviews[event.id].reviewReason}</p>
+            {contextualEvents.map(event=><div key={event.key} className="my-3 text-sm text-zinc-300">
+              <button className="text-left text-amber-200 underline underline-offset-4" onClick={()=>{onClose();onSelectEvent(resolveLink(event));}}>{formatHistoryYear(event.year)}・{event.title}</button>
+              <p>{event.review.label}：{event.review.reviewReason}</p>
             </div>)}
           </details>}
           {/* Participated Events */}
@@ -735,10 +740,10 @@ export const FigureModal = ({
 
                   return (
                     <button
-                      key={`${evt.datasetId || ''}:${evt.id}`}
+                      key={evt.key}
                       onClick={() => {
                         onClose();
-                        onSelectEvent(evt);
+                        onSelectEvent(resolveLink(evt));
                       }}
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800/80 border border-white/10 text-xs text-zinc-300 hover:border-amber-500/60 hover:text-amber-200 hover:bg-zinc-700/80 transition-colors"
                     >
