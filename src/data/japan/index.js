@@ -58,6 +58,14 @@ export const JAPAN_ERA_BATTLE_IDS = {
     "bat_jp_tsushima_1905",
     "bat_jp_port_arthur_1904",
     "bat_jp_mukden_1905"
+  ],
+  jp_taisho_prewar: [
+    "bat_jp_pearl_harbor_1941",
+    "bat_jp_midway_1942",
+    "bat_jp_guadalcanal_1942",
+    "bat_jp_leyte_gulf_1944",
+    "bat_jp_iwo_jima_1945",
+    "bat_jp_okinawa_1945"
   ]
 };
 

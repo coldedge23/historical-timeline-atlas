@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Eras Dataset (6 Master Historical Eras with 94 Detailed Events)
+// Japanese Historical Atlas Eras Dataset (7 Master Historical Eras with 117 Detailed Events)
 export const JAPAN_ERAS = [
   {
     "id": "jp_ancient_medieval",
@@ -1858,7 +1858,8 @@ export const JAPAN_ERAS = [
             "title": "《琉球藩ヲ廢シ沖繩縣ヲ置ク》（明治十二年太政官布告第十四號）",
             "url": "https://ja.wikisource.org/wiki/琉球藩ヲ廢シ沖繩縣ヲ置ク"
           }
-        ]
+        ],
+        "faction": "meiji_modern"
       },
       {
         "id": "evt_jp_meiji_constitution_1889",
@@ -1923,7 +1924,8 @@ export const JAPAN_ERAS = [
             "title": "《教育ニ関スル勅語》",
             "url": "https://ja.wikisource.org/wiki/教育ニ関スル勅語"
           }
-        ]
+        ],
+        "faction": "meiji_modern"
       },
       {
         "id": "evt_jp_first_sino_japanese_1894",
@@ -1964,7 +1966,8 @@ export const JAPAN_ERAS = [
             "title": "《第一次日英同盟協約》",
             "url": "https://ja.wikisource.org/wiki/第一次日英同盟協約"
           }
-        ]
+        ],
+        "faction": "meiji_modern"
       },
       {
         "id": "evt_jp_russo_japanese_war_1904",
@@ -1980,7 +1983,8 @@ export const JAPAN_ERAS = [
           "旅順攻圍戰",
           "奉天會戰",
           "東鄉平八郎"
-        ]
+        ],
+        "faction": "meiji_modern"
       },
       {
         "id": "evt_jp_tsushima_naval_1905",
@@ -2026,7 +2030,8 @@ export const JAPAN_ERAS = [
             "title": "《日露講和條約》",
             "url": "https://ja.wikisource.org/wiki/日露講和條約"
           }
-        ]
+        ],
+        "faction": "meiji_modern"
       },
       {
         "id": "evt_jp_korea_annexation_1910",
@@ -2048,7 +2053,8 @@ export const JAPAN_ERAS = [
             "title": "《韓國倂合ニ關スル條約》",
             "url": "https://ja.wikisource.org/wiki/韓國倂合ニ關スル條約"
           }
-        ]
+        ],
+        "faction": "meiji_modern"
       },
       {
         "id": "evt_jp_tariff_autonomy_1911",
@@ -2070,7 +2076,8 @@ export const JAPAN_ERAS = [
             "title": "《日米通商航海条約》（1911 年）",
             "url": "https://ja.wikisource.org/wiki/日米通商航海条約_(1911年)"
           }
-        ]
+        ],
+        "faction": "meiji_modern"
       }
     ],
     "highlightFigures": [
@@ -2084,6 +2091,521 @@ export const JAPAN_ERAS = [
       "fig_jp_kitasato_shibasaburo",
       "fig_jp_tsuda_umeko",
       "fig_jp_natsume_soseki"
+    ]
+  },
+  {
+    "id": "jp_taisho_prewar",
+    "name": "大正民主·昭和戰爭",
+    "dateRangeDisplay": "西元 1912 - 1945 年",
+    "shortEra": "大正至昭和戰前與戰爭時期",
+    "tagline": "政黨政治·軍部抬頭·太平洋戰爭",
+    "description": "明治天皇駕崩，改元大正。大正年間政黨內閣與男子普通選舉成形，同時制定《治安維持法》。昭和初年九一八事變後軍部勢力抬頭，五一五、二二六事件相繼發生；1937 年中日全面開戰，1941 年太平洋戰爭爆發，1945 年經東京大轟炸與廣島、長崎原子彈轟炸後接受《波茨坦宣言》投降。",
+    "keyEvents": [
+      {
+        "id": "evt_jp_taisho_begins_1912",
+        "year": 1912,
+        "yearDisplay": "西元 1912 年 (明治四十五年／大正元年)",
+        "title": "明治天皇駕崩，改元大正",
+        "summary": "明治天皇於 7 月 30 日駕崩，皇太子嘉仁即位，改元大正。",
+        "detail": "明治天皇崩後，皇太子嘉仁踐祚，同日改元大正。9 月 13 日大喪當日，陸軍大將乃木希典與妻子靜子自盡殉死。同年底第二次西園寺內閣因陸軍大臣辭職而倒台，第三次桂內閣成立，引發第一次護憲運動。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "明治天皇",
+          "大正天皇",
+          "乃木希典",
+          "桂太郎"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_wwi_entry_1914",
+        "year": 1914,
+        "yearDisplay": "西元 1914 年 (大正三年)",
+        "title": "對德宣戰，參加第一次世界大戰",
+        "summary": "日本以日英同盟為由對德國宣戰，攻占德國在中國山東的租借地青島與南洋群島。",
+        "detail": "1914 年 8 月 23 日，大隈重信內閣對德國宣戰。日軍同年 11 月攻陷青島，並占領赤道以北的德屬南洋群島。大戰期間歐洲商品退出亞洲市場，日本出口與工業快速成長，形成「大戰景氣」。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "第一次世界大戰",
+          "大隈重信",
+          "日英同盟",
+          "青島"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《独逸国ニ対スル宣戦ノ詔書》",
+            "url": "https://ja.wikisource.org/wiki/独逸国ニ対スル宣戦ノ詔書"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_twenty_one_demands_1915",
+        "year": 1915,
+        "yearDisplay": "西元 1915 年 (大正四年)",
+        "title": "向中華民國提出二十一條要求",
+        "summary": "大隈內閣向袁世凱政府提出二十一條要求，以最後通牒迫使中方接受大部分條款。",
+        "detail": "1915 年 1 月 18 日，駐華公使日置益向袁世凱提出要求，內容包括繼承德國在山東的權益、延長旅順大連租借期限等。5 月 7 日日本發出最後通牒，5 月 9 日中方接受修正後的大部分條款，中國各地掀起抵制日貨運動。",
+        "locationNameAncient": "中華民國北京",
+        "locationNameModern": "中國北京市（地圖範圍外）",
+        "tags": [
+          "二十一條要求",
+          "大隈重信",
+          "袁世凱"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_rice_riots_hara_1918",
+        "year": 1918,
+        "yearDisplay": "西元 1918 年 (大正七年)",
+        "title": "米騷動與原敬政黨內閣成立",
+        "summary": "米價暴漲引發全國性的米騷動，寺內內閣倒台，原敬組成日本首個正式的政黨內閣。",
+        "detail": "1918 年因出兵西伯利亞的預期與囤積，米價急漲。7 月富山縣漁村婦女反對米穀外運，風潮迅速擴及全國，政府出動軍隊鎮壓。寺內正毅內閣於 9 月總辭，立憲政友會總裁原敬組閣，除陸、海軍大臣與外務大臣外，閣員均為政友會員。",
+        "locationNameAncient": "富山縣下新川郡",
+        "locationNameModern": "富山縣魚津市一帶",
+        "coordinates": [
+          137.41,
+          36.83
+        ],
+        "tags": [
+          "米騷動",
+          "原敬",
+          "政黨內閣",
+          "大正民主"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_great_kanto_earthquake_1923",
+        "year": 1923,
+        "yearDisplay": "西元 1923 年 (大正十二年)",
+        "title": "關東大地震",
+        "summary": "9 月 1 日正午前，相模灣一帶發生大地震，東京與橫濱因火災嚴重受創。",
+        "detail": "地震發生在午餐炊事時間，東京、橫濱多處同時起火並延燒數日，死者與失蹤者超過十萬人。震災後的混亂中流言四起，大量朝鮮人與部分中國人遭軍警與自警團殺害；無政府主義者大杉榮等人亦被憲兵殺害（甘粕事件）。",
+        "locationNameAncient": "東京府東京市、神奈川縣橫濱市",
+        "locationNameModern": "東京都、神奈川縣橫濱市",
+        "coordinates": [
+          139.77,
+          35.69
+        ],
+        "tags": [
+          "關東大地震",
+          "帝都復興",
+          "甘粕事件"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_universal_suffrage_1925",
+        "year": 1925,
+        "yearDisplay": "西元 1925 年 (大正十四年)",
+        "title": "男子普通選舉法與《治安維持法》",
+        "summary": "加藤高明內閣廢除選舉權的納稅限制，同年制定取締否定國體與私有財產制結社的《治安維持法》。",
+        "detail": "1925 年 4 月公布《治安維持法》，5 月公布修正《眾議院議員選舉法》，年滿 25 歲男子不論納稅額均有選舉權。1928 年第一次普通選舉舉行，同年《治安維持法》最高刑改為死刑，並大規模檢舉共產黨人（三一五事件）。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "普通選舉",
+          "治安維持法",
+          "加藤高明",
+          "大正民主"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《治安維持法》（大正十四年法律第四十六號）",
+            "url": "https://ja.wikisource.org/wiki/治安維持法_(大正14年法律第46号)"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_showa_begins_1926",
+        "year": 1926,
+        "yearDisplay": "西元 1926 年 (大正十五年／昭和元年)",
+        "title": "大正天皇駕崩，改元昭和",
+        "summary": "大正天皇於 12 月 25 日在葉山御用邸駕崩，攝政裕仁即位，改元昭和。",
+        "detail": "大正天皇自幼體弱，1921 年起由皇太子裕仁擔任攝政。1926 年 12 月 25 日大正天皇崩，裕仁即位並改元昭和。翌年發生昭和金融恐慌，1929 年世界經濟大恐慌波及日本。",
+        "locationNameAncient": "神奈川縣三浦郡葉山",
+        "locationNameModern": "神奈川縣葉山町",
+        "coordinates": [
+          139.58,
+          35.27
+        ],
+        "tags": [
+          "大正天皇",
+          "昭和天皇",
+          "昭和金融恐慌"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_mukden_incident_1931",
+        "year": 1931,
+        "yearDisplay": "西元 1931 年 (昭和六年)",
+        "title": "九一八事變（滿洲事變）",
+        "summary": "關東軍炸毀奉天郊外柳條湖的南滿鐵路，嫁禍中國軍隊並出兵佔領中國東北。",
+        "detail": "1931 年 9 月 18 日夜，關東軍參謀石原莞爾、板垣征四郎等人策劃炸毀柳條湖附近鐵路，以此為由攻擊北大營與奉天城。若槻禮次郎內閣宣布不擴大方針，但關東軍持續推進，數月內佔領東北主要地區。",
+        "locationNameAncient": "中華民國奉天柳條湖",
+        "locationNameModern": "中國遼寧省瀋陽市（地圖範圍外）",
+        "tags": [
+          "九一八事變",
+          "石原莞爾",
+          "關東軍",
+          "滿洲國"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_manchukuo_515_1932",
+        "year": 1932,
+        "yearDisplay": "西元 1932 年 (昭和七年)",
+        "title": "滿洲國成立與五一五事件",
+        "summary": "3 月關東軍扶植滿洲國成立；5 月 15 日海軍青年軍官闖入首相官邸槍殺首相犬養毅。",
+        "detail": "1932 年 3 月 1 日滿洲國宣布成立，以清朝末代皇帝溥儀為執政。5 月 15 日，海軍青年軍官與陸軍士官候補生襲擊首相官邸等處，犬養毅遇害。事件後由海軍大將齋藤實組成舉國一致內閣，政黨內閣時代就此結束；同年 9 月日本承認滿洲國。",
+        "locationNameAncient": "東京府東京市麴町區首相官邸",
+        "locationNameModern": "東京都千代田區永田町",
+        "coordinates": [
+          139.743,
+          35.673
+        ],
+        "tags": [
+          "五一五事件",
+          "犬養毅",
+          "滿洲國",
+          "溥儀"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_league_withdrawal_1933",
+        "year": 1933,
+        "yearDisplay": "西元 1933 年 (昭和八年)",
+        "title": "退出國際聯盟",
+        "summary": "國際聯盟大會通過不承認滿洲國的報告，日本代表松岡洋右退席，日本隨後通告退出。",
+        "detail": "國際聯盟依李頓調查團報告，於 1933 年 2 月 24 日以 42 票對 1 票通過勸告書，認定日本在東北的軍事行動不屬自衛。首席代表松岡洋右當場退席，3 月 27 日日本正式通告退出國際聯盟，並發布退出詔書。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "國際聯盟",
+          "松岡洋右",
+          "李頓調查團",
+          "滿洲國"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《國際聯盟脱退ノ詔書》",
+            "url": "https://ja.wikisource.org/wiki/國際聯盟脱退ノ詔書"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_february_26_incident_1936",
+        "year": 1936,
+        "yearDisplay": "西元 1936 年 (昭和十一年)",
+        "title": "二二六事件",
+        "summary": "陸軍皇道派青年軍官率約一千四百名士兵起事，殺害大藏大臣高橋是清等人，佔領東京中樞。",
+        "detail": "2 月 26 日清晨，起事部隊襲擊首相官邸與多位重臣住宅，內大臣齋藤實、大藏大臣高橋是清、教育總監渡邊錠太郎遇害，首相岡田啟介倖免。昭和天皇嚴令鎮壓，起事部隊於 29 日歸順，主謀軍官多被判處死刑。事件後陸軍統制派主導軍部，軍方對政治的影響力進一步擴大。",
+        "locationNameAncient": "東京府東京市麴町區永田町",
+        "locationNameModern": "東京都千代田區永田町",
+        "coordinates": [
+          139.743,
+          35.673
+        ],
+        "tags": [
+          "二二六事件",
+          "高橋是清",
+          "昭和天皇",
+          "皇道派"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_second_sino_japanese_war_1937",
+        "year": 1937,
+        "yearDisplay": "西元 1937 年 (昭和十二年)",
+        "title": "盧溝橋事變，中日全面開戰",
+        "summary": "7 月 7 日北平郊外盧溝橋發生衝突，戰事擴大為中日全面戰爭。",
+        "detail": "第一次近衛文麿內閣先宣布不擴大方針，隨後增派兵力；8 月戰火延燒至上海。日軍於 12 月攻陷國民政府首都南京，佔領期間發生大量殺害俘虜與平民的南京大屠殺，死亡人數各方說法差距很大。1938 年 1 月近衛內閣發表「不以國民政府為對手」聲明，戰爭轉為長期化。",
+        "locationNameAncient": "中華民國北平盧溝橋",
+        "locationNameModern": "中國北京市豐臺區（地圖範圍外）",
+        "tags": [
+          "盧溝橋事變",
+          "近衛文麿",
+          "南京大屠殺",
+          "中日戰爭"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_national_mobilization_1938",
+        "year": 1938,
+        "yearDisplay": "西元 1938 年 (昭和十三年)",
+        "title": "公布《國家總動員法》",
+        "summary": "近衛內閣制定國家總動員法，政府可不經議會以敕令統制人力、物資與經濟活動。",
+        "detail": "1938 年 4 月 1 日公布，5 月施行。依此法陸續發布國民徵用令、價格統制令等敕令，國民生活與產業全面納入戰時統制。1940 年各政黨解散並組成大政翼贊會。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "國家總動員法",
+          "近衛文麿",
+          "大政翼贊會"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《國家總動員法》",
+            "url": "https://ja.wikisource.org/wiki/國家總動員法"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_tripartite_pact_1940",
+        "year": 1940,
+        "yearDisplay": "西元 1940 年 (昭和十五年)",
+        "title": "簽訂德義日三國同盟",
+        "summary": "日本與德國、義大利在柏林簽訂三國條約，與英美的對立加深。",
+        "detail": "1940 年 9 月 27 日，第二次近衛內閣外務大臣松岡洋右主導，由駐德大使來栖三郎在柏林簽署。同月日軍進駐法屬印度支那北部，美國隨後擴大對日禁運。",
+        "locationNameAncient": "德國柏林",
+        "locationNameModern": "德國柏林（地圖範圍外）",
+        "tags": [
+          "三國同盟",
+          "近衛文麿",
+          "松岡洋右"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_pacific_war_1941",
+        "year": 1941,
+        "yearDisplay": "西元 1941 年 (昭和十六年)",
+        "title": "偷襲珍珠港，太平洋戰爭爆發",
+        "summary": "12 月 8 日（日本時間）日本海軍空襲夏威夷珍珠港，陸軍同時登陸馬來半島，日本對美英宣戰。",
+        "detail": "日美交涉因美方要求日軍撤出中國與印度支那而破局。東條英機內閣於 12 月 1 日御前會議決定開戰。12 月 8 日，聯合艦隊機動部隊空襲珍珠港，陸軍登陸馬來半島，同日發布對美英宣戰詔書。",
+        "locationNameAncient": "夏威夷歐胡島珍珠港",
+        "locationNameModern": "美國夏威夷州（地圖範圍外）",
+        "tags": [
+          "太平洋戰爭",
+          "珍珠港",
+          "東條英機",
+          "山本五十六"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《米國及英國ニ對スル宣戰ノ詔書》",
+            "url": "https://ja.wikisource.org/wiki/米國及英國ニ對スル宣戰ノ詔書"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_fall_of_singapore_1942",
+        "year": 1942,
+        "yearDisplay": "西元 1942 年 (昭和十七年)",
+        "title": "新加坡陷落",
+        "summary": "日軍攻陷英國在東南亞的據點新加坡，英軍投降。",
+        "detail": "第二十五軍司令官山下奉文率軍沿馬來半島南下，1942 年 2 月 15 日英軍司令白思華投降，新加坡改稱昭南島。日軍隨後在當地對華人進行肅清屠殺。開戰半年內日本佔領東南亞與西太平洋廣大地區，至 6 月中途島海戰後攻勢受挫。",
+        "locationNameAncient": "英屬海峽殖民地新加坡",
+        "locationNameModern": "新加坡（地圖範圍外）",
+        "tags": [
+          "新加坡",
+          "山下奉文",
+          "太平洋戰爭",
+          "中途島"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_saipan_tojo_resigns_1944",
+        "year": 1944,
+        "yearDisplay": "西元 1944 年 (昭和十九年)",
+        "title": "塞班島失守，東條內閣總辭",
+        "summary": "美軍攻佔塞班島，日本本土進入 B-29 轟炸機的航程範圍，東條英機內閣隨即總辭。",
+        "detail": "1944 年 6 月美軍登陸塞班島，日本守軍於 7 月上旬覆滅，大量日本平民亦在島上死亡。同時期的馬里亞納海戰中日本海軍航空戰力大幅折損。7 月 18 日東條內閣總辭，由小磯國昭繼任。美軍隨後以馬里亞納群島為基地轟炸日本本土。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "塞班島",
+          "東條英機",
+          "馬里亞納海戰"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_first_kamikaze_1944",
+        "year": 1944,
+        "yearDisplay": "西元 1944 年 (昭和十九年)",
+        "title": "神風特別攻擊隊首次出擊",
+        "summary": "雷伊泰灣海戰期間，海軍神風特別攻擊隊首次以戰機衝撞美軍艦艇。",
+        "detail": "1944 年 10 月，第一航空艦隊司令長官大西瀧治郎在菲律賓編組特別攻擊隊。10 月 25 日關行男率領的敷島隊衝撞美軍護航航艦，此後特攻成為日軍常用戰法，至戰爭結束有數千人戰死。",
+        "locationNameAncient": "菲律賓雷伊泰灣外海",
+        "locationNameModern": "菲律賓雷伊泰灣（地圖範圍外）",
+        "tags": [
+          "神風特攻",
+          "雷伊泰灣海戰",
+          "大西瀧治郎"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_tokyo_air_raid_1945",
+        "year": 1945,
+        "yearDisplay": "西元 1945 年 (昭和二十年)",
+        "title": "東京大轟炸",
+        "summary": "3 月 10 日凌晨，美軍 B-29 轟炸機對東京下町進行低空夜間燃燒彈轟炸，約十萬人罹難。",
+        "detail": "1945 年 3 月 9 日深夜至 10 日凌晨，約三百架 B-29 對本所、深川、淺草等木造住宅密集地區投下燃燒彈，強風助長大火，一夜之間約十萬人死亡。此後美軍對名古屋、大阪等大城市及地方都市展開一連串燃燒彈轟炸。",
+        "locationNameAncient": "東京都本所區、深川區、淺草區",
+        "locationNameModern": "東京都墨田區、江東區、台東區",
+        "coordinates": [
+          139.8,
+          35.7
+        ],
+        "tags": [
+          "東京大轟炸",
+          "B-29",
+          "太平洋戰爭"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_hiroshima_1945",
+        "year": 1945,
+        "yearDisplay": "西元 1945 年 (昭和二十年)",
+        "title": "廣島原子彈轟炸",
+        "summary": "8 月 6 日上午 8 時 15 分，美軍在廣島市上空投下原子彈，這是人類首次在戰爭中使用核武。",
+        "detail": "原子彈在市中心上空爆炸，爆風、熱線與大火摧毀市區大部分建築，至 1945 年底死亡人數估計約十四萬人，倖存者此後長期受輻射傷害之苦。爆心附近的廣島縣產業獎勵館殘骸保存至今，稱為原爆圓頂館。",
+        "locationNameAncient": "廣島縣廣島市",
+        "locationNameModern": "廣島縣廣島市中區",
+        "coordinates": [
+          132.45,
+          34.39
+        ],
+        "tags": [
+          "廣島原子彈",
+          "原爆圓頂館",
+          "太平洋戰爭"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_nagasaki_soviet_1945",
+        "year": 1945,
+        "yearDisplay": "西元 1945 年 (昭和二十年)",
+        "title": "長崎原子彈轟炸與蘇聯對日參戰",
+        "summary": "8 月 9 日美軍在長崎投下第二顆原子彈；同日蘇聯依前一日的宣戰攻入滿洲。",
+        "detail": "8 月 9 日上午 11 時 2 分，原子彈在長崎市浦上地區上空爆炸，至 1945 年底死亡人數估計約七萬人。蘇聯於 8 月 8 日對日宣戰，9 日凌晨出兵滿洲、朝鮮北部與庫頁島南部。當晚至 10 日凌晨的御前會議上，昭和天皇表示接受《波茨坦宣言》。",
+        "locationNameAncient": "長崎縣長崎市浦上",
+        "locationNameModern": "長崎縣長崎市",
+        "coordinates": [
+          129.87,
+          32.77
+        ],
+        "tags": [
+          "長崎原子彈",
+          "蘇聯對日宣戰",
+          "昭和天皇",
+          "波茨坦宣言"
+        ],
+        "faction": "taisho_prewar"
+      },
+      {
+        "id": "evt_jp_gyokuon_broadcast_1945",
+        "year": 1945,
+        "yearDisplay": "西元 1945 年 (昭和二十年)",
+        "title": "玉音放送：昭和天皇宣布接受《波茨坦宣言》",
+        "summary": "8 月 15 日正午，廣播播出昭和天皇宣讀終戰詔書的錄音，日本國民得知戰敗。",
+        "detail": "8 月 14 日御前會議決定接受《波茨坦宣言》並通知同盟國，天皇當晚錄製終戰詔書。陸軍部分青年軍官企圖奪取錄音盤以阻止廣播（宮城事件），未能成功。15 日正午播出後，鈴木貫太郎內閣總辭。",
+        "locationNameAncient": "東京都麴町區宮城",
+        "locationNameModern": "東京都千代田區皇居",
+        "coordinates": [
+          139.7528,
+          35.6852
+        ],
+        "tags": [
+          "玉音放送",
+          "終戰詔書",
+          "昭和天皇",
+          "波茨坦宣言"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《大東亞戰爭終結ノ詔書》（終戰詔書）",
+            "url": "https://ja.wikisource.org/wiki/大東亞戰爭終結ノ詔書"
+          },
+          {
+            "title": "《ポツダム宣言》",
+            "url": "https://ja.wikisource.org/wiki/ポツダム宣言"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_surrender_missouri_1945",
+        "year": 1945,
+        "yearDisplay": "西元 1945 年 (昭和二十年)",
+        "title": "密蘇里號上簽署降書",
+        "summary": "9 月 2 日日本代表在東京灣美艦密蘇里號上簽署降伏文書，第二次世界大戰結束。",
+        "detail": "日本政府代表外務大臣重光葵、大本營代表參謀總長梅津美治郎簽署降伏文書，同盟國由最高司令官麥克阿瑟及各國代表簽署。日本自此進入同盟國佔領時期。",
+        "locationNameAncient": "東京灣",
+        "locationNameModern": "東京灣（橫須賀外海）",
+        "coordinates": [
+          139.75,
+          35.35
+        ],
+        "tags": [
+          "降伏文書",
+          "密蘇里號",
+          "麥克阿瑟",
+          "重光葵"
+        ],
+        "faction": "taisho_prewar",
+        "sources": [
+          {
+            "title": "《日本の降伏文書》",
+            "url": "https://ja.wikisource.org/wiki/日本の降伏文書"
+          }
+        ]
+      }
+    ],
+    "highlightFigures": [
+      "fig_jp_taisho_emperor",
+      "fig_jp_showa_emperor",
+      "fig_jp_hara_takashi",
+      "fig_jp_inukai_tsuyoshi",
+      "fig_jp_takahashi_korekiyo",
+      "fig_jp_noguchi_hideyo",
+      "fig_jp_yosano_akiko",
+      "fig_jp_konoe_fumimaro",
+      "fig_jp_tojo_hideki",
+      "fig_jp_yamamoto_isoroku",
+      "fig_jp_ishiwara_kanji"
     ]
   }
 ];

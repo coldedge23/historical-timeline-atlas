@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Battles Dataset (35 Authoritative Epic Battles with Full Military Intelligence)
+// Japanese Historical Atlas Battles Dataset (41 Authoritative Epic Battles with Full Military Intelligence)
 export const JAPAN_BATTLES = [
   {
     "id": "bat_jp_hakusukinoe_663",
@@ -2579,6 +2579,340 @@ export const JAPAN_BATTLES = [
     "keyStrategies": [
       "日軍：以第三軍自西側迂迴，威脅俄軍右翼與後方",
       "俄軍：判斷側背受威脅後放棄奉天向北撤退"
+    ]
+  },
+  {
+    "id": "bat_jp_pearl_harbor_1941",
+    "name": "珍珠港事件 (聯合艦隊空襲美國太平洋艦隊)",
+    "year": 1941,
+    "locationAncient": "夏威夷歐胡島珍珠港",
+    "locationModern": "美國夏威夷州（地圖範圍外）",
+    "summary": "1941 年 12 月 7 日（夏威夷時間），日本海軍機動部隊以航艦艦載機空襲珍珠港，美國隨即對日宣戰。",
+    "attacker": {
+      "factionName": "大日本帝國海軍機動部隊",
+      "faction": "taisho_prewar",
+      "commanders": [
+        {
+          "name": "山本五十六",
+          "title": "聯合艦隊司令長官（作戰立案）"
+        },
+        {
+          "name": "南雲忠一",
+          "title": "第一航空艦隊司令長官"
+        }
+      ],
+      "forcesEstimate": "航艦 6 艘",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "美國太平洋艦隊",
+      "faction": "usa",
+      "commanders": [
+        {
+          "name": "金梅爾",
+          "title": "太平洋艦隊司令"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "美方死亡約 2,400 人，多艘戰艦沉沒或受損"
+    },
+    "victor": "attacker",
+    "victorStatement": "美國戰艦部隊遭重創，但航艦當日不在港內",
+    "tactics": [
+      "日軍：機動部隊由千島群島擇捉島單冠灣出發，經北太平洋接近夏威夷",
+      "日軍：分兩波以魚雷機、俯衝轟炸機與水平轟炸機攻擊港內艦艇與機場"
+    ],
+    "strategicOutcome": "美國對日宣戰，德義隨後對美宣戰，太平洋戰爭全面展開。",
+    "significance": "攻擊未能擊中美軍航艦與港口設施，美國輿論轉為一致支持參戰。",
+    "eraId": "jp_taisho_prewar",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "大日本帝國海軍機動部隊 (航艦 6 艘)",
+      "defender": "美國太平洋艦隊 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：機動部隊由千島群島擇捉島單冠灣出發，經北太平洋接近夏威夷",
+      "日軍：分兩波以魚雷機、俯衝轟炸機與水平轟炸機攻擊港內艦艇與機場"
+    ]
+  },
+  {
+    "id": "bat_jp_midway_1942",
+    "name": "中途島海戰 (日本海軍航艦部隊重挫)",
+    "year": 1942,
+    "locationAncient": "中途島海域",
+    "locationModern": "北太平洋中途島（地圖範圍外）",
+    "summary": "1942 年 6 月，日本海軍企圖攻佔中途島並誘出美軍航艦，反遭美軍艦載機擊沉四艘航艦。",
+    "attacker": {
+      "factionName": "大日本帝國海軍聯合艦隊",
+      "faction": "taisho_prewar",
+      "commanders": [
+        {
+          "name": "山本五十六",
+          "title": "聯合艦隊司令長官"
+        },
+        {
+          "name": "南雲忠一",
+          "title": "第一航空艦隊司令長官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "航艦赤城、加賀、蒼龍、飛龍沉沒"
+    },
+    "defender": {
+      "factionName": "美國太平洋艦隊",
+      "faction": "usa",
+      "commanders": [
+        {
+          "name": "尼米茲",
+          "title": "太平洋艦隊司令"
+        },
+        {
+          "name": "史普魯恩斯",
+          "title": "第十六特遣艦隊司令"
+        },
+        {
+          "name": "弗萊徹",
+          "title": "第十七特遣艦隊司令"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "航艦約克鎮號沉沒"
+    },
+    "victor": "defender",
+    "victorStatement": "美軍事先破譯日軍通訊，以艦載機擊沉日方四艘主力航艦",
+    "tactics": [
+      "美軍：破譯日軍密碼，預先在中途島東北海域布署航艦",
+      "日軍：攻擊中途島後換裝武器期間遭美軍俯衝轟炸機襲擊"
+    ],
+    "strategicOutcome": "日本海軍喪失主力航艦與大批熟練飛行員，太平洋戰場主動權轉向美軍。",
+    "significance": "太平洋戰爭的轉捩點之一。",
+    "eraId": "jp_taisho_prewar",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "大日本帝國海軍聯合艦隊 (待確認)",
+      "defender": "美國太平洋艦隊 (待確認)"
+    },
+    "keyStrategies": [
+      "美軍：破譯日軍密碼，預先在中途島東北海域布署航艦",
+      "日軍：攻擊中途島後換裝武器期間遭美軍俯衝轟炸機襲擊"
+    ]
+  },
+  {
+    "id": "bat_jp_guadalcanal_1942",
+    "name": "瓜達康納爾島戰役 (南太平洋的消耗戰)",
+    "year": 1942,
+    "locationAncient": "英屬所羅門群島瓜達康納爾島",
+    "locationModern": "索羅門群島瓜達康納爾島（地圖範圍外）",
+    "summary": "1942 年 8 月美軍登陸瓜達康納爾島奪取日軍興建中的機場，雙方反覆爭奪半年，日軍於 1943 年 2 月撤出。",
+    "attacker": {
+      "factionName": "美國陸海軍與海軍陸戰隊",
+      "faction": "usa",
+      "commanders": [
+        {
+          "name": "范德格里夫特",
+          "title": "第一陸戰師師長"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "大日本帝國陸海軍",
+      "faction": "taisho_prewar",
+      "commanders": [
+        {
+          "name": "百武晴吉",
+          "title": "第十七軍司令官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認（大量官兵死於飢餓與疾病）"
+    },
+    "victor": "attacker",
+    "victorStatement": "日軍多次奪回機場的總攻擊失敗，1943 年 2 月撤離",
+    "tactics": [
+      "日軍：以驅逐艦夜間運輸兵員與物資（「鼠輸送」），逐次投入兵力",
+      "美軍：以島上機場的航空兵力掌握周邊制空權"
+    ],
+    "strategicOutcome": "日軍在南太平洋轉入守勢，船艦與航空兵力持續消耗。",
+    "significance": "日軍首次在陸上大規模攻防中失利，大批官兵因補給斷絕而死於飢病。",
+    "eraId": "jp_taisho_prewar",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "美國陸海軍與海軍陸戰隊 (待確認)",
+      "defender": "大日本帝國陸海軍 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：以驅逐艦夜間運輸兵員與物資（「鼠輸送」），逐次投入兵力",
+      "美軍：以島上機場的航空兵力掌握周邊制空權"
+    ]
+  },
+  {
+    "id": "bat_jp_leyte_gulf_1944",
+    "name": "雷伊泰灣海戰 (聯合艦隊最後的大規模出擊)",
+    "year": 1944,
+    "locationAncient": "菲律賓雷伊泰灣及周邊海域",
+    "locationModern": "菲律賓（地圖範圍外）",
+    "summary": "1944 年 10 月美軍登陸雷伊泰島，日本海軍出動殘存主力企圖突入雷伊泰灣，作戰失敗並損失大量艦艇。",
+    "attacker": {
+      "factionName": "大日本帝國海軍聯合艦隊",
+      "faction": "taisho_prewar",
+      "commanders": [
+        {
+          "name": "栗田健男",
+          "title": "第二艦隊司令長官"
+        },
+        {
+          "name": "小澤治三郎",
+          "title": "第三艦隊司令長官（誘敵部隊）"
+        },
+        {
+          "name": "西村祥治",
+          "title": "第一游擊部隊第三部隊指揮官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "戰艦武藏等多艘艦艇沉沒"
+    },
+    "defender": {
+      "factionName": "美國第三艦隊、第七艦隊",
+      "faction": "usa",
+      "commanders": [
+        {
+          "name": "海爾賽",
+          "title": "第三艦隊司令"
+        },
+        {
+          "name": "金凱德",
+          "title": "第七艦隊司令"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "victor": "defender",
+    "victorStatement": "日方以航艦部隊誘開美軍主力，但栗田艦隊在接近雷伊泰灣時反轉撤退",
+    "tactics": [
+      "日軍：小澤艦隊以航艦為誘餌北上，吸引海爾賽第三艦隊",
+      "日軍：栗田、西村艦隊分由南北兩路突入雷伊泰灣",
+      "日軍：海軍首次出動神風特別攻擊隊"
+    ],
+    "strategicOutcome": "日本海軍作為艦隊的作戰能力實質瓦解，美軍確保菲律賓。",
+    "significance": "史上規模最大的海戰之一；特攻戰法自此開始。",
+    "eraId": "jp_taisho_prewar",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "大日本帝國海軍聯合艦隊 (待確認)",
+      "defender": "美國第三艦隊、第七艦隊 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：小澤艦隊以航艦為誘餌北上，吸引海爾賽第三艦隊",
+      "日軍：栗田、西村艦隊分由南北兩路突入雷伊泰灣",
+      "日軍：海軍首次出動神風特別攻擊隊"
+    ]
+  },
+  {
+    "id": "bat_jp_iwo_jima_1945",
+    "name": "硫磺島戰役 (守軍以坑道持久抵抗)",
+    "year": 1945,
+    "locationAncient": "東京府小笠原支廳硫黃島",
+    "locationModern": "東京都小笠原村硫黃島（地圖範圍外）",
+    "summary": "1945 年 2 月 19 日美軍登陸硫磺島，日本守軍依託坑道陣地抵抗一個多月，3 月下旬幾乎全滅。",
+    "attacker": {
+      "factionName": "美國海軍陸戰隊",
+      "faction": "usa",
+      "commanders": [
+        {
+          "name": "霍蘭·史密斯",
+          "title": "遠征部隊指揮官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "大日本帝國小笠原兵團",
+      "faction": "taisho_prewar",
+      "commanders": [
+        {
+          "name": "栗林忠道",
+          "title": "小笠原兵團長"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認（守軍幾乎全員戰死）"
+    },
+    "victor": "attacker",
+    "victorStatement": "美軍佔領硫磺島，作為 B-29 的緊急降落與護航戰鬥機基地",
+    "tactics": [
+      "日軍：放棄水際防禦，構築地下坑道網進行持久戰",
+      "美軍：以艦砲與航空轟炸支援逐步掃蕩洞窟陣地"
+    ],
+    "strategicOutcome": "美軍取得轟炸日本本土的中繼基地。",
+    "significance": "美軍在太平洋戰場傷亡人數超過日軍的少數戰役之一。",
+    "eraId": "jp_taisho_prewar",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "美國海軍陸戰隊 (待確認)",
+      "defender": "大日本帝國小笠原兵團 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：放棄水際防禦，構築地下坑道網進行持久戰",
+      "美軍：以艦砲與航空轟炸支援逐步掃蕩洞窟陣地"
+    ]
+  },
+  {
+    "id": "bat_jp_okinawa_1945",
+    "name": "沖繩戰役 (美軍登陸沖繩本島的大規模地面戰)",
+    "year": 1945,
+    "locationAncient": "沖繩縣沖繩本島",
+    "locationModern": "沖繩縣沖繩本島",
+    "coordinates": [
+      127.75,
+      26.3
+    ],
+    "summary": "1945 年 4 月 1 日美軍登陸沖繩本島，激戰近三個月，第三十二軍司令官牛島滿於 6 月下旬自盡，組織性抵抗結束。",
+    "attacker": {
+      "factionName": "美國第十軍",
+      "faction": "usa",
+      "commanders": [
+        {
+          "name": "巴克納",
+          "title": "第十軍司令官，6 月 18 日陣亡"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "大日本帝國第三十二軍",
+      "faction": "taisho_prewar",
+      "commanders": [
+        {
+          "name": "牛島滿",
+          "title": "第三十二軍司令官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認（含大量沖繩平民犧牲）"
+    },
+    "victor": "attacker",
+    "victorStatement": "美軍佔領沖繩，6 月 23 日被沖繩縣定為慰靈之日",
+    "tactics": [
+      "日軍：以首里為中心構築坑道陣地持久抵抗，拖延美軍進攻本土",
+      "日軍：同時以特攻機與戰艦大和號出擊攻擊美軍艦隊"
+    ],
+    "strategicOutcome": "沖繩由美軍統治，直到 1972 年才返還日本。",
+    "significance": "大批沖繩居民在戰火中喪生，其中包括被迫「集團自決」者，戰爭記憶至今深刻影響沖繩社會。",
+    "eraId": "jp_taisho_prewar",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "美國第十軍 (待確認)",
+      "defender": "大日本帝國第三十二軍 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：以首里為中心構築坑道陣地持久抵抗，拖延美軍進攻本土",
+      "日軍：同時以特攻機與戰艦大和號出擊攻擊美軍艦隊"
     ]
   }
 ];

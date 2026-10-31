@@ -521,7 +521,7 @@ const PREWAR_BATTLES = [
     eraId: 'jp_taisho_prewar',
   }),
   battle({
-    id: 'bat_jp_okinawa_1945', name: '沖繩戰役 (日本國內唯一的大規模地面戰)', year: 1945,
+    id: 'bat_jp_okinawa_1945', name: '沖繩戰役 (美軍登陸沖繩本島的大規模地面戰)', year: 1945,
     locationAncient: '沖繩縣沖繩本島', locationModern: '沖繩縣沖繩本島', coordinates: [127.75, 26.3],
     summary: '1945 年 4 月 1 日美軍登陸沖繩本島，激戰近三個月，第三十二軍司令官牛島滿於 6 月下旬自盡，組織性抵抗結束。',
     attacker: {
@@ -896,12 +896,14 @@ const eraById = (id) => {
   if (!era) throw new Error(`missing era ${id}`);
   return era;
 };
+// Events without a named figure would otherwise fall back to the generic 東瀛名士 badge.
+const ERA_FACTION = { jp_meiji_modern: 'meiji_modern', jp_taisho_prewar: 'taisho_prewar', jp_showa_postwar: 'showa_postwar' };
 const addBatch = (eraId, evts, bats, figs) => {
   const era = eraById(eraId);
   assertNew(era.keyEvents, evts);
   assertNew(battles, bats);
   assertNew(figures, figs);
-  era.keyEvents.push(...evts.map(withSources));
+  era.keyEvents.push(...evts.map((e) => withSources({ ...e, faction: ERA_FACTION[eraId] })));
   era.keyEvents.sort((a, b) => a.year - b.year);
   era.highlightFigures.push(...figs.map((f) => f.id));
   battles.push(...bats.map(withSources));
@@ -916,6 +918,9 @@ if (batch === 'meiji') {
   eraById('jp_meiji_modern').dateRangeDisplay = '西元 1868 - 1912 年';
   battleIdsToAdd.jp_meiji_modern = addBatch('jp_meiji_modern', MEIJI_EVENTS, MEIJI_BATTLES, MEIJI_FIGURES);
 } else if (batch === 'prewar') {
+  // The meiji batch shipped before ERA_FACTION existed.
+  const meijiIds = new Set(MEIJI_EVENTS.map((e) => e.id));
+  for (const e of eraById('jp_meiji_modern').keyEvents) if (meijiIds.has(e.id) && !e.faction) e.faction = 'meiji_modern';
   addEra(ERA_TAISHO);
   battleIdsToAdd.jp_taisho_prewar = addBatch('jp_taisho_prewar', PREWAR_EVENTS, PREWAR_BATTLES, PREWAR_FIGURES);
 } else if (batch === 'postwar') {

@@ -14,8 +14,9 @@ const taiwanEvents = TAIWAN_LENS_ERAS.flatMap(era => (era.keyEvents || []).map(e
   eraId:era.id, eraName:era.name,
   svgPos:event.coordinates ? [580+(event.coordinates[0]-118)*7.5,495-(event.coordinates[1]-22)*9.5] : [602,478]
 }))).sort((a,b)=>a.year-b.year);
+// Events outside the drawn map (Korea, China, the Pacific) carry no coordinates and get no marker.
 const japanEvents = JAPAN_ALL_EVENTS.map(event => ({...event,
-  svgPos:event.coordinates ? projectLngLatToJapanMap(...event.coordinates) : [400,360]
+  svgPos:event.coordinates ? projectLngLatToJapanMap(...event.coordinates) : null
 }));
 // Repair original declarations first so normalization cannot build recommendations
 // from stale IDs; validate the generated links once more before the UI consumes them.
