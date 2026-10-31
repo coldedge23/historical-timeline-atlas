@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Eras Dataset (8 Master Historical Eras with 143 Detailed Events)
+// Japanese Historical Atlas Eras Dataset (8 Master Historical Eras with 154 Detailed Events)
 export const JAPAN_ERAS = [
   {
     "id": "jp_ancient_medieval",
@@ -1646,6 +1646,250 @@ export const JAPAN_ERAS = [
           "打毀"
         ],
         "faction": "edo"
+      },
+      {
+        "id": "evt_jp_kansei_reforms_1787",
+        "year": 1787,
+        "yearDisplay": "西元 1787 年 (天明七年)",
+        "title": "松平定信推行寬政改革",
+        "summary": "天明打毀後，松平定信出任老中首座，推行緊縮財政、儲糧備荒與思想統制。",
+        "detail": "寬政改革實施圍米儲糧、棄捐令（免除旗本與御家人對札差的部分借款）、在江戶設置人足寄場收容無宿者。1790 年頒布「寬政異學之禁」，昌平坂學問所只准講授朱子學；並嚴格管制出版，林子平因著《海國兵談》受罰。1793 年松平定信辭去老中。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "寬政改革",
+          "松平定信",
+          "寬政異學之禁",
+          "棄捐令"
+        ],
+        "faction": "edo",
+        "sources": [
+          {
+            "title": "〈寛政異学の禁〉（學派維持ノ儀ニ付申達，寛政二年）",
+            "url": "https://ja.wikisource.org/wiki/寛政異学の禁"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_laxman_1792",
+        "year": 1792,
+        "yearDisplay": "西元 1792 年 (寬政四年)",
+        "title": "俄國使節拉克斯曼來航根室",
+        "summary": "俄國使節拉克斯曼護送漂流民大黑屋光太夫抵達根室，要求通商。",
+        "detail": "幕府拒絕在根室交涉，翌年在松前會見，發給可入長崎港的「信牌」作為答覆，並未同意通商。此後幕府開始重視北方防備，派人調查蝦夷地與千島。",
+        "locationNameAncient": "蝦夷地根室",
+        "locationNameModern": "北海道根室市",
+        "coordinates": [
+          145.58,
+          43.33
+        ],
+        "tags": [
+          "拉克斯曼",
+          "大黑屋光太夫",
+          "根室",
+          "北方防備"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_kojikiden_1798",
+        "year": 1798,
+        "yearDisplay": "西元 1798 年 (寬政十年)",
+        "title": "本居宣長完成《古事記傳》",
+        "summary": "國學者本居宣長歷時約三十五年，完成《古事記》注釋書《古事記傳》。",
+        "detail": "本居宣長自 1764 年前後開始撰寫，全書四十四卷，逐句考證《古事記》的訓讀與內容，至 1822 年才全部刊行完畢。宣長主張排除儒佛影響、探求日本古代的思想，對後來的國學與幕末尊王思想影響深遠。",
+        "locationNameAncient": "伊勢國松坂",
+        "locationNameModern": "三重縣松阪市",
+        "coordinates": [
+          136.53,
+          34.58
+        ],
+        "tags": [
+          "古事記傳",
+          "本居宣長",
+          "國學"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_ino_survey_1800",
+        "year": 1800,
+        "yearDisplay": "西元 1800 年 (寬政十二年)",
+        "title": "伊能忠敬開始測量全國",
+        "summary": "伊能忠敬自蝦夷地開始實地測量，此後十七年間走遍全國海岸線。",
+        "detail": "伊能忠敬五十歲退隱後到江戶學習天文曆學。1800 年經幕府許可測量蝦夷地南岸，其後測量範圍擴及全國，至 1816 年完成。他去世後，弟子於 1821 年完成《大日本沿海輿地全圖》。",
+        "locationNameAncient": "武藏國江戶深川",
+        "locationNameModern": "東京都江東區",
+        "coordinates": [
+          139.8,
+          35.68
+        ],
+        "tags": [
+          "伊能忠敬",
+          "大日本沿海輿地全圖",
+          "測量"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_rezanov_1804",
+        "year": 1804,
+        "yearDisplay": "西元 1804 年 (文化元年)",
+        "title": "俄國使節雷沙諾夫來航長崎",
+        "summary": "雷沙諾夫持拉克斯曼取得的信牌來到長崎要求通商，幕府等待半年後拒絕。",
+        "detail": "雷沙諾夫在長崎停留約半年，1805 年遭幕府拒絕。此後其部下在 1806 至 1807 年間襲擊樺太與擇捉島的日本據點（文化露寇），幕府隨即將蝦夷地全域收為直轄，加強北方警備。",
+        "locationNameAncient": "肥前國長崎",
+        "locationNameModern": "長崎縣長崎市",
+        "coordinates": [
+          129.87,
+          32.75
+        ],
+        "tags": [
+          "雷沙諾夫",
+          "文化露寇",
+          "北方防備"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_phaeton_1808",
+        "year": 1808,
+        "yearDisplay": "西元 1808 年 (文化五年)",
+        "title": "費頓號事件",
+        "summary": "英國軍艦費頓號懸掛荷蘭國旗闖入長崎港，扣押荷蘭商館員並強索補給。",
+        "detail": "拿破崙戰爭期間荷蘭受法國控制，英艦為搜捕荷蘭船而進入長崎。長崎奉行所無力應對，只得提供薪水糧食，費頓號隨即離去。長崎奉行松平康英引咎切腹。事件促使幕府加強沿岸警備與英語學習。",
+        "locationNameAncient": "肥前國長崎",
+        "locationNameModern": "長崎縣長崎市",
+        "coordinates": [
+          129.87,
+          32.75
+        ],
+        "tags": [
+          "費頓號事件",
+          "長崎",
+          "松平康英"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_gaikokusen_uchiharai_1825",
+        "year": 1825,
+        "yearDisplay": "西元 1825 年 (文政八年)",
+        "title": "頒布異國船打拂令",
+        "summary": "幕府下令各地對接近海岸的外國船隻一律砲擊驅離。",
+        "detail": "十九世紀初英國捕鯨船等頻繁出現在日本近海，1824 年發生英國船員登陸常陸大津濱與薩摩寶島的事件。幕府因而頒布此令，命令沿岸大名不問理由驅逐外國船，荷蘭與中國船除外。1842 年改為較緩和的薪水給與令。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "異國船打拂令",
+          "海防",
+          "鎖國"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_siebold_incident_1828",
+        "year": 1828,
+        "yearDisplay": "西元 1828 年 (文政十一年)",
+        "title": "西博爾德事件",
+        "summary": "荷蘭商館醫師西博爾德離日前，被查出持有禁止攜出國外的日本地圖。",
+        "detail": "西博爾德在長崎開設鳴瀧塾傳授西洋醫學。1828 年歸國前，其行李中被發現幕府天文方高橋景保贈送的伊能忠敬系統地圖抄本等禁品。西博爾德於翌年被驅逐出境，高橋景保下獄死於獄中，多名相關人士受罰。",
+        "locationNameAncient": "肥前國長崎",
+        "locationNameModern": "長崎縣長崎市",
+        "coordinates": [
+          129.87,
+          32.75
+        ],
+        "tags": [
+          "西博爾德",
+          "高橋景保",
+          "伊能忠敬",
+          "鳴瀧塾"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_oshio_rebellion_1837",
+        "year": 1837,
+        "yearDisplay": "西元 1837 年 (天保八年)",
+        "title": "大鹽平八郎之亂",
+        "summary": "天保飢荒中，前大坂町奉行所與力大鹽平八郎為救濟貧民在大坂起兵，半日即被鎮壓。",
+        "detail": "大鹽平八郎是陽明學者，曾任大坂東町奉行所與力。他不滿奉行所在飢荒中仍將米運往江戶、富商囤積米糧，變賣藏書救濟貧民後，於 1837 年 2 月率門人與民眾起事，火燒大坂市街約五分之一。起事當天即被鎮壓，大鹽潛逃約四十天後自盡。前幕臣在幕府重鎮起兵，震動各地。",
+        "locationNameAncient": "攝津國大坂",
+        "locationNameModern": "大阪府大阪市",
+        "coordinates": [
+          135.51,
+          34.69
+        ],
+        "tags": [
+          "大鹽平八郎之亂",
+          "大鹽平八郎",
+          "天保大飢荒",
+          "陽明學"
+        ],
+        "faction": "edo",
+        "sources": [
+          {
+            "title": "〈大鹽平八郞檄文〉（1837 年）",
+            "url": "https://ja.wikisource.org/wiki/大鹽平八郞檄文"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_bansha_no_goku_1839",
+        "year": 1839,
+        "yearDisplay": "西元 1839 年 (天保十年)",
+        "title": "莫里森號事件與蠻社之獄",
+        "summary": "幕府依異國船打拂令砲擊來航的美國商船莫里森號，批評此事的蘭學者渡邊崋山、高野長英被捕。",
+        "detail": "1837 年莫里森號為送還日本漂流民並要求通商駛入浦賀與鹿兒島灣，均遭砲擊驅離。翌年得知實情後，渡邊崋山寫《慎機論》、高野長英寫《戊戌夢物語》批評幕府的對外政策。1839 年兩人被捕，崋山被命在故鄉田原蟄居，1841 年自盡；長英被判永牢，1844 年越獄逃亡，1850 年被捕時身亡。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "莫里森號事件",
+          "蠻社之獄",
+          "渡邊崋山",
+          "高野長英"
+        ],
+        "faction": "edo",
+        "sources": [
+          {
+            "title": "高野長英《戊戌夢物語》（1838 年）",
+            "url": "https://ja.wikisource.org/wiki/戊戌夢物語"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_tenpo_reforms_1841",
+        "year": 1841,
+        "yearDisplay": "西元 1841 年 (天保十二年)",
+        "title": "水野忠邦推行天保改革",
+        "summary": "老中水野忠邦推行嚴格節儉、解散株仲間等改革；得知鴉片戰爭消息後放寬對外國船的處置。",
+        "detail": "改革內容包括禁止奢侈、整頓風俗、解散株仲間以平抑物價、以人返令要求流入江戶的農民返鄉。1842 年得知清朝在鴉片戰爭中戰敗，改頒薪水給與令，准許供給漂流到日本的外國船燃料與食水。1843 年欲將江戶、大坂周邊土地收為幕府直轄的上知令遭到反對，水野隨即失勢，改革以失敗告終。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "天保改革",
+          "水野忠邦",
+          "薪水給與令",
+          "上知令"
+        ],
+        "faction": "edo"
       }
     ],
     "highlightFigures": [
@@ -1667,7 +1911,15 @@ export const JAPAN_ERAS = [
       "fig_jp_kaibara_ekiken",
       "fig_jp_hiraga_gennai",
       "fig_jp_uesugi_yozan",
-      "fig_jp_shakushain"
+      "fig_jp_shakushain",
+      "fig_jp_kobayashi_issa",
+      "fig_jp_kyokutei_bakin",
+      "fig_jp_ninomiya_sontoku",
+      "fig_jp_oshio_heihachiro",
+      "fig_jp_mizuno_tadakuni",
+      "fig_jp_watanabe_kazan",
+      "fig_jp_siebold",
+      "fig_jp_takano_choei"
     ]
   },
   {

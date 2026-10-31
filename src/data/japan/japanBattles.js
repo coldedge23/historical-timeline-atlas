@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Battles Dataset (43 Authoritative Epic Battles with Full Military Intelligence)
+// Japanese Historical Atlas Battles Dataset (44 Authoritative Epic Battles with Full Military Intelligence)
 export const JAPAN_BATTLES = [
   {
     "id": "bat_jp_hakusukinoe_663",
@@ -3024,6 +3024,50 @@ export const JAPAN_BATTLES = [
     "keyStrategies": [
       "愛努方：各地同時襲擊和人商船與鷹匠等",
       "松前藩：以鐵砲裝備的部隊應戰，並以議和宴席誘殺首領"
+    ]
+  },
+  {
+    "id": "bat_jp_menashi_1789",
+    "name": "國後目梨之戰 (愛努族起事)",
+    "year": 1789,
+    "locationAncient": "蝦夷地國後島、目梨",
+    "locationModern": "北海道目梨郡羅臼町、標津町一帶及國後島",
+    "coordinates": [
+      145.13,
+      43.66
+    ],
+    "summary": "1789 年國後島與對岸目梨地方的愛努人，不滿和人商人在漁場的苛刻役使而起事，襲殺商人與船員，遭松前藩鎮壓。",
+    "attacker": {
+      "factionName": "國後、目梨的愛努人",
+      "faction": "ainu",
+      "commanders": [],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "松前藩",
+      "faction": "edo",
+      "commanders": [],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認（和人遇害人數各說不一）"
+    },
+    "victor": "defender",
+    "victorStatement": "松前藩派兵鎮壓，處決起事者",
+    "tactics": [
+      "愛努方：在國後島與目梨各地同時襲擊漁場的和人",
+      "松前藩：派兵至根室地方，透過愛努族首領交出起事者"
+    ],
+    "strategicOutcome": "幕府注意到蝦夷地的統治問題與俄國南下的威脅，此後加強對東蝦夷地的調查與管理。",
+    "significance": "江戶時代最後一次大規模的愛努族武裝反抗。",
+    "eraId": "jp_edo",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "國後、目梨的愛努人 (待確認)",
+      "defender": "松前藩 (待確認)"
+    },
+    "keyStrategies": [
+      "愛努方：在國後島與目梨各地同時襲擊漁場的和人",
+      "松前藩：派兵至根室地方，透過愛努族首領交出起事者"
     ]
   }
 ];

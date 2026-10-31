@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Figures Dataset (200 Authoritative Figures)
+// Japanese Historical Atlas Figures Dataset (208 Authoritative Figures)
 export const JAPAN_FIGURES = [
   {
     "id": "fig_jp_shotoku",
@@ -4825,5 +4825,157 @@ export const JAPAN_FIGURES = [
     "hometown": "蝦夷地靜內 (今北海道日高地方)",
     "shortBio": "蝦夷地東部靜內一帶的愛努族首領。1669 年號召各地愛努人起事，反抗松前藩壟斷交易與苛刻的交換條件，同年在議和宴席上遭松前藩殺害。",
     "historicalSignificance": "江戶時代愛努族反抗和人支配的代表人物。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_kobayashi_issa.svg",
+    "faction": "edo",
+    "id": "fig_jp_kobayashi_issa",
+    "name": "小林一茶",
+    "lifeSpan": "1763 - 1828",
+    "clanTag": "俳諧",
+    "emblemChar": "茶",
+    "mainColor": "#4ade80",
+    "bgColor": "#052e16",
+    "role": "俳人",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "信濃國柏原 (今長野縣信濃町)",
+    "shortBio": "農家出身，十五歲到江戶當學徒並學習俳諧。長年漂泊各地，晚年回到故鄉，與繼母、異母弟之間有遺產糾紛。作品多以平易語言描寫小動物與庶民生活，著有《我春集》（おらが春）等。",
+    "historicalSignificance": "與松尾芭蕉、與謝蕪村並稱江戶三大俳人。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_kyokutei_bakin.svg",
+    "faction": "edo",
+    "id": "fig_jp_kyokutei_bakin",
+    "name": "曲亭馬琴",
+    "courtesyName": "本名瀧澤興邦",
+    "lifeSpan": "1767 - 1848",
+    "clanTag": "讀本",
+    "emblemChar": "琴",
+    "mainColor": "#c084fc",
+    "bgColor": "#2e1065",
+    "role": "讀本作家",
+    "roleType": "cultural",
+    "importance": 3,
+    "hometown": "武藏國江戶 (今東京都)",
+    "shortBio": "旗本家臣之子，師事山東京傳。代表作《南總里見八犬傳》自 1814 年起刊行，歷時二十八年完成，晚年雙目失明後由媳婦代筆。",
+    "historicalSignificance": "江戶後期讀本文學的代表作家，被視為最早以稿費維生的日本職業作家之一。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_ninomiya_sontoku.svg",
+    "faction": "edo",
+    "id": "fig_jp_ninomiya_sontoku",
+    "name": "二宮尊德",
+    "courtesyName": "通稱金次郎",
+    "lifeSpan": "1787 - 1856",
+    "clanTag": "報德仕法",
+    "emblemChar": "德",
+    "mainColor": "#facc15",
+    "bgColor": "#422006",
+    "role": "農政家",
+    "roleType": "advisor",
+    "importance": 3,
+    "hometown": "相模國足柄上郡栢山村 (今神奈川縣小田原市)",
+    "shortBio": "少年時父母雙亡，靠自力重建家業。後受小田原藩等委託，以勤勞、節儉、推讓為原則，重建各地荒廢的農村，其方法稱為「報德仕法」。晚年受幕府任用。",
+    "historicalSignificance": "近代日本以勤勉自修的典範廣為人知，各地學校曾普遍設置其負薪讀書像。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_oshio_heihachiro.svg",
+    "faction": "edo",
+    "id": "fig_jp_oshio_heihachiro",
+    "name": "大鹽平八郎",
+    "courtesyName": "號中齋",
+    "lifeSpan": "1793 - 1837",
+    "clanTag": "陽明學",
+    "emblemChar": "鹽",
+    "mainColor": "#f87171",
+    "bgColor": "#450a0a",
+    "role": "陽明學者 / 前大坂町奉行所與力",
+    "roleType": "scholar",
+    "importance": 3,
+    "hometown": "攝津國大坂 (今大阪府大阪市)",
+    "shortBio": "大坂東町奉行所與力，以清廉著稱，退職後開設私塾洗心洞講授陽明學。天保飢荒中不滿官府與富商的作為，1837 年起兵，失敗後潛逃約四十天自盡。",
+    "historicalSignificance": "前幕府官員在大坂起兵，對各地震撼甚大。",
+    "sources": [
+      {
+        "title": "〈大鹽平八郞檄文〉（1837 年）",
+        "url": "https://ja.wikisource.org/wiki/大鹽平八郞檄文"
+      }
+    ]
+  },
+  {
+    "avatar": "./images/figures/fig_jp_mizuno_tadakuni.svg",
+    "faction": "edo",
+    "id": "fig_jp_mizuno_tadakuni",
+    "name": "水野忠邦",
+    "lifeSpan": "1794 - 1851",
+    "clanTag": "老中",
+    "emblemChar": "水",
+    "mainColor": "#60a5fa",
+    "bgColor": "#172554",
+    "role": "老中首座 / 天保改革主導者",
+    "roleType": "ruler",
+    "importance": 3,
+    "hometown": "肥前國唐津藩 (今佐賀縣唐津市)",
+    "shortBio": "唐津藩主出身，為求進入幕府中樞自願轉封濱松藩。1841 年以老中首座推行天保改革，1843 年因上知令遭強烈反對而罷免，翌年一度復職，不久再度去職。",
+    "historicalSignificance": "江戶三大改革最後一次的主導者。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_watanabe_kazan.svg",
+    "faction": "edo",
+    "id": "fig_jp_watanabe_kazan",
+    "name": "渡邊崋山",
+    "lifeSpan": "1793 - 1841",
+    "clanTag": "田原藩",
+    "emblemChar": "崋",
+    "mainColor": "#94a3b8",
+    "bgColor": "#1e293b",
+    "role": "田原藩家老、畫家、蘭學者",
+    "roleType": "scholar",
+    "importance": 3,
+    "hometown": "武藏國江戶田原藩邸 (今東京都)",
+    "shortBio": "三河田原藩士，以寫實的肖像畫聞名，作品《鷹見泉石像》為日本國寶。任家老期間致力藩政與海防，並與高野長英等人研究西洋知識。1839 年因著《慎機論》批評幕府對外政策，在蠻社之獄中被捕，蟄居田原期間於 1841 年自盡。",
+    "historicalSignificance": "江戶後期關心海外情勢的蘭學者與代表性畫家。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_siebold.svg",
+    "faction": "edo",
+    "id": "fig_jp_siebold",
+    "name": "西博爾德",
+    "courtesyName": "Philipp Franz von Siebold",
+    "lifeSpan": "1796 - 1866",
+    "clanTag": "荷蘭商館",
+    "emblemChar": "醫",
+    "mainColor": "#34d399",
+    "bgColor": "#022c22",
+    "role": "荷蘭商館醫師 / 博物學者",
+    "roleType": "scholar",
+    "importance": 3,
+    "hometown": "德意志維爾茨堡",
+    "shortBio": "德國出身，1823 年以荷蘭商館醫師身分來到長崎，開設鳴瀧塾教授西洋醫學，門下包括高野長英等人。1828 年因攜帶禁止出境的日本地圖被查獲，翌年被驅逐。歸國後出版《日本》等著作。1859 年再度來日。",
+    "historicalSignificance": "向歐洲系統介紹日本的博物學者，也培育了許多日本蘭學者。"
+  },
+  {
+    "avatar": "./images/figures/fig_jp_takano_choei.svg",
+    "faction": "edo",
+    "id": "fig_jp_takano_choei",
+    "name": "高野長英",
+    "lifeSpan": "1804 - 1850",
+    "clanTag": "蘭學",
+    "emblemChar": "長",
+    "mainColor": "#38bdf8",
+    "bgColor": "#082f49",
+    "role": "蘭方醫、蘭學者",
+    "roleType": "scholar",
+    "importance": 3,
+    "hometown": "陸奧國水澤 (今岩手縣奧州市)",
+    "shortBio": "在長崎鳴瀧塾師事西博爾德。1838 年著《戊戌夢物語》批評幕府砲擊莫里森號，翌年在蠻社之獄中被判永牢。1844 年趁牢房火災越獄，改換姓名四處逃亡，1850 年在江戶被捕時身亡。",
+    "historicalSignificance": "蠻社之獄的代表人物，江戶後期重要的蘭學者。",
+    "sources": [
+      {
+        "title": "高野長英《戊戌夢物語》（1838 年）",
+        "url": "https://ja.wikisource.org/wiki/戊戌夢物語"
+      }
+    ]
   }
 ];

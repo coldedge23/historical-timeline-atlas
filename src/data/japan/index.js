@@ -46,7 +46,8 @@ export const JAPAN_ERA_BATTLE_IDS = {
     "bat_jp_osaka_natsu_1615",
     "bat_jp_shimabara_1637",
     "bat_jp_ryukyu_invasion_1609",
-    "bat_jp_shakushain_1669"
+    "bat_jp_shakushain_1669",
+    "bat_jp_menashi_1789"
   ],
   jp_bakumatsu: [
     "bat_jp_ikeda_ya_1864",
