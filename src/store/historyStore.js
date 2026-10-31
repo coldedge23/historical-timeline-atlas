@@ -5,7 +5,7 @@ import { createPackSource } from './packSource.js';
 import { pageIdFor, withEraIds } from './pageIds.js';
 import { DEFAULT_CIV, ERA_CIVS, civById } from '../civilizations/registry.js';
 
-export { TAIWAN_PAGE, JAPAN_PAGE, pageIdFor } from './pageIds.js';
+export { pageIdFor } from './pageIds.js';
 export { DataLoadError } from './packSource.js';
 
 // Stage 2b-②: the data packs are the default; ?data=legacy falls back to the stage 2a catalog during the transition.

@@ -38,6 +38,7 @@
 - 資料正本是 `src/data/**/*.js`。不要新增同名 `.ts` 資料檔。
 - `src/types/history.ts` 只作為資料結構說明，不參與建置。
 - 元件取歷史資料一律經 `src/store/historyStore.js`（非同步：總目錄、頁面、搜尋索引、關聯描述），不要在元件裡直接 import `src/data/`。只有 `src/store/legacySource.js` 可引入資料正本；元件允許的設定與地理資料引用列在 `tests/history-store.test.js`，主入口不得含資料正本或地理資料（`tests/bundle-boundary.test.js`）。
+- 文明一律經 `src/civilizations/registry.js` 與各文明的 `config.js` 取用（ID、名稱、時期或紀元、資料包 ID、預設值、地圖載入、同期對照年代、紀元切換規則）。不要在程式裡寫 `'japan'`、`'taiwanLens'` 這類判斷，改用設定的能力（例如 `unit`、`features`）；`tests/civilizations.test.js` 會檢查，例外只有 `src/data/` 與 `src/store/legacySource.js`。設定檔不可引入資料正本，地圖元件只能用動態 `import()` 載入。
 - 瀏覽器預設下載 `dist/data/` 的資料包；網址加 `?data=legacy` 改用 2a 舊做法（獨立分包，2b 過渡期回退開關，階段 4 移除）。
 - 依名稱、摘要文字比對或反推而來的關聯（`derived: true`）在介面上加「程式推導」標示（`DerivedBadge`）。
 - import 一律寫明 `.js`／`.jsx` 副檔名。

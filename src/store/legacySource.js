@@ -8,7 +8,12 @@ import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_C
 import { figureLinkSet, battleLinkSet, eventLinkSet } from '../utils/linkDerivation.js';
 import { battleFigureIndex } from '../utils/relationRules.js';
 import { createSearchIndex } from '../utils/search.js';
-import { TAIWAN_PAGE, JAPAN_PAGE, eraSummary, withEraIds } from './pageIds.js';
+import { eraSummary, withEraIds } from './pageIds.js';
+import { civById } from '../civilizations/registry.js';
+
+// The fallback wires each civilization's data in by hand; it goes away in stage 4.
+const TAIWAN_PAGE = civById('taiwan').pageId;
+const JAPAN_PAGE = civById('japan').pageId;
 
 export const CHINA_PAGE_IDS = Object.keys(LINKED_PERIODS);
 export const PAGE_IDS = [...CHINA_PAGE_IDS, TAIWAN_PAGE, JAPAN_PAGE];

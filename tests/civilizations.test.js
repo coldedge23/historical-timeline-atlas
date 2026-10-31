@@ -39,9 +39,23 @@ test('page ids and defaults exist in the built catalog', () => {
   assert.equal(civById('atlantis'), null);
 });
 
-const configFiles = (dir) => readdirSync(dir).flatMap((name) => {
+const configFiles = (dir, pattern = /\.js$/) => readdirSync(dir).flatMap((name) => {
   const path = join(dir, name);
-  return statSync(path).isDirectory() ? configFiles(path) : path.endsWith('.js') ? [path] : [];
+  return statSync(path).isDirectory() ? configFiles(path, pattern) : pattern.test(path) ? [path] : [];
+});
+
+// Plan v2 section 3.7: the app asks the registry, it does not test for a civilization by name.
+// Allowed: the registry and configs, src/data, and the stage 2b fallback (removed in stage 4).
+const CIV_LITERAL = /(['"])(china|taiwan|japan|taiwanLens|japanAtlas)\1/;
+const LITERAL_ALLOWED = ['src/civilizations/', 'src/data/', 'src/store/legacySource.js'];
+
+test('no civilization ids hard-coded outside the registry', () => {
+  const offenders = configFiles(join(ROOT, 'src'), /\.jsx?$/)
+    .map((file) => relative(ROOT, file).replace(/\\/g, '/'))
+    .filter((rel) => !LITERAL_ALLOWED.some((prefix) => rel.startsWith(prefix)))
+    .flatMap((rel) => readFileSync(join(ROOT, rel), 'utf8').split(/\r?\n/)
+      .map((line, i) => [line, i + 1]).filter(([line]) => CIV_LITERAL.test(line)).map(([, n]) => `${rel}:${n}`));
+  assert.deepEqual(offenders, []);
 });
 
 test('civilization configs import no history data and load maps only dynamically', () => {

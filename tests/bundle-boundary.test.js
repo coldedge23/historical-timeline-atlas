@@ -45,6 +45,12 @@ test('history content stays out of the main entry', () => {
   assert.deepEqual(dataInputs(mainFiles, 'content'), []);
 });
 
+// Civilization maps (src/civilizations/*/config.js loadMap) are reached only through import().
+test('civilization map components stay out of the main entry', () => {
+  const maps = inputsOf(mainFiles).filter((input) => /^src\/components\/[A-Za-z]+AtlasMap\.jsx$/.test(input));
+  assert.deepEqual(maps, []);
+});
+
 test('lazy chunks carry history content only through the legacy data source', () => {
   for (const file of Object.keys(outputs).filter((f) => f.endsWith('.js') && !mainFiles.has(f))) {
     const inputs = Object.keys(outputs[file].inputs);
