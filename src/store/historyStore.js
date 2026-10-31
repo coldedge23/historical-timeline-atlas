@@ -7,9 +7,9 @@ import { pageIdFor, withEraIds } from './pageIds.js';
 export { TAIWAN_PAGE, JAPAN_PAGE, pageIdFor } from './pageIds.js';
 export { DataLoadError } from './packSource.js';
 
-// Stage 2b-①: the legacy source stays the default; ?data=packs switches to the data packs.
+// Stage 2b-②: the data packs are the default; ?data=legacy falls back to the stage 2a catalog during the transition.
 const requested = new URLSearchParams(globalThis.location?.search || '').get('data');
-export const DATA_MODE = requested === 'packs' ? 'packs' : 'legacy';
+export const DATA_MODE = requested === 'legacy' ? 'legacy' : 'packs';
 
 let sourcePromise = null;
 let source = null;

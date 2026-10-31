@@ -11,7 +11,7 @@ import { createDataPacks } from '../scripts/build_data_packs.mjs';
 import { PAGE_IDS, createLegacySource } from '../src/store/legacySource.js';
 import { createPackSource } from '../src/store/packSource.js';
 import { figureLinksFor, battleLinksFor, eventLinksFor, findOnPage, homeRecord, navigationDataset, routePageId, navigationCatalogs,
-  initialContext, selectionContext, createPageNavigator } from '../src/store/historyStore.js';
+  initialContext, selectionContext, createPageNavigator, DATA_MODE } from '../src/store/historyStore.js';
 import { parseNavigationHash, resolveNavigation, resolveInitialNavigation } from '../src/utils/navigation.js';
 import { contemporaryMatches } from '../src/utils/relationRules.js';
 
@@ -72,6 +72,9 @@ async function compare(name, source) {
     assert.deepEqual(JSON.parse(JSON.stringify(toFixture(value))), expected, `${name}: ${fixture}`);
   }
 }
+
+// Stage 2b-②: data packs are the default; only ?data=legacy selects the fallback.
+test('the browser uses the data packs by default', () => assert.equal(DATA_MODE, 'packs'));
 
 test('legacy source, routed one page at a time, reproduces the baseline', () => compare('legacy', createLegacySource()));
 test('pack source, routed one page at a time, reproduces the baseline', () => compare('packs', createPackSource({ fetch: memoryFetch(built.files), maxPacks: 99 })));
