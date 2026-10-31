@@ -37,6 +37,8 @@
 
 - 資料正本是 `src/data/**/*.js`。不要新增同名 `.ts` 資料檔。
 - `src/types/history.ts` 只作為資料結構說明，不參與建置。
+- 元件取歷史資料一律經 `src/store/historyStore.js`（頁面、總目錄、關聯描述、`resolveLink`），不要在元件裡直接 import `src/data/`。尚待 2b 搬移的直接引用列在 `tests/history-store.test.js`，新增會讓測試失敗。
+- 依名稱、摘要文字比對或反推而來的關聯（`derived: true`）在介面上加「程式推導」標示（`DerivedBadge`）。
 - import 一律寫明 `.js`／`.jsx` 副檔名。
 - 一次性腳本放 `scripts/`，用完移到 `scripts/archive/`；不要留在根目錄。
 - 樣式：介面規則在 `src/interface.css`，依 `DESIGN.md` 保留古紙地圖與深色金銅視覺。
