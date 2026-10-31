@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Compass, Search, X, Layers, Users, Swords, MapPin, BarChart3 } from './Icons.js';
+import { CIVILIZATIONS, civById } from '../civilizations/registry.js';
 
 export const Header = ({
   currentPeriod,
@@ -93,7 +94,7 @@ export const Header = ({
       <div className="header-navigation">
         <div className="context-selectors">
           <label><span>歷史體系</span><select aria-label="歷史體系" value={civilizationMode} onChange={(e) => onSelectCivilizationMode(e.target.value)}>
-            <option value="china">華夏通史</option><option value="taiwan">臺灣歷史</option><option value="japan">日本歷史</option>
+            {CIVILIZATIONS.map((civ) => <option key={civ.id} value={civ.id}>{civ.name}</option>)}
           </select></label>
           <label><span>時期</span>{civilizationMode === 'china' ?
             <select aria-label="時期" value={activePeriodId} onChange={(e) => onSelectPeriodId(e.target.value)}>{periodOptions.map((o) => <option key={o.id} value={o.id}>{o.name}（{o.range}）</option>)}</select> :
@@ -107,7 +108,7 @@ export const Header = ({
         </nav>
         <details className="header-tools"><summary>閱讀設定</summary><div>
           <button onClick={onToggleAncientNames} aria-pressed={ancientNamesOnly}><MapPin className="w-4 h-4" />{ancientNamesOnly ? '目前：僅古地名' : '目前：古今地名對照'}</button>
-          {civilizationMode === 'china' && <button onClick={() => onSelectTab('demographics')}><BarChart3 className="w-4 h-4" />人口與民族</button>}
+          {civById(civilizationMode)?.features.demographics && <button onClick={() => onSelectTab('demographics')}><BarChart3 className="w-4 h-4" />人口與民族</button>}
         </div></details>
       </div>
       <div className="header-context" aria-live="polite"><span>{civilizationMode === 'china' ? currentPeriodShortEra : eraOptions.find((o) => o.id === (civilizationMode === 'taiwan' ? activeTaiwanEraId : activeJapanEraId))?.name}</span><span>{eventCount} 事件・{figureCount} 人物・{battleCount} 戰役</span></div>

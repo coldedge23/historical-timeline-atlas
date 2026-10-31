@@ -8,10 +8,11 @@ import { LINKED_PERIODS, PERIOD_OPTIONS, TAIWAN_LENS_ERAS, ERA_BATTLE_IDS, JAPAN
 import { createSearchIndex } from '../src/utils/search.js';
 import { entityKey, pageLinks } from '../src/utils/linkDerivation.js';
 import { getContemporaryRegimeLabel } from '../src/utils/relationRules.js';
+import { CIVILIZATIONS as REGISTRY } from '../src/civilizations/registry.js';
 
 export { entityKey };
 export const SCHEMA_VERSION = 1;
-const CIVILIZATIONS = [{ id: 'china', name: '華夏' }, { id: 'taiwan', name: '臺灣' }, { id: 'japan', name: '日本' }];
+const CIVILIZATIONS = REGISTRY.map(civ => ({ id: civ.id, name: civ.shortName }));
 const digest = (text) => createHash('sha256').update(text).digest('hex').slice(0, 12);
 
 const eraSummary = ({ keyEvents, ...era }) => ({ ...era, firstEventId: keyEvents?.[0]?.id ?? null });

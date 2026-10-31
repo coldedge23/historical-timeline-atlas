@@ -1,5 +1,6 @@
 // Pure relation rules shared by the modals, the timeline and app navigation.
 // Inputs are plain records; this module must never import history data.
+import { CIV_IDS, civById, civForPage } from '../civilizations/registry.js';
 
 // Battles where this figure was a commander or is mentioned in the summary (text match, not a confirmed link).
 // basis: commander-id (explicit), commander-name or summary-text (both derived from text).
@@ -131,48 +132,14 @@ export function eventFigures(evt, figures = []) {
     .filter(Boolean);
 }
 
+// Each civilization's config owns its regime periodization (src/civilizations/*/config.js).
 export function getContemporaryRegimeLabel(civ, year) {
-  if (civ === 'china') {
-    if (year < -770) return '商周時代';
-    if (year < -221) return '春秋戰國';
-    if (year < 220) return '秦漢帝國';
-    if (year < 280) return '魏蜀吳三國';
-    if (year < 581) return '魏晉南北朝';
-    if (year < 907) return '隋唐盛世';
-    if (year < 960) return '五代十國';
-    if (year < 1279) return '宋遼金夏';
-    if (year < 1368) return '大元帝國';
-    if (year < 1644) return '大明帝國';
-    if (year < 1912) return '大清帝國';
-    return '近現代中華';
-  }
-  if (civ === 'japan') {
-    if (year < 710) return '飛鳥・古墳時代';
-    if (year < 794) return '奈良時代';
-    if (year < 1185) return '平安時代';
-    if (year < 1336) return '鎌倉幕府';
-    if (year < 1467) return '室町南北朝';
-    if (year < 1573) return '戰國群雄時代';
-    if (year < 1603) return '安土桃山時代';
-    if (year < 1853) return '江戶德川幕府';
-    if (year < 1868) return '幕末尊皇倒幕';
-    return '明治維新・近代日本';
-  }
-  if (civ === 'taiwan') {
-    if (year < 1624) return '南島原住民部落與大肚王國';
-    if (year < 1662) return '荷西殖民與大航海時代';
-    if (year < 1683) return '明鄭東寧王國';
-    if (year < 1874) return '清領拓墾時期';
-    if (year < 1895) return '清季自強建省時期';
-    if (year < 1945) return '日治抗日與啟蒙時期';
-    return '戰後臺灣與現代矽島';
-  }
-  return '';
+  return civById(civ)?.regimeLabel(year) || '';
 }
 
 // Closest event by year in each other civilization; ties keep the earliest item in the pool.
 export function contemporaryMatches(evt, civilizationMode, crossCivPools) {
-  const otherCivs = ['china', 'taiwan', 'japan'].filter((c) => c !== civilizationMode);
+  const otherCivs = CIV_IDS.filter((c) => c !== civilizationMode);
   return otherCivs.map((civKey) => {
     const pool = crossCivPools[civKey] || [];
     let closest = null;
@@ -198,11 +165,11 @@ export function resolveFigureSelection(figure, currentFigures, { periods, japanE
   if (!target) return null;
   const scope = target.datasetId;
   if (!(scope && !currentFigures.some(item => item.id === target.id))) return { target, switchTo: null };
-  const civ = target.civ || (scope === 'taiwanLens' ? 'taiwan' : scope === 'japanAtlas' ? 'japan' : 'china');
+  const civ = target.civ || civForPage(scope).id;
   const switchTo = { civ };
   if (civ === 'china') switchTo.periodId = scope;
-  if (civ === 'japan') switchTo.japanEraId = target.eraId || 'jp_sengoku';
-  if (civ === 'taiwan') switchTo.taiwanEraId = target.eraId || 'tw_tungning';
+  if (civ === 'japan') switchTo.japanEraId = target.eraId || civById(civ).defaultEraId;
+  if (civ === 'taiwan') switchTo.taiwanEraId = target.eraId || civById(civ).defaultEraId;
   const events = civ === 'china' ? periods[scope]?.events : civ === 'japan' ? japanEvents : taiwanEvents;
   switchTo.selectedEvent = events?.find(event => !target.eraId || event.eraId === target.eraId) || events?.[0] || null;
   return { target, switchTo };

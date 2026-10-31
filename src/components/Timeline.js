@@ -16,6 +16,7 @@ import {
 } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
 import { contemporaryMatches } from '../utils/relationRules.js';
+import { civById } from '../civilizations/registry.js';
 
 export const Timeline = ({
   events = [],
@@ -391,13 +392,8 @@ export const Timeline = ({
 
                   {/* Cross-Civilization Contemporary Sync Reference */}
                   {crossCivPools && typeof evt.year === 'number' && (() => {
-                    const civMeta = {
-                      china: { label: '華夏', badgeBg: 'bg-amber-950/60 border-amber-500/40 text-amber-300' },
-                      taiwan: { label: '臺灣', badgeBg: 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300' },
-                      japan: { label: '日本', badgeBg: 'bg-rose-950/60 border-rose-500/40 text-rose-300' },
-                    };
                     const matches = contemporaryMatches(evt, civilizationMode, crossCivPools)
-                      .map((match) => ({ ...match, meta: civMeta[match.civKey] }));
+                      .map((match) => { const civ = civById(match.civKey); return { ...match, meta: { label: civ.shortName, badgeBg: civ.badgeClass } }; });
 
                     return (
                       <section className="timeline-card-section" aria-label="同期東亞歷史橫向對照">
