@@ -8,6 +8,7 @@
         "chronologyDecisions.js",
         "chronologyReviews.js",
         "eventLinkCorrections.js",
+        "eventSourceReferences.js",
         "historyLinkGraph.js",
         "japan/index.js",
         "japan/japanBattles.js",

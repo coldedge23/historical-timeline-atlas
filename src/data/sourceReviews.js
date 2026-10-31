@@ -1,5 +1,6 @@
 // Narrow, claim-specific external reviews. A reviewed excerpt never certifies a full biography.
 import { SOURCE_REFERENCES } from './sourceReferences.js';
+import { EVENT_SOURCE_REFERENCES } from './eventSourceReferences.js';
 export const SOURCE_REVIEWS = {
   'threeKingdoms:zhang_fei': [{title:'《三國志》卷三十六・張飛傳',
     url:'https://zh.wikisource.org/zh-hant/三國志/卷36#張飛', externalReviewed:true, reviewedAt:'2026-10-30',
@@ -14,11 +15,11 @@ export const SOURCE_REVIEWS = {
     claimScope:'僅核對宣帝紀嘉平三年段秋八月記載司馬懿去世；不支持其親身參加後來的263年滅蜀與280年滅吳。',
     note:'對應專案記錄卒年251；只核對此死亡段落，不認證整段傳記及關係網。'}]
 };
-// Reviewed excerpts first, then unreviewed biography locations (sourceReferences.js).
+// Reviewed excerpts first, then unreviewed biography locations (sourceReferences.js) and event/battle locations (eventSourceReferences.js).
 export function applySourceReviews(datasets) {
   return datasets.map(dataset=>({...dataset,...Object.fromEntries(['figures','events','battles'].map(kind=>[kind,(dataset[kind]||[]).map(record=>{
     const key=`${dataset.id}:${record.id}`;
-    const added=[...(SOURCE_REVIEWS[key]||[]),...(SOURCE_REFERENCES[key]||[])];
+    const added=[...(SOURCE_REVIEWS[key]||[]),...(SOURCE_REFERENCES[key]||[]),...(EVENT_SOURCE_REFERENCES[key]||[])];
     return added.length?{...record,sources:[...(Array.isArray(record.sources)?record.sources:record.sources?[record.sources]:[]),...added]}:record;
   })]))}));
 }
