@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   RotateCcw,
   ZoomIn,
@@ -422,17 +422,28 @@ export const TaiwanAtlasMap = ({
     setPan({ x: 0, y: 0 });
   };
 
+  // The frame changes size between cinema and two-column layouts, so a pan
+  // from one layout can push the whole map out of the other.
+  useEffect(() => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  }, [isCinemaMode]);
+
   const handleMouseDown = (e) => {
-    if (e.button !== 0) return;
+    if (e.button !== 0 || e.target.closest('button')) return;
     setIsDragging(true);
     setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
+    // Keep at least half of the map inside the frame.
+    const { width, height } = e.currentTarget.getBoundingClientRect();
+    const maxX = (width * zoom) / 2;
+    const maxY = (height * zoom) / 2;
     setPan({
-      x: e.clientX - dragStart.x,
-      y: e.clientY - dragStart.y,
+      x: Math.max(-maxX, Math.min(maxX, e.clientX - dragStart.x)),
+      y: Math.max(-maxY, Math.min(maxY, e.clientY - dragStart.y)),
     });
   };
 
