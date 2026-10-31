@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Eras Dataset (8 Master Historical Eras with 130 Detailed Events)
+// Japanese Historical Atlas Eras Dataset (8 Master Historical Eras with 143 Detailed Events)
 export const JAPAN_ERAS = [
   {
     "id": "jp_ancient_medieval",
@@ -1182,6 +1182,67 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_satsuma_ryukyu_1609",
+        "year": 1609,
+        "yearDisplay": "西元 1609 年 (慶長十四年)",
+        "title": "薩摩藩出兵琉球",
+        "summary": "經德川家康許可，薩摩藩島津氏出兵攻佔首里，琉球王國此後受薩摩藩控制。",
+        "detail": "薩摩軍攻下首里城，琉球國王尚寧被帶往駿府、江戶謁見德川家康與德川秀忠，1611 年才獲准歸國。奄美群島改由薩摩藩直轄，琉球則在名義上維持對明朝的朝貢關係，形成同時從屬中日兩方的體制。",
+        "locationNameAncient": "琉球國首里",
+        "locationNameModern": "沖繩縣那霸市首里",
+        "coordinates": [
+          127.72,
+          26.22
+        ],
+        "tags": [
+          "琉球侵攻",
+          "島津氏",
+          "尚寧",
+          "德川家康"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_kiyu_treaty_1609",
+        "year": 1609,
+        "yearDisplay": "西元 1609 年 (慶長十四年)",
+        "title": "對馬藩與朝鮮訂立己酉約條",
+        "summary": "豐臣秀吉出兵朝鮮後中斷的日朝關係恢復，貿易由對馬藩宗氏經釜山倭館進行。",
+        "detail": "1607 年朝鮮使節來到江戶，兩國恢復邦交。1609 年對馬藩與朝鮮訂立己酉約條，規定每年歲遣船數等貿易條件，此後日朝外交與貿易由對馬藩居中辦理。朝鮮通信使在江戶時代共來日十二次。",
+        "locationNameAncient": "對馬國府中",
+        "locationNameModern": "長崎縣對馬市嚴原",
+        "coordinates": [
+          129.29,
+          34.2
+        ],
+        "tags": [
+          "己酉約條",
+          "朝鮮通信使",
+          "對馬藩"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_keicho_embassy_1613",
+        "year": 1613,
+        "yearDisplay": "西元 1613 年 (慶長十八年)",
+        "title": "支倉常長出使歐洲（慶長遣歐使節）",
+        "summary": "仙台藩主伊達政宗派家臣支倉常長出使西班牙與羅馬，尋求與新西班牙直接通商。",
+        "detail": "使節團乘坐仙台藩建造的西洋式帆船，自月浦出航，經墨西哥橫渡大西洋抵達西班牙，謁見國王腓力三世，1615 年在羅馬謁見教宗保祿五世。通商交涉沒有成果，1620 年支倉常長回國時日本已全面禁教。",
+        "locationNameAncient": "陸奧國牡鹿郡月浦",
+        "locationNameModern": "宮城縣石卷市月浦",
+        "coordinates": [
+          141.4,
+          38.38
+        ],
+        "tags": [
+          "慶長遣歐使節",
+          "支倉常長",
+          "伊達政宗"
+        ],
+        "faction": "edo"
+      },
+      {
         "id": "evt_jp_osaka_fuyu_1614",
         "year": 1614,
         "yearDisplay": "西元 1614 年 (慶長十九年)",
@@ -1200,6 +1261,27 @@ export const JAPAN_ERAS = [
           "方廣寺鐘銘",
           "真田幸村"
         ]
+      },
+      {
+        "id": "evt_jp_christian_ban_1614",
+        "year": 1614,
+        "yearDisplay": "西元 1614 年 1 月 (慶長十八年十二月)",
+        "title": "幕府頒布全國禁教令",
+        "summary": "幕府以《伴天連追放之文》宣布全國禁止天主教，傳教士與信徒領袖被驅逐出境。",
+        "detail": "1612 年幕府先在直轄領地禁教，慶長十八年十二月（西曆 1614 年 1 月）頒布由以心崇傳起草的禁教文書，禁令擴及全國。同年高山右近等信徒被流放至馬尼拉，各地教堂被拆毀，此後對信徒的取締日趨嚴厲。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "禁教令",
+          "伴天連追放之文",
+          "高山右近",
+          "德川秀忠"
+        ],
+        "faction": "edo"
       },
       {
         "id": "evt_jp_osaka_siege_1615",
@@ -1302,6 +1384,48 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_dejima_dutch_1641",
+        "year": 1641,
+        "yearDisplay": "西元 1641 年 (寬永十八年)",
+        "title": "荷蘭商館遷至長崎出島",
+        "summary": "幕府將平戶的荷蘭商館遷往長崎出島，此後兩百多年歐洲人只有荷蘭人能在此通商。",
+        "detail": "出島原為收容葡萄牙人而建的扇形人工島。1639 年葡萄牙船被禁止來航後，幕府於 1641 年命荷蘭商館遷入。荷蘭商館長須定期赴江戶參府，並提交「荷蘭風說書」報告海外情勢，成為幕府了解外國消息的主要管道。",
+        "locationNameAncient": "肥前國長崎出島",
+        "locationNameModern": "長崎縣長崎市出島町",
+        "coordinates": [
+          129.85,
+          32.744
+        ],
+        "tags": [
+          "出島",
+          "荷蘭商館",
+          "鎖國",
+          "荷蘭風說書"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_keian_incident_1651",
+        "year": 1651,
+        "yearDisplay": "西元 1651 年 (慶安四年)",
+        "title": "慶安事件與文治政治的轉向",
+        "summary": "三代將軍德川家光死後，兵學者由井正雪等浪人密謀起事，事洩後由井正雪自盡。",
+        "detail": "大名改易造成大量浪人生計無著。1651 年由井正雪與丸橋忠彌等人計畫在江戶、駿府等地起事，因同夥告密失敗，由井正雪在駿府自盡。事件後幕府在保科正之等人輔佐年幼的四代將軍德川家綱下，放寬「末期養子」禁令以減少改易，施政由武力威壓轉向重視禮儀教化的文治政治。",
+        "locationNameAncient": "駿河國駿府",
+        "locationNameModern": "靜岡縣靜岡市",
+        "coordinates": [
+          138.38,
+          34.98
+        ],
+        "tags": [
+          "慶安事件",
+          "由井正雪",
+          "保科正之",
+          "文治政治"
+        ],
+        "faction": "edo"
+      },
+      {
         "id": "evt_jp_meireki_fire_1657",
         "year": 1657,
         "yearDisplay": "西元 1657 年 (明曆三年)",
@@ -1320,6 +1444,27 @@ export const JAPAN_ERAS = [
           "江戶都市改造",
           "保科正之"
         ]
+      },
+      {
+        "id": "evt_jp_genroku_recoinage_1695",
+        "year": 1695,
+        "yearDisplay": "西元 1695 年 (元祿八年)",
+        "title": "元祿改鑄",
+        "summary": "幕府降低金銀幣的成色重新鑄造，以改鑄差額彌補財政，但造成物價上漲。",
+        "detail": "五代將軍德川綱吉在位期間，金銀礦產量減少而支出增加。勘定吟味役荻原重秀主導改鑄，發行成色較低的元祿金銀，幕府取得大量差益，但貨幣貶值導致物價上漲。新井白石日後批評此政策，並在正德年間恢復貨幣成色。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "元祿改鑄",
+          "荻原重秀",
+          "德川綱吉",
+          "元祿文化"
+        ],
+        "faction": "edo"
       },
       {
         "id": "evt_jp_ako_incident_1702",
@@ -1342,6 +1487,46 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_hoei_eruption_1707",
+        "year": 1707,
+        "yearDisplay": "西元 1707 年 (寶永四年)",
+        "title": "寶永地震與富士山寶永大噴發",
+        "summary": "10 月東海至南海一帶發生大地震，49 天後富士山東南山腰噴發，火山灰降至江戶。",
+        "detail": "寶永地震在東海道、紀伊半島、四國沿岸造成嚴重災情與海嘯。同年 12 月富士山噴發，形成寶永火口，周邊村落被火山砂掩埋，江戶也降下火山灰。這是富士山至今最後一次噴發。",
+        "locationNameAncient": "駿河國富士山",
+        "locationNameModern": "靜岡縣富士山寶永火口",
+        "coordinates": [
+          138.71,
+          35.35
+        ],
+        "tags": [
+          "寶永地震",
+          "富士山",
+          "寶永大噴發"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_shotoku_rule_1709",
+        "year": 1709,
+        "yearDisplay": "西元 1709 年 (寶永六年)",
+        "title": "新井白石主導正德之治",
+        "summary": "德川綱吉死後，六代將軍德川家宣起用新井白石，廢除生類憐憫令並整頓貨幣與長崎貿易。",
+        "detail": "新井白石與側用人間部詮房輔佐家宣、家繼兩代將軍。廢止生類憐憫令；1714 年恢復金銀幣成色；1715 年頒布海舶互市新例（正德新例），限制每年來航長崎的中國船與荷蘭船數量，以減少金銀外流。1716 年德川吉宗繼任後，白石失勢。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "正德之治",
+          "新井白石",
+          "海舶互市新例"
+        ],
+        "faction": "edo"
+      },
+      {
         "id": "evt_jp_kyoho_reforms_1716",
         "year": 1716,
         "yearDisplay": "西元 1716 年 (享保元年)",
@@ -1362,6 +1547,67 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_kyoho_famine_1732",
+        "year": 1732,
+        "yearDisplay": "西元 1732 年 (享保十七年)",
+        "title": "享保大飢荒",
+        "summary": "西日本發生嚴重蟲害，稻作歉收，引發大飢荒；翌年江戶發生首次大規模「打毀」。",
+        "detail": "1732 年夏天，西日本各地稻田遭飛蝨等害蟲侵襲，收成大減，各地出現大量餓死者。米價飆升，1733 年江戶市民襲擊被認為囤積抬價的米商，為江戶第一次大規模打毀事件。此後幕府獎勵栽種甘藷等救荒作物。",
+        "locationNameAncient": "西日本各地、武藏國江戶",
+        "locationNameModern": "西日本各地、東京都",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "享保大飢荒",
+          "打毀",
+          "德川吉宗"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_kujikata_osadamegaki_1742",
+        "year": 1742,
+        "yearDisplay": "西元 1742 年 (寬保二年)",
+        "title": "制定《公事方御定書》",
+        "summary": "八代將軍德川吉宗命大岡忠相等人整理判例，編成幕府的審判與刑罰基準。",
+        "detail": "上卷收錄與司法相關的法令，下卷通稱「御定書百箇條」，整理歷來判例作為量刑標準，供評定所與各奉行審判使用。法典原則上不公開，僅供審判官員參照。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "公事方御定書",
+          "德川吉宗",
+          "大岡忠相",
+          "享保改革"
+        ],
+        "faction": "edo"
+      },
+      {
+        "id": "evt_jp_tanuma_era_1772",
+        "year": 1772,
+        "yearDisplay": "西元 1772 年 (明和九年／安永元年)",
+        "title": "田沼意次就任老中",
+        "summary": "側用人田沼意次升任老中，推行重視商業與貿易的財政政策，史稱「田沼時代」。",
+        "detail": "田沼意次承認並向株仲間（商人同業組合）課稅，擴大長崎俵物（海產乾貨）出口，嘗試開發印旛沼，並派人調查蝦夷地。但賄賂盛行的批評不斷，又逢天明飢荒，1784 年其子田沼意知在江戶城內遇刺，1786 年十代將軍德川家治死後田沼失勢。",
+        "locationNameAncient": "武藏國江戶",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "田沼意次",
+          "株仲間",
+          "田沼時代"
+        ],
+        "faction": "edo"
+      },
+      {
         "id": "evt_jp_kaitai_shinsho_1774",
         "year": 1774,
         "yearDisplay": "西元 1774 年 (安永三年)",
@@ -1380,6 +1626,26 @@ export const JAPAN_ERAS = [
           "前野良澤",
           "蘭學誕生"
         ]
+      },
+      {
+        "id": "evt_jp_asama_tenmei_1783",
+        "year": 1783,
+        "yearDisplay": "西元 1783 年 (天明三年)",
+        "title": "淺間山大噴發與天明大飢荒",
+        "summary": "淺間山噴發造成鎌原村等地被土石流掩埋，加上連年天候異常，東北地方爆發大飢荒。",
+        "detail": "天明大飢荒約自 1782 年持續至 1787 年，以東北地方受害最重，出現大量餓死者與流民。各地農民一揆與都市打毀頻發，1787 年江戶、大坂等地同時發生大規模打毀，成為松平定信推行寬政改革的背景。",
+        "locationNameAncient": "上野國、信濃國淺間山",
+        "locationNameModern": "群馬縣、長野縣淺間山",
+        "coordinates": [
+          138.52,
+          36.41
+        ],
+        "tags": [
+          "淺間山",
+          "天明大飢荒",
+          "打毀"
+        ],
+        "faction": "edo"
       }
     ],
     "highlightFigures": [
@@ -1387,7 +1653,21 @@ export const JAPAN_ERAS = [
       "fig_jp_sanada_yukimura",
       "fig_jp_tokugawa_iemitsu",
       "fig_jp_miyamoto_musashi",
-      "fig_jp_tokugawa_yoshimune"
+      "fig_jp_tokugawa_yoshimune",
+      "fig_jp_hayashi_razan",
+      "fig_jp_hasekura_tsunenaga",
+      "fig_jp_kasuga_no_tsubone",
+      "fig_jp_nakae_toju",
+      "fig_jp_yui_shosetsu",
+      "fig_jp_yamaga_soko",
+      "fig_jp_ihara_saikaku",
+      "fig_jp_oishi_kuranosuke",
+      "fig_jp_kira_yoshinaka",
+      "fig_jp_ogyu_sorai",
+      "fig_jp_kaibara_ekiken",
+      "fig_jp_hiraga_gennai",
+      "fig_jp_uesugi_yozan",
+      "fig_jp_shakushain"
     ]
   },
   {

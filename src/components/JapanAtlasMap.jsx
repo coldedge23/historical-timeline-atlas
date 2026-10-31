@@ -41,10 +41,17 @@ const PLAIN_PRESET_BY_ERA = Object.fromEntries(
   [ANCIENT_PRESET, ...MODERN_PLAIN_PRESETS].map((p) => [p.eraId, p])
 );
 
-const nearestPreset = (year) =>
-  JAPAN_WARLORD_PERIOD_CONFIGS.reduce((best, p) =>
+// The Edo era spans 1603-1853 but has only the 1615 snapshot; by year alone,
+// events after 1741 would land on the 1868 bakumatsu factions.
+const ERA_FIXED_SNAPSHOT = { jp_edo: 'jp_year_1615' };
+
+const nearestPreset = (year, eraId) => {
+  const fixed = JAPAN_WARLORD_PERIOD_CONFIGS.find((p) => p.id === ERA_FIXED_SNAPSHOT[eraId]);
+  if (fixed) return fixed;
+  return JAPAN_WARLORD_PERIOD_CONFIGS.reduce((best, p) =>
     Math.abs(p.yearNumber - year) < Math.abs(best.yearNumber - year) ? p : best
   );
+};
 
 const markerPoint = (item) =>
   item.svgPos || (Array.isArray(item.coordinates) ? projectLngLatToJapanMap(...item.coordinates) : null);
@@ -69,7 +76,7 @@ export const JapanAtlasMap = ({
   // Derive initial preset from selectedEvent or activeJapanEraId
   const getInitialPreset = () => {
     if (PLAIN_PRESET_BY_ERA[activeJapanEraId]) return PLAIN_PRESET_BY_ERA[activeJapanEraId];
-    if (selectedEvent && selectedEvent.year) return nearestPreset(selectedEvent.year);
+    if (selectedEvent && selectedEvent.year) return nearestPreset(selectedEvent.year, selectedEvent.eraId);
     if (activeJapanEraId === 'jp_sengoku') return configsToUse[0]; // 1560
     if (activeJapanEraId === 'jp_azuchi_momoyama') return configsToUse[3]; // 1600
     if (activeJapanEraId === 'jp_edo') return configsToUse[4]; // 1615
@@ -97,7 +104,7 @@ export const JapanAtlasMap = ({
       return;
     }
     if (!selectedEvent || !selectedEvent.year) return;
-    setActivePreset(nearestPreset(selectedEvent.year));
+    setActivePreset(nearestPreset(selectedEvent.year, selectedEvent.eraId));
   }, [activeJapanEraId, selectedEvent?.id, selectedEvent?.year]);
 
   // Smooth scroll active period button into center

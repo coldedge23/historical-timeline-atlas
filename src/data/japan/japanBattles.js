@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Battles Dataset (41 Authoritative Epic Battles with Full Military Intelligence)
+// Japanese Historical Atlas Battles Dataset (43 Authoritative Epic Battles with Full Military Intelligence)
 export const JAPAN_BATTLES = [
   {
     "id": "bat_jp_hakusukinoe_663",
@@ -2913,6 +2913,117 @@ export const JAPAN_BATTLES = [
     "keyStrategies": [
       "日軍：以首里為中心構築坑道陣地持久抵抗，拖延美軍進攻本土",
       "日軍：同時以特攻機與戰艦大和號出擊攻擊美軍艦隊"
+    ]
+  },
+  {
+    "id": "bat_jp_ryukyu_invasion_1609",
+    "name": "琉球侵攻 (薩摩藩島津軍攻佔首里)",
+    "year": 1609,
+    "locationAncient": "琉球國首里",
+    "locationModern": "沖繩縣那霸市首里",
+    "coordinates": [
+      127.72,
+      26.22
+    ],
+    "summary": "1609 年薩摩藩軍自鹿兒島南下，經奄美諸島登陸沖繩本島，攻佔首里城，國王尚寧投降。",
+    "attacker": {
+      "factionName": "薩摩藩島津軍",
+      "faction": "edo",
+      "commanders": [
+        {
+          "name": "樺山久高",
+          "title": "總大將"
+        },
+        {
+          "name": "平田增宗",
+          "title": "副將"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "琉球王國",
+      "faction": "ryukyu",
+      "commanders": [
+        {
+          "name": "尚寧",
+          "title": "琉球國王"
+        },
+        {
+          "name": "謝名親方（鄭迵）",
+          "title": "三司官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "victor": "attacker",
+    "victorStatement": "薩摩軍攻佔首里城，尚寧王開城投降",
+    "tactics": [
+      "薩摩軍：沿奄美大島、德之島等島嶼逐次南下",
+      "薩摩軍：登陸沖繩本島北部後經陸路進逼首里"
+    ],
+    "strategicOutcome": "尚寧王被帶往駿府、江戶，1611 年歸國；奄美群島劃歸薩摩直轄，琉球受薩摩藩控制。謝名親方因拒絕向薩摩宣誓效忠而被處死。",
+    "significance": "琉球此後同時向中國朝貢、受薩摩藩支配，這種體制延續到 1879 年琉球處分。",
+    "eraId": "jp_edo",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "薩摩藩島津軍 (待確認)",
+      "defender": "琉球王國 (待確認)"
+    },
+    "keyStrategies": [
+      "薩摩軍：沿奄美大島、德之島等島嶼逐次南下",
+      "薩摩軍：登陸沖繩本島北部後經陸路進逼首里"
+    ]
+  },
+  {
+    "id": "bat_jp_shakushain_1669",
+    "name": "沙牟奢允之戰 (愛努族起事反抗松前藩)",
+    "year": 1669,
+    "locationAncient": "蝦夷地東部靜內",
+    "locationModern": "北海道日高郡新冠町、新日高町一帶",
+    "coordinates": [
+      142.37,
+      42.33
+    ],
+    "summary": "1669 年愛努族首領沙牟奢允號召各地愛努人起事，反抗松前藩壟斷交易與不利的交換條件，最終在議和宴席上遇害。",
+    "attacker": {
+      "factionName": "愛努族各集團",
+      "faction": "ainu",
+      "commanders": [
+        {
+          "name": "沙牟奢允",
+          "title": "愛努族首領"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "松前藩及幕府動員的援軍",
+      "faction": "edo",
+      "commanders": [],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "victor": "defender",
+    "victorStatement": "松前藩以議和為名誘殺沙牟奢允，起事瓦解",
+    "tactics": [
+      "愛努方：各地同時襲擊和人商船與鷹匠等",
+      "松前藩：以鐵砲裝備的部隊應戰，並以議和宴席誘殺首領"
+    ],
+    "strategicOutcome": "松前藩加強對愛努人的控制，交易條件更不利於愛努人。",
+    "significance": "江戶時代規模最大的愛努族反抗之一。",
+    "eraId": "jp_edo",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "愛努族各集團 (待確認)",
+      "defender": "松前藩及幕府動員的援軍 (待確認)"
+    },
+    "keyStrategies": [
+      "愛努方：各地同時襲擊和人商船與鷹匠等",
+      "松前藩：以鐵砲裝備的部隊應戰，並以議和宴席誘殺首領"
     ]
   }
 ];
