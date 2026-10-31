@@ -160,17 +160,17 @@ export function contemporaryMatches(evt, civilizationMode, crossCivPools) {
 
 // A figure already on the current page opens in place; otherwise switch to its own dataset.
 // Returns the decision only; the caller applies it to state.
-export function resolveFigureSelection(figure, currentFigures, { periods, japanEvents, taiwanEvents }) {
+// context: { periods, eventsByCiv: { [eraCivId]: events } }.
+export function resolveFigureSelection(figure, currentFigures, { periods, eventsByCiv }) {
   const target = currentFigures.find(item => item.id === figure?.id) || figure;
   if (!target) return null;
   const scope = target.datasetId;
   if (!(scope && !currentFigures.some(item => item.id === target.id))) return { target, switchTo: null };
-  const civ = target.civ || civForPage(scope).id;
-  const switchTo = { civ };
-  if (civ === 'china') switchTo.periodId = scope;
-  if (civ === 'japan') switchTo.japanEraId = target.eraId || civById(civ).defaultEraId;
-  if (civ === 'taiwan') switchTo.taiwanEraId = target.eraId || civById(civ).defaultEraId;
-  const events = civ === 'china' ? periods[scope]?.events : civ === 'japan' ? japanEvents : taiwanEvents;
+  const civ = civById(target.civ) || civForPage(scope);
+  const switchTo = { civ: civ.id };
+  if (civ.unit === 'period') switchTo.periodId = scope;
+  else switchTo.eraId = target.eraId || civ.defaultEraId;
+  const events = civ.unit === 'period' ? periods[scope]?.events : eventsByCiv[civ.id];
   switchTo.selectedEvent = events?.find(event => !target.eraId || event.eraId === target.eraId) || events?.[0] || null;
   return { target, switchTo };
 }

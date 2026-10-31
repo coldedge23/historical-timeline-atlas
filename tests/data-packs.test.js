@@ -40,10 +40,9 @@ function packSource() {
   return {
     pages, searchEntries, catalogs,
     eras: { taiwan: tw.eras, japan: jp.eras },
-    initialContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])),
-      taiwanEras: tw.eras.map((era) => ({ ...era, keyEvents: tw.events.filter((e) => e.eraId === era.id) })), taiwanEraBattleIds: tw.eraBattleIds,
-      japanEras: jp.eras, japanAllEvents: jp.events, japanEraBattleIds: jp.eraBattleIds,
-      taiwan: { events: tw.events, figures: tw.figures, battles: tw.battles }, japan: { events: jp.events, figures: jp.figures, battles: jp.battles } },
+    initialContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), eraCivs: {
+      taiwan: { eras: tw.eras, eraBattleIds: tw.eraBattleIds, events: tw.events, figures: tw.figures, battles: tw.battles },
+      japan: { eras: jp.eras, eraBattleIds: jp.eraBattleIds, events: jp.events, figures: jp.figures, battles: jp.battles } } },
     figureLinks: (page, figure) => { const l = linkOf(page).figures[figure.id];
       return { relations: l.relations.map((d) => [bk(d), d.relationType, d.label]), events: l.events.map(bk), battles: l.battles.map(bk) }; },
     commanderTargets: (page, battle) => { const l = linkOf(page).battles[battle.id];
@@ -57,7 +56,7 @@ function packSource() {
         m.closest?.periodId || m.closest?.eraId || null, Number.isFinite(m.minDiff) ? m.minDiff : null]);
     },
     selectionFigures,
-    selectionContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), japanEvents: jp.events, taiwanEvents: tw.events },
+    selectionContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), eventsByCiv: { japan: jp.events, taiwan: tw.events } },
     taiwanRelationTargets: (page, figure) => linkOf(page).figures[figure.id].relations.map((d) => ({ id: d.id, datasetId: d.homePack, eraId: d.eraId ?? undefined })),
   };
 }

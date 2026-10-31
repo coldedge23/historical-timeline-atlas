@@ -1,3 +1,5 @@
+import { DEFAULT_CIV } from '../civilizations/registry.js';
+
 export function createSearchIndex(datasets) {
   const entries = [];
   for (const dataset of datasets) {
@@ -6,7 +8,7 @@ export function createSearchIndex(datasets) {
         const title = item.name || item.title || '';
         const subtitle = type === 'figure' ? [item.birthDeathDisplay, ...(item.roles || [])].filter(Boolean).join(' · ') : [item.yearDisplay || item.year, item.locationAncient || item.locationNameAncient].filter(v => v != null).join(' · ');
         const text = [title, item.courtesyName, item.posthumousName, item.bio, item.summary, item.detail, item.locationAncient, item.locationModern, item.locationNameAncient, item.locationNameModern, ...(item.roles || []), ...(item.tags || [])].filter(Boolean).join(' ').toLowerCase();
-        entries.push({ type, periodId: dataset.id, periodName: dataset.name, civ: dataset.civ || 'china', eraId: item.eraId, title, subtitle, text, item });
+        entries.push({ type, periodId: dataset.id, periodName: dataset.name, civ: dataset.civ || DEFAULT_CIV.id, eraId: item.eraId, title, subtitle, text, item });
       }
     }
   }

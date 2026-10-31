@@ -16,7 +16,7 @@ import {
 } from './Icons.js';
 import { getFactionMeta } from '../data/factionConfig.js';
 import { contemporaryMatches } from '../utils/relationRules.js';
-import { civById } from '../civilizations/registry.js';
+import { DEFAULT_CIV, civById } from '../civilizations/registry.js';
 
 export const Timeline = ({
   events = [],
@@ -31,7 +31,7 @@ export const Timeline = ({
   searchTerm = '',
   onClearSearch,
   onSearchChange,
-  civilizationMode = 'china',
+  civilizationMode = DEFAULT_CIV.id,
   crossCivPools = null,
   onJumpToCrossCivEvent,
 }) => {

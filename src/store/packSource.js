@@ -1,5 +1,6 @@
 // Data pack source (plan v2, sections 3.4-3.6): catalog.json first, then packs and the search index on demand.
 // No data imports: everything arrives over fetch, so the main entry stays free of history content.
+import { CIV_IDS, DEFAULT_CIV } from '../civilizations/registry.js';
 export const SCHEMA_VERSION = 1;
 
 // kind: network | http | parse | schema (unsupported or malformed) | updated (a newer build replaced this one) | unknown
@@ -60,9 +61,9 @@ export function createPackSource({ fetch: fetchImpl = (...args) => globalThis.fe
     catalogView = {
       schemaVersion: body.schemaVersion, buildId: body.buildId,
       periodOptions: body.periodOptions,
-      periodIds: body.civilizations.find(c => c.id === 'china')?.packs || [],
+      periodIds: body.civilizations.find(c => c.id === DEFAULT_CIV.id)?.packs || [],
       eras: body.eras || { taiwan: [], japan: [] },
-      contemporaryPools: { china: rows('china'), taiwan: rows('taiwan'), japan: rows('japan') },
+      contemporaryPools: Object.fromEntries(CIV_IDS.map(civ => [civ, rows(civ)])),
     };
     return catalogView;
   }

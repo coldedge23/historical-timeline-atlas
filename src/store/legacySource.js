@@ -4,7 +4,7 @@
 import { LINKED_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES } from '../data/linkedHistoryCatalog.js';
 import { PERIOD_OPTIONS } from '../data/periodsRegistry.js';
 import { TAIWAN_LENS_ERAS, TAIWAN_RELATED_BATTLES, ERA_BATTLE_IDS } from '../data/taiwanLensData.js';
-import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ALL_EVENTS, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_CONFIGS } from '../data/japan/index.js';
+import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_CONFIGS } from '../data/japan/index.js';
 import { figureLinkSet, battleLinkSet, eventLinkSet } from '../utils/linkDerivation.js';
 import { battleFigureIndex } from '../utils/relationRules.js';
 import { createSearchIndex } from '../utils/search.js';
@@ -63,12 +63,10 @@ function buildCatalog() {
     contemporaryPools: { china: allChinaEvents, taiwan: LINKED_TAIWAN_EVENTS, japan: LINKED_JAPAN_EVENTS },
     navigationCatalogs,
     searchDatasets: Object.values(navigationCatalogs),
-    initialContext: { periods: LINKED_PERIODS,
-      taiwanEras: TAIWAN_LENS_ERAS, taiwanEraBattleIds: ERA_BATTLE_IDS,
-      japanEras: JAPAN_ERAS, japanAllEvents: JAPAN_ALL_EVENTS, japanEraBattleIds: JAPAN_ERA_BATTLE_IDS,
-      taiwan: { events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES },
-      japan: { events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES } },
-    selectionContext: { periods: LINKED_PERIODS, japanEvents: LINKED_JAPAN_EVENTS, taiwanEvents: LINKED_TAIWAN_EVENTS },
+    initialContext: { periods: LINKED_PERIODS, eraCivs: {
+      taiwan: { eras: TAIWAN_LENS_ERAS, eraBattleIds: ERA_BATTLE_IDS, events: LINKED_TAIWAN_EVENTS, figures: LINKED_TAIWAN_FIGURES, battles: TAIWAN_RELATED_BATTLES },
+      japan: { eras: JAPAN_ERAS, eraBattleIds: JAPAN_ERA_BATTLE_IDS, events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES } } },
+    selectionContext: { periods: LINKED_PERIODS, eventsByCiv: { japan: LINKED_JAPAN_EVENTS, taiwan: LINKED_TAIWAN_EVENTS } },
     // The pool a figure leaving its page is looked up in (ALL_LINKED_FIGURES).
     allFigures: ALL_LINKED_FIGURES,
   };

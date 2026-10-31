@@ -9,6 +9,10 @@ export default {
   pageId: 'japanAtlas',
   defaultEraId: 'jp_sengoku',
   figureIdPrefix: 'fig_jp_',
+  // Picking an era selects the first event of that era on the page, else the page's first event.
+  eraLandingEvent: (events, era) => events.find(e => e.eraId === era.id) || events[0],
+  // A battle selected within the era already shown still moves the timeline to the era's first event.
+  battleRefocusesSameEra: true,
   loadMap: () => import('../../components/JapanAtlasMap.jsx').then(m => m.JapanAtlasMap),
   features: { demographics: false },
   badgeClass: 'bg-rose-950/60 border-rose-500/40 text-rose-300',

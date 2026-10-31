@@ -380,8 +380,9 @@ export const TAIWAN_ERA_COUNTY_SCHEMES = {
 };
 
 export const TaiwanAtlasMap = ({
-  activeTaiwanEraId = 'tw_tungning',
-  onSelectTaiwanEraId,
+  // Era props shared by every era map (src/civilizations); kept under local names inside this map.
+  activeEraId: activeTaiwanEraId = 'tw_tungning',
+  onSelectEraId: onSelectTaiwanEraId,
   eras = [],
   eraBattleIds = {},
   events = [],

@@ -1,4 +1,4 @@
-import { DEFAULT_CIV, civById, isCivId } from '../civilizations/registry.js';
+import { DEFAULT_CIV, ERA_CIVS, civById, isCivId } from '../civilizations/registry.js';
 const DEFAULT_PERIOD = DEFAULT_CIV.defaultPeriodId;
 const byPeriod = (civId) => (civById(civId) || DEFAULT_CIV).unit === 'period';
 export function parseNavigationHash(hash = '') {
@@ -40,23 +40,29 @@ export function resolveNavigation(hash, catalogs, eras) {
   return { ...route, event: event?.id || '', figure: figure?.id || '', battle: battle?.id || '', selectedEvent: event, selectedFigure: figure, selectedBattle: battle };
 }
 // Cold-start state as App initialises it; hashchange/popstate use resolveNavigation instead.
+// ctx: { periods, eraCivs: { [civId]: { eras, eraBattleIds, events, figures, battles } } } for every era civilization.
 export function resolveInitialNavigation(hash, ctx) {
   const initialHash = parseNavigationHash(hash);
   const initialCiv = initialHash.civ;
   const period = initialHash.period && ctx.periods[initialHash.period] ? initialHash.period : DEFAULT_PERIOD;
-  const taiwanEra = ctx.taiwanEras.find(era => (era.keyEvents || []).some(event => event.id === initialHash.event))?.id ||
-    Object.entries(ctx.taiwanEraBattleIds).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
-    (ctx.taiwanEras.some(e => e.id === initialHash.era) ? initialHash.era : civById('taiwan').defaultEraId);
-  const japanEra = ctx.japanAllEvents.find(event => event.id === initialHash.event)?.eraId ||
-    Object.entries(ctx.japanEraBattleIds).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
-    (ctx.japanEras.some(e => e.id === initialHash.era) ? initialHash.era : civById('japan').defaultEraId);
+  // Each era civilization keeps its own era, taken from the address even while another civilization is shown:
+  // the era of the addressed event, else of the addressed battle, else the addressed era, else the default.
+  const eras = Object.fromEntries(ERA_CIVS.map((civ) => {
+    const c = ctx.eraCivs[civ.id];
+    const known = (id) => c.eras.some(e => e.id === id);
+    const era = c.events.find(event => event.id === initialHash.event && known(event.eraId))?.eraId ||
+      Object.entries(c.eraBattleIds).find(([, ids]) => ids.includes(initialHash.battle))?.[0] ||
+      (known(initialHash.era) ? initialHash.era : civ.defaultEraId);
+    return [civ.id, era];
+  }));
   const periodConfig = ctx.periods[period] || ctx.periods.qinHan;
-  const dataset = initialCiv === 'japan' ? ctx.japan : initialCiv === 'taiwan' ? ctx.taiwan
+  const byEra = !byPeriod(initialCiv);
+  const dataset = byEra ? ctx.eraCivs[initialCiv]
     : { events: periodConfig.events || [], figures: periodConfig.figures || [], battles: periodConfig.battles || [] };
   const evts = dataset.events;
   const selectedEvent = (initialHash.event && evts.find((e) => e.id === initialHash.event)) ||
-    evts.find(e => initialCiv === 'china' || e.eraId === (initialCiv === 'japan' ? japanEra : taiwanEra)) || evts[0] || null;
+    evts.find(e => !byEra || e.eraId === eras[initialCiv]) || evts[0] || null;
   const selectedFigure = initialHash.figure ? dataset.figures.find((f) => f.id === initialHash.figure) || null : null;
   const selectedBattle = initialHash.battle ? dataset.battles.find((b) => b.id === initialHash.battle) || null : null;
-  return { civ: initialCiv, period, tab: initialHash.tab, taiwanEra, japanEra, selectedEvent, selectedFigure, selectedBattle };
+  return { civ: initialCiv, period, tab: initialHash.tab, eras, selectedEvent, selectedFigure, selectedBattle };
 }

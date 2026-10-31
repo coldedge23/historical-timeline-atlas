@@ -1,8 +1,8 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback, lazy, Suspense } from 'react';
 import { Header } from './components/Header.jsx';
-const HistoricalAtlasMap = lazy(() => import('./components/HistoricalAtlasMap.jsx').then(m => ({default: m.HistoricalAtlasMap})));
-const TaiwanAtlasMap = lazy(() => import('./components/TaiwanAtlasMap.jsx').then(m => ({default: m.TaiwanAtlasMap})));
-const JapanAtlasMap = lazy(() => import('./components/JapanAtlasMap.jsx').then(m => ({default: m.JapanAtlasMap})));
+import { CIVILIZATIONS, DEFAULT_CIV, civById, civForPage } from './civilizations/registry.js';
+// Each civilization's map, loaded with its geo data only when shown (src/civilizations/*/config.js).
+const CIV_MAPS = Object.fromEntries(CIVILIZATIONS.map(civ => [civ.id, lazy(() => civ.loadMap().then(Map => ({ default: Map })))]));
 import { Timeline } from './components/Timeline.js';
 import { FigureModal } from './components/FigureModal.js';
 import { BattleModal } from './components/BattleModal.js';
@@ -12,7 +12,7 @@ const BattlesView = lazy(() => import('./components/BattlesView.js').then(m => (
 import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import { BootScreen, DataStatus, DataStatusContext } from './components/DataStatus.jsx';
 import { X } from './components/Icons.js';
-import { TAIWAN_PAGE, JAPAN_PAGE, pageIdFor, loadCatalog, loadPage, loadSearchIndex, createPageNavigator, figureLinksFor, battleLinksFor, eventLinksFor,
+import { pageIdFor, loadCatalog, loadPage, loadSearchIndex, createPageNavigator, figureLinksFor, battleLinksFor, eventLinksFor,
   findOnPage, homeRecord, navigationDataset, routePageId, navigationCatalogs, initialContext, selectionContext } from './store/historyStore.js';
 
 import { parseNavigationHash, serializeNavigation, resolveNavigation, resolveInitialNavigation, unknownRouteParts } from './utils/navigation.js';
@@ -66,16 +66,15 @@ function Atlas({ catalog, initialPage }) {
   const [mobileSurface, setMobileSurface] = useState('timeline');
   const lastNavigation = useRef(null);
 
-  // Multi-Civilization Mode States ('china' | 'taiwan' | 'japan')
+  // The civilization shown (src/civilizations/registry.js) and, for each civilization navigated by era,
+  // the era it is on; an era is kept while another civilization is shown.
   const initialCiv = initialHash.civ;
   const [civilizationMode, setCivilizationMode] = useState(initialCiv);
-  const isTaiwanLensMode = civilizationMode === 'taiwan';
-  const isJapanMode = civilizationMode === 'japan';
-
-  const [activeTaiwanEraId, setActiveTaiwanEraId] = useState(initialRoute.taiwanEra);
-
-
-  const [activeJapanEraId, setActiveJapanEraId] = useState(initialRoute.japanEra);
+  const activeCiv = civById(civilizationMode);
+  const [activeEraIds, setActiveEraIds] = useState(initialRoute.eras);
+  const setEraFor = (civId, eraId) => setActiveEraIds(prev => prev[civId] === eraId ? prev : { ...prev, [civId]: eraId });
+  const activeEraId = activeEraIds[civilizationMode] || '';
+  const activePageId = pageIdFor(civilizationMode, activePeriodId);
 
   const goToPage = (pageId, apply) => whenLoaded(pageId, (page) => { setCurrentPage(page); apply(page); });
 
@@ -84,8 +83,9 @@ function Atlas({ catalog, initialPage }) {
 
   const handleJumpToCrossCivEvent = (targetCiv, entry) => {
     if (!entry) return;
-    const pageId = targetCiv === 'china' ? entry.periodId : pageIdFor(targetCiv);
-    if (targetCiv === 'china' && !isKnownPeriod(pageId)) return;
+    const civ = civById(targetCiv);
+    const pageId = pageIdFor(targetCiv, entry.periodId);
+    if (civ.unit === 'period' && !isKnownPeriod(pageId)) return;
     goToPage(pageId, (page) => {
       const targetEvt = page.events.find(event => event.id === entry.id) || entry;
       setTimelineSearch('');
@@ -96,35 +96,16 @@ function Atlas({ catalog, initialPage }) {
       setSelectedFigure(null);
       setSelectedBattle(null);
 
-      if (targetCiv === 'japan') {
-        setCivilizationMode('japan');
-        if (targetEvt.eraId) setActiveJapanEraId(targetEvt.eraId);
-        setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
-      } else if (targetCiv === 'taiwan') {
-        setCivilizationMode('taiwan');
-        if (targetEvt.eraId) setActiveTaiwanEraId(targetEvt.eraId);
-        setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
-      } else if (targetCiv === 'china') {
-        setCivilizationMode('china');
-        setActivePeriodId(page.id);
-        setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
-      }
+      setCivilizationMode(civ.id);
+      if (civ.unit === 'period') setActivePeriodId(page.id);
+      else if (targetEvt.eraId) setEraFor(civ.id, targetEvt.eraId);
+      setSelectedEvent({ ...targetEvt, _scrollTs: Date.now() });
     });
   };
 
-  const currentEraConfig = useMemo(() => {
-    if (civilizationMode === 'japan') {
-      return catalog.eras.japan.find((e) => e.id === activeJapanEraId) || catalog.eras.japan[1];
-    }
-    if (civilizationMode === 'taiwan') {
-      return catalog.eras.taiwan.find((e) => e.id === activeTaiwanEraId) || catalog.eras.taiwan[2];
-    }
-    return null;
-  }, [civilizationMode, activeTaiwanEraId, activeJapanEraId]);
-
-  // Active Datasets (dynamically swapped between China Dynasties, Taiwan Lens & Japan Atlas)
+  // Active Datasets: the page on screen (a China period, or a whole-civilization pack)
   // The period header, territories and demographics are shown in China mode only.
-  const currentPeriodConfig = currentPage.civ === 'china' ? currentPage : {};
+  const currentPeriodConfig = civById(currentPage.civ)?.unit === 'period' ? currentPage : {};
   const currentPageId = currentPage.id;
   const currentEvents = currentPage.events;
   const currentFigures = currentPage.figures;
@@ -151,8 +132,7 @@ function Atlas({ catalog, initialPage }) {
         setCivilizationMode(route.civ);
         setActivePeriodId(route.period);
         setActiveTab(route.tab);
-        if (route.civ === 'taiwan') setActiveTaiwanEraId(route.era);
-        if (route.civ === 'japan') setActiveJapanEraId(route.era);
+        if (civById(route.civ).unit === 'era') setEraFor(route.civ, route.era);
         setSelectedEvent(route.selectedEvent);
         setSelectedFigure(route.selectedFigure);
         setSelectedBattle(route.selectedBattle);
@@ -168,26 +148,24 @@ function Atlas({ catalog, initialPage }) {
 
   useEffect(() => {
     const hash = serializeNavigation({civ:civilizationMode, period:activePeriodId,
-      era:civilizationMode === 'japan' ? activeJapanEraId : activeTaiwanEraId,
+      era:activeEraId,
       tab:activeTab, event:selectedEvent?.id, figure:selectedFigure?.id, battle:selectedBattle?.id});
     if (lastNavigation.current === hash) return;
     if (lastNavigation.current === null) window.history.replaceState(null, '', hash);
     else if (window.location.hash !== hash) window.history.pushState(null, '', hash);
     lastNavigation.current = hash;
-  }, [civilizationMode, activePeriodId, activeTab, activeTaiwanEraId, activeJapanEraId, selectedEvent?.id, selectedFigure?.id, selectedBattle?.id]);
+  }, [civilizationMode, activePeriodId, activeTab, activeEraId, selectedEvent?.id, selectedFigure?.id, selectedBattle?.id]);
 
-  // Handle Civilization Mode Switching (華夏 / 臺灣 / 日本 三大文明體系)
+  // Handle Civilization Mode Switching (歷史體系切換)
   const handleSelectCivilizationMode = (mode) => {
+    const civ = civById(mode);
     goToPage(pageIdFor(mode, activePeriodId), (page) => {
       setCivilizationMode(mode);
       setSelectedFigure(null);
       setSelectedBattle(null);
-      if (mode === 'japan') {
-        const targetEra = catalog.eras.japan.find((e) => e.id === activeJapanEraId) || catalog.eras.japan[1];
-        const found = page.events.find((e) => e.eraId === targetEra.id) || page.events[0];
-        setSelectedEvent(found || null);
-      } else if (mode === 'taiwan') {
-        const targetEra = catalog.eras.taiwan.find((e) => e.id === activeTaiwanEraId) || catalog.eras.taiwan[2];
+      if (civ.unit === 'era') {
+        const eras = catalog.eras[mode];
+        const targetEra = eras.find((e) => e.id === activeEraIds[mode]) || eras.find((e) => e.id === civ.defaultEraId);
         const found = page.events.find((e) => e.eraId === targetEra.id) || page.events[0];
         setSelectedEvent(found || null);
       } else {
@@ -200,7 +178,7 @@ function Atlas({ catalog, initialPage }) {
   const handleSelectPeriodId = (periodId) => {
     if (!isKnownPeriod(periodId)) return;
     goToPage(periodId, (newConfig) => {
-      setCivilizationMode('china');
+      setCivilizationMode(DEFAULT_CIV.id);
       setActivePeriodId(periodId);
       if (newConfig.events && newConfig.events.length > 0) {
         setSelectedEvent(newConfig.events[0]);
@@ -213,15 +191,16 @@ function Atlas({ catalog, initialPage }) {
     });
   };
 
-  // Handle Taiwan Era Select (臺灣專題紀元切換)
-  const handleSelectTaiwanEraId = (eraId) => {
-    goToPage(TAIWAN_PAGE, (page) => {
-      setCivilizationMode('taiwan');
-      setActiveTaiwanEraId(eraId);
+  // Handle Era Select for civilizations navigated by era (臺灣、日本紀元切換)
+  const handleSelectEra = (civId, eraId) => {
+    const civ = civById(civId);
+    goToPage(civ.pageId, (page) => {
+      setCivilizationMode(civ.id);
+      setEraFor(civ.id, eraId);
       setSearchTerm('');
-      const targetEra = catalog.eras.taiwan.find((e) => e.id === eraId);
+      const targetEra = catalog.eras[civ.id].find((e) => e.id === eraId);
       if (targetEra && targetEra.firstEventId) {
-        const found = page.events.find((e) => e.id === targetEra.firstEventId);
+        const found = civ.eraLandingEvent(page.events, targetEra);
         if (found) {
           setSelectedEvent({ ...found, _scrollTs: Date.now() });
         }
@@ -230,24 +209,7 @@ function Atlas({ catalog, initialPage }) {
       setSelectedBattle(null);
     });
   };
-
-  // Handle Japan Era Select (日本歷史紀元切換)
-  const handleSelectJapanEraId = (eraId) => {
-    goToPage(JAPAN_PAGE, (page) => {
-      setCivilizationMode('japan');
-      setActiveJapanEraId(eraId);
-      setSearchTerm('');
-      const targetEra = catalog.eras.japan.find((e) => e.id === eraId);
-      if (targetEra && targetEra.firstEventId) {
-        const found = page.events.find((e) => e.eraId === targetEra.id) || page.events[0];
-        if (found) {
-          setSelectedEvent({ ...found, _scrollTs: Date.now() });
-        }
-      }
-      setSelectedFigure(null);
-      setSelectedBattle(null);
-    });
-  };
+  const handleSelectActiveEra = (eraId) => handleSelectEra(civilizationMode, eraId);
 
   // The search index loads on the first focus of the search box (plan v2 section 3.4).
   const [search, setSearch] = useState({ status: 'idle', entries: null });
@@ -264,20 +226,19 @@ function Atlas({ catalog, initialPage }) {
   const handleSelectGlobalResult = (res) => {
     if (!res) return;
     setTimelineSearch('');
-    const civ = res.civ || 'china';
-    if (civ === 'china' && !isKnownPeriod(res.periodId)) return;
+    const civ = res.civ || DEFAULT_CIV.id;
+    const byPeriod = civById(civ).unit === 'period';
+    if (byPeriod && !isKnownPeriod(res.periodId)) return;
     // A result opens in the pack it appears in (plan v2 section 3.3).
-    goToPage(civ === 'china' ? res.periodId : pageIdFor(civ), (page) => {
+    goToPage(pageIdFor(civ, res.periodId), (page) => {
       setCivilizationMode(civ);
       const dataset = navigationDataset(page);
-      if (civ === 'china') setActivePeriodId(res.periodId);
+      if (byPeriod) setActivePeriodId(res.periodId);
       const item = (res.type === 'figure' ? dataset.figures : res.type === 'battle' ? dataset.battles : dataset.events).find((r) => r.id === res.item.id) || null;
-      const activeEra = civ === 'japan' ? activeJapanEraId : activeTaiwanEraId;
-      const targetEra = res.eraId || activeEra;
+      const targetEra = res.eraId || activeEraIds[civ];
       const event = res.type === 'event' ? item : dataset.events.find(e => targetEra && e.eraId === targetEra) || dataset.events[0] || null;
       setSelectedEvent(event);
-      if (civ === 'japan' && event?.eraId) setActiveJapanEraId(event.eraId);
-      if (civ === 'taiwan' && event?.eraId) setActiveTaiwanEraId(event.eraId);
+      if (!byPeriod && event?.eraId) setEraFor(civ, event.eraId);
       setSelectedFigure(res.type === 'figure' ? item : null);
       setSelectedBattle(res.type === 'battle' ? item : null);
       setActiveTab(res.type === 'event' ? 'map-timeline' : res.type === 'figure' ? 'figures' : 'battles');
@@ -286,7 +247,7 @@ function Atlas({ catalog, initialPage }) {
     });
   };
   // The timeline tag filter is local and does not alter the global search input.
-  useEffect(() => setTimelineSearch(''), [civilizationMode, activePeriodId, activeTaiwanEraId, activeJapanEraId]);
+  useEffect(() => setTimelineSearch(''), [civilizationMode, activePeriodId, activeEraIds]);
   const eventsForTimeline = useMemo(() => {
     const q = timelineSearch.trim().toLowerCase();
     if (!q) return currentEvents;
@@ -301,21 +262,17 @@ function Atlas({ catalog, initialPage }) {
       setTimelineSearch('');
       setMobileSurface('timeline');
       setSelectedEvent(target);
-      if (isTaiwanLensMode && target?.eraId && target.eraId !== activeTaiwanEraId) {
-        setActiveTaiwanEraId(target.eraId);
-      }
-      if (civilizationMode === 'japan' && target?.eraId && target.eraId !== activeJapanEraId) {
-        setActiveJapanEraId(target.eraId);
+      if (activeCiv.unit === 'era' && target?.eraId && target.eraId !== activeEraId) {
+        setEraFor(activeCiv.id, target.eraId);
       }
     };
     if (target?.datasetId && target.datasetId !== currentPageId) {
       goToPage(target.datasetId, (page) => {
         const record = page.events.find(event => event.id === target.id) || target;
-        const civ = record.civ || (record.datasetId === 'taiwanLens' ? 'taiwan' : record.datasetId === 'japanAtlas' ? 'japan' : 'china');
-        setCivilizationMode(civ);
-        if (civ === 'china') setActivePeriodId(record.datasetId);
-        if (civ === 'taiwan' && record.eraId) setActiveTaiwanEraId(record.eraId);
-        if (civ === 'japan' && record.eraId) setActiveJapanEraId(record.eraId);
+        const civ = civById(record.civ) || civForPage(record.datasetId);
+        setCivilizationMode(civ.id);
+        if (civ.unit === 'period') setActivePeriodId(record.datasetId);
+        else if (record.eraId) setEraFor(civ.id, record.eraId);
         select(record);
       });
       return;
@@ -326,18 +283,11 @@ function Atlas({ catalog, initialPage }) {
   const handleSelectBattle = (bat) => {
     setSelectedFigure(null);
     setSelectedBattle(bat);
-    if (civilizationMode === 'japan' && bat?.id) {
+    if (activeCiv.unit === 'era' && bat?.id) {
       const era = Object.entries(currentPage.eraBattleIds || {}).find(([, ids]) => ids.includes(bat.id))?.[0];
-      if (era) {
-        setActiveJapanEraId(era);
+      if (era && (activeCiv.battleRefocusesSameEra || era !== activeEraId)) {
+        setEraFor(activeCiv.id, era);
         setSelectedEvent(currentEvents.find(event => event.eraId === era) || null);
-      }
-    }
-    if (isTaiwanLensMode && bat?.id) {
-      const eraEntry = Object.entries(currentPage.eraBattleIds || {}).find(([_, bIds]) => bIds.includes(bat.id));
-      if (eraEntry && eraEntry[0] !== activeTaiwanEraId) {
-        setActiveTaiwanEraId(eraEntry[0]);
-        setSelectedEvent(currentEvents.find(event => event.eraId === eraEntry[0]) || null);
       }
     }
   };
@@ -347,13 +297,13 @@ function Atlas({ catalog, initialPage }) {
     setCivilizationMode(page.civ);
     setSelectedFigure(null);
     setSelectedBattle(battle);
-    if (page.civ === 'china') {
+    if (civById(page.civ).unit === 'period') {
       setActivePeriodId(page.id);
       setSelectedEvent(battleLinkedEvent(battle, page.events) || page.events[0] || null);
       return;
     }
     const era = Object.entries(page.eraBattleIds || {}).find(([, ids]) => ids.includes(battle.id))?.[0];
-    if (era) (page.civ === 'japan' ? setActiveJapanEraId : setActiveTaiwanEraId)(era);
+    if (era) setEraFor(page.civ, era);
     setSelectedEvent(battleLinkedEvent(battle, page.events) || page.events.find(event => !era || event.eraId === era) || page.events[0] || null);
   };
 
@@ -362,9 +312,8 @@ function Atlas({ catalog, initialPage }) {
     const apply = ({ target, switchTo }) => {
       if (switchTo) {
         setCivilizationMode(switchTo.civ);
-        if (switchTo.civ === 'china') setActivePeriodId(switchTo.periodId);
-        if (switchTo.civ === 'japan') setActiveJapanEraId(switchTo.japanEraId);
-        if (switchTo.civ === 'taiwan') setActiveTaiwanEraId(switchTo.taiwanEraId);
+        if (switchTo.periodId) setActivePeriodId(switchTo.periodId);
+        if (switchTo.eraId) setEraFor(switchTo.civ, switchTo.eraId);
         setSelectedEvent(switchTo.selectedEvent);
       }
       setSelectedBattle(null);
@@ -432,22 +381,19 @@ function Atlas({ catalog, initialPage }) {
         battleCount={currentBattles.length}
         civilizationMode={civilizationMode}
         onSelectCivilizationMode={handleSelectCivilizationMode}
-        isTaiwanLensMode={isTaiwanLensMode}
-        activeTaiwanEraId={activeTaiwanEraId}
-        onSelectTaiwanEraId={handleSelectTaiwanEraId}
-        activeJapanEraId={activeJapanEraId}
-        onSelectJapanEraId={handleSelectJapanEraId}
+        activeEraId={activeEraId}
+        onSelectEraId={handleSelectActiveEra}
       />
 
       {/* Main Content Area */}
       <ErrorBoundary>
         <Suspense fallback={<div className="loading-surface" role="status">正在載入歷史內容…</div>}>
         <main id="main-content" tabIndex={-1} className={`flex-1 ${isCinemaMode && activeTab === 'map-timeline' ? 'max-w-[1440px]' : 'max-w-7xl'} w-full mx-auto p-3 sm:p-4 flex flex-col min-h-0 transition-all duration-300`}>
-          <h1 className="sr-only">歷史星圖：{civilizationMode === 'china' ? `華夏通史・${currentPeriodConfig.name}` : civilizationMode === 'taiwan' ? '臺灣歷史' : '日本歷史'}</h1>
+          <h1 className="sr-only">歷史星圖：{activeCiv.unit === 'period' ? `${activeCiv.name}・${currentPeriodConfig.name}` : activeCiv.name}</h1>
           <DataStatus state={dataStatus.state} onRetry={dataStatus.onRetry} />
           {(routeNotice.period || routeNotice.civ) && routeNotice.at === `${civilizationMode}:${activePeriodId}` && (
             <div className="route-notice" role="status">
-              <p>網址中的{routeNotice.period ? `時期「${routeNotice.period}」` : `歷史體系「${routeNotice.civ}」`}不存在，已改為顯示{civilizationMode === 'china' ? `「${currentPeriodConfig.name}」` : '預設內容'}。</p>
+              <p>網址中的{routeNotice.period ? `時期「${routeNotice.period}」` : `歷史體系「${routeNotice.civ}」`}不存在，已改為顯示{activeCiv.unit === 'period' ? `「${currentPeriodConfig.name}」` : '預設內容'}。</p>
               <button type="button" onClick={() => setRouteNotice({ civ: '', period: '', at: '' })} aria-label="關閉提示"><X aria-hidden="true" className="w-4 h-4" /></button>
             </div>
           )}
@@ -457,61 +403,32 @@ function Atlas({ catalog, initialPage }) {
                 <button type="button" aria-pressed={mobileSurface === 'timeline'} onClick={() => {setMobileSurface('timeline'); setIsCinemaMode(false);}}>年表</button>
                 <button type="button" aria-pressed={mobileSurface === 'map'} onClick={() => setMobileSurface('map')}>地圖</button>
               </div>
-              {/* Map Canvas: Switches dynamically between China Atlas, Taiwan Atlas & Japan Atlas */}
+              {/* Map Canvas: the shown civilization's own map (loadMap in its src/civilizations config) */}
               <div className="map-pane">
-                {civilizationMode === 'japan' ? (
-                  <JapanAtlasMap
-                    activeJapanEraId={activeJapanEraId}
-                    onSelectJapanEraId={handleSelectJapanEraId}
-                    eras={currentPage.eras}
-                    eraBattleIds={currentPage.eraBattleIds}
-                    warlordPeriods={currentPage.warlordPeriods}
-                    events={eventsForTimeline}
-                    allEvents={currentEvents}
-                    battles={currentBattles}
-                    selectedEvent={selectedEvent}
-                    selectedBattle={selectedBattle}
-                    onSelectEvent={handleSelectEvent}
-                    onSelectBattle={handleSelectBattle}
-                    ancientNamesOnly={ancientNamesOnly}
-                    onClearSearch={() => setSearchTerm('')}
-                    isCinemaMode={isCinemaMode}
-                    onToggleCinemaMode={() => { setMobileSurface('map'); setIsCinemaMode((v) => !v); }}
-                  />
-                ) : isTaiwanLensMode ? (
-                  <TaiwanAtlasMap
-                    activeTaiwanEraId={activeTaiwanEraId}
-                    onSelectTaiwanEraId={handleSelectTaiwanEraId}
-                    eras={currentPage.eras}
-                    eraBattleIds={currentPage.eraBattleIds}
-                    events={eventsForTimeline}
-                    allEvents={currentEvents}
-                    battles={currentBattles}
-                    selectedEvent={selectedEvent}
-                    selectedBattle={selectedBattle}
-                    onSelectEvent={handleSelectEvent}
-                    onSelectBattle={handleSelectBattle}
-                    ancientNamesOnly={ancientNamesOnly}
-                    onClearSearch={() => setSearchTerm('')}
-                    isCinemaMode={isCinemaMode}
-                    onToggleCinemaMode={() => { setMobileSurface('map'); setIsCinemaMode((v) => !v); }}
-                  />
-                ) : (
-                  <HistoricalAtlasMap
-                    warlordPeriodConfigs={currentWarlordPeriods}
-                    territories={currentTerritories}
-                    events={eventsForTimeline}
-                    allEvents={currentEvents}
-                    battles={currentBattles}
-                    selectedEvent={selectedEvent}
-                    onSelectEvent={handleSelectEvent}
-                    onSelectBattle={handleSelectBattle}
-                    ancientNamesOnly={ancientNamesOnly}
-                    onClearSearch={() => setSearchTerm('')}
-                    isCinemaMode={isCinemaMode}
-                    onToggleCinemaMode={() => { setMobileSurface('map'); setIsCinemaMode((v) => !v); }}
-                  />
-                )}
+                {(() => {
+                  const CivMap = CIV_MAPS[civilizationMode];
+                  // Per-period maps take the period's territories and force snapshots; era maps take the
+                  // era selection and the page's era tables.
+                  const unitProps = activeCiv.unit === 'period'
+                    ? { warlordPeriodConfigs: currentWarlordPeriods, territories: currentTerritories }
+                    : { activeEraId, onSelectEraId: handleSelectActiveEra, eras: currentPage.eras, eraBattleIds: currentPage.eraBattleIds,
+                        warlordPeriods: currentPage.warlordPeriods, selectedBattle };
+                  return (
+                    <CivMap
+                      {...unitProps}
+                      events={eventsForTimeline}
+                      allEvents={currentEvents}
+                      battles={currentBattles}
+                      selectedEvent={selectedEvent}
+                      onSelectEvent={handleSelectEvent}
+                      onSelectBattle={handleSelectBattle}
+                      ancientNamesOnly={ancientNamesOnly}
+                      onClearSearch={() => setSearchTerm('')}
+                      isCinemaMode={isCinemaMode}
+                      onToggleCinemaMode={() => { setMobileSurface('map'); setIsCinemaMode((v) => !v); }}
+                    />
+                  );
+                })()}
               </div>
 
               {/* Dual-Axis Timeline (5 cols on Desktop, hidden in Cinema Mode) */}
@@ -526,7 +443,7 @@ function Atlas({ catalog, initialPage }) {
                     onOpenFigureLink={openFigureLink}
                     onSelectBattleById={handleSelectBattleById}
                     ancientNamesOnly={ancientNamesOnly}
-                    activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
+                    activePeriodId={activePageId}
                     searchTerm={timelineSearch}
                     onClearSearch={() => setTimelineSearch('')}
                     onSearchChange={setTimelineSearch}
@@ -546,7 +463,7 @@ function Atlas({ catalog, initialPage }) {
               onSelectFigure={handleSelectFigure}
               ancientNamesOnly={ancientNamesOnly}
               globalSearchTerm=""
-              activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
+              activePeriodId={activePageId}
             />
           )}
 
@@ -558,7 +475,7 @@ function Atlas({ catalog, initialPage }) {
               onSelectFigure={handleSelectFigure}
               ancientNamesOnly={ancientNamesOnly}
               globalSearchTerm=""
-              activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
+              activePeriodId={activePageId}
             />
           )}
         </main>
@@ -579,7 +496,7 @@ function Atlas({ catalog, initialPage }) {
             })}
             onSelectBattle={openBattleLink}
             ancientNamesOnly={ancientNamesOnly}
-            activePeriodId={civilizationMode === 'japan' ? 'japanAtlas' : isTaiwanLensMode ? 'taiwanLens' : activePeriodId}
+            activePeriodId={activePageId}
           />
         )}
 

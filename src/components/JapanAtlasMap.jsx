@@ -52,8 +52,9 @@ const markerPoint = (item) =>
   item.svgPos || (Array.isArray(item.coordinates) ? projectLngLatToJapanMap(...item.coordinates) : null);
 
 export const JapanAtlasMap = ({
-  activeJapanEraId = 'jp_sengoku',
-  onSelectJapanEraId,
+  // Era props shared by every era map (src/civilizations); kept under local names inside this map.
+  activeEraId: activeJapanEraId = 'jp_sengoku',
+  onSelectEraId: onSelectJapanEraId,
   eras = [],
   eraBattleIds: eraBattleIdsByEra = {},
   warlordPeriods = [],

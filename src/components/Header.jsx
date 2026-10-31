@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Compass, Search, X, Layers, Users, Swords, MapPin, BarChart3 } from './Icons.js';
-import { CIVILIZATIONS, civById } from '../civilizations/registry.js';
+import { CIVILIZATIONS, DEFAULT_CIV, civById } from '../civilizations/registry.js';
 
 export const Header = ({
   currentPeriod,
   activePeriodId = 'threeKingdoms',
   onSelectPeriodId,
   periodOptions = [],
-  eraOptionsByCiv = { taiwan: [], japan: [] },
+  eraOptionsByCiv = {},
   currentPeriodShortEra = '西元 184 — 280 年',
   ancientNamesOnly,
   onToggleAncientNames,
@@ -23,13 +23,11 @@ export const Header = ({
   eventCount,
   figureCount,
   battleCount,
-  civilizationMode = 'china',
+  civilizationMode = DEFAULT_CIV.id,
   onSelectCivilizationMode,
-  isTaiwanLensMode = false,
-  activeTaiwanEraId = 'tw_tungning',
-  onSelectTaiwanEraId,
-  activeJapanEraId = 'jp_sengoku',
-  onSelectJapanEraId,
+  // The era shown, for civilizations navigated by era.
+  activeEraId = '',
+  onSelectEraId,
 }) => {
   const [open, setOpen] = useState(false);
   const [cursor, setCursor] = useState(0);
@@ -48,7 +46,8 @@ export const Header = ({
     return () => { window.removeEventListener('keydown', key); document.removeEventListener('pointerdown', outside); };
   }, []);
   useEffect(() => setCursor(0), [searchTerm]);
-  const eraOptions = civilizationMode === 'taiwan' ? eraOptionsByCiv.taiwan : eraOptionsByCiv.japan;
+  const byPeriod = civById(civilizationMode)?.unit !== 'era';
+  const eraOptions = eraOptionsByCiv[civilizationMode] || [];
   const tabs = [
     ['map-timeline', '地圖與年表', Layers],
     ['figures', '人物誌', Users],
@@ -96,9 +95,9 @@ export const Header = ({
           <label><span>歷史體系</span><select aria-label="歷史體系" value={civilizationMode} onChange={(e) => onSelectCivilizationMode(e.target.value)}>
             {CIVILIZATIONS.map((civ) => <option key={civ.id} value={civ.id}>{civ.name}</option>)}
           </select></label>
-          <label><span>時期</span>{civilizationMode === 'china' ?
+          <label><span>時期</span>{byPeriod ?
             <select aria-label="時期" value={activePeriodId} onChange={(e) => onSelectPeriodId(e.target.value)}>{periodOptions.map((o) => <option key={o.id} value={o.id}>{o.name}（{o.range}）</option>)}</select> :
-            <select aria-label="時期" value={civilizationMode === 'taiwan' ? activeTaiwanEraId : activeJapanEraId} onChange={(e) => (civilizationMode === 'taiwan' ? onSelectTaiwanEraId : onSelectJapanEraId)(e.target.value)}>
+            <select aria-label="時期" value={activeEraId} onChange={(e) => onSelectEraId(e.target.value)}>
               {eraOptions.map((o) => <option key={o.id} value={o.id}>{o.name}</option>)}
             </select>}
           </label>
@@ -111,7 +110,7 @@ export const Header = ({
           {civById(civilizationMode)?.features.demographics && <button onClick={() => onSelectTab('demographics')}><BarChart3 className="w-4 h-4" />人口與民族</button>}
         </div></details>
       </div>
-      <div className="header-context" aria-live="polite"><span>{civilizationMode === 'china' ? currentPeriodShortEra : eraOptions.find((o) => o.id === (civilizationMode === 'taiwan' ? activeTaiwanEraId : activeJapanEraId))?.name}</span><span>{eventCount} 事件・{figureCount} 人物・{battleCount} 戰役</span></div>
+      <div className="header-context" aria-live="polite"><span>{byPeriod ? currentPeriodShortEra : eraOptions.find((o) => o.id === activeEraId)?.name}</span><span>{eventCount} 事件・{figureCount} 人物・{battleCount} 戰役</span></div>
     </header>
   );
 };

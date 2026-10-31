@@ -9,6 +9,10 @@ export default {
   pageId: 'taiwanLens',
   defaultEraId: 'tw_tungning',
   figureIdPrefix: 'fig_tw_',
+  // Picking an era selects the era's listed first event (when it is on the page).
+  eraLandingEvent: (events, era) => events.find(e => e.id === era.firstEventId),
+  // A battle selected within the era already shown leaves the selected event alone.
+  battleRefocusesSameEra: false,
   loadMap: () => import('../../components/TaiwanAtlasMap.jsx').then(m => m.TaiwanAtlasMap),
   features: { demographics: false },
   badgeClass: 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300',

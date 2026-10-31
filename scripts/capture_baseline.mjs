@@ -90,7 +90,7 @@ function collectNavigation(source) {
     const i = coldStart(hash);
     out[hash] = {
       restore: [r.civ, r.period, r.era, r.tab, r.event, r.figure, r.battle, r.unknown.civ, r.unknown.period],
-      coldStart: [i.civ, i.period, i.tab, i.taiwanEra, i.japanEra, i.selectedEvent?.id || '', i.selectedFigure?.id || '', i.selectedBattle?.id || ''],
+      coldStart: [i.civ, i.period, i.tab, i.eras.taiwan, i.eras.japan, i.selectedEvent?.id || '', i.selectedFigure?.id || '', i.selectedBattle?.id || ''],
     };
   }
   return out;
@@ -147,7 +147,7 @@ function collectFigureSelection(source) {
     const d = resolveFigureSelection(figure, current, source.selectionContextFor ? source.selectionContextFor(figure) : source.selectionContext);
     if (!d) return null;
     const s = d.switchTo;
-    return [key(d.target), s ? s.civ : 'stay', s ? (s.periodId || s.japanEraId || s.taiwanEraId) : null, s ? key(s.selectedEvent) : null];
+    return [key(d.target), s ? s.civ : 'stay', s ? (s.periodId || s.eraId) : null, s ? key(s.selectedEvent) : null];
   };
   // A figure outside the current page always switches the same way, so record it once per figure.
   const offPage = {};

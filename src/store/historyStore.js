@@ -3,6 +3,7 @@
 // the stage 2a in-memory catalog (legacySource.js, a separate chunk loaded only through import()).
 import { createPackSource } from './packSource.js';
 import { pageIdFor, withEraIds } from './pageIds.js';
+import { DEFAULT_CIV, ERA_CIVS, civById } from '../civilizations/registry.js';
 
 export { TAIWAN_PAGE, JAPAN_PAGE, pageIdFor } from './pageIds.js';
 export { DataLoadError } from './packSource.js';
@@ -41,10 +42,12 @@ export const homeRecord = (page, link) => {
   return pool.find(r => r.id === link.id && (r.datasetId || page.id) === link.homePack) || pool.find(r => r.id === link.id) || null;
 };
 
+const byEra = (page) => civById(page.civ)?.unit === 'era';
+
 // Taiwan/Japan pages as navigation and search see them: battles carry their era.
 const navigationPages = new WeakMap();
 export function navigationDataset(page) {
-  if (page.civ === 'china') return page;
+  if (!byEra(page)) return page;
   if (!navigationPages.has(page)) navigationPages.set(page, { ...page, battles: withEraIds(page.battles, page.eraBattleIds || {}) });
   return navigationPages.get(page);
 }
@@ -74,8 +77,8 @@ export function createPageNavigator({ peek = peekPage, load = loadPage, onStatus
 
 // The page a route opens: its China period (unknown -> yuanMing, as resolveNavigation does) or Taiwan/Japan.
 export function routePageId(route, periodIds) {
-  if (route.civ !== 'china') return pageIdFor(route.civ);
-  return periodIds.includes(route.period) ? route.period : 'yuanMing';
+  if (civById(route.civ).unit === 'era') return pageIdFor(route.civ);
+  return periodIds.includes(route.period) ? route.period : DEFAULT_CIV.defaultPeriodId;
 }
 
 const EMPTY_DATASET = { events: [], figures: [], battles: [] };
@@ -83,28 +86,23 @@ const knownPeriods = (catalog) => Object.fromEntries(catalog.periodIds.map(id =>
 
 // resolveNavigation reads only the dataset the route opens; other periods only need to be known by id.
 export function navigationCatalogs(catalog, page) {
-  return { ...knownPeriods(catalog), [page.civ === 'china' ? page.id : page.civ]: navigationDataset(page) };
+  return { ...knownPeriods(catalog), [byEra(page) ? page.civ : page.id]: navigationDataset(page) };
 }
 
 // resolveInitialNavigation's context. Taiwan and Japan event and battle ids never collide with each other or with
 // China's (checked by tests/history-store.test.js), so the pages that are not open can stay empty.
 export function initialContext(catalog, page) {
-  const taiwan = page.civ === 'taiwan' ? page : null;
-  const japan = page.civ === 'japan' ? page : null;
-  return {
-    periods: { ...knownPeriods(catalog), ...(page.civ === 'china' ? { [page.id]: page } : {}) },
-    taiwanEras: catalog.eras.taiwan.map(era => ({ ...era, keyEvents: taiwan ? taiwan.events.filter(e => e.eraId === era.id) : [] })),
-    taiwanEraBattleIds: taiwan?.eraBattleIds || {},
-    japanEras: catalog.eras.japan, japanAllEvents: japan?.events || [], japanEraBattleIds: japan?.eraBattleIds || {},
-    taiwan: taiwan || EMPTY_DATASET, japan: japan || EMPTY_DATASET,
-  };
+  const eraCivs = Object.fromEntries(ERA_CIVS.map((civ) => {
+    const open = page.civ === civ.id ? page : null;
+    return [civ.id, { ...(open || EMPTY_DATASET), eras: catalog.eras[civ.id] || [], eraBattleIds: open?.eraBattleIds || {} }];
+  }));
+  return { periods: { ...knownPeriods(catalog), ...(byEra(page) ? {} : { [page.id]: page }) }, eraCivs };
 }
 
 // resolveFigureSelection's context when switching to the figure's own page.
 export function selectionContext(page) {
   return {
-    periods: page.civ === 'china' ? { [page.id]: page } : {},
-    japanEvents: page.civ === 'japan' ? page.events : [],
-    taiwanEvents: page.civ === 'taiwan' ? page.events : [],
+    periods: civById(page.civ)?.unit === 'period' ? { [page.id]: page } : {},
+    eventsByCiv: Object.fromEntries(ERA_CIVS.map(civ => [civ.id, page.civ === civ.id ? page.events : []])),
   };
 }
