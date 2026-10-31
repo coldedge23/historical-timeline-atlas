@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Eras Dataset (6 Master Historical Eras with 87 Detailed Events)
+// Japanese Historical Atlas Eras Dataset (6 Master Historical Eras with 94 Detailed Events)
 export const JAPAN_ERAS = [
   {
     "id": "jp_ancient_medieval",
@@ -1669,7 +1669,7 @@ export const JAPAN_ERAS = [
   {
     "id": "jp_meiji_modern",
     "name": "明治維新·近代崛起",
-    "dateRangeDisplay": "西元 1868 - 1945 年+",
+    "dateRangeDisplay": "西元 1868 - 1912 年",
     "shortEra": "明治維新至近代文明開化",
     "tagline": "富國強兵·殖產興業·憲政列強",
     "description": "明治天皇頒《五條御誓文》推行廢藩置縣四民平等；岩倉使節團考察歐美引進西學；福澤諭吉啟蒙國民；西南戰爭終結武士特權；伊藤博文起草亞洲首部近代憲法；日俄戰爭對馬海戰擊破列強躋身世界舞台。",
@@ -1835,6 +1835,32 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_ryukyu_disposition_1879",
+        "year": 1879,
+        "yearDisplay": "西元 1879 年 (明治十二年)",
+        "title": "琉球處分：廢琉球藩設置沖繩縣",
+        "summary": "明治政府派員率軍警進入首里，廢除琉球藩改設沖繩縣，琉球國併入日本。",
+        "detail": "1872 年明治政府將琉球國改為琉球藩，以國王尚泰為藩王。1879 年處分官松田道之率軍警進入首里，命尚泰交出首里城並移居東京，隨即廢藩設置沖繩縣。清朝對此提出抗議，交涉未有結果。",
+        "locationNameAncient": "琉球國首里",
+        "locationNameModern": "沖繩縣那霸市首里",
+        "coordinates": [
+          127.72,
+          26.22
+        ],
+        "tags": [
+          "琉球處分",
+          "沖繩縣",
+          "尚泰",
+          "廢藩置縣"
+        ],
+        "sources": [
+          {
+            "title": "《琉球藩ヲ廢シ沖繩縣ヲ置ク》（明治十二年太政官布告第十四號）",
+            "url": "https://ja.wikisource.org/wiki/琉球藩ヲ廢シ沖繩縣ヲ置ク"
+          }
+        ]
+      },
+      {
         "id": "evt_jp_meiji_constitution_1889",
         "year": 1889,
         "yearDisplay": "西元 1889 年 (明治二十二年)",
@@ -1875,6 +1901,31 @@ export const JAPAN_ERAS = [
         ]
       },
       {
+        "id": "evt_jp_rescript_education_1890",
+        "year": 1890,
+        "yearDisplay": "西元 1890 年 (明治二十三年)",
+        "title": "頒布《教育敕語》",
+        "summary": "明治天皇頒布《教育ニ關スル勅語》，以忠君愛國與儒家德目作為學校教育的根本。",
+        "detail": "由井上毅、元田永孚起草，1890 年 10 月 30 日頒布。各地學校奉讀敕語，成為戰前修身教育的核心。1948 年眾議院與參議院分別決議排除及確認其失效。",
+        "locationNameAncient": "東京府東京市",
+        "locationNameModern": "東京都千代田區",
+        "coordinates": [
+          139.75,
+          35.68
+        ],
+        "tags": [
+          "教育敕語",
+          "明治天皇",
+          "修身教育"
+        ],
+        "sources": [
+          {
+            "title": "《教育ニ関スル勅語》",
+            "url": "https://ja.wikisource.org/wiki/教育ニ関スル勅語"
+          }
+        ]
+      },
+      {
         "id": "evt_jp_first_sino_japanese_1894",
         "year": 1894,
         "yearDisplay": "西元 1894 年 (明治二十七年)",
@@ -1892,6 +1943,43 @@ export const JAPAN_ERAS = [
           "馬關條約",
           "黃海海戰",
           "伊藤博文與李鴻章"
+        ]
+      },
+      {
+        "id": "evt_jp_anglo_japanese_alliance_1902",
+        "year": 1902,
+        "yearDisplay": "西元 1902 年 (明治三十五年)",
+        "title": "締結日英同盟",
+        "summary": "日本與英國在倫敦簽訂同盟協約，共同牽制俄國在東亞的擴張。",
+        "detail": "1902 年 1 月 30 日，駐英公使林董與英國外相蘭斯當侯爵在倫敦簽署。協約約定締約一方與他國交戰時另一方守中立，若有第三國加入對締約方作戰，另一方須參戰協助。同盟其後兩度修訂，1923 年隨《四國公約》生效而終止。",
+        "locationNameAncient": "英國倫敦",
+        "locationNameModern": "英國倫敦（地圖範圍外）",
+        "tags": [
+          "日英同盟",
+          "林董",
+          "日俄戰爭"
+        ],
+        "sources": [
+          {
+            "title": "《第一次日英同盟協約》",
+            "url": "https://ja.wikisource.org/wiki/第一次日英同盟協約"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_russo_japanese_war_1904",
+        "year": 1904,
+        "yearDisplay": "西元 1904 年 (明治三十七年)",
+        "title": "日俄戰爭爆發",
+        "summary": "日俄兩國為爭奪朝鮮半島與中國東北的勢力範圍開戰。",
+        "detail": "1904 年 2 月 8 日，日本聯合艦隊夜襲旅順港的俄國艦隊，陸軍同時在仁川登陸，2 月 10 日兩國互相宣戰。戰場主要在中國東北與朝鮮半島：日軍攻下旅順、在奉天會戰擊退俄軍，1905 年 5 月在對馬海戰擊潰波羅的海艦隊。",
+        "locationNameAncient": "旅順港、仁川",
+        "locationNameModern": "中國遼寧省大連市旅順口區、韓國仁川（地圖範圍外）",
+        "tags": [
+          "日俄戰爭",
+          "旅順攻圍戰",
+          "奉天會戰",
+          "東鄉平八郎"
         ]
       },
       {
@@ -1913,12 +2001,89 @@ export const JAPAN_ERAS = [
           "三笠號",
           "躋身列強"
         ]
+      },
+      {
+        "id": "evt_jp_portsmouth_hibiya_1905",
+        "year": 1905,
+        "yearDisplay": "西元 1905 年 (明治三十八年)",
+        "title": "簽訂《樸資茅斯條約》與日比谷燒打事件",
+        "summary": "日俄在美國調停下議和，日本未獲賠款，東京民眾不滿而引發暴動。",
+        "detail": "1905 年 9 月 5 日，全權代表小村壽太郎與俄方維特在美國樸資茅斯簽約：俄國承認日本在韓國的優越地位，將旅順、大連租借權與長春以南鐵路讓與日本，並割讓庫頁島北緯 50 度以南。條約沒有賠款，同日東京日比谷公園的反對講和集會演變為暴動，焚燒派出所等設施，政府於翌日對東京實施戒嚴。",
+        "locationNameAncient": "東京府東京市日比谷公園",
+        "locationNameModern": "東京都千代田區日比谷公園",
+        "coordinates": [
+          139.756,
+          35.674
+        ],
+        "tags": [
+          "樸資茅斯條約",
+          "小村壽太郎",
+          "日比谷燒打事件",
+          "日俄戰爭"
+        ],
+        "sources": [
+          {
+            "title": "《日露講和條約》",
+            "url": "https://ja.wikisource.org/wiki/日露講和條約"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_korea_annexation_1910",
+        "year": 1910,
+        "yearDisplay": "西元 1910 年 (明治四十三年)",
+        "title": "日本併吞韓國",
+        "summary": "日本與大韓帝國簽訂併合條約，朝鮮半島成為日本殖民地，直到 1945 年。",
+        "detail": "1905 年第二次日韓協約後，日本在漢城設置統監府並掌握大韓帝國外交權；1909 年前統監伊藤博文在哈爾濱遇刺。1910 年 8 月 22 日，統監寺內正毅與韓國總理大臣李完用簽署併合條約，8 月 29 日公布施行，改設朝鮮總督府，寺內正毅出任首任朝鮮總督。",
+        "locationNameAncient": "大韓帝國漢城",
+        "locationNameModern": "韓國首爾（地圖範圍外）",
+        "tags": [
+          "韓國併合",
+          "伊藤博文",
+          "寺內正毅",
+          "朝鮮總督府"
+        ],
+        "sources": [
+          {
+            "title": "《韓國倂合ニ關スル條約》",
+            "url": "https://ja.wikisource.org/wiki/韓國倂合ニ關スル條約"
+          }
+        ]
+      },
+      {
+        "id": "evt_jp_tariff_autonomy_1911",
+        "year": 1911,
+        "yearDisplay": "西元 1911 年 (明治四十四年)",
+        "title": "收回關稅自主權，完成條約改正",
+        "summary": "日本與美國簽訂新通商航海條約，收回關稅自主權，幕末以來的不平等條約全部改正。",
+        "detail": "幕末《安政五國條約》規定外國領事裁判權與協定關稅。1894 年外務大臣陸奧宗光與英國簽訂新通商航海條約，撤廢領事裁判權（1899 年施行）。1911 年外務大臣小村壽太郎主導交涉，2 月 21 日由駐美大使內田康哉在華盛頓簽訂新《日美通商航海條約》，隨後與各國陸續換約，日本取得完整的關稅自主權。",
+        "locationNameAncient": "美國華盛頓",
+        "locationNameModern": "美國華盛頓（地圖範圍外）",
+        "tags": [
+          "條約改正",
+          "小村壽太郎",
+          "陸奧宗光",
+          "關稅自主權"
+        ],
+        "sources": [
+          {
+            "title": "《日米通商航海条約》（1911 年）",
+            "url": "https://ja.wikisource.org/wiki/日米通商航海条約_(1911年)"
+          }
+        ]
       }
     ],
     "highlightFigures": [
       "fig_jp_ito_hirobumi",
       "fig_jp_fukuzawa_yukichi",
-      "fig_jp_togo_heihachiro"
+      "fig_jp_togo_heihachiro",
+      "fig_jp_meiji_emperor",
+      "fig_jp_nogi_maresuke",
+      "fig_jp_katsura_taro",
+      "fig_jp_mori_ogai",
+      "fig_jp_kitasato_shibasaburo",
+      "fig_jp_tsuda_umeko",
+      "fig_jp_natsume_soseki"
     ]
   }
 ];

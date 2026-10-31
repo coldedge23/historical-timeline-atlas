@@ -55,7 +55,9 @@ export const JAPAN_ERA_BATTLE_IDS = {
   ],
   jp_meiji_modern: [
     "bat_jp_tabaruzaka_1877",
-    "bat_jp_tsushima_1905"
+    "bat_jp_tsushima_1905",
+    "bat_jp_port_arthur_1904",
+    "bat_jp_mukden_1905"
   ]
 };
 

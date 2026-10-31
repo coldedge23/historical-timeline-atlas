@@ -1,4 +1,4 @@
-// Japanese Historical Atlas Battles Dataset (33 Authoritative Epic Battles with Full Military Intelligence)
+// Japanese Historical Atlas Battles Dataset (35 Authoritative Epic Battles with Full Military Intelligence)
 export const JAPAN_BATTLES = [
   {
     "id": "bat_jp_hakusukinoe_663",
@@ -2469,6 +2469,116 @@ export const JAPAN_BATTLES = [
       "敵前大回頭（丁字戰法）：在敵前八千米處大膽實施大角度連續回轉，搶佔俄艦隊行進路線前方T字橫頭",
       "下瀨火藥與伊集院信管：日軍砲彈裝填烈性下瀨火藥，碰觸即炸引燃鋼甲，在俄艦甲板形成一片火海",
       "無線電接力預警網絡：信濃丸等輔助巡洋艦以無線電發布「今日天氣晴朗但波浪甚高」，精確引導截擊"
+    ]
+  },
+  {
+    "id": "bat_jp_port_arthur_1904",
+    "name": "旅順攻圍戰 (第三軍圍攻俄國旅順要塞)",
+    "year": 1904,
+    "locationAncient": "清國盛京省旅順口（俄國租借地）",
+    "locationModern": "中國遼寧省大連市旅順口區（地圖範圍外）",
+    "summary": "日俄戰爭中，乃木希典率第三軍圍攻俄國旅順要塞，經多次總攻擊，俄軍於 1905 年 1 月初開城投降。",
+    "attacker": {
+      "factionName": "大日本帝國陸軍第三軍",
+      "faction": "meiji_modern",
+      "commanders": [
+        {
+          "name": "乃木希典",
+          "title": "第三軍司令官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認（傷亡慘重，各方統計不一）"
+    },
+    "defender": {
+      "factionName": "俄羅斯帝國旅順守軍",
+      "faction": "russia",
+      "commanders": [
+        {
+          "name": "斯特塞爾",
+          "title": "旅順守軍指揮官"
+        },
+        {
+          "name": "康德拉堅科",
+          "title": "陸上防禦指揮官，1904 年 12 月陣亡"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "victor": "attacker",
+    "victorStatement": "日軍攻占二〇三高地後砲擊港內艦隊，俄軍於 1905 年 1 月初投降",
+    "tactics": [
+      "日軍：對要塞正面多次總攻擊，傷亡慘重後改以坑道作業與二十八公分榴彈砲推進",
+      "日軍：1904 年 12 月攻占二〇三高地，觀測並砲擊港內俄國艦隊",
+      "俄軍：依託永久堡壘、機槍與鐵絲網防守"
+    ],
+    "strategicOutcome": "俄國太平洋艦隊在港內覆滅，第三軍北上投入奉天會戰。",
+    "significance": "顯示近代要塞戰中機槍與砲火造成的巨大傷亡；乃木希典的指揮在當時與後世評價分歧。",
+    "eraId": "jp_meiji_modern",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "大日本帝國陸軍第三軍 (待確認)",
+      "defender": "俄羅斯帝國旅順守軍 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：對要塞正面多次總攻擊，傷亡慘重後改以坑道作業與二十八公分榴彈砲推進",
+      "日軍：1904 年 12 月攻占二〇三高地，觀測並砲擊港內俄國艦隊",
+      "俄軍：依託永久堡壘、機槍與鐵絲網防守"
+    ]
+  },
+  {
+    "id": "bat_jp_mukden_1905",
+    "name": "奉天會戰 (日俄戰爭最後的大規模陸戰)",
+    "year": 1905,
+    "locationAncient": "清國盛京省奉天",
+    "locationModern": "中國遼寧省瀋陽市（地圖範圍外）",
+    "summary": "1905 年 2 月下旬至 3 月 10 日，日本滿洲軍與俄軍在奉天一帶會戰，日軍占領奉天，俄軍向北撤退。",
+    "attacker": {
+      "factionName": "大日本帝國滿洲軍",
+      "faction": "meiji_modern",
+      "commanders": [
+        {
+          "name": "大山巖",
+          "title": "滿洲軍總司令官"
+        },
+        {
+          "name": "兒玉源太郎",
+          "title": "滿洲軍總參謀長"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "defender": {
+      "factionName": "俄羅斯帝國滿洲軍",
+      "faction": "russia",
+      "commanders": [
+        {
+          "name": "庫羅帕特金",
+          "title": "總司令官"
+        }
+      ],
+      "forcesEstimate": "待確認",
+      "casualtiesEstimate": "待確認"
+    },
+    "victor": "attacker",
+    "victorStatement": "日軍於 3 月 10 日占領奉天，但未能殲滅北撤的俄軍主力",
+    "tactics": [
+      "日軍：以第三軍自西側迂迴，威脅俄軍右翼與後方",
+      "俄軍：判斷側背受威脅後放棄奉天向北撤退"
+    ],
+    "strategicOutcome": "日軍兵力與彈藥已近極限，無力繼續追擊，日本轉而尋求議和。",
+    "significance": "日本此後以 3 月 10 日為陸軍紀念日；戰爭最終由對馬海戰與美國調停促成講和。",
+    "eraId": "jp_meiji_modern",
+    "period": "japanAtlas",
+    "parties": {
+      "invader": "大日本帝國滿洲軍 (待確認)",
+      "defender": "俄羅斯帝國滿洲軍 (待確認)"
+    },
+    "keyStrategies": [
+      "日軍：以第三軍自西側迂迴，威脅俄軍右翼與後方",
+      "俄軍：判斷側背受威脅後放棄奉天向北撤退"
     ]
   }
 ];

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="bg_fig_jp_meiji_emperor" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#422006" />
+      <stop offset="100%" stop-color="#120e0b" />
+    </radialGradient>
+    <filter id="shadow_fig_jp_meiji_emperor" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <circle cx="60" cy="60" r="56" fill="url(#bg_fig_jp_meiji_emperor)" stroke="#eab308" stroke-width="2.5" />
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#eab308" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#eab308" stroke-width="1.8" opacity="0.85" />
+
+  <text x="60" y="65" font-family="'Noto Serif TC', 'Songti TC', 'Kozuka Mincho Pro', 'Yu Mincho', serif"
+        font-size="28" font-weight="900" fill="#eab308" text-anchor="middle" dominant-baseline="middle"
+        filter="url(#shadow_fig_jp_meiji_emperor)">明</text>
+
+  <rect x="25" y="8" width="70" height="15" rx="3" fill="#1c1611" stroke="#eab308" stroke-width="1"/>
+  <text x="60" y="19" font-family="'Noto Sans TC', sans-serif" font-size="8.5" font-weight="bold" fill="#fef08a" text-anchor="middle">皇室</text>
+
+  <rect x="14" y="94" width="92" height="17" rx="3" fill="#1c1611" stroke="#eab308" stroke-width="1.2"/>
+  <text x="60" y="106" font-family="'Noto Serif TC', 'Songti TC', serif" font-size="9.5" font-weight="bold" fill="#f8fafc" text-anchor="middle" letter-spacing="0.5">明治天皇</text>
+</svg>
