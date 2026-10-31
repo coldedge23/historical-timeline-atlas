@@ -1,4 +1,4 @@
-// Page ids and small pure helpers shared by both data sources and the build. No data imports.
+// Page ids and small pure helpers shared by the pack source and the build. No data imports.
 export { pageIdFor } from '../civilizations/registry.js';
 
 // Era descriptions as data packs carry them: no keyEvents, firstEventId instead.

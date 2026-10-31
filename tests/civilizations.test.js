@@ -45,9 +45,9 @@ const configFiles = (dir, pattern = /\.js$/) => readdirSync(dir).flatMap((name) 
 });
 
 // Plan v2 section 3.7: the app asks the registry, it does not test for a civilization by name.
-// Allowed: the registry and configs, src/data, and the stage 2b fallback (removed in stage 4).
+// Allowed: the registry and configs, and src/data. Build scripts are outside src and not checked.
 const CIV_LITERAL = /(['"])(china|taiwan|japan|taiwanLens|japanAtlas)\1/;
-const LITERAL_ALLOWED = ['src/civilizations/', 'src/data/', 'src/store/legacySource.js'];
+const LITERAL_ALLOWED = ['src/civilizations/', 'src/data/'];
 
 test('no civilization ids hard-coded outside the registry', () => {
   const offenders = configFiles(join(ROOT, 'src'), /\.jsx?$/)

@@ -1,6 +1,6 @@
-// Stage 2b: the browser reads history data only through src/store/historyStore.js, from either source.
-// Both sources, routed the way the app routes (only the page a route opens in memory), must reproduce the
-// stage 0 baseline; the pack source must handle failures as plan v2 sections 3.5-3.6 describe.
+// Stage 2b: the browser reads history data only through src/store/historyStore.js, from the data packs.
+// Routed the way the app routes (only the page a route opens in memory), the packs must reproduce the
+// stage 0 baseline, and the pack source must handle failures as plan v2 sections 3.5-3.6 describe.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
@@ -8,10 +8,10 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BASELINE_DIR, collectBaseline, toFixture } from '../scripts/capture_baseline.mjs';
 import { createDataPacks } from '../scripts/build_data_packs.mjs';
-import { PAGE_IDS, createLegacySource } from '../src/store/legacySource.js';
+import { PAGE_IDS } from '../scripts/lib/app_views.mjs';
 import { createPackSource } from '../src/store/packSource.js';
 import { figureLinksFor, battleLinksFor, eventLinksFor, findOnPage, homeRecord, navigationDataset, routePageId, navigationCatalogs,
-  initialContext, selectionContext, createPageNavigator, DATA_MODE } from '../src/store/historyStore.js';
+  initialContext, selectionContext, createPageNavigator } from '../src/store/historyStore.js';
 import { parseNavigationHash, resolveNavigation, resolveInitialNavigation } from '../src/utils/navigation.js';
 import { contemporaryMatches } from '../src/utils/relationRules.js';
 
@@ -73,16 +73,16 @@ async function compare(name, source) {
   }
 }
 
-// Stage 2b-②: data packs are the default; only ?data=legacy selects the fallback.
-test('the browser uses the data packs by default', () => assert.equal(DATA_MODE, 'packs'));
+const packSource = () => createPackSource({ fetch: memoryFetch(built.files), maxPacks: 99 });
 
-test('legacy source, routed one page at a time, reproduces the baseline', () => compare('legacy', createLegacySource()));
-test('pack source, routed one page at a time, reproduces the baseline', () => compare('packs', createPackSource({ fetch: memoryFetch(built.files), maxPacks: 99 })));
+test('pack source, routed one page at a time, reproduces the baseline', () => compare('packs', packSource()));
 
 test('every link descriptor resolves on this page or in its home pack', async () => {
-  const source = createLegacySource();
+  const source = packSource();
+  // Home packs are looked up with peekPage, so every pack is loaded first.
+  for (const pageId of PAGE_IDS) await source.loadPage(pageId);
   for (const pageId of PAGE_IDS) {
-    const page = await source.loadPage(pageId);
+    const page = source.peekPage(pageId);
     const check = (d) => { if (!d) return; const r = findOnPage(page, d) || homeRecord(source.peekPage(d.homePack), d); assert.ok(r, `${pageId} ${d.key}`); assert.equal(r.id, d.id); };
     for (const f of page.figures) { const l = figureLinksFor(page, f); [...l.relations, ...l.events, ...l.battles].forEach(check); }
     for (const b of page.battles) { const l = battleLinksFor(page, b); [...l.commanders.attacker, ...l.commanders.defender, l.event].forEach(check); }
@@ -91,7 +91,7 @@ test('every link descriptor resolves on this page or in its home pack', async ()
 });
 
 test('Taiwan, Japan and China event and battle ids do not collide (initialContext relies on it)', async () => {
-  const source = createLegacySource();
+  const source = packSource();
   const pages = await Promise.all(PAGE_IDS.map((id) => source.loadPage(id)));
   const ids = (civ, kind) => new Set(pages.filter((p) => p.civ === civ).flatMap((p) => p[kind].map((r) => r.id)));
   for (const kind of ['events', 'battles']) {
@@ -209,7 +209,7 @@ test('navigator: a failure reports the error with a retry that loads again', asy
 });
 
 // Direct data imports that stay: config files and map geography (plan v2 section 3.7; tests/bundle-boundary.test.js
-// checks which bundle they land in). The legacy source is the transitional exception and is excluded here.
+// checks which bundle they land in). Only build scripts (scripts/lib/app_views.mjs) read the data modules themselves.
 const KNOWN_DIRECT_DATA_IMPORTS = [
   'src/components/FigureModal.js ../data/factionConfig.js',
   'src/components/FiguresView.js ../data/factionConfig.js',
@@ -234,8 +234,8 @@ test('no new direct data imports outside the store', () => {
   assert.deepEqual(found.sort(), [...KNOWN_DIRECT_DATA_IMPORTS].sort());
 });
 
-test('only the legacy source imports data inside src/store', () => {
+test('nothing in src/store imports data', () => {
   const dir = join(ROOT, 'src', 'store');
   const importers = readdirSync(dir).filter((f) => /from\s+'\.\.\/data\//.test(readFileSync(join(dir, f), 'utf8')));
-  assert.deepEqual(importers, ['legacySource.js']);
+  assert.deepEqual(importers, []);
 });

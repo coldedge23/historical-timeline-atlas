@@ -1,6 +1,5 @@
-// The one place the browser gets history data from (plan v2, stage 2b).
-// Two sources with the same async interface: data packs (packSource.js) and, during the transition,
-// the stage 2a in-memory catalog (legacySource.js, a separate chunk loaded only through import()).
+// The one place the browser gets history data from (plan v2, stage 2b): the data packs built into dist/data
+// (packSource.js). Stage 4 removed the ?data=legacy fallback; the parameter is now ignored.
 import { createPackSource } from './packSource.js';
 import { pageIdFor, withEraIds } from './pageIds.js';
 import { DEFAULT_CIV, ERA_CIVS, civById } from '../civilizations/registry.js';
@@ -8,31 +7,22 @@ import { DEFAULT_CIV, ERA_CIVS, civById } from '../civilizations/registry.js';
 export { pageIdFor } from './pageIds.js';
 export { DataLoadError } from './packSource.js';
 
-// Stage 2b-②: the data packs are the default; ?data=legacy falls back to the stage 2a catalog during the transition.
-const requested = new URLSearchParams(globalThis.location?.search || '').get('data');
-export const DATA_MODE = requested === 'legacy' ? 'legacy' : 'packs';
-
-let sourcePromise = null;
 let source = null;
-function dataSource() {
-  sourcePromise ||= (DATA_MODE === 'packs' ? Promise.resolve(createPackSource()) : import('./legacySource.js').then(m => m.createLegacySource()))
-    .then(s => (source = s));
-  return sourcePromise;
-}
+const dataSource = () => (source ||= createPackSource());
 
-export const loadCatalog = async (options) => (await dataSource()).loadCatalog(options);
-export const loadPage = async (pageId) => (await dataSource()).loadPage(pageId);
-export const loadSearchIndex = async () => (await dataSource()).loadSearchIndex();
+export const loadCatalog = (options) => dataSource().loadCatalog(options);
+export const loadPage = (pageId) => dataSource().loadPage(pageId);
+export const loadSearchIndex = () => dataSource().loadSearchIndex();
 // A page that is already in memory, or null.
 export const peekPage = (pageId) => source?.peekPage(pageId) || null;
 
-// Link descriptors for a record on the page: precomputed in the pack, or derived by the legacy source.
+// Link descriptors for a record on the page, precomputed in its pack.
 const NO_FIGURE_LINKS = { relations: [], events: [], battles: [] };
 const NO_BATTLE_LINKS = { commanders: { attacker: [], defender: [] }, event: null };
 const NO_EVENT_LINKS = { figures: [], battle: null, tags: {} };
-export const figureLinksFor = (page, figure) => (page.links ? page.links.figures[figure.id] : page.deriveLinks?.('figure', figure)) || NO_FIGURE_LINKS;
-export const battleLinksFor = (page, battle) => (page.links ? page.links.battles[battle.id] : page.deriveLinks?.('battle', battle)) || NO_BATTLE_LINKS;
-export const eventLinksFor = (page, evt) => (page.links ? page.links.events[evt.id] : page.deriveLinks?.('event', evt)) || NO_EVENT_LINKS;
+export const figureLinksFor = (page, figure) => page.links?.figures[figure.id] || NO_FIGURE_LINKS;
+export const battleLinksFor = (page, battle) => page.links?.battles[battle.id] || NO_BATTLE_LINKS;
+export const eventLinksFor = (page, evt) => page.links?.events[evt.id] || NO_EVENT_LINKS;
 
 const poolOf = (page, type) => type === 'figure' ? page.figures : type === 'event' ? page.events : page.battles;
 // Plan v2 section 3.3: a link opens on the current page when the page lists that id, otherwise in its home pack.

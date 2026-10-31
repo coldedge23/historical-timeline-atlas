@@ -1,7 +1,7 @@
 // Plan v2 section 3.7: which bundle each class of src/data file may land in, read from the esbuild metafile.
 // - main entry (and its static imports): no geo, no content
 // - geo: only in chunks that the main entry loads lazily
-// - content: only in the legacy fallback chunk (stage 2b), which stage 4 removes
+// - content: in no browser bundle at all; it reaches the browser only as data packs (stage 4 removed the fallback)
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -15,9 +15,6 @@ const esbuild = require(process.env.ATLAS_NODE_MODULES ? join(process.env.ATLAS_
 const { bundleOptions } = require('../scripts/esbuild_options.cjs');
 const classes = JSON.parse(readFileSync(join(ROOT, 'scripts', 'data_file_classes.json'), 'utf8')).classes;
 const classOf = Object.fromEntries(Object.entries(classes).flatMap(([name, { files }]) => files.map((file) => [`src/data/${file}`, name])));
-
-// The legacy data source is the only module that may pull content into a lazy chunk.
-const LEGACY_SOURCE = 'src/store/legacySource.js';
 
 const { metafile } = await esbuild.build({ ...bundleOptions(join(ROOT, 'dist', 'assets')), minify: false });
 const outputs = metafile.outputs;
@@ -41,8 +38,8 @@ test('the main entry carries no map geography', () => {
   assert.deepEqual(dataInputs(mainFiles, 'geo'), []);
 });
 
-test('history content stays out of the main entry', () => {
-  assert.deepEqual(dataInputs(mainFiles, 'content'), []);
+test('history content stays out of every bundle', () => {
+  assert.deepEqual(dataInputs(Object.keys(outputs), 'content'), []);
 });
 
 // Civilization maps (src/civilizations/*/config.js loadMap) are reached only through import().
@@ -50,17 +47,3 @@ test('civilization map components stay out of the main entry', () => {
   const maps = inputsOf(mainFiles).filter((input) => /^src\/components\/[A-Za-z]+AtlasMap\.jsx$/.test(input));
   assert.deepEqual(maps, []);
 });
-
-test('lazy chunks carry history content only through the legacy data source', () => {
-  for (const file of Object.keys(outputs).filter((f) => f.endsWith('.js') && !mainFiles.has(f))) {
-    const inputs = Object.keys(outputs[file].inputs);
-    const content = inputs.filter((input) => classOf[input] === 'content');
-    if (content.length) assert.ok(inputs.includes(LEGACY_SOURCE) || isOnlyReachedFromLegacy(file), `${file}: ${content.slice(0, 3).join(', ')}`);
-  }
-});
-
-// A chunk split out of the legacy chunk (shared modules) is reached only from chunks that hold the legacy source.
-function isOnlyReachedFromLegacy(file) {
-  const importers = Object.keys(outputs).filter((f) => outputs[f].imports.some((imp) => imp.path === file));
-  return importers.length > 0 && importers.every((f) => Object.keys(outputs[f].inputs).includes(LEGACY_SOURCE) || isOnlyReachedFromLegacy(f));
-}
