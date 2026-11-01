@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {SOURCE_REFERENCES} from '../src/data/sourceReferences.js';
 import {SOURCE_REVIEWS} from '../src/data/sourceReviews.js';
+import {EVENT_SOURCE_REFERENCES} from '../src/data/eventSourceReferences.js';
 import {HISTORY_LINK_GRAPH} from '../src/data/linkedHistoryCatalog.js';
 import {classifyHistorySources} from '../src/utils/historySources.js';
 import {parseBirthDeathYears} from '../src/utils/historicalDates.js';
@@ -37,4 +38,13 @@ test('hand-reviewed figures keep their review, and same-name or courtesy-name mi
  const figures=HISTORY_LINK_GRAPH.datasets.find(dataset=>dataset.id==='threeKingdoms').figures;
  assert.equal(classifyHistorySources(figures.find(figure=>figure.id==='guan_yu')).status,'traceable-reference');
  assert.equal(classifyHistorySources(figures.find(figure=>figure.id==='zhang_fei')).status,'verified-web');
+});
+// Wikisource renders {{*|x}} as 〈x〉 and drops {{--|x}}, so an anchor copied from wikitext with a template never matches a heading id.
+test('wikisource anchors use rendered heading ids, not template wikitext',()=>{
+ for(const [key,entries] of [SOURCE_REFERENCES,SOURCE_REVIEWS,EVENT_SOURCE_REFERENCES].flatMap(Object.entries)){
+  for(const entry of entries){
+   const anchor=decodeURIComponent(entry.url.split('#')[1]||'');
+   assert.ok(!anchor.includes('{{')&&!anchor.includes('}}'),`${key} ${entry.url}`);
+  }
+ }
 });
