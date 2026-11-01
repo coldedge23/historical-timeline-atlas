@@ -168,9 +168,20 @@ export function resolveFigureSelection(figure, currentFigures, { periods, events
   if (!(scope && !currentFigures.some(item => item.id === target.id))) return { target, switchTo: null };
   const civ = civById(target.civ) || civForPage(scope);
   const switchTo = { civ: civ.id };
-  if (civ.unit === 'period') switchTo.periodId = scope;
-  else switchTo.eraId = target.eraId || civ.defaultEraId;
   const events = civ.unit === 'period' ? periods[scope]?.events : eventsByCiv[civ.id];
-  switchTo.selectedEvent = events?.find(event => !target.eraId || event.eraId === target.eraId) || events?.[0] || null;
+  if (civ.unit === 'period') {
+    switchTo.periodId = scope;
+    switchTo.selectedEvent = events?.find(event => !target.eraId || event.eraId === target.eraId) || events?.[0] || null;
+    return { target, switchTo };
+  }
+  // Era pages: a figure without its own era opens at the earliest event it took part in, else at the event
+  // nearest the middle of its life, so the era and the selected event agree; the default era is the last resort.
+  const dated = (events || []).filter(event => event.eraId && Number.isFinite(event.year));
+  const took = new Set(target.participatedEventIds || []);
+  const mid = Number.isFinite(target.birthYear) && Number.isFinite(target.deathYear) ? (target.birthYear + target.deathYear) / 2 : null;
+  const own = target.eraId ? null : dated.filter(event => took.has(event.id)).sort((a, b) => a.year - b.year)[0]
+    || (mid === null ? null : dated.reduce((best, event) => !best || Math.abs(event.year - mid) < Math.abs(best.year - mid) ? event : best, null));
+  switchTo.eraId = target.eraId || own?.eraId || civ.defaultEraId;
+  switchTo.selectedEvent = own || events?.find(event => event.eraId === switchTo.eraId) || events?.[0] || null;
   return { target, switchTo };
 }

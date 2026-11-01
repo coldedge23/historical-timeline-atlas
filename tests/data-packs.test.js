@@ -57,7 +57,9 @@ function packSource() {
     },
     selectionFigures,
     selectionContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), eventsByCiv: { japan: jp.events, taiwan: tw.events } },
-    taiwanRelationTargets: (page, figure) => linkOf(page).figures[figure.id].relations.map((d) => ({ id: d.id, datasetId: d.homePack, eraId: d.eraId ?? undefined })),
+    // A relation chip opens the full record from its home pack (openFigureLink -> homeRecord in the app).
+    taiwanRelationTargets: (page, figure) => linkOf(page).figures[figure.id].relations.map((d) => packs[d.homePack]?.figures.find((f) => f.id === d.id && !f.ref)
+      || ({ id: d.id, datasetId: d.homePack, eraId: d.eraId ?? undefined })),
   };
 }
 
