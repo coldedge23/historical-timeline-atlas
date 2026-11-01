@@ -285,7 +285,8 @@ function Atlas({ catalog, initialPage }) {
     setSelectedBattle(bat);
     if (activeCiv.unit === 'era' && bat?.id) {
       const era = Object.entries(currentPage.eraBattleIds || {}).find(([, ids]) => ids.includes(bat.id))?.[0];
-      if (era && (activeCiv.battleRefocusesSameEra || era !== activeEraId)) {
+      // A battle in the era already shown leaves the timeline where it is (same on every era-based page).
+      if (era && era !== activeEraId) {
         setEraFor(activeCiv.id, era);
         setSelectedEvent(currentEvents.find(event => event.eraId === era) || null);
       }
