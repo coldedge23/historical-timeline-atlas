@@ -23,4 +23,5 @@ export const EUROPEWAR_CLAIM_FIELDS = {
   events: ['date', 'endDate'],
   battles: ['startDate', 'endDate', 'attacker.commanders', 'defender.commanders', 'attacker.forcesEstimate', 'defender.forcesEstimate',
     'attacker.casualtiesEstimate', 'defender.casualtiesEstimate'],
+  figures: ['birthDeathDisplay'],
 };

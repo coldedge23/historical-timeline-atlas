@@ -10,6 +10,7 @@
         "europewar/battles.js",
         "europewar/eras.js",
         "europewar/events.js",
+        "europewar/figures.js",
         "europewar/index.js",
         "eventLinkCorrections.js",
         "eventSourceReferences.js",

@@ -1,0 +1,99 @@
+// 二戰歐洲戰場人物（規劃 v6 第 9.4 節，批次 1）。生卒日期來自 Encyclopaedia Britannica 傳記條目的開頭（輔助來源，
+// 第 9.5 節），每筆以 claims 標出 birthDeathDisplay。本模組人物的 abilities 明設為 null，不計算娛樂性評分，人物彈窗不顯示雷達圖。
+// 查不到生卒日期的人物（例如 Britannica 只有短條目的帕克、李斯特、雷茲-希米格維）暫不建立，戰役中以純文字列名。
+const britannica = (name, slug, birthDeath) => ({
+  title: `Encyclopaedia Britannica: ${name}`,
+  url: `https://www.britannica.com/biography/${slug}`,
+  externalReviewed: true, reviewedAt: '2026-11-07', auxiliary: true, accessedAt: '2026-11-07',
+  claimScope: `條目開頭的生卒：${birthDeath}`,
+  claims: ['birthDeathDisplay'],
+});
+
+// birthplace 取自同一條目開頭的出生地，避免人物彈窗套用通用的籍貫預設值。
+const figure = ({ id, name, faction, role, birth, death, birthDeathDisplay, birthplace, shortBio, participatedEventIds = [], source }) => ({
+  id, name, faction, role, roles: [role], nativePlaceAncient: birthplace, abilities: null,
+  birthYear: Number(birth.slice(0, 4)), deathYear: Number(death.slice(0, 4)), birthDeathDisplay,
+  shortBio, bio: shortBio, avatar: null, participatedEventIds, relations: [], sources: [source],
+});
+
+export const EUROPEWAR_FIGURE_RECORDS = [
+  figure({
+    id: 'fig_ew_hitler', name: '希特勒', faction: 'axis', role: '德國元首',
+    birth: '1889', death: '1945', birthDeathDisplay: '1889 年 4 月 20 日 – 1945 年 4 月 30 日', birthplace: '奧地利布勞瑙',
+    shortBio: '生於奧地利布勞瑙，1945 年 4 月 30 日死於柏林。',
+    source: britannica('Adolf Hitler', 'Adolf-Hitler', 'born April 20, 1889, Braunau am Inn — died April 30, 1945, Berlin'),
+  }),
+  figure({
+    id: 'fig_ew_goering', name: '戈林', faction: 'axis', role: '德國空軍司令',
+    birth: '1893', death: '1946', birthDeathDisplay: '1893 年 1 月 12 日 – 1946 年 10 月 15 日', birthplace: '德國羅森海姆',
+    shortBio: '德國空軍司令，不列顛空戰中指揮德國空軍。生於羅森海姆，1946 年死於紐倫堡。',
+    source: britannica('Hermann Göring', 'Hermann-Goring', 'born January 12, 1893, Rosenheim — died October 15, 1946, Nuremberg'),
+  }),
+  figure({
+    id: 'fig_ew_doenitz', name: '鄧尼茨', faction: 'axis', role: '德國海軍將領',
+    birth: '1891', death: '1980', birthDeathDisplay: '1891 年 9 月 16 日 – 1980 年 12 月 24 日', birthplace: '德國柏林近郊格呂瑙',
+    shortBio: '德國海軍將領。生於柏林近郊的格呂瑙，1980 年死於奧米勒。',
+    source: britannica('Karl Dönitz', 'Karl-Donitz', 'born September 16, 1891, Grünau-bei-Berlin — died December 24, 1980, Aumühle'),
+  }),
+  figure({
+    id: 'fig_ew_guderian', name: '古德林', faction: 'axis', role: '德國陸軍將領',
+    birth: '1888', death: '1954', birthDeathDisplay: '1888 年 6 月 17 日 – 1954 年 5 月 14 日', birthplace: '庫爾姆',
+    shortBio: '德國陸軍將領。生於庫爾姆，1954 年死於福森附近的施萬高。',
+    source: britannica('Heinz Guderian', 'Heinz-Guderian', 'born June 17, 1888, Kulm — died May 14, 1954, Schwangau bei Füssen'),
+  }),
+  figure({
+    id: 'fig_ew_rundstedt', name: '倫德施泰特', faction: 'axis', role: '德國陸軍將領',
+    birth: '1875', death: '1953', birthDeathDisplay: '1875 年 12 月 12 日 – 1953 年 2 月 24 日', birthplace: '德國阿舍斯萊本',
+    shortBio: '德國陸軍將領。生於阿舍斯萊本，1953 年死於漢諾威。',
+    source: britannica('Gerd von Rundstedt', 'Gerd-von-Rundstedt', 'born Dec. 12, 1875, Aschersleben — died Feb. 24, 1953, Hannover'),
+  }),
+  figure({
+    id: 'fig_ew_manstein', name: '曼施坦因', faction: 'axis', role: '德國陸軍將領',
+    birth: '1887', death: '1973', birthDeathDisplay: '1887 年 11 月 24 日 – 1973 年 6 月 11 日', birthplace: '德國柏林',
+    shortBio: '德國陸軍將領。生於柏林，1973 年死於伊爾申豪森。',
+    source: britannica('Erich von Manstein', 'Erich-von-Manstein', 'born Nov. 24, 1887, Berlin — died June 11, 1973, Irschenhausen'),
+  }),
+  figure({
+    id: 'fig_ew_mussolini', name: '墨索里尼', faction: 'axis', role: '義大利總理',
+    birth: '1883', death: '1945', birthDeathDisplay: '1883 年 7 月 29 日 – 1945 年 4 月 28 日', birthplace: '義大利普雷達皮奧',
+    shortBio: '義大利總理（1922–1943），20 世紀歐洲第一位法西斯獨裁者。生於普雷達皮奧，1945 年死於東戈附近。',
+    source: britannica('Benito Mussolini', 'Benito-Mussolini', 'born July 29, 1883, Predappio, Italy — died April 28, 1945, near Dongo'),
+  }),
+  figure({
+    id: 'fig_ew_stalin', name: '史達林', faction: 'other', role: '蘇聯領導人',
+    birth: '1878', death: '1953', birthDeathDisplay: '1878 年 12 月 18 日（舊曆 12 月 6 日） – 1953 年 3 月 5 日', birthplace: '喬治亞哥里',
+    shortBio: '蘇聯領導人。生於喬治亞哥里，1953 年死於莫斯科。',
+    source: britannica('Joseph Stalin', 'Joseph-Stalin', 'born December 18 [December 6, Old Style], 1878, Gori — died March 5, 1953, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_churchill', name: '邱吉爾', faction: 'allies', role: '英國首相',
+    birth: '1874', death: '1965', birthDeathDisplay: '1874 年 11 月 30 日 – 1965 年 1 月 24 日', birthplace: '英格蘭牛津郡布倫海姆宮',
+    shortBio: '英國政治家，1940–1945 年與 1951–1955 年任首相，二戰期間領導英國。生於牛津郡布倫海姆宮，1965 年死於倫敦。',
+    participatedEventIds: ['evt_ew_churchill_prime_minister_1940'],
+    source: britannica('Winston Churchill', 'Winston-Churchill', 'born November 30, 1874, Blenheim Palace, Oxfordshire, England — died January 24, 1965, London'),
+  }),
+  figure({
+    id: 'fig_ew_dowding', name: '道丁', faction: 'allies', role: '英國空軍戰鬥機司令部司令',
+    birth: '1882', death: '1970', birthDeathDisplay: '1882 年 4 月 24 日 – 1970 年 2 月 15 日', birthplace: '蘇格蘭莫法特',
+    shortBio: '英國空軍上將，不列顛空戰期間任戰鬥機司令部司令。生於蘇格蘭莫法特，1970 年死於肯特郡坦布里奇韋爾斯。',
+    source: britannica('Hugh Dowding', 'Hugh-Caswall-Tremenheere-Dowding-1st-Baron-Dowding', 'born April 24, 1882, Moffat, Dumfriesshire, Scot. — died Feb. 15, 1970, Tunbridge Wells, Kent, Eng.'),
+  }),
+  figure({
+    id: 'fig_ew_gamelin', name: '甘末林', faction: 'allies', role: '法軍總司令',
+    birth: '1872', death: '1958', birthDeathDisplay: '1872 年 9 月 20 日 – 1958 年 4 月 18 日', birthplace: '法國巴黎',
+    shortBio: '二戰開始時的法軍總司令，未能阻止 1940 年 5 月德軍對法國的攻擊。生於巴黎，1958 年死於巴黎。',
+    source: britannica('Maurice Gamelin', 'Maurice-Gustave-Gamelin', 'born Sept. 20, 1872, Paris, Fr. — died April 18, 1958, Paris'),
+  }),
+  figure({
+    id: 'fig_ew_weygand', name: '魏剛', faction: 'allies', role: '在法國的盟軍總司令',
+    birth: '1867', death: '1965', birthDeathDisplay: '1867 年 1 月 21 日 – 1965 年 1 月 28 日', birthplace: '布魯塞爾',
+    shortBio: '法國陸軍軍官，二戰中任在法國的盟軍總司令，1940 年 6 月 12 日建議法國政府投降。生於布魯塞爾，1965 年死於巴黎。',
+    source: britannica('Maxime Weygand', 'Maxime-Weygand', 'born Jan. 21, 1867, Brussels — died Jan. 28, 1965, Paris'),
+  }),
+  figure({
+    id: 'fig_ew_mannerheim', name: '曼納海姆', faction: 'other', role: '芬蘭軍事領袖',
+    birth: '1867', death: '1951', birthDeathDisplay: '1867 年 6 月 4 日 – 1951 年 1 月 27 日', birthplace: '芬蘭阿斯凱寧',
+    shortBio: '芬蘭軍事領袖與政治家，二戰期間領導芬蘭抵禦蘇聯，1944–1946 年任總統。生於芬蘭阿斯凱寧，1951 年死於瑞士洛桑。',
+    source: britannica('Carl Gustaf Mannerheim', 'Carl-Gustaf-Emil-Mannerheim', 'born June 4, 1867, Askainen, Finland — died January 27, 1951, Lausanne, Switzerland'),
+  }),
+];

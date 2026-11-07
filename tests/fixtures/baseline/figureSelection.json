@@ -7711,6 +7711,84 @@
     "japan",
     "jp_edo",
     "japanAtlas:evt_jp_bansha_no_goku_1839"
+   ],
+   "europeWarAtlas:fig_ew_hitler": [
+    "europeWarAtlas:fig_ew_hitler",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_goering": [
+    "europeWarAtlas:fig_ew_goering",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_doenitz": [
+    "europeWarAtlas:fig_ew_doenitz",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_guderian": [
+    "europeWarAtlas:fig_ew_guderian",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_rundstedt": [
+    "europeWarAtlas:fig_ew_rundstedt",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_manstein": [
+    "europeWarAtlas:fig_ew_manstein",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_mussolini": [
+    "europeWarAtlas:fig_ew_mussolini",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_stalin": [
+    "europeWarAtlas:fig_ew_stalin",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_churchill": [
+    "europeWarAtlas:fig_ew_churchill",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_churchill_prime_minister_1940"
+   ],
+   "europeWarAtlas:fig_ew_dowding": [
+    "europeWarAtlas:fig_ew_dowding",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_gamelin": [
+    "europeWarAtlas:fig_ew_gamelin",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_weygand": [
+    "europeWarAtlas:fig_ew_weygand",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_mannerheim": [
+    "europeWarAtlas:fig_ew_mannerheim",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

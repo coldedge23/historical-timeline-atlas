@@ -545,6 +545,16 @@
   "japanAtlas>evt_jp_plaza_accord_1985": "b9b58a997ee25ac3",
   "japanAtlas>evt_jp_showa_ends_1989": "94c69b88ee1a3824",
   "europeWarAtlas>evt_ew_german_soviet_pact_1939": "b9b58a997ee25ac3",
-  "europeWarAtlas>evt_ew_invasion_of_poland_1939": "46a14c1695e94631"
+  "europeWarAtlas>evt_ew_invasion_of_poland_1939": "46a14c1695e94631",
+  "europeWarAtlas>evt_ew_britain_france_declare_war_1939": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_german_soviet_boundary_treaty_1939": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_treaty_of_moscow_1940": "bf0880133224fe83",
+  "europeWarAtlas>evt_ew_churchill_prime_minister_1940": "878503ea3a7ab4be",
+  "europeWarAtlas>evt_ew_italy_declares_war_1940": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_germans_enter_paris_1940": "f6163b867103c8d2",
+  "europeWarAtlas>evt_ew_compiegne_armistice_1940": "f6163b867103c8d2",
+  "europeWarAtlas>evt_ew_vichy_full_powers_1940": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_tripartite_pact_1940": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_italy_invades_greece_1940": "b9b58a997ee25ac3"
  }
 }

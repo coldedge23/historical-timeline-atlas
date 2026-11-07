@@ -93,7 +93,7 @@ for (const dataset of datasets) {
         }
       } else if (kind === 'events') add('warn','missing-coordinate',dataset.id,kind,record,'缺少地理座標，不適合直接定位');
       const strict = STRICT_RULES[dataset.id];
-      if (strict && kind !== 'figures') checkStrictRecord(strict, dataset, kind, record);
+      if (strict) checkStrictRecord(strict, dataset, kind, record);
       if (kind === 'events') {
         for (const id of record.figureIds || record.figuresInvolved || []) if (!allFigures.has(id)) add('fail','dangling-event-figure',dataset.id,kind,record,`人物連結不存在：${id}`);
       }

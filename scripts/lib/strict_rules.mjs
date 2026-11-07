@@ -12,7 +12,8 @@ export const isFilled = (value) => Array.isArray(value) ? value.length > 0
 export function strictProblems(strict, kind, record, battles = []) {
   const out = [];
   const add = (rule, detail) => out.push({ rule, detail });
-  for (const problem of dateProblems(record, { eras: strict.eras, requireStart: true })) add('invalid-date', problem);
+  // Figures have no record dates; their birth and death dates are checked as claims (plan v6, section 9.5).
+  if (kind !== 'figures') for (const problem of dateProblems(record, { eras: strict.eras, requireStart: true })) add('invalid-date', problem);
   const fields = strict.claimFields[kind] || [];
   const claimed = new Set((record.sources || []).flatMap((source) => Array.isArray(source?.claims) ? source.claims : []));
   for (const path of claimed) if (!fields.includes(path)) add('unknown-claim-field', `claims 列了不受檢查的欄位：${path}`);

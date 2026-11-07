@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { parseDate, eraForDate, dateProblems, formatDateRange } from '../src/utils/datedRecords.js';
 import { strictProblems, insideBounds } from '../scripts/lib/strict_rules.mjs';
 import { EUROPEWAR_ERA_DEFS, EUROPEWAR_ALL_EVENTS, EUROPEWAR_BATTLES, EUROPEWAR_CLAIM_FIELDS, EUROPEWAR_THEATERS, EUROPEWAR_SCALES,
-  EUROPEWAR_MODES, EUROPEWAR_MAP_BOUNDS, EUROPEWAR_PAGE_ID } from '../src/data/europewar/index.js';
+  EUROPEWAR_MODES, EUROPEWAR_MAP_BOUNDS, EUROPEWAR_PAGE_ID, EUROPEWAR_FIGURES } from '../src/data/europewar/index.js';
 import { contemporaryMatches } from '../src/utils/relationRules.js';
 import { civCoversYear } from '../src/civilizations/registry.js';
 import { createDataPacks } from '../scripts/build_data_packs.mjs';
@@ -41,11 +41,21 @@ test('dates: display writes the shared year once', () => {
   assert.equal(formatDateRange('1940-05'), '1940 年 5 月');
 });
 
-const goodBattle = () => structuredClone(EUROPEWAR_BATTLES[0]);
+// A battle checked on its own, so its related-battle links are dropped.
+const goodBattle = () => ({ ...structuredClone(EUROPEWAR_BATTLES.find((b) => b.id === 'bat_ew_german_invasion_of_poland_1939')), relatedBattleIds: [] });
 
 test('strict rules: the module data has no problems', () => {
   for (const evt of EUROPEWAR_ALL_EVENTS) assert.deepEqual(strictProblems(STRICT, 'events', evt), [], evt.id);
   for (const bat of EUROPEWAR_BATTLES) assert.deepEqual(strictProblems(STRICT, 'battles', bat, EUROPEWAR_BATTLES), [], bat.id);
+  for (const fig of EUROPEWAR_FIGURES) assert.deepEqual(strictProblems(STRICT, 'figures', fig), [], fig.id);
+});
+
+test('strict rules: a figure birth and death display needs a claiming source', () => {
+  const fig = structuredClone(EUROPEWAR_FIGURES[0]);
+  fig.sources[0].claims = [];
+  assert.deepEqual(rules(strictProblems(STRICT, 'figures', fig)), ['unsupported-claim']);
+  fig.birthDeathDisplay = '待考';
+  assert.deepEqual(rules(strictProblems(STRICT, 'figures', fig)), []);
 });
 
 test('strict rules: a filled value without a claiming source fails; 待考 does not', () => {

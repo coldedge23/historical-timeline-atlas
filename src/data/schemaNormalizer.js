@@ -404,6 +404,8 @@ export function normalizePeriodDataset(periodConfig) {
       );
     }).length;
 
+    // abilities: null means the module has no entertainment scores (WWII Europe, plan v6): keep it null.
+    if (fig.abilities === null) return;
     fig.abilitiesSource = fig.abilitiesSource || (fig.abilities ? 'provided-entertainment' : 'algorithm-entertainment');
     fig.abilities = computeFigureAbilities(fig, fig.participatedEventIds.length, batCount);
   });

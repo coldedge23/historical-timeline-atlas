@@ -9733,6 +9733,198 @@
     []
    ],
    "event": "europeWarAtlas:evt_ew_invasion_of_poland_1939"
+  },
+  "europeWarAtlas>bat_ew_battle_of_the_atlantic_1939": {
+   "attacker": [
+    "德國",
+    "待考",
+    "待考",
+    []
+   ],
+   "defender": [
+    "英國及盟軍",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_soviet_invasion_of_poland_1939": {
+   "attacker": [
+    "蘇聯",
+    "待考",
+    "待考",
+    []
+   ],
+   "defender": [
+    "波蘭",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_winter_war_1939": {
+   "attacker": [
+    "蘇聯",
+    "約 100 萬人",
+    "待考",
+    []
+   ],
+   "defender": [
+    "芬蘭",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": "europeWarAtlas:evt_ew_treaty_of_moscow_1940"
+  },
+  "europeWarAtlas>bat_ew_norwegian_campaign_1940": {
+   "attacker": [
+    "德國",
+    "待考",
+    "待考",
+    [
+     [
+      "法爾肯霍斯特",
+      "步兵上將，德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "挪威及英法盟軍",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_france_1940": {
+   "attacker": [
+    "德國",
+    "待考",
+    "待考",
+    []
+   ],
+   "defender": [
+    "法國及盟軍",
+    "待考",
+    "待考",
+    [
+     [
+      "甘末林",
+      "開戰時的法軍總司令",
+      "europeWarAtlas:fig_ew_gamelin"
+     ],
+     [
+      "魏剛",
+      "在法國的盟軍總司令",
+      "europeWarAtlas:fig_ew_weygand"
+     ]
+    ]
+   ],
+   "event": "europeWarAtlas:evt_ew_germans_enter_paris_1940"
+  },
+  "europeWarAtlas>bat_ew_dunkirk_1940": {
+   "attacker": [
+    "德國",
+    "待考",
+    "待考",
+    []
+   ],
+   "defender": [
+    "英法盟軍",
+    "待考",
+    "約 9 萬人留下被俘",
+    [
+     [
+      "拉姆齊",
+      "英國海軍將領，指揮撤退",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_britain_1940": {
+   "attacker": [
+    "德國",
+    "待考",
+    "約 1,733 架飛機被摧毀",
+    [
+     [
+      "戈林",
+      "德國空軍司令",
+      "europeWarAtlas:fig_ew_goering"
+     ]
+    ]
+   ],
+   "defender": [
+    "英國",
+    "待考",
+    "915 架飛機被摧毀",
+    [
+     [
+      "道丁",
+      "戰鬥機司令部司令",
+      "europeWarAtlas:fig_ew_dowding"
+     ],
+     [
+      "帕克",
+      "第 11 大隊指揮官，防衛英格蘭南部",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_balkans_campaign_1941": {
+   "attacker": [
+    "德國（及義大利）",
+    "待考",
+    "南斯拉夫作戰 558 人（151 人陣亡、392 人受傷、15 人失蹤）；希臘作戰約 1,100 人陣亡、4,000 人失蹤及受傷",
+    [
+     [
+      "利斯特",
+      "元帥，第 12 集團軍司令",
+      null
+     ],
+     [
+      "魏克斯",
+      "第 2 集團軍司令",
+      null
+     ],
+     [
+      "克萊斯特",
+      "第 1 裝甲兵團司令",
+      null
+     ],
+     [
+      "勒爾",
+      "第 4 航空隊司令",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "南斯拉夫、希臘及英國",
+    "待考",
+    "英軍損失 11,840 人（含戰俘）；南斯拉夫作戰被俘約 254,000 人；希臘作戰中希臘軍被俘約 27 萬人、南斯拉夫軍約 9 萬人",
+    [
+     [
+      "帕帕戈斯",
+      "希臘陸軍總司令",
+      null
+     ],
+     [
+      "威爾遜",
+      "英國遠征軍司令",
+      null
+     ]
+    ]
+   ],
+   "event": null
   }
  }
 }

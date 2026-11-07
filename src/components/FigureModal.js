@@ -238,7 +238,9 @@ export const FigureModal = ({
             </p>
           </div>
 
-          {/* 6-Dimension Ability Radar Chart */}
+          {/* 6-Dimension Ability Radar Chart: only for figures that carry scores; no made-up defaults
+              (WWII Europe figures have none, plan v6 section 9.5). */}
+          {figure.abilities && (
           <details>
             <summary className="cursor-pointer text-sm text-amber-300 font-bold py-2">娛樂性六維評分（點擊展開）</summary>
             <p className="text-sm text-zinc-300 leading-relaxed mb-3">這是探索用的娛樂評分，並非史料測量。系統依人物識別碼、角色與傳記關鍵字、重要度及事件／戰役連結數加權，限制在 58–99 分；原資料已有分數時沿用原設定。總分為六項相加；最高分至少 96 或總分至少 535 為 SSR，最高分至少 90 或總分至少 500 為 SR，其餘為 R。分數不代表真實能力高低。</p>
@@ -384,6 +386,7 @@ export const FigureModal = ({
               </div>
             </div>
           </details>
+          )}
 
           {/* Key Achievements */}
           {achievementsList.length > 0 && (

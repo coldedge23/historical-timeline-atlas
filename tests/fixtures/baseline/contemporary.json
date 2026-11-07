@@ -4403,9 +4403,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    4
+    3
    ]
   ],
   "republicModern>evt_1945_ww2_victory": [
@@ -4426,9 +4426,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "republicModern>evt_1945_taiwan_retrocession": [
@@ -4449,9 +4449,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "republicModern>evt_1947_constitution_enacted": [
@@ -5784,9 +5784,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "taiwanLens>evt_tw_retrocession_1945": [
@@ -5807,9 +5807,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "taiwanLens>evt_tw_228_peace_memorial_1947": [
@@ -8374,9 +8374,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    1
+    0
    ]
   ],
   "japanAtlas>evt_jp_pacific_war_1941": [
@@ -8397,9 +8397,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    2
+    1
    ]
   ],
   "japanAtlas>evt_jp_fall_of_singapore_1942": [
@@ -8420,9 +8420,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_saipan_tojo_resigns_1944": [
@@ -8443,9 +8443,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    5
+    4
    ]
   ],
   "japanAtlas>evt_jp_first_kamikaze_1944": [
@@ -8466,9 +8466,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    5
+    4
    ]
   ],
   "japanAtlas>evt_jp_tokyo_air_raid_1945": [
@@ -8489,9 +8489,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "japanAtlas>evt_jp_hiroshima_1945": [
@@ -8512,9 +8512,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "japanAtlas>evt_jp_nagasaki_soviet_1945": [
@@ -8535,9 +8535,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "japanAtlas>evt_jp_gyokuon_broadcast_1945": [
@@ -8558,9 +8558,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "japanAtlas>evt_jp_surrender_missouri_1945": [
@@ -8581,9 +8581,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "japanAtlas>evt_jp_allied_occupation_1945": [
@@ -8604,9 +8604,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940",
     "europeWarAtlas",
-    6
+    5
    ]
   ],
   "japanAtlas>evt_jp_tokyo_trial_1946": [
@@ -8845,6 +8845,236 @@
     "japanAtlas:evt_jp_tripartite_pact_1940",
     "japanAtlas",
     1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_britain_france_declare_war_1939": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    4
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    6
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_german_soviet_boundary_treaty_1939": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    4
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    6
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_treaty_of_moscow_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_churchill_prime_minister_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_italy_declares_war_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_germans_enter_paris_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_compiegne_armistice_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_vichy_full_powers_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_tripartite_pact_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_italy_invades_greece_1940": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    3
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    5
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    0
    ]
   ]
  }

@@ -3301,6 +3301,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_balkans_campaign_1941",
+     "巴爾幹戰役",
+     "1941 年 4 月 6 日 – 4 月 30 日 · 南斯拉夫與希臘",
+     30
+    ],
+    [
+     "battle",
      "republicModern",
      "bat_dingsiqiao_1926",
      "北伐汀泗橋與賀勝橋戰役",
@@ -3325,6 +3333,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_france_1940",
+     "法國戰役",
+     "1940 年 5 月 10 日 – 6 月 22 日 · 低地國與法國",
+     30
+    ],
+    [
+     "battle",
      "republicModern",
      "bat_guningtou_1949",
      "金門古寧頭戰役 (保衛臺灣奠定分治第一仗)",
@@ -3337,6 +3353,14 @@
      "bat_tw_guningtou_1949",
      "金門古寧頭戰役 (保衛臺灣穩定海峽第一仗)",
      "1949 · 金門縣金寧鄉古寧頭海灘",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_norwegian_campaign_1940",
+     "挪威戰役",
+     "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
      30
     ],
     [
@@ -3401,30 +3425,6 @@
      "bat_yellow_sea_1894",
      "甲午黃海海戰 (鄧世昌致遠艦撞吉野號壯烈殉國)",
      "西元 1894 年 · 鴨綠江口大東溝黃海海面",
-     0
-    ],
-    [
-     "figure",
-     "republicModern",
-     "fig_bai_chongxi",
-     "白崇禧",
-     "1893 - 1966 · 國民政府軍事委員會副總參謀長 · 首任國防部長",
-     0
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_tw_sakuma",
-     "佐久間左馬太",
-     "1844 - 1915 · 第五任臺灣總督",
-     0
-    ],
-    [
-     "battle",
-     "republicModern",
-     "bat_wuhan_1938",
-     "武漢會戰 (四百年華夏近代最大抗戰會戰)",
-     "1938 · 湖北武漢三鎮及大別山、萬家嶺",
      0
     ]
    ],
@@ -8034,6 +8034,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_balkans_campaign_1941",
+     "巴爾幹戰役",
+     "1941 年 4 月 6 日 – 4 月 30 日 · 南斯拉夫與希臘",
+     30
+    ],
+    [
+     "battle",
      "republicModern",
      "bat_dingsiqiao_1926",
      "北伐汀泗橋與賀勝橋戰役",
@@ -8058,10 +8066,26 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_france_1940",
+     "法國戰役",
+     "1940 年 5 月 10 日 – 6 月 22 日 · 低地國與法國",
+     30
+    ],
+    [
+     "battle",
      "republicModern",
      "bat_guningtou_1949",
      "金門古寧頭戰役 (保衛臺灣奠定分治第一仗)",
      "1949 · 金門縣金寧鄉古寧頭、嚨口海岸",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_norwegian_campaign_1940",
+     "挪威戰役",
+     "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
      30
     ],
     [
@@ -8111,30 +8135,6 @@
      "閻錫山",
      "1883 - 1960 · 晉系統帥 · 山西省政府主席 · 行政院長",
      3
-    ],
-    [
-     "event",
-     "suiTang",
-     "evt_baekgang_naval_663",
-     "大唐水軍白江口大破日本倭船，奠定東北亞千年和平秩序",
-     "西元 663 年 · 白江口（錦江河口）",
-     0
-    ],
-    [
-     "event",
-     "warringStates",
-     "evt_danyang_312",
-     "丹陽·藍田之戰：秦楚傾國大決戰，斬首八萬楚國盡失漢中六百里",
-     "前 312 年 · 丹水流域（丹陽）至秦藍田",
-     0
-    ],
-    [
-     "event",
-     "japanAtlas",
-     "evt_jp_boshin_war_1868",
-     "戊辰戰爭爆發與江戶無血開城",
-     "西元 1868 年 (慶應四年) · 武藏國江戶城西之丸與田町薩摩藩邸",
-     0
     ]
    ],
    "叛亂": [
@@ -12743,10 +12743,26 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_balkans_campaign_1941",
+     "巴爾幹戰役",
+     "1941 年 4 月 6 日 – 4 月 30 日 · 南斯拉夫與希臘",
+     30
+    ],
+    [
+     "battle",
      "republicModern",
      "bat_dingsiqiao_1926",
      "北伐汀泗橋與賀勝橋戰役",
      "1926 · 湖北咸寧汀泗橋、江夏賀勝橋",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_france_1940",
+     "法國戰役",
+     "1940 年 5 月 10 日 – 6 月 22 日 · 低地國與法國",
      30
     ],
     [
@@ -12763,6 +12779,14 @@
      "bat_tw_guningtou_1949",
      "金門古寧頭戰役 (保衛臺灣穩定海峽第一仗)",
      "1949 · 金門縣金寧鄉古寧頭海灘",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_norwegian_campaign_1940",
+     "挪威戰役",
+     "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
      30
     ],
     [
@@ -12819,30 +12843,6 @@
      "evt_baekgang_naval_663",
      "大唐水軍白江口大破日本倭船，奠定東北亞千年和平秩序",
      "西元 663 年 · 白江口（錦江河口）",
-     0
-    ],
-    [
-     "event",
-     "warringStates",
-     "evt_danyang_312",
-     "丹陽·藍田之戰：秦楚傾國大決戰，斬首八萬楚國盡失漢中六百里",
-     "前 312 年 · 丹水流域（丹陽）至秦藍田",
-     0
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_tw_shi_hengfeng",
-     "史恆豐",
-     "1921 - 2011 · 大二膽島戰役營長 · 陸軍少將",
-     0
-    ],
-    [
-     "battle",
-     "qingDynasty",
-     "bat_yellow_sea_1894",
-     "甲午黃海海戰 (鄧世昌致遠艦撞吉野號壯烈殉國)",
-     "西元 1894 年 · 鴨綠江口大東溝黃海海面",
      0
     ]
    ],
