@@ -23,7 +23,7 @@ test('dates: a month that crosses an era boundary belongs to no era', () => {
   assert.equal(eraForDate('1941-06-22', EUROPEWAR_ERA_DEFS).id, 'ewar_eastfront');
   assert.equal(eraForDate('1941-06-21', EUROPEWAR_ERA_DEFS).id, 'ewar_blitz');
   assert.equal(eraForDate('1941-05', EUROPEWAR_ERA_DEFS).id, 'ewar_blitz');
-  for (const crossing of ['1941-06', '1942-08', '1945-05', '1939-08']) assert.equal(eraForDate(crossing, EUROPEWAR_ERA_DEFS), null, crossing);
+  for (const crossing of ['1941-06', '1942-07', '1945-05', '1939-08']) assert.equal(eraForDate(crossing, EUROPEWAR_ERA_DEFS), null, crossing);
   assert.equal(eraForDate('1939-08-22', EUROPEWAR_ERA_DEFS), null, 'before the first era');
 });
 
