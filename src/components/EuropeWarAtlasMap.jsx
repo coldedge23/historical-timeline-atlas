@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Swords } from './Icons.js';
 import { EUROPEWAR_MAP } from '../data/europewar/europeWarMapGeoData.js';
+import { EUROPEWAR_MAP_CITIES } from '../data/europewar/europeWarMapCities.js';
 import { createMapProjection } from '../utils/conicProjection.js';
 
 // 二戰歐洲戰場的地圖分頁（docs/20261107_二戰歐洲戰場模組規劃_v6.md 第七節）：Natural Earth 現代海岸線與湖泊，
@@ -8,7 +9,8 @@ import { createMapProjection } from '../utils/conicProjection.js';
 const project = createMapProjection(EUROPEWAR_MAP.projection);
 const point = (record) => (Array.isArray(record?.coordinates) ? project(record.coordinates) : null);
 
-const COLORS = { sea: '#eedfc5', land: '#d3bd92', coast: '#8c7355', event: '#78350f', battle: '#b91c1c', selected: '#b45309' };
+const COLORS = { sea: '#eedfc5', land: '#d3bd92', coast: '#8c7355', city: '#4a3c2c', event: '#78350f', battle: '#b91c1c', selected: '#b45309' };
+const CITY_POINTS = EUROPEWAR_MAP_CITIES.map((c) => ({ ...c, at: project([c.lng, c.lat]) }));
 
 const activate = (handler) => (e) => {
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
@@ -52,6 +54,25 @@ export const EuropeWarAtlasMap = ({
             <path d={EUROPEWAR_MAP.land} fill={COLORS.land} stroke={COLORS.coast} strokeWidth="1" fillRule="evenodd" strokeLinejoin="round" />
             <path d={EUROPEWAR_MAP.lakes} fill={COLORS.sea} stroke={COLORS.coast} strokeWidth="0.6" strokeLinejoin="round" />
 
+            {/* 城市標籤（第 7.2 節）：畫在標記底下，不可點選。 */}
+            <g aria-hidden="true" pointerEvents="none">
+              {CITY_POINTS.map(({ neName, name, labelSide, at: [x, y] }) => {
+                // 現代名稱（括號內）換到第二行，避免長標籤蓋住鄰近城市。
+                const [periodName, modernName] = name.split('（');
+                const labelX = labelSide === 'left' ? x - 9 : x + 9;
+                return (
+                  <g key={neName}>
+                    <circle cx={x} cy={y} r="4" fill={COLORS.city} />
+                    <text x={labelX} y={y - 7} textAnchor={labelSide === 'left' ? 'end' : 'start'}
+                      fontSize="20" fill={COLORS.city} stroke={COLORS.land} strokeWidth="4" paintOrder="stroke">
+                      {periodName}
+                      {modernName && <tspan x={labelX} dy="19" fontSize="15">{`（${modernName}`}</tspan>}
+                    </text>
+                  </g>
+                );
+              })}
+            </g>
+
             {battleMarkers.map(({ record, at: [x, y] }) => {
               const selected = record.id === selectedBattle?.id;
               const tip = [record.name, record.yearDisplay || record.year, record.locationNote && `代表位置：${record.locationNote}`].filter(Boolean).join('\n');
@@ -89,7 +110,7 @@ export const EuropeWarAtlasMap = ({
               <span className="inline-flex items-center gap-1"><svg width="10" height="10" aria-hidden="true"><rect x="2" y="2" width="6" height="6" transform="rotate(45 5 5)" fill={COLORS.battle} /></svg>戰役</span>
               <span className="inline-flex items-center gap-1"><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="none" stroke={COLORS.battle} strokeDasharray="2 1.5" /></svg>代表位置</span>
             </p>
-            <p className="mt-0.5 text-[#5c4a35]">底圖為現代海岸線，不含國界（Natural Earth）；大西洋戰場只標代表位置。</p>
+            <p className="mt-0.5 text-[#5c4a35]">底圖為現代海岸線，不含國界（Natural Earth）；大西洋戰場只標代表位置。城市名稱為本專案慣用譯名。</p>
           </div>
         </div>
 
