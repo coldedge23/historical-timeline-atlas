@@ -396,10 +396,10 @@ export const Timeline = ({
                       .map((match) => { const civ = civById(match.civKey); return { ...match, meta: { label: civ.shortName, badgeBg: civ.badgeClass } }; });
 
                     return (
-                      <section className="timeline-card-section" aria-label="同期東亞歷史橫向對照">
+                      <section className="timeline-card-section" aria-label="同期歷史對照">
                         <h4 className="timeline-card-heading">
                           <Globe aria-hidden="true" className="w-3.5 h-3.5 text-indigo-300" />
-                          同期東亞歷史橫向對照
+                          同期歷史對照
                           <span className="timeline-card-heading-note">{evt.year > 0 ? `西元 ${evt.year} 年` : `前 ${Math.abs(evt.year)} 年`}・點擊可跨文明跳轉</span>
                         </h4>
                         <ul className="timeline-sync-list">

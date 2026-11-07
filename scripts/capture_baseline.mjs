@@ -9,6 +9,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ALL_LINKED_FIGURES, appPages, appCatalogs, appContemporaryPools, APP_ERAS, APP_INITIAL_CONTEXT, APP_SELECTION_CONTEXT } from './lib/app_views.mjs';
 import { resolveNavigation, resolveInitialNavigation } from '../src/utils/navigation.js';
+import { ERA_CIVS } from '../src/civilizations/registry.js';
 import { createSearchIndex, searchIndex } from '../src/utils/search.js';
 import { linkedEvents, figureRelations } from '../src/utils/figureLinks.js';
 import { figureBattles, battleAttacker, battleDefender, battleFigureIndex, resolveCommander, battleLinkedEvent, eventFigures, contemporaryMatches, resolveFigureSelection } from '../src/utils/relationRules.js';
@@ -73,11 +74,12 @@ function collectNavigation(source) {
   const cats = source.catalogs;
   const hashes = ['', '#period=sanguo', '#civ=korea', '#lens=taiwan', '#civ=japan&era=jp_edo', '#civ=taiwan&era=missing',
     '#period=yuanMing&event=missing&figure=missing&battle=missing', '#civ=japan&event=missing&era=jp_edo', '#period=threeKingdoms&tab=figures', '#period=threeKingdoms&tab=battles'];
+  const eraCivIds = ERA_CIVS.map(c => c.id);
   for (const [id, p] of Object.entries(cats)) {
-    if (id === 'taiwan' || id === 'japan') continue;
+    if (eraCivIds.includes(id)) continue;
     for (const [param, list] of [['event', p.events], ['figure', p.figures], ['battle', p.battles]]) for (const r of list || []) hashes.push(`#period=${id}&${param}=${r.id}`);
   }
-  for (const civ of ['taiwan', 'japan']) {
+  for (const civ of eraCivIds) {
     const c = cats[civ];
     for (const [param, list] of [['event', c.events], ['figure', c.figures], ['battle', c.battles]]) for (const r of list) hashes.push(`#civ=${civ}&${param}=${r.id}`);
   }
@@ -90,7 +92,7 @@ function collectNavigation(source) {
     const i = coldStart(hash);
     out[hash] = {
       restore: [r.civ, r.period, r.era, r.tab, r.event, r.figure, r.battle, r.unknown.civ, r.unknown.period],
-      coldStart: [i.civ, i.period, i.tab, i.eras.taiwan, i.eras.japan, i.selectedEvent?.id || '', i.selectedFigure?.id || '', i.selectedBattle?.id || ''],
+      coldStart: [i.civ, i.period, i.tab, ...eraCivIds.map(id => i.eras[id]), i.selectedEvent?.id || '', i.selectedFigure?.id || '', i.selectedBattle?.id || ''],
     };
   }
   return out;
@@ -203,12 +205,15 @@ export function toFixture(value) {
   return { hashed: true, data: Object.fromEntries(Object.entries(entries).map(([k, v]) => [k, shortHash(v)])) };
 }
 
+// --out <dir> writes the fixtures elsewhere, to review a change before tests/fixtures/baseline is replaced.
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  mkdirSync(BASELINE_DIR, { recursive: true });
+  const outAt = process.argv.indexOf('--out');
+  const outDir = outAt > 0 && process.argv[outAt + 1] ? process.argv[outAt + 1] : BASELINE_DIR;
+  mkdirSync(outDir, { recursive: true });
   for (const [name, value] of Object.entries(collectBaseline())) {
     const fixture = toFixture(value);
     const text = JSON.stringify(fixture, null, 1) + '\n';
-    writeFileSync(join(BASELINE_DIR, `${name}.json`), text);
+    writeFileSync(join(outDir, `${name}.json`), text);
     console.log(`${name}.json\t${(Buffer.byteLength(text) / 1024).toFixed(1)} KB${fixture.hashed ? '（摘要雜湊）' : ''}`);
   }
 }

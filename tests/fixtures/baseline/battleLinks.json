@@ -9718,6 +9718,21 @@
     []
    ],
    "event": null
+  },
+  "europeWarAtlas>bat_ew_german_invasion_of_poland_1939": {
+   "attacker": [
+    "德國",
+    "60 個師，近 150 萬人（含 2,000 輛以上戰車的先頭部隊）",
+    "待考",
+    []
+   ],
+   "defender": [
+    "波蘭",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": "europeWarAtlas:evt_ew_invasion_of_poland_1939"
   }
  }
 }

@@ -1,6 +1,6 @@
 // Pure relation rules shared by the modals, the timeline and app navigation.
 // Inputs are plain records; this module must never import history data.
-import { CIV_IDS, civById, civForPage } from '../civilizations/registry.js';
+import { CIV_IDS, civById, civForPage, civCoversYear } from '../civilizations/registry.js';
 
 // Battles where this figure was a commander or is mentioned in the summary (text match, not a confirmed link).
 // basis: commander-id (explicit), commander-name or summary-text (both derived from text).
@@ -138,10 +138,12 @@ export function getContemporaryRegimeLabel(civ, year) {
 }
 
 // Closest event by year in each other civilization; ties keep the earliest item in the pool.
+// A topic civilization (scope.yearRange) gets a row only for events in its range, and the current one, when it is a
+// topic, is matched only against events in its own range (plan v4 section 5).
 export function contemporaryMatches(evt, civilizationMode, crossCivPools) {
-  const otherCivs = CIV_IDS.filter((c) => c !== civilizationMode);
+  const otherCivs = CIV_IDS.filter((c) => c !== civilizationMode && civCoversYear(c, evt.year));
   return otherCivs.map((civKey) => {
-    const pool = crossCivPools[civKey] || [];
+    const pool = (crossCivPools[civKey] || []).filter((item) => civCoversYear(civilizationMode, item.year));
     let closest = null;
     let minDiff = Infinity;
     for (const item of pool) {

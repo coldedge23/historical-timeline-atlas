@@ -9,6 +9,7 @@ import { dirname, join } from 'node:path';
 import { createDataPacks } from '../scripts/build_data_packs.mjs';
 import { BASELINE_DIR, collectBaseline, toFixture } from '../scripts/capture_baseline.mjs';
 import { contemporaryMatches } from '../src/utils/relationRules.js';
+import { ERA_CIVS } from '../src/civilizations/registry.js';
 
 const { checkDataPacks } = createRequire(import.meta.url)('../scripts/check_data_packs.cjs');
 const built = createDataPacks();
@@ -24,11 +25,12 @@ const entityFromKey = (k) => { const [dataset, , ...id] = k.split(':'); return {
 function packSource() {
   const pages = Object.entries(packs).map(([id, pack]) => ({ id, civ: pack.meta.civ, events: pack.events, figures: pack.figures, battles: pack.battles }));
   const china = pages.filter((p) => p.civ === 'china');
-  const tw = packs.taiwanLens, jp = packs.japanAtlas;
+  // Era civilizations (one pack each, navigated by era) in registry order.
+  const eraPacks = ERA_CIVS.map((civ) => [civ, packs[civ.pageId]]);
+  const byEraCiv = (fn) => Object.fromEntries(eraPacks.map(([civ, pack]) => [civ.id, fn(pack, civ)]));
   const withEra = (pack) => pack.battles.map((b) => ({ ...b, eraId: Object.entries(pack.eraBattleIds).find(([, ids]) => ids.includes(b.id))?.[0] }));
   const catalogs = { ...Object.fromEntries(china.map((p) => [p.id, { id: p.id, name: packs[p.id].period.name, events: p.events, figures: p.figures, battles: p.battles }])),
-    taiwan: { id: 'taiwanLens', civ: 'taiwan', events: tw.events, figures: tw.figures, battles: withEra(tw) },
-    japan: { id: 'japanAtlas', civ: 'japan', events: jp.events, figures: jp.figures, battles: withEra(jp) } };
+    ...byEraCiv((pack, civ) => ({ id: civ.pageId, civ: civ.id, events: pack.events, figures: pack.figures, battles: withEra(pack) })) };
   const fields = search.fields;
   const searchEntries = search.entries.map((row) => { const e = Object.fromEntries(fields.map((f, i) => [f, row[i]])); return { ...e, item: { id: entityFromKey(e.key).id } }; });
   const pools = Object.fromEntries(Object.entries(catalog.contemporary).map(([civ, rows]) => [civ, rows.map(([key, year, title, periodId, eraId, regimes]) => ({ key, year, title, periodId, eraId, regimes }))]));
@@ -39,10 +41,9 @@ function packSource() {
   const linkOf = (page) => packs[page.id].links;
   return {
     pages, searchEntries, catalogs,
-    eras: { taiwan: tw.eras, japan: jp.eras },
-    initialContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), eraCivs: {
-      taiwan: { eras: tw.eras, eraBattleIds: tw.eraBattleIds, events: tw.events, figures: tw.figures, battles: tw.battles },
-      japan: { eras: jp.eras, eraBattleIds: jp.eraBattleIds, events: jp.events, figures: jp.figures, battles: jp.battles } } },
+    eras: byEraCiv((pack) => pack.eras),
+    initialContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])),
+      eraCivs: byEraCiv((pack) => ({ eras: pack.eras, eraBattleIds: pack.eraBattleIds, events: pack.events, figures: pack.figures, battles: pack.battles })) },
     figureLinks: (page, figure) => { const l = linkOf(page).figures[figure.id];
       return { relations: l.relations.map((d) => [bk(d), d.relationType, d.label]), events: l.events.map(bk), battles: l.battles.map(bk) }; },
     commanderTargets: (page, battle) => { const l = linkOf(page).battles[battle.id];
@@ -56,7 +57,7 @@ function packSource() {
         m.closest?.periodId || m.closest?.eraId || null, Number.isFinite(m.minDiff) ? m.minDiff : null]);
     },
     selectionFigures,
-    selectionContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), eventsByCiv: { japan: jp.events, taiwan: tw.events } },
+    selectionContext: { periods: Object.fromEntries(china.map((p) => [p.id, p])), eventsByCiv: byEraCiv((pack) => pack.events) },
     // A relation chip opens the full record from its home pack (openFigureLink -> homeRecord in the app).
     taiwanRelationTargets: (page, figure) => linkOf(page).figures[figure.id].relations.map((d) => packs[d.homePack]?.figures.find((f) => f.id === d.id && !f.ref)
       || ({ id: d.id, datasetId: d.homePack, eraId: d.eraId ?? undefined })),

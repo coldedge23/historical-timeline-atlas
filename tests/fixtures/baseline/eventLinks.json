@@ -543,6 +543,8 @@
   "japanAtlas>evt_jp_oil_shock_1973": "b9b58a997ee25ac3",
   "japanAtlas>evt_jp_china_peace_treaty_1978": "b9b58a997ee25ac3",
   "japanAtlas>evt_jp_plaza_accord_1985": "b9b58a997ee25ac3",
-  "japanAtlas>evt_jp_showa_ends_1989": "94c69b88ee1a3824"
+  "japanAtlas>evt_jp_showa_ends_1989": "94c69b88ee1a3824",
+  "europeWarAtlas>evt_ew_german_soviet_pact_1939": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_invasion_of_poland_1939": "46a14c1695e94631"
  }
 }

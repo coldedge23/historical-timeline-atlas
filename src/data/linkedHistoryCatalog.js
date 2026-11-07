@@ -9,6 +9,7 @@ import { normalizePeriodDataset } from './schemaNormalizer.js';
 import { buildHistoryLinkGraph } from './historyLinkGraph.js';
 import { TAIWAN_LENS_ERAS, TAIWAN_DEDICATED_FIGURES, TAIWAN_RELATED_FIGURE_IDS, TAIWAN_RELATED_BATTLES } from './taiwanLensData.js';
 import { JAPAN_FIGURES, JAPAN_BATTLES, JAPAN_ALL_EVENTS, projectLngLatToJapanMap } from './japan/index.js';
+import { EUROPEWAR_PAGE_ID, EUROPEWAR_FIGURES, EUROPEWAR_BATTLES, EUROPEWAR_ALL_EVENTS, EUROPEWAR_COORDINATE_ORDER } from './europewar/index.js';
 
 const taiwanEvents = TAIWAN_LENS_ERAS.flatMap(era => (era.keyEvents || []).map(event => ({...event,
   eraId:era.id, eraName:era.name,
@@ -23,7 +24,9 @@ const japanEvents = JAPAN_ALL_EVENTS.map(event => ({...event,
 const originalGraph = buildHistoryLinkGraph(applySourceReviews([
   ...Object.values(BASE_PERIODS),
   {id:'taiwanLens', name:'臺灣歷史', figures:TAIWAN_DEDICATED_FIGURES,events:taiwanEvents,battles:TAIWAN_RELATED_BATTLES},
-  {id:'japanAtlas', name:'日本歷史', figures:JAPAN_FIGURES,events:japanEvents,battles:JAPAN_BATTLES}
+  {id:'japanAtlas', name:'日本歷史', figures:JAPAN_FIGURES,events:japanEvents,battles:JAPAN_BATTLES},
+  // Datasets that carry civ resolve to it directly (historyLinkGraph navigation); new civilizations always do.
+  {id:EUROPEWAR_PAGE_ID, civ:'europewar', coordinateOrder:EUROPEWAR_COORDINATE_ORDER, name:'二戰歐洲戰場', figures:EUROPEWAR_FIGURES,events:EUROPEWAR_ALL_EVENTS,battles:EUROPEWAR_BATTLES}
 ]));
 const resolvedGraph = buildHistoryLinkGraph(originalGraph.datasets.map(normalizePeriodDataset));
 export const HISTORY_LINK_GRAPH = {...resolvedGraph,datasets:applyImagePolicy(applyChronologyReviews(resolvedGraph.datasets))};
@@ -32,6 +35,9 @@ export const LINKED_PERIODS = Object.fromEntries(Object.keys(BASE_PERIODS).map(i
 export const LINKED_TAIWAN_EVENTS = byId.taiwanLens.events;
 export const LINKED_JAPAN_EVENTS = byId.japanAtlas.events;
 export const LINKED_JAPAN_FIGURES = byId.japanAtlas.figures;
+export const LINKED_EUROPEWAR_EVENTS = byId[EUROPEWAR_PAGE_ID].events;
+export const LINKED_EUROPEWAR_FIGURES = byId[EUROPEWAR_PAGE_ID].figures;
+export const LINKED_EUROPEWAR_BATTLES = byId[EUROPEWAR_PAGE_ID].battles;
 const uniqueById = records => [...new Map(records.map(record=>[record.id,record])).values()];
 // First catalog wins for duplicates, consistent with the original pool.
 export const ALL_LINKED_FIGURES = HISTORY_LINK_GRAPH.datasets.flatMap(dataset=>dataset.figures).filter((figure,index,all)=>all.findIndex(other=>other.id===figure.id)===index);

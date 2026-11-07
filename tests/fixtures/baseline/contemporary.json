@@ -4399,6 +4399,13 @@
     "japanAtlas:evt_jp_fall_of_singapore_1942",
     "japanAtlas",
     1
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    4
    ]
   ],
   "republicModern>evt_1945_ww2_victory": [
@@ -4415,6 +4422,13 @@
     "japanAtlas:evt_jp_tokyo_air_raid_1945",
     "japanAtlas",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "republicModern>evt_1945_taiwan_retrocession": [
@@ -4431,6 +4445,13 @@
     "japanAtlas:evt_jp_tokyo_air_raid_1945",
     "japanAtlas",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "republicModern>evt_1947_constitution_enacted": [
@@ -5759,6 +5780,13 @@
     "japanAtlas:evt_jp_tokyo_air_raid_1945",
     "japanAtlas",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "taiwanLens>evt_tw_retrocession_1945": [
@@ -5775,6 +5803,13 @@
     "japanAtlas:evt_jp_tokyo_air_raid_1945",
     "japanAtlas",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "taiwanLens>evt_tw_228_peace_memorial_1947": [
@@ -8335,6 +8370,13 @@
     "taiwanLens:evt_tw_kominka_1937",
     "taiwanLens",
     3
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    1
    ]
   ],
   "japanAtlas>evt_jp_pacific_war_1941": [
@@ -8351,6 +8393,13 @@
     "taiwanLens:evt_tw_kominka_1937",
     "taiwanLens",
     4
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    2
    ]
   ],
   "japanAtlas>evt_jp_fall_of_singapore_1942": [
@@ -8366,6 +8415,13 @@
     "日治抗日與啟蒙時期",
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
+    3
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
     3
    ]
   ],
@@ -8383,6 +8439,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     1
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    5
    ]
   ],
   "japanAtlas>evt_jp_first_kamikaze_1944": [
@@ -8399,6 +8462,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     1
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    5
    ]
   ],
   "japanAtlas>evt_jp_tokyo_air_raid_1945": [
@@ -8415,6 +8485,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "japanAtlas>evt_jp_hiroshima_1945": [
@@ -8431,6 +8508,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "japanAtlas>evt_jp_nagasaki_soviet_1945": [
@@ -8447,6 +8531,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "japanAtlas>evt_jp_gyokuon_broadcast_1945": [
@@ -8463,6 +8554,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "japanAtlas>evt_jp_surrender_missouri_1945": [
@@ -8479,6 +8577,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "japanAtlas>evt_jp_allied_occupation_1945": [
@@ -8495,6 +8600,13 @@
     "taiwanLens:evt_tw_taihoku_raid_1945",
     "taiwanLens",
     0
+   ],
+   [
+    "europewar",
+    "第二次世界大戰（歐洲）",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939",
+    "europeWarAtlas",
+    6
    ]
   ],
   "japanAtlas>evt_jp_tokyo_trial_1946": [
@@ -8686,6 +8798,52 @@
     "戰後臺灣與現代矽島",
     "taiwanLens:evt_tw_wild_lily_1990",
     "taiwanLens",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_german_soviet_pact_1939": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    4
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    6
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_invasion_of_poland_1939": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    4
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    6
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_tripartite_pact_1940",
+    "japanAtlas",
     1
    ]
   ]

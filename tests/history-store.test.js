@@ -14,6 +14,7 @@ import { figureLinksFor, battleLinksFor, eventLinksFor, findOnPage, homeRecord, 
   initialContext, selectionContext, createPageNavigator } from '../src/store/historyStore.js';
 import { parseNavigationHash, resolveNavigation, resolveInitialNavigation } from '../src/utils/navigation.js';
 import { contemporaryMatches } from '../src/utils/relationRules.js';
+import { CIV_IDS } from '../src/civilizations/registry.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const bk = (d) => d ? `${d.homePack}:${d.id}` : null;
@@ -90,13 +91,14 @@ test('every link descriptor resolves on this page or in its home pack', async ()
   }
 });
 
-test('Taiwan, Japan and China event and battle ids do not collide (initialContext relies on it)', async () => {
+test('event and battle ids do not collide across civilizations (initialContext relies on it)', async () => {
   const source = packSource();
   const pages = await Promise.all(PAGE_IDS.map((id) => source.loadPage(id)));
   const ids = (civ, kind) => new Set(pages.filter((p) => p.civ === civ).flatMap((p) => p[kind].map((r) => r.id)));
   for (const kind of ['events', 'battles']) {
-    const [china, taiwan, japan] = ['china', 'taiwan', 'japan'].map((civ) => ids(civ, kind));
-    const shared = [...taiwan].filter((id) => china.has(id) || japan.has(id)).concat([...japan].filter((id) => china.has(id)));
+    const sets = CIV_IDS.map((civ) => [civ, ids(civ, kind)]);
+    const shared = sets.flatMap(([civ, own], i) => sets.slice(i + 1).flatMap(([other, theirs]) =>
+      [...own].filter((id) => theirs.has(id)).map((id) => `${civ}/${other}:${id}`)));
     assert.deepEqual(shared, [], kind);
   }
 });
@@ -211,6 +213,7 @@ test('navigator: a failure reports the error with a retry that loads again', asy
 // Direct data imports that stay: config files and map geography (plan v2 section 3.7; tests/bundle-boundary.test.js
 // checks which bundle they land in). Only build scripts (scripts/lib/app_views.mjs) read the data modules themselves.
 const KNOWN_DIRECT_DATA_IMPORTS = [
+  'src/components/BattlesView.js ../data/battlePhases.js',
   'src/components/FigureModal.js ../data/factionConfig.js',
   'src/components/FiguresView.js ../data/factionConfig.js',
   'src/components/HistoricalAtlasMap.jsx ../data/threeKingdoms/chinaMapData.js',

@@ -60,6 +60,11 @@
    "events": 154,
    "figures": 208,
    "battles": 44
+  },
+  "europeWarAtlas": {
+   "events": 2,
+   "figures": 0,
+   "battles": 1
   }
  }
 }

@@ -677,6 +677,38 @@ export const FACTION_CONFIGS = {
         stroke: '#71717a',
       },
     }
+  },
+  // 二戰歐洲戰場（規劃 v4 第六節）：陣營是總稱；各方實際包含哪些國家寫在戰役的 participants。
+  europeWarAtlas: {
+    order: ['axis', 'allies', 'soviet', 'other'],
+    labels: {
+      axis: '軸心國',
+      allies: '同盟國',
+      soviet: '蘇聯',
+      other: '中立與其他',
+    },
+    styles: {
+      axis: {
+        card: 'border-stone-500/50 hover:border-stone-300',
+        badge: 'bg-stone-900/80 text-stone-200 border-stone-500/50',
+        stroke: '#a8a29e',
+      },
+      allies: {
+        card: 'border-sky-600/50 hover:border-sky-400',
+        badge: 'bg-sky-950/70 text-sky-200 border-sky-500/50',
+        stroke: '#38bdf8',
+      },
+      soviet: {
+        card: 'border-red-700/50 hover:border-red-400',
+        badge: 'bg-red-950/70 text-red-200 border-red-600/50',
+        stroke: '#dc2626',
+      },
+      other: {
+        card: 'border-zinc-600/50 hover:border-zinc-400',
+        badge: 'bg-zinc-900/80 text-zinc-300 border-zinc-600/50',
+        stroke: '#71717a',
+      },
+    }
   }
 };
 

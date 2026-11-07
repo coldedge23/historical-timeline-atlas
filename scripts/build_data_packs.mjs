@@ -4,11 +4,11 @@ import { createHash } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { LINKED_PERIODS, PERIOD_OPTIONS, TAIWAN_LENS_ERAS, ERA_BATTLE_IDS, JAPAN_ERAS, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_CONFIGS,
-  appPages, appCatalogs, appContemporaryPools } from './lib/app_views.mjs';
+  EUROPEWAR_ERAS, EUROPEWAR_ERA_BATTLE_IDS, appPages, appCatalogs, appContemporaryPools } from './lib/app_views.mjs';
 import { createSearchIndex } from '../src/utils/search.js';
 import { entityKey, pageLinks } from '../src/utils/linkDerivation.js';
 import { getContemporaryRegimeLabel } from '../src/utils/relationRules.js';
-import { CIVILIZATIONS as REGISTRY } from '../src/civilizations/registry.js';
+import { CIVILIZATIONS as REGISTRY, civCoversYear } from '../src/civilizations/registry.js';
 
 export { entityKey };
 export const SCHEMA_VERSION = 1;
@@ -33,6 +33,7 @@ function buildPack(page) {
   }
   if (page.civ === 'taiwan') Object.assign(pack, { eras: TAIWAN_LENS_ERAS.map(eraSummary), eraBattleIds: ERA_BATTLE_IDS });
   if (page.civ === 'japan') Object.assign(pack, { eras: JAPAN_ERAS.map(eraSummary), eraBattleIds: JAPAN_ERA_BATTLE_IDS, warlordPeriods: JAPAN_WARLORD_PERIOD_CONFIGS });
+  if (page.civ === 'europewar') Object.assign(pack, { eras: EUROPEWAR_ERAS.map(eraSummary), eraBattleIds: EUROPEWAR_ERA_BATTLE_IDS });
   pack.links = pageLinks(page);
   return pack;
 }
@@ -51,9 +52,11 @@ export const CONTEMPORARY_FIELDS = ['key', 'year', 'title', 'periodId', 'eraId',
 function buildContemporary() {
   const pools = appContemporaryPools();
   // regimes: the label each civilization's row shows when this event is selected (Timeline sync list).
+  // A topic civilization (scope.yearRange) has no label for events outside its range: its row is not shown there.
   return Object.fromEntries(Object.entries(pools).map(([civ, pool]) => [civ, pool.map(e => [
     entityKey(e.datasetId, 'event', e.id), e.year ?? null, e.title ?? null, e.periodId ?? null, e.eraId ?? null,
-    typeof e.year === 'number' ? Object.fromEntries(CIVILIZATIONS.filter(c => c.id !== civ).map(c => [c.id, getContemporaryRegimeLabel(c.id, e.year)])) : null,
+    typeof e.year === 'number' ? Object.fromEntries(CIVILIZATIONS.filter(c => c.id !== civ && civCoversYear(c.id, e.year))
+      .map(c => [c.id, getContemporaryRegimeLabel(c.id, e.year)])) : null,
   ])]));
 }
 
@@ -76,8 +79,8 @@ export function createDataPacks() {
   const body = {
     civilizations: CIVILIZATIONS.map(c => ({ ...c, packs: Object.keys(packs).filter(id => packs[id].civ === c.id) })),
     periodOptions: PERIOD_OPTIONS, packs,
-    // Era menus for Taiwan and Japan, needed before their packs load (Header, cold-start routing).
-    eras: { taiwan: TAIWAN_LENS_ERAS.map(eraSummary), japan: JAPAN_ERAS.map(eraSummary) },
+    // Era menus for the era civilizations, needed before their packs load (Header, cold-start routing).
+    eras: { taiwan: TAIWAN_LENS_ERAS.map(eraSummary), japan: JAPAN_ERAS.map(eraSummary), europewar: EUROPEWAR_ERAS.map(eraSummary) },
     searchIndex: { file: searchFile, bytes: Buffer.byteLength(searchText) },
     contemporaryFields: CONTEMPORARY_FIELDS, contemporary: buildContemporary() };
   // buildId changes whenever any pack, the search index or the catalog body changes.

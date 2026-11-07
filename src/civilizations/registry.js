@@ -4,15 +4,22 @@
 import china from './china/config.js';
 import taiwan from './taiwan/config.js';
 import japan from './japan/config.js';
+import europewar from './europewar/config.js';
 
 // Order is the order of the civilization selector and of the contemporary sync rows.
-export const CIVILIZATIONS = [china, taiwan, japan];
+export const CIVILIZATIONS = [china, taiwan, japan, europewar];
 export const DEFAULT_CIV = china;
 export const CIV_IDS = CIVILIZATIONS.map(civ => civ.id);
 
 const byId = new Map(CIVILIZATIONS.map(civ => [civ.id, civ]));
 export const civById = (id) => byId.get(id) || null;
 export const isCivId = (id) => byId.has(id);
+
+// Whether a civilization covers a year: topics (scope.yearRange) cover only their range, others every year.
+export const civCoversYear = (civId, year) => {
+  const range = civById(civId)?.scope?.yearRange;
+  return !range || (Number.isFinite(year) && year >= range[0] && year <= range[1]);
+};
 
 // Civilizations navigated by era inside a single pack (as opposed to one pack per period).
 export const ERA_CIVS = CIVILIZATIONS.filter(civ => civ.unit === 'era');

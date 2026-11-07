@@ -7,6 +7,10 @@
       "files": [
         "chronologyDecisions.js",
         "chronologyReviews.js",
+        "europewar/battles.js",
+        "europewar/eras.js",
+        "europewar/events.js",
+        "europewar/index.js",
         "eventLinkCorrections.js",
         "eventSourceReferences.js",
         "historyLinkGraph.js",
@@ -108,6 +112,8 @@
       "name": "小型設定與純函式",
       "allowedIn": "可以在主入口，但不得再引入歷史內容資料",
       "files": [
+        "battlePhases.js",
+        "europewar/rules.js",
         "factionConfig.js",
         "imagePolicy.js",
         "schemaNormalizer.js"

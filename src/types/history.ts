@@ -14,7 +14,9 @@ export interface TimelineEvent {
   detail: string;
   locationNameAncient: string; // 當代地名，如 "赤壁"
   locationNameModern: string; // 現代地名，如 "湖北省咸寧市赤壁市"
-  coordinates?: [number, number]; // [lat, lng]
+  coordinates?: [number, number]; // 順序依資料集的 coordinateOrder：華夏 [lat, lng]；臺灣、日本、二戰歐洲 [lng, lat]
+  date?: string; // 二戰歐洲必填：YYYY-MM-DD 或 YYYY-MM（src/utils/datedRecords.js）
+  endDate?: string; // 持續一段時間的事件才填
   figureIds: string[]; // 關聯人物
   battleId?: string; // 關聯戰役詳情
   impact: string; // 歷史影響
@@ -69,10 +71,20 @@ export interface BattleEvent {
   eraName: string;
   locationAncient: string;
   locationModern: string;
-  coordinates: [number, number]; // [lat, lng]
+  coordinates: [number, number]; // 順序依資料集的 coordinateOrder：華夏 [lat, lng]；臺灣、日本、二戰歐洲 [lng, lat]
   summary: string;
   attacker: BattleSide;
   defender: BattleSide;
+  // 以下為二戰歐洲新增的選填欄位（docs/20261107_二戰歐洲戰場模組規劃_v4.md 第 4.1 節）
+  startDate?: string; // YYYY-MM-DD 或 YYYY-MM
+  endDate?: string;
+  scale?: 'campaign' | 'operation' | 'battle';
+  modes?: Array<'land' | 'air' | 'naval' | 'amphibious' | 'siege' | 'evacuation'>;
+  theaters?: Array<'western' | 'northern' | 'centraleast' | 'eastern' | 'mediterranean' | 'balkans' | 'atlantic'>;
+  participants?: { name: string; role: string; side: 'attacker' | 'defender' }[];
+  locationNote?: string; // 座標只是代表位置時的說明
+  relatedBattleIds?: string[]; // 同一資料包、雙向
+  // 來源可帶 claims：它支持的欄位路徑，例如 ['startDate', 'attacker.forcesEstimate']
   victor: 'attacker' | 'defender' | 'draw';
   victorStatement: string; // 如 "孫劉聯軍大勝，曹操北撤"
   tactics: string[]; // 核心戰術，如 ["詐降信", "連環計", "火攻", "乘風破浪"]

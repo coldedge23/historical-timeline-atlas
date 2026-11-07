@@ -8,6 +8,9 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TAIWAN_LENS_ERAS, TAIWAN_DEDICATED_FIGURES, TAIWAN_RELATED_BATTLES } from '../src/data/taiwanLensData.js';
 import { JAPAN_ALL_EVENTS, JAPAN_FIGURES, JAPAN_BATTLES } from '../src/data/japan/index.js';
+import { EUROPEWAR_PAGE_ID, EUROPEWAR_ALL_EVENTS, EUROPEWAR_FIGURES, EUROPEWAR_BATTLES, EUROPEWAR_ERA_DEFS, EUROPEWAR_COORDINATE_ORDER,
+  EUROPEWAR_MAP_BOUNDS, EUROPEWAR_CLAIM_FIELDS, EUROPEWAR_THEATERS, EUROPEWAR_SCALES, EUROPEWAR_MODES } from '../src/data/europewar/index.js';
+import { strictProblems, insideBounds } from './lib/strict_rules.mjs';
 import { parseBirthDeathYears } from '../src/data/schemaNormalizer.js';
 
 // Inspect original exports before normalization, so defaults cannot hide missing values.
@@ -25,8 +28,14 @@ for (const id of periodPaths) {
   }
   datasets.push(data);
 }
-datasets.push({id:'taiwanLens', events:TAIWAN_LENS_ERAS.flatMap(era=>era.keyEvents || []), figures:TAIWAN_DEDICATED_FIGURES, battles:TAIWAN_RELATED_BATTLES});
-datasets.push({id:'japanAtlas', events:JAPAN_ALL_EVENTS, figures:JAPAN_FIGURES, battles:JAPAN_BATTLES});
+// coordinateOrder: how the dataset writes [a,b] coordinates; datasets that declare nothing use [lat,lng].
+datasets.push({id:'taiwanLens', coordinateOrder:'lngLat', events:TAIWAN_LENS_ERAS.flatMap(era=>era.keyEvents || []), figures:TAIWAN_DEDICATED_FIGURES, battles:TAIWAN_RELATED_BATTLES});
+datasets.push({id:'japanAtlas', coordinateOrder:'lngLat', events:JAPAN_ALL_EVENTS, figures:JAPAN_FIGURES, battles:JAPAN_BATTLES});
+datasets.push({id:EUROPEWAR_PAGE_ID, civ:'europewar', coordinateOrder:EUROPEWAR_COORDINATE_ORDER, events:EUROPEWAR_ALL_EVENTS, figures:EUROPEWAR_FIGURES, battles:EUROPEWAR_BATTLES});
+// Rules only the WWII Europe module follows (plan docs/20261107_二戰歐洲戰場模組規劃_v4.md, sections 4 and 9.5).
+const STRICT_RULES = {[EUROPEWAR_PAGE_ID]: {eras:EUROPEWAR_ERA_DEFS, bounds:EUROPEWAR_MAP_BOUNDS, claimFields:EUROPEWAR_CLAIM_FIELDS,
+  theaters:EUROPEWAR_THEATERS, scales:EUROPEWAR_SCALES, modes:EUROPEWAR_MODES}};
+const COORDINATE_ORDER = Object.fromEntries(datasets.map(d=>[d.id, d.coordinateOrder || 'latLng']));
 const runtime = process.argv.includes('--runtime');
 const effective = runtime || process.argv.includes('--effective');
 const graph = runtime ? (await import('../src/data/linkedHistoryCatalog.js')).HISTORY_LINK_GRAPH : effective ? buildHistoryLinkGraph(applySourceReviews(datasets)) : null;
@@ -40,6 +49,9 @@ const findings = [];
 const sourceStatusCounts = {};
 const chronologyCounts = {};
 const add = (severity, rule, dataset, kind, record, detail) => findings.push({severity,rule,dataset,kind,id:record.id ?? '(缺少ID)',detail});
+function checkStrictRecord(strict, dataset, kind, record) {
+  for (const {rule, detail} of strictProblems(strict, kind, record, dataset.battles)) add('fail',rule,dataset.id,kind,record,detail);
+}
 const hasSource = record => ['source','sources','sourceNote','references','citations','reference','sourceUrl','sourceText'].some(key => {
   const value = record[key]; return Array.isArray(value) ? value.length > 0 : typeof value === 'string' && value.trim().length > 0;
 });
@@ -60,14 +72,14 @@ for (const dataset of datasets) {
       if (coordinate != null) {
         let lat, lng;
         if (Array.isArray(coordinate)) {
-          // history.ts defines China coordinates as [lat,lng]; legacy coords and TW/JP use [lng,lat].
+          // Each dataset declares its order (COORDINATE_ORDER): China [lat,lng]; TW/JP/WWII Europe [lng,lat]; legacy coords is mixed.
           if (record.coords && !record.coordinates) {
             // Legacy coords uses both orders. Match the runtime normalizer's
             // c0>60 convention, but record the inferred order for later cleanup.
             if (coordinate[0] > 60) [lng,lat] = coordinate;
             else [lat,lng] = coordinate;
             add('warn','legacy-coordinate-order',dataset.id,kind,record,'舊 coords 欄位依現行正規化規則判斷順序，建議統一明確經緯度物件');
-          } else if (['taiwanLens','japanAtlas'].includes(dataset.id)) [lng,lat] = coordinate;
+          } else if (COORDINATE_ORDER[dataset.id] === 'lngLat') [lng,lat] = coordinate;
           else [lat,lng] = coordinate;
         } else if (typeof coordinate === 'object') ({lat,lng} = coordinate);
         if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat)>90 || Math.abs(lng)>180) {
@@ -75,7 +87,13 @@ for (const dataset of datasets) {
             add('warn','coordinate-order-mismatch',dataset.id,kind,record,`座標倒序後才符合地理範圍，與宣告格式不一致：${JSON.stringify(coordinate)}`);
           else add('fail','invalid-coordinate',dataset.id,kind,record,`無效經緯度：${JSON.stringify(coordinate)}`);
         }
+        const strict = STRICT_RULES[dataset.id];
+        if (strict && kind !== 'figures' && Number.isFinite(lat) && Number.isFinite(lng)) {
+          if (!insideBounds([lng, lat], strict.bounds)) add('fail','outside-map-bounds',dataset.id,kind,record,`座標不在地圖主圖範圍內：${JSON.stringify(coordinate)}`);
+        }
       } else if (kind === 'events') add('warn','missing-coordinate',dataset.id,kind,record,'缺少地理座標，不適合直接定位');
+      const strict = STRICT_RULES[dataset.id];
+      if (strict && kind !== 'figures') checkStrictRecord(strict, dataset, kind, record);
       if (kind === 'events') {
         for (const id of record.figureIds || record.figuresInvolved || []) if (!allFigures.has(id)) add('fail','dangling-event-figure',dataset.id,kind,record,`人物連結不存在：${id}`);
       }
