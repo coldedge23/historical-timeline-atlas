@@ -1,0 +1,106 @@
+{
+  "source": "Natural Earth v5.1.2 ne_50m_populated_places_simple.geojson",
+  "sha256": "8e70756b39fae9bcdc1e332bfc510c024c5edd3a13203ffd20092ee37b61d978",
+  "cities": [
+    {
+      "name": "Warsaw",
+      "lng": 21.005347,
+      "lat": 52.230872
+    },
+    {
+      "name": "Moscow",
+      "lng": 37.613577,
+      "lat": 55.75411
+    },
+    {
+      "name": "Berlin",
+      "lng": 13.399603,
+      "lat": 52.523764
+    },
+    {
+      "name": "London",
+      "lng": -0.118668,
+      "lat": 51.501941
+    },
+    {
+      "name": "Paris",
+      "lng": 2.352992,
+      "lat": 48.858092
+    },
+    {
+      "name": "Volgograd",
+      "lng": 44.498015,
+      "lat": 48.711956
+    },
+    {
+      "name": "St.  Petersburg",
+      "lng": 30.314074,
+      "lat": 59.94096
+    },
+    {
+      "name": "Rome",
+      "lng": 12.481313,
+      "lat": 41.897902
+    },
+    {
+      "name": "Oslo",
+      "lng": 10.748033,
+      "lat": 59.918636
+    },
+    {
+      "name": "Kyiv",
+      "lng": 30.514682,
+      "lat": 50.435313
+    },
+    {
+      "name": "Minsk",
+      "lng": 27.564681,
+      "lat": 53.901923
+    },
+    {
+      "name": "Kharkiv",
+      "lng": 36.248079,
+      "lat": 50.001929
+    },
+    {
+      "name": "Sevastopol",
+      "lng": 33.524395,
+      "lat": 44.603925
+    },
+    {
+      "name": "Caen",
+      "lng": -0.349989,
+      "lat": 49.183754
+    },
+    {
+      "name": "Helsinki",
+      "lng": 24.932457,
+      "lat": 60.163804
+    },
+    {
+      "name": "Athens",
+      "lng": 23.731375,
+      "lat": 37.985272
+    },
+    {
+      "name": "Belgrade",
+      "lng": 20.466045,
+      "lat": 44.820591
+    },
+    {
+      "name": "Alexandria",
+      "lng": 29.94805,
+      "lat": 31.201965
+    },
+    {
+      "name": "Algiers",
+      "lng": 3.048607,
+      "lat": 36.765011
+    },
+    {
+      "name": "Palermo",
+      "lng": 13.348081,
+      "lat": 38.126969
+    }
+  ]
+}

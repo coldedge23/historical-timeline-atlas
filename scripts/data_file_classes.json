@@ -103,6 +103,7 @@
       "allowedIn": "只能在延後載入的地圖分包中",
       "files": [
         "threeKingdoms/chinaMapData.js",
+        "europewar/europeWarMapGeoData.js",
         "japan/japanMapGeoData.js",
         "japan/japanPrefecturesGeoData.js",
         "taiwanMapGeoData.js"

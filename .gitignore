@@ -21,3 +21,6 @@ Thumbs.db
 
 # Build output (deployed by GitHub Actions)
 dist/
+
+# Downloaded source data (scripts/build_europewar_basemap.mjs re-downloads it)
+.cache/
