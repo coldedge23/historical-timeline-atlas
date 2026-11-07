@@ -1,4 +1,4 @@
-// Lambert conformal conic projection for the WWII Europe map (plan docs/20261107_二戰歐洲戰場模組規劃_v5.md, section 7).
+// Lambert conformal conic projection for the WWII Europe map (plan docs/20261107_二戰歐洲戰場模組規劃_v6.md, section 7).
 // Pure, no data. scripts/build_europewar_basemap.mjs projects the coastline with it and writes the parameters into
 // the map data; the map component and the tests project record coordinates with the same parameters.
 // Input is always [lng, lat] in degrees (plan section 4.5).

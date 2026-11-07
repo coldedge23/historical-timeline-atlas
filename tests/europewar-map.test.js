@@ -1,4 +1,4 @@
-// WWII Europe map (plan docs/20261107_二戰歐洲戰場模組規劃_v5.md, sections 4.5 and 7): coordinate anchors against
+// WWII Europe map (plan docs/20261107_二戰歐洲戰場模組規劃_v6.md, sections 4.5 and 7): coordinate anchors against
 // Natural Earth city points, a swapped-coordinate check that must fail, and every marker inside the drawn map.
 import test from 'node:test';
 import assert from 'node:assert/strict';

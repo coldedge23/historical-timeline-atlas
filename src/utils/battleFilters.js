@@ -1,4 +1,4 @@
-// Battle list filters (plan docs/20261107_二戰歐洲戰場模組規劃_v5.md, section 4.7). Pure helpers, no history data.
+// Battle list filters (plan docs/20261107_二戰歐洲戰場模組規劃_v6.md, section 4.7). Pure helpers, no history data.
 // Phases come from the page's pack (battlePhases, built from src/data/battlePhases.js); theater labels from its
 // battleTaxonomy (only packs whose battles carry theaters have one).
 
