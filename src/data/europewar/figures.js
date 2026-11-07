@@ -145,4 +145,23 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '英國陸軍元帥，以在北非對抗隆美爾的戰役及之後在義大利、西歐的指揮聞名。1969 年死於白金漢郡斯勞。',
     source: britannica('Harold Alexander', 'Harold-Rupert-Leofric-George-Alexander-1st-Earl-Alexander-of-Tunis', 'born Dec. 10, 1891, London — died June 16, 1969, Slough, Buckinghamshire, Eng.'),
   }),
+  figure({
+    id: 'fig_ew_konev', name: '科涅夫', faction: 'allies', role: '蘇聯元帥',
+    birth: '1897', death: '1973', birthDeathDisplay: '1897 年 12 月 28 日 – 1973 年 5 月 21 日', birthplace: '俄羅斯大烏斯秋格附近的洛傑伊諾',
+    shortBio: '二戰中傑出的蘇聯將領之一，領導對德攻勢；1945 年與朱可夫競相攻取柏林。1973 年死於莫斯科。',
+    source: britannica('Ivan Stepanovich Konev', 'Ivan-Stepanovich-Konev', 'born Dec. 28 [Dec. 16, Old Style], 1897, Lodeino, near Veliky Ustyug, Russia — died May 21, 1973, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_model', name: '莫德爾', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1891', death: '1945', birthDeathDisplay: '1891 年 1 月 24 日 – 1945 年 4 月 21 日', birthplace: '德國馬格德堡附近的根廷',
+    shortBio: '二戰德國陸軍元帥，市場花園行動時任 B 集團軍群司令。1945 年 4 月死於林托夫附近。',
+    source: britannica('Walther Model', 'Walther-Model', 'born Jan. 24, 1891, Genthin, near Magdeburg, Ger. — died April 21, 1945, near Lintorf'),
+  }),
+  figure({
+    id: 'fig_ew_degaulle', name: '戴高樂', faction: 'allies', role: '自由法國領袖',
+    birth: '1890', death: '1970', birthDeathDisplay: '1890 年 11 月 22 日 – 1970 年 11 月 9 日', birthplace: '法國里爾',
+    shortBio: '法國軍人、作家與政治家，法蘭西第五共和的締造者。1944 年 8 月巴黎解放後才獲盟國完全承認其領導地位。1970 年死於科隆貝雙教堂村。',
+    participatedEventIds: ['evt_ew_liberation_of_paris_1944'],
+    source: britannica('Charles de Gaulle', 'Charles-de-Gaulle-president-of-France', 'born November 22, 1890, Lille, France — died November 9, 1970, Colombey-les-deux-Églises'),
+  }),
 ];

@@ -7715,8 +7715,8 @@
    "europeWarAtlas:fig_ew_hitler": [
     "europeWarAtlas:fig_ew_hitler",
     "europewar",
-    "ewar_blitz",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_july_plot_1944"
    ],
    "europeWarAtlas:fig_ew_goering": [
     "europeWarAtlas:fig_ew_goering",
@@ -7757,8 +7757,8 @@
    "europeWarAtlas:fig_ew_stalin": [
     "europeWarAtlas:fig_ew_stalin",
     "europewar",
-    "ewar_blitz",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_yalta_conference_1945"
    ],
    "europeWarAtlas:fig_ew_churchill": [
     "europeWarAtlas:fig_ew_churchill",
@@ -7793,8 +7793,8 @@
    "europeWarAtlas:fig_ew_zhukov": [
     "europeWarAtlas:fig_ew_zhukov",
     "europewar",
-    "ewar_blitz",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_elbe_link_up_1945"
    ],
    "europeWarAtlas:fig_ew_roosevelt": [
     "europeWarAtlas:fig_ew_roosevelt",
@@ -7837,6 +7837,24 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_konev": [
+    "europeWarAtlas:fig_ew_konev",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_elbe_link_up_1945"
+   ],
+   "europeWarAtlas:fig_ew_model": [
+    "europeWarAtlas:fig_ew_model",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_degaulle": [
+    "europeWarAtlas:fig_ew_degaulle",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_liberation_of_paris_1944"
    ]
   },
   "taiwanPage": {

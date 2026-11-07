@@ -2755,6 +2755,28 @@
   "europeWarAtlas>evt_ew_italian_armistice_1943": {
    "巴多格里奧": null,
    "卡斯特拉諾": null
+  },
+  "europeWarAtlas>evt_ew_july_plot_1944": {
+   "史陶芬堡": null
+  },
+  "europeWarAtlas>evt_ew_liberation_of_paris_1944": {
+   "肖爾蒂茨": null,
+   "勒克萊爾": null
+  },
+  "europeWarAtlas>evt_ew_remagen_bridge_1945": {
+   "霍奇斯": null
+  },
+  "europeWarAtlas>evt_ew_execution_of_mussolini_1945": {
+   "貝塔奇": null
+  },
+  "europeWarAtlas>evt_ew_death_of_hitler_1945": {
+   "魏德林": null
+  },
+  "europeWarAtlas>evt_ew_german_surrender_1945": {
+   "約德爾": null,
+   "史密斯": null,
+   "蘇斯洛帕羅夫": null,
+   "塞維茲": null
   }
  }
 }

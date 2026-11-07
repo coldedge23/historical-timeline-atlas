@@ -3366,6 +3366,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_battle_of_berlin_1945",
+     "柏林戰役",
+     "1945 年 4 月 16 日 – 5 月 2 日 · 柏林",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_norwegian_campaign_1940",
      "挪威戰役",
      "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
@@ -3417,14 +3425,6 @@
      "evt_baekgang_naval_663",
      "大唐水軍白江口大破日本倭船，奠定東北亞千年和平秩序",
      "西元 663 年 · 白江口（錦江河口）",
-     0
-    ],
-    [
-     "event",
-     "warringStates",
-     "evt_danyang_312",
-     "丹陽·藍田之戰：秦楚傾國大決戰，斬首八萬楚國盡失漢中六百里",
-     "前 312 年 · 丹水流域（丹陽）至秦藍田",
      0
     ]
    ],
@@ -8091,6 +8091,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_battle_of_berlin_1945",
+     "柏林戰役",
+     "1945 年 4 月 16 日 – 5 月 2 日 · 柏林",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_norwegian_campaign_1940",
      "挪威戰役",
      "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
@@ -8126,14 +8134,6 @@
      "fig_tw_shi_hengfeng",
      "史恆豐",
      "1921 - 2011 · 大二膽島戰役營長 · 陸軍少將",
-     3
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_tw_sakuma",
-     "佐久間左馬太",
-     "1844 - 1915 · 第五任臺灣總督",
      3
     ]
    ],
@@ -12792,6 +12792,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_battle_of_berlin_1945",
+     "柏林戰役",
+     "1945 年 4 月 16 日 – 5 月 2 日 · 柏林",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_norwegian_campaign_1940",
      "挪威戰役",
      "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
@@ -12835,14 +12843,6 @@
      "evt_jp_boshin_war_1868",
      "戊辰戰爭爆發與江戶無血開城",
      "西元 1868 年 (慶應四年) · 武藏國江戶城西之丸與田町薩摩藩邸",
-     3
-    ],
-    [
-     "figure",
-     "japanAtlas",
-     "fig_jp_baba_nobuharu",
-     "馬場信春",
-     "1515 - 1575 · 武田四名臣之一 · 殿軍防禦大師 · 戰國第一堅將",
      3
     ]
    ],

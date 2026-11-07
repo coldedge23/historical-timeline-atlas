@@ -565,6 +565,18 @@
   "europeWarAtlas>evt_ew_casablanca_conference_1943": "4c55ec4fe618bf89",
   "europeWarAtlas>evt_ew_warsaw_ghetto_uprising_1943": "b9b58a997ee25ac3",
   "europeWarAtlas>evt_ew_fall_of_mussolini_1943": "81761ed42cbcdd7f",
-  "europeWarAtlas>evt_ew_italian_armistice_1943": "a9044191bbb7304a"
+  "europeWarAtlas>evt_ew_italian_armistice_1943": "a9044191bbb7304a",
+  "europeWarAtlas>evt_ew_v1_attacks_london_1944": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_july_plot_1944": "91f678303e2be007",
+  "europeWarAtlas>evt_ew_romania_changes_sides_1944": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_liberation_of_paris_1944": "13a3cf173288ecf8",
+  "europeWarAtlas>evt_ew_liberation_of_auschwitz_1945": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_yalta_conference_1945": "99ec700f66c338d7",
+  "europeWarAtlas>evt_ew_bombing_of_dresden_1945": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_remagen_bridge_1945": "b9b58a997ee25ac3",
+  "europeWarAtlas>evt_ew_elbe_link_up_1945": "b16011cefa8c0bd2",
+  "europeWarAtlas>evt_ew_execution_of_mussolini_1945": "da5d37859b2aea17",
+  "europeWarAtlas>evt_ew_death_of_hitler_1945": "3e53fbc628c86592",
+  "europeWarAtlas>evt_ew_german_surrender_1945": "b9b58a997ee25ac3"
  }
 }

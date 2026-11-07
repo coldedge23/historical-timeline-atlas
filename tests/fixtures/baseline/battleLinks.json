@@ -10141,6 +10141,159 @@
     []
    ],
    "event": null
+  },
+  "europeWarAtlas>bat_ew_normandy_landings_1944": {
+   "attacker": [
+    "美國、英國及加拿大",
+    "近 16 萬人登陸，其中海運上岸逾 13.2 萬人、空降逾 1.8 萬人",
+    "待考",
+    [
+     [
+      "艾森豪",
+      "盟軍最高指揮官",
+      "europeWarAtlas:fig_ew_eisenhower"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "待考",
+    [
+     [
+      "隆美爾",
+      "B 集團軍群司令（D-Day 當天不在司令部）",
+      "europeWarAtlas:fig_ew_rommel"
+     ],
+     [
+      "倫德施泰特",
+      "西線總司令",
+      "europeWarAtlas:fig_ew_rundstedt"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_operation_bagration_1944": {
+   "attacker": [
+    "蘇聯",
+    "待考",
+    "逾 75 萬人陣亡或受傷",
+    []
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "估計 35 萬至 67 萬人陣亡、受傷或被俘",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_operation_market_garden_1944": {
+   "attacker": [
+    "英國、美國及波蘭",
+    "約 3.5 萬名傘兵與滑翔機部隊",
+    "美軍 3,996 人死傷或失蹤；英軍及波蘭軍 11,000–13,000 人死傷、6,450 人被俘",
+    [
+     [
+      "蒙哥馬利",
+      "提出並主導行動",
+      "europeWarAtlas:fig_ew_montgomery"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "7,500–10,000 人",
+    [
+     [
+      "莫德爾",
+      "B 集團軍群司令",
+      "europeWarAtlas:fig_ew_model"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_the_bulge_1944": {
+   "attacker": [
+    "德國",
+    "待考",
+    "12 萬人",
+    [
+     [
+      "倫德施泰特",
+      "攻勢總指揮",
+      "europeWarAtlas:fig_ew_rundstedt"
+     ],
+     [
+      "曼陀菲爾",
+      "第 5 裝甲軍團司令",
+      null
+     ],
+     [
+      "迪特里希",
+      "第 6 裝甲軍團司令（黨衛軍）",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "美國及英國",
+    "待考",
+    "約 7.5 萬人",
+    [
+     [
+      "艾森豪",
+      "盟軍最高指揮官",
+      "europeWarAtlas:fig_ew_eisenhower"
+     ],
+     [
+      "蒙哥馬利",
+      "接掌北翼",
+      "europeWarAtlas:fig_ew_montgomery"
+     ],
+     [
+      "巴頓",
+      "美國第 3 軍團司令（為巴斯通解圍）",
+      "europeWarAtlas:fig_ew_patton"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_berlin_1945": {
+   "attacker": [
+    "蘇聯",
+    "250 萬人、6,250 輛戰車、41,600 門火砲",
+    "約 35 萬人",
+    [
+     [
+      "朱可夫",
+      "蘇聯元帥",
+      "europeWarAtlas:fig_ew_zhukov"
+     ],
+     [
+      "科涅夫",
+      "蘇聯元帥",
+      "europeWarAtlas:fig_ew_konev"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "軍人至少 45 萬人；另估計 30 萬名平民死傷",
+    [
+     [
+      "魏德林",
+      "柏林守軍司令（希特勒死後投降）",
+      null
+     ]
+    ]
+   ],
+   "event": "europeWarAtlas:evt_ew_death_of_hitler_1945"
   }
  }
 }
