@@ -152,3 +152,9 @@ test('search: participant names are indexed', () => {
   const [entry] = createSearchIndex([{ id: EUROPEWAR_PAGE_ID, name: '二戰歐洲戰場', civ: 'europewar', battles: [battle] }]);
   assert.ok(entry.text.includes('斯洛伐克'));
 });
+
+test('battle modal: a missing outcome or significance shows 待考, not generic text (site-wide)', async () => {
+  const { readFileSync } = await import('node:fs');
+  const source = readFileSync(new URL('../src/components/BattleModal.js', import.meta.url), 'utf8');
+  for (const filler of ['奠定歷史深遠轉折', '三代著名歷史會戰']) assert.ok(!source.includes(filler), filler);
+});

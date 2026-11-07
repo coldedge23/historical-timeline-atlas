@@ -36,7 +36,7 @@ export const EUROPEWAR_BATTLES = [
     parties: { invader: '德國', defender: '波蘭' },
     victor: 'attacker',
     victorStatement: '華沙於 1939 年 9 月 28 日投降，波蘭部隊最後的抵抗於 10 月 6 日結束',
-    // 明寫「待考」：BattleModal 遇到空值會顯示通用預設文字（例如「三代著名歷史會戰」），不適用本模組。
+    // 沒有來源支持的敘述明寫「待考」（規劃 v5 第 9.5 節）。
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],

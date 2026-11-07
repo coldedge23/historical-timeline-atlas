@@ -360,7 +360,8 @@ export const BattleModal = ({
                 <span>戰略後續影響</span>
               </h4>
               <p className="text-zinc-400 leading-relaxed">
-                {battle.strategicOutcome || battle.result || '奠定歷史深遠轉折'}
+                {/* No generic filler when the data has no value (plan v5, section 12). */}
+                {battle.strategicOutcome || battle.result || '待考'}
               </p>
             </div>
             <div className="p-4 rounded-xl bg-zinc-900/50 border border-white/5">
@@ -368,7 +369,7 @@ export const BattleModal = ({
                 <span>歷史軍事地位</span>
               </h4>
               <p className="text-zinc-400 leading-relaxed">
-                {battle.significance || battle.strategicSignificance || '三代著名歷史會戰'}
+                {battle.significance || battle.strategicSignificance || '待考'}
               </p>
             </div>
           </div>
