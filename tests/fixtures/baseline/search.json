@@ -3317,6 +3317,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_stalingrad_1942",
+     "史達林格勒戰役",
+     "1942 年 7 月 17 日 – 1943 年 2 月 2 日 · 史達林格勒",
+     30
+    ],
+    [
+     "battle",
      "japanAtlas",
      "bat_jp_guadalcanal_1942",
      "瓜達康納爾島戰役 (南太平洋的消耗戰)",
@@ -3374,6 +3382,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_second_battle_of_el_alamein_1942",
+     "第二次阿拉曼戰役",
+     "1942 年 10 月 23 日 – 11 月 11 日 · 阿拉曼",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_moscow_1941",
      "莫斯科戰役",
      "1941 年 9 月 30 日 – 1942 年 1 月 7 日 · 莫斯科",
@@ -3409,22 +3425,6 @@
      "evt_danyang_312",
      "丹陽·藍田之戰：秦楚傾國大決戰，斬首八萬楚國盡失漢中六百里",
      "前 312 年 · 丹水流域（丹陽）至秦藍田",
-     0
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_tw_shi_hengfeng",
-     "史恆豐",
-     "1921 - 2011 · 大二膽島戰役營長 · 陸軍少將",
-     0
-    ],
-    [
-     "event",
-     "japanAtlas",
-     "evt_jp_boshin_war_1868",
-     "戊辰戰爭爆發與江戶無血開城",
-     "西元 1868 年 (慶應四年) · 武藏國江戶城西之丸與田町薩摩藩邸",
      0
     ]
    ],
@@ -8050,6 +8050,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_stalingrad_1942",
+     "史達林格勒戰役",
+     "1942 年 7 月 17 日 – 1943 年 2 月 2 日 · 史達林格勒",
+     30
+    ],
+    [
+     "battle",
      "japanAtlas",
      "bat_jp_guadalcanal_1942",
      "瓜達康納爾島戰役 (南太平洋的消耗戰)",
@@ -8091,6 +8099,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_second_battle_of_el_alamein_1942",
+     "第二次阿拉曼戰役",
+     "1942 年 10 月 23 日 – 11 月 11 日 · 阿拉曼",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_moscow_1941",
      "莫斯科戰役",
      "1941 年 9 月 30 日 – 1942 年 1 月 7 日 · 莫斯科",
@@ -8118,22 +8134,6 @@
      "fig_tw_sakuma",
      "佐久間左馬太",
      "1844 - 1915 · 第五任臺灣總督",
-     3
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_hu_lian",
-     "胡璉",
-     "1907 - 1977 · 金門防衛司令部司令官 · 古寧頭與八二三名將",
-     3
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_tw_gao_kuiyuan",
-     "高魁元",
-     "1907 - 2012 · 陸軍一級上將 · 參謀總長 · 國防部長",
      3
     ]
    ],
@@ -12760,6 +12760,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_battle_of_stalingrad_1942",
+     "史達林格勒戰役",
+     "1942 年 7 月 17 日 – 1943 年 2 月 2 日 · 史達林格勒",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_france_1940",
      "法國戰役",
      "1940 年 5 月 10 日 – 6 月 22 日 · 低地國與法國",
@@ -12800,6 +12808,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_second_battle_of_el_alamein_1942",
+     "第二次阿拉曼戰役",
+     "1942 年 10 月 23 日 – 11 月 11 日 · 阿拉曼",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_moscow_1941",
      "莫斯科戰役",
      "1941 年 9 月 30 日 – 1942 年 1 月 7 日 · 莫斯科",
@@ -12827,22 +12843,6 @@
      "fig_jp_baba_nobuharu",
      "馬場信春",
      "1515 - 1575 · 武田四名臣之一 · 殿軍防禦大師 · 戰國第一堅將",
-     3
-    ],
-    [
-     "figure",
-     "japanAtlas",
-     "fig_jp_fukushima_masanori",
-     "福島正則",
-     "1561 - 1624 · 廣島藩初代藩主 · 豐臣武斷派領袖",
-     3
-    ],
-    [
-     "figure",
-     "japanAtlas",
-     "fig_jp_nabeshima_naoshige",
-     "鍋島直茂",
-     "1538 - 1618 · 龍造寺首席智囊 · 佐賀藩始祖 · 葉隱武士道搖籃奠基者",
      3
     ]
    ],

@@ -108,4 +108,41 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '美國第 32 任總統（1933–1945），唯一四度當選的美國總統。1945 年死於喬治亞州溫泉鎮。',
     source: britannica('Franklin D. Roosevelt', 'Franklin-D-Roosevelt', 'born January 30, 1882, Hyde Park, New York, U.S. — died April 12, 1945, Warm Springs, Georgia'),
   }),
+  figure({
+    id: 'fig_ew_rommel', name: '隆美爾', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1891', death: '1944', birthDeathDisplay: '1891 年 11 月 15 日 – 1944 年 10 月 14 日', birthplace: '德國海登海姆',
+    shortBio: '德國陸軍元帥，以指揮非洲軍團的勝利聞名，在國內最受歡迎，也受到敵方尊敬。1944 年死於烏爾姆附近的黑爾林根。',
+    source: britannica('Erwin Rommel', 'Erwin-Rommel', 'born November 15, 1891, Heidenheim, Germany — died October 14, 1944, Herrlingen, near Ulm'),
+  }),
+  figure({
+    id: 'fig_ew_paulus', name: '保盧斯', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1890', death: '1957', birthDeathDisplay: '1890 年 9 月 23 日 – 1957 年 2 月 1 日', birthplace: '布賴特瑙（今屬奧地利）',
+    shortBio: '德國陸軍元帥，1942 年夏秋向史達林格勒推進，是納粹軍事擴張的最高點。1957 年死於東德德勒斯登。',
+    source: britannica('Friedrich Paulus', 'Friedrich-Paulus', 'born September 23, 1890, Breitenau, Germany [now in Austria] — died February 1, 1957, Dresden, East Germany'),
+  }),
+  figure({
+    id: 'fig_ew_montgomery', name: '蒙哥馬利', faction: 'allies', role: '英國陸軍元帥',
+    birth: '1887', death: '1976', birthDeathDisplay: '1887 年 11 月 17 日 – 1976 年 3 月 24 日', birthplace: '英格蘭倫敦',
+    shortBio: '英國陸軍元帥，二戰中傑出的盟軍指揮官之一。1976 年死於漢普郡奧爾頓附近。',
+    source: britannica('Bernard Law Montgomery', 'Bernard-Law-Montgomery-1st-Viscount-Montgomery', 'born November 17, 1887, London, England — died March 24, 1976, near Alton, Hampshire'),
+  }),
+  figure({
+    id: 'fig_ew_eisenhower', name: '艾森豪', faction: 'allies', role: '盟軍最高指揮官',
+    birth: '1890', death: '1969', birthDeathDisplay: '1890 年 10 月 14 日 – 1969 年 3 月 28 日', birthplace: '美國德州丹尼森',
+    shortBio: '二戰期間任西歐盟軍最高指揮官，後任美國第 34 任總統（1953–1961）。1969 年死於華盛頓特區。',
+    participatedEventIds: ['evt_ew_italian_armistice_1943'],
+    source: britannica('Dwight D. Eisenhower', 'Dwight-D-Eisenhower', 'born October 14, 1890, Denison, Texas, U.S. — died March 28, 1969, Washington, D.C.'),
+  }),
+  figure({
+    id: 'fig_ew_patton', name: '巴頓', faction: 'allies', role: '美國陸軍將領',
+    birth: '1885', death: '1945', birthDeathDisplay: '1885 年 11 月 11 日 – 1945 年 12 月 21 日', birthplace: '美國加州聖蓋博',
+    shortBio: '美國陸軍軍官，二戰期間在歐洲與地中海戰場擅長機動戰車作戰。1945 年死於德國海德堡。',
+    source: britannica('George Patton', 'George-Smith-Patton', 'born November 11, 1885, San Gabriel, California, U.S. — died December 21, 1945, Heidelberg, Germany'),
+  }),
+  figure({
+    id: 'fig_ew_alexander', name: '亞歷山大', faction: 'allies', role: '英國陸軍元帥',
+    birth: '1891', death: '1969', birthDeathDisplay: '1891 年 12 月 10 日 – 1969 年 6 月 16 日', birthplace: '英格蘭倫敦',
+    shortBio: '英國陸軍元帥，以在北非對抗隆美爾的戰役及之後在義大利、西歐的指揮聞名。1969 年死於白金漢郡斯勞。',
+    source: britannica('Harold Alexander', 'Harold-Rupert-Leofric-George-Alexander-1st-Earl-Alexander-of-Tunis', 'born Dec. 10, 1891, London — died June 16, 1969, Slough, Buckinghamshire, Eng.'),
+  }),
 ];

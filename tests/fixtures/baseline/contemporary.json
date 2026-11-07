@@ -4403,9 +4403,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    1
+    0
    ]
   ],
   "republicModern>evt_1945_ww2_victory": [
@@ -4426,9 +4426,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "republicModern>evt_1945_taiwan_retrocession": [
@@ -4449,9 +4449,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "republicModern>evt_1947_constitution_enacted": [
@@ -5784,9 +5784,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "taiwanLens>evt_tw_retrocession_1945": [
@@ -5807,9 +5807,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "taiwanLens>evt_tw_228_peace_memorial_1947": [
@@ -8443,9 +8443,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    2
+    1
    ]
   ],
   "japanAtlas>evt_jp_first_kamikaze_1944": [
@@ -8466,9 +8466,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    2
+    1
    ]
   ],
   "japanAtlas>evt_jp_tokyo_air_raid_1945": [
@@ -8489,9 +8489,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_hiroshima_1945": [
@@ -8512,9 +8512,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_nagasaki_soviet_1945": [
@@ -8535,9 +8535,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_gyokuon_broadcast_1945": [
@@ -8558,9 +8558,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_surrender_missouri_1945": [
@@ -8581,9 +8581,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_allied_occupation_1945": [
@@ -8604,9 +8604,9 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_wannsee_conference_1942",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943",
     "europeWarAtlas",
-    3
+    2
    ]
   ],
   "japanAtlas>evt_jp_tokyo_trial_1946": [
@@ -9190,6 +9190,121 @@
     "japanAtlas:evt_jp_fall_of_singapore_1942",
     "japanAtlas",
     0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_germany_occupies_vichy_france_1942": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    1
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    3
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_fall_of_singapore_1942",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_casablanca_conference_1943": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    0
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    2
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_fall_of_singapore_1942",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_warsaw_ghetto_uprising_1943": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    0
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    2
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_fall_of_singapore_1942",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_fall_of_mussolini_1943": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    0
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    2
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_fall_of_singapore_1942",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_italian_armistice_1943": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    0
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    2
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_fall_of_singapore_1942",
+    "japanAtlas",
+    1
    ]
   ]
  }

@@ -2156,6 +2156,11 @@
   "#civ=europewar&event=evt_ew_wannsee_conference_1942": "38eaa912d3fdb364",
   "#civ=europewar&event=evt_ew_anglo_soviet_treaty_1942": "1888c8c258a0cd95",
   "#civ=europewar&event=evt_ew_heydrich_attack_1942": "af4b7c13d0df3347",
+  "#civ=europewar&event=evt_ew_germany_occupies_vichy_france_1942": "6b4fed16d6c1c4cc",
+  "#civ=europewar&event=evt_ew_casablanca_conference_1943": "6c0d676333fad7c5",
+  "#civ=europewar&event=evt_ew_warsaw_ghetto_uprising_1943": "81be8b2077bcc505",
+  "#civ=europewar&event=evt_ew_fall_of_mussolini_1943": "fc41dd2578909bf2",
+  "#civ=europewar&event=evt_ew_italian_armistice_1943": "d6829f531ea22af4",
   "#civ=europewar&figure=fig_ew_hitler": "570a068dc01fe4b6",
   "#civ=europewar&figure=fig_ew_goering": "61f2471635b89fd3",
   "#civ=europewar&figure=fig_ew_doenitz": "fa0413bf5dfa2177",
@@ -2171,6 +2176,12 @@
   "#civ=europewar&figure=fig_ew_mannerheim": "8186a731e2e480c9",
   "#civ=europewar&figure=fig_ew_zhukov": "99f36c356e922856",
   "#civ=europewar&figure=fig_ew_roosevelt": "9dc616e12dcd3de0",
+  "#civ=europewar&figure=fig_ew_rommel": "28d66d57de99cbac",
+  "#civ=europewar&figure=fig_ew_paulus": "8d7474ee832d3154",
+  "#civ=europewar&figure=fig_ew_montgomery": "018fd06f407a96ed",
+  "#civ=europewar&figure=fig_ew_eisenhower": "e98b9c582f11ee7a",
+  "#civ=europewar&figure=fig_ew_patton": "f9093c72b156ebb7",
+  "#civ=europewar&figure=fig_ew_alexander": "fe123a90e8e1b628",
   "#civ=europewar&battle=bat_ew_german_invasion_of_poland_1939": "7860459c6b57f838",
   "#civ=europewar&battle=bat_ew_battle_of_the_atlantic_1939": "13ade2557a2c13f8",
   "#civ=europewar&battle=bat_ew_soviet_invasion_of_poland_1939": "8625aa34d3a1f8c4",
@@ -2182,6 +2193,11 @@
   "#civ=europewar&battle=bat_ew_balkans_campaign_1941": "2d2df6308be206fa",
   "#civ=europewar&battle=bat_ew_operation_barbarossa_1941": "e7db74fb39bf30b8",
   "#civ=europewar&battle=bat_ew_siege_of_leningrad_1941": "bfd56cad4f81906e",
-  "#civ=europewar&battle=bat_ew_battle_of_moscow_1941": "9cbe6adb8cb0b9a0"
+  "#civ=europewar&battle=bat_ew_battle_of_moscow_1941": "9cbe6adb8cb0b9a0",
+  "#civ=europewar&battle=bat_ew_battle_of_stalingrad_1942": "b07e7399d543da1b",
+  "#civ=europewar&battle=bat_ew_second_battle_of_el_alamein_1942": "0104fac6f771024e",
+  "#civ=europewar&battle=bat_ew_operation_torch_1942": "8c12d981046f793e",
+  "#civ=europewar&battle=bat_ew_battle_of_kursk_1943": "9d7695fa2f45b6bc",
+  "#civ=europewar&battle=bat_ew_invasion_of_sicily_1943": "d05177209c828645"
  }
 }

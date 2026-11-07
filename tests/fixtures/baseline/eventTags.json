@@ -2744,6 +2744,17 @@
   },
   "europeWarAtlas>evt_ew_heydrich_attack_1942": {
    "海德里希": null
+  },
+  "europeWarAtlas>evt_ew_warsaw_ghetto_uprising_1943": {
+   "施特魯普": null
+  },
+  "europeWarAtlas>evt_ew_fall_of_mussolini_1943": {
+   "巴多格里奧": null,
+   "維克多·伊曼紐三世": null
+  },
+  "europeWarAtlas>evt_ew_italian_armistice_1943": {
+   "巴多格里奧": null,
+   "卡斯特拉諾": null
   }
  }
 }

@@ -7751,8 +7751,8 @@
    "europeWarAtlas:fig_ew_mussolini": [
     "europeWarAtlas:fig_ew_mussolini",
     "europewar",
-    "ewar_blitz",
-    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+    "ewar_turning",
+    "europeWarAtlas:evt_ew_fall_of_mussolini_1943"
    ],
    "europeWarAtlas:fig_ew_stalin": [
     "europeWarAtlas:fig_ew_stalin",
@@ -7798,6 +7798,42 @@
    ],
    "europeWarAtlas:fig_ew_roosevelt": [
     "europeWarAtlas:fig_ew_roosevelt",
+    "europewar",
+    "ewar_turning",
+    "europeWarAtlas:evt_ew_casablanca_conference_1943"
+   ],
+   "europeWarAtlas:fig_ew_rommel": [
+    "europeWarAtlas:fig_ew_rommel",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_paulus": [
+    "europeWarAtlas:fig_ew_paulus",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_montgomery": [
+    "europeWarAtlas:fig_ew_montgomery",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_eisenhower": [
+    "europeWarAtlas:fig_ew_eisenhower",
+    "europewar",
+    "ewar_turning",
+    "europeWarAtlas:evt_ew_italian_armistice_1943"
+   ],
+   "europeWarAtlas:fig_ew_patton": [
+    "europeWarAtlas:fig_ew_patton",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_alexander": [
+    "europeWarAtlas:fig_ew_alexander",
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"

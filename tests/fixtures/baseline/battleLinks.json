@@ -10015,6 +10015,132 @@
     ]
    ],
    "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_stalingrad_1942": {
+   "attacker": [
+    "德國",
+    "待考",
+    "共損失 50 萬人，其中 9.1 萬人被俘",
+    [
+     [
+      "保盧斯",
+      "第 6 集團軍司令",
+      "europeWarAtlas:fig_ew_paulus"
+     ]
+    ]
+   ],
+   "defender": [
+    "蘇聯",
+    "待考",
+    "待考",
+    [
+     [
+      "朱可夫",
+      "集結部隊並發動 11 月的包圍攻勢",
+      "europeWarAtlas:fig_ew_zhukov"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_second_battle_of_el_alamein_1942": {
+   "attacker": [
+    "英國及大英國協部隊",
+    "19.5 萬人",
+    "4,800 人陣亡、9,000 人受傷",
+    [
+     [
+      "蒙哥馬利",
+      "英國第 8 軍團司令",
+      "europeWarAtlas:fig_ew_montgomery"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及義大利",
+    "11 萬人",
+    "9,000 人陣亡、15,000 人受傷、30,000 人被俘",
+    [
+     [
+      "隆美爾",
+      "北非軸心軍指揮官（攻勢開始時返德養病）",
+      "europeWarAtlas:fig_ew_rommel"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_operation_torch_1942": {
+   "attacker": [
+    "美國及英國",
+    "107,000 人",
+    "待考",
+    [
+     [
+      "艾森豪",
+      "登陸作戰最高指揮官",
+      "europeWarAtlas:fig_ew_eisenhower"
+     ],
+     [
+      "巴頓",
+      "西部特遣艦隊（攻取卡薩布蘭卡）",
+      "europeWarAtlas:fig_ew_patton"
+     ]
+    ]
+   ],
+   "defender": [
+    "維琪法國",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_kursk_1943": {
+   "attacker": [
+    "德國",
+    "近 50 個師、90 萬人，含 17 個機械化或裝甲師、2,700 輛戰車與自走突擊砲",
+    "待考",
+    []
+   ],
+   "defender": [
+    "蘇聯",
+    "待考",
+    "待考",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_invasion_of_sicily_1943": {
+   "attacker": [
+    "盟軍",
+    "待考",
+    "約 23,000 人",
+    [
+     [
+      "亞歷山大",
+      "以艾森豪副手身分指揮地面部隊",
+      "europeWarAtlas:fig_ew_alexander"
+     ],
+     [
+      "蒙哥馬利",
+      "英國第 8 軍團司令",
+      "europeWarAtlas:fig_ew_montgomery"
+     ],
+     [
+      "巴頓",
+      "美國第 7 軍團司令",
+      "europeWarAtlas:fig_ew_patton"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及義大利",
+    "待考",
+    "約 165,000 人，其中德軍 30,000 人",
+    []
+   ],
+   "event": null
   }
  }
 }
