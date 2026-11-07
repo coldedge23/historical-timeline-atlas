@@ -7789,6 +7789,18 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_zhukov": [
+    "europeWarAtlas:fig_ew_zhukov",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_roosevelt": [
+    "europeWarAtlas:fig_ew_roosevelt",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

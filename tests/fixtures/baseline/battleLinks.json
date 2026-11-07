@@ -9925,6 +9925,96 @@
     ]
    ],
    "event": null
+  },
+  "europeWarAtlas>bat_ew_operation_barbarossa_1941": {
+   "attacker": [
+    "德國及其他軸心國",
+    "逾 350 萬人；148 個師（德國陸軍的 80%）；先頭戰車 3,400 輛",
+    "逾 75 萬人，其中約 20 萬人陣亡",
+    [
+     [
+      "勒布",
+      "元帥，北方集團軍群司令",
+      null
+     ],
+     [
+      "包克",
+      "元帥，中央集團軍群司令",
+      null
+     ],
+     [
+      "倫德施泰特",
+      "元帥，南方集團軍群司令",
+      "europeWarAtlas:fig_ew_rundstedt"
+     ],
+     [
+      "古德里安",
+      "第 2 裝甲兵團司令",
+      "europeWarAtlas:fig_ew_guderian"
+     ]
+    ]
+   ],
+   "defender": [
+    "蘇聯",
+    "可立即動用約 500 萬人，戰車共 23,000 輛",
+    "待考",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_siege_of_leningrad_1941": {
+   "attacker": [
+    "德國（及芬蘭）",
+    "待考",
+    "待考",
+    [
+     [
+      "勒布",
+      "元帥，北方集團軍群司令",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "蘇聯",
+    "城內紅軍守軍 20 萬人",
+    "僅 1942 年就有 65 萬名列寧格勒居民死亡",
+    [
+     [
+      "朱可夫",
+      "組織列寧格勒防禦",
+      "europeWarAtlas:fig_ew_zhukov"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_moscow_1941": {
+   "attacker": [
+    "德國",
+    "待考",
+    "待考",
+    [
+     [
+      "包克",
+      "元帥，中央集團軍群司令",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "蘇聯",
+    "待考",
+    "待考",
+    [
+     [
+      "朱可夫",
+      "指揮莫斯科防禦與 12 月反攻",
+      "europeWarAtlas:fig_ew_zhukov"
+     ]
+    ]
+   ],
+   "event": null
   }
  }
 }

@@ -1,6 +1,6 @@
 // 二戰歐洲戰場人物（規劃 v6 第 9.4 節，批次 1）。生卒日期來自 Encyclopaedia Britannica 傳記條目的開頭（輔助來源，
 // 第 9.5 節），每筆以 claims 標出 birthDeathDisplay。本模組人物的 abilities 明設為 null，不計算娛樂性評分，人物彈窗不顯示雷達圖。
-// 查不到生卒日期的人物（例如 Britannica 只有短條目的帕克、李斯特、雷茲-希米格維）暫不建立，戰役中以純文字列名。
+// 查不到生卒日期的人物（例如 Britannica 只有短條目的帕克、利斯特、雷茲-希米格維）暫不建立，戰役中以純文字列名。
 const britannica = (name, slug, birthDeath) => ({
   title: `Encyclopaedia Britannica: ${name}`,
   url: `https://www.britannica.com/biography/${slug}`,
@@ -30,13 +30,13 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     source: britannica('Hermann Göring', 'Hermann-Goring', 'born January 12, 1893, Rosenheim — died October 15, 1946, Nuremberg'),
   }),
   figure({
-    id: 'fig_ew_doenitz', name: '鄧尼茨', faction: 'axis', role: '德國海軍將領',
+    id: 'fig_ew_doenitz', name: '鄧尼茲', faction: 'axis', role: '德國海軍將領',
     birth: '1891', death: '1980', birthDeathDisplay: '1891 年 9 月 16 日 – 1980 年 12 月 24 日', birthplace: '德國柏林近郊格呂瑙',
     shortBio: '德國海軍將領。生於柏林近郊的格呂瑙，1980 年死於奧米勒。',
     source: britannica('Karl Dönitz', 'Karl-Donitz', 'born September 16, 1891, Grünau-bei-Berlin — died December 24, 1980, Aumühle'),
   }),
   figure({
-    id: 'fig_ew_guderian', name: '古德林', faction: 'axis', role: '德國陸軍將領',
+    id: 'fig_ew_guderian', name: '古德里安', faction: 'axis', role: '德國陸軍將領',
     birth: '1888', death: '1954', birthDeathDisplay: '1888 年 6 月 17 日 – 1954 年 5 月 14 日', birthplace: '庫爾姆',
     shortBio: '德國陸軍將領。生於庫爾姆，1954 年死於福森附近的施萬高。',
     source: britannica('Heinz Guderian', 'Heinz-Guderian', 'born June 17, 1888, Kulm — died May 14, 1954, Schwangau bei Füssen'),
@@ -48,7 +48,7 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     source: britannica('Gerd von Rundstedt', 'Gerd-von-Rundstedt', 'born Dec. 12, 1875, Aschersleben — died Feb. 24, 1953, Hannover'),
   }),
   figure({
-    id: 'fig_ew_manstein', name: '曼施坦因', faction: 'axis', role: '德國陸軍將領',
+    id: 'fig_ew_manstein', name: '曼斯坦', faction: 'axis', role: '德國陸軍將領',
     birth: '1887', death: '1973', birthDeathDisplay: '1887 年 11 月 24 日 – 1973 年 6 月 11 日', birthplace: '德國柏林',
     shortBio: '德國陸軍將領。生於柏林，1973 年死於伊爾申豪森。',
     source: britannica('Erich von Manstein', 'Erich-von-Manstein', 'born Nov. 24, 1887, Berlin — died June 11, 1973, Irschenhausen'),
@@ -95,5 +95,17 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     birth: '1867', death: '1951', birthDeathDisplay: '1867 年 6 月 4 日 – 1951 年 1 月 27 日', birthplace: '芬蘭阿斯凱寧',
     shortBio: '芬蘭軍事領袖與政治家，二戰期間領導芬蘭抵禦蘇聯，1944–1946 年任總統。生於芬蘭阿斯凱寧，1951 年死於瑞士洛桑。',
     source: britannica('Carl Gustaf Mannerheim', 'Carl-Gustaf-Emil-Mannerheim', 'born June 4, 1867, Askainen, Finland — died January 27, 1951, Lausanne, Switzerland'),
+  }),
+  figure({
+    id: 'fig_ew_zhukov', name: '朱可夫', faction: 'allies', role: '蘇聯元帥',
+    birth: '1896', death: '1974', birthDeathDisplay: '1896 年 12 月 1 日（舊曆 11 月 19 日） – 1974 年 6 月 18 日', birthplace: '俄國卡盧加省',
+    shortBio: '蘇聯元帥，二戰期間最重要的蘇聯軍事指揮官。1941 年 1 月任紅軍總參謀長；德國入侵後組織列寧格勒防禦，指揮莫斯科防禦與 1941 年 12 月的反攻。1974 年死於莫斯科。',
+    source: britannica('Georgy Zhukov', 'Georgy-Zhukov', 'born December 1 [November 19, Old Style], 1896, Kaluga province, Russia — died June 18, 1974, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_roosevelt', name: '羅斯福', faction: 'allies', role: '美國總統',
+    birth: '1882', death: '1945', birthDeathDisplay: '1882 年 1 月 30 日 – 1945 年 4 月 12 日', birthplace: '美國紐約州海德公園',
+    shortBio: '美國第 32 任總統（1933–1945），唯一四度當選的美國總統。1945 年死於喬治亞州溫泉鎮。',
+    source: britannica('Franklin D. Roosevelt', 'Franklin-D-Roosevelt', 'born January 30, 1882, Hyde Park, New York, U.S. — died April 12, 1945, Warm Springs, Georgia'),
   }),
 ];

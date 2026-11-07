@@ -2151,6 +2151,11 @@
   "#civ=europewar&event=evt_ew_vichy_full_powers_1940": "b0bd9a4d1f7527a9",
   "#civ=europewar&event=evt_ew_tripartite_pact_1940": "3a155ecd74448550",
   "#civ=europewar&event=evt_ew_italy_invades_greece_1940": "5b5613becb108181",
+  "#civ=europewar&event=evt_ew_babi_yar_1941": "d128b41f23c74b5a",
+  "#civ=europewar&event=evt_ew_germany_declares_war_on_us_1941": "69572ee0f91bf2db",
+  "#civ=europewar&event=evt_ew_wannsee_conference_1942": "38eaa912d3fdb364",
+  "#civ=europewar&event=evt_ew_anglo_soviet_treaty_1942": "1888c8c258a0cd95",
+  "#civ=europewar&event=evt_ew_heydrich_attack_1942": "af4b7c13d0df3347",
   "#civ=europewar&figure=fig_ew_hitler": "570a068dc01fe4b6",
   "#civ=europewar&figure=fig_ew_goering": "61f2471635b89fd3",
   "#civ=europewar&figure=fig_ew_doenitz": "fa0413bf5dfa2177",
@@ -2164,6 +2169,8 @@
   "#civ=europewar&figure=fig_ew_gamelin": "56fd185b3b2435ff",
   "#civ=europewar&figure=fig_ew_weygand": "329c13107b8119db",
   "#civ=europewar&figure=fig_ew_mannerheim": "8186a731e2e480c9",
+  "#civ=europewar&figure=fig_ew_zhukov": "99f36c356e922856",
+  "#civ=europewar&figure=fig_ew_roosevelt": "9dc616e12dcd3de0",
   "#civ=europewar&battle=bat_ew_german_invasion_of_poland_1939": "7860459c6b57f838",
   "#civ=europewar&battle=bat_ew_battle_of_the_atlantic_1939": "13ade2557a2c13f8",
   "#civ=europewar&battle=bat_ew_soviet_invasion_of_poland_1939": "8625aa34d3a1f8c4",
@@ -2172,6 +2179,9 @@
   "#civ=europewar&battle=bat_ew_battle_of_france_1940": "e102e8604d75d6b4",
   "#civ=europewar&battle=bat_ew_dunkirk_1940": "2a3882c0086eedca",
   "#civ=europewar&battle=bat_ew_battle_of_britain_1940": "f922921b4ac931b6",
-  "#civ=europewar&battle=bat_ew_balkans_campaign_1941": "2d2df6308be206fa"
+  "#civ=europewar&battle=bat_ew_balkans_campaign_1941": "2d2df6308be206fa",
+  "#civ=europewar&battle=bat_ew_operation_barbarossa_1941": "e7db74fb39bf30b8",
+  "#civ=europewar&battle=bat_ew_siege_of_leningrad_1941": "bfd56cad4f81906e",
+  "#civ=europewar&battle=bat_ew_battle_of_moscow_1941": "9cbe6adb8cb0b9a0"
  }
 }
