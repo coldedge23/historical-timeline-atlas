@@ -7,6 +7,7 @@ import { LINKED_PERIODS, PERIOD_OPTIONS, TAIWAN_LENS_ERAS, ERA_BATTLE_IDS, JAPAN
   EUROPEWAR_ERAS, EUROPEWAR_ERA_BATTLE_IDS, appPages, appCatalogs, appContemporaryPools } from './lib/app_views.mjs';
 import { createSearchIndex } from '../src/utils/search.js';
 import { entityKey, pageLinks } from '../src/utils/linkDerivation.js';
+import { battlePhasesFor } from '../src/data/battlePhases.js';
 import { getContemporaryRegimeLabel } from '../src/utils/relationRules.js';
 import { CIVILIZATIONS as REGISTRY, civCoversYear } from '../src/civilizations/registry.js';
 
@@ -27,6 +28,9 @@ function buildPack(page) {
   pack.events = page.events;
   pack.figures = page.figures.map(f => f.datasetId && f.datasetId !== page.id ? { ...f, ref: entityKey(f.datasetId, 'figure', f.id) } : f);
   pack.battles = page.battles;
+  // Battle list phases and, where battles carry scale/modes/theaters, their display names (plan v5, sections 4.4 and 4.7).
+  pack.battlePhases = battlePhasesFor(page.id);
+  if (page.battleTaxonomy) pack.battleTaxonomy = page.battleTaxonomy;
   if (page.civ === 'china') {
     const p = LINKED_PERIODS[page.id];
     Object.assign(pack, { territories: p.territories, demographics: p.demographics, warlordPeriods: p.warlordPeriods || [] });

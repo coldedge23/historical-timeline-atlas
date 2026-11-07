@@ -1,5 +1,5 @@
 // 二戰歐洲戰場事件。座標一律 [lng, lat]（EUROPEWAR_COORDINATE_ORDER）。
-// 每個來源以 claims 列出它支持的欄位（規劃 v4 第 9.5 節）；未列入 claims 的數值要標「待考」。
+// 每個來源以 claims 列出它支持的欄位（規劃 v5 第 9.5 節）；未列入 claims 的數值要標「待考」。
 const USHMM_PACT = {
   title: 'United States Holocaust Memorial Museum, Holocaust Encyclopedia: German-Soviet Pact',
   url: 'https://encyclopedia.ushmm.org/content/en/article/german-soviet-pact',
@@ -27,7 +27,6 @@ export const EUROPEWAR_EVENTS = [
     id: 'evt_ew_german_soviet_pact_1939',
     year: 1939,
     date: '1939-08-23',
-    yearDisplay: '1939 年 8 月 23 日',
     title: '德蘇互不侵犯條約簽訂',
     summary: '德國與蘇聯在莫斯科簽訂互不侵犯條約，祕密議定書劃分兩國在東歐的勢力範圍。',
     detail: '條約由德國外交部長里賓特洛甫與蘇聯外交部長莫洛托夫談判簽署。祕密議定書約定沿納雷夫河、維斯瓦河、桑河一線瓜分波蘭。',
@@ -43,7 +42,6 @@ export const EUROPEWAR_EVENTS = [
     id: 'evt_ew_invasion_of_poland_1939',
     year: 1939,
     date: '1939-09-01',
-    yearDisplay: '1939 年 9 月 1 日',
     title: '德國入侵波蘭',
     summary: '德國由北面的東普魯士與德國、南面的西里西亞與斯洛伐克進攻波蘭。',
     detail: '詳見戰役「德國入侵波蘭」。',

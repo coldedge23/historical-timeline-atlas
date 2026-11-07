@@ -213,7 +213,6 @@ test('navigator: a failure reports the error with a retry that loads again', asy
 // Direct data imports that stay: config files and map geography (plan v2 section 3.7; tests/bundle-boundary.test.js
 // checks which bundle they land in). Only build scripts (scripts/lib/app_views.mjs) read the data modules themselves.
 const KNOWN_DIRECT_DATA_IMPORTS = [
-  'src/components/BattlesView.js ../data/battlePhases.js',
   'src/components/FigureModal.js ../data/factionConfig.js',
   'src/components/FiguresView.js ../data/factionConfig.js',
   'src/components/HistoricalAtlasMap.jsx ../data/threeKingdoms/chinaMapData.js',

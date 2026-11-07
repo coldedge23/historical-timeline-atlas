@@ -1,5 +1,5 @@
 // 二戰歐洲戰場戰役。座標一律 [lng, lat]（EUROPEWAR_COORDINATE_ORDER）。
-// 欄位規格見規劃 v4 第四節；每個來源以 claims 列出它支持的欄位，沒有來源支持的數值標「待考」（第 9.5 節）。
+// 欄位規格見規劃 v5 第四節；每個來源以 claims 列出它支持的欄位，沒有來源支持的數值標「待考」（第 9.5 節）。
 export const EUROPEWAR_BATTLES = [
   {
     id: 'bat_ew_german_invasion_of_poland_1939',

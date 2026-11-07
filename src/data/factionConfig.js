@@ -678,7 +678,7 @@ export const FACTION_CONFIGS = {
       },
     }
   },
-  // 二戰歐洲戰場（規劃 v4 第六節）：陣營是總稱；各方實際包含哪些國家寫在戰役的 participants。
+  // 二戰歐洲戰場（規劃 v5 第六節）：陣營是總稱；各方實際包含哪些國家寫在戰役的 participants。
   europeWarAtlas: {
     order: ['axis', 'allies', 'soviet', 'other'],
     labels: {

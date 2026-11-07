@@ -1,4 +1,4 @@
-// 戰役錄的分段設定，依資料包代號查表（規劃 v4 第 4.7 節）。小型設定，不含歷史內容。
+// 戰役錄的分段設定，依資料包代號查表（規劃 v5 第 4.7 節）。小型設定，不含歷史內容。
 // 舊的分段 { min, max } 依戰役年份；新的分段 { eraId } 依戰役所屬時期。華夏、臺灣、日本的數值從 BattlesView.js 原封不動搬來。
 export const BATTLE_PHASES = {
   xiaShangZhou: [
@@ -56,7 +56,7 @@ export const BATTLE_PHASES = {
     { id: 'mid', label: '⚔️ 戰國群雄與關原大坂 (1560–1638年)', min: 1560, max: 1638 },
     { id: 'late', label: '🌸 幕末戊辰與西南戰爭 (1850–1912年)', min: 1850, max: 1925 },
   ],
-  // 二戰歐洲戰場依時期分段，不依年份：同一年可能跨兩個時期（規劃 v4 第 4.7 節）。
+  // 二戰歐洲戰場依時期分段，不依年份：同一年可能跨兩個時期（規劃 v5 第 4.7 節）。
   europeWarAtlas: [
     { id: 'ewar_blitz', label: '⚔️ 開戰與閃電戰 (1939–1941年)', eraId: 'ewar_blitz' },
     { id: 'ewar_eastfront', label: '❄️ 東線開戰 (1941–1942年)', eraId: 'ewar_eastfront' },
@@ -65,6 +65,6 @@ export const BATTLE_PHASES = {
   ],
 };
 
-// 戰役是否屬於某個分段。
-export const battleInPhase = (battle, phase) => phase.eraId ? battle.eraId === phase.eraId
-  : typeof phase.min === 'number' ? battle.year >= phase.min && battle.year <= phase.max : true;
+// 資料包的戰役錄分段：沒有專屬設定的資料包沿用三國的分段（和搬移前 BattlesView.js 的做法相同）。
+// 建置時寫進每個資料包的 battlePhases；判斷戰役屬於哪一段見 src/utils/battleFilters.js。
+export const battlePhasesFor = (pageId) => BATTLE_PHASES[pageId] || BATTLE_PHASES.threeKingdoms;

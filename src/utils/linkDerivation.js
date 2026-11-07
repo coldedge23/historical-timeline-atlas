@@ -34,10 +34,16 @@ export function battleLinkSet(battle, pools, figMap = battleFigureIndex(pools.fi
     return c.fig ? describe('figure', c.fig, pools.id, c.basis) : null;
   });
   const event = battleLinkedEvent(battle, pools.eventsForLinks);
-  return {
+  const links = {
     commanders: { attacker: commanders(battleAttacker(battle)), defender: commanders(battleDefender(battle)) },
     event: event ? describe('event', event, pools.id, battleLinkedEventBasis(battle)) : null,
   };
+  // relatedBattleIds (plan v5, section 4.6): only battles of the same page; the key is left out when there are none,
+  // so battles without the field keep their link descriptors unchanged.
+  const related = (battle.relatedBattleIds || []).map(id => (pools.battles || []).find(b => b.id === id)).filter(Boolean)
+    .map(b => describe('battle', b, pools.id, 'related-battle-id'));
+  if (related.length) links.related = related;
+  return links;
 }
 
 // The figure a timeline tag opens: exact name, or a courtesy name containing the tag (first match in pool order).

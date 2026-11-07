@@ -2,8 +2,10 @@ import { computeForcesTugOfWar, formatForcePercent } from '../utils/forces.js';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Swords, Trophy, MapPin, Search } from './Icons.js';
 import { DerivedBadge } from './DerivedBadge.jsx';
-import { BATTLE_PHASES, battleInPhase } from '../data/battlePhases.js';
+import { battleInPhase, battleInTheater, theaterOptions } from '../utils/battleFilters.js';
+import { formatDateRange } from '../utils/datedRecords.js';
 
+// phases: the page's battle list phases (pack battlePhases); taxonomy: its battleTaxonomy, when battles carry theaters.
 export const BattlesView = ({
   battles = [],
   figures = [],
@@ -11,19 +13,24 @@ export const BattlesView = ({
   onSelectFigure,
   ancientNamesOnly,
   globalSearchTerm = '',
-  activePeriodId = 'threeKingdoms',
+  activePeriodId,
+  phases = [],
+  taxonomy = null,
 }) => {
   const [periodFilter, setPeriodFilter] = useState('all');
+  const [theaterFilter, setTheaterFilter] = useState('all');
   const [search, setSearch] = useState('');
 
   // Reset phase filter when switching historical era
   useEffect(() => {
     setPeriodFilter('all');
+    setTheaterFilter('all');
   }, [activePeriodId]);
 
+  const theaters = useMemo(() => theaterOptions(battles, taxonomy?.theaters), [battles, taxonomy]);
+
   const phaseDefs = useMemo(() => {
-    const rawPhases = BATTLE_PHASES[activePeriodId] || BATTLE_PHASES.threeKingdoms;
-    const withCounts = rawPhases.map((p) => {
+    const withCounts = phases.map((p) => {
       const count = battles.filter((b) => battleInPhase(b, p)).length;
       return {
         ...p,
@@ -34,7 +41,7 @@ export const BattlesView = ({
       { id: 'all', displayLabel: `全部戰役 (${battles.length})` },
       ...withCounts,
     ];
-  }, [battles, activePeriodId]);
+  }, [battles, phases]);
 
   const figMap = useMemo(() => {
     const m = new Map();
@@ -52,6 +59,7 @@ export const BattlesView = ({
 
     return battles.filter((b) => {
       if (periodFilter !== 'all' && activePhase && !battleInPhase(b, activePhase)) return false;
+      if (!battleInTheater(b, theaterFilter)) return false;
 
       if (q) {
         const text = [
@@ -63,6 +71,7 @@ export const BattlesView = ({
           b.victorStatement,
           ...(b.attacker?.commanders?.map((c) => (typeof c === 'string' ? c : c.name)) || []),
           ...(b.defender?.commanders?.map((c) => (typeof c === 'string' ? c : c.name)) || []),
+          ...(b.participants?.map((p) => p?.name) || []),
         ]
           .join(' ')
           .toLowerCase();
@@ -70,7 +79,7 @@ export const BattlesView = ({
       }
       return true;
     });
-  }, [battles, periodFilter, phaseDefs, search, globalSearchTerm]);
+  }, [battles, periodFilter, theaterFilter, phaseDefs, search, globalSearchTerm]);
 
   const renderCommandersPreview = (commanders = []) => {
     return (
@@ -151,6 +160,23 @@ export const BattlesView = ({
             ))}
           </div>
 
+          {theaters.length > 0 && (
+            <label className="flex items-center gap-1 text-xs text-zinc-400">
+              <span className="whitespace-nowrap">戰場</span>
+              <select
+                value={theaterFilter}
+                onChange={(e) => setTheaterFilter(e.target.value)}
+                aria-label="依戰場篩選戰役"
+                className="bg-zinc-900 border border-white/10 rounded-lg px-2 py-1 text-xs text-zinc-200 focus:outline-none focus:border-rose-500"
+              >
+                <option value="all">全部戰場 ({battles.length})</option>
+                {theaters.map((t) => (
+                  <option key={t.id} value={t.id}>{t.label} ({t.count})</option>
+                ))}
+              </select>
+            </label>
+          )}
+
           <div className="relative flex-1 sm:w-48">
             <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
             <input
@@ -167,8 +193,8 @@ export const BattlesView = ({
       {/* Battles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filteredBattles.map((battle) => {
-          const yearLabel =
-            battle.year < 0 ? `西元前 ${Math.abs(battle.year)} 年` : `西元 ${battle.year} 年`;
+          const yearLabel = battle.startDate ? formatDateRange(battle.startDate, battle.endDate)
+            : battle.year < 0 ? `西元前 ${Math.abs(battle.year)} 年` : `西元 ${battle.year} 年`;
 
           return (
             <div

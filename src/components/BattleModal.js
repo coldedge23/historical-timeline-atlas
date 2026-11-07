@@ -5,13 +5,19 @@ import { battleAttacker, battleDefender, resolveCommander } from '../utils/relat
 import { DerivedBadge, DERIVED_NOTE } from './DerivedBadge.jsx';
 import React, { useMemo } from 'react';
 import { X, Swords, Trophy, MapPin, ShieldAlert, Crosshair, Layers } from './Icons.js';
+import { formatDateRange } from '../utils/datedRecords.js';
 
+const SIDE_LABELS = { attacker: '進攻方', defender: '防守方' };
+
+// taxonomy: the pack's battleTaxonomy ({ scales, modes, theaters } id -> name), present only where battles carry them.
 export const BattleModal = ({
   battle,
-  links = { commanders: { attacker: [], defender: [] }, event: null },
+  links = { commanders: { attacker: [], defender: [] }, event: null, related: [] },
   onClose,
   onSelectFigure,
   onSelectEvent,
+  onSelectBattle,
+  taxonomy = null,
   ancientNamesOnly,
 }) => {
   if (!battle) return null;
@@ -86,6 +92,19 @@ export const BattleModal = ({
   const victorStatement = battle.victorStatement || battle.result || '勝負已定，詳見概述';
   const locationText = battle.locationAncient || battle.location || '中原腹地';
   const modernLocText = battle.locationModern ? ` (今${battle.locationModern})` : '';
+  const dateText = battle.startDate ? formatDateRange(battle.startDate, battle.endDate) : `${battle.year} 年`;
+
+  // Classification and participants (plan v5, section 4.4): drawn only for battles that carry them.
+  const labelOf = (table, id) => taxonomy?.[table]?.[id] || id;
+  const tags = [
+    ...(battle.scale ? [{ key: `scale-${battle.scale}`, text: labelOf('scales', battle.scale), title: '規模' }] : []),
+    ...(battle.modes || []).map((id) => ({ key: `mode-${id}`, text: labelOf('modes', id), title: '作戰型態' })),
+    ...(battle.theaters || []).map((id) => ({ key: `theater-${id}`, text: labelOf('theaters', id), title: '戰場' })),
+  ];
+  const participantGroups = ['attacker', 'defender']
+    .map((side) => ({ side, items: (battle.participants || []).filter((p) => p?.side === side) }))
+    .filter((group) => group.items.length);
+  const relatedLinks = links.related || [];
 
   return (
     <Dialog onClose={onClose} label="戰役詳情">
@@ -112,7 +131,7 @@ export const BattleModal = ({
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <h2 className="text-2xl font-bold font-serif text-rose-200">{battle.name}</h2>
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 font-mono">
-                    {battle.year} 年
+                    {dateText}
                   </span>
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-zinc-800 border border-white/10 text-zinc-300 font-serif">
                     {battle.eraName}
@@ -125,6 +144,9 @@ export const BattleModal = ({
                     {!ancientNamesOnly && modernLocText}
                   </span>
                 </div>
+                {battle.locationNote && (
+                  <p className="text-[11px] text-zinc-500 mt-0.5 pl-5">代表位置：{battle.locationNote}</p>
+                )}
               </div>
             </div>
 
@@ -159,6 +181,37 @@ export const BattleModal = ({
               {battle.summary}
             </p>
           </div>
+
+          {(tags.length > 0 || participantGroups.length > 0) && (
+            <div className="space-y-2">
+              {tags.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {tags.map((tag) => (
+                    <span key={tag.key} title={tag.title} className="text-[11px] px-2 py-0.5 rounded-full bg-zinc-800 border border-white/10 text-zinc-300">
+                      <span className="text-zinc-500 mr-1">{tag.title}</span>{tag.text}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {participantGroups.length > 0 && (
+                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  {participantGroups.map(({ side, items }) => (
+                    <div key={side} className="p-2.5 rounded-lg bg-black/25 border border-white/5">
+                      <dt className="text-[11px] text-zinc-500 mb-1">{SIDE_LABELS[side]}參與方</dt>
+                      <dd className="text-zinc-200">
+                        {items.map((p, idx) => (
+                          <span key={`${p.name}-${idx}`}>
+                            {idx > 0 && '、'}
+                            {p.name}{p.role && <span className="text-zinc-500">（{p.role}）</span>}
+                          </span>
+                        ))}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+            </div>
+          )}
 
           {/* Belligerents Side-by-Side Comparison */}
           <div>
@@ -319,6 +372,26 @@ export const BattleModal = ({
               </p>
             </div>
           </div>
+          {relatedLinks.length > 0 && (
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">相關戰役</h3>
+              <div className="flex flex-wrap gap-2">
+                {relatedLinks.map((link) => (
+                  <button
+                    key={link.key}
+                    type="button"
+                    onClick={() => onSelectBattle?.(link)}
+                    disabled={!onSelectBattle}
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-800/90 hover:bg-rose-950/50 border border-white/10 hover:border-rose-500/50 text-xs text-zinc-200 hover:text-rose-200 transition-colors"
+                  >
+                    <Swords className="w-3.5 h-3.5 text-rose-400" />
+                    <span>{link.name}</span>
+                    {link.year != null && <span className="text-zinc-500 text-[10px]">{link.year}</span>}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           {hasDerivedCommander && <p className="derived-note">{DERIVED_NOTE}</p>}
           <SourceDisclosure record={battle} />
         </div>

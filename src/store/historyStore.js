@@ -18,7 +18,7 @@ export const peekPage = (pageId) => source?.peekPage(pageId) || null;
 
 // Link descriptors for a record on the page, precomputed in its pack.
 const NO_FIGURE_LINKS = { relations: [], events: [], battles: [] };
-const NO_BATTLE_LINKS = { commanders: { attacker: [], defender: [] }, event: null };
+const NO_BATTLE_LINKS = { commanders: { attacker: [], defender: [] }, event: null, related: [] };
 const NO_EVENT_LINKS = { figures: [], battle: null, tags: {} };
 export const figureLinksFor = (page, figure) => page.links?.figures[figure.id] || NO_FIGURE_LINKS;
 export const battleLinksFor = (page, battle) => page.links?.battles[battle.id] || NO_BATTLE_LINKS;

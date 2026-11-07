@@ -477,6 +477,8 @@ function Atlas({ catalog, initialPage }) {
               ancientNamesOnly={ancientNamesOnly}
               globalSearchTerm=""
               activePeriodId={activePageId}
+              phases={currentPage.battlePhases || []}
+              taxonomy={currentPage.battleTaxonomy || null}
             />
           )}
         </main>
@@ -512,6 +514,9 @@ function Atlas({ catalog, initialPage }) {
               setSelectedBattle(null);
               setActiveTab('map-timeline');
             })}
+            // Related battles (plan v5, section 4.6): switches the modal; the hash's battle changes, so Back returns.
+            onSelectBattle={openBattleLink}
+            taxonomy={currentPage.battleTaxonomy || null}
             ancientNamesOnly={ancientNamesOnly}
           />
         )}

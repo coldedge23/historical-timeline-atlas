@@ -3,7 +3,7 @@
 // the data packs built from it (src/store/packSource.js).
 import { LINKED_PERIODS, LINKED_TAIWAN_EVENTS, LINKED_JAPAN_EVENTS, LINKED_JAPAN_FIGURES, LINKED_TAIWAN_FIGURES, ALL_LINKED_FIGURES, ALL_LINKED_EVENTS, ALL_LINKED_BATTLES,
   LINKED_EUROPEWAR_EVENTS, LINKED_EUROPEWAR_FIGURES, LINKED_EUROPEWAR_BATTLES } from '../../src/data/linkedHistoryCatalog.js';
-import { EUROPEWAR_ERAS, EUROPEWAR_ERA_BATTLE_IDS } from '../../src/data/europewar/index.js';
+import { EUROPEWAR_ERAS, EUROPEWAR_ERA_BATTLE_IDS, EUROPEWAR_BATTLE_TAXONOMY } from '../../src/data/europewar/index.js';
 import { PERIOD_OPTIONS } from '../../src/data/periodsRegistry.js';
 import { TAIWAN_LENS_ERAS, TAIWAN_RELATED_BATTLES, ERA_BATTLE_IDS } from '../../src/data/taiwanLensData.js';
 import { JAPAN_ERAS, JAPAN_BATTLES, JAPAN_ERA_BATTLE_IDS, JAPAN_WARLORD_PERIOD_CONFIGS } from '../../src/data/japan/index.js';
@@ -29,7 +29,7 @@ function buildPage(pageId) {
   else if (pageId === JAPAN_PAGE) page = { id: pageId, civ: 'japan', events: LINKED_JAPAN_EVENTS, figures: LINKED_JAPAN_FIGURES, battles: JAPAN_BATTLES,
     eras: JAPAN_ERAS.map(eraSummary), eraBattleIds: JAPAN_ERA_BATTLE_IDS, warlordPeriods: JAPAN_WARLORD_PERIOD_CONFIGS };
   else if (pageId === EUROPEWAR_PAGE) page = { id: pageId, civ: 'europewar', events: LINKED_EUROPEWAR_EVENTS, figures: LINKED_EUROPEWAR_FIGURES, battles: LINKED_EUROPEWAR_BATTLES,
-    eras: EUROPEWAR_ERAS.map(eraSummary), eraBattleIds: EUROPEWAR_ERA_BATTLE_IDS };
+    eras: EUROPEWAR_ERAS.map(eraSummary), eraBattleIds: EUROPEWAR_ERA_BATTLE_IDS, battleTaxonomy: EUROPEWAR_BATTLE_TAXONOMY };
   else {
     const period = LINKED_PERIODS[pageId];
     page = { ...period, id: pageId, civ: 'china', events: period.events || [], figures: period.figures || [], battles: period.battles || [], warlordPeriods: period.warlordPeriods || [] };

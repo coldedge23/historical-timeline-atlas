@@ -100,3 +100,55 @@ test('built catalog: WWII Europe labels only for events in range, and its pack i
   assert.ok(own.length > 0);
   assert.deepEqual([...new Set(own.map((e) => e[civAt]))], ['europewar']);
 });
+
+// --- Stage 2: format and UI (plan v5, sections 4.4, 4.6, 4.7) ---
+import { battleLinkSet } from '../src/utils/linkDerivation.js';
+import { createSearchIndex } from '../src/utils/search.js';
+import { battleInPhase, battleInTheater, theaterOptions } from '../src/utils/battleFilters.js';
+import { BATTLE_PHASES, battlePhasesFor } from '../src/data/battlePhases.js';
+import { EUROPEWAR_BATTLE_TAXONOMY } from '../src/data/europewar/index.js';
+
+test('display dates come from the date fields', () => {
+  for (const evt of EUROPEWAR_ALL_EVENTS) assert.equal(evt.yearDisplay, formatDateRange(evt.date, evt.endDate), evt.id);
+  const poland = EUROPEWAR_BATTLES.find((b) => b.id === 'bat_ew_german_invasion_of_poland_1939');
+  assert.equal(poland.yearDisplay, '1939 年 9 月 1 日 – 10 月 6 日');
+  assert.equal(poland.eraName, '開戰與閃電戰');
+});
+
+test('related battles: descriptors for same-page battles only, no key when there are none', () => {
+  const a = { ...goodBattle(), id: 'a', name: '甲', relatedBattleIds: ['b', 'elsewhere'] }, b = { ...goodBattle(), id: 'b', name: '乙', relatedBattleIds: ['a'] };
+  const pools = { id: EUROPEWAR_PAGE_ID, battles: [a, b], figuresForLinks: [], eventsForLinks: [] };
+  const links = battleLinkSet(a, pools);
+  assert.deepEqual(links.related.map((l) => [l.key, l.type, l.id, l.name, l.basis]), [[`${EUROPEWAR_PAGE_ID}:battle:b`, 'battle', 'b', '乙', 'related-battle-id']]);
+  assert.equal('related' in battleLinkSet({ ...b, relatedBattleIds: [] }, pools), false);
+  assert.equal('related' in battleLinkSet({ id: 'old', name: '舊', year: 200 }, pools), false);
+});
+
+test('battle phases: every pack carries its phases; old packs keep the values moved from BattlesView', () => {
+  for (const [pageId, info] of Object.entries(catalog.packs)) {
+    const pack = JSON.parse(built.files[info.file]);
+    assert.deepEqual(pack.battlePhases, battlePhasesFor(pageId), pageId);
+    assert.equal('battleTaxonomy' in pack, pageId === EUROPEWAR_PAGE_ID, pageId);
+  }
+  assert.equal(battlePhasesFor('noSuchPage'), BATTLE_PHASES.threeKingdoms);
+  const byYear = { min: 1939, max: 1940 }, byEra = { eraId: 'ewar_blitz' };
+  assert.equal(battleInPhase({ year: 1939 }, byYear), true);
+  assert.equal(battleInPhase({ year: 1941 }, byYear), false);
+  assert.equal(battleInPhase({ year: 1941, eraId: 'ewar_blitz' }, byEra), true);
+  assert.equal(battleInPhase({ year: 1941, eraId: 'ewar_eastfront' }, byEra), false);
+});
+
+test('theater filter: options in taxonomy order, only theaters in use, with counts', () => {
+  const battles = [{ theaters: ['western', 'atlantic'] }, { theaters: ['western'] }, {}];
+  assert.deepEqual(theaterOptions(battles, EUROPEWAR_BATTLE_TAXONOMY.theaters).map((o) => [o.id, o.count]), [['western', 2], ['atlantic', 1]]);
+  assert.deepEqual(theaterOptions(battles, undefined), []);
+  assert.equal(battleInTheater(battles[2], 'all'), true);
+  assert.equal(battleInTheater(battles[2], 'western'), false);
+  assert.equal(battleInTheater(battles[0], 'atlantic'), true);
+});
+
+test('search: participant names are indexed', () => {
+  const battle = { ...goodBattle(), participants: [{ name: '斯洛伐克', role: '入侵方', side: 'attacker' }] };
+  const [entry] = createSearchIndex([{ id: EUROPEWAR_PAGE_ID, name: '二戰歐洲戰場', civ: 'europewar', battles: [battle] }]);
+  assert.ok(entry.text.includes('斯洛伐克'));
+});
