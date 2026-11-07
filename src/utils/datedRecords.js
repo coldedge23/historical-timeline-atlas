@@ -1,4 +1,4 @@
-// Dated records (plan docs/20261107_二戰歐洲戰場模組規劃_v4.md, sections 4.2-4.3): YYYY-MM-DD or YYYY-MM dates,
+// Dated records (plan docs/20261107_二戰歐洲戰場模組規劃_v5.md, sections 4.2-4.3): YYYY-MM-DD or YYYY-MM dates,
 // era assignment by start date, and display. Pure helpers, no history data; used by data modules, the validator
 // and the UI.
 
