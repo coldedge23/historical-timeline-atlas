@@ -1,4 +1,4 @@
-// Builds the WWII Europe base map (plan docs/20261107_二戰歐洲戰場模組規劃_v6.md, section 7.2) from Natural Earth
+// Builds the WWII Europe base map (plan docs/20261108_二戰歐洲戰場模組規劃_v7.md, section 7.2) from Natural Earth
 // (public domain). Downloads into .cache/naturalearth/ (not in git), checks each file's SHA-256, clips to the map,
 // projects with src/utils/conicProjection.js, simplifies, and writes:
 //   src/data/europewar/europeWarMapGeoData.js   land and lake paths plus the projection (class geo)

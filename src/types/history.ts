@@ -75,7 +75,7 @@ export interface BattleEvent {
   summary: string;
   attacker: BattleSide;
   defender: BattleSide;
-  // 以下為二戰歐洲新增的選填欄位（docs/20261107_二戰歐洲戰場模組規劃_v4.md 第 4.1 節）
+  // 以下為二戰歐洲新增的選填欄位（docs/20261108_二戰歐洲戰場模組規劃_v7.md 第 4.1 節）
   startDate?: string; // YYYY-MM-DD 或 YYYY-MM
   endDate?: string;
   scale?: 'campaign' | 'operation' | 'battle';

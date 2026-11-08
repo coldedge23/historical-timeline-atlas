@@ -4,7 +4,7 @@ import { EUROPEWAR_MAP } from '../data/europewar/europeWarMapGeoData.js';
 import { EUROPEWAR_MAP_CITIES } from '../data/europewar/europeWarMapCities.js';
 import { createMapProjection } from '../utils/conicProjection.js';
 
-// 二戰歐洲戰場的地圖分頁（docs/20261107_二戰歐洲戰場模組規劃_v6.md 第七節）：Natural Earth 現代海岸線與湖泊，
+// 二戰歐洲戰場的地圖分頁（docs/20261108_二戰歐洲戰場模組規劃_v7.md 第七節）：Natural Earth 現代海岸線與湖泊，
 // 不畫國界；只標目前時期的事件與戰役。座標一律 [lng, lat]（第 4.5 節）。時期切換由頁首的時期選單負責。
 const project = createMapProjection(EUROPEWAR_MAP.projection);
 const point = (record) => (Array.isArray(record?.coordinates) ? project(record.coordinates) : null);

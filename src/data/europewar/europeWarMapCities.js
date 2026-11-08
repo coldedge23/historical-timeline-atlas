@@ -1,4 +1,4 @@
-// 二戰歐洲戰場地圖的城市標籤（規劃 docs/20261107_二戰歐洲戰場模組規劃_v6.md 第 7.2 節）。
+// 二戰歐洲戰場地圖的城市標籤（規劃 docs/20261108_二戰歐洲戰場模組規劃_v7.md 第 7.2 節）。
 // 點位：Natural Earth v5.1.2 ne_50m_populated_places_simple（公有領域），與 tests/fixtures/europewar_anchor_cities.json
 // 同一份資料（scripts/build_europewar_basemap.mjs 下載並核對 SHA-256）；測試核對兩邊座標一致。
 // 中文名稱：用當時名稱，現代名稱不同時加括號。名稱沿用本模組戰役與事件資料已使用的譯名，未對照官方譯名表
