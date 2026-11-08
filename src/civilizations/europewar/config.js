@@ -1,5 +1,5 @@
 // 二戰歐洲戰場: a topic covering 1939-1945, one data pack navigated by era like Taiwan and Japan
-// (plan docs/20261108_二戰歐洲戰場模組規劃_v7.md). Small config only, no history data.
+// (plan docs/20261108_二戰歐洲戰場模組規劃_v8.md). Small config only, no history data.
 export default {
   id: 'europewar',
   name: '二戰歐洲戰場',

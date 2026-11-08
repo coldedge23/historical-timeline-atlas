@@ -1,4 +1,4 @@
-// WWII Europe module (docs/20261108_二戰歐洲戰場模組規劃_v7.md): date rules, strict data rules,
+// WWII Europe module (docs/20261108_二戰歐洲戰場模組規劃_v8.md): date rules, strict data rules,
 // topic year range in the contemporary sync, and dataset attribution.
 import test from 'node:test';
 import assert from 'node:assert/strict';

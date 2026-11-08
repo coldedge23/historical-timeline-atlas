@@ -7757,8 +7757,8 @@
    "europeWarAtlas:fig_ew_stalin": [
     "europeWarAtlas:fig_ew_stalin",
     "europewar",
-    "ewar_endgame",
-    "europeWarAtlas:evt_ew_yalta_conference_1945"
+    "ewar_turning",
+    "europeWarAtlas:evt_ew_tehran_conference_1943"
    ],
    "europeWarAtlas:fig_ew_churchill": [
     "europeWarAtlas:fig_ew_churchill",
@@ -7799,8 +7799,8 @@
    "europeWarAtlas:fig_ew_roosevelt": [
     "europeWarAtlas:fig_ew_roosevelt",
     "europewar",
-    "ewar_turning",
-    "europeWarAtlas:evt_ew_casablanca_conference_1943"
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_lend_lease_act_1941"
    ],
    "europeWarAtlas:fig_ew_rommel": [
     "europeWarAtlas:fig_ew_rommel",

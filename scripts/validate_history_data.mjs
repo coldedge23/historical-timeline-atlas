@@ -32,7 +32,7 @@ for (const id of periodPaths) {
 datasets.push({id:'taiwanLens', coordinateOrder:'lngLat', events:TAIWAN_LENS_ERAS.flatMap(era=>era.keyEvents || []), figures:TAIWAN_DEDICATED_FIGURES, battles:TAIWAN_RELATED_BATTLES});
 datasets.push({id:'japanAtlas', coordinateOrder:'lngLat', events:JAPAN_ALL_EVENTS, figures:JAPAN_FIGURES, battles:JAPAN_BATTLES});
 datasets.push({id:EUROPEWAR_PAGE_ID, civ:'europewar', coordinateOrder:EUROPEWAR_COORDINATE_ORDER, events:EUROPEWAR_ALL_EVENTS, figures:EUROPEWAR_FIGURES, battles:EUROPEWAR_BATTLES});
-// Rules only the WWII Europe module follows (plan docs/20261108_二戰歐洲戰場模組規劃_v7.md, sections 4 and 9.5).
+// Rules only the WWII Europe module follows (plan docs/20261108_二戰歐洲戰場模組規劃_v8.md, sections 4 and 9.5).
 const STRICT_RULES = {[EUROPEWAR_PAGE_ID]: {eras:EUROPEWAR_ERA_DEFS, bounds:EUROPEWAR_MAP_BOUNDS, claimFields:EUROPEWAR_CLAIM_FIELDS,
   theaters:EUROPEWAR_THEATERS, scales:EUROPEWAR_SCALES, modes:EUROPEWAR_MODES}};
 const COORDINATE_ORDER = Object.fromEntries(datasets.map(d=>[d.id, d.coordinateOrder || 'latLng']));

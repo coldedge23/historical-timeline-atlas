@@ -139,7 +139,7 @@ export function normalizePeriodDataset(periodConfig) {
       roles = ['時代風雲人物'];
     }
 
-    const nativePlaceAncient = f.nativePlaceAncient || f.origin || f.hometown || '華夏九州';
+    const nativePlaceAncient = f.nativePlaceAncient || f.origin || f.hometown || '待考';
     const nativePlaceModern = f.nativePlaceModern || '';
     const bio = f.bio || f.shortBio || f.summary || '';
 

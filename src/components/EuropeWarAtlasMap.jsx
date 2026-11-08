@@ -4,7 +4,7 @@ import { EUROPEWAR_MAP } from '../data/europewar/europeWarMapGeoData.js';
 import { EUROPEWAR_MAP_CITIES } from '../data/europewar/europeWarMapCities.js';
 import { createMapProjection } from '../utils/conicProjection.js';
 
-// 二戰歐洲戰場的地圖分頁（docs/20261108_二戰歐洲戰場模組規劃_v7.md 第七節）：Natural Earth 現代海岸線與湖泊，
+// 二戰歐洲戰場的地圖分頁（docs/20261108_二戰歐洲戰場模組規劃_v8.md 第七節）：Natural Earth 現代海岸線與湖泊，
 // 不畫國界；只標目前時期的事件與戰役。座標一律 [lng, lat]（第 4.5 節）。時期切換由頁首的時期選單負責。
 const project = createMapProjection(EUROPEWAR_MAP.projection);
 const point = (record) => (Array.isArray(record?.coordinates) ? project(record.coordinates) : null);
@@ -90,9 +90,10 @@ export const EuropeWarAtlasMap = ({
             {eventMarkers.map(({ record, at: [x, y] }) => {
               const selected = record.id === selectedEvent?.id;
               return (
-                <g key={record.id} role="button" tabIndex={0} aria-label={`${record.title}，查看事件`} aria-pressed={selected}
+                <g key={record.id} role="button" tabIndex={0} aria-label={`${record.title}，查看事件${record.locationNote ? '（代表位置）' : ''}`} aria-pressed={selected}
                   className="cursor-pointer" onClick={() => onSelectEvent?.(record)} onKeyDown={activate(() => onSelectEvent?.(record))}>
-                  <title>{[record.title, record.yearDisplay].filter(Boolean).join('\n')}</title>
+                  <title>{[record.title, record.yearDisplay, record.locationNote && `代表位置：${record.locationNote}`].filter(Boolean).join('\n')}</title>
+                  {record.locationNote && <circle cx={x} cy={y} r="24" fill="none" stroke={COLORS.event} strokeWidth="2.5" strokeDasharray="6 4" />}
                   {selected && <circle cx={x} cy={y} r="17" fill="none" stroke={COLORS.selected} strokeWidth="4" />}
                   <circle cx={x} cy={y} r="10" fill={COLORS.event} stroke="#ffffff" strokeWidth="2.5" />
                   <circle cx={x} cy={y} r="30" fill="transparent" />
@@ -110,7 +111,7 @@ export const EuropeWarAtlasMap = ({
               <span className="inline-flex items-center gap-1"><svg width="10" height="10" aria-hidden="true"><rect x="2" y="2" width="6" height="6" transform="rotate(45 5 5)" fill={COLORS.battle} /></svg>戰役</span>
               <span className="inline-flex items-center gap-1"><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="none" stroke={COLORS.battle} strokeDasharray="2 1.5" /></svg>代表位置</span>
             </p>
-            <p className="mt-0.5 text-[#5c4a35]">底圖為現代海岸線，不含國界（Natural Earth）；大西洋戰場只標代表位置。城市名稱為本專案慣用譯名。</p>
+            <p className="mt-0.5 text-[#5c4a35]">底圖為現代海岸線，不含國界（Natural Earth）；大西洋戰場與地圖範圍外的事件只標代表位置。城市名稱為本專案慣用譯名。</p>
           </div>
         </div>
 

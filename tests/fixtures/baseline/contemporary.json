@@ -8397,7 +8397,7 @@
    [
     "europewar",
     "第二次世界大戰（歐洲）",
-    "europeWarAtlas:evt_ew_babi_yar_1941",
+    "europeWarAtlas:evt_ew_lend_lease_act_1941",
     "europeWarAtlas",
     0
    ]
@@ -9077,6 +9077,52 @@
     0
    ]
   ],
+  "europeWarAtlas>evt_ew_lend_lease_act_1941": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    2
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    4
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_pacific_war_1941",
+    "japanAtlas",
+    0
+   ]
+  ],
+  "europeWarAtlas>evt_ew_atlantic_charter_1941": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    2
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    4
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_pacific_war_1941",
+    "japanAtlas",
+    0
+   ]
+  ],
   "europeWarAtlas>evt_ew_babi_yar_1941": [
    [
     "china",
@@ -9285,6 +9331,29 @@
    ]
   ],
   "europeWarAtlas>evt_ew_italian_armistice_1943": [
+   [
+    "china",
+    "近現代中華",
+    "republicModern:evt_1943_cairo_conference",
+    "republicModern",
+    0
+   ],
+   [
+    "taiwan",
+    "日治抗日與啟蒙時期",
+    "taiwanLens:evt_tw_taihoku_raid_1945",
+    "taiwanLens",
+    2
+   ],
+   [
+    "japan",
+    "明治維新・近代日本",
+    "japanAtlas:evt_jp_fall_of_singapore_1942",
+    "japanAtlas",
+    1
+   ]
+  ],
+  "europeWarAtlas>evt_ew_tehran_conference_1943": [
    [
     "china",
     "近現代中華",

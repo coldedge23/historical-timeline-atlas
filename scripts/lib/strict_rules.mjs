@@ -1,4 +1,4 @@
-// Rules only the WWII Europe module follows (plan docs/20261108_二戰歐洲戰場模組規劃_v7.md, sections 4 and 9.5):
+// Rules only the WWII Europe module follows (plan docs/20261108_二戰歐洲戰場模組規劃_v8.md, sections 4 and 9.5):
 // dates, structured source claims, battle classification, participants and related battles.
 // Pure: returns [{ rule, detail }] for one record. Used by scripts/validate_history_data.mjs and tests.
 import { dateProblems } from '../../src/utils/datedRecords.js';

@@ -89,8 +89,8 @@ export const BattleModal = ({
     );
   };
 
-  const victorStatement = battle.victorStatement || battle.result || '勝負已定，詳見概述';
-  const locationText = battle.locationAncient || battle.location || '中原腹地';
+  const victorStatement = battle.victorStatement || battle.result || '待考';
+  const locationText = battle.locationAncient || battle.location || '待考';
   const modernLocText = battle.locationModern ? ` (今${battle.locationModern})` : '';
   const dateText = battle.startDate ? formatDateRange(battle.startDate, battle.endDate) : `${battle.year} 年`;
 

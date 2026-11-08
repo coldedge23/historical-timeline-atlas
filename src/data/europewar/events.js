@@ -200,6 +200,30 @@ const AVALON_REIMS_SURRENDER = {
   claimScope: '1945-05-07 02:41 於漢斯簽署；德國最高統帥部須命令所有部隊於 5 月 8 日中歐時間 23:01 停止作戰；約德爾代表德國最高統帥部、史密斯代表盟軍最高統帥、蘇斯洛帕羅夫代表蘇聯最高統帥部簽字，法國陸軍少將塞維茲見證',
   claims: ['date'],
 };
+const NARA_LEND_LEASE = {
+  title: 'U.S. National Archives, Milestone Documents: Lend-Lease Act (1941)',
+  url: 'https://www.archives.gov/milestone-documents/lend-lease-act', externalReviewed: true, reviewedAt: '2026-11-08',
+  claimScope: '法案文末記「Approved, March 11, 1941」',
+  claims: ['date'],
+};
+const OH_LEND_LEASE = {
+  title: 'U.S. Department of State, Office of the Historian: Lend-Lease and Military Aid to the Allies in the Early Years of World War II',
+  url: 'https://history.state.gov/milestones/1937-1945/lend-lease', externalReviewed: true, reviewedAt: '2026-11-08',
+  claimScope: '羅斯福提出租借構想：美國以「出借」方式向英國提供對德作戰物資，延後付款；本頁未寫法案核准日期',
+  claims: [],
+};
+const OH_ATLANTIC_CONF = {
+  title: 'U.S. Department of State, Office of the Historian: The Atlantic Conference & Charter, 1941',
+  url: 'https://history.state.gov/milestones/1937-1945/atlantic-conf', externalReviewed: true, reviewedAt: '2026-11-08',
+  claimScope: '邱吉爾與羅斯福 1941-08-09、08-10 在紐芬蘭普拉森舍灣的美艦奧古斯塔號上會面；憲章由兩人於 1941-08-14 發表',
+  claims: ['date'],
+};
+const OH_TEHRAN_CONF = {
+  title: 'U.S. Department of State, Office of the Historian: The Tehran Conference, 1943',
+  url: 'https://history.state.gov/milestones/1937-1945/tehran-conf', externalReviewed: true, reviewedAt: '2026-11-08',
+  claimScope: '羅斯福、邱吉爾與史達林於 1943-11-28 至 12-01 在伊朗德黑蘭會談',
+  claims: ['date', 'endDate'],
+};
 const IWM_BERLIN_EVENTS = {
   title: "Imperial War Museums: The Battle Of Berlin: Germany's Downfall On The Eastern Front",
   url: 'https://www.iwm.org.uk/history/second-world-war/eastern-front/the-battle-of-berlin-germanys-downfall-on-the-eastern-front', ...REVIEWED,
@@ -392,6 +416,38 @@ export const EUROPEWAR_EVENTS = [
     sources: [{ ...BALKANS_CHRONOLOGY, claimScope: '1940-10-28 義大利由阿爾巴尼亞入侵希臘' }],
   },
   {
+    id: 'evt_ew_lend_lease_act_1941',
+    year: 1941,
+    date: '1941-03-11',
+    title: '美國核准《租借法案》',
+    summary: '美國以「出借」方式向英國等國提供作戰物資，延後付款。',
+    detail: '待考',
+    locationNameAncient: '華盛頓',
+    locationNameModern: '美國華盛頓',
+    coordinates: [-15, 38.9],
+    locationNote: '核准地在美國華盛頓，遠超出地圖範圍；地圖座標取地圖西緣、與華盛頓約同緯度的大西洋海域作為代表位置',
+    faction: 'allies',
+    figureIds: ['fig_ew_roosevelt'],
+    tags: [],
+    sources: [NARA_LEND_LEASE, OH_LEND_LEASE],
+  },
+  {
+    id: 'evt_ew_atlantic_charter_1941',
+    year: 1941,
+    date: '1941-08-14',
+    title: '《大西洋憲章》發表',
+    summary: '羅斯福與邱吉爾在紐芬蘭外海會面後，聯名發表《大西洋憲章》。',
+    detail: '兩人於 8 月 9 日、10 日在紐芬蘭普拉森舍灣的美艦奧古斯塔號上會面，8 月 14 日發表憲章。',
+    locationNameAncient: '普拉森舍灣',
+    locationNameModern: '加拿大紐芬蘭普拉森舍灣',
+    coordinates: [-15, 47.2],
+    locationNote: '會面地在紐芬蘭普拉森舍灣，遠超出地圖範圍；地圖座標取地圖西緣、與普拉森舍灣約同緯度的大西洋海域作為代表位置',
+    faction: 'allies',
+    figureIds: ['fig_ew_roosevelt', 'fig_ew_churchill'],
+    tags: [],
+    sources: [OH_ATLANTIC_CONF],
+  },
+  {
     id: 'evt_ew_babi_yar_1941',
     year: 1941,
     date: '1941-09-29',
@@ -545,6 +601,23 @@ export const EUROPEWAR_EVENTS = [
     figureIds: ['fig_ew_eisenhower'],
     tags: ['巴多格里奧', '卡斯特拉諾'],
     sources: [AVALON_ITALY_ARMISTICE],
+  },
+  {
+    id: 'evt_ew_tehran_conference_1943',
+    year: 1943,
+    date: '1943-11-28',
+    endDate: '1943-12-01',
+    title: '德黑蘭會議',
+    summary: '羅斯福、邱吉爾與史達林在伊朗德黑蘭會談。',
+    detail: '待考',
+    locationNameAncient: '德黑蘭',
+    locationNameModern: '伊朗德黑蘭',
+    coordinates: [50, 35.69],
+    locationNote: '會議地德黑蘭在地圖東界以東約 1.4°；地圖座標取地圖東緣、與德黑蘭同緯度的位置作為代表位置',
+    faction: 'allies',
+    figureIds: ['fig_ew_roosevelt', 'fig_ew_churchill', 'fig_ew_stalin'],
+    tags: [],
+    sources: [OH_TEHRAN_CONF],
   },
   {
     id: 'evt_ew_v1_attacks_london_1944',

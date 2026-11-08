@@ -52,7 +52,7 @@ export const FigureModal = ({
       ? figure.role.split(/[\/、，,]/).map((s) => s.trim()).filter(Boolean)
       : [];
   const birthDeathText = figure.birthDeathDisplay || figure.lifeSpan || '待考';
-  const nativeAncientText = figure.nativePlaceAncient || figure.hometown || figure.origin || '華夏九州';
+  const nativeAncientText = figure.nativePlaceAncient || figure.hometown || figure.origin || '待考';
   const bioText = figure.bio || figure.shortBio || '';
   const achievementsList =
     Array.isArray(figure.keyAchievements) && figure.keyAchievements.length > 0
