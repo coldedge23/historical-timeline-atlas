@@ -223,4 +223,55 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '蘇聯元帥，參與史達林格勒戰役；以烏克蘭第 4 方面軍司令身分協助馬利諾夫斯基進行聶伯河下游的攻勢。1949 年死於莫斯科。',
     source: wikipediaFigure('Fyodor_Tolbukhin', 'Fyodor Tolbukhin', 'Born 16 June 1894, Androniki, Yaroslavl Governorate — Died 17 October 1949, Moscow'),
   }),
+  // ── 擴充第 2 批（規劃 v10 第十五節，2026-11-21）──
+  // 阿尼姆、帕奇、呂特晏斯、博爾-科莫羅夫斯基：Britannica 沒有完整條目或查不到，生卒日期改用英文維基百科資訊框。
+  figure({
+    id: 'fig_ew_bradley', name: '布萊德雷', faction: 'allies', role: '美國陸軍將領（第 12 集團軍群司令）',
+    birth: '1893', death: '1981', birthDeathDisplay: '1893 年 2 月 12 日 – 1981 年 4 月 8 日', birthplace: '美國密蘇里州克拉克',
+    shortBio: '美國陸軍軍官，二戰時指揮第 12 集團軍群；戰後任美國首任參謀長聯席會議主席（1949–53）。北非戰役任第 2 軍軍長，1943 年 5 月攻占比塞大；1944 年任美國第 1 軍團司令，參加諾曼第登陸。1981 年死於紐約。',
+    source: britannica('Omar Bradley', 'Omar-Nelson-Bradley', 'born February 12, 1893, Clark, Missouri, U.S. — died April 8, 1981, New York, New York'),
+  }),
+  figure({
+    id: 'fig_ew_cunningham', name: '坎寧安', faction: 'allies', role: '英國海軍將領（地中海艦隊總司令）',
+    birth: '1883', death: '1963', birthDeathDisplay: '1883 年 1 月 7 日 – 1963 年 6 月 12 日', birthplace: '愛爾蘭都柏林',
+    shortBio: '英國海軍軍官，二戰爆發時任地中海艦隊總司令，1943–46 年任第一海務大臣。1940 年 11 月空襲塔蘭托，使 3 艘義大利戰艦失去戰力；1941 年 3 月在馬塔潘角海戰擊沉 3 艘義大利巡洋艦。1963 年死於倫敦。',
+    source: britannica('Andrew Browne Cunningham', 'Andrew-Browne-Cunningham', 'born January 7, 1883, Dublin, Ireland — died June 12, 1963, London, England'),
+  }),
+  figure({
+    id: 'fig_ew_freyberg', name: '弗賴伯格', faction: 'allies', role: '紐西蘭遠征軍司令',
+    birth: '1889', death: '1963', birthDeathDisplay: '1889 年 3 月 21 日 – 1963 年 7 月 4 日', birthplace: '英格蘭薩里郡里奇蒙',
+    shortBio: '二戰時任紐西蘭遠征軍司令（1939–45），1941 年在克里特島戰役指揮盟軍；之後在第二次阿拉曼戰役率部突破，並轉戰北非與義大利。1946–52 年任紐西蘭總督。1963 年死於伯克郡溫莎。',
+    source: britannica('Bernard Cyril Freyberg, 1st Baron Freyberg', 'Bernard-Cyril-Freyberg-1st-Baron-Freyberg-of-Wellington-and-of-Munstead', 'born March 21, 1889, Richmond, Surrey, Eng. — died July 4, 1963, Windsor, Berkshire'),
+  }),
+  figure({
+    id: 'fig_ew_harris', name: '哈里斯', faction: 'allies', role: '英國皇家空軍轟炸機司令部總司令',
+    birth: '1892', death: '1984', birthDeathDisplay: '1892 年 4 月 13 日 – 1984 年 4 月 5 日', birthplace: '英格蘭格洛斯特郡切爾滕納姆',
+    shortBio: '英國空軍軍官，1942 年 2 月起任皇家空軍轟炸機司令部總司令，主導對德國的飽和轟炸，最著名的是對漢堡與德勒斯登的燃燒彈轟炸。1984 年死於牛津郡泰晤士河畔戈林。',
+    participatedEventIds: ['evt_ew_bombing_of_dresden_1945'],
+    source: britannica('Sir Arthur Travers Harris, 1st Baronet', 'Sir-Arthur-Travers-Harris-1st-Baronet', 'born April 13, 1892, Cheltenham, Gloucestershire, England — died April 5, 1984, Goring-on-Thames, Oxfordshire'),
+  }),
+  figure({
+    id: 'fig_ew_arnim', name: '阿尼姆', faction: 'axis', role: '德國陸軍將領',
+    birth: '1889', death: '1962', birthDeathDisplay: '1889 年 4 月 4 日 – 1962 年 9 月 1 日', birthplace: '德國恩斯多夫',
+    shortBio: '德國國防軍將領，二戰期間指揮多個軍團，是北非軸心軍的最後一任指揮官。1962 年死於西德巴特維爾東根。',
+    source: wikipediaFigure('Hans-Jürgen_von_Arnim', 'Hans-Jürgen von Arnim', 'Born 4 April 1889, Ernsdorf — Died 1 September 1962, Bad Wildungen'),
+  }),
+  figure({
+    id: 'fig_ew_patch', name: '帕奇', faction: 'allies', role: '美國陸軍將領（第 7 軍團司令）',
+    birth: '1889', death: '1945', birthDeathDisplay: '1889 年 11 月 23 日 – 1945 年 11 月 21 日', birthplace: '美國亞利桑那領地華丘卡堡',
+    shortBio: '美國陸軍將領，二戰時先在太平洋指揮瓜達康納爾島戰役的美國陸軍與陸戰隊，之後在歐洲西線指揮第 7 軍團。1945 年 11 月死於德州山姆休士頓堡。',
+    source: wikipediaFigure('Alexander_Patch', 'Alexander Patch', 'Born 23 November 1889, Fort Huachuca, Arizona Territory — Died 21 November 1945, Fort Sam Houston, Texas'),
+  }),
+  figure({
+    id: 'fig_ew_luetjens', name: '呂特晏斯', faction: 'axis', role: '德國海軍將領',
+    birth: '1889', death: '1941', birthDeathDisplay: '1889 年 5 月 25 日 – 1941 年 5 月 27 日', birthplace: '德國威斯巴登',
+    shortBio: '德國海軍將領，1941 年指揮戰艦俾斯麥號出擊大西洋，在俾斯麥號的最後一戰中陣亡。',
+    source: wikipediaFigure('Günther_Lütjens', 'Günther Lütjens', 'Born 25 May 1889, Wiesbaden — Died 27 May 1941, North Atlantic'),
+  }),
+  figure({
+    id: 'fig_ew_bor_komorowski', name: '博爾-科莫羅夫斯基', faction: 'allies', role: '波蘭救國軍將領',
+    birth: '1895', death: '1966', birthDeathDisplay: '1895 年 6 月 1 日 – 1966 年 8 月 24 日', birthplace: '加利西亞霍羅布里夫',
+    shortBio: '波蘭軍事領袖，本名塔德烏什・科莫羅夫斯基，「博爾」（森林）是戰時代號。華沙起義投降前一天被任命為總司令；戰後任倫敦流亡政府總理。1966 年死於倫敦。',
+    source: wikipediaFigure('Tadeusz_Bór-Komorowski', 'Tadeusz Bór-Komorowski', 'Born 1 June 1895, Khorobriv, Galicia — Died 24 August 1966, London'),
+  }),
 ];

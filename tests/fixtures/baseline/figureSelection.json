@@ -7903,6 +7903,54 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_bradley": [
+    "europeWarAtlas:fig_ew_bradley",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_cunningham": [
+    "europeWarAtlas:fig_ew_cunningham",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_freyberg": [
+    "europeWarAtlas:fig_ew_freyberg",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_harris": [
+    "europeWarAtlas:fig_ew_harris",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_bombing_of_dresden_1945"
+   ],
+   "europeWarAtlas:fig_ew_arnim": [
+    "europeWarAtlas:fig_ew_arnim",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_patch": [
+    "europeWarAtlas:fig_ew_patch",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_luetjens": [
+    "europeWarAtlas:fig_ew_luetjens",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_bor_komorowski": [
+    "europeWarAtlas:fig_ew_bor_komorowski",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

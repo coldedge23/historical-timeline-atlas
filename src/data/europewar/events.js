@@ -568,6 +568,8 @@ export const EUROPEWAR_EVENTS = [
     coordinates: [21.01, 52.23],
     faction: 'other',
     figureIds: [],
+    // 不自動配對戰役：名稱前兩字「華沙」會讓它配到 1944 年的華沙起義（規劃 v10 第 15.7 節）。
+    battleId: null,
     tags: ['施特魯普'],
     sources: [USHMM_WARSAW_GHETTO],
   },

@@ -243,9 +243,10 @@ export function normalizePeriodDataset(periodConfig) {
       }
     }
 
-    // Match battle if battleId not explicitly set
+    // Match battle if battleId not explicitly set. battleId: null opts an event out of the name match
+    // (WWII Europe: 華沙猶太區起義 1943 must not pair with 華沙起義（1944）, plan v10 section 15.7).
     let battleId = e.battleId;
-    if (!battleId) {
+    if (battleId === undefined) {
       const matchedBat = rawBattles.find(
         (b) =>
           b.eventId === e.id ||

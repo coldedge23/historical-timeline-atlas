@@ -9879,6 +9879,38 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_battle_of_taranto_1940": {
+   "attacker": [
+    "英國",
+    "航艦 1 艘、重巡洋艦 2 艘、輕巡洋艦 2 艘、驅逐艦 4 艘、魚雷轟炸機 21 架",
+    "陣亡 2 人、被俘 2 人，損失飛機 2 架",
+    [
+     [
+      "坎寧安",
+      "地中海艦隊總司令",
+      "europeWarAtlas:fig_ew_cunningham"
+     ],
+     [
+      "萊斯特",
+      "英軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "義大利",
+    "戰艦 6 艘、重巡洋艦 7 艘、輕巡洋艦 7 艘、驅逐艦 13 艘",
+    "陣亡 59 人、受傷 600 人；3 艘戰艦失去戰力，重巡洋艦 1 艘、驅逐艦 2 艘受損",
+    [
+     [
+      "坎皮奧尼",
+      "義大利海軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_balkans_campaign_1941": {
    "attacker": [
     "德國（及義大利）",
@@ -9920,6 +9952,117 @@
      [
       "威爾遜",
       "英國遠征軍司令",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_siege_of_tobruk_1941": {
+   "attacker": [
+    "德國及義大利",
+    "待考",
+    "12,296 人；飛機 74 至 150 架",
+    [
+     [
+      "隆美爾",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_rommel"
+     ],
+     [
+      "甘巴拉",
+      "義軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "盟軍",
+    "待考",
+    "5,989 人",
+    [
+     [
+      "莫斯黑德",
+      "守軍指揮官（1941 年 4 月至 9 月）",
+      null
+     ],
+     [
+      "斯科比",
+      "守軍指揮官（1941 年 9 月至 11 月）",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_crete_1941": {
+   "attacker": [
+    "德國及義大利",
+    "德軍傘兵與山地部隊 2.2 萬人，轟炸機 280 架、俯衝轟炸機 150 架、戰鬥機 180 架、運輸機 500 架；義軍 2,700 人",
+    "5,894 人",
+    [
+     [
+      "斯圖登特",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "科赫",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "英國、希臘、紐西蘭及澳洲",
+    "42,547 人（英國 18,047、希臘 10,258 至 11,451、紐西蘭 7,702、澳洲 6,540）",
+    "約 2.3 萬人，其中大英國協部隊被俘 12,254 人、希臘被俘 5,225 人",
+    [
+     [
+      "弗賴伯格",
+      "克里特島盟軍指揮官",
+      "europeWarAtlas:fig_ew_freyberg"
+     ],
+     [
+      "萊科克",
+      "盟軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_sinking_of_bismarck_1941": {
+   "attacker": [
+    "英國及波蘭",
+    "航艦皇家方舟號、戰艦英王喬治五世號與羅德尼號、重巡洋艦 2 艘、驅逐艦 8 艘",
+    "陣亡 49 人、受傷 5 人；驅逐艦馬紹納號沉沒",
+    [
+     [
+      "托維",
+      "英軍指揮官",
+      null
+     ],
+     [
+      "韋克-沃克",
+      "英軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "戰艦俾斯麥號，另有德國空軍第 28 轟炸聯隊第 1 大隊",
+    "約 2,200 人陣亡、110 人被俘；俾斯麥號自沉",
+    [
+     [
+      "呂特晏斯",
+      "艦隊司令（陣亡）",
+      "europeWarAtlas:fig_ew_luetjens"
+     ],
+     [
+      "林德曼",
+      "俾斯麥號艦長（陣亡）",
       null
      ]
     ]
@@ -10016,6 +10159,43 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_battle_of_gazala_1942": {
+   "attacker": [
+    "德國及義大利",
+    "9 萬人（義大利 6 萬、德國 3 萬）、戰車 560 輛、飛機 542 架",
+    "德軍 3,360 人（5 月 26 日至 6 月 24 日）、義軍 3,000 人",
+    [
+     [
+      "隆美爾",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_rommel"
+     ],
+     [
+      "巴斯蒂科",
+      "義軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "英國及大英國協部隊",
+    "11 萬人、戰車 843 輛、飛機 604 架",
+    "5 萬人陣亡、受傷或被俘（含托布魯克約 3.3 萬名戰俘）",
+    [
+     [
+      "奧欽萊克",
+      "英軍指揮官",
+      null
+     ],
+     [
+      "里奇",
+      "英軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_battle_of_stalingrad_1942": {
    "attacker": [
     "德國",
@@ -10048,6 +10228,38 @@
       "崔可夫",
       "指揮史達林格勒城市防禦",
       "europeWarAtlas:fig_ew_chuikov"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_dieppe_raid_1942": {
+   "attacker": [
+    "加拿大及英國",
+    "約 10,500 人（含配屬英國突擊隊的 50 名美國遊騎兵），另有艦艇與登陸艇 237 艘",
+    "加拿大陸軍陣亡 907、受傷 2,460、被俘 1,946 人；英國陸軍陣亡 247 人；皇家海軍死傷 550 人、驅逐艦 1 艘與登陸艇 33 艘損失",
+    [
+     [
+      "羅伯茨",
+      "盟軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "約 1,500 人（第 302 靜態師，不含空軍與海軍）",
+    "國防軍陣亡 311、受傷 280 人",
+    [
+     [
+      "倫德施泰特",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_rundstedt"
+     ],
+     [
+      "哈澤",
+      "德軍指揮官",
+      null
      ]
     ]
    ],
@@ -10103,6 +10315,63 @@
     "待考",
     "待考",
     []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_tunisian_campaign_1942": {
+   "attacker": [
+    "盟軍",
+    "3 月時 50 萬人、戰車逾 1,800 輛、野戰砲逾 1,200 門",
+    "76,020 人；飛機 849 架、戰車逾 340 輛",
+    [
+     [
+      "艾森豪",
+      "盟軍指揮官",
+      "europeWarAtlas:fig_ew_eisenhower"
+     ],
+     [
+      "亞歷山大",
+      "盟軍指揮官",
+      "europeWarAtlas:fig_ew_alexander"
+     ],
+     [
+      "蒙哥馬利",
+      "盟軍指揮官",
+      "europeWarAtlas:fig_ew_montgomery"
+     ],
+     [
+      "布萊德雷",
+      "美國第 2 軍軍長，攻占比塞大",
+      "europeWarAtlas:fig_ew_bradley"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及義大利",
+    "3 月時 35 萬人、戰車逾 200 輛、野戰砲逾 1,000 門",
+    "29 萬至 36.2 萬人，其中 23.8 萬至 30 萬人被俘",
+    [
+     [
+      "凱塞林",
+      "德軍南線總司令",
+      "europeWarAtlas:fig_ew_kesselring"
+     ],
+     [
+      "隆美爾",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_rommel"
+     ],
+     [
+      "阿尼姆",
+      "北非軸心軍最後一任指揮官",
+      "europeWarAtlas:fig_ew_arnim"
+     ],
+     [
+      "梅塞",
+      "義軍指揮官",
+      null
+     ]
+    ]
    ],
    "event": null
   },
@@ -10190,6 +10459,27 @@
     "德國及義大利",
     "待考",
     "約 165,000 人，其中德軍 30,000 人",
+    []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_bombing_of_hamburg_1943": {
+   "attacker": [
+    "英國及美國",
+    "待考",
+    "待考",
+    [
+     [
+      "哈里斯",
+      "皇家空軍轟炸機司令部總司令",
+      "europeWarAtlas:fig_ew_harris"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "估計 3.5 萬至 4 萬人死亡（蛾摩拉行動期間）",
     []
    ],
    "event": null
@@ -10367,6 +10657,11 @@
       "艾森豪",
       "盟軍最高指揮官",
       "europeWarAtlas:fig_ew_eisenhower"
+     ],
+     [
+      "布萊德雷",
+      "美國第 1 軍團司令",
+      "europeWarAtlas:fig_ew_bradley"
      ]
     ]
    ],
@@ -10404,6 +10699,85 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_warsaw_uprising_1944": {
+   "attacker": [
+    "波蘭救國軍",
+    "2 萬至 4.9 萬人（起初只有約 2,500 人有槍）",
+    "陣亡及失蹤 15,200 人、受傷 5,000 人、被俘 15,000 人；另有 15 萬至 20 萬名平民死亡",
+    [
+     [
+      "博爾-科莫羅夫斯基",
+      "起義方指揮官（投降後被俘）",
+      "europeWarAtlas:fig_ew_bor_komorowski"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "起初 1.3 萬至 2.5 萬人，戰車數十輛",
+    "陣亡及失蹤 2,000 至 17,000 人、受傷 9,000 人",
+    [
+     [
+      "莫德爾",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_model"
+     ],
+     [
+      "巴赫-澤萊夫斯基",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "施塔赫爾",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_operation_dragoon_1944": {
+   "attacker": [
+    "美國及法國",
+    "首波登陸 15.1 萬人，整個登陸部隊 576,833 人；另有法國抵抗運動 7.5 萬人",
+    "約 25,574 人（美軍 15,574 人，其中陣亡 7,301 人；法軍逾 1 萬人）",
+    [
+     [
+      "德弗斯",
+      "盟軍指揮官",
+      null
+     ],
+     [
+      "帕奇",
+      "美國第 7 軍團司令",
+      "europeWarAtlas:fig_ew_patch"
+     ],
+     [
+      "德拉特爾",
+      "法軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "南法 28.5 萬至 30 萬人",
+    "陣亡 7,000 人、受傷約 2.1 萬人、被俘 131,250 人",
+    [
+     [
+      "布拉斯科維茨",
+      "G 集團軍群司令",
+      null
+     ],
+     [
+      "維瑟",
+      "第 19 軍團司令",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_operation_market_garden_1944": {
    "attacker": [
     "英國、美國及波蘭",
@@ -10425,6 +10799,38 @@
      [
       "莫德爾",
       "B 集團軍群司令",
+      "europeWarAtlas:fig_ew_model"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_huertgen_forest_1944": {
+   "attacker": [
+    "美國",
+    "待考",
+    "3.3 萬至 5.5 萬人",
+    [
+     [
+      "布萊德雷",
+      "美軍指揮官",
+      "europeWarAtlas:fig_ew_bradley"
+     ],
+     [
+      "霍奇斯",
+      "美軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "約 2.8 萬人",
+    [
+     [
+      "莫德爾",
+      "德軍指揮官",
       "europeWarAtlas:fig_ew_model"
      ]
     ]
