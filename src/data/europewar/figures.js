@@ -323,4 +323,53 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '德國陸軍將領，曾任第 23 軍軍長，獲頒附橡葉騎士鐵十字勳章；1944 年雅西－基希訥烏攻勢時列名德方指揮官。1971 年死於西德巴特賴興哈爾。',
     source: wikipediaFigure('Johannes_Frie%C3%9Fner', 'Johannes Frießner', 'Born 22 March 1892, Chemnitz — Died 26 June 1971, Bad Reichenhall, West Germany'),
   }),
+  // 擴充第 4 批（規劃 v12 第十七節，2026-11-21）：生卒與出生地取英文維基百科資訊框。
+  figure({
+    id: 'fig_ew_tito', name: '狄托', faction: 'allies', role: '南斯拉夫游擊隊最高指揮官',
+    birth: '1892', death: '1980', birthDeathDisplay: '1892 年 5 月 7 日 – 1980 年 5 月 4 日', birthplace: '奧匈帝國克羅埃西亞－斯拉沃尼亞庫姆羅韋茨',
+    shortBio: '本名約瑟普・布羅茲，南斯拉夫共產黨領袖，二戰期間任南斯拉夫游擊隊最高指揮官；1943 至 1963 年任總理，1953 年起任總統直到去世，也是不結盟運動的創始人之一。1980 年死於盧比安納。',
+    source: wikipediaFigure('Josip_Broz_Tito', 'Josip Broz Tito', 'Born 7 May 1892, Kumrovec, Croatia-Slavonia, Austria-Hungary — Died 4 May 1980, Ljubljana'),
+  }),
+  figure({
+    id: 'fig_ew_papagos', name: '帕帕戈斯', faction: 'allies', role: '希臘陸軍將領',
+    birth: '1883', death: '1955', birthDeathDisplay: '1883 年 12 月 9 日 – 1955 年 10 月 4 日', birthplace: '希臘雅典',
+    shortBio: '希臘軍官，二戰期間率領希臘陸軍，後來在希臘內戰後期再度領軍；希臘唯一升任陸軍元帥的職業軍官，1952 至 1955 年任總理。1955 年死於雅典。',
+    source: wikipediaFigure('Alexandros_Papagos', 'Alexandros Papagos', 'Born 9 December 1883, Athens — Died 4 October 1955, Athens'),
+  }),
+  figure({
+    id: 'fig_ew_hodges', name: '霍奇斯', faction: 'allies', role: '美國陸軍將領（第 1 軍團司令）',
+    birth: '1887', death: '1966', birthDeathDisplay: '1887 年 1 月 5 日 – 1966 年 1 月 16 日', birthplace: '美國喬治亞州佩里',
+    shortBio: '美國陸軍將領，從二等兵一路升任將軍；二戰西歐戰役期間指揮美國第 1 軍團。1966 年死於德州聖安東尼奧。',
+    source: wikipediaFigure('Courtney_Hodges', 'Courtney Hodges', 'Born 5 January 1887, Perry, Georgia — Died 16 January 1966, San Antonio, Texas'),
+  }),
+  figure({
+    id: 'fig_ew_kluge', name: '克魯格', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1882', death: '1944', birthDeathDisplay: '1882 年 10 月 30 日 – 1944 年 8 月 19 日', birthplace: '普魯士波森',
+    shortBio: '德國陸軍元帥。1939 年入侵波蘭、1940 年法國戰役、1941 年巴巴羅薩行動與莫斯科戰役指揮第 4 軍團，1941 年 12 月接替博克任中央集團軍群司令，後任西線總司令。因牽涉 7 月 20 日密謀案，1944 年 8 月自殺。',
+    source: wikipediaFigure('Günther_von_Kluge', 'Günther von Kluge', 'Born 30 October 1882, Posen, Prussia — Died 19 August 1944, Metz'),
+  }),
+  figure({
+    id: 'fig_ew_yeryomenko', name: '葉廖緬科', faction: 'allies', role: '蘇聯元帥',
+    birth: '1892', death: '1970', birthDeathDisplay: '1892 年 10 月 14 日 – 1970 年 11 月 19 日', birthplace: '俄羅斯帝國哈爾科夫省馬爾基夫卡',
+    shortBio: '蘇聯元帥。1942 年夏史達林格勒戰役期間指揮東南方面軍（後改名史達林格勒方面軍），規劃城市防禦；1945 年指揮解放匈牙利西部與捷克斯洛伐克東部的部隊。1970 年死於莫斯科。',
+    source: wikipediaFigure('Andrey_Yeryomenko', 'Andrey Yeryomenko', 'Born 14 October 1892, Markivka, Kharkov Governorate — Died 19 November 1970, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_bagramyan', name: '巴格拉米揚', faction: 'allies', role: '蘇聯元帥',
+    birth: '1897', death: '1982', birthDeathDisplay: '1897 年 12 月 2 日 – 1982 年 9 月 21 日', birthplace: '俄羅斯帝國伊麗莎白波爾',
+    shortBio: '亞美尼亞裔蘇聯元帥，任波羅的海第 1 方面軍司令時主導把德軍逐出波羅的海國家的攻勢。1982 年死於莫斯科。',
+    source: wikipediaFigure('Ivan_Bagramyan', 'Ivan Bagramyan', 'Born 2 December 1897, Yelizavetpol, Russian Empire — Died 21 September 1982, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_crerar', name: '克里勒', faction: 'allies', role: '加拿大陸軍將領（加拿大第 1 軍團司令）',
+    birth: '1888', death: '1965', birthDeathDisplay: '1888 年 4 月 28 日 – 1965 年 4 月 1 日', birthplace: '加拿大安大略省漢密爾頓',
+    shortBio: '加拿大陸軍將領，二戰時成為加拿大最高階的野戰指揮官，1944 至 1945 年西北歐戰役期間指揮加拿大第 1 軍團。1965 年死於渥太華。',
+    source: wikipediaFigure('Harry_Crerar', 'Harry Crerar', 'Born 28 April 1888, Hamilton, Ontario — Died 1 April 1965, Ottawa'),
+  }),
+  figure({
+    id: 'fig_ew_dempsey', name: '鄧普西', faction: 'allies', role: '英國陸軍將領（英國第 2 軍團司令）',
+    birth: '1896', death: '1969', birthDeathDisplay: '1896 年 12 月 15 日 – 1969 年 6 月 5 日', birthplace: '英格蘭柴郡沃勒西新布萊頓',
+    shortBio: '英國陸軍將領，參加過兩次世界大戰；二戰期間在西北歐指揮英國第 2 軍團。1969 年死於英格蘭伯克郡亞特登。',
+    source: wikipediaFigure('Miles_Dempsey', 'Miles Dempsey', 'Born 15 December 1896, New Brighton, Wallasey, Cheshire — Died 5 June 1969, Yattendon, Berkshire'),
+  }),
 ];

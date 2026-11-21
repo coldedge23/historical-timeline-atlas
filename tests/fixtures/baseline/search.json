@@ -3293,6 +3293,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_the_neretva_1943",
+     "內雷特瓦河戰役（白色行動）",
+     "1943 年 1 月 20 日 – 3 月 · 波士尼亞西部與內雷特瓦河",
+     30
+    ],
+    [
+     "battle",
      "taiwanLens",
      "bat_tw_truku_1914",
      "太魯閣戰役 (理蕃五年計畫最後一役)",
@@ -3337,6 +3345,14 @@
      "bat_jp_guadalcanal_1942",
      "瓜達康納爾島戰役 (南太平洋的消耗戰)",
      "1942 · 英屬所羅門群島瓜達康納爾島",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_dodecanese_campaign_1943",
+     "多德卡尼斯群島戰役",
+     "1943 年 9 月 8 日 – 11 月 22 日 · 多德卡尼斯群島",
      30
     ],
     [
@@ -3409,22 +3425,6 @@
      "bat_ew_battles_of_rzhev_1942",
      "勒熱夫戰役",
      "1942 年 1 月 8 日 – 1943 年 3 月 31 日 · 勒熱夫",
-     30
-    ],
-    [
-     "battle",
-     "taiwanLens",
-     "bat_tw_keelung_1884",
-     "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
-     "1884 · 臺灣省基隆廳獅球嶺要塞",
-     30
-    ],
-    [
-     "battle",
-     "europeWarAtlas",
-     "bat_ew_battle_of_kiev_1941",
-     "基輔戰役（1941）",
-     "1941 年 8 月 23 日 – 9 月 26 日 · 基輔",
      30
     ]
    ],
@@ -8035,6 +8035,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_battle_of_the_neretva_1943",
+     "內雷特瓦河戰役（白色行動）",
+     "1943 年 1 月 20 日 – 3 月 · 波士尼亞西部與內雷特瓦河",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_balkans_campaign_1941",
      "巴爾幹戰役",
      "1941 年 4 月 6 日 – 4 月 30 日 · 南斯拉夫與希臘",
@@ -8070,6 +8078,14 @@
      "bat_jp_guadalcanal_1942",
      "瓜達康納爾島戰役 (南太平洋的消耗戰)",
      "1942 · 英屬所羅門群島瓜達康納爾島",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_dodecanese_campaign_1943",
+     "多德卡尼斯群島戰役",
+     "1943 年 9 月 8 日 – 11 月 22 日 · 多德卡尼斯群島",
      30
     ],
     [
@@ -8118,22 +8134,6 @@
      "bat_ew_tunisian_campaign_1942",
      "突尼西亞戰役",
      "1942 年 11 月 17 日 – 1943 年 5 月 13 日 · 突尼西亞",
-     30
-    ],
-    [
-     "battle",
-     "europeWarAtlas",
-     "bat_ew_norwegian_campaign_1940",
-     "挪威戰役",
-     "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
-     30
-    ],
-    [
-     "battle",
-     "europeWarAtlas",
-     "bat_ew_battles_of_rzhev_1942",
-     "勒熱夫戰役",
-     "1942 年 1 月 8 日 – 1943 年 3 月 31 日 · 勒熱夫",
      30
     ]
    ],
@@ -12735,6 +12735,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battle_of_the_neretva_1943",
+     "內雷特瓦河戰役（白色行動）",
+     "1943 年 1 月 20 日 – 3 月 · 波士尼亞西部與內雷特瓦河",
+     30
+    ],
+    [
+     "battle",
      "taiwanLens",
      "bat_tw_truku_1914",
      "太魯閣戰役 (理蕃五年計畫最後一役)",
@@ -12771,6 +12779,14 @@
      "bat_ew_battle_of_stalingrad_1942",
      "史達林格勒戰役",
      "1942 年 7 月 17 日 – 1943 年 2 月 2 日 · 史達林格勒",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
+     "bat_ew_dodecanese_campaign_1943",
+     "多德卡尼斯群島戰役",
+     "1943 年 9 月 8 日 – 11 月 22 日 · 多德卡尼斯群島",
      30
     ],
     [
@@ -12827,22 +12843,6 @@
      "bat_ew_norwegian_campaign_1940",
      "挪威戰役",
      "1940 年 4 月 9 日 – 6 月 10 日 · 挪威",
-     30
-    ],
-    [
-     "battle",
-     "europeWarAtlas",
-     "bat_ew_battles_of_rzhev_1942",
-     "勒熱夫戰役",
-     "1942 年 1 月 8 日 – 1943 年 3 月 31 日 · 勒熱夫",
-     30
-    ],
-    [
-     "battle",
-     "taiwanLens",
-     "bat_tw_keelung_1884",
-     "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
-     "1884 · 臺灣省基隆廳獅球嶺要塞",
      30
     ]
    ],

@@ -7999,6 +7999,54 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_tito": [
+    "europeWarAtlas:fig_ew_tito",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_papagos": [
+    "europeWarAtlas:fig_ew_papagos",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_hodges": [
+    "europeWarAtlas:fig_ew_hodges",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_remagen_bridge_1945"
+   ],
+   "europeWarAtlas:fig_ew_kluge": [
+    "europeWarAtlas:fig_ew_kluge",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_yeryomenko": [
+    "europeWarAtlas:fig_ew_yeryomenko",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_bagramyan": [
+    "europeWarAtlas:fig_ew_bagramyan",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_crerar": [
+    "europeWarAtlas:fig_ew_crerar",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_dempsey": [
+    "europeWarAtlas:fig_ew_dempsey",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

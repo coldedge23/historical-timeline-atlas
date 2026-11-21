@@ -29,4 +29,6 @@ export const EUROPEWAR_MAP_CITIES = [
   city('Tunis', '突尼斯', 10.179678, 36.802778),
   city('Smolensk', '斯摩稜斯克', 32.047336, 54.782688),
   city('Bucharest', '布加勒斯特', 26.098001, 44.435318),
+  city('Athens', '雅典', 23.731375, 37.985272),
+  city('Lviv', '利沃夫', 24.029995, 49.83498),
 ];

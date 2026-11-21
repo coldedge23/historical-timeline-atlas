@@ -9879,6 +9879,48 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_greco_italian_war_1940": {
+   "attacker": [
+    "義大利",
+    "1940 年 10 月 87,000 人，1941 年 4 月增至 40 萬人",
+    "戰鬥損失 89,696 人（陣亡 13,755 人、受傷 50,874 人、失蹤 3,914 人、被俘 21,153 人）；含凍傷與疾病共 102,064 人",
+    [
+     [
+      "普拉斯卡",
+      "義軍指揮官",
+      null
+     ],
+     [
+      "索杜",
+      "義軍指揮官",
+      null
+     ],
+     [
+      "卡瓦萊羅",
+      "義軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "希臘",
+    "1940 年 10 月 5 萬人",
+    "戰鬥損失 58,578 人（陣亡 13,325 人、受傷 42,485 人、失蹤 1,237 人、被俘 1,531 人）；含凍傷等共 83,578 人以上",
+    [
+     [
+      "帕帕戈斯",
+      "希臘軍指揮官",
+      "europeWarAtlas:fig_ew_papagos"
+     ],
+     [
+      "措拉科格魯",
+      "希臘軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_battle_of_taranto_1940": {
    "attacker": [
     "英國",
@@ -9947,7 +9989,7 @@
      [
       "帕帕戈斯",
       "希臘陸軍總司令",
-      null
+      "europeWarAtlas:fig_ew_papagos"
      ],
      [
       "威爾遜",
@@ -10141,7 +10183,7 @@
      [
       "葉廖緬科",
       "蘇軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_yeryomenko"
      ],
      [
       "羅科索夫斯基",
@@ -10331,7 +10373,7 @@
      [
       "克魯格",
       "德軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_kluge"
      ],
      [
       "莫德爾",
@@ -10356,7 +10398,7 @@
      [
       "巴格拉米揚",
       "蘇軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_bagramyan"
      ]
     ]
    ],
@@ -10477,7 +10519,7 @@
      [
       "葉廖緬科",
       "蘇軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_yeryomenko"
      ]
     ]
    ],
@@ -10662,6 +10704,48 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_battle_of_the_neretva_1943": {
+   "attacker": [
+    "德國、義大利、克羅埃西亞及切特尼克",
+    "德、義、克羅埃西亞軍 9 萬人，另有切特尼克 1.2 萬至 1.5 萬人",
+    "總計 7,000 至 8,600 人",
+    [
+     [
+      "勒爾",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "呂特斯",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "羅阿塔",
+      "義軍指揮官",
+      null
+     ],
+     [
+      "米哈伊洛維奇",
+      "切特尼克指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "南斯拉夫游擊隊",
+    "約 2 萬人（資訊框寫「不詳」）",
+    "德方說法陣亡 11,915 至 12,000 人、被處決 616 人、被俘 2,099 至 2,506 人；南斯拉夫說法傷亡及失蹤 1 萬人、被俘 2,000 人",
+    [
+     [
+      "狄托",
+      "游擊隊最高指揮官",
+      "europeWarAtlas:fig_ew_tito"
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_third_battle_of_kharkov_1943": {
    "attacker": [
     "德國",
@@ -10698,6 +10782,43 @@
      [
       "戈利科夫",
       "蘇軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_the_sutjeska_1943": {
+   "attacker": [
+    "義大利、德國、克羅埃西亞及保加利亞",
+    "12.7 萬人、飛機 300 架以上",
+    "陣亡 913 人、受傷 2,467 人、失蹤 2,132 人",
+    [
+     [
+      "勒爾",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "呂特斯",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "南斯拉夫游擊隊",
+    "約 22,148 人",
+    "約三分之一傷亡（6,391 至 7,543 人）",
+    [
+     [
+      "狄托",
+      "游擊隊最高指揮官（負傷）",
+      "europeWarAtlas:fig_ew_tito"
+     ],
+     [
+      "科查・波波維奇",
+      "游擊隊指揮官",
       null
      ]
     ]
@@ -10808,6 +10929,38 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_schweinfurt_regensburg_mission_1943": {
+   "attacker": [
+    "美國及英國",
+    "B-17 轟炸機 376 架；P-47 戰鬥機 268 架次、噴火式戰鬥機 191 架次",
+    "轟炸機 60 架、P-47 3 架、噴火式 2 架損失；機組員失蹤或被俘 557 人，返航機上陣亡 7 人、受傷 21 人",
+    [
+     [
+      "李梅",
+      "美軍指揮官",
+      null
+     ],
+     [
+      "羅伯特・威廉斯",
+      "美軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "戰鬥機約 400 架",
+    "戰鬥機 25 至 27 架；平民 203 人死亡",
+    [
+     [
+      "加蘭德",
+      "德國空軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_battle_of_the_dnieper_1943": {
    "attacker": [
     "蘇聯",
@@ -10869,6 +11022,43 @@
      [
       "克魯格",
       "德軍指揮官",
+      "europeWarAtlas:fig_ew_kluge"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_dodecanese_campaign_1943": {
+   "attacker": [
+    "德國",
+    "羅德島 7,000 至 9,500 人，其他島另有小股守軍，以及第 10 航空軍",
+    "1,184 人陣亡、受傷及失蹤；登陸艇 15 艘被毀",
+    [
+     [
+      "弗里德里希-威廉・穆勒",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "克萊曼",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "義大利及英國",
+    "義大利 5.5 萬人、英國 5,300 人",
+    "義軍傷亡 5,350 人、被俘 44,391 人；英軍陣亡、受傷、被俘及失蹤 4,800 人，飛機 115 架、驅逐艦 4 艘、潛艦 2 艘被毀",
+    [
+     [
+      "坎皮奧尼",
+      "義軍指揮官",
+      null
+     ],
+     [
+      "蒂爾尼",
+      "英軍指揮官",
       null
      ]
     ]
@@ -10971,6 +11161,43 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_crimean_offensive_1944": {
+   "attacker": [
+    "蘇聯",
+    "462,400 人、戰車與突擊砲 560 輛、飛機 1,200 架",
+    "84,839 人（陣亡或失蹤 17,754 人、傷病 67,065 人）",
+    [
+     [
+      "托爾布欣",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_tolbukhin"
+     ],
+     [
+      "奧克佳布里斯基",
+      "蘇軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及羅馬尼亞",
+    "230,000 至 255,970 人",
+    "96,700 人",
+    [
+     [
+      "耶內克",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "馬切拉留",
+      "羅馬尼亞軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_normandy_landings_1944": {
    "attacker": [
     "美國、英國及加拿大",
@@ -11023,6 +11250,53 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_lvov_sandomierz_offensive_1944": {
+   "attacker": [
+    "蘇聯",
+    "1,002,200 人、裝甲車輛 1,979 輛、火砲 11,265 門",
+    "289,296 人（陣亡、失蹤或被俘 65,001 人、受傷 224,295 人）",
+    [
+     [
+      "科涅夫",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_konev"
+     ],
+     [
+      "卡圖科夫",
+      "蘇軍指揮官",
+      null
+     ],
+     [
+      "雷巴爾科",
+      "蘇軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及匈牙利",
+    "德軍實際兵力 440,512 人（1944-07-01）",
+    "德軍 136,860 人（集團軍群 07-11 至 08-31 的報告為 143,833 人）",
+    [
+     [
+      "哈爾佩",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "勞斯",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "內林",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_warsaw_uprising_1944": {
    "attacker": [
     "波蘭救國軍",
@@ -11053,6 +11327,63 @@
      ],
      [
       "施塔赫爾",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_falaise_pocket_1944": {
+   "attacker": [
+    "美國、英國、加拿大、波蘭及法國",
+    "58 萬人（23 個師）、戰車與突擊砲 3,000 輛",
+    "美、英、法不詳；加拿大 5,679 人；波蘭約 5,150 人",
+    [
+     [
+      "蒙哥馬利",
+      "盟軍指揮官",
+      "europeWarAtlas:fig_ew_montgomery"
+     ],
+     [
+      "布萊德雷",
+      "盟軍指揮官",
+      "europeWarAtlas:fig_ew_bradley"
+     ],
+     [
+      "克里勒",
+      "加拿大第 1 軍團司令",
+      "europeWarAtlas:fig_ew_crerar"
+     ],
+     [
+      "鄧普西",
+      "英國第 2 軍團司令",
+      "europeWarAtlas:fig_ew_dempsey"
+     ],
+     [
+      "巴頓",
+      "盟軍指揮官",
+      "europeWarAtlas:fig_ew_patton"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "20 萬人（24 個師殘部）、戰車與突擊砲 719 輛",
+    "約 6 萬人（陣亡約 1 萬人、被俘約 5 萬人）；戰車與突擊砲 500 輛",
+    [
+     [
+      "克魯格",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_kluge"
+     ],
+     [
+      "莫德爾",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_model"
+     ],
+     [
+      "豪塞爾",
       "德軍指揮官",
       null
      ]
@@ -11149,6 +11480,53 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_belgrade_offensive_1944": {
+   "attacker": [
+    "蘇聯、南斯拉夫游擊隊及保加利亞",
+    "58 萬人、火砲 3,640 門、戰車與突擊砲 520 輛、飛機 1,420 架",
+    "蘇軍 18,838 人（陣亡及失蹤 4,350 人、傷病 14,488 人）；保加利亞軍陣亡 3,000 人以上；游擊隊 2,953 人死亡（只計貝爾格勒攻城）",
+    [
+     [
+      "托爾布欣",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_tolbukhin"
+     ],
+     [
+      "狄托",
+      "游擊隊最高指揮官",
+      "europeWarAtlas:fig_ew_tito"
+     ],
+     [
+      "佩科・達普切維奇",
+      "游擊隊指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及塞爾維亞合作政權",
+    "15 萬人（多為二線步兵與非德籍支援部隊）",
+    "2.5 萬人（其中 1.5 萬人死亡）",
+    [
+     [
+      "魏克斯",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "費爾伯",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "內迪奇",
+      "塞爾維亞合作政權指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_operation_market_garden_1944": {
    "attacker": [
     "英國、美國及波蘭",
@@ -11190,7 +11568,7 @@
      [
       "霍奇斯",
       "美軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_hodges"
      ]
     ]
    ],
@@ -11227,7 +11605,7 @@
      [
       "克里勒",
       "盟軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_crerar"
      ],
      [
       "拉姆齊",
@@ -11385,7 +11763,7 @@
      [
       "巴格拉米揚",
       "蘇軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_bagramyan"
      ]
     ]
    ],
@@ -11408,6 +11786,38 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_battle_of_remagen_1945": {
+   "attacker": [
+    "美國",
+    "待考",
+    "至少 990 人；戰車 30 輛以上",
+    [
+     [
+      "霍奇斯",
+      "美國第 1 軍團司令",
+      "europeWarAtlas:fig_ew_hodges"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "待考",
+    [
+     [
+      "布蘭登貝格",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "贊根",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": "europeWarAtlas:evt_ew_remagen_bridge_1945"
+  },
   "europeWarAtlas>bat_ew_operation_plunder_1945": {
    "attacker": [
     "英國、美國及加拿大",
@@ -11422,7 +11832,7 @@
      [
       "鄧普西",
       "盟軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_dempsey"
      ],
      [
       "辛普森",
