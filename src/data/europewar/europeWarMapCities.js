@@ -27,4 +27,6 @@ export const EUROPEWAR_MAP_CITIES = [
   city('Kaliningrad', '柯尼斯堡（今加里寧格勒）', 20.497343, 54.700006),
   city('Hamburg', '漢堡', 9.998053, 53.551971),
   city('Tunis', '突尼斯', 10.179678, 36.802778),
+  city('Smolensk', '斯摩稜斯克', 32.047336, 54.782688),
+  city('Bucharest', '布加勒斯特', 26.098001, 44.435318),
 ];

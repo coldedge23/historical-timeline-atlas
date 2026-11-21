@@ -3405,6 +3405,14 @@
     ],
     [
      "battle",
+     "europeWarAtlas",
+     "bat_ew_battles_of_rzhev_1942",
+     "勒熱夫戰役",
+     "1942 年 1 月 8 日 – 1943 年 3 月 31 日 · 勒熱夫",
+     30
+    ],
+    [
+     "battle",
      "taiwanLens",
      "bat_tw_keelung_1884",
      "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
@@ -3414,17 +3422,9 @@
     [
      "battle",
      "europeWarAtlas",
-     "bat_ew_second_battle_of_el_alamein_1942",
-     "第二次阿拉曼戰役",
-     "1942 年 10 月 23 日 – 11 月 11 日 · 阿拉曼",
-     30
-    ],
-    [
-     "battle",
-     "europeWarAtlas",
-     "bat_ew_third_battle_of_kharkov_1943",
-     "第三次哈爾科夫戰役",
-     "1943 年 2 月 19 日 – 3 月 15 日 · 哈爾科夫",
+     "bat_ew_battle_of_kiev_1941",
+     "基輔戰役（1941）",
+     "1941 年 8 月 23 日 – 9 月 26 日 · 基輔",
      30
     ]
    ],
@@ -8131,9 +8131,9 @@
     [
      "battle",
      "europeWarAtlas",
-     "bat_ew_second_battle_of_el_alamein_1942",
-     "第二次阿拉曼戰役",
-     "1942 年 10 月 23 日 – 11 月 11 日 · 阿拉曼",
+     "bat_ew_battles_of_rzhev_1942",
+     "勒熱夫戰役",
+     "1942 年 1 月 8 日 – 1943 年 3 月 31 日 · 勒熱夫",
      30
     ]
    ],
@@ -12831,18 +12831,18 @@
     ],
     [
      "battle",
-     "taiwanLens",
-     "bat_tw_keelung_1884",
-     "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
-     "1884 · 臺灣省基隆廳獅球嶺要塞",
+     "europeWarAtlas",
+     "bat_ew_battles_of_rzhev_1942",
+     "勒熱夫戰役",
+     "1942 年 1 月 8 日 – 1943 年 3 月 31 日 · 勒熱夫",
      30
     ],
     [
      "battle",
-     "europeWarAtlas",
-     "bat_ew_second_battle_of_el_alamein_1942",
-     "第二次阿拉曼戰役",
-     "1942 年 10 月 23 日 – 11 月 11 日 · 阿拉曼",
+     "taiwanLens",
+     "bat_tw_keelung_1884",
+     "基隆獅球嶺要塞戰役 (林朝棟棟軍重創法軍)",
+     "1884 · 臺灣省基隆廳獅球嶺要塞",
      30
     ]
    ],

@@ -274,4 +274,53 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '波蘭軍事領袖，本名塔德烏什・科莫羅夫斯基，「博爾」（森林）是戰時代號。華沙起義投降前一天被任命為總司令；戰後任倫敦流亡政府總理。1966 年死於倫敦。',
     source: wikipediaFigure('Tadeusz_Bór-Komorowski', 'Tadeusz Bór-Komorowski', 'Born 1 June 1895, Khorobriv, Galicia — Died 24 August 1966, London'),
   }),
+  // 擴充第 3 批（規劃 v11 第十六節，2026-11-21）：生卒與出生地同樣取英文維基百科資訊框。
+  figure({
+    id: 'fig_ew_timoshenko', name: '鐵木辛哥', faction: 'allies', role: '蘇聯元帥',
+    birth: '1895', death: '1970', birthDeathDisplay: '1895 年 2 月 18 日 – 1970 年 3 月 31 日', birthplace: '俄羅斯帝國比薩拉比亞奧爾曼',
+    shortBio: '蘇聯元帥，生於比薩拉比亞的烏克蘭家庭。1939 年率烏克蘭方面軍入侵波蘭；二戰期間先後指揮西方面軍、西南方面軍、西北方面軍。1970 年死於莫斯科。',
+    source: wikipediaFigure('Semyon_Timoshenko', 'Semyon Timoshenko', 'Born 18 February 1895, Orman, Russian Empire — Died 31 March 1970, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_budyonny', name: '布瓊尼', faction: 'allies', role: '蘇聯元帥（騎兵將領）',
+    birth: '1883', death: '1973', birthDeathDisplay: '1883 年 4 月 25 日 – 1973 年 10 月 26 日', birthplace: '俄羅斯頓河軍區普拉托夫斯卡亞',
+    shortBio: '蘇聯騎兵將領，內戰時創建紅軍第 1 騎兵軍團，是史達林的政治盟友。二戰期間指揮西南方向、南方面軍、預備方面軍、北高加索方面軍。1973 年死於莫斯科。',
+    source: wikipediaFigure('Semyon_Budyonny', 'Semyon Budyonny', 'Born 25 April 1883, Platovskaya, Don Host Oblast — Died 26 October 1973, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_bock', name: '博克', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1880', death: '1945', birthDeathDisplay: '1880 年 12 月 3 日 – 1945 年 5 月 4 日', birthplace: '普魯士屈斯特林',
+    shortBio: '德國陸軍元帥。1939 年入侵波蘭時任北方集團軍群司令，1940 年法國戰役任 B 集團軍群司令，1941 年巴巴羅薩行動任中央集團軍群司令並指揮颱風行動，1942 年任東線南方集團軍群司令。1945 年 5 月死於霍爾斯坦的奧爾登堡。',
+    source: wikipediaFigure('Fedor_von_Bock', 'Fedor von Bock', 'Born 3 December 1880, Cüstrin, Kingdom of Prussia — Died 4 May 1945, Oldenburg in Holstein'),
+  }),
+  figure({
+    id: 'fig_ew_kleist', name: '克萊斯特', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1881', death: '1954', birthDeathDisplay: '1881 年 8 月 8 日 – 1954 年 11 月 13 日', birthplace: '德國布勞恩費爾斯',
+    shortBio: '德國陸軍元帥，指揮克萊斯特裝甲集群（後改為第 1 裝甲軍團），參加法國戰役、南斯拉夫入侵與巴巴羅薩行動，後任 A 集團軍群司令。1954 年死於蘇聯弗拉基米爾監獄。',
+    source: wikipediaFigure('Paul_Ludwig_Ewald_von_Kleist', 'Paul Ludwig Ewald von Kleist', 'Born 8 August 1881, Braunfels — Died 13 November 1954, Vladimir Prison, Soviet Union'),
+  }),
+  figure({
+    id: 'fig_ew_hoth', name: '霍特', faction: 'axis', role: '德國裝甲兵將領',
+    birth: '1885', death: '1971', birthDeathDisplay: '1885 年 4 月 12 日 – 1971 年 1 月 25 日', birthplace: '普魯士布蘭登堡省新魯平',
+    shortBio: '德國裝甲兵將領，在法國戰役與東線擔任要角，先後指揮第 3 裝甲集群、第 17 軍團、第 4 裝甲軍團；所屬部隊犯下殺害戰俘與平民等戰爭罪行。1971 年死於西德戈斯拉爾。',
+    source: wikipediaFigure('Hermann_Hoth', 'Hermann Hoth', 'Born 12 April 1885, Neuruppin, Province of Brandenburg — Died 25 January 1971, Goslar, West Germany'),
+  }),
+  figure({
+    id: 'fig_ew_petrov', name: '彼得羅夫', faction: 'allies', role: '蘇聯陸軍大將',
+    birth: '1896', death: '1958', birthDeathDisplay: '1896 年 9 月 30 日 – 1958 年 4 月 7 日', birthplace: '俄羅斯帝國奧廖爾省特魯布切夫斯克',
+    shortBio: '蘇聯陸軍大將，二戰期間先後指揮獨立濱海集團軍、北高加索方面軍、白俄羅斯第 2 方面軍、烏克蘭第 4 方面軍等。1958 年死於莫斯科。',
+    source: wikipediaFigure('Ivan_Yefimovich_Petrov', 'Ivan Petrov (army general)', 'Born 30 September 1896, Trubchevsk, Oryol Governorate — Died 7 April 1958, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_simonds', name: '西蒙茲', faction: 'allies', role: '加拿大陸軍將領',
+    birth: '1903', death: '1974', birthDeathDisplay: '1903 年 4 月 23 日 – 1974 年 5 月 15 日', birthplace: '英格蘭薩福克郡伊克斯沃斯',
+    shortBio: '加拿大陸軍將領，1943 年在西西里與義大利指揮加拿大第 1 步兵師，1944 年在諾曼第及之後的西歐戰役指揮加拿大第 2 軍，斯海爾德河口戰役期間代理指揮加拿大第 1 軍團。1974 年死於多倫多。',
+    source: wikipediaFigure('Guy_Simonds', 'Guy Simonds', 'Born April 23, 1903, Ixworth, Suffolk, England — Died May 15, 1974, Toronto'),
+  }),
+  figure({
+    id: 'fig_ew_friessner', name: '弗里斯納', faction: 'axis', role: '德國陸軍將領',
+    birth: '1892', death: '1971', birthDeathDisplay: '1892 年 3 月 22 日 – 1971 年 6 月 26 日', birthplace: '德國開姆尼茨',
+    shortBio: '德國陸軍將領，曾任第 23 軍軍長，獲頒附橡葉騎士鐵十字勳章；1944 年雅西－基希訥烏攻勢時列名德方指揮官。1971 年死於西德巴特賴興哈爾。',
+    source: wikipediaFigure('Johannes_Frie%C3%9Fner', 'Johannes Frießner', 'Born 22 March 1892, Chemnitz — Died 26 June 1971, Bad Reichenhall, West Germany'),
+  }),
 ];
