@@ -7855,6 +7855,54 @@
     "europewar",
     "ewar_endgame",
     "europeWarAtlas:evt_ew_liberation_of_paris_1944"
+   ],
+   "europeWarAtlas:fig_ew_kesselring": [
+    "europeWarAtlas:fig_ew_kesselring",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_clark": [
+    "europeWarAtlas:fig_ew_clark",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_treaty_of_moscow_1940"
+   ],
+   "europeWarAtlas:fig_ew_rokossovsky": [
+    "europeWarAtlas:fig_ew_rokossovsky",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_chuikov": [
+    "europeWarAtlas:fig_ew_chuikov",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_lend_lease_act_1941"
+   ],
+   "europeWarAtlas:fig_ew_vasilevsky": [
+    "europeWarAtlas:fig_ew_vasilevsky",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_vatutin": [
+    "europeWarAtlas:fig_ew_vatutin",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_malinovsky": [
+    "europeWarAtlas:fig_ew_malinovsky",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_tolbukhin": [
+    "europeWarAtlas:fig_ew_tolbukhin",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

@@ -10038,6 +10038,16 @@
       "朱可夫",
       "集結部隊並發動 11 月的包圍攻勢",
       "europeWarAtlas:fig_ew_zhukov"
+     ],
+     [
+      "羅科索夫斯基",
+      "頓河方面軍司令",
+      "europeWarAtlas:fig_ew_rokossovsky"
+     ],
+     [
+      "崔可夫",
+      "指揮史達林格勒城市防禦",
+      "europeWarAtlas:fig_ew_chuikov"
      ]
     ]
    ],
@@ -10096,6 +10106,48 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_third_battle_of_kharkov_1943": {
+   "attacker": [
+    "德國",
+    "12 萬至 13 萬人、350 輛戰車",
+    "約 11,500 人（只計黨衛軍裝甲軍：陣亡或失蹤 4,500 人、受傷 7,000 人）",
+    [
+     [
+      "曼斯坦",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_manstein"
+     ],
+     [
+      "豪塞爾",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "蘇聯",
+    "21 萬人，戰車約 59 輛",
+    "86,469 人（陣亡或失蹤 45,219 人、受傷 41,250 人）",
+    [
+     [
+      "瓦圖京",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_vatutin"
+     ],
+     [
+      "羅科索夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_rokossovsky"
+     ],
+     [
+      "戈利科夫",
+      "蘇軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_battle_of_kursk_1943": {
    "attacker": [
     "德國",
@@ -10139,6 +10191,169 @@
     "待考",
     "約 165,000 人，其中德軍 30,000 人",
     []
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_the_dnieper_1943": {
+   "attacker": [
+    "蘇聯",
+    "263.3 萬人（8 月 26 日，含 145 萬名增援）",
+    "1,285,977 人（Krivosheev 統計，其中陣亡或失蹤 348,815 人）；Frieser 估計 1,687,164 人",
+    [
+     [
+      "朱可夫",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_zhukov"
+     ],
+     [
+      "華西列夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_vasilevsky"
+     ],
+     [
+      "瓦圖京",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_vatutin"
+     ],
+     [
+      "科涅夫",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_konev"
+     ],
+     [
+      "馬利諾夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_malinovsky"
+     ],
+     [
+      "托爾布欣",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_tolbukhin"
+     ],
+     [
+      "羅科索夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_rokossovsky"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及羅馬尼亞",
+    "1,104,723 人（11 月 1 日；南方集團軍群、A 集團軍群第 6 軍團、中央集團軍群第 2 軍團合計）",
+    "Forczyk 估計德軍逾 37.2 萬人，其中陣亡或失蹤 10.2 萬人；羅馬尼亞不詳",
+    [
+     [
+      "曼斯坦",
+      "德軍指揮官",
+      "europeWarAtlas:fig_ew_manstein"
+     ],
+     [
+      "克萊斯特",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "克魯格",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_salerno_landings_1943": {
+   "attacker": [
+    "英國及美國",
+    "約 17 萬人（首波登陸 5.5 萬人，後續 11.5 萬人）",
+    "陣亡 2,149 人、受傷 7,365 人、失蹤 4,099 人（英美陸海軍合計）",
+    [
+     [
+      "克拉克",
+      "美英第 5 軍團司令",
+      "europeWarAtlas:fig_ew_clark"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "3.5 萬人",
+    "陣亡 840 人、受傷 2,002 人、失蹤 603 人",
+    [
+     [
+      "凱塞林",
+      "德軍南線總司令",
+      "europeWarAtlas:fig_ew_kesselring"
+     ],
+     [
+      "菲廷霍夫",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_monte_cassino_1944": {
+   "attacker": [
+    "盟軍",
+    "待考",
+    "10.5 萬人",
+    [
+     [
+      "亞歷山大",
+      "第 15 集團軍群司令",
+      "europeWarAtlas:fig_ew_alexander"
+     ],
+     [
+      "克拉克",
+      "美國第 5 軍團司令",
+      "europeWarAtlas:fig_ew_clark"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "8 萬人",
+    [
+     [
+      "凱塞林",
+      "德軍南線總司令",
+      "europeWarAtlas:fig_ew_kesselring"
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_battle_of_anzio_1944": {
+   "attacker": [
+    "美國及英國",
+    "約 5 萬人（登陸部隊）",
+    "美軍戰鬥傷亡近 2.4 萬人、英軍近 1 萬人；另有 3.7 萬人非戰鬥減員",
+    [
+     [
+      "亞歷山大",
+      "第 15 集團軍群司令",
+      "europeWarAtlas:fig_ew_alexander"
+     ],
+     [
+      "盧卡斯",
+      "美國第 6 軍軍長",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "待考",
+    "約 2.75 萬人",
+    [
+     [
+      "凱塞林",
+      "德軍南線總司令",
+      "europeWarAtlas:fig_ew_kesselring"
+     ]
+    ]
    ],
    "event": null
   },
@@ -10263,6 +10478,117 @@
    ],
    "event": null
   },
+  "europeWarAtlas>bat_ew_siege_of_budapest_1944": {
+   "attacker": [
+    "蘇聯及羅馬尼亞",
+    "城內作戰 17.7 萬人、1,000 門火砲",
+    "整個布達佩斯攻勢（1944-11-03 至 1945-02-11）共 320,082 人；圍城本身的數字待考",
+    [
+     [
+      "馬利諾夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_malinovsky"
+     ],
+     [
+      "托爾布欣",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_tolbukhin"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國及匈牙利",
+    "城內 7.9 萬人（德軍 4.1 萬、匈牙利軍 3.8 萬，按配給人數）",
+    "城內守軍：德軍陣亡 3 萬、被俘 1.1 萬；匈牙利軍陣亡 9 千、被俘 2.9 萬",
+    [
+     [
+      "普費弗－維爾登布魯赫",
+      "城內守軍指揮官（被俘）",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_vistula_oder_offensive_1945": {
+   "attacker": [
+    "蘇聯及波蘭",
+    "2,203,600 人",
+    "陣亡或失蹤 43,476 人、受傷或患病 150,715 人",
+    [
+     [
+      "朱可夫",
+      "白俄羅斯第 1 方面軍司令",
+      "europeWarAtlas:fig_ew_zhukov"
+     ],
+     [
+      "科涅夫",
+      "烏克蘭第 1 方面軍司令",
+      "europeWarAtlas:fig_ew_konev"
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "45 萬至 80 萬人",
+    "蘇方估計 62.6 萬人（陣亡 29.5 萬、被俘 14.7 萬、受傷 18.9 萬）",
+    [
+     [
+      "哈爾佩",
+      "A 集團軍群司令（至 1 月 20 日）",
+      null
+     ],
+     [
+      "舍爾納",
+      "A 集團軍群司令（1 月 20 日起）",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
+  "europeWarAtlas>bat_ew_east_prussian_offensive_1945": {
+   "attacker": [
+    "蘇聯",
+    "1,669,100 人、3,000 輛戰車、25,000 門火砲、3,000 架飛機",
+    "陣亡或失蹤 126,464 人、受傷或患病 458,314 人",
+    [
+     [
+      "羅科索夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_rokossovsky"
+     ],
+     [
+      "華西列夫斯基",
+      "蘇軍指揮官",
+      "europeWarAtlas:fig_ew_vasilevsky"
+     ],
+     [
+      "巴格拉米揚",
+      "蘇軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "defender": [
+    "德國",
+    "58 萬人及 20 萬名國民突擊隊、700 輛戰車、8,200 門火砲、700 架飛機",
+    "22 萬人被俘；死傷人數不詳",
+    [
+     [
+      "萊因哈特",
+      "德軍指揮官",
+      null
+     ],
+     [
+      "倫杜利克",
+      "德軍指揮官",
+      null
+     ]
+    ]
+   ],
+   "event": null
+  },
   "europeWarAtlas>bat_ew_battle_of_berlin_1945": {
    "attacker": [
     "蘇聯",
@@ -10278,6 +10604,11 @@
       "科涅夫",
       "蘇聯元帥",
       "europeWarAtlas:fig_ew_konev"
+     ],
+     [
+      "崔可夫",
+      "蘇軍攻向柏林的先鋒，接受柏林德軍投降",
+      "europeWarAtlas:fig_ew_chuikov"
      ]
     ]
    ],

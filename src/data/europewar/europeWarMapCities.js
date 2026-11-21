@@ -23,4 +23,6 @@ export const EUROPEWAR_MAP_CITIES = [
   city('Belgrade', '貝爾格勒', 20.466045, 44.820591),
   city('Algiers', '阿爾及爾', 3.048607, 36.765011),
   city('Palermo', '巴勒摩', 13.348081, 38.126969),
+  city('Budapest', '布達佩斯', 19.081375, 47.501952),
+  city('Kaliningrad', '柯尼斯堡（今加里寧格勒）', 20.497343, 54.700006),
 ];

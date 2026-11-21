@@ -23,7 +23,8 @@ const SOURCES = {
 };
 // Cities the anchor tests may use, by Natural Earth name (the name field).
 const ANCHOR_CITIES = ['Warsaw', 'Moscow', 'Berlin', 'London', 'Paris', 'Volgograd', 'St.  Petersburg', 'Rome', 'Oslo', 'Kyiv',
-  'Minsk', 'Kharkiv', 'Sevastopol', 'Caen', 'Helsinki', 'Athens', 'Belgrade', 'Alexandria', 'Algiers', 'Palermo'];
+  'Minsk', 'Kharkiv', 'Sevastopol', 'Caen', 'Helsinki', 'Athens', 'Belgrade', 'Alexandria', 'Algiers', 'Palermo',
+  'Budapest', 'Kaliningrad'];
 
 // Projection: standard parallels 40° and 62° N, centred on the map; 1,000 px wide.
 const PROJECTION = { lng0: (BOUNDS.minLng + BOUNDS.maxLng) / 2, lat0: 50, lat1: 40, lat2: 62 };

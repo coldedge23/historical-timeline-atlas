@@ -101,6 +101,16 @@
       "name": "Palermo",
       "lng": 13.348081,
       "lat": 38.126969
+    },
+    {
+      "name": "Budapest",
+      "lng": 19.081375,
+      "lat": 47.501952
+    },
+    {
+      "name": "Kaliningrad",
+      "lng": 20.497343,
+      "lat": 54.700006
     }
   ]
 }

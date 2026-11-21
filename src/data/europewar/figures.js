@@ -9,6 +9,15 @@ const britannica = (name, slug, birthDeath) => ({
   claims: ['birthDeathDisplay'],
 });
 
+// Britannica 沒有完整條目時改用英文維基百科資訊框的 Born／Died 欄（輔助來源，擴充第 1 批，2026-11-21）。
+const wikipediaFigure = (article, name, birthDeath) => ({
+  title: `Wikipedia (English): ${name}`,
+  url: `https://en.wikipedia.org/wiki/${article}`,
+  externalReviewed: true, reviewedAt: '2026-11-21', auxiliary: true, accessedAt: '2026-11-21',
+  claimScope: `資訊框的生卒：${birthDeath}`,
+  claims: ['birthDeathDisplay'],
+});
+
 // birthplace 取自同一條目開頭的出生地，避免人物彈窗套用通用的籍貫預設值。
 const figure = ({ id, name, faction, role, birth, death, birthDeathDisplay, birthplace, shortBio, participatedEventIds = [], source }) => ({
   id, name, faction, role, roles: [role], nativePlaceAncient: birthplace, abilities: null,
@@ -163,5 +172,55 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '法國軍人、作家與政治家，法蘭西第五共和的締造者。1944 年 8 月巴黎解放後才獲盟國完全承認其領導地位。1970 年死於科隆貝雙教堂村。',
     participatedEventIds: ['evt_ew_liberation_of_paris_1944'],
     source: britannica('Charles de Gaulle', 'Charles-de-Gaulle-president-of-France', 'born November 22, 1890, Lille, France — died November 9, 1970, Colombey-les-deux-Églises'),
+  }),
+  // ── 擴充第 1 批（規劃 v9 第十四節，2026-11-21）──
+  // 華西列夫斯基、瓦圖京、托爾布欣：Britannica 沒有完整條目（只有索引頁），生卒日期改用英文維基百科資訊框（同為輔助來源）。
+  figure({
+    id: 'fig_ew_kesselring', name: '凱塞林', faction: 'axis', role: '德國陸軍元帥（南線總司令）',
+    birth: '1885', death: '1960', birthDeathDisplay: '1885 年 11 月 20 日 – 1960 年 7 月 16 日', birthplace: '德國巴伐利亞馬克特施泰特',
+    shortBio: '德國元帥，以南線總司令身分成為希特勒最倚重的防禦戰略家之一。盟軍 1943 年登陸西西里與義大利後，他在義大利打出頑強的防禦戰。1945 年 3 月改任西線總司令。1960 年死於西德巴特瑙海姆。',
+    source: britannica('Albert Kesselring', 'Albert-Kesselring', 'born November 20, 1885, Marktstedt, Bavaria, Germany — died July 16, 1960, Bad Nauheim, West Germany'),
+  }),
+  figure({
+    id: 'fig_ew_clark', name: '克拉克', faction: 'allies', role: '美國陸軍將領（第 5 軍團司令）',
+    birth: '1896', death: '1984', birthDeathDisplay: '1896 年 5 月 1 日 – 1984 年 4 月 17 日', birthplace: '美國紐約州麥迪遜兵營',
+    shortBio: '美國陸軍軍官，1943–44 年在義大利戰役指揮盟軍。以美國第 5 軍團司令身分在薩萊諾登陸，1944 年 6 月 4 日進入羅馬；同年 12 月升任第 15 集團軍群司令。1984 年死於南卡羅來納州查爾斯頓。',
+    source: britannica('Mark Clark', 'Mark-Clark', 'born May 1, 1896, Madison Barracks, N.Y., U.S. — died April 17, 1984, Charleston, S.C.'),
+  }),
+  figure({
+    id: 'fig_ew_rokossovsky', name: '羅科索夫斯基', faction: 'allies', role: '蘇聯元帥',
+    birth: '1896', death: '1968', birthDeathDisplay: '1896 年 12 月 21 日 – 1968 年 8 月 3 日', birthplace: '俄羅斯大盧基',
+    shortBio: '蘇聯將領，1938 年大清洗中入獄，1941 年德國入侵後獲釋。在莫斯科、史達林格勒、庫斯克等戰役擔任要角，並參與 1944 年白俄羅斯、1945 年東普魯士與波美拉尼亞的攻勢。在史達林格勒指揮頓河方面軍，與其他蘇軍包圍並殲滅德軍第 6 集團軍。1968 年死於莫斯科。',
+    source: britannica('Konstantin Konstantinovich Rokossovsky', 'Konstantin-Konstantinovich-Rokossovsky', 'born December 21 [December 9, Old Style], 1896, Velikiye Luki, Russia — died August 3, 1968, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_chuikov', name: '崔可夫', faction: 'allies', role: '蘇聯將領',
+    birth: '1900', death: '1982', birthDeathDisplay: '1900 年 2 月 12 日 – 1982 年 3 月 18 日', birthplace: '俄羅斯莫斯科附近的謝列布良內普魯德',
+    shortBio: '蘇聯將領（後升元帥），奉召指揮史達林格勒的城市防禦，之後率部轉戰頓內次盆地、克里米亞與白俄羅斯，並擔任攻向柏林的先鋒，親自接受柏林德軍投降。1982 年死於莫斯科。',
+    source: britannica('Vasily Chuikov', 'Vasily-Chuikov', 'born February 12 [January 31, Old Style], 1900, Serebryannye Prudy, near Moscow — died March 18, 1982, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_vasilevsky', name: '華西列夫斯基', faction: 'allies', role: '蘇聯元帥（總參謀長）',
+    birth: '1895', death: '1977', birthDeathDisplay: '1895 年 9 月 30 日 – 1977 年 12 月 5 日', birthplace: '俄羅斯新戈利奇哈',
+    shortBio: '蘇聯將領，二戰期間任總參謀長與國防部副部長，官至蘇聯元帥；1949–53 年任國防部長。1977 年死於莫斯科。',
+    source: wikipediaFigure('Aleksandr_Vasilevsky', 'Aleksandr Vasilevsky', 'Born 30 September 1895, Novaya Golchikha — Died 5 December 1977, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_vatutin', name: '瓦圖京', faction: 'allies', role: '蘇聯將領',
+    birth: '1901', death: '1944', birthDeathDisplay: '1901 年 12 月 16 日 – 1944 年 4 月 15 日', birthplace: '俄羅斯沃羅涅日省切普希諾',
+    shortBio: '蘇聯將領，先後任西南方面軍、沃羅涅日方面軍司令，之後率烏克蘭第 1 方面軍收復基輔。1944 年 2 月遭烏克蘭反抗軍伏擊，4 月傷重死於基輔。',
+    source: wikipediaFigure('Nikolai_Vatutin', 'Nikolai Vatutin', 'Born 16 December 1901, Chepukhino — Died 15 April 1944, Kiev'),
+  }),
+  figure({
+    id: 'fig_ew_malinovsky', name: '馬利諾夫斯基', faction: 'allies', role: '蘇聯元帥',
+    birth: '1898', death: '1967', birthDeathDisplay: '1898 年 11 月 23 日 – 1967 年 3 月 31 日', birthplace: '烏克蘭敖德薩',
+    shortBio: '蘇聯元帥。1942 年 12 月以近衛第 2 集團軍司令身分在史達林格勒戰役擔任要角，1944 年底指揮攻入羅馬尼亞，1945 年春攻入奧地利；1957–67 年任蘇聯國防部長。1967 年死於莫斯科。',
+    source: britannica('Rodion Yakovlevich Malinovsky', 'Rodion-Yakovlevich-Malinovsky', 'born Nov. 23 [Nov. 11, old style], 1898, Odessa, Ukraine, Russian Empire — died March 31, 1967, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_tolbukhin', name: '托爾布欣', faction: 'allies', role: '蘇聯元帥',
+    birth: '1894', death: '1949', birthDeathDisplay: '1894 年 6 月 16 日 – 1949 年 10 月 17 日', birthplace: '俄羅斯雅羅斯拉夫爾省安德羅尼基',
+    shortBio: '蘇聯元帥，參與史達林格勒戰役；以烏克蘭第 4 方面軍司令身分協助馬利諾夫斯基進行聶伯河下游的攻勢。1949 年死於莫斯科。',
+    source: wikipediaFigure('Fyodor_Tolbukhin', 'Fyodor Tolbukhin', 'Born 16 June 1894, Androniki, Yaroslavl Governorate — Died 17 October 1949, Moscow'),
   }),
 ];

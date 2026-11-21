@@ -3398,6 +3398,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_third_battle_of_kharkov_1943",
+     "第三次哈爾科夫戰役",
+     "1943 年 2 月 19 日 – 3 月 15 日 · 哈爾科夫",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_moscow_1941",
      "莫斯科戰役",
      "1941 年 9 月 30 日 – 1942 年 1 月 7 日 · 莫斯科",
@@ -3413,19 +3421,11 @@
     ],
     [
      "battle",
-     "taiwanLens",
-     "bat_tw_zeelandia_1661",
-     "熱蘭遮城戰役 (鄭成功攻臺驅荷之戰)",
-     "1661 · 臺灣大員熱蘭遮城 (安平)",
+     "europeWarAtlas",
+     "bat_ew_battle_of_monte_cassino_1944",
+     "蒙特卡西諾戰役",
+     "1944 年 1 月 17 日 – 5 月 18 日 · 卡西諾",
      30
-    ],
-    [
-     "event",
-     "suiTang",
-     "evt_baekgang_naval_663",
-     "大唐水軍白江口大破日本倭船，奠定東北亞千年和平秩序",
-     "西元 663 年 · 白江口（錦江河口）",
-     0
     ]
    ],
    "叛亂": [
@@ -8115,6 +8115,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_third_battle_of_kharkov_1943",
+     "第三次哈爾科夫戰役",
+     "1943 年 2 月 19 日 – 3 月 15 日 · 哈爾科夫",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_moscow_1941",
      "莫斯科戰役",
      "1941 年 9 月 30 日 – 1942 年 1 月 7 日 · 莫斯科",
@@ -8127,14 +8135,6 @@
      "硫磺島戰役 (守軍以坑道持久抵抗)",
      "1945 · 東京府小笠原支廳硫黃島",
      30
-    ],
-    [
-     "figure",
-     "taiwanLens",
-     "fig_tw_shi_hengfeng",
-     "史恆豐",
-     "1921 - 2011 · 大二膽島戰役營長 · 陸軍少將",
-     3
     ]
    ],
    "叛亂": [
@@ -12824,6 +12824,14 @@
     [
      "battle",
      "europeWarAtlas",
+     "bat_ew_third_battle_of_kharkov_1943",
+     "第三次哈爾科夫戰役",
+     "1943 年 2 月 19 日 – 3 月 15 日 · 哈爾科夫",
+     30
+    ],
+    [
+     "battle",
+     "europeWarAtlas",
      "bat_ew_battle_of_moscow_1941",
      "莫斯科戰役",
      "1941 年 9 月 30 日 – 1942 年 1 月 7 日 · 莫斯科",
@@ -12831,19 +12839,11 @@
     ],
     [
      "battle",
-     "taiwanLens",
-     "bat_tw_zeelandia_1661",
-     "熱蘭遮城戰役 (鄭成功攻臺驅荷之戰)",
-     "1661 · 臺灣大員熱蘭遮城 (安平)",
+     "europeWarAtlas",
+     "bat_ew_battle_of_monte_cassino_1944",
+     "蒙特卡西諾戰役",
+     "1944 年 1 月 17 日 – 5 月 18 日 · 卡西諾",
      30
-    ],
-    [
-     "event",
-     "japanAtlas",
-     "evt_jp_boshin_war_1868",
-     "戊辰戰爭爆發與江戶無血開城",
-     "西元 1868 年 (慶應四年) · 武藏國江戶城西之丸與田町薩摩藩邸",
-     3
     ]
    ],
    "叛亂": [
