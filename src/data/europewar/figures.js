@@ -18,6 +18,14 @@ const wikipediaFigure = (article, name, birthDeath) => ({
   claims: ['birthDeathDisplay'],
 });
 
+// 指揮官人物卡第 1 批（規劃 v15 第二十節，2026-11-27 Ivan 核准）：英文維基百科資訊框，網址固定到查閱時的版本（oldid）。
+// 中文名稱沿用戰役指揮官欄已用的譯名（本專案慣用譯名，未對照官方譯名表）。
+const wikipediaFigureRev = (article, revid, name, birthDeath) => ({
+  ...wikipediaFigure(article, name, birthDeath),
+  url: `https://en.wikipedia.org/w/index.php?title=${encodeURIComponent(article)}&oldid=${revid}`,
+  reviewedAt: '2026-11-27', accessedAt: '2026-11-27',
+});
+
 // birthplace 取自同一條目開頭的出生地，避免人物彈窗套用通用的籍貫預設值。
 const figure = ({ id, name, faction, role, birth, death, birthDeathDisplay, birthplace, shortBio, participatedEventIds = [], source }) => ({
   id, name, faction, role, roles: [role], nativePlaceAncient: birthplace, abilities: null,
@@ -371,5 +379,53 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     birth: '1896', death: '1969', birthDeathDisplay: '1896 年 12 月 15 日 – 1969 年 6 月 5 日', birthplace: '英格蘭柴郡沃勒西新布萊頓',
     shortBio: '英國陸軍將領，參加過兩次世界大戰；二戰期間在西北歐指揮英國第 2 軍團。1969 年死於英格蘭伯克郡亞特登。',
     source: wikipediaFigure('Miles_Dempsey', 'Miles Dempsey', 'Born 15 December 1896, New Brighton, Wallasey, Cheshire — Died 5 June 1969, Yattendon, Berkshire'),
+  }),
+  figure({
+    id: 'fig_ew_weichs', name: '魏克斯', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1881', death: '1954', birthDeathDisplay: '1881 年 11 月 12 日 – 1954 年 9 月 27 日', birthplace: '德國德紹',
+    shortBio: '德國陸軍元帥，出身貴族。1939 年入侵波蘭時指揮第 13 軍，之後以第 2 軍團司令參與入侵法國、南斯拉夫與蘇聯；1942 年 8 月藍色行動期間出任 B 集團軍群司令，1944 年指揮巴爾幹的 F 集團軍群，主持德軍從希臘與南斯拉夫撤退。紐倫堡審判時被指涉入巴爾幹的戰爭罪行。1954 年死於波昂。',
+    source: wikipediaFigureRev('Maximilian_von_Weichs', 1385763405, 'Maximilian von Weichs', 'Born 12 November 1881, Dessau — Died 27 September 1954, Bonn'),
+  }),
+  figure({
+    id: 'fig_ew_lohr', name: '勒爾', faction: 'axis', role: '德國空軍將領',
+    birth: '1885', death: '1947', birthDeathDisplay: '1885 年 5 月 20 日 – 1947 年 2 月 26 日', birthplace: '羅馬尼亞王國塞維林堡',
+    shortBio: '奧地利空軍司令，德奧合併後成為德國空軍將領，二戰期間升任 E 集團軍群司令及東南歐總司令。戰爭結束時被南斯拉夫游擊隊俘虜，因指揮下的反游擊報復行動與 1941 年轟炸貝爾格勒被南斯拉夫判處戰爭罪，1947 年在貝爾格勒槍決。',
+    source: wikipediaFigureRev('Alexander_Löhr', 1385268091, 'Alexander Löhr', 'Born 20 May 1885, Turnu-Severin, Kingdom of Romania — Died 26 February 1947, Belgrade'),
+  }),
+  figure({
+    id: 'fig_ew_leeb', name: '勒布', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1876', death: '1956', birthDeathDisplay: '1876 年 9 月 5 日 – 1956 年 4 月 29 日', birthplace: '德國巴伐利亞蘭茨貝格',
+    shortBio: '德國陸軍元帥。法國戰役時指揮 C 集團軍群突破馬其諾防線；巴巴羅薩行動中指揮北方集團軍群經波羅的海三國進逼列寧格勒，最後圍困該城。戰後被判戰爭罪。1956 年死於巴伐利亞菲森。',
+    source: wikipediaFigureRev('Wilhelm_Ritter_von_Leeb', 1379817249, 'Wilhelm Ritter von Leeb', 'Born 5 September 1876, Landsberg am Lech, Bavaria — Died 29 April 1956, Füssen, Bavaria'),
+  }),
+  figure({
+    id: 'fig_ew_ramsay', name: '拉姆齊', faction: 'allies', role: '英國海軍上將',
+    birth: '1883', death: '1945', birthDeathDisplay: '1883 年 1 月 20 日 – 1945 年 1 月 2 日', birthplace: '英格蘭倫敦',
+    shortBio: '英國皇家海軍上將。二戰時負責 1940 年敦克爾克撤退，並規劃、指揮 1944 年進攻法國的海軍部隊。1945 年 1 月死於法國圖蘇勒諾布勒。',
+    source: wikipediaFigureRev('Bertram_Ramsay', 1385819261, 'Bertram Ramsay', 'Born 20 January 1883, London — Died 2 January 1945, Toussus-le-Noble, France'),
+  }),
+  figure({
+    id: 'fig_ew_hausser', name: '豪塞爾', faction: 'axis', role: '武裝親衛隊將領',
+    birth: '1880', death: '1972', birthDeathDisplay: '1880 年 10 月 7 日 – 1972 年 12 月 21 日', birthplace: '德意志帝國布蘭登堡',
+    shortBio: '德國將領，武裝親衛隊兩位最高階指揮官之一，協助組建武裝親衛隊。二戰期間升至集團軍群司令，率武裝親衛隊部隊參與第三次哈爾科夫戰役、庫斯克會戰與諾曼第戰役。戰後是武裝親衛隊老兵遊說團體 HIAG 的創始成員，推動為武裝親衛隊翻案。1972 年死於路德維希堡。',
+    source: wikipediaFigureRev('Paul_Hausser', 1383253528, 'Paul Hausser', 'Born 7 October 1880, Brandenburg an der Havel — Died 21 December 1972, Ludwigsburg'),
+  }),
+  figure({
+    id: 'fig_ew_blaskowitz', name: '布拉斯科維茨', faction: 'axis', role: '德國陸軍大將',
+    birth: '1883', death: '1948', birthDeathDisplay: '1883 年 7 月 10 日 – 1948 年 2 月 5 日', birthplace: '德意志帝國東普魯士帕特斯瓦爾德',
+    shortBio: '德國陸軍大將。入侵波蘭時指揮第 8 軍團，1939 至 1940 年任占領波蘭總司令；盟軍登陸南法與北風行動期間指揮 G 集團軍群，最後率 H 集團軍群殘部撤到荷蘭北部後投降。曾多次上書德軍高層反對親衛隊的罪行。1948 年死於紐倫堡。',
+    source: wikipediaFigureRev('Johannes_Blaskowitz', 1382834465, 'Johannes Blaskowitz', 'Born 10 July 1883, Paterswalde, East Prussia — Died 5 February 1948, Nuremberg'),
+  }),
+  figure({
+    id: 'fig_ew_golikov', name: '戈利科夫', faction: 'allies', role: '蘇聯軍事指揮官',
+    birth: '1900', death: '1980', birthDeathDisplay: '1900 年 7 月 2 日 – 1980 年 7 月 29 日', birthplace: '俄羅斯帝國彼爾姆省鮑里索娃',
+    shortBio: '蘇聯軍事指揮官。任軍事情報總局局長時，未正視德國將於 1941 年 6 月入侵蘇聯的大量情報。1944 年起主管蘇聯公民的遣返工作，1961 年晉升蘇聯元帥。1980 年死於莫斯科。',
+    source: wikipediaFigureRev('Filipp_Golikov', 1379842705, 'Filipp Golikov', 'Born 2 July 1900 [O.S. 19 June], Borisova, Perm Governorate — Died 29 July 1980, Moscow'),
+  }),
+  figure({
+    id: 'fig_ew_oktyabrsky', name: '奧克佳布里斯基', faction: 'allies', role: '蘇聯海軍將領（黑海艦隊司令）',
+    birth: '1899', death: '1969', birthDeathDisplay: '1899 年 10 月 23 日 – 1969 年 7 月 8 日', birthplace: '俄羅斯帝國特維爾省盧克申諾',
+    shortBio: '蘇聯海軍將領，本名伊萬諾夫。1939 年 3 月起任黑海艦隊司令，指揮艦隊參與塞瓦斯托波爾圍城（1941–1942）與敖德薩圍城（1941）。戰後任海軍副總司令。1969 年死於塞瓦斯托波爾。',
+    source: wikipediaFigureRev('Filipp_Oktyabrsky', 1381045119, 'Filipp Oktyabrsky', 'Born 23 October 1899 [O.S. 11 October], Lukshino, Tver Governorate — Died 8 July 1969, Sevastopol'),
   }),
 ];

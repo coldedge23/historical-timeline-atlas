@@ -102,7 +102,7 @@ const BALKANS_PART3 = {
 const IWM_BARBAROSSA = {
   title: 'Imperial War Museums: Operation Barbarossa And Germany’s Failure In The Soviet Union',
   url: 'https://www.iwm.org.uk/history/second-world-war/eastern-front/operation-barbarossa-and-germanys-failure-in-the-soviet-union', ...REVIEWED,
-  claimScope: '1941-06-22 發動；逾 350 萬德國及其他軸心國部隊沿 1,800 英里戰線進攻，投入 148 個師（德國陸軍的 80%），先頭 3,400 輛戰車；蘇聯可立即動用約 500 萬人、戰車共 23,000 輛；北方集團軍群（勒布）攻向列寧格勒，中央集團軍群（包克）目標明斯克、斯摩稜斯克與莫斯科，南方集團軍群（倫德施泰特）攻向烏克蘭；古德里安指揮第 2 裝甲兵團；9 月底基輔陷落，逾 65 萬蘇軍陣亡或被俘；10 月 2 日發動颱風行動；12 月 5 日蘇軍發動反攻，德軍被迫撤退；德軍傷亡逾 75 萬人，其中約 20 萬人陣亡',
+  claimScope: '1941-06-22 發動；逾 350 萬德國及其他軸心國部隊沿 1,800 英里戰線進攻，投入 148 個師（德國陸軍的 80%），先頭 3,400 輛戰車；蘇聯可立即動用約 500 萬人、戰車共 23,000 輛；北方集團軍群（勒布）攻向列寧格勒，中央集團軍群（博克）目標明斯克、斯摩稜斯克與莫斯科，南方集團軍群（倫德施泰特）攻向烏克蘭；古德里安指揮第 2 裝甲兵團；9 月底基輔陷落，逾 65 萬蘇軍陣亡或被俘；10 月 2 日發動颱風行動；12 月 5 日蘇軍發動反攻，德軍被迫撤退；德軍傷亡逾 75 萬人，其中約 20 萬人陣亡',
 };
 const IWM_BARBAROSSA_EXPLAINED = {
   title: 'Imperial War Museums: Operation Barbarossa Explained',
@@ -703,7 +703,7 @@ export const EUROPEWAR_BATTLES = [
       faction: 'axis',
       commanders: [
         { name: '勒布', title: '元帥，北方集團軍群司令' },
-        { name: '包克', title: '元帥，中央集團軍群司令' },
+        { name: '博克', title: '元帥，中央集團軍群司令' },
         { name: '倫德施泰特', title: '元帥，南方集團軍群司令', figureId: 'fig_ew_rundstedt' },
         { name: '古德里安', title: '第 2 裝甲兵團司令', figureId: 'fig_ew_guderian' },
       ],
@@ -796,7 +796,7 @@ export const EUROPEWAR_BATTLES = [
     attacker: {
       factionName: '德國',
       faction: 'axis',
-      commanders: [{ name: '包克', title: '元帥，中央集團軍群司令' }],
+      commanders: [{ name: '博克', title: '元帥，中央集團軍群司令' }],
       forcesEstimate: '1941-10-01 時 1,184,000 至 1,929,406 人',
       casualtiesEstimate: '德方估計 174,194 人；蘇方估計 581,000 人（陣亡、失蹤、受傷及被俘）',
     },
@@ -820,7 +820,7 @@ export const EUROPEWAR_BATTLES = [
     sources: [
       WP_X5_MOSCOW,
       BRITANNICA_MOSCOW,
-      { ...IWM_BARBAROSSA, claimScope: '中央集團軍群由包克元帥指揮，目標包括莫斯科；10 月 2 日發動颱風行動，在布良斯克、維亞濟馬兩處包圍中俘虜逾 60 萬蘇軍；11 月中旬最後一次鉗形攻勢；12 月 2 日偵察部隊推進到距莫斯科 5 英里；12 月 5 日蘇軍反攻，德軍被迫撤退', claims: ['attacker.commanders'] },
+      { ...IWM_BARBAROSSA, claimScope: '中央集團軍群由博克元帥指揮，目標包括莫斯科；10 月 2 日發動颱風行動，在布良斯克、維亞濟馬兩處包圍中俘虜逾 60 萬蘇軍；11 月中旬最後一次鉗形攻勢；12 月 2 日偵察部隊推進到距莫斯科 5 英里；12 月 5 日蘇軍反攻，德軍被迫撤退', claims: ['attacker.commanders'] },
       BRITANNICA_ZHUKOV,
     ],
   },
