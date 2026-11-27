@@ -4,7 +4,7 @@ import { createPackSource } from './packSource.js';
 import { pageIdFor, withEraIds } from './pageIds.js';
 import { DEFAULT_CIV, ERA_CIVS, civById } from '../civilizations/registry.js';
 
-export { pageIdFor } from './pageIds.js';
+export { pageIdFor, eraToOpenBattle } from './pageIds.js';
 export { DataLoadError } from './packSource.js';
 
 let source = null;

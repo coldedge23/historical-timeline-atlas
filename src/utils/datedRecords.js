@@ -39,6 +39,16 @@ export function eraForDate(text, eras) {
   return eras.find((era) => era.startDate <= span[0] && span[1] <= era.endDate) || null;
 }
 
+// The eras a record is under way in, in era order: every era whose [startDate, endDate] overlaps the record's
+// span from the first day of its start date to the last day of its end date (a month-only date covers the
+// whole month). A record without an end date covers its start date only. Empty when the start date is invalid.
+export function erasOverlapping(record, eras) {
+  const startSpan = dateSpan(startOf(record));
+  if (!startSpan) return [];
+  const last = (dateSpan(endOf(record)) || startSpan)[1];
+  return eras.filter((era) => era.startDate <= last && startSpan[0] <= era.endDate);
+}
+
 // Problems with a record's dates, as short Chinese messages; an empty list means the dates are valid.
 export function dateProblems(record, { eras = null, requireStart = false } = {}) {
   const problems = [];

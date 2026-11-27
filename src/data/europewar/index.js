@@ -4,7 +4,7 @@ import { EUROPEWAR_ERA_DEFS } from './eras.js';
 import { EUROPEWAR_EVENTS } from './events.js';
 import { EUROPEWAR_BATTLES as RAW_BATTLES } from './battles.js';
 import { EUROPEWAR_FIGURE_RECORDS } from './figures.js';
-import { eraForDate, startOf, dateSortKey, formatDateRange } from '../../utils/datedRecords.js';
+import { eraForDate, erasOverlapping, startOf, dateSortKey, formatDateRange } from '../../utils/datedRecords.js';
 import { EUROPEWAR_SCALES, EUROPEWAR_MODES, EUROPEWAR_THEATERS } from './rules.js';
 
 export * from './rules.js';
@@ -27,8 +27,11 @@ export const EUROPEWAR_BATTLES = RAW_BATTLES.map((battle) => {
   return { ...battle, yearDisplay: formatDateRange(battle.startDate, battle.endDate), eraId: era?.id, eraName: era?.name, period: EUROPEWAR_PAGE_ID };
 }).sort(byDate);
 
+// 每個時期的地圖顯示進行中的全部戰役：戰役期間和時期有重疊就列入（交接手冊 v24 待辦 3-12，2026-11-27 Ivan 核准）。
+// 戰役的 eraId（所屬時期）仍是開始時期，戰役錄分段、搜尋、網址開啟都照開始時期。
+// 時期依先後排列，所以第一個含此戰役的時期就是開始時期。
 export const EUROPEWAR_ERA_BATTLE_IDS = Object.fromEntries(EUROPEWAR_ERA_DEFS.map((era) => [era.id,
-  EUROPEWAR_BATTLES.filter((b) => b.eraId === era.id).map((b) => b.id)]));
+  EUROPEWAR_BATTLES.filter((b) => erasOverlapping(b, EUROPEWAR_ERA_DEFS).some((e) => e.id === era.id)).map((b) => b.id)]));
 
 // 戰役彈窗與戰役錄顯示分類用的中文名稱；建置時放進本模組的資料包（battleTaxonomy）。
 export const EUROPEWAR_BATTLE_TAXONOMY = { scales: EUROPEWAR_SCALES, modes: EUROPEWAR_MODES, theaters: EUROPEWAR_THEATERS };

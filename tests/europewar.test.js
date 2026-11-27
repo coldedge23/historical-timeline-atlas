@@ -168,3 +168,38 @@ test('battle modal: a missing outcome or significance shows 待考, not generic 
   const source = readFileSync(new URL('../src/components/BattleModal.js', import.meta.url), 'utf8');
   for (const filler of ['奠定歷史深遠轉折', '三代著名歷史會戰']) assert.ok(!source.includes(filler), filler);
 });
+
+// 跨時期戰役在進行中的每個時期都顯示在地圖上（交接手冊 v24 待辦 3-12，2026-11-27 Ivan 核准）。
+import { erasOverlapping } from '../src/utils/datedRecords.js';
+import { EUROPEWAR_ERA_BATTLE_IDS } from '../src/data/europewar/index.js';
+import { eraToOpenBattle } from '../src/store/pageIds.js';
+
+test('dates: eras a record is under way in, month-only dates covering the whole month', () => {
+  const ids = (r) => erasOverlapping(r, EUROPEWAR_ERA_DEFS).map((e) => e.id);
+  assert.deepEqual(ids({ startDate: '1939-09', endDate: '1945-05' }), ['ewar_blitz', 'ewar_eastfront', 'ewar_turning', 'ewar_endgame']);
+  assert.deepEqual(ids({ startDate: '1941-06-21', endDate: '1941-06-22' }), ['ewar_blitz', 'ewar_eastfront']);
+  assert.deepEqual(ids({ startDate: '1941-06-21' }), ['ewar_blitz']);
+  assert.deepEqual(ids({ date: '1942-07' }), ['ewar_eastfront', 'ewar_turning']);
+  assert.deepEqual(ids({ startDate: 'bad' }), []);
+});
+
+test('era battle lists: every battle under way in an era, its start era listed first', () => {
+  const lists = Object.entries(EUROPEWAR_ERA_BATTLE_IDS);
+  for (const b of EUROPEWAR_BATTLES) {
+    const expected = erasOverlapping(b, EUROPEWAR_ERA_DEFS).map((e) => e.id);
+    assert.deepEqual(lists.filter(([, ids]) => ids.includes(b.id)).map(([id]) => id), expected, b.id);
+    assert.equal(expected[0], b.eraId, b.id);
+  }
+  // 列寧格勒圍城 1941-09-08 → 1944-01-27：東線開戰、戰局轉折、盟軍反攻。
+  const leningrad = lists.filter(([, ids]) => ids.includes('bat_ew_siege_of_leningrad_1941')).map(([id]) => id);
+  assert.deepEqual(leningrad, ['ewar_eastfront', 'ewar_turning', EUROPEWAR_ERA_DEFS[3].id]);
+});
+
+test('picking a battle: stays in an era it is under way in, else opens its start era', () => {
+  const lists = { a: ['x'], b: ['x', 'y'], c: ['y'] };
+  assert.equal(eraToOpenBattle(lists, 'x', 'b'), null);
+  assert.equal(eraToOpenBattle(lists, 'x', 'c'), 'a');
+  assert.equal(eraToOpenBattle(lists, 'y', 'a'), 'b');
+  assert.equal(eraToOpenBattle(lists, 'z', 'a'), null);
+  assert.equal(eraToOpenBattle(undefined, 'x', 'a'), null);
+});

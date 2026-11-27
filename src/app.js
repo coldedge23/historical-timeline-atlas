@@ -13,7 +13,7 @@ import { ErrorBoundary } from './components/ErrorBoundary.jsx';
 import { BootScreen, DataStatus, DataStatusContext } from './components/DataStatus.jsx';
 import { X } from './components/Icons.js';
 import { pageIdFor, loadCatalog, loadPage, loadSearchIndex, createPageNavigator, figureLinksFor, battleLinksFor, eventLinksFor,
-  findOnPage, homeRecord, navigationDataset, routePageId, navigationCatalogs, initialContext, selectionContext } from './store/historyStore.js';
+  findOnPage, homeRecord, navigationDataset, routePageId, navigationCatalogs, initialContext, selectionContext, eraToOpenBattle } from './store/historyStore.js';
 
 import { parseNavigationHash, serializeNavigation, resolveNavigation, resolveInitialNavigation, unknownRouteParts } from './utils/navigation.js';
 import { searchIndex } from './utils/search.js';
@@ -284,9 +284,10 @@ function Atlas({ catalog, initialPage }) {
     setSelectedFigure(null);
     setSelectedBattle(bat);
     if (activeCiv.unit === 'era' && bat?.id) {
-      const era = Object.entries(currentPage.eraBattleIds || {}).find(([, ids]) => ids.includes(bat.id))?.[0];
-      // A battle in the era already shown leaves the timeline where it is (same on every era-based page).
-      if (era && era !== activeEraId) {
+      // A battle in the era already shown, or under way in it, leaves the timeline where it is (same on every
+      // era-based page); another battle opens in its start era.
+      const era = eraToOpenBattle(currentPage.eraBattleIds, bat.id, activeEraId);
+      if (era) {
         setEraFor(activeCiv.id, era);
         setSelectedEvent(currentEvents.find(event => event.eraId === era) || null);
       }
