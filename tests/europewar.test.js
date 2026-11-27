@@ -60,6 +60,8 @@ test('strict rules: a figure birth and death display needs a claiming source', (
 
 test('strict rules: a filled value without a claiming source fails; 待考 does not', () => {
   const bat = goodBattle();
+  // No source claims the field (the real record has one since 2026-11-27, plan v14 section 19).
+  for (const s of bat.sources) s.claims = s.claims.filter((c) => c !== 'defender.casualtiesEstimate');
   bat.defender.casualtiesEstimate = '約 6 萬人';
   assert.deepEqual(rules(strictProblems(STRICT, 'battles', bat, [bat])), ['unsupported-claim']);
   bat.defender.casualtiesEstimate = '待考';

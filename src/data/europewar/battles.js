@@ -303,6 +303,56 @@ const BRITANNICA_HARRIS_HAMBURG = {
   claims: ['attacker.commanders'],
 };
 
+// 兵力傷亡續補（規劃 v14 第十九節，2026-11-27 Ivan 核准）：英文維基百科資訊框，網址固定到查閱時的版本（oldid）。
+// 只填原本「待考」的欄位；標「需要引證」的數字不採用；和已填數值不同時不改，只寫進 claimScope。
+const REVIEWED_X5 = { externalReviewed: true, reviewedAt: '2026-11-27', auxiliary: true, accessedAt: '2026-11-27' };
+const wikipediaRev = (article, revid, claimScope, claims) => ({
+  title: `Wikipedia (English): ${article.replace(/_/g, ' ')}`,
+  url: `https://en.wikipedia.org/w/index.php?title=${encodeURIComponent(article)}&oldid=${revid}`, ...REVIEWED_X5, claimScope, claims,
+});
+const WP_X5_POLAND = wikipediaRev('Invasion_of_Poland', 1385312433, '資訊框：德軍傷亡 16,343 人陣亡、30,300 人受傷、3,500 人失蹤；波蘭兵力共 100 萬人（39 個師、16 個旅），傷亡共約 874,700 人（66,000 人陣亡、133,700 人受傷、約 69 萬人被俘）。資訊框的波蘭數字是對德、蘇兩線合計，本筆照原文並註明口徑',
+  ['attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_ATLANTIC = wikipediaRev('Battle_of_the_Atlantic', 1386459189, '資訊框沒有兵力欄。傷亡：盟軍海軍 36,200 人、商船船員 36,000 人陣亡，商船 3,500 艘、軍艦 175 艘損失；德國 U 艇官兵約 3 萬人陣亡，潛艇 783 艘、其他軍艦 47 艘損失（義大利另約 500 人陣亡、潛艇 17 艘，不在本筆攻方「德國」範圍內）',
+  ['attacker.casualtiesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_SOVIET_POLAND = wikipediaRev('Soviet_invasion_of_Poland', 1381244379, '資訊框：蘇聯兵力 60 萬至 80 萬人、戰車 4,736 輛，傷亡陣亡或失蹤 1,475 至 3,000 人、受傷 2,383 至 10,000 人；波蘭兵力陸軍 45 萬人、邊防軍 2 萬人，傷亡陣亡或失蹤 3,000 至 7,000 人、受傷最多 2 萬人、被俘 32 萬至 45 萬人',
+  ['attacker.forcesEstimate', 'attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_WINTER_WAR = wikipediaRev('Winter_War', 1387035589, '資訊框：芬蘭兵力 30 萬至 34 萬人，傷亡共約 7 萬人（陣亡或失蹤 25,904 人、受傷 43,557 人、被俘 800 至 1,100 人）；蘇聯傷亡共 32.1 萬至 38.1 萬人（陣亡或失蹤 126,875 至 167,976 人）。蘇聯兵力資訊框寫 42.5 萬至 76 萬人，和本筆已填的 Britannica 數字（約 100 萬人）不同，本筆不改',
+  ['attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_NORWAY = wikipediaRev('Norwegian_campaign', 1386632053, '資訊框：德國兵力 10 萬人（7 個師），德方官方傷亡 5,296 人（陸上陣亡 1,317 人、海上損失 2,375 人、受傷 1,604 人）；挪威兵力 55,000 人、盟軍 38,000 人；挪威與盟軍傷亡共 6,602 人（挪威 1,700 人，其中 860 人陣亡；英軍陸上 1,869 人、海上 2,500 人；法軍及波蘭軍 533 人）',
+  ['attacker.forcesEstimate', 'attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_FRANCE = wikipediaRev('Battle_of_France', 1388026380, '資訊框：德軍 330 萬人（141 個師、2,445 輛戰車），傷亡 156,547 人（27,074 人陣亡、111,034 人受傷、18,384 人失蹤）；盟軍 330 萬人（135 個師），另有阿爾卑斯山線法軍約 15 萬人，傷亡共 2,084,000 人（73,000 人陣亡、240,000 人受傷、15,000 人失蹤、1,756,000 人被俘）。資訊框另列義大利 30 萬人、傷亡約 6,000 人，不在本筆攻方「德國」範圍內',
+  ['attacker.forcesEstimate', 'attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_BRITAIN = wikipediaRev('Battle_of_Britain', 1386204666, '資訊框：英國 1,963 架飛機、德國 2,550 架飛機。資訊框的飛機損失（英國 1,744 架、德國 1,977 架）和本筆已填的 IWM 數字不同，本筆不改',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate']);
+const WP_X5_BARBAROSSA = wikipediaRev('Operation_Barbarossa', 1386789522, '資訊框：蘇聯軍人總傷亡約 450 萬人。資訊框的德國方面軍人總傷亡寫 100 萬人以上，和本筆已填的 IWM 數字（逾 75 萬人）不同，本筆不改',
+  ['defender.casualtiesEstimate']);
+const WP_X5_LENINGRAD = wikipediaRev('Siege_of_Leningrad', 1384136217, '資訊框：德國及芬蘭初期兵力 725,000 人，傷亡 579,985 人陣亡、受傷或失蹤',
+  ['attacker.forcesEstimate', 'attacker.casualtiesEstimate']);
+const WP_X5_MOSCOW = wikipediaRev('Battle_of_Moscow', 1386231157, '資訊框：1941-10-01 時德軍 1,184,000 至 1,929,406 人、蘇軍 1,252,591 人；德軍傷亡德方估計 174,194 人、蘇方估計 581,000 人（陣亡、失蹤、受傷及被俘）；蘇軍傷亡共 1,029,234 人（防禦階段陣亡或失蹤 514,338 人、受傷 143,941 人；反攻階段陣亡或失蹤 139,586 人、受傷 231,369 人）',
+  ['attacker.forcesEstimate', 'attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_STALINGRAD = wikipediaRev('Battle_of_Stalingrad', 1387170998, '資訊框：軸心攻勢期間軸心軍 27 萬人、蘇軍 18.7 萬人；蘇軍反攻時軸心軍 1,011,000 人、蘇軍 1,103,000 至 1,143,500 人；蘇軍傷亡依克里沃舍耶夫統計 1,129,619 人（陣亡或失蹤 478,741 人、受傷或患病 650,878 人）',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_TORCH = wikipediaRev('Operation_Torch', 1388312180, '資訊框統計期間為 1942-11-08 至 11-16（本筆戰役結束日為 11-11）：美軍 556 人陣亡、837 人受傷，英軍 574 人陣亡；維琪法國地面部隊 125,000 人、戰車 210 輛、飛機 500 架，傷亡 1,346 人以上陣亡、1,997 人受傷',
+  ['attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_KURSK = wikipediaRev('Battle_of_Kursk', 1386963226, '資訊框：庫斯克會戰全期德軍傷亡依德軍醫療資料 165,314 至 203,000 人；蘇軍兵力衛城行動期間 1,910,361 人、反攻階段 250 萬人；蘇軍傷亡 863,303 人（陣亡、被俘或失蹤 254,470 人，受傷或患病 608,833 人）',
+  ['attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_SICILY = wikipediaRev('Allied_invasion_of_Sicily', 1384325224, '資訊框：盟軍初期 16 萬人、最多 46.7 萬人；義軍 131,359 至 252,000 人、德軍 4 萬至 6 萬人',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate']);
+const WP_X5_CASSINO = wikipediaRev('Battle_of_Monte_Cassino', 1384220512, '資訊框：盟軍 24 萬人、德軍 14 萬人。資訊框的傷亡（盟軍 5.5 萬至 10.5 萬人、德軍約 2 萬至 8 萬人）和本筆已填的 Britannica 數字口徑不同，本筆不改',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate']);
+const WP_X5_ANZIO = wikipediaRev('Battle_of_Anzio', 1378660299, '資訊框：德軍初期約 2 萬人；盟軍突破時德軍 13.5 萬人及 2 個義大利營',
+  ['defender.forcesEstimate']);
+const WP_X5_NORMANDY = wikipediaRev('Normandy_landings', 1386946425, '資訊框（1944-06-06 當日）：盟軍傷亡 1 萬人以上，其中確認陣亡 4,414 人；德軍 50,350 人以上，傷亡 4,000 至 9,000 人（陣亡、受傷、失蹤或被俘）',
+  ['attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
+const WP_X5_BAGRATION = wikipediaRev('Operation_Bagration', 1382624394, '資訊框：蘇軍初期 1,670,300 人；德軍初期 486,493 名戰鬥人員、總數約 84.9 萬人',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate']);
+const WP_X5_MARKET_GARDEN = wikipediaRev('Operation_Market_Garden', 1386098465, '資訊框：德軍 10 萬人',
+  ['defender.forcesEstimate']);
+const WP_X5_BULGE = wikipediaRev('Battle_of_the_Bulge', 1387917969, '資訊框：德軍 1944-12-16 時 406,342 人、1945-01-16 時 383,016 人；盟軍 1944-12-16 時 228,741 人、1945-01-16 時 700,520 人。資訊框的傷亡（德軍 6.3 萬至 7.5 萬人以上，美方估計 103,900 人；美軍 8.1 萬人）和本筆已填的 Britannica 數字不同，本筆不改',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate']);
+const WP_X5_BERLIN = wikipediaRev('Battle_of_Berlin', 1386101616, '資訊框：德軍共 766,750 人（36 個師），柏林防區約 4.5 萬人，另有警察、希特勒青年團及 4 萬名人民衝鋒隊',
+  ['defender.forcesEstimate']);
+
 export const EUROPEWAR_BATTLES = [
   {
     id: 'bat_ew_german_invasion_of_poland_1939',
@@ -323,14 +373,14 @@ export const EUROPEWAR_BATTLES = [
       faction: 'axis',
       commanders: [],
       forcesEstimate: '60 個師，近 150 萬人（含 2,000 輛以上戰車的先頭部隊）',
-      casualtiesEstimate: '待考',
+      casualtiesEstimate: '德軍 16,343 人陣亡、30,300 人受傷、3,500 人失蹤',
     },
     defender: {
       factionName: '波蘭',
       faction: 'allies',
       commanders: [],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '約 100 萬人（39 個師、16 個旅）；對德、蘇兩線合計',
+      casualtiesEstimate: '約 874,700 人（66,000 人陣亡、133,700 人受傷、約 69 萬人被俘）；對德、蘇兩線合計',
     },
     participants: [
       { name: '德國', role: '入侵方', side: 'attacker' },
@@ -343,7 +393,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: ['bat_ew_soviet_invasion_of_poland_1939'],
-    sources: [{
+    sources: [WP_X5_POLAND, {
       ...USHMM_POLAND,
       claimScope: '1939-09-01 德國入侵；9 月 17 日蘇聯由東面入侵；9 月 28 日華沙投降；10 月 6 日波蘭部隊最後的抵抗結束；德國投入 60 個師、近 150 萬人，先頭部隊有 2,000 輛以上戰車',
       claims: ['startDate', 'endDate', 'attacker.forcesEstimate'],
@@ -363,8 +413,8 @@ export const EUROPEWAR_BATTLES = [
     coordinates: [25.0, 52.5],
     locationNote: '蘇軍由東面進入波蘭，地圖座標取波蘭東部的約略位置，不代表特定城市',
     summary: '1939 年 9 月 17 日蘇聯由東面入侵波蘭。結束日期、雙方兵力與傷亡待考。',
-    attacker: { factionName: '蘇聯', faction: 'other', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
-    defender: { factionName: '波蘭', faction: 'allies', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    attacker: { factionName: '蘇聯', faction: 'other', commanders: [], forcesEstimate: '60 萬至 80 萬人；戰車 4,736 輛', casualtiesEstimate: '陣亡或失蹤 1,475 至 3,000 人、受傷 2,383 至 10,000 人' },
+    defender: { factionName: '波蘭', faction: 'allies', commanders: [], forcesEstimate: '陸軍 45 萬人、邊防軍 2 萬人', casualtiesEstimate: '陣亡或失蹤 3,000 至 7,000 人、受傷最多 2 萬人、被俘 32 萬至 45 萬人' },
     participants: [
       { name: '蘇聯', role: '入侵方', side: 'attacker' },
       { name: '波蘭', role: '防守方', side: 'defender' },
@@ -374,7 +424,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: ['bat_ew_german_invasion_of_poland_1939'],
-    sources: [{ ...USHMM_POLAND, claimScope: '9 月 17 日蘇聯由東面入侵波蘭', claims: ['startDate'] }],
+    sources: [WP_X5_SOVIET_POLAND, { ...USHMM_POLAND, claimScope: '9 月 17 日蘇聯由東面入侵波蘭', claims: ['startDate'] }],
   },
   {
     id: 'bat_ew_winter_war_1939',
@@ -390,8 +440,8 @@ export const EUROPEWAR_BATTLES = [
     coordinates: [29.5, 60.6],
     locationNote: '戰場在芬蘭與蘇聯邊境，地圖座標取卡累利阿地峽的約略位置作為代表',
     summary: '蘇聯於 1939 年 11 月 30 日入侵芬蘭。1940 年 3 月 12 日芬蘭被迫簽訂莫斯科條約，割讓 11% 領土給蘇聯。',
-    attacker: { factionName: '蘇聯', faction: 'other', commanders: [], forcesEstimate: '約 100 萬人', casualtiesEstimate: '待考' },
-    defender: { factionName: '芬蘭', faction: 'other', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    attacker: { factionName: '蘇聯', faction: 'other', commanders: [], forcesEstimate: '約 100 萬人', casualtiesEstimate: '32.1 萬至 38.1 萬人（陣亡或失蹤 126,875 至 167,976 人）' },
+    defender: { factionName: '芬蘭', faction: 'other', commanders: [], forcesEstimate: '30 萬至 34 萬人', casualtiesEstimate: '約 7 萬人（陣亡或失蹤 25,904 人、受傷 43,557 人）' },
     participants: [
       { name: '蘇聯', role: '入侵方', side: 'attacker' },
       { name: '芬蘭', role: '防守方', side: 'defender' },
@@ -402,7 +452,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_WINTER_WAR, BRITANNICA_WINTER_WAR],
+    sources: [WP_X5_WINTER_WAR, IWM_WINTER_WAR, BRITANNICA_WINTER_WAR],
   },
   {
     id: 'bat_ew_norwegian_campaign_1940',
@@ -422,10 +472,10 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '法爾肯霍斯特', title: '步兵上將，德軍指揮官' }],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '10 萬人（7 個師）',
+      casualtiesEstimate: '5,296 人（德方官方數字：陸上陣亡 1,317 人、海上損失 2,375 人、受傷 1,604 人）',
     },
-    defender: { factionName: '挪威及英法盟軍', faction: 'allies', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    defender: { factionName: '挪威及英法盟軍', faction: 'allies', commanders: [], forcesEstimate: '挪威 55,000 人、英法波盟軍 38,000 人', casualtiesEstimate: '6,602 人（挪威 1,700 人，其中 860 人陣亡；英軍陸上 1,869 人、海上 2,500 人；法軍及波蘭軍 533 人）' },
     participants: [
       { name: '德國', role: '入侵方', side: 'attacker' },
       { name: '挪威', role: '防守方', side: 'defender' },
@@ -438,7 +488,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '德國海軍在挪威的損失之後一直未能恢復，因而無法干擾敦克爾克撤退，也無法支援入侵英國',
     relatedBattleIds: [],
-    sources: [IWM_NORWAY_BLOG, IWM_NORWAY],
+    sources: [WP_X5_NORWAY, IWM_NORWAY_BLOG, IWM_NORWAY],
   },
   {
     id: 'bat_ew_battle_of_france_1940',
@@ -454,7 +504,7 @@ export const EUROPEWAR_BATTLES = [
     coordinates: [2.35, 48.86],
     locationNote: '戰場遍及低地國與法國，地圖座標取巴黎作為代表位置',
     summary: '德軍於 1940 年 5 月 10 日發動攻擊，6 月 14 日進入巴黎。法國於 6 月 17 日請求停戰，6 月 22 日在同一節火車車廂簽署停戰協定。',
-    attacker: { factionName: '德國', faction: 'axis', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    attacker: { factionName: '德國', faction: 'axis', commanders: [], forcesEstimate: '330 萬人（141 個師、2,445 輛戰車）', casualtiesEstimate: '156,547 人（27,074 人陣亡、111,034 人受傷、18,384 人失蹤）' },
     defender: {
       factionName: '法國及盟軍',
       faction: 'allies',
@@ -462,8 +512,8 @@ export const EUROPEWAR_BATTLES = [
         { name: '甘末林', title: '開戰時的法軍總司令', figureId: 'fig_ew_gamelin' },
         { name: '魏剛', title: '在法國的盟軍總司令', figureId: 'fig_ew_weygand' },
       ],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '330 萬人（135 個師）；另有阿爾卑斯山線法軍約 15 萬人',
+      casualtiesEstimate: '2,084,000 人（73,000 人陣亡、240,000 人受傷、15,000 人失蹤、1,756,000 人被俘）',
     },
     participants: [
       { name: '德國', role: '進攻方', side: 'attacker' },
@@ -478,7 +528,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: ['bat_ew_dunkirk_1940'],
-    sources: [IWM_FRANCE, BRITANNICA_GAMELIN, BRITANNICA_WEYGAND],
+    sources: [WP_X5_FRANCE, IWM_FRANCE, BRITANNICA_GAMELIN, BRITANNICA_WEYGAND],
   },
   {
     id: 'bat_ew_dunkirk_1940',
@@ -531,7 +581,7 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '戈林', title: '德國空軍司令', figureId: 'fig_ew_goering' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '2,550 架飛機',
       casualtiesEstimate: '約 1,733 架飛機被摧毀',
     },
     defender: {
@@ -541,7 +591,7 @@ export const EUROPEWAR_BATTLES = [
         { name: '道丁', title: '戰鬥機司令部司令', figureId: 'fig_ew_dowding' },
         { name: '帕克', title: '第 11 大隊指揮官，防衛英格蘭南部' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '1,963 架飛機',
       casualtiesEstimate: '915 架飛機被摧毀',
     },
     participants: [
@@ -554,7 +604,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '決定性的防禦勝利阻止了德國入侵，也證明英國防空系統的效能',
     relatedBattleIds: [],
-    sources: [IWM_BRITAIN, BRITANNICA_DOWDING, BRITANNICA_PARK],
+    sources: [WP_X5_BRITAIN, IWM_BRITAIN, BRITANNICA_DOWDING, BRITANNICA_PARK],
   },
   {
     id: 'bat_ew_battle_of_the_atlantic_1939',
@@ -570,8 +620,8 @@ export const EUROPEWAR_BATTLES = [
     coordinates: [-14, 52],
     locationNote: '戰場遍及大西洋，遠超出地圖範圍；地圖座標取地圖西緣的愛爾蘭以西海域作為代表位置',
     summary: '第一支大西洋護航船隊於 1939 年 9 月 2 日出航，戰事持續到 1945 年納粹德國戰敗。',
-    attacker: { factionName: '德國', faction: 'axis', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
-    defender: { factionName: '英國及盟軍', faction: 'allies', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    attacker: { factionName: '德國', faction: 'axis', commanders: [], forcesEstimate: '待考', casualtiesEstimate: 'U 艇官兵約 3 萬人陣亡；潛艇 783 艘、其他軍艦 47 艘損失' },
+    defender: { factionName: '英國及盟軍', faction: 'allies', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '海軍 36,200 人、商船船員 36,000 人陣亡；商船 3,500 艘、軍艦 175 艘損失' },
     participants: [
       { name: '德國', role: '進攻方', side: 'attacker' },
       { name: '英國', role: '防守方', side: 'defender' },
@@ -581,7 +631,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_ATLANTIC],
+    sources: [WP_X5_ATLANTIC, IWM_ATLANTIC],
   },
   {
     id: 'bat_ew_balkans_campaign_1941',
@@ -665,7 +715,7 @@ export const EUROPEWAR_BATTLES = [
       faction: 'allies',
       commanders: [],
       forcesEstimate: '可立即動用約 500 萬人，戰車共 23,000 輛',
-      casualtiesEstimate: '待考',
+      casualtiesEstimate: '軍人總傷亡約 450 萬人',
     },
     participants: [
       { name: '德國', role: '入侵方', side: 'attacker' },
@@ -679,6 +729,7 @@ export const EUROPEWAR_BATTLES = [
     significance: '待考',
     relatedBattleIds: ['bat_ew_siege_of_leningrad_1941', 'bat_ew_battle_of_moscow_1941', 'bat_ew_battle_of_smolensk_1941', 'bat_ew_battle_of_kiev_1941'],
     sources: [
+      WP_X5_BARBAROSSA,
       { ...IWM_BARBAROSSA, claims: ['startDate', 'attacker.commanders', 'attacker.forcesEstimate', 'attacker.casualtiesEstimate', 'defender.forcesEstimate'] },
       IWM_BARBAROSSA_EXPLAINED,
     ],
@@ -700,8 +751,8 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國（及芬蘭）',
       faction: 'axis',
       commanders: [{ name: '勒布', title: '元帥，北方集團軍群司令' }],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '初期 725,000 人',
+      casualtiesEstimate: '579,985 人陣亡、受傷或失蹤',
     },
     defender: {
       factionName: '蘇聯',
@@ -722,6 +773,7 @@ export const EUROPEWAR_BATTLES = [
     significance: '待考',
     relatedBattleIds: ['bat_ew_operation_barbarossa_1941'],
     sources: [
+      WP_X5_LENINGRAD,
       BRITANNICA_LENINGRAD,
       { ...IWM_BARBAROSSA, claimScope: '北方集團軍群由勒布元帥指揮，攻向列寧格勒；9 月在芬蘭協助下切斷列寧格勒與俄國其他地區的聯繫，但無力攻下', claims: ['attacker.commanders'] },
       BRITANNICA_ZHUKOV,
@@ -745,15 +797,15 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '包克', title: '元帥，中央集團軍群司令' }],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '1941-10-01 時 1,184,000 至 1,929,406 人',
+      casualtiesEstimate: '德方估計 174,194 人；蘇方估計 581,000 人（陣亡、失蹤、受傷及被俘）',
     },
     defender: {
       factionName: '蘇聯',
       faction: 'allies',
       commanders: [{ name: '朱可夫', title: '指揮莫斯科防禦與 12 月反攻', figureId: 'fig_ew_zhukov' }],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '1941-10-01 時 1,252,591 人',
+      casualtiesEstimate: '1,029,234 人（防禦與反攻兩階段的陣亡、失蹤及受傷合計）',
     },
     participants: [
       { name: '德國', role: '進攻方', side: 'attacker' },
@@ -766,6 +818,7 @@ export const EUROPEWAR_BATTLES = [
     significance: '待考',
     relatedBattleIds: ['bat_ew_operation_barbarossa_1941'],
     sources: [
+      WP_X5_MOSCOW,
       BRITANNICA_MOSCOW,
       { ...IWM_BARBAROSSA, claimScope: '中央集團軍群由包克元帥指揮，目標包括莫斯科；10 月 2 日發動颱風行動，在布良斯克、維亞濟馬兩處包圍中俘虜逾 60 萬蘇軍；11 月中旬最後一次鉗形攻勢；12 月 2 日偵察部隊推進到距莫斯科 5 英里；12 月 5 日蘇軍反攻，德軍被迫撤退', claims: ['attacker.commanders'] },
       BRITANNICA_ZHUKOV,
@@ -788,7 +841,7 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '保盧斯', title: '第 6 集團軍司令', figureId: 'fig_ew_paulus' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '軸心攻勢期間 27 萬人；蘇軍反攻時 1,011,000 人',
       casualtiesEstimate: '共損失 50 萬人，其中 9.1 萬人被俘',
     },
     defender: {
@@ -799,8 +852,8 @@ export const EUROPEWAR_BATTLES = [
         { name: '羅科索夫斯基', title: '頓河方面軍司令', figureId: 'fig_ew_rokossovsky' },
         { name: '崔可夫', title: '指揮史達林格勒城市防禦', figureId: 'fig_ew_chuikov' },
       ],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '軸心攻勢期間 18.7 萬人；蘇軍反攻時 1,103,000 至 1,143,500 人',
+      casualtiesEstimate: '1,129,619 人（克里沃舍耶夫統計：陣亡或失蹤 478,741 人、受傷或患病 650,878 人）',
     },
     participants: [
       { name: '德國', role: '進攻方', side: 'attacker' },
@@ -812,7 +865,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_STALINGRAD, BRITANNICA_STALINGRAD, { ...BRITANNICA_ROKOSSOVSKY_BATTLES, claims: ['defender.commanders'] },
+    sources: [WP_X5_STALINGRAD, IWM_STALINGRAD, BRITANNICA_STALINGRAD, { ...BRITANNICA_ROKOSSOVSKY_BATTLES, claims: ['defender.commanders'] },
       { ...BRITANNICA_CHUIKOV_BATTLES, claims: ['defender.commanders'] }],
   },
   {
@@ -881,9 +934,9 @@ export const EUROPEWAR_BATTLES = [
         { name: '巴頓', title: '西部特遣艦隊（攻取卡薩布蘭卡）', figureId: 'fig_ew_patton' },
       ],
       forcesEstimate: '107,000 人',
-      casualtiesEstimate: '待考',
+      casualtiesEstimate: '美軍 556 人陣亡、837 人受傷；英軍 574 人陣亡（統計期間 11-08 至 11-16）',
     },
-    defender: { factionName: '維琪法國', faction: 'other', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    defender: { factionName: '維琪法國', faction: 'other', commanders: [], forcesEstimate: '地面部隊 125,000 人、戰車 210 輛、飛機 500 架', casualtiesEstimate: '1,346 人以上陣亡、1,997 人受傷（統計期間 11-08 至 11-16）' },
     participants: [
       { name: '美國', role: '登陸方', side: 'attacker' },
       { name: '英國', role: '登陸方', side: 'attacker' },
@@ -895,7 +948,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [BRITANNICA_TORCH],
+    sources: [WP_X5_TORCH, BRITANNICA_TORCH],
   },
   {
     id: 'bat_ew_battle_of_kursk_1943',
@@ -916,9 +969,9 @@ export const EUROPEWAR_BATTLES = [
       faction: 'axis',
       commanders: [],
       forcesEstimate: '近 50 個師、90 萬人，含 17 個機械化或裝甲師、2,700 輛戰車與自走突擊砲',
-      casualtiesEstimate: '待考',
+      casualtiesEstimate: '165,314 至 203,000 人（德軍醫療資料）',
     },
-    defender: { factionName: '蘇聯', faction: 'allies', commanders: [], forcesEstimate: '待考', casualtiesEstimate: '待考' },
+    defender: { factionName: '蘇聯', faction: 'allies', commanders: [], forcesEstimate: '衛城行動期間 1,910,361 人；反攻階段 250 萬人', casualtiesEstimate: '863,303 人（陣亡、被俘或失蹤 254,470 人，受傷或患病 608,833 人）' },
     participants: [
       { name: '德國', role: '進攻方', side: 'attacker' },
       { name: '蘇聯', role: '防守方', side: 'defender' },
@@ -929,7 +982,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [BRITANNICA_KURSK],
+    sources: [WP_X5_KURSK, BRITANNICA_KURSK],
   },
   {
     id: 'bat_ew_invasion_of_sicily_1943',
@@ -953,14 +1006,14 @@ export const EUROPEWAR_BATTLES = [
         { name: '蒙哥馬利', title: '英國第 8 軍團司令', figureId: 'fig_ew_montgomery' },
         { name: '巴頓', title: '美國第 7 軍團司令', figureId: 'fig_ew_patton' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '初期 16 萬人，最多 46.7 萬人',
       casualtiesEstimate: '約 23,000 人',
     },
     defender: {
       factionName: '德國及義大利',
       faction: 'axis',
       commanders: [],
-      forcesEstimate: '待考',
+      forcesEstimate: '義軍 131,359 至 252,000 人；德軍 4 萬至 6 萬人',
       casualtiesEstimate: '約 165,000 人，其中德軍 30,000 人',
     },
     participants: [
@@ -976,7 +1029,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '直接導致墨索里尼垮台與義大利政府向盟軍投降',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [BRITANNICA_SICILY],
+    sources: [WP_X5_SICILY, BRITANNICA_SICILY],
   },
   {
     id: 'bat_ew_normandy_landings_1944',
@@ -1000,7 +1053,7 @@ export const EUROPEWAR_BATTLES = [
         { name: '布萊德雷', title: '美國第 1 軍團司令', figureId: 'fig_ew_bradley' },
       ],
       forcesEstimate: '近 16 萬人登陸，其中海運上岸逾 13.2 萬人、空降逾 1.8 萬人',
-      casualtiesEstimate: '待考',
+      casualtiesEstimate: '1 萬人以上，其中確認陣亡 4,414 人',
     },
     defender: {
       factionName: '德國',
@@ -1009,8 +1062,8 @@ export const EUROPEWAR_BATTLES = [
         { name: '隆美爾', title: 'B 集團軍群司令（D-Day 當天不在司令部）', figureId: 'fig_ew_rommel' },
         { name: '倫德施泰特', title: '西線總司令', figureId: 'fig_ew_rundstedt' },
       ],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '50,350 人以上',
+      casualtiesEstimate: '4,000 至 9,000 人（陣亡、受傷、失蹤或被俘）',
     },
     participants: [
       { name: '美國', role: '登陸方', side: 'attacker' },
@@ -1024,7 +1077,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '1944 年 8 月底法國北部全部解放',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_DDAY, BRITANNICA_NORMANDY, { ...BRITANNICA_BRADLEY, claims: ['attacker.commanders'] }],
+    sources: [WP_X5_NORMANDY, IWM_DDAY, BRITANNICA_NORMANDY, { ...BRITANNICA_BRADLEY, claims: ['attacker.commanders'] }],
   },
   {
     id: 'bat_ew_operation_bagration_1944',
@@ -1044,14 +1097,14 @@ export const EUROPEWAR_BATTLES = [
       factionName: '蘇聯',
       faction: 'allies',
       commanders: [],
-      forcesEstimate: '待考',
+      forcesEstimate: '初期 1,670,300 人',
       casualtiesEstimate: '逾 75 萬人陣亡或受傷',
     },
     defender: {
       factionName: '德國',
       faction: 'axis',
       commanders: [],
-      forcesEstimate: '待考',
+      forcesEstimate: '初期 486,493 名戰鬥人員（總數約 84.9 萬人）',
       casualtiesEstimate: '估計 35 萬至 67 萬人陣亡、受傷或被俘',
     },
     participants: [
@@ -1064,7 +1117,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_BAGRATION, BRITANNICA_BAGRATION],
+    sources: [WP_X5_BAGRATION, IWM_BAGRATION, BRITANNICA_BAGRATION],
   },
   {
     id: 'bat_ew_operation_market_garden_1944',
@@ -1091,7 +1144,7 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '莫德爾', title: 'B 集團軍群司令', figureId: 'fig_ew_model' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '10 萬人',
       casualtiesEstimate: '7,500–10,000 人',
     },
     participants: [
@@ -1106,7 +1159,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_MARKET_GARDEN, BRITANNICA_MARKET_GARDEN],
+    sources: [WP_X5_MARKET_GARDEN, IWM_MARKET_GARDEN, BRITANNICA_MARKET_GARDEN],
   },
   {
     id: 'bat_ew_battle_of_the_bulge_1944',
@@ -1130,7 +1183,7 @@ export const EUROPEWAR_BATTLES = [
         { name: '曼陀菲爾', title: '第 5 裝甲軍團司令' },
         { name: '迪特里希', title: '第 6 裝甲軍團司令（黨衛軍）' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '1944-12-16 時 406,342 人；1945-01-16 時 383,016 人',
       casualtiesEstimate: '12 萬人',
     },
     defender: {
@@ -1141,7 +1194,7 @@ export const EUROPEWAR_BATTLES = [
         { name: '蒙哥馬利', title: '接掌北翼', figureId: 'fig_ew_montgomery' },
         { name: '巴頓', title: '美國第 3 軍團司令（為巴斯通解圍）', figureId: 'fig_ew_patton' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '1944-12-16 時 228,741 人；1945-01-16 時 700,520 人',
       casualtiesEstimate: '約 7.5 萬人',
     },
     participants: [
@@ -1155,7 +1208,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '盟軍能補充損失，德國則耗盡人力與物資',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_BULGE, BRITANNICA_BULGE],
+    sources: [WP_X5_BULGE, IWM_BULGE, BRITANNICA_BULGE],
   },
   {
     id: 'bat_ew_battle_of_berlin_1945',
@@ -1185,7 +1238,7 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '魏德林', title: '柏林守軍司令（希特勒死後投降）' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '766,750 人（36 個師）',
       casualtiesEstimate: '軍人至少 45 萬人；另估計 30 萬名平民死傷',
     },
     participants: [
@@ -1198,7 +1251,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [IWM_BERLIN, BRITANNICA_BERLIN, { ...BRITANNICA_CHUIKOV_BATTLES, claims: ['attacker.commanders'] }],
+    sources: [WP_X5_BERLIN, IWM_BERLIN, BRITANNICA_BERLIN, { ...BRITANNICA_CHUIKOV_BATTLES, claims: ['attacker.commanders'] }],
   },
   // ── 擴充第 1 批（規劃 v9 第十四節，2026-11-21） ──
   {
@@ -1379,7 +1432,7 @@ export const EUROPEWAR_BATTLES = [
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '凱塞林', title: '德軍南線總司令', figureId: 'fig_ew_kesselring' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '初期約 2 萬人；盟軍突破時德軍 13.5 萬人及 2 個義大利營',
       casualtiesEstimate: '約 2.75 萬人',
     },
     participants: [
@@ -1393,7 +1446,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [BRITANNICA_ANZIO],
+    sources: [WP_X5_ANZIO, BRITANNICA_ANZIO],
   },
   {
     id: 'bat_ew_battle_of_monte_cassino_1944',
@@ -1415,14 +1468,14 @@ export const EUROPEWAR_BATTLES = [
         { name: '亞歷山大', title: '第 15 集團軍群司令', figureId: 'fig_ew_alexander' },
         { name: '克拉克', title: '美國第 5 軍團司令', figureId: 'fig_ew_clark' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '24 萬人',
       casualtiesEstimate: '10.5 萬人',
     },
     defender: {
       factionName: '德國',
       faction: 'axis',
       commanders: [{ name: '凱塞林', title: '德軍南線總司令', figureId: 'fig_ew_kesselring' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '14 萬人',
       casualtiesEstimate: '8 萬人',
     },
     participants: [
@@ -1442,6 +1495,7 @@ export const EUROPEWAR_BATTLES = [
     significance: '戰後聯合國教科文組織訂立議定書，禁止交戰方利用歷史、文化與宗教古蹟的周邊',
     relatedBattleIds: [],
     sources: [
+      WP_X5_CASSINO,
       BRITANNICA_CASSINO,
       { ...BRITANNICA_ANZIO, claimScope: '同頁記載：1944 年 5 月第 15 集團軍群司令亞歷山大發動攻勢，克拉克的第 5 軍團與第 8 軍團合擊古斯塔夫防線，卡西諾於 05-18 被第 8 軍團的波蘭軍攻下；凱塞林同時在卡西諾地段擋住盟軍主力',
         claims: ['attacker.commanders', 'defender.commanders'] },
