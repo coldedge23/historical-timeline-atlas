@@ -8095,6 +8095,54 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_campioni": [
+    "europeWarAtlas:fig_ew_campioni",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_luters": [
+    "europeWarAtlas:fig_ew_luters",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_harpe": [
+    "europeWarAtlas:fig_ew_harpe",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_zangen": [
+    "europeWarAtlas:fig_ew_zangen",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_auchinleck": [
+    "europeWarAtlas:fig_ew_auchinleck",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_park": [
+    "europeWarAtlas:fig_ew_park",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_list": [
+    "europeWarAtlas:fig_ew_list",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_weidling": [
+    "europeWarAtlas:fig_ew_weidling",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_death_of_hitler_1945"
    ]
   },
   "taiwanPage": {

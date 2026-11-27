@@ -1,6 +1,7 @@
 // 二戰歐洲戰場人物（規劃 v6 第 9.4 節，批次 1）。生卒日期來自 Encyclopaedia Britannica 傳記條目的開頭（輔助來源，
 // 第 9.5 節），每筆以 claims 標出 birthDeathDisplay。本模組人物的 abilities 明設為 null，不計算娛樂性評分，人物彈窗不顯示雷達圖。
-// 查不到生卒日期的人物（例如 Britannica 只有短條目的帕克、利斯特、雷茲-希米格維）暫不建立，戰役中以純文字列名。
+// 查不到生卒日期的人物（例如雷茲-希米格維）暫不建立，戰役中以純文字列名。帕克、利斯特當時因 Britannica 只有短條目暫緩，
+// 2026-11-28 改用維基百科建立（指揮官人物卡第 2 批）。
 const britannica = (name, slug, birthDeath) => ({
   title: `Encyclopaedia Britannica: ${name}`,
   url: `https://www.britannica.com/biography/${slug}`,
@@ -20,10 +21,11 @@ const wikipediaFigure = (article, name, birthDeath) => ({
 
 // 指揮官人物卡第 1 批（規劃 v15 第二十節，2026-11-27 Ivan 核准）：英文維基百科資訊框，網址固定到查閱時的版本（oldid）。
 // 中文名稱沿用戰役指揮官欄已用的譯名（本專案慣用譯名，未對照官方譯名表）。
-const wikipediaFigureRev = (article, revid, name, birthDeath) => ({
+// 第 2 批（2026-11-28 查閱）傳入查閱日；第 1 批沿用預設的 2026-11-27。
+const wikipediaFigureRev = (article, revid, name, birthDeath, accessedAt = '2026-11-27') => ({
   ...wikipediaFigure(article, name, birthDeath),
   url: `https://en.wikipedia.org/w/index.php?title=${encodeURIComponent(article)}&oldid=${revid}`,
-  reviewedAt: '2026-11-27', accessedAt: '2026-11-27',
+  reviewedAt: accessedAt, accessedAt,
 });
 
 // birthplace 取自同一條目開頭的出生地，避免人物彈窗套用通用的籍貫預設值。
@@ -427,5 +429,54 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     birth: '1899', death: '1969', birthDeathDisplay: '1899 年 10 月 23 日 – 1969 年 7 月 8 日', birthplace: '俄羅斯帝國特維爾省盧克申諾',
     shortBio: '蘇聯海軍將領，本名伊萬諾夫。1939 年 3 月起任黑海艦隊司令，指揮艦隊參與塞瓦斯托波爾圍城（1941–1942）與敖德薩圍城（1941）。戰後任海軍副總司令。1969 年死於塞瓦斯托波爾。',
     source: wikipediaFigureRev('Filipp_Oktyabrsky', 1381045119, 'Filipp Oktyabrsky', 'Born 23 October 1899 [O.S. 11 October], Lukshino, Tver Governorate — Died 8 July 1969, Sevastopol'),
+  }),
+  // 指揮官人物卡第 2 批（規劃 v16 第二十一節，2026-11-28 Ivan 核准）。帕克、利斯特在第一批因 Britannica 只有短條目暫緩，本批改用維基百科。
+  figure({
+    id: 'fig_ew_campioni', name: '坎皮奧尼', faction: 'axis', role: '義大利海軍上將',
+    birth: '1878', death: '1944', birthDeathDisplay: '1878 年 11 月 14 日 – 1944 年 5 月 24 日', birthplace: '義大利王國托斯卡尼維亞雷焦',
+    shortBio: '義大利海軍軍官，一生參與四場戰爭，以二戰期間擔任義大利皇家海軍上將最為人知。後因拒絕與義大利社會共和國合作而遭其處決，1944 年死於帕爾馬。',
+    source: wikipediaFigureRev('Inigo_Campioni', 1377757961, 'Inigo Campioni', 'Born 14 November 1878, Viareggio, Tuscany — Died 24 May 1944, Parma', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_luters', name: '呂特斯', faction: 'axis', role: '德國陸軍將領',
+    birth: '1883', death: '1945', birthDeathDisplay: '1883 年 5 月 10 日 – 1945 年 12 月 24 日', birthplace: '德意志帝國達姆施塔特',
+    shortBio: '二戰期間在德國國防軍服役的德國將領。1945 年 12 月死於蘇聯克拉斯諾戈爾斯克。',
+    source: wikipediaFigureRev('Rudolf_Lüters', 1380335162, 'Rudolf Lüters', 'Born 10 May 1883, Darmstadt — Died 24 December 1945, Krasnogorsk, Soviet Union', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_harpe', name: '哈爾佩', faction: 'axis', role: '德國陸軍大將',
+    birth: '1887', death: '1968', birthDeathDisplay: '1887 年 9 月 21 日 – 1968 年 3 月 14 日', birthplace: '德意志帝國布爾',
+    shortBio: '德國將領，在東線指揮第 41 裝甲軍與第 9 軍團。1944 年 9 月至 1945 年 1 月任 A 集團軍群司令，因德軍擋不住蘇軍維斯瓦河－奧得河攻勢被解職，戰爭結束時指揮西線第 5 裝甲軍團。設立奧扎里奇死亡營，史家認為是德國國防軍最嚴重的暴行之一。1968 年死於紐倫堡。',
+    source: wikipediaFigureRev('Josef_Harpe', 1380319254, 'Josef Harpe', 'Born 21 September 1887, Buer — Died 14 March 1968, Nuremberg', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_zangen', name: '贊根', faction: 'axis', role: '德國陸軍將領（第 15 軍團司令）',
+    birth: '1892', death: '1964', birthDeathDisplay: '1892 年 11 月 7 日 – 1964 年 5 月 1 日', birthplace: '德意志帝國黑森大公國達姆施塔特',
+    shortBio: '二戰期間的德國國防軍將領，1944 年在荷蘭指揮第 15 軍團。1964 年死於西德哈瑙。',
+    source: wikipediaFigureRev('Gustav-Adolf_von_Zangen', 1384548108, 'Gustav-Adolf von Zangen', 'Born 7 November 1892, Darmstadt, Grand Duchy of Hesse — Died 1 May 1964, Hanau', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_auchinleck', name: '奧欽萊克', faction: 'allies', role: '英國陸軍元帥（中東戰區總司令）',
+    birth: '1884', death: '1981', birthDeathDisplay: '1884 年 6 月 21 日 – 1981 年 3 月 23 日', birthplace: '英格蘭漢普郡奧爾德肖特',
+    shortBio: '英屬印度陸軍將領，參加過兩次世界大戰。1941 年初任印度陸軍總司令，同年 7 月改任中東戰區總司令；初期取得戰果後北非戰局逆轉，1942 年 8 月被解除職務。1943 年 6 月再任印度總司令，以補給、維修與訓練支援斯利姆的第 14 軍團。1981 年死於摩洛哥馬拉喀什。',
+    source: wikipediaFigureRev('Claude_Auchinleck', 1383230716, 'Claude Auchinleck', 'Born 21 June 1884, Aldershot, Hampshire — Died 23 March 1981, Marrakesh, Morocco', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_park', name: '帕克', faction: 'allies', role: '英國皇家空軍將領（第 11 大隊指揮官）',
+    birth: '1892', death: '1975', birthDeathDisplay: '1892 年 6 月 15 日 – 1975 年 2 月 6 日', birthplace: '紐西蘭泰晤士',
+    shortBio: '紐西蘭出生的英國皇家空軍軍官。一戰時參加加里波利戰役與索姆河戰役，後轉入皇家飛行隊成為王牌飛行員。二戰期間指揮皇家空軍第 11 大隊，對不列顛空戰擊敗德國空軍有關鍵作用。1975 年死於紐西蘭奧克蘭。',
+    source: wikipediaFigureRev('Keith_Park', 1379812496, 'Keith Park', 'Born 15 June 1892, Thames, New Zealand — Died 6 February 1975, Auckland', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_list', name: '利斯特', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1880', death: '1971', birthDeathDisplay: '1880 年 5 月 14 日 – 1971 年 8 月 17 日', birthplace: '德意志帝國符騰堡王國上基希貝格',
+    shortBio: '德國陸軍元帥。1939 年入侵波蘭時指揮第 14 軍團，1940 年入侵法國時指揮第 12 軍團並因此晉升元帥；1941 年 4 月率第 12 軍團入侵南斯拉夫與希臘，主持反游擊作戰至同年 10 月辭職。1942 年 7 月任東線 A 集團軍群司令，負責藍色行動中攻向高加索的主攻。1971 年死於加爾米施－帕滕基興。',
+    source: wikipediaFigureRev('Wilhelm_List', 1382949227, 'Wilhelm List', 'Born 14 May 1880, Oberkirchberg, Württemberg — Died 17 August 1971, Garmisch-Partenkirchen', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_weidling', name: '魏德林', faction: 'axis', role: '德國陸軍將領（柏林防區司令）',
+    birth: '1891', death: '1955', birthDeathDisplay: '1891 年 11 月 2 日 – 1955 年 11 月 17 日', birthplace: '德意志帝國普魯士薩克森省哈爾伯施塔特',
+    shortBio: '德國將領，柏林戰役期間任柏林防區最後一任司令，率部抵抗蘇軍，於歐戰結束前投降。被蘇聯俘虜後以戰爭罪判刑 25 年，1955 年死於弗拉基米爾中央監獄。',
+    source: wikipediaFigureRev('Helmuth_Weidling', 1375231429, 'Helmuth Weidling', 'Born 2 November 1891, Halberstadt, Province of Saxony — Died 17 November 1955, Vladimir Central Prison', '2026-11-28'),
   }),
 ];

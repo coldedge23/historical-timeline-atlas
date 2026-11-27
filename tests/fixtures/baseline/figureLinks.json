@@ -1337,10 +1337,10 @@
   "japanAtlas>fig_jp_watanabe_kazan": "fa1f666c8cdd2f83",
   "japanAtlas>fig_jp_siebold": "fa0ca27d43aba7ed",
   "japanAtlas>fig_jp_takano_choei": "72fdcb92efa9def1",
-  "europeWarAtlas>fig_ew_hitler": "0b5561f35c496226",
+  "europeWarAtlas>fig_ew_hitler": "9357976a207b953e",
   "europeWarAtlas>fig_ew_goering": "224eba66926ed4e4",
   "europeWarAtlas>fig_ew_doenitz": "64c5d286e7c7b66c",
-  "europeWarAtlas>fig_ew_guderian": "f4aa5df9534b7763",
+  "europeWarAtlas>fig_ew_guderian": "ac67acc0d3338d18",
   "europeWarAtlas>fig_ew_rundstedt": "06c2d2780bc26118",
   "europeWarAtlas>fig_ew_manstein": "95efbc60a7b7e833",
   "europeWarAtlas>fig_ew_mussolini": "6e77244b0a1582dd",
@@ -1400,6 +1400,14 @@
   "europeWarAtlas>fig_ew_hausser": "b7af43f648214190",
   "europeWarAtlas>fig_ew_blaskowitz": "25a128237b3cfab7",
   "europeWarAtlas>fig_ew_golikov": "3d32552e7efecdb4",
-  "europeWarAtlas>fig_ew_oktyabrsky": "d63c703929bf49c6"
+  "europeWarAtlas>fig_ew_oktyabrsky": "d63c703929bf49c6",
+  "europeWarAtlas>fig_ew_campioni": "afe818fa59fe75d9",
+  "europeWarAtlas>fig_ew_luters": "ac3ea274d969e94f",
+  "europeWarAtlas>fig_ew_harpe": "e203921c3bc890df",
+  "europeWarAtlas>fig_ew_zangen": "6b4345dc484a4fee",
+  "europeWarAtlas>fig_ew_auchinleck": "81674cd2ae2d1024",
+  "europeWarAtlas>fig_ew_park": "fa7296c0408d361c",
+  "europeWarAtlas>fig_ew_list": "4f4ffdc1683c1895",
+  "europeWarAtlas>fig_ew_weidling": "eb296e4b595db6f1"
  }
 }

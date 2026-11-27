@@ -2770,7 +2770,7 @@
    "貝塔奇": null
   },
   "europeWarAtlas>evt_ew_death_of_hitler_1945": {
-   "魏德林": null
+   "魏德林": "europeWarAtlas:fig_ew_weidling"
   },
   "europeWarAtlas>evt_ew_german_surrender_1945": {
    "約德爾": null,
