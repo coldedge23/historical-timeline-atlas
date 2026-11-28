@@ -479,4 +479,53 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '德國將領，柏林戰役期間任柏林防區最後一任司令，率部抵抗蘇軍，於歐戰結束前投降。被蘇聯俘虜後以戰爭罪判刑 25 年，1955 年死於弗拉基米爾中央監獄。',
     source: wikipediaFigureRev('Helmuth_Weidling', 1375231429, 'Helmuth Weidling', 'Born 2 November 1891, Halberstadt, Province of Saxony — Died 17 November 1955, Vladimir Central Prison', '2026-11-28'),
   }),
+  // 指揮官人物卡第 3 批（規劃 v17 第二十二節，2026-11-28 Ivan 核准）。剩下的指揮官都只出場 1 次，依職級與用途挑選；備選 4 位都沒用到。
+  figure({
+    id: 'fig_ew_student', name: '斯圖登特', faction: 'axis', role: '德國空軍將領（傘兵部隊指揮官）',
+    birth: '1890', death: '1978', birthDeathDisplay: '1890 年 5 月 12 日 – 1978 年 7 月 1 日', birthplace: '德意志帝國比爾克霍爾茨（今波蘭博魯夫）',
+    shortBio: '二戰期間的德國空軍將領，早期發展空降部隊的人物，主持德國傘兵部隊的建立並在整場戰爭中指揮。1940 年 5 月指揮史上第一次大規模空降作戰（海牙戰役），1941 年 5 月指揮入侵克里特島，作戰成功但德軍損失慘重。1947 年因部下在克里特島虐殺戰俘被判戰爭罪。1978 年死於西德萊姆戈。',
+    source: wikipediaFigureRev('Kurt_Student', 1379822654, 'Kurt Student', 'Born 12 May 1890, Birkholz, German Empire (now Borów, Poland) — Died 1 July 1978, Lemgo, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_manteuffel', name: '曼陀菲爾', faction: 'axis', role: '德國陸軍將領（第 5 裝甲軍團司令）',
+    birth: '1897', death: '1978', birthDeathDisplay: '1897 年 1 月 14 日 – 1978 年 9 月 24 日', birthplace: '德意志帝國普魯士王國波茨坦',
+    shortBio: '出身普魯士貴族的德國將領，突出部之役中指揮第 5 裝甲軍團。戰後當選西德聯邦議院議員，任自由民主黨國防政策發言人，主張西德重新武裝，並為西德新軍定名「聯邦國防軍」。1978 年死於奧地利賴特。',
+    source: wikipediaFigureRev('Hasso_von_Manteuffel', 1379820669, 'Hasso von Manteuffel', 'Born 14 January 1897, Potsdam, Kingdom of Prussia — Died 24 September 1978, Reith, Austria', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_schoerner', name: '舍爾納', faction: 'axis', role: '德國陸軍元帥',
+    birth: '1892', death: '1973', birthDeathDisplay: '1892 年 6 月 12 日 – 1973 年 7 月 2 日', birthplace: '德意志帝國巴伐利亞王國慕尼黑',
+    shortBio: '德國國防軍元帥，指揮過數個集團軍群，是德國陸軍最後一任總司令，也是國防軍最後一位晉升元帥的人。忠誠的納粹黨人，以手段嚴酷、嚴懲「逃兵」著稱，戰爭末期是希特勒最信任的指揮官。戰後在蘇聯與西德均被判戰爭罪。1973 年死於慕尼黑。',
+    source: wikipediaFigureRev('Ferdinand_Schörner', 1386063079, 'Ferdinand Schörner', 'Born 12 June 1892, Munich, Kingdom of Bavaria — Died 2 July 1973, Munich, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_sokolovsky', name: '索科洛夫斯基', faction: 'allies', role: '蘇聯將領（西方面軍司令）',
+    birth: '1897', death: '1968', birthDeathDisplay: '1897 年 7 月 21 日 – 1968 年 5 月 10 日', birthplace: '俄羅斯帝國格羅德諾省科茲利基（今屬波蘭）',
+    shortBio: '蘇聯軍事指揮官與理論家，1946 年晉升蘇聯元帥。二戰期間先後任西方面軍參謀長與司令、烏克蘭第 1 方面軍參謀長，柏林戰役時任白俄羅斯第 1 方面軍副司令。戰後指揮駐德蘇軍並主持蘇聯駐德軍事管理局（柏林封鎖期間），1952 至 1960 年任蘇軍總參謀長。1968 年死於莫斯科。',
+    source: wikipediaFigureRev('Vasily_Sokolovsky', 1385611876, 'Vasily Sokolovsky', 'Born July 21, 1897, Kozliki, Russian Empire — Died May 10, 1968, Moscow', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_falkenhorst', name: '法爾肯霍斯特', faction: 'axis', role: '德國陸軍將領（挪威駐軍司令）',
+    birth: '1885', death: '1968', birthDeathDisplay: '1885 年 1 月 17 日 – 1968 年 6 月 18 日', birthplace: '德意志帝國普魯士西里西亞布雷斯勞（今波蘭弗羅茨瓦夫）',
+    shortBio: '德國將領，策劃並指揮 1940 年入侵丹麥與挪威，1940 至 1944 年任佔領挪威的德軍司令。戰後經英國與挪威聯合軍事法庭以戰爭罪判處死刑，後減為 20 年徒刑，1953 年獲釋。1968 年死於西德霍爾茨明登。',
+    source: wikipediaFigureRev('Nikolaus_von_Falkenhorst', 1379833762, 'Nikolaus von Falkenhorst', 'Born 17 January 1885, Breslau, Silesia — Died 18 June 1968, Holzminden, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_dietrich', name: '迪特里希', faction: 'axis', role: '武裝親衛隊將領（第 6 裝甲軍團司令）',
+    birth: '1892', death: '1966', birthDeathDisplay: '1892 年 5 月 28 日 – 1966 年 4 月 21 日', birthplace: '德意志帝國巴伐利亞王國哈旺根',
+    shortBio: '納粹時期的親衛隊將領與政治人物，早年曾任希特勒的司機與保鑣。未受過正規參謀訓練，升到武裝親衛隊最高軍階，二戰中指揮到軍團級部隊。突出部之役任第 6 裝甲軍團司令，須為部下殺害美軍戰俘的馬爾梅迪屠殺負責。1966 年死於西德路德維希堡。',
+    source: wikipediaFigureRev('Sepp_Dietrich', 1381892371, 'Sepp Dietrich', 'Born 28 May 1892, Hawangen, Kingdom of Bavaria — Died 21 April 1966, Ludwigsburg, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_de_lattre', name: '德拉特爾', faction: 'allies', role: '法國陸軍將領（法國第 1 軍團司令）',
+    birth: '1889', death: '1952', birthDeathDisplay: '1889 年 2 月 2 日 – 1952 年 1 月 11 日', birthplace: '法國穆耶隆－昂帕雷德',
+    shortBio: '法國將領。1940 年法國戰役時是法軍最年輕的將領；1942 年德軍進佔法國南部時抗命出兵抵抗而被捕，脫逃後於 1943 年底投奔自由法國。指揮 1944 年 8 月 15 日登陸法國南部的部隊，一路打到萊茵河與多瑙河，並代表法國出席 1945 年 5 月 8 日在柏林的德國投降簽字。1952 年死於巴黎，同年追晉法國元帥。',
+    source: wikipediaFigureRev('Jean_de_Lattre_de_Tassigny', 1378212999, 'Jean de Lattre de Tassigny', 'Born 2 February 1889, Mouilleron-en-Pareds, France — Died 11 January 1952, Paris', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_tovey', name: '托維', faction: 'allies', role: '英國海軍將領（本土艦隊總司令）',
+    birth: '1885', death: '1971', birthDeathDisplay: '1885 年 3 月 7 日 – 1971 年 1 月 12 日', birthplace: '英格蘭肯特郡羅徹斯特',
+    shortBio: '英國皇家海軍軍官。二戰初期任地中海艦隊副司令，之後任本土艦隊總司令，主持追擊並擊沉俾斯麥號；後任諾爾司令部總司令，負責東岸船團與掃雷作業。1971 年死於馬德拉群島豐沙爾。',
+    source: wikipediaFigureRev('John_Tovey,_1st_Baron_Tovey', 1379839246, 'John Tovey, 1st Baron Tovey', 'Born 7 March 1885, Rochester, Kent — Died 12 January 1971, Funchal, Madeira', '2026-11-28'),
+  }),
 ];

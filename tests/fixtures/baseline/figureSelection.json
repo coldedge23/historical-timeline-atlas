@@ -8143,6 +8143,54 @@
     "europewar",
     "ewar_endgame",
     "europeWarAtlas:evt_ew_death_of_hitler_1945"
+   ],
+   "europeWarAtlas:fig_ew_student": [
+    "europeWarAtlas:fig_ew_student",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_manteuffel": [
+    "europeWarAtlas:fig_ew_manteuffel",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_schoerner": [
+    "europeWarAtlas:fig_ew_schoerner",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_sokolovsky": [
+    "europeWarAtlas:fig_ew_sokolovsky",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_falkenhorst": [
+    "europeWarAtlas:fig_ew_falkenhorst",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_dietrich": [
+    "europeWarAtlas:fig_ew_dietrich",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_de_lattre": [
+    "europeWarAtlas:fig_ew_de_lattre",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_tovey": [
+    "europeWarAtlas:fig_ew_tovey",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {
