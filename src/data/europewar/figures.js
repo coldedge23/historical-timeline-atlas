@@ -677,4 +677,54 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '英國陸軍高級軍官，參加過兩次世界大戰，指揮第 70 步兵師，後任第 3 軍軍長。也曾是蘇格蘭國家橄欖球隊選手。1969 年死於英格蘭漢普郡奧爾德肖特。',
     source: wikipediaFigureRev('Ronald_Scobie', 1385415160, 'Ronald Scobie', 'Born 8 June 1893, Mandalay, British Burma — Died 23 February 1969, Aldershot, Hampshire', '2026-11-28'),
   }),
+  // 指揮官人物卡第 7 批（規劃 v21 第二十六節，2026-11-28 Ivan 核准）。條目由戰役資訊框的指揮官連結確認；備選 4 位都沒用到。
+  // 韋克-沃克的資訊框沒有出生地，籍貫標「待考」；布里爾頓的資訊框沒有死亡地點，簡介不寫。
+  figure({
+    id: 'fig_ew_laycock', name: '萊科克', faction: 'allies', role: '英國陸軍將領（突擊隊指揮官）',
+    birth: '1907', death: '1968', birthDeathDisplay: '1907 年 4 月 18 日 – 1968 年 3 月 10 日', birthplace: '英格蘭倫敦西敏',
+    shortBio: '英國陸軍高級軍官，以在二戰期間建立並指揮英國突擊隊的關鍵角色最為人知。1968 年死於英格蘭諾丁漢郡懷斯頓。',
+    source: wikipediaFigureRev('Robert_Laycock', 1380477533, 'Robert Laycock', 'Born 18 April 1907, Westminster, London — Died 10 March 1968, Wiseton, Nottinghamshire', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_brereton', name: '布里爾頓', faction: 'allies', role: '美國陸軍航空軍將領',
+    birth: '1890', death: '1967', birthDeathDisplay: '1890 年 6 月 21 日 – 1967 年 7 月 20 日', birthplace: '美國賓夕法尼亞州匹茲堡',
+    shortBio: '美國軍事航空先驅，官至美國空軍中將。1911 年畢業於美國海軍學院，一戰前先在陸軍海岸砲兵服役，之後轉為職業飛行員。從珍珠港事變到德國投降一直在作戰戰區任職，經歷的戰區比其他任何高級將領都多：開戰時任菲律賓遠東航空軍司令，戰爭結束時任德國境內盟軍第 1 空降集團軍司令。',
+    source: wikipediaFigureRev('Lewis_H._Brereton', 1380454059, 'Lewis H. Brereton', 'Born June 21, 1890, Pittsburgh, Pennsylvania — Died July 20, 1967 (place not given)', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_wiese', name: '維瑟', faction: 'axis', role: '德國陸軍將領（第 19 軍團司令）',
+    birth: '1892', death: '1975', birthDeathDisplay: '1892 年 12 月 5 日 – 1975 年 2 月 13 日', birthplace: '德意志帝國普魯士王國什列斯威－霍爾斯坦省諾德哈斯泰特',
+    shortBio: '德國國防軍將領，指揮第 19 軍團。1975 年死於西德黑森邦吉森。',
+    source: wikipediaFigureRev('Friedrich_Wiese', 1380306388, 'Friedrich Wiese', 'Born 5 December 1892, Nordhastedt, Province of Schleswig-Holstein — Died 13 February 1975, Giessen, Hessen', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_stahel', name: '施塔赫爾', faction: 'axis', role: '德國軍官（華沙衛戍司令）',
+    birth: '1892', death: '1955', birthDeathDisplay: '1892 年 1 月 15 日 – 1955 年 11 月 30 日', birthplace: '德意志帝國比勒費爾德',
+    shortBio: '德國軍官與戰犯，以自維爾紐斯撤退及 1944 年華沙起義期間指揮華沙衛戍部隊最為人知。在羅馬尼亞被蘇聯內務人民委員部逮捕，此後終生被蘇聯關押，1955 年死於蘇聯伊萬諾沃。',
+    source: wikipediaFigureRev('Reiner_Stahel', 1379864778, 'Rainer Stahel', 'Born 15 January 1892, Bielefeld — Died 30 November 1955, Ivanovo, Soviet Union', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_wake_walker', name: '韋克-沃克', faction: 'allies', role: '英國海軍將領',
+    birth: '1888', death: '1945', birthDeathDisplay: '1888 年 3 月 24 日 – 1945 年 9 月 24 日', birthplace: '待考',
+    shortBio: '英國皇家海軍高級軍官，參加過兩次世界大戰。在發電機行動（敦克爾克撤退）與擊沉俾斯麥號中扮演重要角色。1945 年死於倫敦。',
+    source: wikipediaFigureRev('Frederic_Wake-Walker', 1386044222, 'Frederic Wake-Walker', 'Born 24 March 1888 (place not given) — Died 24 September 1945, London', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_fretter_pico', name: '弗雷特-皮科', faction: 'axis', role: '德國陸軍將領（第 6 軍團司令）',
+    birth: '1892', death: '1984', birthDeathDisplay: '1892 年 2 月 6 日 – 1984 年 4 月 4 日', birthplace: '德意志帝國卡爾斯魯厄',
+    shortBio: '二戰期間的德國將領，參加過一戰，二戰中轉戰法國戰役、東線與匈牙利。1984 年死於西德克羅伊特。',
+    source: wikipediaFigureRev('Maximilian_Fretter-Pico', 1381775587, 'Maximilian Fretter-Pico', 'Born 6 February 1892, Karlsruhe — Died 4 April 1984, Kreuth, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_roberts', name: '羅伯茨', faction: 'allies', role: '加拿大陸軍將領（加拿大第 2 步兵師師長）',
+    birth: '1891', death: '1962', birthDeathDisplay: '1891 年 12 月 21 日 – 1962 年 12 月 17 日', birthplace: '加拿大曼尼托巴省派普斯通',
+    shortBio: '加拿大陸軍軍官，參加過兩次世界大戰。1914 年畢業於金斯頓的加拿大皇家軍事學院。1962 年死於英國海峽群島澤西島。',
+    source: wikipediaFigureRev('John_Hamilton_Roberts', 1378258601, 'John Hamilton Roberts', 'Born December 21, 1891, Pipestone, Manitoba — Died December 17, 1962, Jersey, Channel Islands', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_schlemm', name: '施萊姆', faction: 'axis', role: '德國空軍傘兵將領（第 1 傘兵軍團司令）',
+    birth: '1894', death: '1986', birthDeathDisplay: '1894 年 12 月 18 日 – 1986 年 1 月 24 日', birthplace: '德意志帝國魯道爾施塔特',
+    shortBio: '德國空軍傘兵上將。二戰最後的指揮任務是在 1945 年 2 月於帝國森林阻擋加拿大第 1 軍團推進。1938 年由陸軍轉入空軍參謀本部。1986 年死於西德阿爾滕。',
+    source: wikipediaFigureRev('Alfred_Schlemm', 1379853241, 'Alfred Schlemm', 'Born 18 December 1894, Rudolstadt — Died 24 January 1986, Ahlten, West Germany', '2026-11-28'),
+  }),
 ];
