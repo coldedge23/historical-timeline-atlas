@@ -8383,6 +8383,54 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_treaty_of_moscow_1940"
+   ],
+   "europeWarAtlas:fig_ew_felber": [
+    "europeWarAtlas:fig_ew_felber",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_brandenberger": [
+    "europeWarAtlas:fig_ew_brandenberger",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_gerstenberg": [
+    "europeWarAtlas:fig_ew_gerstenberg",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_messe": [
+    "europeWarAtlas:fig_ew_messe",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_koca_popovic": [
+    "europeWarAtlas:fig_ew_koca_popovic",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_liberation_of_auschwitz_1945"
+   ],
+   "europeWarAtlas:fig_ew_dapcevic": [
+    "europeWarAtlas:fig_ew_dapcevic",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_liberation_of_auschwitz_1945"
+   ],
+   "europeWarAtlas:fig_ew_fw_mueller": [
+    "europeWarAtlas:fig_ew_fw_mueller",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_kleemann": [
+    "europeWarAtlas:fig_ew_kleemann",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

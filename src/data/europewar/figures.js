@@ -727,4 +727,54 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '德國空軍傘兵上將。二戰最後的指揮任務是在 1945 年 2 月於帝國森林阻擋加拿大第 1 軍團推進。1938 年由陸軍轉入空軍參謀本部。1986 年死於西德阿爾滕。',
     source: wikipediaFigureRev('Alfred_Schlemm', 1379853241, 'Alfred Schlemm', 'Born 18 December 1894, Rudolstadt — Died 24 January 1986, Ahlten, West Germany', '2026-11-28'),
   }),
+  // 指揮官人物卡第 8 批（規劃 v22 第二十七節，2026-11-28 Ivan 核准）。條目由戰役資訊框的指揮官連結確認；備選 4 位都沒用到。
+  // 費爾伯的資訊框沒有出生地與死亡地點，籍貫標「待考」。南斯拉夫游擊隊將領比照狄托標 allies。
+  figure({
+    id: 'fig_ew_felber', name: '費爾伯', faction: 'axis', role: '德國陸軍將領',
+    birth: '1889', death: '1962', birthDeathDisplay: '1889 年 7 月 8 日 – 1962 年 3 月 8 日', birthplace: '待考',
+    shortBio: '二戰期間的德國國防軍將領。1939 年 10 月起任第 2 軍團參謀長，1940 年 2 月任中央集團軍群參謀長；1940 年 10 月起指揮第 13 軍在蘇聯作戰，1942 年 4 月調往法國，指揮後來的第 83 軍與「費爾伯集團軍級支隊」。',
+    source: wikipediaFigureRev('Hans_Felber', 1380310151, 'Hans Felber', 'Born 8 July 1889 (place not given) — Died 8 March 1962 (place not given)', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_brandenberger', name: '布蘭登貝格', faction: 'axis', role: '德國陸軍將領（第 7 軍團司令）',
+    birth: '1892', death: '1955', birthDeathDisplay: '1892 年 7 月 15 日 – 1955 年 6 月 21 日', birthplace: '德意志帝國奧格斯堡',
+    shortBio: '二戰期間的德國國防軍將領。一戰時任巴伐利亞第 6 野戰砲兵團軍官；二戰初期任西牆的第 23 軍參謀長，之後在東線先後指揮第 8 裝甲師、第 59 軍與第 29 軍。1955 年死於西德波昂。',
+    source: wikipediaFigureRev('Erich_Brandenberger', 1379830976, 'Erich Brandenberger', 'Born 15 July 1892, Augsburg — Died 21 June 1955, Bonn, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_gerstenberg', name: '格斯滕貝格', faction: 'axis', role: '德國空軍將領（駐羅馬尼亞空軍代表團司令）',
+    birth: '1893', death: '1959', birthDeathDisplay: '1893 年 4 月 6 日 – 1959 年 1 月 1 日', birthplace: '德意志帝國格賴瑙',
+    shortBio: '二戰期間的德國空軍將領，任駐羅馬尼亞空軍代表團司令，在普洛耶什蒂油田周圍布置了非常有效的防禦圈。一戰時先在騎兵團服役，後轉入航空部隊任偵察機飛行員。1959 年死於西德巴特特爾茨。',
+    source: wikipediaFigureRev('Alfred_Gerstenberg', 1379866413, 'Alfred Gerstenberg', 'Born 6 April 1893, Grainau — Died 1 January 1959, Bad Tölz, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_messe', name: '梅塞', faction: 'axis', role: '義大利元帥',
+    birth: '1883', death: '1968', birthDeathDisplay: '1883 年 12 月 10 日 – 1968 年 12 月 18 日', birthplace: '義大利王國梅薩涅',
+    shortBio: '義大利元帥與政治人物。二戰時在突尼西亞被俘，1943 年 9 月義大利停戰後出任義大利共同交戰軍參謀長，後當選義大利參議員。一戰時參與建立與訓練精銳步兵「突擊隊」。1968 年死於羅馬。',
+    source: wikipediaFigureRev('Giovanni_Messe', 1382319082, 'Giovanni Messe', 'Born 10 December 1883, Mesagne, Kingdom of Italy — Died 18 December 1968, Rome', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_koca_popovic', name: '科查・波波維奇', faction: 'allies', role: '南斯拉夫游擊隊將領（第 1 無產者師師長）',
+    birth: '1908', death: '1992', birthDeathDisplay: '1908 年 3 月 14 日 – 1992 年 10 月 20 日', birthplace: '塞爾維亞王國貝爾格勒',
+    shortBio: '塞爾維亞與南斯拉夫政治人物，曾以共產黨志願者身分參加西班牙內戰，二戰時任南斯拉夫游擊隊第 1 無產者師師長。蘇捷斯卡戰役中看出軸心國防線的弱點並策劃突圍，救出狄托、其司令部與整個抵抗運動，因此有「拯救游擊隊的人」之稱。戰後任南斯拉夫人民軍總參謀長、外交部長與南斯拉夫副總統。1992 年死於貝爾格勒。',
+    source: wikipediaFigureRev('Koča_Popović', 1378245369, 'Koča Popović', 'Born 14 March 1908, Belgrade, Kingdom of Serbia — Died 20 October 1992, Belgrade', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_dapcevic', name: '佩科・達普切維奇', faction: 'allies', role: '南斯拉夫游擊隊將領（第 1 無產者軍軍長）',
+    birth: '1913', death: '1999', birthDeathDisplay: '1913 年 6 月 25 日 – 1999 年 2 月 10 日', birthplace: '蒙特內哥羅采蒂涅',
+    shortBio: '南斯拉夫共產黨人，曾以志願者身分參加西班牙內戰，參與蒙特內哥羅的游擊隊起義，後任南斯拉夫第 1 無產者軍、第 1 與第 4 集團軍司令。率游擊隊與蘇聯紅軍於 1944 年 10 月 20 日解放貝爾格勒，是第一位獲頒貝爾格勒榮譽市民的人。1999 年死於貝爾格勒。',
+    source: wikipediaFigureRev('Peko_Dapčević', 1379834077, 'Peko Dapčević', 'Born 25 June 1913, Cetinje, Montenegro — Died 10 February 1999, Belgrade', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_fw_mueller', name: '弗里德里希-威廉・穆勒', faction: 'axis', role: '德國陸軍將領（第 22 空降步兵師師長）',
+    birth: '1897', death: '1947', birthDeathDisplay: '1897 年 8 月 29 日 – 1947 年 5 月 20 日', birthplace: '德意志帝國普魯士王國巴門',
+    shortBio: '二戰期間的德國國防軍將領，1943 年任第 22 空降步兵師師長，所部對希臘平民犯下暴行。之後任佔領克里特島的司令，手段嚴酷，被稱為「克里特島屠夫」。戰後被希臘法庭以戰爭罪判處死刑，1947 年在雅典處決。',
+    source: wikipediaFigureRev('Friedrich-Wilhelm_Müller', 1380751090, 'Friedrich-Wilhelm Müller', 'Born 29 August 1897, Barmen, Kingdom of Prussia — Died 20 May 1947, Athens', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_kleemann', name: '克萊曼', faction: 'axis', role: '德國陸軍將領（羅得島突擊師師長）',
+    birth: '1892', death: '1963', birthDeathDisplay: '1892 年 3 月 23 日 – 1963 年 1 月 1 日', birthplace: '德意志帝國普魯士王國薩克森省朗根薩爾察',
+    shortBio: '二戰期間的德國將領，1942 年在北非指揮第 90 輕型非洲師。多德卡尼斯群島戰役中率 7,500 人的「羅得島」突擊師攻擊羅得島的義大利守軍，兩天內在英軍援兵抵達前擊敗義軍；英軍登陸薩摩斯、勒羅斯與科斯島後，他反擊並在兩個月內攻下這三處英軍據點。1963 年死於西德奧伯烏瑟爾。',
+    source: wikipediaFigureRev('Ulrich_Kleemann', 1380342512, 'Ulrich Kleemann', 'Born 23 March 1892, Langensalza, Province of Saxony — Died 1 January 1963, Oberursel, Hesse', '2026-11-28'),
+  }),
 ];
