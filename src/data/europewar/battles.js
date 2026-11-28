@@ -310,6 +310,27 @@ const wikipediaRev = (article, revid, claimScope, claims) => ({
   title: `Wikipedia (English): ${article.replace(/_/g, ' ')}`,
   url: `https://en.wikipedia.org/w/index.php?title=${encodeURIComponent(article)}&oldid=${revid}`, ...REVIEWED_X5, claimScope, claims,
 });
+// 兵力傷亡續補第 2 批（規劃 v24 第二十九節，2026-11-28 Ivan 核准 R1–R4）：只填原本「待考」的欄位，數字照來源口徑並註明範圍。
+// 官方戰史（DA Pam 20-260、AWM）為一級來源；英文維基百科內文為輔助來源，網址固定到查閱時的版本（oldid）。
+const REVIEWED_X6 = { externalReviewed: true, reviewedAt: '2026-11-28', accessedAt: '2026-11-28' };
+const BALKANS_PART2_FORCES = { ...BALKANS_PART2, ...REVIEWED_X6,
+  claimScope: 'Part Two 第 6 章 VI（Order of Battle）：1941 年 4 月初南斯拉夫陸軍有 17 個常備步兵師、12 個後備步兵師等部隊，全面動員兵力略少於 100 萬人；同章 VII 指出只有第 3、第 5 集團軍的常備師完成動員',
+  claims: ['defender.forcesEstimate'] };
+const BALKANS_PART3_FORCES = { ...BALKANS_PART3, ...REVIEWED_X6,
+  claimScope: 'Part Three 第 13 章 II：防守保加利亞邊境的希臘部隊總數約 7 萬人，希臘主力第一集團軍 14 個師在阿爾巴尼亞；第 17 章 XVI：德軍進攻時英國遠征軍 53,051 人。德軍兵力只列到軍、師，沒有總人數，攻方兵力維持待考',
+  claims: ['defender.forcesEstimate'] };
+const AWM_TOBRUK = {
+  title: 'Australian War Memorial: Siege of Tobruk',
+  url: 'https://www.awm.gov.au/articles/encyclopedia/tobruk', ...REVIEWED_X6,
+  claimScope: '頁面最後更新 2023-10-31：1941 年 4 月至 8 月約 14,000 名澳軍在托布魯克被德義軍包圍；守軍由莫斯黑德指揮，包括澳洲第 9 師（第 20、24、26 旅）、第 7 師第 18 旅，另有英軍 4 個砲兵團及部分印度部隊。頁面沒有守軍總人數，也沒有德義軍兵力',
+  claims: ['defender.forcesEstimate'] };
+const WP_X6_HAMBURG = { ...wikipediaRev('Bombing_of_Hamburg_in_World_War_II', 1385989587,
+  '內文「Hamburg bombing data」表格（引 Middlebrook 1983 p.356、Middlebrook & Everitt 1996、Lowe 2007）：07-24/25 至 08-02/03 共 6 次空襲，出擊 791、123、121、787、777、740 架次，合計 3,339 架次；損失 12、15、2、17、28、30 架，合計 104 架（與資訊框「最多 104 架」一致）。表格只有飛機數，沒有空勤人員傷亡；出擊架次不等於兵力。德國防空兵力查無資料，守方兵力維持待考',
+  ['attacker.forcesEstimate', 'attacker.casualtiesEstimate']), ...REVIEWED_X6, auxiliary: true };
+const WP_X6_REMAGEN = { ...wikipediaRev('Battle_of_Remagen', 1386368860,
+  '內文：逾 12.5 萬名部隊在萊茵河東岸建立 6 個師的橋頭堡（引第 9 裝甲師部隊冊子《The Bridge》，出處較弱）；03-07 守橋部隊約 1,000 人，多數裝備與訓練不足（引 Halloran，美軍工兵期刊）；03-10 至 03-13 反撲的德軍主要是 11 個殘破師的殘部；03-07 至 03-14 美軍第 5、第 7 軍俘虜德軍 11,200 人（引 Winters 等著，1998）',
+  ['attacker.forcesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']), ...REVIEWED_X6, auxiliary: true };
+
 const WP_X5_POLAND = wikipediaRev('Invasion_of_Poland', 1385312433, '資訊框：德軍傷亡 16,343 人陣亡、30,300 人受傷、3,500 人失蹤；波蘭兵力共 100 萬人（39 個師、16 個旅），傷亡共約 874,700 人（66,000 人陣亡、133,700 人受傷、約 69 萬人被俘）。資訊框的波蘭數字是對德、蘇兩線合計，本筆照原文並註明口徑',
   ['attacker.casualtiesEstimate', 'defender.forcesEstimate', 'defender.casualtiesEstimate']);
 const WP_X5_ATLANTIC = wikipediaRev('Battle_of_the_Atlantic', 1386459189, '資訊框沒有兵力欄。傷亡：盟軍海軍 36,200 人、商船船員 36,000 人陣亡，商船 3,500 艘、軍艦 175 艘損失；德國 U 艇官兵約 3 萬人陣亡，潛艇 783 艘、其他軍艦 47 艘損失（義大利另約 500 人陣亡、潛艇 17 艘，不在本筆攻方「德國」範圍內）',
@@ -666,7 +687,7 @@ export const EUROPEWAR_BATTLES = [
         { name: '帕帕戈斯', title: '希臘陸軍總司令' },
         { name: '威爾遜', title: '英國遠征軍司令' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '南斯拉夫陸軍全面動員兵力略少於 100 萬人（動員未完成）；希臘守保加利亞邊境約 7 萬人，第一集團軍 14 個師在阿爾巴尼亞；英國遠征軍 53,051 人',
       casualtiesEstimate: '英軍損失 11,840 人（含戰俘）；南斯拉夫作戰被俘約 254,000 人；希臘作戰中希臘軍被俘約 27 萬人、南斯拉夫軍約 9 萬人',
     },
     participants: [
@@ -682,7 +703,7 @@ export const EUROPEWAR_BATTLES = [
     strategicOutcome: '待考',
     significance: '待考',
     relatedBattleIds: [],
-    sources: [BALKANS_CHRONOLOGY, BALKANS_PART2, BALKANS_PART3],
+    sources: [BALKANS_CHRONOLOGY, BALKANS_PART2, BALKANS_PART3, BALKANS_PART2_FORCES, BALKANS_PART3_FORCES],
   },
   {
     id: 'bat_ew_operation_barbarossa_1941',
@@ -1729,7 +1750,7 @@ export const EUROPEWAR_BATTLES = [
         { name: '莫斯黑德', title: '守軍指揮官（1941 年 4 月至 9 月）' },
         { name: '斯科比', title: '守軍指揮官（1941 年 9 月至 11 月）' },
       ],
-      forcesEstimate: '待考',
+      forcesEstimate: '澳軍約 14,000 人，另有英軍 4 個砲兵團及部分印度部隊（守軍總數待考）',
       casualtiesEstimate: '5,989 人',
     },
     participants: [
@@ -1749,7 +1770,7 @@ export const EUROPEWAR_BATTLES = [
     significance: '待考',
     relatedBattleIds: [],
     sources: [wikipedia('Siege_of_Tobruk', '資訊框：1941-04-10 至 11-27；盟軍獲勝；守方指揮官莫斯黑德（1941 年 4 月至 9 月）、斯科比（9 月至 11 月），攻方隆美爾、甘巴拉；守方傷亡 5,989 人，攻方 12,296 人、飛機 74 至 150 架。資訊框的兵力（守方 2.7 萬、攻方 3.5 萬）標注「需要引證」，本筆不採用，填待考',
-      ['startDate', 'endDate', 'attacker.commanders', 'defender.commanders', 'attacker.casualtiesEstimate', 'defender.casualtiesEstimate'])],
+      ['startDate', 'endDate', 'attacker.commanders', 'defender.commanders', 'attacker.casualtiesEstimate', 'defender.casualtiesEstimate']), AWM_TOBRUK],
   },
   {
     id: 'bat_ew_battle_of_crete_1941',
@@ -2029,8 +2050,8 @@ export const EUROPEWAR_BATTLES = [
       factionName: '英國及美國',
       faction: 'allies',
       commanders: [{ name: '哈里斯', title: '皇家空軍轟炸機司令部總司令', figureId: 'fig_ew_harris' }],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '6 次空襲合計出擊 3,339 架次（出擊架次，非兵力）',
+      casualtiesEstimate: '損失飛機 104 架（6 次空襲合計；空勤人員傷亡待考）',
     },
     defender: {
       factionName: '德國',
@@ -2054,6 +2075,7 @@ export const EUROPEWAR_BATTLES = [
       wikipedia('Bombing_of_Hamburg_in_World_War_II', '導言：最具破壞性的空襲是 1943-07-24 至 08-03 英美的蛾摩拉行動；皇家空軍夜間大規模轟炸、美國陸軍航空軍白天攻擊；07-27 至 28 夜燃燒彈引發火風暴；行動期間估計 3.5 萬至 4 萬人死亡，約 90 萬人逃離。整場戰爭中漢堡遭空襲 213 次、約 4.1 萬人死亡（本筆只記蛾摩拉行動）',
         ['startDate', 'endDate', 'defender.casualtiesEstimate']),
       BRITANNICA_HARRIS_HAMBURG,
+      WP_X6_HAMBURG,
     ],
   },
   {
@@ -3131,7 +3153,7 @@ export const EUROPEWAR_BATTLES = [
       factionName: '美國',
       faction: 'allies',
       commanders: [{ name: '霍奇斯', title: '美國第 1 軍團司令', figureId: 'fig_ew_hodges' }],
-      forcesEstimate: '待考',
+      forcesEstimate: '渡河建立橋頭堡的部隊逾 12.5 萬人（6 個師）',
       casualtiesEstimate: '至少 990 人；戰車 30 輛以上',
     },
     defender: {
@@ -3141,8 +3163,8 @@ export const EUROPEWAR_BATTLES = [
         { name: '布蘭登貝格', title: '德軍指揮官' },
         { name: '贊根', title: '德軍指揮官' },
       ],
-      forcesEstimate: '待考',
-      casualtiesEstimate: '待考',
+      forcesEstimate: '03-07 守橋部隊約 1,000 人；03-10 至 03-13 反撲兵力主要是 11 個殘破師的殘部（總人數待考）',
+      casualtiesEstimate: '03-07 至 03-14 被俘 11,200 人（其他傷亡待考）',
     },
     participants: [
       { name: '美國', role: '進攻方', side: 'attacker' },
@@ -3156,6 +3178,6 @@ export const EUROPEWAR_BATTLES = [
     significance: '待考',
     relatedBattleIds: [],
     sources: [wikipedia('Battle_of_Remagen', '資訊框：1945-03-07 至 03-25；戰場在德國雷馬根；美軍獲勝，盟軍取得完好的萊茵河橋梁；美方指揮官霍奇斯，德方布蘭登貝格、贊根；參戰部隊有美國第 1 軍團、比利時第 12 燧發槍營，德國第 7、第 15 軍團與人民突擊隊；美軍損失至少 990 人、戰車 30 輛以上，德軍損失不詳；資訊框沒有兵力欄',
-      ['startDate', 'endDate', 'attacker.commanders', 'defender.commanders', 'attacker.casualtiesEstimate'])],
+      ['startDate', 'endDate', 'attacker.commanders', 'defender.commanders', 'attacker.casualtiesEstimate']), WP_X6_REMAGEN],
   },
 ];
