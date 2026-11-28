@@ -528,4 +528,54 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '英國皇家海軍軍官。二戰初期任地中海艦隊副司令，之後任本土艦隊總司令，主持追擊並擊沉俾斯麥號；後任諾爾司令部總司令，負責東岸船團與掃雷作業。1971 年死於馬德拉群島豐沙爾。',
     source: wikipediaFigureRev('John_Tovey,_1st_Baron_Tovey', 1379839246, 'John Tovey, 1st Baron Tovey', 'Born 7 March 1885, Rochester, Kent — Died 12 January 1971, Funchal, Madeira', '2026-11-28'),
   }),
+  // 指揮官人物卡第 4 批（規劃 v18 第二十三節，2026-11-28 Ivan 核准）。米哈伊洛維奇的切特尼克部隊在內雷特瓦河與軸心國同一方，
+  // 但他原屬南斯拉夫流亡政府、前期受同盟國支持，陣營比照史達林、曼納海姆標 other（K5）。備選 4 位都沒用到。
+  figure({
+    id: 'fig_ew_reichenau', name: '賴歇瑙', faction: 'axis', role: '德國陸軍元帥（第 6 軍團司令）',
+    birth: '1884', death: '1942', birthDeathDisplay: '1884 年 10 月 8 日 – 1942 年 1 月 17 日', birthplace: '德意志帝國巴登大公國卡爾斯魯厄',
+    shortBio: '德國陸軍元帥，綽號「公牛」。入侵比利時與法國時指揮第 6 軍團，巴巴羅薩行動中續率第 6 軍團隸屬南方集團軍群，攻占烏克蘭並深入蘇聯。任內發布惡名昭彰的「嚴厲命令」，鼓動德軍在東線殺害猶太平民，所部協助親衛隊特別行動隊在娘子谷屠殺逾 3.3 萬名猶太人。1942 年死於蘇聯波爾塔瓦。',
+    source: wikipediaFigureRev('Walter_von_Reichenau', 1383434792, 'Walter von Reichenau', 'Born 8 October 1884, Karlsruhe, Grand Duchy of Baden — Died 17 January 1942, Poltava, Soviet Union', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_mihailovic', name: '米哈伊洛維奇', faction: 'other', role: '南斯拉夫將領（切特尼克領袖）',
+    birth: '1893', death: '1946', birthDeathDisplay: '1893 年 4 月 27 日 – 1946 年 7 月 17 日', birthplace: '塞爾維亞王國伊萬尼察',
+    shortBio: '南斯拉夫塞爾維亞族將領，1941 年德國入侵南斯拉夫後成立的保皇派、民族主義游擊武力切特尼克的領袖。起初與狄托的游擊隊一同對抗德國佔領軍，1941 年底雙方已公開衝突。許多切特尼克部隊與軸心國合作或妥協，加上英國不滿他按兵不動，同盟國在 1944 年改為支持狄托；戰爭末期他與合作政權的內迪奇等人合作。1946 年死於貝爾格勒。',
+    source: wikipediaFigureRev('Draža_Mihailović', 1386619984, 'Draža Mihailović', 'Born 27 April 1893, Ivanjica, Kingdom of Serbia — Died 17 July 1946, Belgrade, FPR Yugoslavia', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_lemay', name: '李梅', faction: 'allies', role: '美國陸軍航空軍將領（第 3 航空師師長）',
+    birth: '1906', death: '1990', birthDeathDisplay: '1906 年 11 月 15 日 – 1990 年 10 月 1 日', birthplace: '美國俄亥俄州哥倫布',
+    shortBio: '美國空軍將領，二戰與冷戰時期的重要指揮官，1961 至 1965 年任美國空軍參謀長。1942 年 10 月至 1943 年 9 月指揮第 305 轟炸大隊，之後在歐洲戰區指揮第 3 航空師至 1944 年 8 月，再調往中緬印戰區，主持對日本的戰略轟炸。1990 年死於美國加州馬奇空軍基地。',
+    source: wikipediaFigureRev('Curtis_LeMay', 1381760009, 'Curtis LeMay', 'Born November 15, 1906, Columbus, Ohio — Died October 1, 1990, March Air Force Base, California', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_devers', name: '德弗斯', faction: 'allies', role: '美國陸軍將領（第 6 集團軍群司令）',
+    birth: '1887', death: '1979', birthDeathDisplay: '1887 年 9 月 8 日 – 1979 年 10 月 15 日', birthplace: '美國賓夕法尼亞州約克',
+    shortBio: '美國陸軍將領，二戰時在歐洲戰區指揮第 6 集團軍群。參與 M4 雪曼、M26 潘興戰車、DUKW 兩棲卡車等多種武器的開發與採用。兩次大戰之間力主陸軍機械化。1979 年死於華盛頓。',
+    source: wikipediaFigureRev('Jacob_L._Devers', 1385905642, 'Jacob L. Devers', 'Born 8 September 1887, York, Pennsylvania — Died 15 October 1979, Washington, D.C.', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_simpson', name: '辛普森', faction: 'allies', role: '美國陸軍將領（第 9 軍團司令）',
+    birth: '1888', death: '1980', birthDeathDisplay: '1888 年 5 月 18 日 – 1980 年 8 月 15 日', birthplace: '美國德克薩斯州韋瑟福德',
+    shortBio: '美國陸軍將領，參加過兩次世界大戰，以二戰時在西北歐指揮美國第 9 軍團最為人知。西點軍校畢業，一戰時在默茲－阿貢攻勢中任第 33 師參謀。1980 年死於德克薩斯州聖安東尼奧。',
+    source: wikipediaFigureRev('William_Hood_Simpson', 1379846970, 'William Hood Simpson', 'Born 18 May 1888, Weatherford, Texas — Died 15 August 1980, San Antonio, Texas', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_vietinghoff', name: '菲廷霍夫', faction: 'axis', role: '德國陸軍大將',
+    birth: '1887', death: '1952', birthDeathDisplay: '1887 年 12 月 6 日 – 1952 年 2 月 23 日', birthplace: '德意志帝國黑森大公國美因茲',
+    shortBio: '二戰期間的德國國防軍大將，出身西發利亞的菲廷霍夫貴族家族。1945 年指揮德國佔領下義大利的德軍。1952 年死於西德巴伐利亞普夫龍滕。',
+    source: wikipediaFigureRev('Heinrich_von_Vietinghoff', 1387801318, 'Heinrich von Vietinghoff', 'Born 6 December 1887, Mainz, Grand Duchy of Hesse — Died 23 February 1952, Pfronten, Bavaria', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_richthofen', name: '里希特霍芬', faction: 'axis', role: '德國空軍元帥',
+    birth: '1895', death: '1945', birthDeathDisplay: '1895 年 10 月 10 日 – 1945 年 7 月 12 日', birthplace: '德意志帝國普魯士西里西亞巴爾茨多夫',
+    shortBio: '一戰時的德國王牌飛行員（「紅男爵」曼弗雷德是他的堂兄），二戰時升到德國空軍元帥。西班牙內戰中隨禿鷹軍團支援國民軍，期間體認近接空中支援的重要，力推俯衝轟炸機，並改進地空通訊。1945 年 7 月死於盟軍佔領下的奧地利巴德伊舍。',
+    source: wikipediaFigureRev('Wolfram_von_Richthofen', 1379817320, 'Wolfram von Richthofen', 'Born 10 October 1895, Barzdorf, Silesia — Died 12 July 1945, Bad Ischl, Allied-occupied Austria', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_galland', name: '加蘭德', faction: 'axis', role: '德國空軍將領（王牌飛行員）',
+    birth: '1912', death: '1996', birthDeathDisplay: '1912 年 3 月 19 日 – 1996 年 2 月 9 日', birthplace: '德意志帝國普魯士西發利亞省韋斯特霍爾特',
+    shortBio: '德國空軍將領與王牌飛行員，整場二戰都在歐洲作戰，出擊 705 次，轉戰西線與本土防空，四度被擊落生還，擊落 104 架，全部是西方盟軍飛機。西班牙內戰時加入禿鷹軍團。1996 年死於德國奧伯溫特。',
+    source: wikipediaFigureRev('Adolf_Galland', 1385970567, 'Adolf Galland', 'Born 19 March 1912, Westerholt, Province of Westphalia — Died 9 February 1996, Oberwinter, Germany', '2026-11-28'),
+  }),
 ];

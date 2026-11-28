@@ -8191,6 +8191,54 @@
     "europewar",
     "ewar_blitz",
     "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_reichenau": [
+    "europeWarAtlas:fig_ew_reichenau",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_mihailovic": [
+    "europeWarAtlas:fig_ew_mihailovic",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_lemay": [
+    "europeWarAtlas:fig_ew_lemay",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_liberation_of_auschwitz_1945"
+   ],
+   "europeWarAtlas:fig_ew_devers": [
+    "europeWarAtlas:fig_ew_devers",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_simpson": [
+    "europeWarAtlas:fig_ew_simpson",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_vietinghoff": [
+    "europeWarAtlas:fig_ew_vietinghoff",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_richthofen": [
+    "europeWarAtlas:fig_ew_richthofen",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_galland": [
+    "europeWarAtlas:fig_ew_galland",
+    "europewar",
+    "ewar_endgame",
+    "europeWarAtlas:evt_ew_liberation_of_auschwitz_1945"
    ]
   },
   "taiwanPage": {

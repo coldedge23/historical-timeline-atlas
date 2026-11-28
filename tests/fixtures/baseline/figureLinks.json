@@ -1344,12 +1344,12 @@
   "europeWarAtlas>fig_ew_rundstedt": "06c2d2780bc26118",
   "europeWarAtlas>fig_ew_manstein": "95efbc60a7b7e833",
   "europeWarAtlas>fig_ew_mussolini": "6e77244b0a1582dd",
-  "europeWarAtlas>fig_ew_stalin": "2d53717f86ffc711",
+  "europeWarAtlas>fig_ew_stalin": "76d63bc2bbf38429",
   "europeWarAtlas>fig_ew_churchill": "ab52648005019105",
   "europeWarAtlas>fig_ew_dowding": "e3b5e86a70597ac7",
   "europeWarAtlas>fig_ew_gamelin": "3c6ac3f307a3ae6a",
   "europeWarAtlas>fig_ew_weygand": "ef809fc179915bc3",
-  "europeWarAtlas>fig_ew_mannerheim": "ce6de38093212704",
+  "europeWarAtlas>fig_ew_mannerheim": "f84ef109aaedbf89",
   "europeWarAtlas>fig_ew_zhukov": "6f27a56d1cccb5c7",
   "europeWarAtlas>fig_ew_roosevelt": "12a9b79bfefa3b4b",
   "europeWarAtlas>fig_ew_rommel": "115ca09f0943fa5e",
@@ -1416,6 +1416,14 @@
   "europeWarAtlas>fig_ew_falkenhorst": "3387783f21bd1ea2",
   "europeWarAtlas>fig_ew_dietrich": "7da292f69cfa14d3",
   "europeWarAtlas>fig_ew_de_lattre": "138d62e5f80f3879",
-  "europeWarAtlas>fig_ew_tovey": "85242a3fbdfab989"
+  "europeWarAtlas>fig_ew_tovey": "85242a3fbdfab989",
+  "europeWarAtlas>fig_ew_reichenau": "7feac292e2352111",
+  "europeWarAtlas>fig_ew_mihailovic": "8adfa9e41ba6ce5e",
+  "europeWarAtlas>fig_ew_lemay": "fe91d6b370e4e1ef",
+  "europeWarAtlas>fig_ew_devers": "138d62e5f80f3879",
+  "europeWarAtlas>fig_ew_simpson": "f10ec6dd0c78b3ab",
+  "europeWarAtlas>fig_ew_vietinghoff": "d4936ac3e6bc3702",
+  "europeWarAtlas>fig_ew_richthofen": "fe8c8df76e602ac9",
+  "europeWarAtlas>fig_ew_galland": "15f3a2b09fc4e1c1"
  }
 }
