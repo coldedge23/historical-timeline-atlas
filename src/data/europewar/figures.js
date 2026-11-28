@@ -628,4 +628,53 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '二戰期間及戰後的蘇聯紅軍裝甲部隊指揮官，工人家庭出身。1914 年加入俄羅斯帝國陸軍，一戰時以列兵身分作戰；十月革命後參加赤衛隊，1919 年正式加入紅軍，內戰時任團、旅政委，1920 年蘇波戰爭中任騎兵指揮官。1948 年死於莫斯科。',
     source: wikipediaFigureRev('Pavel_Rybalko', 1384635830, 'Pavel Rybalko', 'Born 4 November [O.S. 23 October] 1894, Kharkov Governorate, Russian Empire — Died 28 August 1948, Moscow', '2026-11-28'),
   }),
+  // 指揮官人物卡第 6 批（規劃 v20 第二十五節，2026-11-28 Ivan 核准）。條目一律由該戰役英文維基百科資訊框的指揮官連結確認；備選 4 位都沒用到。
+  figure({
+    id: 'fig_ew_roatta', name: '羅阿塔', faction: 'axis', role: '義大利陸軍將領（第 2 軍團司令）',
+    birth: '1887', death: '1968', birthDeathDisplay: '1887 年 2 月 2 日 – 1968 年 1 月 7 日', birthplace: '義大利王國摩德納',
+    shortBio: '義大利將領。西班牙內戰時指揮支援佛朗哥國民軍的義大利志願軍團；1939 年 10 月至 1941 年 3 月任陸軍副參謀長，1941 年 3 月至 1942 年 1 月任參謀長，參與籌備入侵南斯拉夫。以指揮第 2 軍團在義大利佔領及併吞的南斯拉夫地區鎮壓平民最為人知，因手段殘酷被稱為「南斯拉夫的黑獸」。1968 年死於羅馬。',
+    source: wikipediaFigureRev('Mario_Roatta', 1372635883, 'Mario Roatta', 'Born 2 February 1887, Modena, Kingdom of Italy — Died 7 January 1968, Rome', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_nehring', name: '內林', faction: 'axis', role: '德國裝甲兵將領',
+    birth: '1892', death: '1983', birthDeathDisplay: '1892 年 8 月 15 日 – 1983 年 4 月 20 日', birthplace: '德意志帝國西普魯士施特雷欽（今波蘭斯特熱喬納）',
+    shortBio: '二戰期間的德國國防軍將領，曾指揮非洲軍。1983 年死於西德杜塞道夫。',
+    source: wikipediaFigureRev('Walther_Nehring', 1380344911, 'Walther Nehring', 'Born 15 August 1892, Stretzin, West Prussia (now Strzeczona, Poland) — Died 20 April 1983, Düsseldorf', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_raus', name: '勞斯', faction: 'axis', role: '德國裝甲兵將領',
+    birth: '1889', death: '1956', birthDeathDisplay: '1889 年 1 月 8 日 – 1956 年 4 月 3 日', birthplace: '奧匈帝國沃爾夫拉米茨（今捷克奧爾布拉莫維采）',
+    shortBio: '奧地利籍的德國國防軍將領。戰爭初期在東線指揮第 6 裝甲師，之後升任軍團與集團軍群司令。1956 年死於維也納。',
+    source: wikipediaFigureRev('Erhard_Raus', 1379857623, 'Erhard Raus', 'Born 8 January 1889, Wolframitz, Austria-Hungary (now Olbramovice, Czech Republic) — Died 3 April 1956, Vienna', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_pfeffer_wildenbruch', name: '普費弗－維爾登布魯赫', faction: 'axis', role: '親衛隊將領（第 9 親衛隊山地軍軍長）',
+    birth: '1888', death: '1971', birthDeathDisplay: '1888 年 6 月 12 日 – 1971 年 1 月 29 日', birthplace: '德意志帝國卡爾克貝格',
+    shortBio: '納粹時期的親衛隊與秩序警察官員，曾任希姆萊的個人參謀。二戰期間先後指揮親衛隊警察師、第 6 親衛隊軍（拉脫維亞）與武裝親衛隊第 9 山地軍。1971 年死於西德比勒費爾德。',
+    source: wikipediaFigureRev('Karl_Pfeffer-Wildenbruch', 1380320642, 'Karl Pfeffer-Wildenbruch', 'Born 12 June 1888, Kalkberge, German Empire — Died 29 January 1971, Bielefeld, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_jaenecke', name: '耶內克', faction: 'axis', role: '德國陸軍將領（第 17 軍團司令）',
+    birth: '1890', death: '1960', birthDeathDisplay: '1890 年 4 月 22 日 – 1960 年 7 月 3 日', birthplace: '德意志帝國弗雷倫',
+    shortBio: '二戰期間的德國國防軍將領，指揮第 17 軍團。西班牙內戰時隨禿鷹軍團參戰，1937 年 4 月 26 日參與格爾尼卡轟炸，事後回報作戰成功。1960 年死於西德科隆。',
+    source: wikipediaFigureRev('Erwin_Jaenecke', 1380304384, 'Erwin Jaenecke', 'Born 22 April 1890, Freren, German Empire — Died 3 July 1960, Cologne, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_bastico', name: '巴斯蒂科', faction: 'axis', role: '義大利元帥（北非軸心軍總司令）',
+    birth: '1876', death: '1972', birthDeathDisplay: '1876 年 4 月 9 日 – 1972 年 12 月 2 日', birthplace: '義大利王國波隆那',
+    shortBio: '義大利元帥，1941 至 1943 年任北非軸心軍總司令，也曾任義屬愛琴海群島總督與利比亞總督。退役後成為軍事史家，出版多部著作。1972 年死於羅馬。',
+    source: wikipediaFigureRev('Ettore_Bastico', 1347294289, 'Ettore Bastico', 'Born 9 April 1876, Bologna, Kingdom of Italy — Died 2 December 1972, Rome', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_lindemann', name: '林德曼', faction: 'axis', role: '德國海軍上校（俾斯麥號艦長）',
+    birth: '1894', death: '1941', birthDeathDisplay: '1894 年 3 月 28 日 – 1941 年 5 月 27 日', birthplace: '德意志帝國阿爾滕基興',
+    shortBio: '德國海軍上校，戰艦俾斯麥號服役八個月期間唯一的艦長。1913 年加入德意志帝國海軍，一戰時任無線電報官，參與 1917 年的阿爾比恩行動。1941 年 5 月 27 日隨俾斯麥號在北大西洋沉沒陣亡。',
+    source: wikipediaFigureRev('Ernst_Lindemann', 1379816146, 'Ernst Lindemann', 'Born 28 March 1894, Altenkirchen, German Empire — Died 27 May 1941, North Atlantic', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_scobie', name: '斯科比', faction: 'allies', role: '英國陸軍將領（第 70 步兵師師長）',
+    birth: '1893', death: '1969', birthDeathDisplay: '1893 年 6 月 8 日 – 1969 年 2 月 23 日', birthplace: '英屬緬甸曼德勒',
+    shortBio: '英國陸軍高級軍官，參加過兩次世界大戰，指揮第 70 步兵師，後任第 3 軍軍長。也曾是蘇格蘭國家橄欖球隊選手。1969 年死於英格蘭漢普郡奧爾德肖特。',
+    source: wikipediaFigureRev('Ronald_Scobie', 1385415160, 'Ronald Scobie', 'Born 8 June 1893, Mandalay, British Burma — Died 23 February 1969, Aldershot, Hampshire', '2026-11-28'),
+  }),
 ];
