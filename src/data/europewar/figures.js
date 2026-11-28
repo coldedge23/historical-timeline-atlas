@@ -777,4 +777,42 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '二戰期間的德國將領，1942 年在北非指揮第 90 輕型非洲師。多德卡尼斯群島戰役中率 7,500 人的「羅得島」突擊師攻擊羅得島的義大利守軍，兩天內在英軍援兵抵達前擊敗義軍；英軍登陸薩摩斯、勒羅斯與科斯島後，他反擊並在兩個月內攻下這三處英軍據點。1963 年死於西德奧伯烏瑟爾。',
     source: wikipediaFigureRev('Ulrich_Kleemann', 1380342512, 'Ulrich Kleemann', 'Born 23 March 1892, Langensalza, Province of Saxony — Died 1 January 1963, Oberursel, Hesse', '2026-11-28'),
   }),
+  // 指揮官人物卡第 9 批（規劃 v23 第二十八節，2026-11-28 Ivan 核准，6 位）。內迪奇、阿夫拉梅斯庫出場的戰役都在羅馬尼亞 1944 年 8 月倒戈之前、
+  // 站在軸心國一方，陣營標 axis（P5）。阿夫拉梅斯庫的死亡地點資訊框（匈牙利亞斯貝雷尼）與導言（斯洛伐克）不一致，簡介不寫。
+  figure({
+    id: 'fig_ew_haase', name: '哈澤', faction: 'axis', role: '德國陸軍將領（第 302 步兵師師長）',
+    birth: '1888', death: '1963', birthDeathDisplay: '1888 年 8 月 29 日 – 1963 年 1 月 25 日', birthplace: '德國德勒斯登',
+    shortBio: '二戰期間的德國將領，主要以指揮第 302 步兵師成功擊退第厄普突襲而為人所知。一戰時任砲兵軍官，獲一級鐵十字勳章；戰後未獲留用於威瑪共和國陸軍，1919 年轉任警官，五年後任德勒斯登警察局長。1963 年死於西德哈恩施泰滕。',
+    source: wikipediaFigureRev('Konrad_Haase', 1380321854, 'Konrad Haase', 'Born 29 August 1888, Dresden — Died 25 January 1963, Hahnstätten, West Germany', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_prasca', name: '普拉斯卡', faction: 'axis', role: '義大利陸軍將領',
+    birth: '1883', death: '1961', birthDeathDisplay: '1883 年 2 月 27 日 – 1961 年 2 月 25 日', birthplace: '義大利羅馬',
+    shortBio: '義大利將領，參加過義土戰爭與一戰。1940 年指揮希義戰爭的最初攻勢，兩週後因無能被解除指揮權，由索杜接替。出身維斯康提家族。1961 年死於蒙特波爾齊奧卡托內。',
+    source: wikipediaFigureRev('Sebastiano_Visconti_Prasca', 1353504802, 'Sebastiano Visconti Prasca', 'Born 27 February 1883, Rome — Died 25 February 1961, Monte Porzio Catone', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_soddu', name: '索杜', faction: 'axis', role: '義大利陸軍將領（陸軍副參謀長）',
+    birth: '1883', death: '1949', birthDeathDisplay: '1883 年 7 月 23 日 – 1949 年 7 月 25 日', birthplace: '義大利薩萊諾',
+    shortBio: '義大利法西斯將領與政治人物，二戰初期任陸軍副參謀長與陸軍部次長。1940 年 11 月 8 日接替普拉斯卡指揮希義戰爭的阿爾巴尼亞高級部隊司令部，因 11 月 22 至 23 日的失利，四週後由陸軍參謀長卡瓦萊羅接替。1949 年死於羅馬。',
+    source: wikipediaFigureRev('Ubaldo_Soddu', 1383379254, 'Ubaldo Soddu', 'Born 23 July 1883, Salerno — Died 25 July 1949, Rome', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_rb_williams', name: '羅伯特・威廉斯', faction: 'allies', role: '美國陸軍航空軍將領',
+    birth: '1901', death: '1977', birthDeathDisplay: '1901 年 11 月 9 日 – 1977 年 2 月 10 日', birthplace: '美國德克薩斯州奧爾巴尼',
+    shortBio: '美國陸軍航空軍少將，二戰時的傑出作戰指揮官。1943 年 8 月 17 日親自率領 B-17 轟炸施韋因富特的滾珠軸承工廠，這是對德國第一次大規模縱深轟炸。戰前戰後也負責訓練重轟炸部隊。1977 年死於德克薩斯州聖安東尼奧。',
+    source: wikipediaFigureRev('Robert_B._Williams_(general)', 1381708721, 'Robert B. Williams', 'Born November 9, 1901, Albany, Texas — Died February 10, 1977, San Antonio, Texas', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_nedic', name: '內迪奇', faction: 'axis', role: '塞爾維亞合作政權總理',
+    birth: '1878', death: '1946', birthDeathDisplay: '1878 年 9 月 2 日 – 1946 年 2 月 4 日', birthplace: '塞爾維亞公國格羅茨卡',
+    shortBio: '南斯拉夫與塞爾維亞的陸軍將領與政治人物，曾任南斯拉夫王國陸軍總參謀長與戰爭部長。二戰期間與納粹德國合作，任德國佔領下塞爾維亞的傀儡「救國政府」總理。戰後被南斯拉夫共產黨當局監禁，依官方說法於 1946 年自殺。塞爾維亞法院至今駁回所有為他平反的申請。',
+    source: wikipediaFigureRev('Milan_Nedić', 1385236523, 'Milan Nedić', 'Born 2 September 1878, Grocka, Principality of Serbia — Died 4 February 1946, Belgrade', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_avramescu', name: '阿夫拉梅斯庫', faction: 'axis', role: '羅馬尼亞陸軍將領',
+    birth: '1884', death: '1945', birthDeathDisplay: '1884 年 1 月 26 日 – 1945 年 3 月 3 日', birthplace: '羅馬尼亞王國博托沙尼',
+    shortBio: '二戰期間的羅馬尼亞陸軍中將。1945 年遭蘇聯內務人民委員部逮捕期間，在德軍空襲中身亡。',
+    source: wikipediaFigureRev('Gheorghe_Avramescu', 1380220307, 'Gheorghe Avramescu', 'Born 26 January 1884, Botoșani, Kingdom of Romania — Died 3 March 1945 (infobox: Jászberény, Hungary; lead: Slovakia)', '2026-11-28'),
+  }),
 ];
