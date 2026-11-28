@@ -578,4 +578,54 @@ export const EUROPEWAR_FIGURE_RECORDS = [
     shortBio: '德國空軍將領與王牌飛行員，整場二戰都在歐洲作戰，出擊 705 次，轉戰西線與本土防空，四度被擊落生還，擊落 104 架，全部是西方盟軍飛機。西班牙內戰時加入禿鷹軍團。1996 年死於德國奧伯溫特。',
     source: wikipediaFigureRev('Adolf_Galland', 1385970567, 'Adolf Galland', 'Born 19 March 1912, Westerholt, Province of Westphalia — Died 9 February 1996, Oberwinter, Germany', '2026-11-28'),
   }),
+  // 指揮官人物卡第 5 批（規劃 v19 第二十四節，2026-11-28 Ivan 核准）。萊因哈特的條目資訊框卒日（1963-11-22）與導言（11-23）不一致，
+  // 暫不建立，依 L1 以第一位備選雷巴爾科補上。
+  figure({
+    id: 'fig_ew_rendulic', name: '倫杜利克', faction: 'axis', role: '德國陸軍大將（集團軍群司令）',
+    birth: '1887', death: '1971', birthDeathDisplay: '1887 年 10 月 23 日 – 1971 年 1 月 17 日', birthplace: '奧匈帝國維也納新城',
+    shortBio: '奧地利籍的德國國防軍集團軍群司令。1948 年在紐倫堡後續審判受審，拉普蘭戰爭中在芬蘭的焦土作為獲判無罪，但在人質案審判中因在南斯拉夫殺害人質被定罪入獄；1951 年獲釋後從事寫作。1971 年死於奧地利埃費丁的弗拉哈姆。',
+    source: wikipediaFigureRev('Lothar_Rendulic', 1384546312, 'Lothar Rendulic', 'Born 23 October 1887, Wiener Neustadt, Austria-Hungary — Died 17 January 1971, Fraham, Eferding, Austria', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_gambara', name: '甘巴拉', faction: 'axis', role: '義大利陸軍將領',
+    birth: '1890', death: '1962', birthDeathDisplay: '1890 年 11 月 10 日 – 1962 年 2 月 27 日', birthplace: '義大利王國伊莫拉',
+    shortBio: '義大利將領，參加過兩次世界大戰。西班牙內戰中義大利介入支援國民軍時表現突出；二戰期間在北非戰役與鎮壓南斯拉夫游擊隊中扮演重要角色。1962 年死於羅馬。',
+    source: wikipediaFigureRev('Gastone_Gambara', 1380053194, 'Gastone Gambara', 'Born 10 November 1890, Imola, Kingdom of Italy — Died 27 February 1962, Rome', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_morshead', name: '莫斯黑德', faction: 'allies', role: '澳洲陸軍將領（托布魯克守軍指揮官）',
+    birth: '1889', death: '1959', birthDeathDisplay: '1889 年 9 月 18 日 – 1959 年 9 月 26 日', birthplace: '維多利亞殖民地巴拉瑞特',
+    shortBio: '澳洲軍人、教師、商人與農場主，軍旅生涯橫跨兩次世界大戰。二戰時率澳洲與英國部隊守住托布魯克圍城（1941），並參與第二次阿拉曼戰役，擊敗隆美爾的非洲軍團。部下以漫畫反派之名稱他「無情的明」。一戰時曾登陸加里波利。1959 年死於雪梨。',
+    source: wikipediaFigureRev('Leslie_Morshead', 1379811167, 'Leslie Morshead', 'Born 18 September 1889, Ballarat, Colony of Victoria — Died 26 September 1959, Sydney', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_kirponos', name: '基爾波諾斯', faction: 'allies', role: '蘇聯將領（西南方面軍司令）',
+    birth: '1892', death: '1941', birthDeathDisplay: '1892 年 1 月 12 日 – 1941 年 9 月 20 日', birthplace: '俄羅斯帝國切爾尼戈夫省韋爾季伊夫卡（今烏克蘭）',
+    shortBio: '蘇聯紅軍將領，1939–1940 年蘇芬戰爭中指揮一個師，獲蘇聯英雄稱號。1941 年德國入侵蘇聯時主持烏克蘭的防禦，歷經布羅迪、烏曼與基輔等戰役均告失利。1941 年 9 月 20 日在突圍基輔包圍圈時死於迫擊砲轟擊。',
+    source: wikipediaFigureRev('Mikhail_Kirponos', 1379835111, 'Mikhail Kirponos', 'Born 12 January 1892, Vertiyivka, Chernigov Governorate, Russian Empire — Died 20 September 1941, Dryukivshchyna, Ukrainian SSR', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_bach_zelewski', name: '巴赫-澤萊夫斯基', faction: 'axis', role: '親衛隊將領',
+    birth: '1899', death: '1972', birthDeathDisplay: '1899 年 3 月 1 日 – 1972 年 3 月 8 日', birthplace: '德意志帝國波美拉尼亞省倫堡',
+    shortBio: '德國政治人物、軍官與親衛隊高級指揮官。二戰期間在東歐佔領區主持對納粹政權所謂「意識形態敵人」的安全作戰，多屬對平民的暴行；1944 年率部殘酷鎮壓華沙起義。未在紐倫堡受審，反以控方證人身分出庭；後因戰前在德國的政治謀殺被定罪，1972 年服刑期間死於慕尼黑。',
+    source: wikipediaFigureRev('Erich_von_dem_Bach-Zelewski', 1381867382, 'Erich von dem Bach-Zelewski', 'Born 1 March 1899, Lębork, Province of Pomerania — Died 8 March 1972, Harlaching Hospital, Munich', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_cavallero', name: '卡瓦萊羅', faction: 'axis', role: '義大利軍事將領（最高統帥部總長）',
+    birth: '1880', death: '1943', birthDeathDisplay: '1880 年 9 月 20 日 – 1943 年 9 月 13 日', birthplace: '義大利皮埃蒙特卡薩萊蒙費拉托',
+    shortBio: '義大利軍事指揮官，1941 年 6 月成為義大利最高統帥部首任總長，因表現不佳被解職，墨索里尼政權垮台後遭逮捕。後被德軍釋放，但拒絕合作，次日被發現身亡。1943 年 9 月死於弗拉斯卡蒂。',
+    source: wikipediaFigureRev('Ugo_Cavallero', 1377757191, 'Ugo Cavallero', 'Born 20 September 1880, Casale Monferrato, Piedmont — Died 13 September 1943, Frascati, Lazio', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_katukov', name: '卡圖科夫', faction: 'allies', role: '蘇聯裝甲兵將領（近衛坦克第 1 集團軍司令）',
+    birth: '1900', death: '1976', birthDeathDisplay: '1900 年 9 月 17 日 – 1976 年 6 月 8 日', birthplace: '俄羅斯帝國莫斯科省大烏瓦羅沃',
+    shortBio: '蘇聯裝甲兵元帥，被視為最有才幹的蘇聯裝甲部隊指揮官之一。1941 年 10 月在莫斯科戰役的姆琴斯克擊退古德里安第 2 裝甲兵團所屬的兩個裝甲師，是蘇聯裝甲部隊第一次重大勝利。之後指揮近衛坦克第 1 集團軍，參與庫斯克、利沃夫－桑多梅日、維斯瓦河－奧得河與柏林等戰役。1976 年死於莫斯科。',
+    source: wikipediaFigureRev('Mikhail_Katukov', 1379848804, 'Mikhail Katukov', 'Born 17 September [O.S. 4 September] 1900, Bolshoe Uvarovo, Moscow Governorate — Died 8 June 1976, Moscow', '2026-11-28'),
+  }),
+  figure({
+    id: 'fig_ew_rybalko', name: '雷巴爾科', faction: 'allies', role: '蘇聯裝甲兵將領',
+    birth: '1894', death: '1948', birthDeathDisplay: '1894 年 11 月 4 日 – 1948 年 8 月 28 日', birthplace: '俄羅斯帝國哈爾科夫省（今烏克蘭）',
+    shortBio: '二戰期間及戰後的蘇聯紅軍裝甲部隊指揮官，工人家庭出身。1914 年加入俄羅斯帝國陸軍，一戰時以列兵身分作戰；十月革命後參加赤衛隊，1919 年正式加入紅軍，內戰時任團、旅政委，1920 年蘇波戰爭中任騎兵指揮官。1948 年死於莫斯科。',
+    source: wikipediaFigureRev('Pavel_Rybalko', 1384635830, 'Pavel Rybalko', 'Born 4 November [O.S. 23 October] 1894, Kharkov Governorate, Russian Empire — Died 28 August 1948, Moscow', '2026-11-28'),
+  }),
 ];

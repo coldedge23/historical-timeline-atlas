@@ -8239,6 +8239,54 @@
     "europewar",
     "ewar_endgame",
     "europeWarAtlas:evt_ew_liberation_of_auschwitz_1945"
+   ],
+   "europeWarAtlas:fig_ew_rendulic": [
+    "europeWarAtlas:fig_ew_rendulic",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_gambara": [
+    "europeWarAtlas:fig_ew_gambara",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_morshead": [
+    "europeWarAtlas:fig_ew_morshead",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_kirponos": [
+    "europeWarAtlas:fig_ew_kirponos",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_bach_zelewski": [
+    "europeWarAtlas:fig_ew_bach_zelewski",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_cavallero": [
+    "europeWarAtlas:fig_ew_cavallero",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_katukov": [
+    "europeWarAtlas:fig_ew_katukov",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
+   ],
+   "europeWarAtlas:fig_ew_rybalko": [
+    "europeWarAtlas:fig_ew_rybalko",
+    "europewar",
+    "ewar_blitz",
+    "europeWarAtlas:evt_ew_german_soviet_pact_1939"
    ]
   },
   "taiwanPage": {

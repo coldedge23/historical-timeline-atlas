@@ -9898,7 +9898,7 @@
      [
       "卡瓦萊羅",
       "義軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_cavallero"
      ]
     ]
    ],
@@ -10014,7 +10014,7 @@
      [
       "甘巴拉",
       "義軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_gambara"
      ]
     ]
    ],
@@ -10026,7 +10026,7 @@
      [
       "莫斯黑德",
       "守軍指揮官（1941 年 4 月至 9 月）",
-      null
+      "europeWarAtlas:fig_ew_morshead"
      ],
      [
       "斯科比",
@@ -10240,7 +10240,7 @@
      [
       "基爾波諾斯",
       "蘇軍指揮官（陣亡）",
-      null
+      "europeWarAtlas:fig_ew_kirponos"
      ]
     ]
    ],
@@ -11264,12 +11264,12 @@
      [
       "卡圖科夫",
       "蘇軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_katukov"
      ],
      [
       "雷巴爾科",
       "蘇軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_rybalko"
      ]
     ]
    ],
@@ -11323,7 +11323,7 @@
      [
       "巴赫-澤萊夫斯基",
       "德軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_bach_zelewski"
      ],
      [
       "施塔赫爾",
@@ -11780,7 +11780,7 @@
      [
       "倫杜利克",
       "德軍指揮官",
-      null
+      "europeWarAtlas:fig_ew_rendulic"
      ]
     ]
    ],
